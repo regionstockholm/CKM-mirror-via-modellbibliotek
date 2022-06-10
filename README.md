@@ -8,6 +8,15 @@ Please note that _operational_ templates (.opt-files) and other downstream openE
 
 Also note the shared ad-hoc work area at https://github.com/modellbibliotek/Arbetsyta-openEHR that can be used when you do not want the entire CKM-mirror content to potentially interfere with your work.
 
+New 2022
+--------
+* Since Archetype Designer now suports Github branches, we have started using them extensively for different swedish projects, try switching branch in the drop-down button menu. Examples:
+    * The branch `sv-translation-lookahead` is intended for previews of Swedish translations from individual's branches in the CKM that have not yet been merged into the international CKM-mirror
+    * The branch `lekstuga` is a sandbox for collaborative experimentation with tools, versioning, updating etc. Do not preform serious work there.
+    * ...
+* Experiments regarding sharing of derived artifacts like OPT (operational templates) and Web Templates have started in a separate repository: https://github.com/modellbibliotek/openehr-definitions (that has a dev and main branch)
+* Updating a branch to includ etha latest changes from the internatiola ckm has now been made easier by a new built in Github button, so the section "Update policy & instructions" below needs to be updated...
+
 Directory names and content
 ---------------------------
 Warning: the directory names are a bit confusing due to conventions and tools used "upstream"
