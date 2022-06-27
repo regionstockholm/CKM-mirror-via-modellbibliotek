@@ -1,0 +1,181 @@
+﻿archetype (adl_version=1.4; uid=34569352-0a74-4ff9-aebf-8ec9929eb948)
+	openEHR-EHR-EVALUATION.birth_summary.v0
+
+concept
+	[at0000]	-- Birth summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Atomica Informatics">
+		["email"] = <"heather.leslie@atomicainformatics.com">
+		["date"] = <"2022-04-12">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record an overview or summary record of the pregnancy and birth of an individual.">
+			use = <"Use to record an overview or summary record of the pregnancy and birth of an individual.">
+			keywords = <"birth", "DOB", "birthplace", "plurality">
+			misuse = <"Not to be used to record information about a pregnancy and birth for use in a maternal health record - use EVALUATION.pregnancy_summary and related archetypes for this purpose.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"185C0C51BDDE9D2DD821DCFDAA2FE107">
+		["build_uid"] = <"78c176e2-24b5-4a3f-8a9f-1713d99807a3">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Birth summary
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Date/time of birth (DOB)
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- DOB alternatives
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.dob_alternative(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Country of birth
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Place of birth
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Structured place of birth
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.address(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Pregnancy/birth synopsis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Birth plurality
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Birth details
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.birth_detail(-[a-zA-Z0-9_]+)*\.v0/}
+					}
+					allow_archetype CLUSTER[at0013] occurrences matches {0..*} matches {    -- Additional details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0009] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Birth summary">
+					description = <"Overview or summary record of the pregnancy and birth of an individual.">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Country of birth">
+					description = <"The country of birth of the individual.">
+				>
+				["at0003"] = <
+					text = <"DOB alternatives">
+					description = <"Additional details about possible alternative dates of birth.">
+				>
+				["at0004"] = <
+					text = <"Date/time of birth (DOB)">
+					description = <"The date/time of birth of the individual.">
+					comment = <"May also be used to record the assumed or agreed date/time of birth for operational purposes, if the actual date/time is not formally recorded. Possible alternatives for the date/time of birth of the individual can be recorded using the CLUSTER.DOB_alternative archetype 'Date of birth details' SLOT.">
+				>
+				["at0005"] = <
+					text = <"Structured place of birth">
+					description = <"Structured details about the place of birth.">
+					comment = <"Please note: there is potential duplication of the 'Country of birth' data element if the CLUSTER.address is used. ">
+				>
+				["at0006"] = <
+					text = <"Pregnancy/birth synopsis">
+					description = <"Narrative description about the entire pregnancy, labour and delivery, including maternal and infant complications.">
+					comment = <"This data element may be derived from the 'Pregnancy synopsis' data element within the EVALUATION.pregnancy_summary archetype in the maternal health record.">
+				>
+				["at0007"] = <
+					text = <"Birth plurality">
+					description = <"Term representing the total number of live births and stillbirths resulting from the pregnancy.">
+					comment = <"Coding of the 'birth plurality' term is recommended. For example: singleton; twins; triplets; or quadruplets.The definition of 'stillbirth' may vary in different locations. ">
+				>
+				["at0008"] = <
+					text = <"Birth details">
+					description = <"A subset of persistent or summary information about the pregnancy and birth of an infant, selected for utility of use within both the maternal and infant health records.">
+				>
+				["at0009"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Last updated">
+					description = <"The date when the birth summary was last updated.">
+				>
+				["at0011"] = <
+					text = <"Extension">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Place of birth">
+					description = <"Simple representation of the place of birth.">
+					comment = <"This data element provides the opportunity for simple detail about the place of birth, such as the city, region, town, or suburb within the identified 'Country of birth'. For example: Kingston (Jamaica); Manhattan (USA); or Box Hill (Australia).">
+				>
+				["at0013"] = <
+					text = <"Additional details">
+					description = <"Additional structured details related to the birth.">
+				>
+				["at0014"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the birth not captured in other fields.">
+				>
+			>
+		>
+	>
