@@ -1,5 +1,5 @@
-﻿archetype (adl_version=1.4; uid=92b74b8d-26d7-3b55-92f7-f883a522af41)
-	openEHR-EHR-OBSERVATION.mantoux.v0
+﻿archetype (adl_version=1.4; uid=90e6342c-c561-40c9-8eda-b07da65e801a)
+	openEHR-EHR-OBSERVATION.mantoux_test_result.v0
 
 concept
 	[at0000]	-- Mantoux test result
@@ -15,8 +15,8 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record the examination findings and clinical interpretation of the immune reaction to administration of the Mantoux Tuberculin Skin Test (TST).">
-			use = <"Use to record the clinical examination findings after administration of the TST, and the clinical interpretation.">
+			purpose = <"To record thetest result, including findings and interpretation, following administration of the Mantoux Tuberculin Skin Test (TST).">
+			use = <"Use to record the test result, including findings and interpretation, following administration of the Mantoux Tuberculin Skin Test (TST).">
 			keywords = <"TB", "Mantoux", "reaction", "tuburculin", "TST">
 			misuse = <"">
 			copyright = <"© openEHR Foundation">
@@ -25,14 +25,15 @@ description
 	lifecycle_state = <"in_development">
 	other_contributors = <"Merrilyn Curtis, AnalyzeIT, Australia", "Sistine Barretto-Daniels, Ocean Informatics, Australia">
 	other_details = <
-		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Nayak S, Acharjya B. Mantoux test and its interpretation. Indian Dermatol Online J. 2012 Jan;3(1):2-6. doi: 10.4103/2229-5178.93479. PMID: 23130251; PMCID: PMC3481914. Available from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3481914/.">
 		["current_contact"] = <"Heather Leslie, Atomica Informatics, heather.leslie@atomicainformatics.com">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"5F1E38D44AD67FEC5BF5054A3A24F55E">
-		["build_uid"] = <"ab42b576-bdf9-423b-9a5a-db9697d17f25">
+		["MD5-CAM-1.0.1"] = <"8BA03A4FE79E57F943C24308E6300812">
+		["build_uid"] = <"b9869743-507a-46a6-9dc4-1e0bc31e3874">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -45,13 +46,15 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Induration diameter
+									ELEMENT[at0011] occurrences matches {0..3} matches {    -- Diameter
 										value matches {
 											C_DV_QUANTITY <
 												property = <[openehr::122]>
 												list = <
 													["1"] = <
 														units = <"mm">
+														magnitude = <|>=0.0|>
+														precision = <|0|>
 													>
 												>
 											>
@@ -60,27 +63,6 @@ definition
 									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Clinical description
 										value matches {
 											DV_TEXT matches {*}
-										}
-									}
-									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Image
-										value matches {
-											DV_MULTIMEDIA matches {
-												media_type matches {
-													[openEHR::
-													425,
-													426,
-													427,
-													428,
-													429,
-													401,
-													402,
-													404,
-													405,
-													406,
-													407,
-													414]
-												}
-											}
 										}
 									}
 									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Interpretation
@@ -92,7 +74,12 @@ definition
 													at0010]    -- Negative
 												}
 											}
+											DV_TEXT matches {*}
 										}
+									}
+									allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Multimedia representation
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.media_file(-[a-zA-Z0-9_]+)*\.v1/}
 									}
 									ELEMENT[at0008] occurrences matches {0..*} matches {    -- Comment
 										value matches {
@@ -109,7 +96,7 @@ definition
 		protocol matches {
 			ITEM_TREE[at0014] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0007] occurrences matches {0..*} matches {    -- Criterion
+					ELEMENT[at0007] occurrences matches {0..*} matches {    -- Rationale for interpretation
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -130,7 +117,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Mantoux test result">
-					description = <"Examination findings and clinical interpretation of the immune reaction to administration of the Mantoux Tuberculin Skin Test (TST).">
+					description = <"The test result, including findings and interpretation, following administration of the Mantoux Tuberculin Skin Test (TST).">
 				>
 				["at0001"] = <
 					text = <"Event Series">
@@ -149,9 +136,9 @@ ontology
 					description = <"Clinical interpretation of the induration response.">
 				>
 				["at0007"] = <
-					text = <"Criterion">
-					description = <"Criterion used for interpretation of the tuberculin reaction.">
-					comment = <"The criterion or classification takes into account two parameters: size of induration; and a mixture of patient's background risk of infection, including age, occupation and health conditions. For example: a patient with a HIV-positive status would have a different criteria for recording a positive Mantoux test than the general population.">
+					text = <"Rationale for interpretation">
+					description = <"Rationale used to interpret the reaction.">
+					comment = <"The criterion or classification as positive or negative takes into account two parameters: size of induration; and a mixture of patient's background risk of infection, including age, occupation and health conditions. For example: a patient with a HIV-positive status would have a different criteria for recording a positive Mantoux test than the general population.">
 				>
 				["at0008"] = <
 					text = <"Comment">
@@ -168,16 +155,13 @@ http://rcpamanual.edu.au/index.php?option=com_content&view=article&id=80&Itemid=
 					description = <"The reaction is negative, based on the specified patient criterion.">
 				>
 				["at0011"] = <
-					text = <"Induration diameter">
-					description = <"Measurement of the longest diameter of the induration reaction.">
+					text = <"Diameter">
+					description = <"The measured diameter of the induration reaction.">
 				>
 				["at0012"] = <
 					text = <"Clinical description">
-					description = <"Narrative description of the findings  of a Mantoux tuberculin skin test reaction.">
-				>
-				["at0013"] = <
-					text = <"Image">
-					description = <"Digital image of the test reaction.">
+					description = <"Narrative description about the Mantoux reaction findings.">
+					comment = <"For example: noting the formation of vesicles, bullae, lymphangitis, ulceration and necrosis at the test site.">
 				>
 				["at0014"] = <
 					text = <"Tree">
@@ -187,6 +171,11 @@ http://rcpamanual.edu.au/index.php?option=com_content&view=article&id=80&Itemid=
 					text = <"Extension">
 					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
 					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0016"] = <
+					text = <"Multimedia representation">
+					description = <"Digital image, video or diagram representing the test result.">
+					comment = <"Multiple formats are allowed but they should represent equivalent clinical content.">
 				>
 			>
 		>

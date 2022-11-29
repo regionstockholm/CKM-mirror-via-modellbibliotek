@@ -15,8 +15,10 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record the final disease classification at the conclusion of an infectious disease case investigation.">
-			use = <"Use to record the final disease classification at the conclusion of an infectious disease case investigation.">
+			purpose = <"To record the disease classification for an identified infectious disease as part of a disease surveillance investigation.">
+			use = <"Use to record the disease for an identified infectious disease as part of a disease surveillance investigation, most commonly the final determination at the completion of a case investigation but may also record initial classification as a suspected infection.
+
+Use a separate instance of this archetype to record the conclusion for each suspected 'Index disease'. For example in a fever & rash investigation, considering Measles and Rubella as the potential causes, use one instance of this archetype to record the conclusion, rationale, evidence etc related to Measles, and another to carry the information related to Rubella.">
 			misuse = <"">
 			copyright = <"© openEHR Foundation">
 		>
@@ -29,8 +31,8 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"264307E6136CEA2B653075DF725D5D81">
-		["build_uid"] = <"2347ce09-ae11-479e-a614-0a081753d9d3">
+		["MD5-CAM-1.0.1"] = <"49A7851C8A8F01A14025151B1CAAC2C3">
+		["build_uid"] = <"a47899bb-44e9-4757-8c53-77e6cb393402">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -44,12 +46,13 @@ definition
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Final classification
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Classification
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0003,    -- Unconfirmed
+									at0035,    -- Suspected
+									at0003,    -- Probable
 									at0004,    -- Confirmed
 									at0005,    -- Excluded
 									at0006]    -- Cannot classify/Inconclusive
@@ -57,20 +60,24 @@ definition
 							}
 							DV_TEXT matches {*}
 						}
+						name matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0024,    -- Initial classification
+									at0025]    -- Final classification
+								}
+							}
+						}
 					}
-					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Basis for confirmation
+					ELEMENT[at0008] occurrences matches {0..*} matches {    -- Rationale for confirmation
 						value matches {
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Basis for exclusion
+					ELEMENT[at0009] occurrences matches {0..*} matches {    -- Rationale for exclusion
 						value matches {
 							DV_TEXT matches {*}
-						}
-					}
-					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Classification date
-						value matches {
-							DV_DATE_TIME matches {*}
 						}
 					}
 					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Infection source
@@ -78,7 +85,39 @@ definition
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Certainty of source
+					ELEMENT[at0036] occurrences matches {0..1} matches {    -- Source description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {    -- Source country
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {    -- Contact of another case?
+						value matches {
+							DV_TEXT matches {*}
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0038,    -- Yes
+									at0039,    -- No
+									at0040]    -- Unknown
+								}
+							}
+							DV_BOOLEAN matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0042] occurrences matches {0..*} matches {    -- Contact case details
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.person(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Additional details
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.drug_resistance_profile(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.clinical_evidence\.v1/}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Comment
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -110,31 +149,32 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Infectious disease investigation classification">
-					description = <"Disease classification at the conclusion of an infectious disease case investigation.">
+					description = <"Classification for an identified infectious disease as part of a disease surveillance investigation.">
 				>
 				["at0001"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
 				>
 				["at0002"] = <
-					text = <"Final classification">
-					description = <"Classification of the infectious disease as cause of the condition, after investigation.">
+					text = <"Classification">
+					description = <"Classification of the likelihood of the index infectious disease as cause of illness.">
+					comment = <"Run-time name constraints - 'Initial classification' is the classification made prior to commencing the investigation; 'Final classification' is the conclusion reached after the investigation.">
 				>
 				["at0003"] = <
-					text = <"Unconfirmed">
-					description = <"The presence of infection by the index disease has not yet been confirmed or excluded, for example awaiting results. Also known as suspected, possible or probable.">
+					text = <"Probable">
+					description = <"The index disease has not yet been confirmed but is probable as the cause of the infection.">
 				>
 				["at0004"] = <
 					text = <"Confirmed">
-					description = <"The presence of infection by the index disease has been confirmed.">
+					description = <"The index disease has been confirmed as the cause of the infection..">
 				>
 				["at0005"] = <
 					text = <"Excluded">
-					description = <"The presence of infection by the index disease has been excluded.">
+					description = <"The index disease has been excluded as the cause of the infection.">
 				>
 				["at0006"] = <
 					text = <"Cannot classify/Inconclusive">
-					description = <"It is not possible to determine if infection by the index disease is confirmed or excluded.">
+					description = <"It is not possible to classify whether the index disease is the cause of the infection.">
 				>
 				["at0007"] = <
 					text = <"Index disease">
@@ -142,28 +182,19 @@ ontology
 					comment = <"This data element may be redundant if the index disease has been identified elsewhere within a template.">
 				>
 				["at0008"] = <
-					text = <"Basis for confirmation">
-					description = <"The basis on which a final classification of 'Confirmed' was made.">
+					text = <"Rationale for confirmation">
+					description = <"The rationale or evidence for confirming a case as causal.">
 					comment = <"For example: clinical diagnosis; laboratory test result; or epidemiological link.">
 				>
 				["at0009"] = <
-					text = <"Basis for exclusion">
-					description = <"The basis on which a final classification of 'Excluded' was made.">
-					comment = <"For example: laboratory test result; or alternative diagnosis made.">
-				>
-				["at0010"] = <
-					text = <"Classification date">
-					description = <"The date on which the final classification was made.">
+					text = <"Rationale for exclusion">
+					description = <"The rationale or evidence for exclusion or discarding of a case as not causal.">
+					comment = <"For example: laboratory test result; or alternate diagnosis made.">
 				>
 				["at0011"] = <
 					text = <"Infection source">
-					description = <"The most likely source or aetiology of infection.">
-					comment = <"For example: travel-related; direct contact with a family member; or vertical transmission.">
-				>
-				["at0012"] = <
-					text = <"Certainty of source">
-					description = <"The likelihood of the identified source being the cause of infection.">
-					comment = <"For example: suspected; probably; confirmed.">
+					description = <"Category of the source of infection.">
+					comment = <"For example: imported or travel-related; direct contact with a family member; vertical transmission; or unknown.">
 				>
 				["at0013"] = <
 					text = <"Item tree">
@@ -177,6 +208,56 @@ ontology
 				["at0015"] = <
 					text = <"Last updated">
 					description = <"The date when this infectious disease investigation classification was last updated.">
+				>
+				["at0016"] = <
+					text = <"Additional details">
+					description = <"Additional structured details about the classification.">
+					comment = <"For example: details about the clinical evidenct confirming or excluding this disease as the cause of the infection">
+				>
+				["at0017"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the classification, not captured in other fields.">
+				>
+				["at0021"] = <
+					text = <"Source country">
+					description = <"Country identified as the (likely or probable) source of the infection.">
+				>
+				["at0024"] = <
+					text = <"Initial classification">
+					description = <"The initial classification before an investigation has commenced.">
+				>
+				["at0025"] = <
+					text = <"Final classification">
+					description = <"The final classification after an investigation has been completed.">
+				>
+				["at0035"] = <
+					text = <"Suspected">
+					description = <"The index disease has not yet been confirmed but is suspected as the cause of the infection.">
+				>
+				["at0036"] = <
+					text = <"Source description">
+					description = <"Narrative description about the source of infection.">
+					comment = <"May include information about the degree of certainty.">
+				>
+				["at0037"] = <
+					text = <"Contact of another case?">
+					description = <"Is the index patient of this investigation a contact of another confirmed case?">
+				>
+				["at0038"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Unknown">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Contact case details">
+					description = <"Details about the linked case.">
 				>
 			>
 		>
