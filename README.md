@@ -1,21 +1,17 @@
-Modellbiblioteket's fork of the international openEHR.org CKM mirror, plus some "local" Swedish templates and archetypes
+Region Stockholm's fork of Modellbiblioteket's fork of the international openEHR.org CKM mirror, plus some "local/regional" templates and archetypes
 ===========================================================================================================
-The intention of this experimental "fork" is to make it simple to work with archetype and template tools to create and share local Swedish content based on international archetypes. You can download a zip (or maintain a GIT-clone/fork/link) of this repository in order to access the combination of international and local archetypes and templates in your tools.
+The intention of this  "fork" is to make it simple to work with archetype and template tools to create and share local content based on national and international archetypes/templates. You can download a zip (or maintain a GIT-clone/fork/link) of this repository in order to access the combination of international and local archetypes and templates in your tools.
 
 Archetypes of international value and Swedish translations of international archetypes should be uploaded to the CKM tool (not here) and will then be semi-automatically be copied here upon next update/sync.
 
-Please note that _operational_ templates (.opt-files) and other downstream openEHR-related artifacts should be maintained elsewhere, not here. (To see an example of how e.g. Region Östergötland plans to do this, look at the https://github.com/regionostergotland/openehr_definitions/ repository.)
-
-Also note the shared ad-hoc work area at https://github.com/modellbibliotek/Arbetsyta-openEHR that can be used when you do not want the entire CKM-mirror content to potentially interfere with your work.
-
+Please note that _operational_ templates (.opt-files) and other downstream openEHR-related artifacts should be maintained elsewhere, not amonge the "source" archetypes and templates here.
 
 New 2022
 --------
-* Since Archetype Designer now suports Github branches, we have started using them extensively for different swedish projects, try switching branch in the drop-down button menu. Examples:
-    * The branch `sv-translation-lookahead` is intended for previews of Swedish translations from individual's branches in the CKM that have not yet been merged into the international CKM-mirror
-    * The branch `lekstuga` is a sandbox for collaborative experimentation with tools, versioning, updating etc. Do not preform serious work there.
+* Since Archetype Designer now suports Github branches, we have started using them extensively for different  projects, try switching branch in the drop-down button menu. Examples:
+    * The branch `stockholms-lekstuga` is a sandbox for collaborative experimentation with tools, versioning, updating etc. Do not preform serious work there.
+    * We may later add the branch `sv-translation-lookahead` from "modellebiliotek" thet is intended for previews of Swedish translations from individual's branches in the CKM that have not yet been merged into the international CKM-mirror
     * ...
-* Experiments regarding sharing of derived artifacts like OPT (operational templates) and Web Templates have started in a separate repository: https://github.com/modellbibliotek/openehr-definitions (that has a dev and main branch)
 * Updating a branch to include the latest changes from the international CKM has now been made easier by a new built in Github button, so the section "Update policy & instructions" below needs to be updated...
 
 Directory names and content
@@ -68,11 +64,9 @@ Howto-instructions for Modellebibliotek-repo admins to update this repository to
 
 Howto-instructions for Modellebibliotek-repo admins regarding how to move a file uding GitHub's web tools: https://help.github.com/articles/moving-a-file-to-a-new-location/
 
-Local/regional setup?
+Local/regional setup!
 ----------------------
-If there is interest, then the chain can be: openEHR --> "modellbibliotek" (maybe later run by SKL or EHM?) --> Your local region (e.g. Region Östergötland) 
-
-If you want a stable local (regional?) repository where you can control when updates should happen, then make a fork of this repository and use that fork in your tools instead of using this shared Swedish repository in your tools. Working with branches is another way to maintain  stability in a project when the "master" often gets updated from the international "upstream" CKM-mirror.
+This repository is set up as a chain: openEHR --> "modellbibliotek" (maybe later run by SKL or EHM?) --> Our local region (e.g. Region Stockholm) 
 
 Using or forking this repository will give you access to both international assets and a copy of some Swedish local/regional/project-directories, possibly including work in progress (because you want to see what others are working on...).
 
