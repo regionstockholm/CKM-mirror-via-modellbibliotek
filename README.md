@@ -29,7 +29,7 @@ Warning: the directory names are a bit confusing due to conventions and tools us
 Thus, part of the content under `/local` and it's subdirectories is truly local to specific swedish projects/organisations and other content (e.g. `/local/archetypes`) comes from the international space...
 
 Tools, tool settings and behavoiurs
--------------
+-----------------------------------
 List of available modelling tools: https://www.openehr.org/downloads/modellingtools
 
 ### The online Archetype-designer
