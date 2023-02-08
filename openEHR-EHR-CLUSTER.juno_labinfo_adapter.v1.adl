@@ -1,0 +1,223 @@
+archetype (adl_version=1.4; uid=87de063a-6187-4975-a138-61aa80654c5f)
+	openEHR-EHR-CLUSTER.juno_labinfo_adapter.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2022-03-30">
+		["name"] = <"Erik Sundvall">
+		["organisation"] = <"Karolinska University hospital + Institute & Linköping University, Sweden">
+		["email"] = <"erik.sundvall@regionstockholm.se">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"b273dc864c8c4fe3539d180067d8f066">
+		["build_uid"] = <"aeddd5fc-7634-3adb-b19b-5eaf6866ddef">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- juno_labinfo_adapter
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- analysis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- analysisId
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- value
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- unit
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- analysisComment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- referenceArea
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- isDeviating
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- isAccredited
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			CLUSTER[at0012] occurrences matches {0..1} matches {    -- PairAnalysis
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {    -- pairAnalysisSamplingDateTime
+						value matches {
+							DV_DATE_TIME matches {
+								value matches {yyyy-mm-ddTHH:MM:SS}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0015] occurrences matches {0..*} matches {    -- PairAnlyses
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.juno_labinfo_adapter\.v1/}
+						exclude
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"juno_labinfo_adapter">
+					description = <"Adapter archetype for copying original fields from TakeCare's JUNO API source data since thay need to be available even when thay may cause errors during conversion due to bad or ambiguous incoming data quality (e.g. incoming text where numbers are expected).">
+				>
+				["at0001"] = <
+					text = <"isDeviating">
+					description = <"Marker for pathological manifestation">
+					comment = <"Marked * in EDI message
+SG12.OBR..C502.6155 (Measurement attribute, coded)">
+				>
+				["at0002"] = <
+					text = <"referenceArea">
+					description = <"Reference range from from TakeCare's JUNO-API">
+				>
+				["at0003"] = <
+					text = <"unit">
+					description = <"Measurement unit from TakeCare's JUNO-API">
+				>
+				["at0007"] = <
+					text = <"analysisComment">
+					description = <"Analysis comment from TakeCare's JUNO-API. This field sometimes contains an actual result (e.g. if the \"value\" field says somoething like see comment).">
+				>
+				["at0008"] = <
+					text = <"analysis">
+					description = <"Analysis name from TakeCare's JUNO-API">
+				>
+				["at0009"] = <
+					text = <"analysisId">
+					description = <"NPU, SWE or local code from from TakeCare's JUNO-API
+">
+				>
+				["at0010"] = <
+					text = <"value">
+					description = <"Result value from TakeCare's JUNO-API">
+				>
+				["at0011"] = <
+					text = <"isAccredited">
+					description = <"">
+					comment = <"From Multidisciplinary responses (Unilabs etc)">
+				>
+				["at0012"] = <
+					text = <"PairAnalysis">
+					description = <"Used for what the Juno API calls \"pair anlysis\" - two related tastes that are usually compared to each other Används när man gör \"Pair analysis\" dvs två jämförande provtagningar som hänger ihop. ">
+					comment = <"From Multidisciplinary responses (Unilabs etc)">
+				>
+				["at0015"] = <
+					text = <"PairAnlyses">
+					description = <"Copy of the previous related/parired analysis">
+				>
+				["at0016"] = <
+					text = <"pairAnalysisSamplingDateTime">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"juno_labinfo_adapter">
+					description = <"Adapterarketyp med kopior av originalfält från TakeCares JUNO API eftersom källdata måste vara tillgängligt även om det blivit fel under konverteringen på grund av dålig eller tvetydig inkommande datakvalitet (t.ex. inkommande text där siffror förväntas).">
+				>
+				["at0001"] = <
+					text = <"avvikande">
+					description = <"Patologisk markör">
+					comment = <"Marked * in EDI message
+SG12.OBR..C502.6155 (Measurement attribute, coded) (en)">
+				>
+				["at0002"] = <
+					text = <"referensområde">
+					description = <"Referensområde från TakeCares JUNO-API">
+				>
+				["at0003"] = <
+					text = <"enhet">
+					description = <"Mätenhet från TakeCares JUNO-API">
+				>
+				["at0007"] = <
+					text = <"analyskommentar">
+					description = <"Analyskommentar från TakeCares JUNO-API. Ibland innehåller detta fält själva resultatet (t.ex. när \"analysresultat\"-fältet innehåller \"se kommentar\" etc.
+">
+				>
+				["at0008"] = <
+					text = <"analysnamn">
+					description = <"Analysnamn från TakeCares JUNO-API">
+				>
+				["at0009"] = <
+					text = <"analyskod">
+					description = <"NPU, SWE eller lokal kod från TakeCares JUNO-API">
+				>
+				["at0010"] = <
+					text = <"analysresultat">
+					description = <"Analysresultat från TakeCares JUNO-API">
+				>
+				["at0011"] = <
+					text = <"ackrediterad">
+					description = <"">
+					comment = <"Används ibland i multidisciplinära svar (Unilabs etc)">
+				>
+				["at0012"] = <
+					text = <"analyspar">
+					description = <"Används när man gör det som Junos API kallar \"Pair analysis\" dvs två jämförande provtagningar som hänger ihop.">
+					comment = <"Används ibland i multidisciplinära svar (Unilabs etc)">
+				>
+				["at0015"] = <
+					text = <"relaterad analys">
+					description = <"Kopia av den föregående relaterade anlaysen">
+				>
+				["at0016"] = <
+					text = <"provtagningstid för relaterad analys">
+					description = <"">
+				>
+			>
+		>
+	>
