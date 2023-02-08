@@ -1,0 +1,94 @@
+archetype (adl_version=1.4; uid=d0ff4bb7-6855-4d9c-94c0-e03e5141725c)
+	openEHR-EHR-CLUSTER.system.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2022-01-12">
+		["name"] = <"Erik Sundvall">
+		["organisation"] = <"Karolinska University hospital + Institute & Linköping University, Sweden">
+		["email"] = <"erik.sundvall@regionstockholm.se">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"112fc5a8c93c66319bd7e04e118006d0">
+		["build_uid"] = <"1ce66eba-54f3-32fc-a1dd-b94f13fdb812">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- System
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..*} matches {    -- identifier
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"System">
+					description = <"System">
+				>
+				["at0001"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"identifier">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"system">
+					description = <"*System (en)">
+				>
+				["at0001"] = <
+					text = <"namn">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"identifierare">
+					description = <"">
+				>
+			>
+		>
+	>
