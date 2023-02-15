@@ -6,8 +6,8 @@ Archetypes of international value and Swedish translations of international arch
 
 Please note that _operational_ templates (.opt-files) and other downstream openEHR-related artifacts should be maintained elsewhere, not amonge the "source" archetypes and templates here.
 
-New 2022
---------
+New 2022-2023
+-------------
 * Since Archetype Designer now suports Github branches, we have started using them extensively for different  projects, try switching branch in the drop-down button menu. Examples:
     * The branch `stockholms-lekstuga` is a sandbox for collaborative experimentation with tools, versioning, updating etc. Do not preform serious work there.
     * We may later add the branch `sv-translation-lookahead` from "modellebiliotek" thet is intended for previews of Swedish translations from individual's branches in the CKM that have not yet been merged into the international CKM-mirror
