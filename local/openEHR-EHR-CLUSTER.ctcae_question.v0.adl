@@ -1,0 +1,166 @@
+archetype (adl_version=1.4; uid=6054ce8e-6ff3-4f23-9fcd-0c46250a00e0)
+	openEHR-EHR-CLUSTER.ctcae_question.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Alina Rehberg">
+				["organisation"] = <"Medizinische Hochschule Hannover">
+				["email"] = <"rehberg.alina@mh-hannover.de">
+			>
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Erik Sundvall">
+				["organisation"] = <"Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University">
+				["email"] = <"erik.sundvall@regionstockholm.se">
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2021-01-11">
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Atomica Informatics">
+		["email"] = <"heather.leslie@atomicainformatics.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Bereitstellung einer systematischen Einteilung zur Erfassung aller unerwünschten und unerwarteten Ereignissen, Symptome oder Krankheiten unter Verwendung der CTCAE-Terminologie.
+">
+			keywords = <"ctcae","Symptom","Krankheit","unerwünscht","Ereignis">
+			use = <"Ein Schema für die Erfassung aller unerwünschten und unerwartete Ereignissen, Symptome oder Krankheiten, die zeitlich mit der Anwendung einer medizinischen Behandlung oder eines Verfahrens verbunden sind und die unter Verwendung der CTCAE-Terminologie als mit der medizinischen Behandlung oder dem Verfahren zusammenhängend betrachtet werden können oder nicht.
+
+Dieser Archetyp ist dafür vorgesehen, im Kontext des Archetyps CLUSTER.symptom_sign oder EVALUATION.problem_diagnosis oder anderer klinisch relevanter Archetypen verwendet zu werden.
+
+CTCAE ist nur für die Verwendung von MedDRA-Begriffen vorgesehen.
+">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
+			keywords = <"CTCAE","biverkan","biverkningar","tecken","symptom","sjukdom">
+			use = <"Ett ramverk för att registrera biverkningar och andra ogynnsamma och oavsiktliga symtom eller sjukdomar som är tidsmässigt förknippade med användningen av en medicinsk behandling eller procedur som kan eller inte kan anses relaterad till den medicinska behandlingen eller proceduren med användning av CTCAE-terminologin.
+
+Denna arketyp är avsedd att användas inom ramen för arketypen CLUSTER.symptom_sign eller EVALUATION.problem_diagnosis eller andra kliniskt relevanta arketyper.
+
+CTCAE är avsett att endast fyllas med MedDRA-termer.
+
+För svensk kontext se t.ex. https://healthcaredelivery.cancer.gov/pro-ctcae/pro-ctcae_swedish.pdf och https://healthcaredelivery.cancer.gov/pro-ctcae/pro-ctcae_swedish.pdf">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To provide a framework for recording any unfavourable and unintended sign, symptom or disease temporally using the CTCAE terminology.">
+			keywords = <"ctcae","sign","symptom","disease","adverse","event">
+			copyright = <"© openEHR Foundation">
+			use = <"A framework for recording any unfavourable and unintended sign, symptom or disease temporally associated with the use of a medical treatment or procedure that may or may not be considered related to the medical treatment or procedure using the CTCAE terminology.
+
+This archetype is intended to be used within the context of the CLUSTER.symptom_sign or EVALUATION.problem_diagnosis archetype or other clinically relevant archetypes.
+
+CTCAE is intended to be populated using MedDRA terms only.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"6c609fc3c4862a10eddaa265511a42f0">
+		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- CTCAE based question
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] matches {    -- CTCAE Term
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[ac0001]
+						}
+					}
+				}
+			}
+			ELEMENT[at0003] matches {    -- Question
+				value matches {
+					DV_ORDINAL matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"MedDRA", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"CTCAE based question">
+					description = <"A framework for recording any unfavourable and unintended sign, symptom or disease temporally using the CTCAE terminology.">
+				>
+				["at0002"] = <
+					text = <"CTCAE Term">
+					description = <"The name of the sign, symptom or disease observed.">
+					comment = <"Identified as a MEDRAterm and corresponding code.">
+				>
+				["at0003"] = <
+					text = <"Question">
+					description = <"Question to the patinet regarding the severity of the adverse event.">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"*CTCAE based question (en)">
+					description = <"Systematische Einteilung zur Erfassung aller unerwünschten und unerwarteten Ereignissen, Symptome oder Krankheiten unter Verwendung der CTCAE-Terminologie.">
+				>
+				["at0002"] = <
+					text = <"*CTCAE Term (en)">
+					description = <"Der Name des beobachteten Zeichens, Symptoms oder der Krankheit.">
+					comment = <"Identifiziert als MEDRAterm und entsprechender Code.">
+				>
+				["at0003"] = <
+					text = <"*Question (en)">
+					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"CTCAE-baserad fråga">
+					description = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
+				>
+				["at0002"] = <
+					text = <"CTCAE-Term">
+					description = <"Namnet på tecknet, symtomet eller sjukdomen som observerats.">
+					comment = <"
+Identifierad som en MEDRA-term och motsvarande kod.">
+				>
+				["at0003"] = <
+					text = <"Fråga">
+					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
+				>
+			>
+		>
+	>
+	constraint_binding = <
+		["MedDRA"] = <
+			items = <
+				["ac0001"] = <http://terminology.hl7.org/CodeSystem/mdr>
+			>
+		>
+	>
