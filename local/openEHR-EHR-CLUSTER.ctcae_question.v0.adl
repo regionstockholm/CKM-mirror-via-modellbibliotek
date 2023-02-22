@@ -76,7 +76,7 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7c09f29ae1b392154bb1a10539da7004">
+		["MD5-CAM-1.0.1"] = <"41b92634765b66494f25c8517ce25cb3">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -87,15 +87,6 @@ definition
 			ELEMENT[at0005] matches {    -- Symptom/sign name
 				value matches {
 					DV_TEXT matches {*}
-				}
-			}
-			ELEMENT[at0002] matches {    -- CTCAE Term
-				value matches {
-					DV_CODED_TEXT matches {
-						defining_code matches {
-							[ac0001]
-						}
-					}
 				}
 			}
 			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Presence?
@@ -127,6 +118,15 @@ definition
 						value matches {
 							DV_ORDINAL matches {*}
 							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0002] matches {    -- CTCAE Term
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[ac0001]
+								}
+							}
 						}
 					}
 				}
@@ -321,7 +321,7 @@ Datum/tid för när symtomet började. Intervall för datum/tid under en tidsper
 					description = <"Kommentarer avseende det specifika symptomet eller tecknrt som inte beskrivs i övriga fält.">
 				>
 				["at0013"] = <
-					text = <"*CLUSTER (en)">
+					text = <"Följdfråga">
 					description = <"">
 				>
 			>
