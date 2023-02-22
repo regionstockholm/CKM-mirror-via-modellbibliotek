@@ -48,14 +48,18 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"6b71ab68161b7b9bc39010b61af96b23">
+		["MD5-CAM-1.0.1"] = <"2a25e664ee14cf69e0deec5126d37f69">
 		["build_uid"] = <"3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa">
 	>
 
 definition
 	CLUSTER[at0000.1] matches {    -- followup_question
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0002] occurrences matches {1..*} matches {*}    -- Question
+			ELEMENT[at0002.1] occurrences matches {1..*} matches {    -- Question
+				value matches {
+					DV_ORDINAL matches {*}
+				}
+			}
 			ELEMENT[at0.1] occurrences matches {0..*} matches {    -- Related CTCAE term
 				value matches {
 					DV_CODED_TEXT matches {*}
@@ -88,6 +92,10 @@ ontology
 					text = <"Related CTCAE term">
 					description = <"">
 				>
+				["at0002.1"] = <
+					text = <"Question">
+					description = <"Question to the patinet regarding the severity of the adverse event.">
+				>
 			>
 		>
 		["sv"] = <
@@ -108,6 +116,10 @@ ontology
 					text = <"*DV_CODED_TEXT (en)">
 					description = <"">
 				>
+				["at0002.1"] = <
+					text = <"fråga">
+					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
+				>
 			>
 		>
 		["de"] = <
@@ -127,6 +139,10 @@ ontology
 				["at0.1"] = <
 					text = <"*DV_CODED_TEXT (en)">
 					description = <"">
+				>
+				["at0002.1"] = <
+					text = <"Frage">
+					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
 				>
 			>
 		>
