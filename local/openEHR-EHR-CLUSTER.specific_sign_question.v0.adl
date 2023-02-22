@@ -76,7 +76,7 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"8f9f1f98bf4e05751a616d937c79db48">
+		["MD5-CAM-1.0.1"] = <"ab13e8f239917f0b2fb0c2ae3448ab2e">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -112,29 +112,6 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			CLUSTER[at0013] occurrences matches {0..*} matches {    -- Followup question
-				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0003] matches {    -- Question
-						value matches {
-							DV_ORDINAL matches {*}
-							DV_TEXT matches {*}
-						}
-					}
-					ELEMENT[at0002] matches {    -- CTCAE Term
-						value matches {
-							DV_CODED_TEXT matches {
-								defining_code matches {
-									[ac0001]
-								}
-							}
-						}
-					}
-					allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional followup details
-						include
-							archetype_id/value matches {/.*/}
-					}
-				}
-			}
 			allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Additional details
 				include
 					archetype_id/value matches {/openEHR-EHR-CLUSTER\.symptom_sign(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.exclusion_symptom_sign\.v0/}
@@ -155,15 +132,6 @@ ontology
 				["at0000"] = <
 					text = <"specific_sign_question">
 					description = <"A framework for recording any unfavourable and unintended sign, symptom or disease temporally using the CTCAE terminology.">
-				>
-				["at0002"] = <
-					text = <"CTCAE Term">
-					description = <"The name of the sign, symptom or disease observed.">
-					comment = <"Identified as a MEDRAterm and corresponding code.">
-				>
-				["at0003"] = <
-					text = <"Question">
-					description = <"Question to the patinet regarding the severity of the adverse event.">
 				>
 				["at0005"] = <
 					text = <"Symptom/sign name">
@@ -203,14 +171,6 @@ Date/time for the date the symptom started. Interval of date/time for a period o
 					text = <"Comment">
 					description = <"Additional narrative about the specific symptom/sign question, not captured in other fields.">
 				>
-				["at0013"] = <
-					text = <"Followup question">
-					description = <"">
-				>
-				["at0014"] = <
-					text = <"Additional followup details">
-					description = <"">
-				>
 			>
 		>
 		["de"] = <
@@ -218,15 +178,6 @@ Date/time for the date the symptom started. Interval of date/time for a period o
 				["at0000"] = <
 					text = <"specific_sign_question">
 					description = <"Systematische Einteilung zur Erfassung aller unerwünschten und unerwarteten Ereignissen, Symptome oder Krankheiten unter Verwendung der CTCAE-Terminologie.">
-				>
-				["at0002"] = <
-					text = <"*CTCAE Term (en)">
-					description = <"Der Name des beobachteten Zeichens, Symptoms oder der Krankheit.">
-					comment = <"Identifiziert als MEDRAterm und entsprechender Code.">
-				>
-				["at0003"] = <
-					text = <"*Question (en)">
-					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
 				>
 				["at0005"] = <
 					text = <"Name des Symptoms/Anzeichens">
@@ -266,14 +217,6 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 					text = <"Kommentar">
 					description = <"Zusätzliche Beschreibung über die spezifische Frage zum Symptom/Anzeichen, die nicht in anderen Bereichen erfasst wird.">
 				>
-				["at0013"] = <
-					text = <"*CLUSTER (en)">
-					description = <"">
-				>
-				["at0014"] = <
-					text = <"*CLUSTER_SLOT (en)">
-					description = <"">
-				>
 			>
 		>
 		["sv"] = <
@@ -281,16 +224,6 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 				["at0000"] = <
 					text = <"specific_sign_question">
 					description = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
-				>
-				["at0002"] = <
-					text = <"CTCAE-Term">
-					description = <"Namnet på tecknet, symtomet eller sjukdomen som observerats.">
-					comment = <"
-Identifierad som en MEDRA-term och motsvarande kod.">
-				>
-				["at0003"] = <
-					text = <"Fråga">
-					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
 				>
 				["at0005"] = <
 					text = <"Symptom/tecken-benämning">
@@ -332,21 +265,6 @@ Datum/tid för när symtomet började. Intervall för datum/tid under en tidsper
 					text = <"Kommentar">
 					description = <"Kommentarer avseende det specifika symptomet eller tecknrt som inte beskrivs i övriga fält.">
 				>
-				["at0013"] = <
-					text = <"Följdfråga">
-					description = <"">
-				>
-				["at0014"] = <
-					text = <"Ytterligare följsdfrågedetaljer">
-					description = <"">
-				>
-			>
-		>
-	>
-	constraint_binding = <
-		["MedDRA"] = <
-			items = <
-				["ac0001"] = <http://terminology.hl7.org/CodeSystem/mdr>
 			>
 		>
 	>
