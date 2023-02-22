@@ -9,10 +9,10 @@ language
 
 description
 	original_author = <
+		["date"] = <"2023-02-22">
 		["name"] = <"Erik Sundvall">
 		["organisation"] = <"Karolinska University hospital + Institute & Linköping University, Sweden">
 		["email"] = <"erik.sundvall@regionstockholm.se">
-		["date"] = <"2023-02-22">
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
@@ -26,14 +26,32 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"e96cdfff378ab3acb9d16e5b29f53658">
+		["MD5-CAM-1.0.1"] = <"8e6f3c912dccc60c6f499d3b2eae3baf">
 		["build_uid"] = <"3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa">
 	>
 
 definition
-	CLUSTER[at0000] matches {*}    -- followup_question
+	CLUSTER[at0000] matches {    -- followup_question
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] matches {*}    -- Question
+			ELEMENT[at0003] matches {    -- CTCAE Term
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[ac0000]
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Additional followup details
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
 
 ontology
+	terminologies_available = <"MedDRA", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
@@ -41,6 +59,26 @@ ontology
 					text = <"followup_question">
 					description = <"followup_question">
 				>
+				["at0002"] = <
+					text = <"Question">
+					description = <"Question to the patinet regarding the severity of the adverse event.">
+				>
+				["at0003"] = <
+					text = <"CTCAE Term">
+					description = <"The name of the sign, symptom or disease observed.">
+					comment = <"Identified as a MEDRAterm and corresponding code.">
+				>
+				["at0004"] = <
+					text = <"Additional followup details">
+					description = <"">
+				>
+			>
+		>
+	>
+	constraint_binding = <
+		["MedDRA"] = <
+			items = <
+				["ac0000"] = <terminology:http://terminology.hl7.org/CodeSystem/mdr>
 			>
 		>
 	>
