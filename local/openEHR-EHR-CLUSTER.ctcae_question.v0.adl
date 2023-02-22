@@ -76,7 +76,7 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"41b92634765b66494f25c8517ce25cb3">
+		["MD5-CAM-1.0.1"] = <"25fa0744544575c9c8bc9e9922b923d2">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -128,6 +128,10 @@ definition
 								}
 							}
 						}
+					}
+					allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional followup details
+						include
+							archetype_id/value matches {/.*/}
 					}
 				}
 			}
@@ -203,6 +207,10 @@ Date/time for the date the symptom started. Interval of date/time for a period o
 					text = <"Followup question">
 					description = <"">
 				>
+				["at0014"] = <
+					text = <"Additional followup details">
+					description = <"">
+				>
 			>
 		>
 		["de"] = <
@@ -260,6 +268,10 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 				>
 				["at0013"] = <
 					text = <"*CLUSTER (en)">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"*CLUSTER_SLOT (en)">
 					description = <"">
 				>
 			>
@@ -322,6 +334,10 @@ Datum/tid för när symtomet började. Intervall för datum/tid under en tidsper
 				>
 				["at0013"] = <
 					text = <"Följdfråga">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Ytterligare följsdfrågedetaljer">
 					description = <"">
 				>
 			>
