@@ -48,7 +48,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"db245317ff5e5b37568b1cb7bef097e8">
+		["MD5-CAM-1.0.1"] = <"4376ede24c4dee7460731892e0a0c93a">
 		["build_uid"] = <"3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa">
 	>
 
@@ -66,13 +66,18 @@ definition
 			}
 			ELEMENT[at0.1] occurrences matches {0..*} matches {    -- Related CTCAE term
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[ac0.1]
+						}
+					}
 				}
 			}
 		}
 	}
 
 ontology
+	terminologies_available = <"MedDRA", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
@@ -156,6 +161,13 @@ ontology
 					text = <"zusätzliche Folgefragedetails">
 					description = <"">
 				>
+			>
+		>
+	>
+	constraint_binding = <
+		["MedDRA"] = <
+			items = <
+				["ac0.1"] = <terminology://terminology.hl7.org/CodeSystem/mdr>
 			>
 		>
 	>
