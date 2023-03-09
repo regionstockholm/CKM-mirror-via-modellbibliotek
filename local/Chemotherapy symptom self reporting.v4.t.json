@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "4.0.0-alpha.9",
+      "sem_ver" : "4.0.0-alpha.10",
       "build_uid" : "a0715e39-b550-4d72-b7ca-424187ef30e2",
-      "MD5-CAM-1.0.1" : "2fe54f167464b4077b2ec9ac273f42bb",
+      "MD5-CAM-1.0.1" : "dbaae2db402f03a8a4538a30f0f94a46",
       "PARENT:MD5-CAM-1.0.1" : "782C49493E523506E8C34B7C5CF7B761"
     },
     "details" : {
@@ -1247,7 +1247,10 @@
           },
           "/items[at0002.1.1]" : {
             "a.id" : "fatigue_details",
-            "a.rule.adl" : "fatigue_present = at0023 implies exists THIS"
+            "a.rule.adl" : "fatigue_present = at0023 implies exists THIS",
+            "a.rule.adl2" : "check fatigue_present = at0023 implies defined (THIS)",
+            "a.rule.cambio" : "fatigue_present == at0023 ASSIGN THIS.hidden = false OTHERWISE THIS.hidden = true",
+            "a.rule.better" : "fatigue_present = at0023 THEN THIS show OTHERWISE THIS hide"
           }
         }
       }
