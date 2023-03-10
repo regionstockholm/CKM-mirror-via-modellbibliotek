@@ -19,8 +19,10 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "a9f9c202fe3c4d38c52d437991013d21",
-      "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b"
+      "MD5-CAM-1.0.1" : "ed21a10388324ef938874a854251c280",
+      "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
+      "sem_ver" : "0.1.0",
+      "build_uid" : "62025d3f-bd4b-437a-932b-2b88d1bd5e45"
     },
     "details" : {
       "de" : {
@@ -264,13 +266,13 @@
         "at0000.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0000.1",
-          "text" : "[short symptom heading here]",
+          "text" : "Fatigue",
           "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
         },
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0005.1",
-          "text" : "Presence? [replace with patient facing question text]",
+          "text" : "Do you experience fatigue that affects your daily life?",
           "description" : "Is there a history of the specific symptom or sign having been present?",
           "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
         },
@@ -350,6 +352,12 @@
           "text" : "*(Synthesized) (en)",
           "code" : "ac0.3",
           "description" : ""
+        },
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "Trötthet",
+          "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
         }
       }
     },
@@ -475,7 +483,82 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0002.1.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_ORDINAL",
+              "attributes" : [ ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "value",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "symbol",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 1,
+                      "upper" : 1,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_TERMINOLOGY_CODE",
+                    "rmTypeName" : "TERMINOLOGY_CODE",
+                    "constraint" : [ "at0.0.7" ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 2,
+                      "upper" : 2,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_TERMINOLOGY_CODE",
+                    "rmTypeName" : "TERMINOLOGY_CODE",
+                    "constraint" : [ "at0.0.8" ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 3,
+                      "upper" : 3,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_TERMINOLOGY_CODE",
+                    "rmTypeName" : "TERMINOLOGY_CODE",
+                    "constraint" : [ "at0.0.9" ]
+                  } ]
+                } ]
+              } ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -546,12 +629,68 @@
           "at0002.1.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0002.1.1",
-            "text" : "Question [replace with patient facing followup question text and suitable ordinal values+texts]",
+            "text" : "How does fatigue affect your daily life?",
             "description" : "Question to the patinet regarding the severity of the adverse event."
+          },
+          "at0.0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "Slight fatigue, resting more than usual",
+            "code" : "at0.0.7",
+            "description" : ""
+          },
+          "at0.0.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "Moderate fatigue, resting less than 50% of waking time",
+            "code" : "at0.0.8",
+            "description" : ""
+          },
+          "at0.0.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "Severe fatigue, resting more than 50% of waking time",
+            "code" : "at0.0.9",
+            "description" : ""
           }
         },
-        "sv" : { },
-        "de" : { }
+        "sv" : {
+          "at0.0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*Slight fatigue, resting more than usual (en)",
+            "code" : "at0.0.7",
+            "description" : ""
+          },
+          "at0.0.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*Moderate fatigue, resting less than 50% of waking time (en)",
+            "code" : "at0.0.8",
+            "description" : ""
+          },
+          "at0.0.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*Severe fatigue, resting more than 50% of waking time (en)",
+            "code" : "at0.0.9",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "at0.0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*Slight fatigue, resting more than usual (en)",
+            "code" : "at0.0.7",
+            "description" : ""
+          },
+          "at0.0.8" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*Moderate fatigue, resting less than 50% of waking time (en)",
+            "code" : "at0.0.8",
+            "description" : ""
+          },
+          "at0.0.9" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*Severe fatigue, resting more than 50% of waking time (en)",
+            "code" : "at0.0.9",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
