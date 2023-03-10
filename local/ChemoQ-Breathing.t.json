@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "89fb581beef97b1a4ae97aa32e16001d",
+      "MD5-CAM-1.0.1" : "e1eee6c792969ca8b9fc036dd96b0e18",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "0.4.0",
+      "sem_ver" : "0.5.0",
       "build_uid" : "916653a2-9308-4588-9b84-170f9bd6a641"
     },
     "details" : {
@@ -352,6 +352,13 @@
           "text" : "*(Synthesized) (en)",
           "code" : "ac0.3",
           "description" : ""
+        },
+        "at0005.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0005.1",
+          "text" : "Upplever du svårigheter med din andning?",
+          "description" : "Har symptomet eller tecknet förekommit?",
+          "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
         }
       }
     },
@@ -489,6 +496,18 @@
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_CODED_TEXT",
+              "defaultValue" : {
+                "defining_code" : {
+                  "terminology_id" : {
+                    "value" : "MedDRA",
+                    "@type" : "TERMINOLOGY_ID"
+                  },
+                  "code_string" : "10013963",
+                  "@type" : "CODE_PHRASE"
+                },
+                "value" : "Dyspnea",
+                "@type" : "DV_CODED_TEXT"
+              },
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
                 "rmAttributeName" : "defining_code",
@@ -534,7 +553,14 @@
             "description" : "Question to the patinet regarding the severity of the adverse event."
           }
         },
-        "sv" : { },
+        "sv" : {
+          "at0002.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1.1",
+            "text" : "Vilka svårigheter upplever du med din andning?",
+            "description" : "*Question to the patinet regarding the severity of the adverse event. (en)"
+          }
+        },
         "de" : { }
       },
       "termBindings" : { },
