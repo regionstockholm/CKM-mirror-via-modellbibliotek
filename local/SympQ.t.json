@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.1.0",
+      "sem_ver" : "0.2.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "3ced01777a99a82ffa67e0fe99dcd41d",
+      "MD5-CAM-1.0.1" : "3294b155701e75089deae20b3a917d85",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b"
     },
     "details" : {
@@ -119,15 +119,6 @@
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "CLUSTER",
         "occurrences" : "0..1",
-        "nodeId" : "at0026.1",
-        "attributes" : [ ],
-        "attributeTuples" : [ ],
-        "archetypeRef" : "ChemoQ",
-        "referenceType" : "templateId"
-      }, {
-        "@type" : "C_ARCHETYPE_ROOT",
-        "rmTypeName" : "CLUSTER",
-        "occurrences" : "0..1",
         "nodeId" : "at0026.2",
         "attributes" : [ ],
         "attributeTuples" : [ ],
@@ -141,6 +132,15 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-followup_question-ctcae_test-001.v0",
+        "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "CLUSTER",
+        "occurrences" : "0..1",
+        "nodeId" : "at0026.4",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-followup_question-ctcae-001.v0",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -260,8 +260,194 @@
             "description" : "Followup question with CTCAE_test"
           }
         },
-        "sv" : { },
+        "sv" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "followup_question CTCAE TEST",
+            "description" : "Följdfråga som kan användas t.ex. i frågeformulär efter att ha svarat \"Ja\" på frågor som \"upplever du några symtom på...\""
+          }
+        },
         "de" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "f02aa0d4-9ce2-4a3d-86c5-9ff37cc659b3",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "e55a9ee07821bdf6cdc6cc0f8b2850d5"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.followup_question-ctcae.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-followup_question-ctcae-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0002.1.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_ORDINAL",
+              "attributes" : [ ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "value",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "symbol",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 1,
+                      "upper" : 1,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_TERMINOLOGY_CODE",
+                    "rmTypeName" : "TERMINOLOGY_CODE",
+                    "constraint" : [ "at0.0.1" ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 2,
+                      "upper" : 2,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_TERMINOLOGY_CODE",
+                    "rmTypeName" : "TERMINOLOGY_CODE",
+                    "constraint" : [ "at0.0.2" ]
+                  } ]
+                } ]
+              } ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000.1",
+      "termDefinitions" : {
+        "en" : {
+          "at0.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "ONE",
+            "code" : "at0.0.1",
+            "description" : ""
+          },
+          "at0.0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "TWO",
+            "code" : "at0.0.2",
+            "description" : ""
+          }
+        },
+        "sv" : {
+          "at0.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "ETT",
+            "code" : "at0.0.1",
+            "description" : ""
+          },
+          "at0.0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "TVÅ",
+            "code" : "at0.0.2",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "at0.0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "EINZ",
+            "code" : "at0.0.1",
+            "description" : ""
+          },
+          "at0.0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "ZWEI",
+            "code" : "at0.0.2",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
