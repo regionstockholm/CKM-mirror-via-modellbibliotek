@@ -51,16 +51,19 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"79aed76ae43eca663f2154131b38f907">
+		["MD5-CAM-1.0.1"] = <"009b6acef6e1b080588b7e7b1990dd45">
 		["build_uid"] = <"3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa">
 	>
 
 definition
-	CLUSTER[at0000.1] matches {    -- followup_question
+	CLUSTER[at0000.1] matches {    -- Followup question with CTCAE_test
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0002.1] occurrences matches {1..*} matches {    -- Question
 				value matches {
-					DV_ORDINAL matches {*}
+					1|[local::at0.2],
+					2|[local::at0.3],
+					3|[local::at0.4],
+					4|[local::at0.5]
 				}
 			}
 			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Additional followup details
@@ -85,8 +88,8 @@ ontology
 		["en"] = <
 			items = <
 				["at0000.1"] = <
-					text = <"followup_question">
-					description = <"Followup question with CTCAE">
+					text = <"Followup question with CTCAE_test">
+					description = <"Followup question with CTCAE_test">
 				>
 				["at0.1"] = <
 					text = <"Related CTCAE term">
@@ -106,6 +109,22 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Additional followup details">
+					description = <"">
+				>
+				["at0.2"] = <
+					text = <"Mild">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"Moderate">
+					description = <"">
+				>
+				["at0.4"] = <
+					text = <"Severe">
+					description = <"">
+				>
+				["at0.5"] = <
+					text = <"Life-threatening">
 					description = <"">
 				>
 			>
@@ -136,6 +155,22 @@ ontology
 					text = <"ytterligare följdfrågedetaljer">
 					description = <"">
 				>
+				["at0.2"] = <
+					text = <"*Mild sv (en)">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"*Moderate sv (en)">
+					description = <"">
+				>
+				["at0.4"] = <
+					text = <"*Severe sv (en)">
+					description = <"">
+				>
+				["at0.5"] = <
+					text = <"*Life-threatening sv (en)">
+					description = <"">
+				>
 			>
 		>
 		["de"] = <
@@ -162,6 +197,22 @@ ontology
 				>
 				["at0004"] = <
 					text = <"zusätzliche Folgefragedetails">
+					description = <"">
+				>
+				["at0.2"] = <
+					text = <"*Mild (en)">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"*Moderate (en)">
+					description = <"">
+				>
+				["at0.4"] = <
+					text = <"*Severe (en)">
+					description = <"">
+				>
+				["at0.5"] = <
+					text = <"*Life-threatening (en)">
 					description = <"">
 				>
 			>
