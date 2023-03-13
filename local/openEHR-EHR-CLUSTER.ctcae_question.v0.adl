@@ -76,7 +76,7 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"fc660eeea9cbb4c133641a95b22b3d91">
+		["MD5-CAM-1.0.1"] = <"487a8adc21a1179b5db32e2bc20e925e">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -208,6 +208,11 @@ Date/time for the date the symptom started. Interval of date/time for a period o
 					description = <"">
 					a_id = <"_details">
 					a_assign_this = <"_details">
+					a_assign_presence = <"_presence">
+					a_rule_adl = <"$presence = at0023 implies exists $this">
+					a_rule_adl2 = <"check $presence = at0023 implies defined ($this)">
+					a_rule_better = <"$presence = at0023 THEN $this show OTHERWISE $this hide">
+					a_rule_cambio = <"$presence == at0023 ASSIGN $this.hidden = false OTHERWISE $this.hidden = true">
 				>
 				["at0014"] = <
 					text = <"Additional followup details">
