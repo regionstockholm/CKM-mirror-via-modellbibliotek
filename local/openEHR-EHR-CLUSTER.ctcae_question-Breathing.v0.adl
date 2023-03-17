@@ -78,7 +78,7 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"8f30d7fb23f7327855647487e1cf6330">
+		["MD5-CAM-1.0.1"] = <"ff4c00e6a4945123eb827289b7849f52">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -120,13 +120,14 @@ definition
 							3|[local::at0.3]
 						}
 					}
-					ELEMENT[at0002] matches {    -- CTCAE Term
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- CTCAE Term
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[ac0001]
 								}
 							}
+							DV_COUNT matches {*}
 						}
 					}
 					allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional followup details
@@ -183,6 +184,10 @@ ontology
 					text = <"Severe breathing problems that affect my daily life">
 					description = <"">
 				>
+				["at0003"] = <
+					text = <"Question">
+					description = <"Question to the patient regarding the severity of the adverse event.">
+				>
 				["at0000"] = <
 					text = <"Specific symptom/sign (CTCAE)">
 					description = <"A framework for recording any unfavourable and unintended sign, symptom or disease temporally using the CTCAE terminology.">
@@ -191,10 +196,6 @@ ontology
 					text = <"CTCAE Term">
 					description = <"The name of the sign, symptom or disease observed.">
 					comment = <"Identified as a MEDRAterm and corresponding code.">
-				>
-				["at0003"] = <
-					text = <"Question">
-					description = <"Question to the patinet regarding the severity of the adverse event.">
 				>
 				["at0005"] = <
 					text = <"Symptom/sign name">
@@ -361,6 +362,10 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 					text = <"Svåra andningsbesvär som påverkar mina dagliga aktiviteter">
 					description = <"">
 				>
+				["at0003"] = <
+					text = <"Fråga">
+					description = <"*Question to the patient regarding the severity of the adverse event. (en)">
+				>
 				["at0000"] = <
 					text = <"CTCAE-baserad fråga">
 					description = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
@@ -370,10 +375,6 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 					description = <"Namnet på tecknet, symtomet eller sjukdomen som observerats.">
 					comment = <"
 Identifierad som en MEDRA-term och motsvarande kod.">
-				>
-				["at0003"] = <
-					text = <"Fråga">
-					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
 				>
 				["at0005"] = <
 					text = <"Symptom/tecken-benämning">
