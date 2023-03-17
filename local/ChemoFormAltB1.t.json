@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "4.0.0-alpha7",
+      "sem_ver" : "4.0.0-alpha8",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "932d3392157048ca53e0328ed8ceeb9d",
+      "MD5-CAM-1.0.1" : "8ef9a2feea123bc09bffb4f6da389e10",
       "PARENT:MD5-CAM-1.0.1" : "782C49493E523506E8C34B7C5CF7B761"
     },
     "details" : {
@@ -371,7 +371,7 @@
       "@type" : "RESOURCE_ANNOTATIONS",
       "documentation" : {
         "en" : {
-          "/data[at0001]/events[at0002]/data[at0003]/items[at0022.2]/items[at0005.1]" : {
+          "/data[at0001]/events[at0002.1]/data[at0003]/items[at0022.2]/items[at0005.1]" : {
             "a_id" : "fever_presence"
           }
         }
@@ -400,7 +400,8 @@
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "EVENT",
-              "nodeId" : "at0002",
+              "occurrences" : "0..1",
+              "nodeId" : "at0002.1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
                 "rmAttributeName" : "data",
@@ -537,6 +538,7 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "CLUSTER",
+                      "occurrences" : "0..1",
                       "nodeId" : "at0022.2",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
@@ -1009,7 +1011,10 @@
       "@type" : "RESOURCE_ANNOTATIONS",
       "documentation" : {
         "en" : {
-          "/items[at0013.1]" : {
+          "/items[at0006.1]" : {
+            "a_id" : "fatigue_presence"
+          },
+          "/items[at0013.1.1]" : {
             "a_id" : "fatigue_details",
             "a_assign_this" : "fatigue_details",
             "a_assign_presence" : "fatigue_presence",
@@ -1017,9 +1022,6 @@
             "a_rule_adl2" : "check $presence = at0023 implies defined ($this)",
             "a_rule_better" : "$presence = at0023 THEN $this show OTHERWISE $this hide",
             "a_rule_cambio" : "$presence == at0023 ASSIGN $this.hidden = false OTHERWISE $this.hidden = true"
-          },
-          "/items[at0006.1]" : {
-            "a_id" : "fatigue_presence"
           }
         },
         "de" : { },
@@ -1123,7 +1125,8 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "CLUSTER",
-          "nodeId" : "at0013.1",
+          "occurrences" : "0..1",
+          "nodeId" : "at0013.1.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
             "rmAttributeName" : "items",
@@ -1334,7 +1337,10 @@
       "@type" : "RESOURCE_ANNOTATIONS",
       "documentation" : {
         "en" : {
-          "/items[at0013]" : {
+          "/items[at0006.1]" : {
+            "a_id" : "breathing_presence"
+          },
+          "/items[at0013.0.1]" : {
             "a_id" : "_details",
             "a_assign_this" : "_details",
             "a_assign_presence" : "_presence",
@@ -1342,9 +1348,6 @@
             "a_rule_adl2" : "check $presence = at0023 implies defined ($this)",
             "a_rule_better" : "$presence = at0023 THEN $this show OTHERWISE $this hide",
             "a_rule_cambio" : "$presence == at0023 ASSIGN $this.hidden = false OTHERWISE $this.hidden = true"
-          },
-          "/items[at0006.1]" : {
-            "a_id" : "breathing_presence"
           }
         },
         "de" : { },
@@ -1449,7 +1452,8 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "CLUSTER",
-          "nodeId" : "at0013",
+          "occurrences" : "0..1",
+          "nodeId" : "at0013.0.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
             "rmAttributeName" : "items",
@@ -1851,6 +1855,78 @@
                     "children" : [ {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
+                      "nodeId" : "at0004.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_QUANTITY",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "property",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "TERMINOLOGY_CODE",
+                              "occurrences" : "1..1",
+                              "terminologyId" : {
+                                "value" : "openehr"
+                              },
+                              "constraint" : [ "127" ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ {
+                            "@type" : "C_ATTRIBUTE_TUPLE",
+                            "members" : [ {
+                              "@type" : "C_ATTRIBUTE",
+                              "rmAttributeName" : "units",
+                              "children" : [ ]
+                            }, {
+                              "@type" : "C_ATTRIBUTE",
+                              "rmAttributeName" : "magnitude",
+                              "children" : [ ]
+                            }, {
+                              "@type" : "C_ATTRIBUTE",
+                              "rmAttributeName" : "precision",
+                              "children" : [ ]
+                            } ],
+                            "tuples" : [ {
+                              "@type" : "C_PRIMITIVE_TUPLE",
+                              "members" : [ {
+                                "@type" : "C_STRING",
+                                "rmTypeName" : "STRING",
+                                "constraint" : [ "Cel" ]
+                              }, {
+                                "@type" : "C_REAL",
+                                "rmTypeName" : "REAL",
+                                "constraint" : [ {
+                                  "lower" : 0.0,
+                                  "upper" : 100.0,
+                                  "lowerIncluded" : true,
+                                  "upperIncluded" : false,
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
+                                } ]
+                              }, {
+                                "@type" : "C_INTEGER",
+                                "rmTypeName" : "INTEGER",
+                                "constraint" : [ {
+                                  "lower" : 1,
+                                  "upper" : 1,
+                                  "lowerIncluded" : true,
+                                  "upperIncluded" : true,
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
+                                } ]
+                              } ]
+                            } ]
+                          } ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
                       "occurrences" : "0..0",
                       "nodeId" : "at0063.1",
                       "attributes" : [ ],
@@ -2215,7 +2291,14 @@
           }
         }
       },
-      "termBindings" : { },
+      "termBindings" : {
+        "LNC205" : {
+          "at0004.1" : "term:LNC205::8310-5"
+        },
+        "SNOMED-CT" : {
+          "at0004.1" : "term:SNOMED-CT::386725007"
+        }
+      },
       "terminologyExtracts" : { },
       "valueSets" : {
         "ac0.1" : {
@@ -2610,7 +2693,10 @@
       "@type" : "RESOURCE_ANNOTATIONS",
       "documentation" : {
         "en" : {
-          "/items[at0013]" : {
+          "/items[at0006.1]" : {
+            "a_id" : "breathing_presence"
+          },
+          "/items[at0013.0.1]" : {
             "a_id" : "_details",
             "a_assign_this" : "_details",
             "a_assign_presence" : "_presence",
@@ -2618,9 +2704,6 @@
             "a_rule_adl2" : "check $presence = at0023 implies defined ($this)",
             "a_rule_better" : "$presence = at0023 THEN $this show OTHERWISE $this hide",
             "a_rule_cambio" : "$presence == at0023 ASSIGN $this.hidden = false OTHERWISE $this.hidden = true"
-          },
-          "/items[at0006.1]" : {
-            "a_id" : "breathing_presence"
           }
         },
         "de" : { },
@@ -2717,7 +2800,8 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "CLUSTER",
-          "nodeId" : "at0013",
+          "occurrences" : "0..1",
+          "nodeId" : "at0013.0.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
             "rmAttributeName" : "items",
@@ -2839,7 +2923,10 @@
       "@type" : "RESOURCE_ANNOTATIONS",
       "documentation" : {
         "en" : {
-          "/items[at0013]" : {
+          "/items[at0006.1]" : {
+            "a_id" : "breathing_presence"
+          },
+          "/items[at0013.0.1]" : {
             "a_id" : "_details",
             "a_assign_this" : "_details",
             "a_assign_presence" : "_presence",
@@ -2847,9 +2934,6 @@
             "a_rule_adl2" : "check $presence = at0023 implies defined ($this)",
             "a_rule_better" : "$presence = at0023 THEN $this show OTHERWISE $this hide",
             "a_rule_cambio" : "$presence == at0023 ASSIGN $this.hidden = false OTHERWISE $this.hidden = true"
-          },
-          "/items[at0006.1]" : {
-            "a_id" : "breathing_presence"
           }
         },
         "de" : { },
@@ -2938,6 +3022,13 @@
               "attributeTuples" : [ ]
             } ]
           } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0013.0.1",
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
