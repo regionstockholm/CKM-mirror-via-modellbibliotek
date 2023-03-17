@@ -78,7 +78,7 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7d3699c5759d73b38bc7e495d6df86c5">
+		["MD5-CAM-1.0.1"] = <"7612ee0069f96641cd94006e50f81e0a">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -120,13 +120,14 @@ definition
 							3|[local::at0.3]
 						}
 					}
-					ELEMENT[at0002] matches {    -- CTCAE Term
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- CTCAE Term
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[ac0001]
 								}
 							}
+							DV_COUNT matches {*}
 						}
 					}
 					allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional followup details
