@@ -78,7 +78,7 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"619efe7a51fb56df71813e063d1a8223">
+		["MD5-CAM-1.0.1"] = <"aaa79bc5ec0af991c2e1e6f84a72355d">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -120,13 +120,14 @@ definition
 							3|[local::at0.3]
 						}
 					}
-					ELEMENT[at0002.1] matches {    -- CTCAE Term
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- CTCAE Term
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[ac0001]
 								}
 							}
+							DV_COUNT matches {*}
 						}
 					}
 					allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional followup details
@@ -152,59 +153,17 @@ ontology
 	term_definitions = <
 		["en"] = <
 			items = <
-				["at0002"] = <
-					text = <"CTCAE Term">
-					description = <"The name of the sign, symptom or disease observed.">
-					comment = <"Identified as a MEDRAterm and corresponding code.">
-				>
 				["at0003"] = <
 					text = <"Question">
-					description = <"Question to the patinet regarding the severity of the adverse event.">
-				>
-				["at0005"] = <
-					text = <"Symptom/sign name">
-					description = <"Identification of a specific symptom or sign or grouping of symptoms or signs, by name.">
-					comment = <"Coding of the 'Symptom/sign name' with a terminology is preferred, where possible.">
+					description = <"Question to the patient regarding the severity of the adverse event.">
 				>
 				["at0006"] = <
 					text = <"Presence?">
 					description = <"Is there a history of the specific symptom or sign having been present?">
 					comment = <"In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.">
 				>
-				["at0007"] = <
-					text = <"Yes">
-					description = <"">
-				>
-				["at0008"] = <
-					text = <"No">
-					description = <"">
-				>
-				["at0009"] = <
-					text = <"Unknown">
-					description = <"">
-				>
-				["at0010"] = <
-					text = <"Onset">
-					description = <"Timing of the initial recognition of the specific symptom or sign.">
-					comment = <"The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. 
-
-For example:
-Date/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset.">
-				>
-				["at0011"] = <
-					text = <"Additional details">
-					description = <"Structured details or questions about the specific symptom or sign.">
-				>
-				["at0012"] = <
-					text = <"Comment">
-					description = <"Additional narrative about the specific symptom/sign question, not captured in other fields.">
-				>
 				["at0013"] = <
 					text = <"Followup question">
-					description = <"">
-				>
-				["at0014"] = <
-					text = <"Additional followup details">
 					description = <"">
 				>
 				["at0000.1"] = <
@@ -237,11 +196,6 @@ Date/time for the date the symptom started. Interval of date/time for a period o
 					text = <"How does fatigue affect your daily life?">
 					description = <"Question to the patinet regarding the severity of the adverse event.">
 				>
-				["at0002.1"] = <
-					text = <"CTCAE Term">
-					description = <"The name of the sign, symptom or disease observed.">
-					comment = <"Identified as a MEDRAterm and corresponding code.">
-				>
 				["at0.1"] = <
 					text = <"Slight fatigue, resting more than usual">
 					description = <"">
@@ -254,10 +208,94 @@ Date/time for the date the symptom started. Interval of date/time for a period o
 					text = <"Severe fatigue, resting more than 50% of waking time">
 					description = <"">
 				>
+				["at0000"] = <
+					text = <"Specific symptom/sign (CTCAE)">
+					description = <"A framework for recording any unfavourable and unintended sign, symptom or disease temporally using the CTCAE terminology.">
+				>
+				["at0002"] = <
+					text = <"CTCAE Term">
+					description = <"The name of the sign, symptom or disease observed.">
+					comment = <"Identified as a MEDRAterm and corresponding code.">
+				>
+				["at0005"] = <
+					text = <"Symptom/sign name">
+					description = <"Identification of a specific symptom or sign or grouping of symptoms or signs, by name.">
+					comment = <"Coding of the 'Symptom/sign name' with a terminology is preferred, where possible.">
+				>
+				["at0007"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Unknown">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Onset">
+					description = <"Timing of the initial recognition of the specific symptom or sign.">
+					comment = <"The 'Onset' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture the onset of symptoms or signs. The specific and intended semantics can be further clarified in a template. 
+
+For example:
+Date/time for the date the symptom started. Interval of date/time for a period of time eg. between 1940 and 1942. Text for descriptions like 'Immediately after the operation', or 'Up to one week ago', 'Up to two weeks ago', 'Three weeks ago'. Duration for the individual's age at the onset. Interval of Duration for the approximate age of the individual at the time of onset.">
+				>
+				["at0011"] = <
+					text = <"Additional details">
+					description = <"Structured details or questions about the specific symptom or sign.">
+				>
+				["at0012"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the specific symptom/sign question, not captured in other fields.">
+				>
+				["at0014"] = <
+					text = <"Additional followup details">
+					description = <"">
+				>
 			>
 		>
 		["de"] = <
 			items = <
+				["at0000.1"] = <
+					text = <"*CTCAE based question (en)">
+					description = <"Systematische Einteilung zur Erfassung aller unerwünschten und unerwarteten Ereignissen, Symptome oder Krankheiten unter Verwendung der CTCAE-Terminologie.">
+				>
+				["at0005.1"] = <
+					text = <"Name des Symptoms/Anzeichens">
+					description = <"Identifizierung eines bestimmten Symptoms oder Anzeichens oder einer Gruppe von Symptomen oder Anzeichen nach Namen.">
+					comment = <"Die Kodierung des „Name des Symptoms/Anzeichens“ mit einer Terminologie wird nach Möglichkeit bevorzugt.">
+				>
+				["at0006.1"] = <
+					text = <"Vorhanden?">
+					description = <"Gibt es eine Vorgeschichte des spezifischen Symptoms oder Anzeichens, das vorhanden war?">
+					comment = <"In einem Template würde das Datenelement normalerweise in die spezifisch gestellte Frage umbenannt. Der vorgeschlagene Wertesatz kann für die lokale Verwendung angepasst werden, indem der Choice-Datentyp DV_TEXT oder DV_BOOLEAN verwendet wird, um jedem spezifischen Anwendungsfall zu entsprechen.">
+				>
+				["at0013.1"] = <
+					text = <"*CLUSTER (en)">
+					description = <"">
+				>
+				["at0003.1"] = <
+					text = <"*Question (en)">
+					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
+				>
+				["at0.1"] = <
+					text = <"*Slight fatigue, resting more than usual (en)">
+					description = <"">
+				>
+				["at0.2"] = <
+					text = <"*Moderate fatigue, resting less than 50% of waking time (en)">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"*Severe fatigue, resting more than 50% of waking time (en)">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"*CTCAE based question (en)">
+					description = <"Systematische Einteilung zur Erfassung aller unerwünschten und unerwarteten Ereignissen, Symptome oder Krankheiten unter Verwendung der CTCAE-Terminologie.">
+				>
 				["at0002"] = <
 					text = <"*CTCAE Term (en)">
 					description = <"Der Name des beobachteten Zeichens, Symptoms oder der Krankheit.">
@@ -313,58 +351,59 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 					text = <"*CLUSTER_SLOT (en)">
 					description = <"">
 				>
-				["at0000.1"] = <
-					text = <"*CTCAE based question (en)">
-					description = <"Systematische Einteilung zur Erfassung aller unerwünschten und unerwarteten Ereignissen, Symptome oder Krankheiten unter Verwendung der CTCAE-Terminologie.">
-				>
-				["at0005.1"] = <
-					text = <"Name des Symptoms/Anzeichens">
-					description = <"Identifizierung eines bestimmten Symptoms oder Anzeichens oder einer Gruppe von Symptomen oder Anzeichen nach Namen.">
-					comment = <"Die Kodierung des „Name des Symptoms/Anzeichens“ mit einer Terminologie wird nach Möglichkeit bevorzugt.">
-				>
-				["at0006.1"] = <
-					text = <"Vorhanden?">
-					description = <"Gibt es eine Vorgeschichte des spezifischen Symptoms oder Anzeichens, das vorhanden war?">
-					comment = <"In einem Template würde das Datenelement normalerweise in die spezifisch gestellte Frage umbenannt. Der vorgeschlagene Wertesatz kann für die lokale Verwendung angepasst werden, indem der Choice-Datentyp DV_TEXT oder DV_BOOLEAN verwendet wird, um jedem spezifischen Anwendungsfall zu entsprechen.">
-				>
-				["at0013.1"] = <
-					text = <"*CLUSTER (en)">
-					description = <"">
-				>
-				["at0003.1"] = <
-					text = <"*Question (en)">
-					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
-				>
-				["at0002.1"] = <
-					text = <"*CTCAE Term (en)">
-					description = <"Der Name des beobachteten Zeichens, Symptoms oder der Krankheit.">
-					comment = <"Identifiziert als MEDRAterm und entsprechender Code.">
-				>
-				["at0.1"] = <
-					text = <"*Slight fatigue, resting more than usual (en)">
-					description = <"">
-				>
-				["at0.2"] = <
-					text = <"*Moderate fatigue, resting less than 50% of waking time (en)">
-					description = <"">
-				>
-				["at0.3"] = <
-					text = <"*Severe fatigue, resting more than 50% of waking time (en)">
-					description = <"">
-				>
 			>
 		>
 		["sv"] = <
 			items = <
+				["at0003"] = <
+					text = <"Fråga">
+					description = <"*Question to the patient regarding the severity of the adverse event. (en)">
+				>
+				["at0000.1"] = <
+					text = <"Trötthet">
+					description = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
+				>
+				["at0005.1"] = <
+					text = <"Symptom/tecken-benämning">
+					description = <"Benämning på det symptom eller annat tecken (eller grupp av dessa) som screenas.
+
+">
+					comment = <"Kodning av 'Symtom/teckennamn' med en terminologi är att föredra, om möjligt.">
+				>
+				["at0006.1"] = <
+					text = <"Upplever du trötthet (fatigue) som påverkar ditt dagliga liv?">
+					description = <"Har symptomet eller tecknet förekommit?">
+					comment = <"I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall.">
+				>
+				["at0013.1"] = <
+					text = <"Följdfråga">
+					description = <"">
+				>
+				["at0003.1"] = <
+					text = <"Hur påverkar tröttheten ditt dagliga liv?">
+					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
+				>
+				["at0.1"] = <
+					text = <"Lätt trötthet, vilar mer än vanligt">
+					description = <"">
+				>
+				["at0.2"] = <
+					text = <"Måttlig trötthet, vilar mindre än 50% av vaken tid">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"Svår trötthet, vilar mer än 50% av vaken tid">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"CTCAE-baserad fråga">
+					description = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
+				>
 				["at0002"] = <
 					text = <"CTCAE-Term">
 					description = <"Namnet på tecknet, symtomet eller sjukdomen som observerats.">
 					comment = <"
 Identifierad som en MEDRA-term och motsvarande kod.">
-				>
-				["at0003"] = <
-					text = <"Fråga">
-					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
 				>
 				["at0005"] = <
 					text = <"Symptom/tecken-benämning">
@@ -412,48 +451,6 @@ Datum/tid för när symtomet började. Intervall för datum/tid under en tidsper
 				>
 				["at0014"] = <
 					text = <"Ytterligare följsdfrågedetaljer">
-					description = <"">
-				>
-				["at0000.1"] = <
-					text = <"Trötthet">
-					description = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
-				>
-				["at0005.1"] = <
-					text = <"Symptom/tecken-benämning">
-					description = <"Benämning på det symptom eller annat tecken (eller grupp av dessa) som screenas.
-
-">
-					comment = <"Kodning av 'Symtom/teckennamn' med en terminologi är att föredra, om möjligt.">
-				>
-				["at0006.1"] = <
-					text = <"Upplever du trötthet (fatigue) som påverkar ditt dagliga liv?">
-					description = <"Har symptomet eller tecknet förekommit?">
-					comment = <"I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall.">
-				>
-				["at0013.1"] = <
-					text = <"Följdfråga">
-					description = <"">
-				>
-				["at0003.1"] = <
-					text = <"Hur påverkar tröttheten ditt dagliga liv?">
-					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
-				>
-				["at0002.1"] = <
-					text = <"CTCAE-Term">
-					description = <"Namnet på tecknet, symtomet eller sjukdomen som observerats.">
-					comment = <"
-Identifierad som en MEDRA-term och motsvarande kod.">
-				>
-				["at0.1"] = <
-					text = <"Lätt trötthet, vilar mer än vanligt">
-					description = <"">
-				>
-				["at0.2"] = <
-					text = <"Måttlig trötthet, vilar mindre än 50% av vaken tid">
-					description = <"">
-				>
-				["at0.3"] = <
-					text = <"Svår trötthet, vilar mer än 50% av vaken tid">
 					description = <"">
 				>
 			>
