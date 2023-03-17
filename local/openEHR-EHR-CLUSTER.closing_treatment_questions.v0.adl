@@ -37,14 +37,14 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"2596de4e8c6f18cda48d710d794e4385">
+		["MD5-CAM-1.0.1"] = <"d7e12fb3eed1e1f1c61f671129b24ddc">
 		["build_uid"] = <"7429dc5a-72eb-3f61-97e0-5b690ad2c92e">
 	>
 
 definition
 	CLUSTER[at0000] matches {    -- closing treatment questions
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Do you experience any additional side effects that you would like to convey/clarify to us?
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Have any of the symptoms you described worsened since the previous treatment?
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
@@ -71,12 +71,12 @@ definition
 					}
 				}
 			}
-			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Which symptoms have worsenned?
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Describe the additional side effects:
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Do you experience any additional side effects that you would like to convey/clarify to us?
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Do you have any questions regarding the upcoming treatment?
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
@@ -87,7 +87,7 @@ definition
 					}
 				}
 			}
-			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Which symptoms have worsenned?
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Please describe your question:
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -104,7 +104,7 @@ ontology
 					description = <"closing treatment questions">
 				>
 				["at0003"] = <
-					text = <"Do you experience any additional side effects that you would like to convey/clarify to us?">
+					text = <"Have any of the symptoms you described worsened since the previous treatment?">
 					description = <"Is there a history of any symptoms or signs relevant for the screening purpose?">
 					comment = <"In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.">
 				>
@@ -134,11 +134,11 @@ ontology
 					description = <"">
 				>
 				["at0011"] = <
-					text = <"Which symptoms have worsenned?">
+					text = <"Describe the additional side effects:">
 					description = <"">
 				>
 				["at0012"] = <
-					text = <"Do you experience any additional side effects that you would like to convey/clarify to us?">
+					text = <"Do you have any questions regarding the upcoming treatment?">
 					description = <"Is there a history of any symptoms or signs relevant for the screening purpose?">
 					comment = <"In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.">
 				>
@@ -151,7 +151,7 @@ ontology
 					description = <"">
 				>
 				["at0015"] = <
-					text = <"Which symptoms have worsenned?">
+					text = <"Please describe your question:">
 					description = <"">
 				>
 			>
@@ -163,7 +163,7 @@ ontology
 					description = <"*closing treatment questions (en)">
 				>
 				["at0003"] = <
-					text = <"Förekommer några symptom eller andra tecken?">
+					text = <"Har något eller några av de symptom du skattat förvärrats sedan föregående behandling?">
 					description = <"Har det förekommit några symtom eller tecken som är relevanta för screeningändamålet?">
 					comment = <"I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes. Den föreslagna svarsalternativen kan anpassas för lokal användning genom att använda datatyperna DV_TEXT eller DV_BOOLEAN för att matcha varje specifikt användningsfall">
 				>
@@ -176,11 +176,11 @@ ontology
 					description = <"">
 				>
 				["at0007"] = <
-					text = <"*DV_TEXT (en)">
+					text = <"Vilka symptom har förvärrats?">
 					description = <"">
 				>
 				["at0008"] = <
-					text = <"Förekommer några symptom eller andra tecken?">
+					text = <"Har du ytterligare biverkningar som du vill förmedla eller förtydliga för oss?">
 					description = <"Har det förekommit några symtom eller tecken som är relevanta för screeningändamålet?">
 					comment = <"I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes. Den föreslagna svarsalternativen kan anpassas för lokal användning genom att använda datatyperna DV_TEXT eller DV_BOOLEAN för att matcha varje specifikt användningsfall">
 				>
@@ -193,7 +193,7 @@ ontology
 					description = <"">
 				>
 				["at0011"] = <
-					text = <"*DV_TEXT (en)">
+					text = <"Beskriv vilka ytterligare biverkningar:">
 					description = <"">
 				>
 				["at0012"] = <
@@ -210,7 +210,7 @@ ontology
 					description = <"">
 				>
 				["at0015"] = <
-					text = <"*DV_TEXT (en)">
+					text = <"Beskriv din fråga:">
 					description = <"">
 				>
 			>
