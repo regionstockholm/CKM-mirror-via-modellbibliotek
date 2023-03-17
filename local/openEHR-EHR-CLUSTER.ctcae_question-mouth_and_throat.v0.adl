@@ -78,20 +78,20 @@ CTCAE is intended to be populated using MedDRA terms only.">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"94fc5a0cdcfe2049cf4a5515e026387f">
+		["MD5-CAM-1.0.1"] = <"9cca94435af753c7938782a221660966">
 		["build_uid"] = <"9ac99a39-c4cf-48aa-aa91-d7e80be4cc06">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	CLUSTER[at0000.1] matches {    -- ctcae_question
+	CLUSTER[at0000.1] matches {    -- Mouth and throat
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0005] matches {    -- Symptom/sign name
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0006.1] occurrences matches {0..1} matches {    -- Are you experiencing difficulty with your breathing?
+			ELEMENT[at0006.1] occurrences matches {0..1} matches {    -- Have you noticed changes in your mouth/throat?
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
@@ -113,7 +113,7 @@ definition
 			}
 			CLUSTER[at0013] occurrences matches {0..*} matches {    -- Followup question
 				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0003.1] matches {    -- How do breathing problems affect your daily life?
+					ELEMENT[at0003.1] matches {    -- How would you describe your mouth/throat problems?
 						value matches {
 							1|[local::at0.1],
 							2|[local::at0.2],
@@ -158,34 +158,30 @@ ontology
 					comment = <"In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.">
 				>
 				["at0000.1"] = <
-					text = <"ctcae_question">
+					text = <"Mouth and throat">
 					description = <"A framework for recording any unfavourable and unintended sign, symptom or disease temporally using the CTCAE terminology.">
 				>
 				["at0006.1"] = <
-					text = <"Are you experiencing difficulty with your breathing?">
+					text = <"Have you noticed changes in your mouth/throat?">
 					description = <"Is there a history of the specific symptom or sign having been present?">
 					comment = <"In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.">
 					a_id = <"breathing_presence">
 				>
 				["at0003.1"] = <
-					text = <"How do breathing problems affect your daily life?">
+					text = <"How would you describe your mouth/throat problems?">
 					description = <"Question to the patinet regarding the severity of the adverse event.">
 				>
 				["at0.1"] = <
-					text = <"Slight breathing difficulties, can walk up stairs without resting">
+					text = <"Mild discomfort, such as soreness, redness, burning sensation in the mouth. No blisters.">
 					description = <"">
 				>
 				["at0.2"] = <
-					text = <"Moderate breathing problems, can not walk up stairs or 100 m outdoors without resting">
+					text = <"Moderate discomfort, redness, pain and blisters in the mouth">
 					description = <"">
 				>
 				["at0.3"] = <
-					text = <"Severe breathing problems that affect my daily life">
+					text = <"Severe discomfort, unable to eat and drink due to blisters and pain in the mouth">
 					description = <"">
-				>
-				["at0003"] = <
-					text = <"Question">
-					description = <"Question to the patient regarding the severity of the adverse event.">
 				>
 				["at0000"] = <
 					text = <"Specific symptom/sign (CTCAE)">
@@ -195,6 +191,10 @@ ontology
 					text = <"CTCAE Term">
 					description = <"The name of the sign, symptom or disease observed.">
 					comment = <"Identified as a MEDRAterm and corresponding code.">
+				>
+				["at0003"] = <
+					text = <"Question">
+					description = <"Question to the patient regarding the severity of the adverse event.">
 				>
 				["at0005"] = <
 					text = <"Symptom/sign name">
@@ -337,33 +337,29 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 		["sv"] = <
 			items = <
 				["at0000.1"] = <
-					text = <"ctcae_question">
+					text = <"Mun och svalg">
 					description = <"Ett ramverk för att med hjälp av CTCAE-terminologin registrera eventuella biverkningar eller ogynnsamma och oavsiktliga symptom eller sjukdomar.">
 				>
 				["at0006.1"] = <
-					text = <"Upplever du svårigheter med din andning?">
+					text = <"Har du förändringar i mun/svalg?">
 					description = <"Har symptomet eller tecknet förekommit?">
 					comment = <"I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall.">
 				>
 				["at0003.1"] = <
-					text = <"Vilka svårigheter upplever du med din andning?">
+					text = <"Hur upplever du dina besvär i mun/svalg?">
 					description = <"*Question to the patinet regarding the severity of the adverse event. (en)">
 				>
 				["at0.1"] = <
-					text = <"Lätta andningsbesvär, orkar gå uppför trappa utan paus">
+					text = <"Lätta besvär, såsom ömhet, rodnad, brännande känsla i munnen. Inga blåsor">
 					description = <"">
 				>
 				["at0.2"] = <
-					text = <"Måttliga andningsbesvär, orkar ej gå i trappa eller 100 m utomhus utan paus">
+					text = <"Måttliga besvär, rodnad, smärta och blåsor i munnen">
 					description = <"">
 				>
 				["at0.3"] = <
-					text = <"Svåra andningsbesvär som påverkar mina dagliga aktiviteter">
+					text = <"Svåra besvär, kan ej äta och dricka p.g.a. blåsor och smärta i munnen">
 					description = <"">
-				>
-				["at0003"] = <
-					text = <"Fråga">
-					description = <"*Question to the patient regarding the severity of the adverse event. (en)">
 				>
 				["at0000"] = <
 					text = <"CTCAE-baserad fråga">
@@ -374,6 +370,10 @@ Datum/Uhrzeit für Beginn des Symptoms. Intervall von Datum/Uhrzeit für einen Z
 					description = <"Namnet på tecknet, symtomet eller sjukdomen som observerats.">
 					comment = <"
 Identifierad som en MEDRA-term och motsvarande kod.">
+				>
+				["at0003"] = <
+					text = <"Fråga">
+					description = <"*Question to the patient regarding the severity of the adverse event. (en)">
 				>
 				["at0005"] = <
 					text = <"Symptom/tecken-benämning">
