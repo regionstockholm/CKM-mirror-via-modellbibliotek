@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "2.0.0",
+      "sem_ver" : "2.0.1",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "0746cc6f094da1285cc7b9f8694e2dc1",
+      "MD5-CAM-1.0.1" : "e025ac16d7d31e8dbebbc5737b72155f",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -553,21 +553,27 @@
         "sv" : {
           "at0.0.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "*one (en)",
+            "text" : "mild (sv)",
             "code" : "at0.0.1",
-            "description" : ""
+            "description" : "B1"
           },
           "at0.0.2" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "*two (en)",
+            "text" : "måttlig (sv)",
             "code" : "at0.0.2",
-            "description" : ""
+            "description" : "B2"
           },
           "at0.0.3" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "*three (en)",
+            "text" : "svår (sv)",
             "code" : "at0.0.3",
-            "description" : ""
+            "description" : "B3"
+          },
+          "at0002.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1.1",
+            "text" : "B: Ordinal typ satt  i arketyp och ordinal-innehåll definerat i template",
+            "description" : "*Question to the patinet regarding the severity of the adverse event. (en)"
           }
         },
         "de" : {
@@ -812,7 +818,14 @@
             "description" : "Question to the patinet regarding the severity of the adverse event."
           }
         },
-        "sv" : { },
+        "sv" : {
+          "at0002.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1.1",
+            "text" : "A: Ordinal typ och ordinal-innehåll definerat i arketyp",
+            "description" : "*Question to the patinet regarding the severity of the adverse event. (en)"
+          }
+        },
         "de" : { }
       },
       "termBindings" : { },
@@ -1042,21 +1055,27 @@
         "sv" : {
           "at0.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "*one (en)",
+            "text" : "mild C",
             "code" : "at0.1",
-            "description" : ""
+            "description" : "C1"
           },
           "at0.2" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "*two (en)",
+            "text" : "måttlig C",
             "code" : "at0.2",
-            "description" : ""
+            "description" : "C2"
           },
           "at0.3" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "*three (en)",
+            "text" : "svår C",
             "code" : "at0.3",
-            "description" : ""
+            "description" : "C3"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "C: Ordinal typ satt i template och ordinal-innehåll definerat i template",
+            "description" : "Fråga riktad till slutanvändaren."
           }
         },
         "de" : {
@@ -1130,7 +1149,98 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "15106AC78274B1D26390DEC53BF4418F"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Schaffung von Rahmenbedingungen für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.",
+          "keywords" : [ "Screening, Fragebogen, Beschwerde, Symptom, Störung, Problem, Unwohlsein, Anzeichen" ],
+          "use" : "Verwendung als Rahmenbedingung für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.\r\n\r\nHäufige Anwendungsfälle umfassen, sind aber nicht beschränkt auf:\r\n- Systematische Befragung in jeder Beratung, zum Beispiel:\r\n--- Haben Sie Kopfschmerzen? Ja, Nein, Unbekannt.\r\n--- Hatten Sie in den letzten vier Wochen Schwindel? Ja, Nein, Unbekannt.\r\n- Spezifische Befragung im Zusammenhang mit der Krankheitsüberwachung.\r\n\r\nDie Semantik dieses Archetyps ist absichtlich locker, und die Abfrage dieses Archetyps wäre normalerweise nur im Kontext jedes spezifischen Templates nützlich oder sicher. In einem Template würde normalerweise jedes Datenelement in die spezifisch gestellte Frage umbenannt. Wo Wertesätze für allgemeine Anwendungsfälle vorgeschlagen wurden, können diese für die lokale Verwendung angepasst werden, indem die „Text“-Auswahl verwendet wird, um jedem spezifischen Anwendungsfall zu entsprechen.\r\n\r\nÜber die EVENT-Struktur aus dem Referenzmodell kann festgelegt werden, ob sich die Fragen auf einen Zeitpunkt oder einen Zeitraum beziehen. Verwenden Sie eine separate Instanz dieses Archetyps, um zwischen einer Befragung zu unterscheiden, die Informationen über ein Symptom enthält, das zu einem beliebigen Zeitpunkt in der Vergangenheit eingetreten war, und Informationen über ein Symptom, das innerhalb eines bestimmten Zeitintervalls vorhanden war - zum Beispiel den Unterschied zwischen \"Ist Ihnen jetzt schwindelig?\" im Vergleich zu \"Hatten Sie in den letzten 4 Wochen Schwindel?\".\r\n\r\nDie Quelle der Informationen in einer Fragebogenantwort kann in verschiedenen Kontexten variieren, kann jedoch mithilfe des Elements „Information provider“ im Referenzmodell spezifisch identifiziert werden.\r\n\r\nDieser Archetyp wurde entwickelt, um als Screening-Tool oder zur Darstellung einfacher Daten im Fragebogenformat zur Verwendung in Situationen wie einem Krankheitsregister verwendet zu werden. Wenn der Screening-Fragebogen das Vorhandensein eines Symptoms oder Anzeichens identifiziert, wird empfohlen, dass das klinische System die spezifischen Details über das Symptom unter Verwendung des Archetyps CLUSTER.symptom_sign, der im SLOT für die Zusätzliche Angaben eingefügt wird, darstellt und beibehält.",
+          "misuse" : "Darf nicht verwendet werden, um Details über das Vorhandensein oder Fehlen eines Symptoms außerhalb eines Screening-Kontexts darzustellen. Verwenden Sie zu diesem Zweck CLUSTER.symptom_sign oder CLUSTER.exclusion_symptom_sign.\r\n\r\nDarf nicht verwendet werden, um Details zu einer einfachen Auswahlliste darzustellen, in der eine Frage entweder als \"vorhanden\" oder \"unbestimmt\" aufgezeichnet werden kann. Verwenden Sie dazu OBSERVATION.selection_list.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.",
+          "keywords" : [ "screening, formulär, frågeformulär, självrapporteringsskala, symptom, besvär, problem, tecken" ],
+          "use" : "Använd som ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.\r\n\r\nVanliga användningsfall inkluderar, men är inte begränsade till:\r\n- Systematisk utredning vid konsultationer, exempelvis:\r\n--- Har du huvudvärk? Ja, nej, okänt.\r\n--- Har du haft yrsel under de senaste fyra veckorna? Ja, nej, okänt.\r\n- Specifika frågor relaterade till övervakning/uppföljning av sjukdom.\r\n\r\nSemantiken för denna arketyp är avsiktligt generell, sökfrågor baserade på denna arketyp är normalt bara säker och meningsfull inom ramen för varje specifik mall (template). I en mall döps vanligtvis varje dataelement om till den specifika fråga som ställdes. Svarsalternativ har föreslagits för vanliga användningsfall, men kan anpassas för lokal användning genom att använda \"text\"-valet för att matcha varje specifikt användningsfall.\r\n\r\nEVENT-strukturen från openEHRs referensmodell kan användas för att specificera om frågorna avser en tidpunkt eller en tidsperiod. Använd separata instanser av denna arketyp för att skilja mellan ett frågeformulär som gäller information om ett symptom som har funnits någon gång tidigare och information om ett symptom inom ett specifikt angivet tidsintervall - till exempel skillnaden mellan \"Är du yr nu?\" jämfört med \"Har du haft yrsel någon gång under de senaste 4 veckorna?\r\n\r\nKällan till informationen i ett enkätsvar kan variera i olika sammanhang men kan specifikt identifieras med hjälp av elementet 'provider' i referensmodellens ENTRY-klass.\r\n\r\nDenna arketyp har utformats för att användas som ett screeningverktyg eller för att registrera enkla data i frågeformulärformat för användning i register etc. Om screeningsfrågeformuläret identifierar närvaron av ett symptom eller tecken, rekommenderas att det kliniska systemet även registrerar och behåller de specifika detaljerna om symtomet eller tecknet med hjälp av arketypen CLUSTER.symptom_sign inkapslad i avsedd SLOT för \"ytterligare detaljer\" i denna arketyp.",
+          "misuse" : "Får inte användas för att registrera detaljer om närvaron eller frånvaron av ett symptom, utanför ett screeningsammanhang. Använd CLUSTER.symptom_sign eller CLUSTER.exclusion_symptom_sign inkapslade i andra lämpligare arketyper för dessa ändamål.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
+          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
+          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\r\n\r\nCommon use cases include, but are not limited to:\r\n- Systematic inquiry in any consultation, for example:\r\n--- Do you have headaches? Yes, No, Unknown.\r\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\r\n- Specific questioning related to disease surveillance.\r\n\r\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\r\n\r\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\r\n\r\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\r\n\r\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
+          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\r\n\r\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.",
+          "keywords" : [ "intervjuskjema, kartleggingskjema, spørreskjema, lidelse, plage, problem, ubehag, symptom, sykdomstegn, lyte, skavank" ],
+          "use" : "Brukes for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.\r\n\r\nVanlige bruksområder inkluderer, men er ikke begrenset til:\r\n- Systematiske spørsmål ved konsultasjoner, for eksempel:\r\n--- Har du hodepine? Ja, Nei, Usikker.\r\n--- Har du vært plaget med svimmelhet de siste fire ukene? Ja, Nei, Usikker.\r\n- Spesifikke spørsmål relatert til overvåkning av sykdommer.\r\n\r\nSemantikken til denne arketypen er med vilje løst definert, og spørringer etter data i denne arketypen vil normalt bare være hensiktsmessig eller sikkert i konteksten av det spesifikke templatet. I et templat vil hvert dataelement vanligvis døpes om til det (spesifikke) spørsmålet man ønsker svar på. Flere steder er det foreslått verdisett som passer til de vanligste bruksområder, men det er allikevel mulig å tilpasse/endre verdisett for lokal bruk ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN for å harmonere verdisettet til hvert enkelt brukstilfelle.\r\n\r\nEVENT-strukturen fra arketypens referansemodell kan brukes for å spesifisere om spørsmålene relateres til et tidspunkt eller til et tidsintervall.\r\nBruk egne instanser av denne arketypen for å skille mellom spørsmål om prosedyrer som er gjennomførte på et hvilket som helst tidspunkt og spørsmål om prosedyrer som er gjennomført i et tidsintervall. For eksempel; \"Har du hodepine?\" sammenlignet med \"Har du vært plaget med svimmelhet de siste fire ukene?\".\r\n\r\nKilden til informasjonen i et spørreskjema kan variere i ulike kontekster, men kan identifiseres spesifikt ved å benytte \"Information provider\" elementet i openEHR referansemodellen.\r\n\r\nDenne arketypen er laget for å bli brukt i et spørreskjema eller for å registrere enkle strukturerte data til for eksempel et sykdomsregister. Dersom det i spørreskjemaet identifiseres at et symptom eller sykdomstegn er tilstede, anbefales det at spesifikke detaljer om symptomet registreres og lagres i pasientjournalen i arketypen CLUSTER.symptom_sign (Symptom/Sykdomstegn) i SLOTet \"Ytterligere detaljer\" i denne arketypen.",
+          "misuse" : "Brukes ikke for å registrere detaljer om tilstedeværelse eller fravær av et symptom utenfor konteksten av kartleggingen. Bruk arketypen CLUSTER.symptom_sign (Symptom/sykdomstegn) eller CLUSTER.exclusion_symptom_sign (Eksklusjon av et symptom) for dette formålet.\r\n\r\nBrukes ikke for å registrere detaljer om en enkel utvalgsliste der et spørsmål kan registreres som enten \"Tilstede\" eller \"Ubestemt\". Bruk arketypen OBSERVATION.selection_list for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To create a framework for recording answers to pre-defined screening questions about symptoms or signs.",
+          "keywords" : [ "screening, questionnaire, complaint, symptom, disturbance, problem, discomfort, sign" ],
+          "use" : "Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\r\n\r\nCommon use cases include, but are not limited to:\r\n- Systematic inquiry in any consultation, for example:\r\n--- Do you have headaches? Yes, No, Unknown.\r\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\r\n- Specific questioning related to disease surveillance.\r\n\r\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.\r\n\r\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\r\n\r\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\r\n\r\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype.",
+          "misuse" : "Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\r\n\r\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "it" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "it"
+          },
+          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
+          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
+          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\r\n\r\nCommon use cases include, but are not limited to:\r\n- Systematic inquiry in any consultation, for example:\r\n--- Do you have headaches? Yes, No, Unknown.\r\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\r\n- Specific questioning related to disease surveillance.\r\n\r\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\r\n\r\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\r\n\r\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\r\n\r\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
+          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\r\n\r\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v1",
     "differential" : true,
