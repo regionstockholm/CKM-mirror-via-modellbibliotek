@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "2559e81ed0b3832e5a19d74fc37d4756",
+      "MD5-CAM-1.0.1" : "20c2e01a542a1194796d913504ebc9c5",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "0.5.0",
+      "sem_ver" : "0.5.1",
       "build_uid" : "916653a2-9308-4588-9b84-170f9bd6a641"
     },
     "details" : {
@@ -112,7 +112,7 @@
           "a.hide_on_form" : "true"
         },
         "/items[at0005.1]" : {
-          "a.id" : "_presence"
+          "a.id" : "shortname_presence"
         }
       }
     }
@@ -141,6 +141,18 @@
             "@type" : "C_COMPLEX_OBJECT",
             "rmTypeName" : "DV_CODED_TEXT",
             "occurrences" : "1..1",
+            "defaultValue" : {
+              "defining_code" : {
+                "terminology_id" : {
+                  "value" : "SNOMED-CT",
+                  "@type" : "TERMINOLOGY_ID"
+                },
+                "code_string" : "404684003",
+                "@type" : "CODE_PHRASE"
+              },
+              "value" : "Clinical finding [replace this with better use case specific code+text]",
+              "@type" : "DV_CODED_TEXT"
+            },
             "attributes" : [ {
               "@type" : "C_ATTRIBUTE",
               "rmAttributeName" : "defining_code",
@@ -256,13 +268,13 @@
         "at0000.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0000.1",
-          "text" : "ChemoQ [short symptom heading here]",
+          "text" : "ChemoQ-shortname",
           "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
         },
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0005.1",
-          "text" : "Presence? [replace with patient facing question text]",
+          "text" : "presence_yes_no_question_text",
           "description" : ""
         },
         "at0004.1" : {
@@ -423,7 +435,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "e55a9ee07821bdf6cdc6cc0f8b2850d5"
+        "PARENT:MD5-CAM-1.0.1" : "840791d36a0f559d2595a00e99a1e787"
       },
       "details" : {
         "de" : {
@@ -472,6 +484,9 @@
         "sv" : {
           "/items[at0.1.1]" : {
             "a.hide_on_form" : "true"
+          },
+          "" : {
+            "a.id" : "shortname_details"
           }
         },
         "en" : {
@@ -479,13 +494,10 @@
             "a.hide_on_form" : "true"
           },
           "" : {
-            "a.id" : "_details",
-            "a.assign.$this" : "_details",
-            "a.assign.$presence" : "_presence",
-            "a.rule.adl" : "$presence = at0023 implies exists $this",
-            "a.rule.adl2" : "check $presence = at0023 implies defined ($this)",
-            "a.rule.cambio" : "$presence == at0023 ASSIGN $this.hidden = false OTHERWISE $this.hidden = true",
-            "a.rule.better" : "$presence = at0023 THEN $this show OTHERWISE $this hide"
+            "a.id" : "shortname_details",
+            "a.rule.adl" : "shortname_presence = at0023 implies exists shortname_details",
+            "a.rule.adl2" : "check shortname_presence = at0023 implies defined (shortname_details)",
+            "a.hide_on_form.header" : "true"
           }
         }
       }
@@ -641,7 +653,7 @@
           "at0002.1.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0002.1.1",
-            "text" : "Question [replace with patient facing followup question text and suitable ordinal values+texts]",
+            "text" : "followup_question_text",
             "description" : ""
           },
           "at0.0.1" : {
@@ -693,6 +705,12 @@
             "code" : "at0002.1",
             "text" : "fråga",
             "description" : ""
+          },
+          "at0002" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002",
+            "text" : "fråga",
+            "description" : "Fråga riktad till användaren."
           }
         },
         "de" : {
