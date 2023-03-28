@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "20c2e01a542a1194796d913504ebc9c5",
+      "MD5-CAM-1.0.1" : "1fe59704504f0bc5faf3a6daf9d4ec27",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "0.6.0",
+      "sem_ver" : "0.7.0",
       "build_uid" : "916653a2-9308-4588-9b84-170f9bd6a641"
     },
     "details" : {
@@ -274,7 +274,7 @@
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0005.1",
-          "text" : "presence_yes_no_question_text",
+          "text" : "Presence? [replace with patient facing question text]",
           "description" : ""
         },
         "at0004.1" : {
@@ -486,13 +486,24 @@
             "a.hide_on_form" : "true"
           },
           "" : {
-            "a.id" : "shortname_details"
+            "a.id" : "shortname_details",
+            "a.rule.adl" : "shortname_presence = at0023 implies exists shortname_details",
+            "a.rule.adl2" : "check shortname_presence = at0023 implies defined (shortname_details)",
+            "a.hide_on_form.header" : "true"
           }
         },
         "en" : {
           "/items[at0.1.1]" : {
             "a.hide_on_form" : "true"
           },
+          "" : {
+            "a.id" : "shortname_details",
+            "a.rule.adl" : "shortname_presence = at0023 implies exists shortname_details",
+            "a.rule.adl2" : "check shortname_presence = at0023 implies defined (shortname_details)",
+            "a.hide_on_form.header" : "true"
+          }
+        },
+        "de" : {
           "" : {
             "a.id" : "shortname_details",
             "a.rule.adl" : "shortname_presence = at0023 implies exists shortname_details",
@@ -653,7 +664,7 @@
           "at0002.1.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0002.1.1",
-            "text" : "followup_question_text",
+            "text" : "Question [replace with patient facing followup question text and suitable ordinal values+texts]",
             "description" : ""
           },
           "at0.0.1" : {
