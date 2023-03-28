@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "741878c69816dc91e07635ccb3987ab5",
+      "MD5-CAM-1.0.1" : "5e9adfe94638fb5ec9c1a6d6d45466cc",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "0.7.1",
+      "sem_ver" : "0.8.0",
       "build_uid" : "916653a2-9308-4588-9b84-170f9bd6a641"
     },
     "details" : {
@@ -147,10 +147,10 @@
                   "value" : "SNOMED-CT",
                   "@type" : "TERMINOLOGY_ID"
                 },
-                "code_string" : "404684003",
+                "code_string" : "84229001",
                 "@type" : "CODE_PHRASE"
               },
-              "value" : "Clinical finding [replace this with better use case specific code+text]",
+              "value" : "trötthet (fatigue)",
               "@type" : "DV_CODED_TEXT"
             },
             "attributes" : [ {
@@ -167,8 +167,8 @@
                 "selectedTerminologies" : [ "SNOMED-CT" ],
                 "includedExternalTerminologyCodes" : [ {
                   "terminologyId" : "SNOMED-CT",
-                  "code" : "404684003",
-                  "value" : "Clinical finding [replace this with better use case specific code+text]"
+                  "code" : "84229001",
+                  "value" : "trötthet (fatigue)"
                 } ]
               } ]
             } ],
@@ -196,7 +196,7 @@
                 "terminologyId" : {
                   "value" : "local"
                 },
-                "constraint" : [ "ac0.9" ],
+                "constraint" : [ "ac0.11" ],
                 "selectedTerminologies" : [ ]
               } ]
             } ],
@@ -274,7 +274,7 @@
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0005.1",
-          "text" : "Presence? [replace with patient facing question text]",
+          "text" : "Do you experience fatigue that affects your daily life?",
           "description" : ""
         },
         "at0004.1" : {
@@ -283,10 +283,10 @@
           "text" : "Symptom/sign name",
           "description" : ""
         },
-        "ac0.9" : {
+        "ac0.11" : {
           "@type" : "ARCHETYPE_TERM",
           "text" : "(Synthesized)",
-          "code" : "ac0.9",
+          "code" : "ac0.11",
           "description" : ""
         }
       },
@@ -297,10 +297,10 @@
           "text" : "Oire / tuntemus ryhmitys (2)",
           "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
         },
-        "ac0.9" : {
+        "ac0.11" : {
           "@type" : "ARCHETYPE_TERM",
           "text" : "*(Synthesized) (en)",
-          "code" : "ac0.9",
+          "code" : "ac0.11",
           "description" : ""
         }
       },
@@ -311,10 +311,10 @@
           "text" : "Spesifikt symptom/sykdomstegn (2)",
           "description" : "Detaljer om et spesifikt symptom eller sykdomstegn, eller gruppe av symptomer eller sykdomstegn som er innenfor kartleggingsformålet."
         },
-        "ac0.9" : {
+        "ac0.11" : {
           "@type" : "ARCHETYPE_TERM",
           "text" : "*(Synthesized) (en)",
-          "code" : "ac0.9",
+          "code" : "ac0.11",
           "description" : ""
         }
       },
@@ -325,10 +325,10 @@
           "text" : "Spezifisches Symptom/Anzeichen (2)",
           "description" : "Details zu einem bestimmten Symptom oder Anzeichen oder zu einer bestimmten Gruppe von Symptomen oder Anzeichen, die für das Screening relevant sind."
         },
-        "ac0.9" : {
+        "ac0.11" : {
           "@type" : "ARCHETYPE_TERM",
           "text" : "*(Synthesized) (en)",
-          "code" : "ac0.9",
+          "code" : "ac0.11",
           "description" : ""
         }
       },
@@ -339,10 +339,10 @@
           "text" : "Sintomo/segno specifico (2)",
           "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
         },
-        "ac0.9" : {
+        "ac0.11" : {
           "@type" : "ARCHETYPE_TERM",
           "text" : "*(Synthesized) (en)",
-          "code" : "ac0.9",
+          "code" : "ac0.11",
           "description" : ""
         }
       },
@@ -355,14 +355,14 @@
         },
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
-          "code" : "at0005",
-          "text" : "Närvarande?",
+          "code" : "at0005.1",
+          "text" : "Upplever du trötthet (fatigue) som påverkar ditt dagliga liv?",
           "description" : ""
         },
-        "ac0.9" : {
+        "ac0.11" : {
           "@type" : "ARCHETYPE_TERM",
           "text" : "*(Synthesized) (en)",
-          "code" : "ac0.9",
+          "code" : "ac0.11",
           "description" : ""
         }
       }
@@ -413,6 +413,16 @@
       "ac0.9" : {
         "@type" : "VALUE_SET",
         "id" : "ac0.9",
+        "members" : [ "at0023", "at0024" ]
+      },
+      "ac0.10" : {
+        "@type" : "VALUE_SET",
+        "id" : "ac0.10",
+        "members" : [ "at0023", "at0024" ]
+      },
+      "ac0.11" : {
+        "@type" : "VALUE_SET",
+        "id" : "ac0.11",
         "members" : [ "at0023", "at0024" ]
       }
     }
@@ -664,24 +674,24 @@
           "at0002.1.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0002.1.1",
-            "text" : "Question [replace with patient facing followup question text and suitable ordinal values+texts]",
+            "text" : "How does fatigue affect your daily life?",
             "description" : ""
           },
           "at0.0.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "Mild",
+            "text" : "Slight fatigue, resting more than usual",
             "code" : "at0.0.1",
             "description" : ""
           },
           "at0.0.2" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "Moderate",
+            "text" : "Moderate fatigue, resting less than 50% of waking time",
             "code" : "at0.0.2",
             "description" : ""
           },
           "at0.0.3" : {
             "@type" : "ARCHETYPE_TERM",
-            "text" : "Severe",
+            "text" : "Severe fatigue, resting more than 50% of waking time",
             "code" : "at0.0.3",
             "description" : ""
           },
@@ -713,8 +723,8 @@
           },
           "at0002.1.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "code" : "at0002.1",
-            "text" : "fråga",
+            "code" : "at0002.1.1",
+            "text" : "Hur påverkar tröttheten ditt dagliga liv?",
             "description" : ""
           },
           "at0002" : {
