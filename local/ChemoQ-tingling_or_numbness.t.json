@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "9881e943af626108a0b96b3690cfe948",
+      "MD5-CAM-1.0.1" : "a367d3e504c3acadf58c03ead578740f",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "1.0.0",
+      "sem_ver" : "2.0.0",
       "build_uid" : "916653a2-9308-4588-9b84-170f9bd6a641"
     },
     "details" : {
@@ -458,9 +458,65 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "d4d45de2579a5fa81cd06a3c088dccb8"
+        "PARENT:MD5-CAM-1.0.1" : "052cb985d2f23643097283341964aeca"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "keywords" : [ ],
+          "use" : "Der Name des Felds „Frage“ wird dem Endbenutzer eines Eingabeformulars als Frage angezeigt, z.B. ein Patient , benennen Sie es also so um, dass es wie eine Frage klingt. Geben Sie dann Alternativen, die verfügbar sein sollen. Entfernen oder ersetzen Sie dann den Beschreibungstext des Felds „Frage“ durch etwas Passenderes. Diese Änderungen können entweder über die Spezialisierung des Archetyps oder in einer „Template“ vorgenommen werden.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "use" : "Namnet på fältet 'Fråga' kommer att visas som en fråga till slutanvändaren av ett inmatningsformulär, t.ex. en patient, byt namn på det så att det låter som en fråga. Ange sedan vilken typ av svar och alternativ som ska finnas tillgängliga. Ta sedan bort eller ersätt beskrivningstexten i fältet \"Fråga\" med något mer lämpligt. Dessa ändringar kan göras antingen via specialisering av arketypen eller göras i en mall (template).",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "keywords" : [ ],
+          "use" : "Navnet på 'Spørsmål'-feltet vil vises som et spørsmål til sluttbrukeren av et inndataskjema, f.eks. en pasient. Gi den nytt navn til å høres ut som et spørsmål. Angi deretter typen som passer til svartypen og alternativene som skal være tilgjengelige. Fjern eller erstatt deretter beskrivelsesteksten i 'Spørsmål'-feltet med noe mer passende. Disse endringene kan gjøres enten via spesialisering av arketypen eller gjøres i en mal.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "use" : "The name of the 'Question' field will be shown as a question to the end user of an input form, e.g. a patient , thus rename it to sound like a question. Then specify the alternatives that should be available. Then remove or replace the the description text of the 'Question' field with something more suitable. These changes can be done either via specializing ths archetype or be done in a template.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.followup_question-ctcae-tingling_numbness.v0",
     "differential" : true,
@@ -472,15 +528,154 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "CLUSTER",
       "nodeId" : "at0000.1.1.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0004.0.0.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-followup_question-yes_no-001.v0",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000.1.1",
       "termDefinitions" : {
-        "en" : { },
-        "sv" : { },
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Followup question with CTCAE",
+            "description" : "Followup question with CTCAE"
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "följdfråga med CTCAE",
+            "description" : "Följdfråga som kan användas t.ex. i frågeformulär efter att ha svarat \"Ja\" på frågor som \"upplever du några symtom på...\""
+          }
+        },
+        "de" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Zusatzfrage",
+            "description" : "Folgefrage, die z.B. in Fragebögen nach Beantwortung von Fragen wie „Haben Sie irgendwelche Symptome von …“ mit „Ja“ beantwortet."
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Oppfølgingsspørsmål",
+            "description" : "Oppfølgingsspørsmål som kan brukes f.eks. i spørreskjemaer etter å ha svart \"Ja\" på spørsmål som \"opplever du noen symptomer på ...\""
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "ee8c9b7d-79c9-4782-bae4-eeae56b6aa74",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "f8c3537886b63cd036866bd7a10b3086"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.followup_question-yes_no.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-followup_question-yes_no-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000.1",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "Followup question",
+            "description" : "Follow-up question that may be used e.g. in questionnaires after answering 'Yes' to questions like \"Do you experience any symptoms of ...\""
+          }
+        },
+        "sv" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "följdfråga",
+            "description" : "Följdfråga som kan användas t.ex. i frågeformulär efter att ha svarat \"Ja\" på frågor som \"upplever du några symtom på...\""
+          }
+        },
         "de" : { },
         "nb" : { }
       },
