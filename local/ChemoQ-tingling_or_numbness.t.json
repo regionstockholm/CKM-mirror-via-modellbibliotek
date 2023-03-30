@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "bb5f6d23fad862304fea857f73540f50",
+      "MD5-CAM-1.0.1" : "9881e943af626108a0b96b3690cfe948",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "0.9.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "916653a2-9308-4588-9b84-170f9bd6a641"
     },
     "details" : {
@@ -166,10 +166,10 @@
                   "value" : "SNOMED-CT",
                   "@type" : "TERMINOLOGY_ID"
                 },
-                "code_string" : "404684003",
+                "code_string" : "91019004",
                 "@type" : "CODE_PHRASE"
               },
-              "value" : "Clinical finding [replace this with better use case specific code+text]",
+              "value" : "parestesi",
               "@type" : "DV_CODED_TEXT"
             },
             "attributes" : [ {
@@ -186,8 +186,12 @@
                 "selectedTerminologies" : [ "SNOMED-CT" ],
                 "includedExternalTerminologyCodes" : [ {
                   "terminologyId" : "SNOMED-CT",
-                  "code" : "404684003",
-                  "value" : "Clinical finding [replace this with better use case specific code+text]"
+                  "code" : "91019004",
+                  "value" : "parestesi"
+                }, {
+                  "terminologyId" : "SNOMED-CT",
+                  "code" : "789588003",
+                  "value" : "perifer sensorisk neuropati"
                 } ]
               } ]
             } ],
@@ -269,11 +273,11 @@
       }, {
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "CLUSTER",
-        "occurrences" : "0..*",
+        "occurrences" : "0..1",
         "nodeId" : "at0026.1",
         "attributes" : [ ],
         "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-followup_question-ctcae-002.v0",
+        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-followup_question-ctcae-tingling_numbness-001.v0",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -293,7 +297,7 @@
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0005.1",
-          "text" : "Presence? [replace with patient facing question text]",
+          "text" : "Do you experience tingling or numbness in your hands and/or feet?",
           "description" : ""
         },
         "at0004.1" : {
@@ -437,7 +441,7 @@
     }
   },
   "adlVersion" : "1.4",
-  "buildUid" : "a13e7044-73c9-392f-a582-d5e55500a181",
+  "buildUid" : "c0014176-39c3-3917-89d2-4a3afc0b07e8",
   "rmName" : "openehr",
   "rmRelease" : "1.1.0",
   "generated" : true,
@@ -445,7 +449,7 @@
   "otherMetaData" : { },
   "templateOverlays" : [ {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "dc16ffdf-3770-45bb-872d-0509cbfb9df8",
+    "uid" : "5592832d-fe90-4d71-b81b-7e9b10aef5b6",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
       "originalAuthor" : { },
@@ -454,357 +458,31 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "812f973378e70b5c340c2e154eadc987"
+        "PARENT:MD5-CAM-1.0.1" : "d4d45de2579a5fa81cd06a3c088dccb8"
       },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "keywords" : [ ],
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "keywords" : [ ],
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "keywords" : [ ],
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "keywords" : [ ],
-          "use" : "Navnet på 'Spørsmål'-feltet vil vises som et spørsmål til sluttbrukeren av et inndataskjema, f.eks. en pasient. Gi den nytt navn til å høres ut som et spørsmål. Angi deretter typen som passer til svartypen og alternativene som skal være tilgjengelige. Fjern eller erstatt deretter beskrivelsesteksten i 'Spørsmål'-feltet med noe mer passende. Disse endringene kan gjøres enten via spesialisering av arketypen eller gjøres i en mal.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
+      "details" : { }
     },
-    "annotations" : {
-      "@type" : "RESOURCE_ANNOTATIONS",
-      "documentation" : {
-        "sv" : {
-          "/items[at0.1.1]" : {
-            "a.hide_on_form" : "true"
-          },
-          "" : {
-            "a.id" : "tingling_or_numbness_details",
-            "a.rule.adl" : "tingling_or_numbness_presence = at0023 implies exists tingling_or_numbness_details",
-            "a.rule.adl2" : "check tingling_or_numbness_presence = at0023 implies defined (tingling_or_numbness_details)",
-            "a.hide_on_form.header" : "true"
-          }
-        },
-        "en" : {
-          "/items[at0.1.1]" : {
-            "a.hide_on_form" : "true"
-          },
-          "" : {
-            "a.id" : "tingling_or_numbness_details",
-            "a.rule.adl" : "tingling_or_numbness_presence = at0023 implies exists tingling_or_numbness_details",
-            "a.rule.adl2" : "check tingling_or_numbness_presence = at0023 implies defined (tingling_or_numbness_details)",
-            "a.hide_on_form.header" : "true"
-          }
-        },
-        "de" : {
-          "" : {
-            "a.id" : "tingling_or_numbness_details",
-            "a.rule.adl" : "tingling_or_numbness_presence = at0023 implies exists tingling_or_numbness_details",
-            "a.rule.adl2" : "check tingling_or_numbness_presence = at0023 implies defined (tingling_or_numbness_details)",
-            "a.hide_on_form.header" : "true"
-          },
-          "/items[at0.1.1]" : {
-            "a.hide_on_form" : "true"
-          }
-        },
-        "nb" : {
-          "" : {
-            "a.id" : "tingling_or_numbness_details",
-            "a.rule.adl" : "tingling_or_numbness_presence = at0023 implies exists tingling_or_numbness_details",
-            "a.rule.adl2" : "check tingling_or_numbness_presence = at0023 implies defined (tingling_or_numbness_details)",
-            "a.hide_on_form.header" : "true"
-          },
-          "/items[at0.1.1]" : {
-            "a.hide_on_form" : "true"
-          }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.followup_question-ctcae.v0",
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.followup_question-ctcae-tingling_numbness.v0",
     "differential" : true,
     "archetypeId" : {
       "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-followup_question-ctcae-002.v0"
+      "value" : "openEHR-EHR-CLUSTER.ovl-followup_question-ctcae-tingling_numbness-001.v0"
     },
     "definition" : {
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0002.1.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_ORDINAL",
-              "attributes" : [ ],
-              "attributeTuples" : [ {
-                "@type" : "C_ATTRIBUTE_TUPLE",
-                "members" : [ {
-                  "@type" : "C_ATTRIBUTE",
-                  "rmAttributeName" : "value",
-                  "children" : [ ]
-                }, {
-                  "@type" : "C_ATTRIBUTE",
-                  "rmAttributeName" : "symbol",
-                  "children" : [ ]
-                } ],
-                "tuples" : [ {
-                  "@type" : "C_PRIMITIVE_TUPLE",
-                  "members" : [ {
-                    "@type" : "C_INTEGER",
-                    "rmTypeName" : "INTEGER",
-                    "constraint" : [ {
-                      "lower" : 1,
-                      "upper" : 1,
-                      "lowerIncluded" : true,
-                      "upperIncluded" : true,
-                      "lowerUnbounded" : false,
-                      "upperUnbounded" : false
-                    } ]
-                  }, {
-                    "@type" : "C_TERMINOLOGY_CODE",
-                    "rmTypeName" : "TERMINOLOGY_CODE",
-                    "constraint" : [ "at0.0.1" ]
-                  } ]
-                }, {
-                  "@type" : "C_PRIMITIVE_TUPLE",
-                  "members" : [ {
-                    "@type" : "C_INTEGER",
-                    "rmTypeName" : "INTEGER",
-                    "constraint" : [ {
-                      "lower" : 2,
-                      "upper" : 2,
-                      "lowerIncluded" : true,
-                      "upperIncluded" : true,
-                      "lowerUnbounded" : false,
-                      "upperUnbounded" : false
-                    } ]
-                  }, {
-                    "@type" : "C_TERMINOLOGY_CODE",
-                    "rmTypeName" : "TERMINOLOGY_CODE",
-                    "constraint" : [ "at0.0.2" ]
-                  } ]
-                }, {
-                  "@type" : "C_PRIMITIVE_TUPLE",
-                  "members" : [ {
-                    "@type" : "C_INTEGER",
-                    "rmTypeName" : "INTEGER",
-                    "constraint" : [ {
-                      "lower" : 3,
-                      "upper" : 3,
-                      "lowerIncluded" : true,
-                      "upperIncluded" : true,
-                      "lowerUnbounded" : false,
-                      "upperUnbounded" : false
-                    } ]
-                  }, {
-                    "@type" : "C_TERMINOLOGY_CODE",
-                    "rmTypeName" : "TERMINOLOGY_CODE",
-                    "constraint" : [ "at0.0.3" ]
-                  } ]
-                } ]
-              } ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0.1.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "defaultValue" : {
-                "defining_code" : {
-                  "terminology_id" : {
-                    "value" : "MedDRA",
-                    "@type" : "TERMINOLOGY_ID"
-                  },
-                  "code_string" : "10016256",
-                  "@type" : "CODE_PHRASE"
-                },
-                "value" : "Fatigue",
-                "@type" : "DV_CODED_TEXT"
-              },
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "0..1",
-                  "terminologyId" : {
-                    "value" : "MedDRA"
-                  },
-                  "constraint" : [ ],
-                  "selectedTerminologies" : [ "MedDRA" ],
-                  "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "MedDRA",
-                    "code" : "10016256",
-                    "value" : "Fatigue [replace with use case specific code(s)]"
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
+      "nodeId" : "at0000.1.1.1",
+      "attributes" : [ ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
       "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000.1",
+      "conceptCode" : "at0000.1.1",
       "termDefinitions" : {
-        "en" : {
-          "at0002.1.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0002.1.1",
-            "text" : "Question [replace with patient facing followup question text and suitable ordinal values+texts]",
-            "description" : ""
-          },
-          "at0.0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "Mild",
-            "code" : "at0.0.1",
-            "description" : ""
-          },
-          "at0000.1.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Followup question with CTCAE",
-            "description" : ""
-          },
-          "at0.0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "Moderate",
-            "code" : "at0.0.2",
-            "description" : ""
-          },
-          "at0.0.3" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "Severe",
-            "code" : "at0.0.3",
-            "description" : ""
-          }
-        },
-        "sv" : {
-          "at0.0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "Mild",
-            "code" : "at0.0.1",
-            "description" : ""
-          },
-          "at0002.1.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0002.1",
-            "text" : "fråga",
-            "description" : ""
-          },
-          "at0.0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*Moderate (en)",
-            "code" : "at0.0.2",
-            "description" : ""
-          },
-          "at0.0.3" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*Severe (en)",
-            "code" : "at0.0.3",
-            "description" : ""
-          }
-        },
-        "de" : {
-          "at0.0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "Leicht",
-            "code" : "at0.0.1",
-            "description" : ""
-          },
-          "at0.0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*Moderate (en)",
-            "code" : "at0.0.2",
-            "description" : ""
-          },
-          "at0.0.3" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*Severe (en)",
-            "code" : "at0.0.3",
-            "description" : ""
-          }
-        },
-        "nb" : {
-          "at0.0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "Mild",
-            "code" : "at0.0.1",
-            "description" : ""
-          },
-          "at0.0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*Moderate (en)",
-            "code" : "at0.0.2",
-            "description" : ""
-          },
-          "at0.0.3" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*Severe (en)",
-            "code" : "at0.0.3",
-            "description" : ""
-          }
-        }
+        "en" : { },
+        "sv" : { },
+        "de" : { },
+        "nb" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
