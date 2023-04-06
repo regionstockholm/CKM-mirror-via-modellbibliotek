@@ -61,14 +61,14 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"052cb985d2f23643097283341964aeca">
+		["MD5-CAM-1.0.1"] = <"9822acda5fc07109f4a89772f725b607">
 		["build_uid"] = <"3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa">
 	>
 
 definition
-	CLUSTER[at0000.1.1] matches {    -- Followup question with CTCAE-tingling_numbness
+	CLUSTER[at0000.1.1] occurrences matches {0..1} matches {    -- Followup question with CTCAE-tingling_numbness
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0002.1.1] occurrences matches {1..*} matches {    -- How do you experience your problems of tingling/numbness in your hands and/or feet?
+			ELEMENT[at0002.1.1] occurrences matches {0..1} matches {    -- How do you experience your problems of tingling/numbness in your hands and/or feet?
 				value matches {
 					1|[local::at0.0.1],
 					2|[local::at0.0.2],
