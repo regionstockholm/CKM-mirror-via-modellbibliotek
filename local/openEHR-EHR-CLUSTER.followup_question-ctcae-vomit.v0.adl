@@ -61,14 +61,14 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"866bee63c51c8cd3cd45ee93377e66fa">
+		["MD5-CAM-1.0.1"] = <"9d2f23aeba9859f1332f39e38683857e">
 		["build_uid"] = <"3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa">
 	>
 
 definition
-	CLUSTER[at0000.1.1] matches {    -- Followup question with CTCAE - vomit
+	CLUSTER[at0000.1.1] occurrences matches {0..1} matches {    -- Followup question with CTCAE - vomit
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0002.1.1] occurrences matches {1..*} matches {    -- Are you vomiting?
+			ELEMENT[at0002.1.1] occurrences matches {0..1} matches {    -- Are you vomiting?
 				value matches {
 					0|[local::at0.0.1],
 					1|[local::at0.0.2],
