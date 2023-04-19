@@ -61,7 +61,7 @@ description
 		["organisation"] = <"Helse Vest IKT AS">
 		["email"] = <"marit.alice.venheim@helse-vest-ikt.no">
 	>
-	lifecycle_state = <"published">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Astrid Askeland, Dips AS, Norway","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","Aleocidio Balzanelo, DASA, Brazil","Maria Berggren, Region Uppsala, Sweden","SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India","Diego Bosca, VeraTech for Health, Spain","Samanta Dallagnese, Private Office, Brazil","Gunn Elin Blakkisrud, DIPS ASA, Norway","Kåre Flø, DIPS ASA, Norway","Martin Grundberg, Cambio Healthcare Systems, Sweden","Evelyn Hovenga, EJSH Consulting, Australia","Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (Nasjonal IKT redaktør)","Ronald Krawec, Alberta Health Services, Canada","Kanika Kuwelker, Helse Vest IKT, Norway (Nasjonal IKT redaktør)","Liv Laugen, ​Oslo University Hospital, Norway, Norway","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Manisha Mantri, C-DAC, India","Hanne Marte Bårholm, Helse Vest IKT, Norway (Nasjonal IKT redaktør)","Mikael Nyström, Cambio Healthcare Systems AB, Sweden","Terje Sagmyr, Helse Vest IKT, Norway","Carina Sandell, Region Östergötland, Sweden","Andre Smitt-Ingebretsen, Sørlandet sykehus HF, Norway","Natalia Strauch, Medizinische Hochschule Hannover, Germany","Erik Sundvall, Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University, Sweden","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)","Ina Wille, Helse-Vest RHF, Norway">
 	details = <
 		["nn"] = <
@@ -237,22 +237,22 @@ Les sections/contenus principaux sont volontairement sans contraintes. Cela perm
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"adb00c7d99ab483c3121b99d5c79af9f">
-		["build_uid"] = <"228f6227-4ee7-4853-86e8-3afccefce6d2">
-		["revision"] = <"1.0.1">
+		["MD5-CAM-1.0.1"] = <"8ce513a50cfa52112d9d79313e52cbf7">
+		["build_uid"] = <"33b01acc-484f-4b68-84e8-0c6722a27c2e">
+		["revision"] = <"1.0.2-alpha">
 	>
 
 definition
 	COMPOSITION[at0000] matches {    -- Self-reported data
 		category matches {
-			DV_CODED_TEXT[at0001] matches {    -- Coded text
+			DV_CODED_TEXT matches {
 				defining_code matches {
 					[openehr::433]
 				}
 			}
 		}
 		context matches {
-			EVENT_CONTEXT[at0002] matches {    -- Event Context
+			EVENT_CONTEXT matches {
 				other_context matches {
 					ITEM_TREE[at0003] matches {    -- Item tree
 						items cardinality matches {0..*; unordered} matches {
@@ -283,14 +283,6 @@ ontology
 					text = <"Self-reported data">
 					description = <"Generic container for information provided by an individual.">
 				>
-				["at0001"] = <
-					text = <"Coded text">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Event Context">
-					description = <"">
-				>
 				["at0003"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
@@ -316,14 +308,6 @@ ontology
 				["at0000"] = <
 					text = <"Selvrapporterte data">
 					description = <"Generisk container for informasjon gitt av et individ.">
-				>
-				["at0001"] = <
-					text = <"Coded text">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Event Context">
-					description = <"">
 				>
 				["at0003"] = <
 					text = <"Item tree">
@@ -351,14 +335,6 @@ ontology
 					text = <"*Self-reported data (en)">
 					description = <"*Generic container for information provided by an individual. (en)">
 				>
-				["at0001"] = <
-					text = <"*Coded text (en)">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"*Event Context (en)">
-					description = <"">
-				>
 				["at0003"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
@@ -384,14 +360,6 @@ ontology
 				["at0000"] = <
 					text = <"Egenrapporterad data">
 					description = <"Generell behållare för information som tillhandahålls av en individ.">
-				>
-				["at0001"] = <
-					text = <"Coded text">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Event Context">
-					description = <"">
 				>
 				["at0003"] = <
 					text = <"Item tree">
@@ -419,14 +387,6 @@ ontology
 					text = <"Selbstberichtete Daten">
 					description = <"Generischer Container für Informationen, die von einer Person bereitgestellt werden.">
 				>
-				["at0001"] = <
-					text = <"Codierter Text">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Ereigniskontext">
-					description = <"">
-				>
 				["at0003"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
@@ -453,14 +413,6 @@ ontology
 					text = <"Données auto-déclarées">
 					description = <"Conteneur générique pour des informations fournies par un individu.">
 				>
-				["at0001"] = <
-					text = <"Texte codifié">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Contexte de l'évènement">
-					description = <"">
-				>
 				["at0003"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
@@ -486,14 +438,6 @@ ontology
 				["at0000"] = <
 					text = <"Dados auto-relatados">
 					description = <"Contentor genérico para informação fornecida por um indivíduo.">
-				>
-				["at0001"] = <
-					text = <"Texto codificado">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Contexto de evento">
-					description = <"">
 				>
 				["at0003"] = <
 					text = <"Item tree">
