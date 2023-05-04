@@ -23,16 +23,17 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"4aee7cf506be7d61ca74b7ffa3ba74ed">
+		["MD5-CAM-1.0.1"] = <"9f10906b0b83b726784ad245a09cb8fc">
 		["build_uid"] = <"35146cc5-b17f-380b-bacf-4f92eac5a6ed">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- clips_medical_device
+	CLUSTER[at0000] matches {    -- clips
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Clips in wound cavity
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Clips in wound cavity
 				value matches {
-					DV_BOOLEAN matches {*}
+					1|[local::at0003],
+					2|[local::at0004]
 				}
 			}
 		}
@@ -43,11 +44,19 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"clips_medical_device">
+					text = <"clips">
 					description = <"clips_medical_device">
 				>
-				["at0001"] = <
+				["at0002"] = <
 					text = <"Clips in wound cavity">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"No">
 					description = <"">
 				>
 			>
