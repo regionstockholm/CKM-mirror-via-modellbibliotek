@@ -23,17 +23,13 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"e2e93693e84dfc25e3de8c5cd45cfcd8">
+		["MD5-CAM-1.0.1"] = <"d90df41d0496eb00e8930d2ae4cda53f">
 		["build_uid"] = <"1136f16b-cf41-3fa1-89be-27dd60975dbb">
 	>
 
 definition
 	CLUSTER[at0000] matches {    -- Breast cancer surgery
 		items cardinality matches {1..*; unordered} matches {
-			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- CLUSTER
-				include
-					archetype_id/value matches {/.*/}
-			}
 			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type of intervention
 				value matches {
 					DV_CODED_TEXT matches {
@@ -57,10 +53,6 @@ ontology
 				["at0000"] = <
 					text = <"Breast cancer surgery">
 					description = <"Breast cancer surgery">
-				>
-				["at0001"] = <
-					text = <"CLUSTER">
-					description = <"">
 				>
 				["at0002"] = <
 					text = <"Type of intervention">
