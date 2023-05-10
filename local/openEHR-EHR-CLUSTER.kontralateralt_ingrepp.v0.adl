@@ -23,28 +23,39 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"5954c6c41fd15f4e0849ba4efe014ccb">
+		["MD5-CAM-1.0.1"] = <"2622f61d3abc5fb33de451d6ff69878d">
 		["build_uid"] = <"553df185-1983-37f3-892a-59f9634de004">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- Kontralateralt ingrepp
+	CLUSTER[at0000] matches {    -- Contralateral intervention
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Kontralateralt ingrepp
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Contralateralt intervention
 				value matches {
-					DV_BOOLEAN matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0012,    -- Present
+							at0013]    -- Absent
+						}
+					}
 				}
 			}
-			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Typ av kontralateralt ingrepp
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Indikation
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Indication
 				value matches {
-					1|[local::at0004],
-					2|[local::at0005],
-					3|[local::at0006]
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008,    -- Profylaktiskt
+							at0009,    -- För symmetri
+							at0010]    -- Annan
+						}
+					}
 				}
 			}
 		}
@@ -55,31 +66,39 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Kontralateralt ingrepp">
+					text = <"Contralateral intervention">
 					description = <"Kontralateralt ingrepp">
 				>
-				["at0001"] = <
-					text = <"Kontralateralt ingrepp">
-					description = <"">
-				>
 				["at0002"] = <
-					text = <"Typ av kontralateralt ingrepp">
+					text = <"Type">
 					description = <"">
 				>
-				["at0003"] = <
-					text = <"Indikation">
+				["at0007"] = <
+					text = <"Indication">
 					description = <"">
 				>
-				["at0004"] = <
+				["at0008"] = <
 					text = <"Profylaktiskt">
 					description = <"">
 				>
-				["at0005"] = <
+				["at0009"] = <
 					text = <"För symmetri">
 					description = <"">
 				>
-				["at0006"] = <
+				["at0010"] = <
 					text = <"Annan">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Contralateralt intervention">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Present">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Absent">
 					description = <"">
 				>
 			>
