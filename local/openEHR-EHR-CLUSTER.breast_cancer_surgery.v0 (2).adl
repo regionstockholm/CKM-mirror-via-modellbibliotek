@@ -1,0 +1,87 @@
+archetype (adl_version=1.4; uid=536ab038-79b1-4f95-b256-a3f44a9bd848)
+	openEHR-EHR-CLUSTER.breast_cancer_surgery.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-05-10">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"19b3da06ebbd37631edbd2084b72ccd6">
+		["build_uid"] = <"1136f16b-cf41-3fa1-89be-27dd60975dbb">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Breast cancer surgery
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- CLUSTER
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type of intervention
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003,    -- Utförd Onkoplastik
+							at0004,    -- Clips i sårhålla
+							at0005,    -- Kontralateralt ingrepp
+							at0006]    -- Dränage
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Breast cancer surgery">
+					description = <"breast cancer surgery">
+				>
+				["at0001"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Type of intervention">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Utförd Onkoplastik">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Clips i sårhålla">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Kontralateralt ingrepp">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Dränage">
+					description = <"">
+				>
+			>
+		>
+	>
