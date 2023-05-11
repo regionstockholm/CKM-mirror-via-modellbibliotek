@@ -1,0 +1,75 @@
+archetype (adl_version=1.4; uid=0e916e2b-f7ed-477b-8c8e-4727c4a11828)
+	openEHR-EHR-CLUSTER.oncoplasty.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-05-10">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"dd2c9522074a68096bcf7b205bde5aaf">
+		["build_uid"] = <"6a5dd680-a706-3992-b488-78e3f1c1ec44">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Oncoplasty
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Procedure performed
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Yes
+							at0003]    -- No
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Oncoplasty">
+					description = <"Oncoplasty">
+				>
+				["at0001"] = <
+					text = <"Procedure performed">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"CLUSTER_SLOT">
+					description = <"">
+				>
+			>
+		>
+	>
