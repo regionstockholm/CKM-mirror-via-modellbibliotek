@@ -1,5 +1,5 @@
-archetype (adl_version=1.4; uid=536ab038-79b1-4f95-b256-a3f44a9bd848)
-	openEHR-EHR-CLUSTER.breast_cancer_surgery.v0
+archetype (adl_version=1.4; uid=0e916e2b-f7ed-477b-8c8e-4727c4a11828)
+	openEHR-EHR-CLUSTER.oncoplasty.v0
 
 concept
 	[at0000]
@@ -23,29 +23,25 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"19b3da06ebbd37631edbd2084b72ccd6">
-		["build_uid"] = <"1136f16b-cf41-3fa1-89be-27dd60975dbb">
+		["MD5-CAM-1.0.1"] = <"89ffb581006be882587ca44abf8a0177">
+		["build_uid"] = <"6a5dd680-a706-3992-b488-78e3f1c1ec44">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- Breast cancer surgery
+	CLUSTER[at0000] matches {    -- Oncoplasty
 		items cardinality matches {1..*; unordered} matches {
-			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- CLUSTER
-				include
-					archetype_id/value matches {/.*/}
-			}
-			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type of intervention
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Procedure performed
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
 							[local::
-							at0003,    -- Utförd Onkoplastik
-							at0004,    -- Clips i sårhålla
-							at0005,    -- Kontralateralt ingrepp
-							at0006]    -- Dränage
+							at0002,    -- Yes
+							at0003]    -- No
 						}
 					}
 				}
+			}
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
 			}
 		}
 	}
@@ -55,31 +51,23 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Breast cancer surgery">
-					description = <"breast cancer surgery">
+					text = <"Oncoplasty">
+					description = <"Oncoplasty">
 				>
 				["at0001"] = <
-					text = <"CLUSTER">
+					text = <"Procedure performed">
 					description = <"">
 				>
 				["at0002"] = <
-					text = <"Type of intervention">
+					text = <"Yes">
 					description = <"">
 				>
 				["at0003"] = <
-					text = <"Utförd Onkoplastik">
-					description = <"">
-				>
-				["at0004"] = <
-					text = <"Clips i sårhålla">
+					text = <"No">
 					description = <"">
 				>
 				["at0005"] = <
-					text = <"Kontralateralt ingrepp">
-					description = <"">
-				>
-				["at0006"] = <
-					text = <"Dränage">
+					text = <"CLUSTER_SLOT">
 					description = <"">
 				>
 			>
