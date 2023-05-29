@@ -1,0 +1,82 @@
+archetype (adl_version=1.4; uid=9a10e7bf-2c3c-407f-af63-dd9cfba9c013)
+	openEHR-EHR-CLUSTER.bcs_implant_coverage.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-05-29">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"8860f5d5f16279cc501ddb84389a8bb6">
+		["build_uid"] = <"89f791be-0bba-33b3-98da-0f2fb6aff6b7">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- bcs_implant_coverage
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Type of flap
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0003,    -- Muskulokutan
+							at0004,    -- Muskel
+							at0005]    -- Fri lambåhud
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"bcs_implant_coverage">
+					description = <"bcs_implant_coverage">
+				>
+				["at0001"] = <
+					text = <"CLUSTER_SLOT">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Type of flap">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Muskulokutan">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Muskel">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Fri lambåhud">
+					description = <"">
+				>
+			>
+		>
+	>
