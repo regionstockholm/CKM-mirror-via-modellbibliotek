@@ -23,7 +23,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"ebcaf6949d2a7c9f5dfe3afd58d18be2">
+		["MD5-CAM-1.0.1"] = <"afe20245c12e8d2ba581ee53a96657be">
 		["build_uid"] = <"6dbd1420-40d8-32ae-bf74-b223d3e4bcfd">
 	>
 
@@ -41,7 +41,10 @@ definition
 					}
 				}
 			}
-			CLUSTER[at0004] occurrences matches {0..1} matches {*}    -- CLUSTER
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Breast reconstruction_bcs
+				include
+					archetype_id/value matches {/.*/}
+			}
 		}
 	}
 
@@ -65,8 +68,8 @@ ontology
 					text = <"Nej">
 					description = <"">
 				>
-				["at0004"] = <
-					text = <"CLUSTER">
+				["at0005"] = <
+					text = <"Breast reconstruction_bcs">
 					description = <"">
 				>
 			>
