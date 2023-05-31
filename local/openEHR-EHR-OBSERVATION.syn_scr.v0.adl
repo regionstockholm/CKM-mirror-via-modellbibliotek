@@ -1,0 +1,144 @@
+archetype (adl_version=1.4; uid=16a63f97-b3ac-43cc-ac59-48e384c02156)
+	openEHR-EHR-OBSERVATION.syn_scr.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-05-31">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"2ecfc73d819c280b320dd4d307e6620d">
+		["build_uid"] = <"36665e10-c773-3454-8b46-a182bcc51e8f">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Syn_scr
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Vision problem
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005,    -- Ja
+													at0006,    -- Nej
+													at0010]    -- Undersökts på syncentral
+												}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Vision status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0008,    -- Status höger öga
+													at0009]    -- Status vänster öga
+												}
+											}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Aid
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0013,    -- Glasögon behövs
+													at0014]    -- Glasögon behövs inte
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Syn_scr">
+					description = <"Syn_scr">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vision problem">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Nej">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Vision status">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Status höger öga">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Status vänster öga">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Undersökts på syncentral">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Aid">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Glasögon behövs">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Glasögon behövs inte">
+					description = <"">
+				>
+			>
+		>
+	>
