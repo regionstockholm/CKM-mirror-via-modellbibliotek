@@ -1,0 +1,165 @@
+archetype (adl_version=1.4; uid=3805e823-1a8d-4b28-9906-047c00ad5e05)
+	openEHR-EHR-CLUSTER.nutrition_screening.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-06-27">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"408eeac9c5ef4603f3656348fa00e17f">
+		["build_uid"] = <"bf606750-f879-3bb1-b787-48fc83cd269b">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Nutrition screening
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Intake of dietary supplements
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0004,    -- Yes
+							at0005]    -- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- If yes, which type of dietary supplements?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Eating difficulties
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008,    -- Present
+							at0009]    -- None
+						}
+					}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Type of eating difficulties
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Unwillingness to eat
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0012,    -- Yes
+							at0013]    -- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Helping aid
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015,    -- Percutaneous endoscopic gastrostomy feeding
+							at0016]    -- Nasal tube feeding
+						}
+					}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Type of diet
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Nutrition screening">
+					description = <"Nutrition screening">
+				>
+				["at0002"] = <
+					text = <"Intake of dietary supplements">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Type of diet">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"If yes, which type of dietary supplements?">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Eating difficulties">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Present">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"None">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Type of eating difficulties">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Unwillingness to eat">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Helping aid">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Percutaneous endoscopic gastrostomy feeding">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Nasal tube feeding">
+					description = <"">
+				>
+			>
+		>
+	>
