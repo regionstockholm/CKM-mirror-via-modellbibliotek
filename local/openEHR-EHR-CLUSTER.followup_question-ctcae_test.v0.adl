@@ -19,6 +19,11 @@ language
 			author = <
 			>
 		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+			>
+		>
 	>
 
 description
@@ -40,6 +45,11 @@ description
 			copyright = <"© openEHR Foundation">
 			use = <"Namnet på fältet 'Fråga' kommer att visas som en fråga till slutanvändaren av ett inmatningsformulär, t.ex. en patient, byt namn på det så att det låter som en fråga. Ange sedan vilken typ av svar och alternativ som ska finnas tillgängliga. Ta sedan bort eller ersätt beskrivningstexten i fältet \"Fråga\" med något mer lämpligt. Dessa ändringar kan göras antingen via specialisering av arketypen eller göras i en mall (template).">
 		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			copyright = <"© openEHR Foundation">
+			use = <"Navnet på 'Spørsmål'-feltet vil vises som et spørsmål til sluttbrukeren av et inndataskjema, f.eks. en pasient. Gi den nytt navn til å høres ut som et spørsmål. Angi deretter typen som passer til svartypen og alternativene som skal være tilgjengelige. Fjern eller erstatt deretter beskrivelsesteksten i 'Spørsmål'-feltet med noe mer passende. Disse endringene kan gjøres enten via spesialisering av arketypen eller gjøres i en mal.">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			use = <"The name of the 'Question' field will be shown as a question to the end user of an input form, e.g. a patient , thus rename it to sound like a question. Then specify the alternatives that should be available. Then remove or replace the the description text of the 'Question' field with something more suitable. These changes can be done either via specializing ths archetype or be done in a template.">
@@ -51,12 +61,12 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"a03d933909a342f6bf59a9cb0e7b7235">
+		["MD5-CAM-1.0.1"] = <"4d649c25f81d0a678a7be3ec04077b53">
 		["build_uid"] = <"3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa">
 	>
 
 definition
-	CLUSTER[at0000.1] matches {    -- Followup question with CTCAE_test
+	CLUSTER[at0000.1] occurrences matches {0..*} matches {    -- Followup question with CTCAE_test
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0002.1] occurrences matches {1..*} matches {    -- Question
 				value matches {
@@ -159,13 +169,13 @@ ontology
 					text = <"livshotande (sv)">
 					description = <"">
 				>
+				["at0002"] = <
+					text = <"fråga">
+					description = <"Fråga riktad till användaren.">
+				>
 				["at0000"] = <
 					text = <"följdfråga">
 					description = <"Följdfråga som kan användas t.ex. i frågeformulär efter att ha svarat \"Ja\" på frågor som \"upplever du några symtom på...\"">
-				>
-				["at0002"] = <
-					text = <"fråga">
-					description = <"Fråga riktad till slutanvändaren.">
 				>
 				["at0004"] = <
 					text = <"ytterligare följdfrågedetaljer">
@@ -213,6 +223,50 @@ ontology
 				>
 				["at0004"] = <
 					text = <"zusätzliche Folgefragedetails">
+					description = <"">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000.1"] = <
+					text = <"Oppfølgingsspørsmål">
+					description = <"Oppfølgingsspørsmål som kan brukes f.eks. i spørreskjemaer etter å ha svart \"Ja\" på spørsmål som \"opplever du noen symptomer på ...\"">
+				>
+				["at0.1"] = <
+					text = <"Related CTCAE term">
+					description = <"">
+				>
+				["at0002.1"] = <
+					text = <"Spørsmål">
+					description = <"Spørsmål rettet til sluttbruker.">
+				>
+				["at0.2"] = <
+					text = <"Mild">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"Moderate">
+					description = <"">
+				>
+				["at0.4"] = <
+					text = <"Severe">
+					description = <"">
+				>
+				["at0.5"] = <
+					text = <"Life-threatening">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"Oppfølgingsspørsmål">
+					description = <"Oppfølgingsspørsmål som kan brukes f.eks. i spørreskjemaer etter å ha svart \"Ja\" på spørsmål som \"opplever du noen symptomer på ...\"">
+				>
+				["at0002"] = <
+					text = <"Spørsmål">
+					description = <"Spørsmål rettet til sluttbruker.">
+				>
+				["at0004"] = <
+					text = <"Ytterligere oppfølgingsdetaljer">
 					description = <"">
 				>
 			>
