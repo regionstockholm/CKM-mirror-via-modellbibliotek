@@ -34,27 +34,13 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"6801c4b3df94a4f87e2c020343f3020b">
+		["MD5-CAM-1.0.1"] = <"4c18e6e5beea63edd70b7d85f357278e">
 		["build_uid"] = <"a203113c-eb44-3812-a47a-9379c540a772">
 	>
 
 definition
 	CLUSTER[at0000] matches {    -- Breast_cancer_operation
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Type of intervention
-				value matches {
-					DV_CODED_TEXT matches {
-						defining_code matches {
-							[local::
-							at0002,    -- Performed oncoplasty
-							at0003,    -- Clips in wound cavity
-							at0004,    -- Contralateral intervention
-							at0005,    -- Drainage
-							at0006]    -- Oncoplasty
-						}
-					}
-				}
-			}
 			allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
 				include
 					archetype_id/value matches {/.*/}
@@ -70,30 +56,6 @@ ontology
 					text = <"Breast_cancer_operation">
 					description = <"Breast_cancer_operation">
 				>
-				["at0001"] = <
-					text = <"Type of intervention">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Performed oncoplasty">
-					description = <"">
-				>
-				["at0003"] = <
-					text = <"Clips in wound cavity">
-					description = <"">
-				>
-				["at0004"] = <
-					text = <"Contralateral intervention">
-					description = <"">
-				>
-				["at0005"] = <
-					text = <"Drainage">
-					description = <"">
-				>
-				["at0006"] = <
-					text = <"Oncoplasty">
-					description = <"">
-				>
 				["at0007"] = <
 					text = <"CLUSTER_SLOT">
 					description = <"">
@@ -105,30 +67,6 @@ ontology
 				["at0000"] = <
 					text = <"Bröst cancer operation">
 					description = <"*Breast_cancer_operation (en)">
-				>
-				["at0001"] = <
-					text = <"Typ av ingrepp">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Utförd onkoplastik">
-					description = <"">
-				>
-				["at0003"] = <
-					text = <"Clips i sårhålla">
-					description = <"">
-				>
-				["at0004"] = <
-					text = <"Kontralateralt ingrepp">
-					description = <"">
-				>
-				["at0005"] = <
-					text = <"Dränage">
-					description = <"">
-				>
-				["at0006"] = <
-					text = <"Onkoplastik">
-					description = <"">
 				>
 				["at0007"] = <
 					text = <"*CLUSTER_SLOT (en)">
