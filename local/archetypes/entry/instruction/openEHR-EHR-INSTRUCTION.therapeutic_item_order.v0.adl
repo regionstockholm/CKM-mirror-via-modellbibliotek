@@ -1,0 +1,381 @@
+﻿archetype (adl_version=1.4; uid=ac0cbab2-4987-442e-aa71-d1805788caf8)
+	openEHR-EHR-INSTRUCTION.therapeutic_item_order.v0
+
+concept
+	[at0000]	-- Therapeutic item order
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"John Tore Valand, Hanne Marthe Sandal Bårholm, Hanne Marte Bårholm">
+				["organisation"] = <"Helse Vest IKT, Helse Bergen">
+				["email"] = <"john.tore.valand@helse-vest-ikt.no, hanne.marte.sandal.barholm@helse-vest-ikt.no">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Hanne Marte Bårholm">
+		["organisation"] = <"Helse Vest IKT">
+		["email"] = <"hanne.marte.sandal.barholm@helse-vest-ikt.no">
+		["date"] = <"2023-04-20">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere alle aspekter av ordinering av medisinsk utstyr for et spesifikt individ.">
+			use = <"Brukes for å registrere alle aspekter av ordinering av medisinsk utstyr for et spesifikt individ.
+
+Arketypen er er ment å brukes til alle typer ordinering av medisinsk utstyr, enten foreskrevet av helsepersonell eller tilgjengelig for kjøp uten resept. Omfanget av denne arketypen inkluderer bestillinger av hjelpemidler som rullestoler, ortoser, krykker, høreapparater, annet medisinsk utstyr, bandasjer eller andre gjenstander som påføres eller administreres for å ha en terapeutisk effekt og som har et felles mønster for dataregistrering.
+
+Arketypen er designet for bruk i en rekke ulike kliniske sammenhenger, for eksempel:
+- en registrering i en klinisk konsultasjon (COMPOSITION.encounter).
+- en resept skrevet av en lege, tannlege eller annet helsepersonell, på et terapeutisk utstyr som skal utdeles eller administreres (i en COMPOSITION.prescription).
+- et element i et oppsummeringsdokument som f.eks. en epikrise (COMPOSITION.transfer_summary) eller en henvisning (COMPOSITION.request).
+
+Denne arketypen er designet for å tillate registrering av ulike typer ordineringer, for eksempel:
+- Ordinering en ankelskinne i 6 uker for å behandle en ankelforstuing;
+- Ordingering av en Frejka-pute eller en Pavlik-sele for behandling av hofteleddsdysplasi;
+- Ordinering av en PEP-ventil.">
+			keywords = <"ordinering", "forskriving", "terapi", "terapeutisk", "otc", "utstyr", "farmasøytisk", "produkt", "behandling", "CPOE">
+			misuse = <"Skal ikke brukes til å registrere aktivitetene knyttet til utføringen av ordineringen for det medisinske utstyret, for eksempel detaljer om faktisk administrasjon eller bruk. Bruk en passende ACTION-arketype til dette formålet.
+
+Skal ikke brukes for å registrere ordinering av blodkomponenter, som omfatter en fundamentalt ulik klinisk prosess og sannsynligvis vil trenge ulik støtteinformasjon. Bruk arketypen INSTRUCTION.transfusion for dette formålet.
+
+Skal ikke brukes for å registrere ordinering av innlegging av implantater og medisinsk utstyr som pacemakere og defibrillatorer. Bruk arketypen INSTRUCTION.procedure for dette formålet.
+
+Skal ikke brukes for å registrere ordinering av legemidler, vaksiner, parenterale væsker, ernæringsprodukter eller medisinsk forbruksmateriell. Bruk arketypen INSTRUCTION.medication for dette formålet.">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record all aspects of an order of a therapeutic item for an identified individual.">
+			use = <"Use to record all aspects of an order of a therapeutic item for an identified individual.
+
+It is intended to be used for any type of medical order, whether prescribed by a health professional or available for purchase 'over the counter'. The scope of this therapeutic item archetype includes orders for assistive devices such as wheelchairs, an orthosis or crutches, hearing aids, other medical devices, bandages, or other items that are applied or administered to have a therapeutic effect and which have a common pattern for data recording.
+
+This archetype is designed to be used in a number of clinical contexts, including but not limited to:
+- a record in a clinical consultation (COMPOSITION.encounter);
+- a written prescription by a physician, dentist, nurse practitioner, or other designated health professional for a therapeutic item to be dispensed, administered and/or applied (within a COMPOSITION.prescription);
+- an item in a summary document such as transfer of care (COMPOSITION.transfer_summary) or a referral (COMPOSITION.request).
+
+This archetype has been designed to allow for recording various types of medical orders, including but not limited to:
+- Order a walking boot for 6 weeks to treat an ankle sprain;
+- Order a Frejka pillow or a Pavlik harness for treatment for developmental dysplasia of the hip;
+- Order a PEP device.">
+			keywords = <"order", "prescribe", "therapy", "therapeutic", "otc", "therapeutic good", "pharmaceutical", "product", "treatment", "CPOE">
+			misuse = <"Not to be used to record the activities related to carrying out the order for the therapeutic item, such as details about actual administration or application. Use the appropiate ACTION-archetype for this purpose.
+
+Not to be used to record the ordering of blood products, which involves a fundamentally different clinical process and is likely to require different supporting information Use the INSTRUCTION.transfusion for this purpose.
+
+Not to be used to record the order for insertion of implants or medical devices such as pacemakers and defibrillators. Use the INSTRUCTION.procedure for this purpose.
+
+Not to be used to record an order for a medication, vaccine, or nutritional product for an identified individual. Use the INSTRUCTION.medication_order for this purpose.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Medication order, Published Archetype [Internet]. OpenEHR Clinical Knowledge Manager [cited: 2023-05-10]. Available from: https://ckm.openehr.org/ckm/archetypes/1013.1.5946
+
+Standards for medication and medical device records – technical annex [Internet]. RCP London. [cited 2015 Dec 15]. Available from: https://www.rcplondon.ac.uk/projects/outputs/standards-medication-and-medical-device-records-technical-annex">
+		["current_contact"] = <"Hanne Marte Bårholm, Helse Vest IKT, Norway <hanne.marte.sandal.barholm@helse-vest-ikt.no>">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"4873B2BB52A698E850872FF3645F569B">
+		["build_uid"] = <"9314f4e8-4b24-47af-a808-59a34e3557cd">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	INSTRUCTION[at0000] matches {    -- Therapeutic item order
+		activities cardinality matches {0..*; unordered} matches {
+			ACTIVITY[at0001] occurrences matches {0..*} matches {    -- Order
+				description matches {
+					ITEM_TREE[at0002] matches {    -- Tree
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0070] matches {    -- Therapeutic item
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0143] occurrences matches {0..1} matches {    -- Item details
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+							}
+							ELEMENT[at0092] occurrences matches {0..1} matches {    -- Body site
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0093] occurrences matches {0..1} matches {    -- Structured body site
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.anatomical_location_circle(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.anatomical_location_relative(-[a-zA-Z0-9_]+)*\.v2/}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {    -- Directions
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0107] occurrences matches {0..*} matches {    -- Monitoring instruction
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0018] occurrences matches {0..*} matches {    -- Clinical indication
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0148] occurrences matches {0..*} matches {    -- Therapeutic intent
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {    -- Order start date/time
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {    -- Order stop date/time
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..*} matches {    -- Order start criterion
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0016] occurrences matches {0..*} matches {    -- Order stop criterion
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0166] occurrences matches {0..*} matches {    -- Additional details
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0167] occurrences matches {0..1} matches {    -- Comment
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {    -- Dose amount description
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0004] occurrences matches {0..*} matches {    -- Order identifier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Therapeutic item order">
+					description = <"An order for a therapeutic item for an identified individual.">
+				>
+				["at0001"] = <
+					text = <"Order">
+					description = <"Details of the requested order.">
+				>
+				["at0002"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Order identifier">
+					description = <"Unique identifier for the therepautic item order.">
+					comment = <"This data element allows for multiple occurrences to be defined more explicitly at run-time, if required.">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0009"] = <
+					text = <"Directions">
+					description = <"Narrative description about how the ordered item is to be used.">
+				>
+				["at0011"] = <
+					text = <"Order start criterion">
+					description = <"A condition which, when met, requires the commencement of administration or use.">
+					comment = <"For example: 'Start if a movement triggers pain'. This is intended for a general pre-condition which should trigger the whole treatment course to be started, and not for 'as required' administrations of an ongoing order.">
+				>
+				["at0012"] = <
+					text = <"Order start date/time">
+					description = <"The date and optional time to commence use of the ordered item.">
+				>
+				["at0013"] = <
+					text = <"Order stop date/time">
+					description = <"The date and optional time when it is planned to cease use of the ordered item.">
+				>
+				["at0016"] = <
+					text = <"Order stop criterion">
+					description = <"A condition which, when met, requires the cessation of use.">
+					comment = <"For example: 'Stop when a movement is painless''.">
+				>
+				["at0018"] = <
+					text = <"Clinical indication">
+					description = <"The clinical reason for use of the ordered item.">
+					comment = <"For example: 'Ankle sprain'. Coding of the clinical indication with a terminology is preferred, where possible. This data element allows multiple occurrences. It is not intended to carry an indication for administrative authorisation purposes.">
+				>
+				["at0070"] = <
+					text = <"Therapeutic item">
+					description = <"Name of the therapeutic item being ordered.">
+				>
+				["at0092"] = <
+					text = <"Body site">
+					description = <"Name of the site where the ordered item is applied.">
+					comment = <"For example: 'left upper arm', 'left ankle'.
+Coding of the body site with a terminology is preferred, where possible.">
+				>
+				["at0093"] = <
+					text = <"Structured body site">
+					description = <"Structured description of the site where the ordered item is applied.">
+				>
+				["at0107"] = <
+					text = <"Monitoring instruction">
+					description = <"An additional instruction which gives advice on recommended or required monitoring of the ordered item.">
+					comment = <"For example: 'Please check ankle mobility in 2 weeks'. This data element allows multiple occurrences.">
+				>
+				["at0143"] = <
+					text = <"Item details">
+					description = <"Structured details about the therapeutic item including size and model.">
+					comment = <"Use this SLOT where the detailed description of the ordered item needs to be explicitly stated. ">
+				>
+				["at0148"] = <
+					text = <"Therapeutic intent">
+					description = <"The overall therapeutic intent of the ordered item.">
+					comment = <"For example: 'pain relief'.">
+				>
+				["at0166"] = <
+					text = <"Additional details">
+					description = <"Additional structured details about the ordered item not captured in other fields.">
+				>
+				["at0167"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the therapeutic item order not captured in other fields.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ordinering av medisinsk utstyr">
+					description = <"En bestilling av medisinsk utstyr for et spesifikt individ.">
+				>
+				["at0001"] = <
+					text = <"Ordinering">
+					description = <"Detaljer knyttet til ordineringen.">
+				>
+				["at0002"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Ordineringsidentifikator">
+					description = <"Unik identifikator for ordineringen.">
+					comment = <"Dette dataelementet tillater flere forekomster, som ved behov kan defineres mer spesifikt i applikasjonen.">
+				>
+				["at0005"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0008"] = <
+					text = <"Tilleggsinformasjon">
+					description = <"Ytterligere informasjon som er nødvendig for å registrere lokalt innhold/kontekst, eller for å sammenstille med andre referansemodeller/formalismer.">
+					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR eller CIMI.">
+				>
+				["at0009"] = <
+					text = <"Anvisningsbeskrivelse">
+					description = <"Fritekstbeskrivelse av hvordan det ordinerte medisinske utstyret skal brukes.">
+				>
+				["at0011"] = <
+					text = <"Startkriterium">
+					description = <"Et vilkår for at den ordinerte varen kan tas i bruk.">
+					comment = <"For eksempel \"Start dersom bevegelse gir smerte\". Dette er ment som et generelt kriterium som setter i gang hele ordineringen, og ikke for behovsadministrering i en pågående ordinering.">
+				>
+				["at0012"] = <
+					text = <"Startdato/tid for ordineringen">
+					description = <"Dato og valgfri tid for oppstart bruk av det ordinerte utstyret.">
+				>
+				["at0013"] = <
+					text = <"Startdato/tid for ordineringen">
+					description = <"Dato og valgfri tid når det er planlagt å seponere det ordinerte utstyret.">
+				>
+				["at0016"] = <
+					text = <"Seponeringskriterium">
+					description = <"Et vilkår for at den ordinerte varen skal seponeres.">
+					comment = <"For eksempel \"Seponer når bevegelsen er smertefri\".">
+				>
+				["at0018"] = <
+					text = <"Klinisk indikasjon">
+					description = <"Den kliniske begrunnelsen for bruk av det medisinske utstyret.">
+					comment = <"For eksempel \"Forstuet ankel\". Koding av klinisk indikasjon med en terminologi foretrekkes, der det er mulig. Dette dataelementet kan repeteres. Elementet er ikke ment for administrativ autorisering.">
+				>
+				["at0070"] = <
+					text = <"Medisinsk utstyr">
+					description = <"Navnet på det medisinske utstyret som ordineres.">
+				>
+				["at0092"] = <
+					text = <"Anatomisk lokalisering">
+					description = <"Navn på kroppsstedet der det terapeutiske utstyret skal administreres.">
+					comment = <"For eksempel \"venstre overarm\", \"venstre ankel\". Det bør om mulig benyttes terminologi, der det er mulig.">
+				>
+				["at0093"] = <
+					text = <"Strukturert anatomisk lokalisering">
+					description = <"Strukturert beskrivelse av administreringsstedet for det terapeutiske utstyret.">
+				>
+				["at0107"] = <
+					text = <"Overvåkningsinstruksjon">
+					description = <"Tilleggsinstruksjon som gir råd om anbefalt eller nødvendig overvåkning ved bruk av det ordinerte utstyret.">
+					comment = <"For eksempel \"kontroller ankelmobilitet om 2 uker\". Dette dataelementet kan repeteres.">
+				>
+				["at0143"] = <
+					text = <"Utstyrsdetaljer">
+					description = <"Strukturerte detaljer om det terapeutiske utstyret, blant annet størrelse og modell.">
+					comment = <"Bruk dette SLOTet til å spesifisere en detaljert beskrivelse av det ordinerte utstyret.">
+				>
+				["at0148"] = <
+					text = <"Terapeutisk hensikt">
+					description = <"Overordnet terapeutisk hensikt med det ordinerte utstyret.">
+					comment = <"For eksempel: \"smertelindring\".">
+				>
+				["at0166"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Ytterligere detaljer om det ordinerte utstyret som ikke er fanget i andre felt.">
+				>
+				["at0167"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere fritekst om ordinering av det medisinske utstyret som ikke er fanget i andre felt.">
+				>
+			>
+		>
+	>

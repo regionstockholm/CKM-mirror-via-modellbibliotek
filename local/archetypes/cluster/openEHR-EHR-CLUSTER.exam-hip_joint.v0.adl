@@ -1,0 +1,442 @@
+﻿archetype (adl_version=1.4; uid=a36d9a9c-1ec0-4225-9945-148cfd66ce10)
+	openEHR-EHR-CLUSTER.exam-hip_joint.v0
+specialise
+	openEHR-EHR-CLUSTER.exam.v2
+
+concept
+	[at0000.1]	-- Examination of a hip joint
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Hanne Marte Sandal Bårholm, John Tore Valand">
+				["organisation"] = <"Helse Vest IKT">
+				["email"] = <"hanne.marte.sandal.barholm@helse-vest-ikt.no, john.tore.valand@helse-vest-ikt.no">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Hanne Marte Bårholm">
+		["organisation"] = <"Helse Vest IKT AS">
+		["email"] = <"hanne.marte.sandal.barholm@helse-vest-ikt.no">
+		["date"] = <"2023-03-15">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere funn ved fysisk undersøkelse av et hofteledd.">
+			use = <"Brukes for å registrere funn ved fysisk undersøkelse av et hofteledd.
+
+Denne arketypen har vært designet spesifikt for å kunne brukes i SLOT'et \"Undersøkelsesdetaljer\" i arketypen OBSERVATION.exam (Funn ved fysisk undersøkelse) eller SLOT'et \"Prosedyredetaljer\" i arketypen ACTION.procedure (Prosedyre), men kan også bli brukt i andre ENTRY- eller CLUSTER-arketyper der det er klinisk passende.
+
+Tolkning av funn kan bli registrert i dataelementet \"Fortolkning\", for eksempel \"Uten anmerkning\".
+
+Arketypen CLUSTER.exclusion_exam (Eksklusjon av en undersøkelse) kan nøstes inn i SLOT'et \"Undersøkelse ikke utført\" for å registrere begrunnelse eller detaljer om hvorfor undersøkelsen ikke ble utført.
+
+Det tiltenkte omfanget for denne arketypen er til slutt å kunne registrere alle detaljerte funn ved fysisk undersøkelse av et hofteledd. Det er forventet at flere dataelementer kan bli lagt til når krav til slike er identifisert og bekreftet.
+
+Brukes for å legge til fritekstlige beskrivelser av undersøkelsesfunn fra eksisterende eller historiske journalsystemer til arketypeformat ved å benytte dataelementet \"Klinisk beskrivelse\".">
+			keywords = <"hofte", ...>
+			misuse = <"Skal ikke brukes til å ta opp anamnese - bruk da spesifikke OBSERVATION og CLUSTER arketyper. For eksempel OBSERVATION.story og CLUSTER.symptom_sign.
+
+Skal ikke brukes for å registrere funn ved bildeundersøkelse - bruk en arketype innen gruppen av CLUSTER.imaging_exam (Bildeundersøkelse) for dette formålet.">
+			copyright = <"© Nasjonal IKT HF, openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the findings observed during the physical examination of a hip joint.">
+			use = <"Use to record the observed findings during the physical examination of a hip joint.
+
+This archetype has been specifically designed to be used in the 'Examination detail' SLOT within the OBSERVATION.exam or the \"Procedure detail\" SLOT within the ACTION.procedure archetype, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate. 
+Interpretation of the findings, for example 'No abnormality detected', can be recorded using the 'Clinical interpretation' data element.
+
+The CLUSTER.exclusion_exam archetype can be nested within the 'Examination not done' SLOT to optionally record explicit details about the examination not being performed.
+
+The intended scope for this archetype is to eventually record all detailed findings on physical examination of the hip joint. It is anticipated that further data elements may be added as requirements are identified and confirmed.
+
+Use to incorporate the narrative descriptions of clinical findings within existing or legacy clinical systems into an archetyped format, using the 'Clinical Description' data element.">
+			misuse = <"Not to be used for recording the clinical history - use specific OBSERVATION and CLUSTER archetypes. For example OBSERVATION.story and CLUSTER.symptom_sign.
+
+Not to be used for recording the results of an imaging examination - use the CLUSTER.imaging_exam family of archetypes for this purpose.">
+			copyright = <"© Nasjonal IKT HF, openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Hanne Marte Bårholm, Helse Vest IKT AS", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Avgrenet fra: Examination findings, Published archetype [Internet]. openEHR Foundation, openEHR Clinical Knowledge Manager [cited: 2022-03-29]. Available from: https://ckm.openehr.org/ckm/archetypes/1013.1.6153
+	
+Muscle Strength Testing [Internet]. Physiopedia [cited: 2023-04-13]. Available from: https://www.physio-pedia.com/Muscle_Strength_Testing.
+
+Hip Examination [Internet]. Pysiopedia [cited: 2023-04-13]. Available from https://www.physio-pedia.com/Hip_Examination.">
+		["current_contact"] = <"Heather Leslie, Atomica Informatics, Australia<heather.leslie@atomicainformatics.com>">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"F2551B4A6FECF4EBD27B3F081849127B">
+		["build_uid"] = <"79a055e7-b145-4e75-8a5d-6eaa906f5e33">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {    -- Examination of a hip joint
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001.1] matches {    -- System or structure examined
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.1,    -- Left Hip joint
+							at0.2]    -- Right hip joint
+						}
+					}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Body site
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Structured body site
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.anatomical_location_circle(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.anatomical_location_relative(-[a-zA-Z0-9_]+)*\.v2/}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Clinical description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Examination findings
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Multimedia representation
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.media_file(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[at0006] occurrences matches {0..*} matches {    -- Clinical interpretation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Examination not done
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exclusion_exam(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			CLUSTER[at0.3] occurrences matches {0..*} matches {    -- Range of motion
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0.10] occurrences matches {0..1} matches {    -- Mode of examination
+						value matches {
+							DV_TEXT matches {*}
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.11,    -- Active
+									at0.12]    -- Passive
+								}
+							}
+						}
+					}
+					ELEMENT[at0.13] occurrences matches {0..1} matches {    -- Range of movement of the joint
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::497]>
+								list = <
+									["1"] = <
+										units = <"deg">
+										magnitude = <|-360.0..360.0|>
+									>
+								>
+							>
+						}
+					}
+					allow_archetype CLUSTER[at0.16] occurrences matches {0..*} matches {    -- Additional details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0.15] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+				name matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.4,    -- Abduction
+							at0.5,    -- Adduction
+							at0.6,    -- Extension
+							at0.7,    -- Flexion
+							at0.8,    -- Interal rotation
+							at0.9]    -- External rotation
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.1"] = <
+					text = <"Left Hip joint">
+					description = <"">
+				>
+				["at0.10"] = <
+					text = <"Mode of examination">
+					description = <"Whether the examination is done actively (by the individual) or passively (by the examiner).">
+				>
+				["at0.11"] = <
+					text = <"Active">
+					description = <"The individual perfoms the movement themself.">
+				>
+				["at0.12"] = <
+					text = <"Passive">
+					description = <"The examiner perfoms the movement.">
+				>
+				["at0.13"] = <
+					text = <"Range of movement of the joint">
+					description = <"The maximal extent or limit to which the thigh can be moved around the hip joint.">
+				>
+				["at0.15"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the range of movement findings, not captured in other fields.">
+					comment = <"For example: Pain, resistance or instability during the movement.">
+				>
+				["at0.16"] = <
+					text = <"Additional details">
+					description = <"Additional structured details about the range of motion.">
+					comment = <"For example: The Oxford Scale (AKA Medical Research Council Manual Muscle Testing scale).">
+				>
+				["at0.2"] = <
+					text = <"Right hip joint">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"Range of motion">
+					description = <"The extent or limit to which the thigh can be moved around the hip joint for a given movement pattern.">
+				>
+				["at0.4"] = <
+					text = <"Abduction">
+					description = <"The movement of the thigh away from the midline of the body.">
+				>
+				["at0.5"] = <
+					text = <"Adduction">
+					description = <"The movement of the thigh towards the midline or across the body.">
+				>
+				["at0.6"] = <
+					text = <"Extension">
+					description = <"The movement of extending or stretching the thigh so that the angle between the pelvis and thigh increases.">
+				>
+				["at0.7"] = <
+					text = <"Flexion">
+					description = <"The movement of bringing the thigh towards the abdomen so that the angle between the pelvis and thigh decreases.">
+				>
+				["at0.8"] = <
+					text = <"Interal rotation">
+					description = <"The movement of rotating the thigh towards the midline of the body.">
+				>
+				["at0.9"] = <
+					text = <"External rotation">
+					description = <"The movement of rotating the thigh away from the midline of the body.">
+				>
+				["at0000.1"] = <
+					text = <"Examination of a hip joint">
+					description = <"Findings observed during the physical examination of a hip joint.">
+				>
+				["at0001.1"] = <
+					text = <"System or structure examined">
+					description = <"Identification of the examined body system or anatomical structure.">
+					comment = <"Coding of the system or structure examined with a terminology is preferred, where possible.">
+				>
+				["at0000"] = <
+					text = <"Examination findings">
+					description = <"Findings observed during the physical examination of a body system or anatomical structure.">
+				>
+				["at0001"] = <
+					text = <"System or structure examined">
+					description = <"Identification of the examined body system or anatomical structure.">
+					comment = <"Coding of the system or structure examined with a terminology is preferred, where possible.">
+				>
+				["at0003"] = <
+					text = <"Clinical description">
+					description = <"Narrative description of the overall findings observed during the physical examination.">
+				>
+				["at0004"] = <
+					text = <"Examination findings">
+					description = <"Structured details about the physical examination findings.">
+				>
+				["at0005"] = <
+					text = <"Multimedia representation">
+					description = <"Digital image, video or diagram representing the physical examination findings.">
+				>
+				["at0006"] = <
+					text = <"Clinical interpretation">
+					description = <"Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings.">
+					comment = <"For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible.">
+				>
+				["at0007"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the physical examination findings, not captured in other fields.">
+				>
+				["at0008"] = <
+					text = <"Examination not done">
+					description = <"Details to explicitly record that this examination was not performed.">
+				>
+				["at0011"] = <
+					text = <"Structured body site">
+					description = <"A structured description of the area of the body under examination.">
+					comment = <"If the body site has been fully identified in the 'System or structure examined' or the 'Body site' data element, this SLOT becomes redundant.">
+				>
+				["at0012"] = <
+					text = <"Body site">
+					description = <"Identification of the area of the body under examination.">
+					comment = <"If the body site has been fully identified in the 'System or structure examined' data element, this data element becomes redundant.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0.1"] = <
+					text = <"Venstre hofteledd">
+					description = <"">
+				>
+				["at0.10"] = <
+					text = <"Undersøkelsesmetode">
+					description = <"Undersøkelsen er gjennomført aktivt (av individet) eller passivt (av klinikeren).">
+				>
+				["at0.11"] = <
+					text = <"Aktiv">
+					description = <"Individet utfører bevegelsen selv.">
+				>
+				["at0.12"] = <
+					text = <"Passiv">
+					description = <"Kliniker utfører bevegelsen.">
+				>
+				["at0.13"] = <
+					text = <"Leddets bevegelsesutslag">
+					description = <"Maksimalt endepunkt for lårets bevegelse i forhold til hofteleddet.">
+				>
+				["at0.15"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere fritekst om funn ved begelsesutslaget som ikke dekkes av andre elementer.">
+					comment = <"For eksempel: Smerte, motstand eller ustabilitet under bevegelsen.">
+				>
+				["at0.16"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Ytterligere strukturerte detaljer om bevegelsesutslaget.">
+					comment = <"For eksempel: The Oxford Scale (AKA Medical Research Council Manual Muscle Testing scale).">
+				>
+				["at0.2"] = <
+					text = <"Høyre hofteledd">
+					description = <"">
+				>
+				["at0.3"] = <
+					text = <"Bevegelsesutslag">
+					description = <"Angir endepunktet for lårets bevegelse i forhold til hofteleddet for et gitt bevegelsesmønster.">
+				>
+				["at0.4"] = <
+					text = <"Abduksjon">
+					description = <"Bevegelsen av låret bort fra kroppens midtlinje.">
+				>
+				["at0.5"] = <
+					text = <"Adduksjon">
+					description = <"Bevegelsen av låret mot kroppens midtlinje eller til den andre siden av kroppen.">
+				>
+				["at0.6"] = <
+					text = <"Ekstensjon">
+					description = <"Bevegelsen av å strekke ut låret slik at vinkelen mellom bekkenet og låret øker.">
+				>
+				["at0.7"] = <
+					text = <"Fleksjon">
+					description = <"Bevegelsen av å føre låret mot abdomen slik at vinkelen mellom bekkenet og låret reduseres.">
+				>
+				["at0.8"] = <
+					text = <"Intern rotasjon">
+					description = <"Bevegelsen av å rotere låret mot kroppens midtlinje.">
+				>
+				["at0.9"] = <
+					text = <"Ekstern rotasjon">
+					description = <"Bevegelsen av å rotere låret bort fra kroppens midtlinje.">
+				>
+				["at0000.1"] = <
+					text = <"Undersøkelse av et hofteledd">
+					description = <"Funn ved fysisk undersøkelse av et hofteledd.">
+				>
+				["at0001.1"] = <
+					text = <"Undersøkt organsystem eller struktur">
+					description = <"Identifisering av det undersøkte organsystemet eller den anatomiske strukturen.">
+					comment = <"Det anbefales å kode organsystem eller den anatomiske strukturen med en terminologi dersom mulig.">
+				>
+				["at0000"] = <
+					text = <"Undersøkelsesfunn">
+					description = <"Funn ved fysisk undersøkelse av et organsystem eller anatomisk struktur.">
+				>
+				["at0001"] = <
+					text = <"Undersøkt organsystem eller struktur">
+					description = <"Identifisering av det undersøkte organsystemet eller den anatomiske strukturen.">
+					comment = <"Det anbefales å kode organsystem eller den anatomiske strukturen med en terminologi dersom mulig.">
+				>
+				["at0003"] = <
+					text = <"Klinisk beskrivelse">
+					description = <"Fritekstbeskrivelse av de overordnede funnene ved den fysiske undersøkelsen.">
+				>
+				["at0004"] = <
+					text = <"Spesifikke funn">
+					description = <"Ytterligere strukturerte detaljer om undersøkelsesfunnene.">
+				>
+				["at0005"] = <
+					text = <"Multimediarepresentasjon">
+					description = <"Digitale bilder, video eller diagram som representerer undersøkelsesfunnene.">
+				>
+				["at0006"] = <
+					text = <"Fortolkning">
+					description = <"Enkelt ord, setning, frase eller kort beskrivelse som representerer den kliniske betydning og viktigheten av funnene ved den fysiske undersøkelsen.">
+					comment = <"For eksempel \"Uten anmerkning\" eller \"Moderat inflammasjon\". Det anbefales å kode \"Fortolkning\" med en terminologi dersom mulig.">
+				>
+				["at0007"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere fritekst om funn ved undersøkelsen, som ikke dekkes av andre elementer.">
+				>
+				["at0008"] = <
+					text = <"Undersøkelse ikke utført">
+					description = <"Detaljer for å eksplisitt registrere at denne undersøkelsen ikke ble utført.">
+				>
+				["at0011"] = <
+					text = <"Strukturert anatomisk lokalisasjon">
+					description = <"Angivelse av en strukturert anatomisk lokalisering av det undersøkte organsystemet eller den anatomiske strukturen.">
+					comment = <"Hvis anatomisk lokalisasjon er entydig identifisert i elementet \"Undersøkt organsystem eller struktur\" er dette SLOT'et ikke nødvendig å benytte.">
+				>
+				["at0012"] = <
+					text = <"Anatomisk lokalisasjon">
+					description = <"Identifisering av et enkelt fysisk sted enten på eller i menneskekroppen.">
+					comment = <"Dersom den anatomiske lokaliseringen allerede er identifisert i elementet \"Undersøkt organsystem eller struktur\" er dette dataelementet overflødig.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0.1"] = <[SNOMED-CT::362905007]>
+				["at0.2"] = <[SNOMED-CT::362906008]>
+				["at0000"] = <[SNOMED-CT::5880005]>
+			>
+		>
+	>
