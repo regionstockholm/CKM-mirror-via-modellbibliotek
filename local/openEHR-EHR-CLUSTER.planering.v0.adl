@@ -1,0 +1,193 @@
+archetype (adl_version=1.4; uid=a9f1dc4a-6a90-48d8-844f-0a7921cbb67c)
+	openEHR-EHR-CLUSTER.planering.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2023-08-09">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"f5ee2baa861fc32d5e919a9a91098fd8">
+		["build_uid"] = <"5b839c35-6e4c-38e2-82c2-839d209adee0">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Planering
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Planerad vårdform
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Öppenvård
+							at0003]    -- Slutenvård
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Antal dagar under slutenvård
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Eftervård
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007,    -- Mjuk bh
+							at0008,    -- Stabilt bh
+							at0009,    -- Ingen bh
+							at0010,    -- Smalt bröstband
+							at0011,    -- Brett bröstband
+							at0012,    -- Fetvadd
+							at0013]    -- Begränsning av rörelsen
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Planering">
+					description = <"After care instructions">
+				>
+				["at0001"] = <
+					text = <"Planerad vårdform">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Öppenvård">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Slutenvård">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Antal dagar under slutenvård">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Eftervård">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Mjuk bh">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Stabilt bh">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Ingen bh">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Smalt bröstband">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Brett bröstband">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Fetvadd">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Begränsning av rörelsen">
+					description = <"">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Planning">
+					description = <"*After care instructions (sv)">
+				>
+				["at0001"] = <
+					text = <"Planned form of care">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Ambulatory care">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Inpatient care">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Number of days for inpatient care">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Aftercare">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Soft bra">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Stable bra">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"No bra">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Narrow chest band">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Broad chest band">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Cotton wool">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Limitation of movement">
+					description = <"">
+				>
+			>
+		>
+	>
