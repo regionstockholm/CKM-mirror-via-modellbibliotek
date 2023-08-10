@@ -1,0 +1,217 @@
+archetype (adl_version=1.4; uid=280c069d-7b16-489a-8d51-a9fb5e66213d)
+	openEHR-EHR-INSTRUCTION.planering_bc.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2023-08-10">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"8bdd3809fd1e7ae351be69596862fc7e">
+		["build_uid"] = <"699ebe61-5221-342f-a0d0-e339f1c0d8ee">
+	>
+
+definition
+	INSTRUCTION[at0000] matches {    -- Planering_bc
+		activities cardinality matches {0..*; unordered} matches {
+			ACTIVITY[at0001] matches {    -- Current Activity
+				description matches {
+					ITEM_TREE[at0002] matches {    -- Tree
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0003] occurrences matches {0..1} matches {    -- Planerad vårdform
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0004,    -- Öppenvård
+											at0005]    -- Slutenvård
+										}
+									}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {    -- Antal dagar under slutenvård
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {    -- Eftervård
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0008,    -- Mjuk bh
+											at0009,    -- Stabilt bh
+											at0010,    -- Ingen bh
+											at0011,    -- Smalt bröstband
+											at0012,    -- Brett bröstband
+											at0013,    -- Fetvadd
+											at0014]    -- Begränsning av rörelse
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Planering_bc">
+					description = <"Planering_bc">
+				>
+				["at0001"] = <
+					text = <"Current Activity">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Planerad vårdform">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Öppenvård">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Slutenvård">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Antal dagar under slutenvård">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Eftervård">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Mjuk bh">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Stabilt bh">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Ingen bh">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Smalt bröstband">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Brett bröstband">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Fetvadd">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Begränsning av rörelse">
+					description = <"">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Planning_bc">
+					description = <"*Planering_bc (sv)">
+				>
+				["at0001"] = <
+					text = <"*Current Activity">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Planned form of care">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Ambulatory care">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Inpatient care">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Number of days during inpatient care">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Aftercare">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Soft bra">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Stable bra">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"No bra">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Narrow chestband">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Broad chestband">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Cotton wool">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Limitation of movement">
+					description = <"">
+				>
+			>
+		>
+	>
