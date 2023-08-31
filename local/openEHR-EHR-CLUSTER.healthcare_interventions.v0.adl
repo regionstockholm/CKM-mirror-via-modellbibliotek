@@ -6,6 +6,13 @@ concept
 
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
 
 description
 	original_author = <
@@ -13,6 +20,10 @@ description
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 		>
@@ -23,23 +34,23 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"357b2d491f2722ffa1fb86d33b8bec04">
+		["MD5-CAM-1.0.1"] = <"64b29e1a1f4a4e49aac5711b20f57408">
 		["build_uid"] = <"45a31618-68c7-3d11-9e2f-92fd97713e8d">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- Support or Healthcare interventions
+	CLUSTER[at0000] matches {    -- Healthcare support
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Type of healthcare interventions
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Type of healthcare support
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
 							[local::
-							at0002,    -- Fysioterapeutkontakt
-							at0003,    -- Logopedkontakt
-							at0004,    -- Ortopedkontakt
-							at0005,    -- Dietistkontakt
-							at0006]    -- Psykolog eller barnpsykiatrisk kontakt
+							at0002,    -- Physiotherapist contact
+							at0003,    -- Speech therapy contact
+							at0004,    -- Orthopaedic contact
+							at0005,    -- Dietician contact
+							at0006]    -- Psychologist or child psychiatrist contact
 						}
 					}
 				}
@@ -49,9 +60,9 @@ definition
 					DV_CODED_TEXT matches {
 						defining_code matches {
 							[local::
-							at0008,    -- Resurs på förskola
-							at0009,    -- Inskriven i barnhabilitering
-							at0010]    -- Stöd  i form av omvårdnadsbidrag/merkostnadsersättning
+							at0008,    -- Resource at preschool
+							at0009,    -- Enrolled in child rehabilitation services
+							at0010]    -- Support in the form of a care allowance/additional cost allowance
 						}
 					}
 				}
@@ -64,11 +75,59 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Support or Healthcare interventions">
+					text = <"Healthcare support">
 					description = <"Healthcare interventions">
 				>
 				["at0001"] = <
-					text = <"Type of healthcare interventions">
+					text = <"Type of healthcare support">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Physiotherapist contact">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Speech therapy contact">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Orthopaedic contact">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Dietician contact">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Psychologist or child psychiatrist contact">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Other support">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Resource at preschool">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Enrolled in child rehabilitation services">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Support in the form of a care allowance/additional cost allowance">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Stöd eller sjukvårdsinsatser">
+					description = <"*Healthcare interventions (en)">
+				>
+				["at0001"] = <
+					text = <"Typ av sujkvårdinsatser">
 					description = <"">
 				>
 				["at0002"] = <
@@ -92,7 +151,7 @@ ontology
 					description = <"">
 				>
 				["at0007"] = <
-					text = <"Other support">
+					text = <"Annan stöd">
 					description = <"">
 				>
 				["at0008"] = <
@@ -104,7 +163,7 @@ ontology
 					description = <"">
 				>
 				["at0010"] = <
-					text = <"Stöd  i form av omvårdnadsbidrag/merkostnadsersättning">
+					text = <"Stöd  i form av omvårdnadsbidrag/merkostnadsersättning (en)">
 					description = <"">
 				>
 			>
