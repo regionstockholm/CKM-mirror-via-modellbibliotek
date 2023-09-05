@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "11.1.0",
+      "sem_ver" : "11.2.0",
       "build_uid" : "73b63b7b-b732-4a4d-82b3-465adcd262f8",
-      "MD5-CAM-1.0.1" : "715368f0bf85e4e27a69cfafb6da32d2",
+      "MD5-CAM-1.0.1" : "3664dd65b33b81e333bf19f03de53348",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -238,15 +238,6 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-SECTION.ovl-problem_list-001.v0",
-        "referenceType" : "archetypeOverlay"
-      }, {
-        "@type" : "C_ARCHETYPE_ROOT",
-        "rmTypeName" : "EVALUATION",
-        "occurrences" : "0..1",
-        "nodeId" : "at0.16",
-        "attributes" : [ ],
-        "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-medication_summary-001.v0",
         "referenceType" : "archetypeOverlay"
       }, {
         "@type" : "C_ARCHETYPE_ROOT",
@@ -5994,320 +5985,6 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "94927f4e-8bdb-4c94-84d3-e550af7620ef",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "1F2220C3951EF4F68E0C865B28894D00"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Darstellung von zusammenfassenden Informationen über alle Anwendungen eines bestimmten Medikaments durch eine Person.",
-          "keywords" : [ "Medikament, Arzneimittel, lebenslang, Medikation, Sebstmedikation, Medizin, Arznei, Anamnese, Lebenszeit" ],
-          "use" : "Zur Darstellung von zusammenfassenden Informationen über alle Anwendungen eines bestimmten Medikaments durch eine Person, einschließlich detaillierte Angaben zu jedem Anwendungszeitraum und zur kumulativen Anwendung.\r\n\r\nDer Begriff \"Medication summary\" wird häufig verwendet, um verschiedene Arten von Listen oder Zusammenfassungen aller Medikamente zu beschreiben, die eine Person anwendet oder angewendet hat. Dieser Archetyp wurde entwickelt, um einen Überblick über alle Anwendungen eines bestimmten Medikaments zu geben.\r\n\r\nVerwenden Sie eine neue Instanz dieses Archetyps, um Details zu jedem Medikament darzustellen.\r\n\r\nDie Auslöser für das Abschließen eines Anwendungszeitraums und das Beginnen eines neuen Anwendungszeitraum spiegeln weitgehend die Einstellungen der lokalen Datenerfassung und die klinischen Prioritäten wider, einschließlich, wenn die Person:\r\n- die Anwendung des Medikaments für einen längeren Zeitraum abbricht (was wahrscheinlich lokal definiert sein wird); oder\r\n- seine Dosis oder Dosierung erheblich verändert.",
-          "misuse" : "Nicht zur Darstellung eines Medikaments in einer \"Medikamentenliste\" verwenden - verwenden Sie zu diesem Zweck entweder den Archetyp INSTRUCTION.medication_order oder den Archetyp ACTION.medication.\r\n\r\nNicht zur Darstellung einer Verordnung für die Verabreichung oder die Anwendung eines Medikaments verwenden. Verwenden Sie für diesen Zweck bitte den Archetyp INSTRUCTION.medication_order.\r\n\r\nNicht zur Dokumentation der tatsächlichen Verabreichung oder Anwendung eines Medikaments verwenden - verwenden Sie zu diesem Zweck den Archetyp ACTION.medication.\r\n\r\nNicht zur Darstellung des Status der Anwendung oder des Screenings mit Frage-Antwort-Parametern in Bezug auf die Anwendung des Medikaments - verwenden Sie zu diesem Zweck den Archetyp OBSERVATION.medication_screening.\r\n\r\nNicht zur Darstellung einer Beobachtung über die Anwendung eines Medikaments verwenden - verwenden Sie zu diesem Zweck den Archetyp OBSERVATION.medication_statement.\r\n\r\nNicht zum Abgleich von Medikamenten verwenden.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "Brukes for å registrere et sammendrag om all bruk av et spesifisert legemiddel av et individ.",
-          "keywords" : [ "medisin, livslang, medikament, kur, legemiddel, historikk" ],
-          "use" : "Brukes for å registrere et sammendrag om all bruk av et spesifisert legemiddel av et individ. Dette inkluderer detaljer om hver enkelt periode legemiddelet er brukt og akkumulert bruk av legemiddelet.\r\n\r\nBegrepet \"Legemiddelsammendrag\" brukes ofte for å beskrive ulike typer lister eller sammendrag om alle legemidler et individ bruker eller har brukt. Denne arketypen er laget for å representere en oversikt over all bruk av ett enkelt legemiddel.\r\n\r\nBruk en ny instans av denne arketypen for å registre detaljer om hvert enkelt legemiddel.\r\n\r\nDet som skal trigge en avslutning av en periode og starte en ny avhenger av lokale behov og hva som blir prioritert klinisk. For eksempel:\r\n- individet har opphold i bruken av legemiddelet i en vesentlig tidsperiode, eller\r\n- stor endring i mengde eller bruksmønster.",
-          "misuse" : "Brukes ikke for å representere et legemiddel i en \"Legemiddelliste\". Bruk arketypen INSTRUCTION.medication_order (Legemiddelordinering) eller arketypen ACTION.medication (Legemiddelhåndtering) til dette formålet.\r\n\r\nBrukes ikke for å dokumentere forordningen av et legemiddel - bruk arketypen INSTRUCTION.medication_order (Legemiddelordinering) til dette formålet.\r\n\r\nBrukes ikke for å dokumentere administreringen av et legemiddel - bruk arketypen ACTION.medication (Legemiddelhåndtering) til dette formålet\r\n\r\nBrukes ikke for å registrere svar på spørsmål om legemiddelbruk i typiske spørreskjema-settinger, som Ja/Nei på spesifikke legemidler. Bruk arketypen OBSERVATION.medication_screening til dette formålet.\r\n\t\r\nBrukes ikke for å registrere status på bruken av ett spesifikt legemiddel på et bestemt tidspunkt - bruk arketypen OBSERVATION.medication_statement til dette formålet.\r\n\r\nBrukes ikke for legemiddelsamstemming.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "pt-br" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "pt-br"
-          },
-          "purpose" : "*To record summary information about all use of a single medication by an individual. (en)",
-          "keywords" : [ "*drug, lifelong, medication, self-medicate, medicine, history, lifetime (en)" ],
-          "use" : "*Use to record summary information about all use of a single medication by an individual, including details about each episode and cumulative use.\r\n\r\nThe term 'Medication summary' is often used to describe several different types of lists or synopses of all medications that an individual is, or has, been taking. This archetype has been designed to represent an overview of all use of a single medication.\r\n\r\nUse a new instance of this archetype to record details about each medication.\r\n\r\nTriggers for closing one episode and commencing a new one will largely reflect local data collection preferences and clinical priorities, including if the individual:\r\n- stops using the medication for a significant period of time (which will likely be locally defined); or\r\n- significantly changes their amount or pattern of use. (en)",
-          "misuse" : "*Not to be used to represent a medication within a 'Medication list' - use either an INSTRUCTION.medication_order or ACTION.medication for this purpose.\r\n\r\nNot to be used for recording an order for a medication to be administered or consumed - use INSTRUCTION.medication_order for this purpose.\r\n\r\nNot to be used for documenting the actual administration or consumption of a medication - use ACTION.medication for this purpose.\r\n\r\nNot to be used for recording the status of use or screening question/answer pairs regarding the medication - use OBSERVATION.medication_screening for this purpose.\r\n\r\nNot to be used to record an observation about the use of a medication - use OBSERVATION.medication_statement for this purpose.\r\n\r\nNot to be used for medication reconciliation. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record summary information about all use of a single medication by an individual.",
-          "keywords" : [ "drug, lifelong, medication, self-medicate, medicine, history, lifetime" ],
-          "use" : "Use to record summary information about all use of a single medication by an individual, including details about each episode and cumulative use.\r\n\r\nThe term 'Medication summary' is often used to describe several different types of lists or synopses of all medications that an individual is, or has, been taking. This archetype has been designed to represent an overview of all use of a single medication.\r\n\r\nUse a new instance of this archetype to record details about each medication.\r\n\r\nTriggers for closing one episode and commencing a new one will largely reflect local data collection preferences and clinical priorities, including if the individual:\r\n- stops using the medication for a significant period of time (which will likely be locally defined); or\r\n- significantly changes their amount or pattern of use.",
-          "misuse" : "Not to be used to represent a medication within a 'Medication list' - use either an INSTRUCTION.medication_order or ACTION.medication for this purpose.\r\n\r\nNot to be used for recording an order for a medication to be administered or consumed - use INSTRUCTION.medication_order for this purpose.\r\n\r\nNot to be used for documenting the actual administration or consumption of a medication - use ACTION.medication for this purpose.\r\n\r\nNot to be used for recording the status of use or screening question/answer pairs regarding the medication - use OBSERVATION.medication_screening for this purpose.\r\n\r\nNot to be used to record an observation about the use of a medication - use OBSERVATION.medication_statement for this purpose.\r\n\r\nNot to be used for medication reconciliation.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-EVALUATION.medication_summary.v0",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-EVALUATION.ovl-medication_summary-001.v0"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "EVALUATION",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "data",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ITEM_TREE",
-          "nodeId" : "at0001",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "nodeId" : "at0002.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_CODED_TEXT",
-                  "occurrences" : "1..1",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "nodeId" : "at0007.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_CODED_TEXT",
-                  "occurrences" : "1..1",
-                  "attributes" : [ {
-                    "@type" : "C_ATTRIBUTE",
-                    "rmAttributeName" : "defining_code",
-                    "children" : [ {
-                      "@type" : "C_TERMINOLOGY_CODE",
-                      "rmTypeName" : "TERMINOLOGY_CODE",
-                      "occurrences" : "0..1",
-                      "terminologyId" : {
-                        "value" : "local_terms"
-                      },
-                      "constraint" : [ ],
-                      "selectedTerminologies" : [ "local_terms" ],
-                      "includedExternalTerminologyCodes" : [ {
-                        "terminologyId" : "local_terms",
-                        "code" : "1",
-                        "value" : "Intermittent"
-                      }, {
-                        "terminologyId" : "local_terms",
-                        "code" : "2",
-                        "value" : "Kontinuerlig"
-                      } ]
-                    } ]
-                  } ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0028.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0009.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..0",
-              "nodeId" : "at0008.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0015.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0010.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0027.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DURATION",
-                  "attributes" : [ {
-                    "@type" : "C_ATTRIBUTE",
-                    "rmAttributeName" : "value",
-                    "children" : [ {
-                      "@type" : "C_DURATION",
-                      "rmTypeName" : "DURATION",
-                      "occurrences" : "1..1",
-                      "constraint" : [ {
-                        "lower" : "PT0S",
-                        "lowerIncluded" : true,
-                        "upperIncluded" : false,
-                        "lowerUnbounded" : false,
-                        "upperUnbounded" : true
-                      } ]
-                    } ]
-                  } ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        } ]
-      }, {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "protocol",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ITEM_TREE",
-          "nodeId" : "at0005",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0006.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : { },
-        "nb" : { },
-        "pt-br" : { },
-        "de" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "fc62bbf1-a436-41dd-a170-21e2f0bfbf27",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Ramona Wellmann, Alina Rehberg, Natalia Strauch",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "wellmann.ramona@mh-hannover.de, rehberg.alina@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Gro-Hilde Ulriksen, John Tore Valand, Liv Laugen, Vebjørn Arntzen",
-        "organisation" : "Norwegian centre for e-health research, Helse Bergen, ​Oslo University Hospital, Norway",
-        "email" : "john.tore.valand@helse-bergen.no, liv.laugen@ous-hf.no, varntzen@ous-hf.no"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "pt-br"
-      },
-      "author" : {
-        "name" : "Adriana Kitajima, Débora Farage, Fernanda Maia, Laíse Figueiredo, Marivan Abrahão",
-        "organisation" : "Core Consulting",
-        "email" : "contato@coreconsulting.com.br"
-      },
-      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
     "uid" : "164fb28f-e372-4339-882e-ae3240c1c0f2",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
@@ -6779,7 +6456,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "2ecfc73d819c280b320dd4d307e6620d"
+        "PARENT:MD5-CAM-1.0.1" : "77d972f71475db75400210be51459dd7"
       },
       "details" : {
         "en" : {
@@ -6791,6 +6468,19 @@
             "codeString" : "en"
           },
           "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
           "originalResourceUri" : { },
           "otherDetails" : { }
         }
@@ -6813,7 +6503,8 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "en" : { }
+        "en" : { },
+        "sv" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -6831,7 +6522,17 @@
       },
       "codeString" : "en"
     },
-    "translations" : [ ]
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
     "uid" : "027de92b-4257-4525-b735-44a75a5c1f64",
