@@ -1,0 +1,93 @@
+archetype (adl_version=1.4; uid=6006d64d-796a-4d67-9625-8f5a850a6c6a)
+	openEHR-EHR-EVALUATION.developmental_assessment.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+
+description
+	original_author = <
+		["date"] = <"2023-09-04">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"6bc628b27b70a62c573e03fe12a56382">
+		["build_uid"] = <"7ef96724-705e-3fcb-a519-1ad3fd47ff5c">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Utveckling bedömning
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Typ av utveckling testning
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003,    -- Psykologisk testning
+									at0004]    -- Motorisk/neurologisk testning
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {    -- Psykologisk testning
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Motorisk/neurologisk testning
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Utveckling bedömning">
+					description = <"Developmental assessment">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Typ av utveckling testning">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Psykologisk testning">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Motorisk/neurologisk testning">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Psykologisk testning">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Motorisk/neurologisk testning">
+					description = <"">
+				>
+			>
+		>
+	>
