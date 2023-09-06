@@ -1,0 +1,85 @@
+archetype (adl_version=1.4; uid=105008ee-7b03-4618-90af-3fa25bbe2372)
+	openEHR-EHR-OBSERVATION.developmental_assessment.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-09-05">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"4776e5628f33d1f62b82a058acfcf2a2">
+		["build_uid"] = <"51ef2d1b-9be5-3a6d-a6c2-8e94b161a43e">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Developmental assessment
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0005] occurrences matches {0..1} matches {*}    -- Psycological testing
+									CLUSTER[at0007] occurrences matches {0..1} matches {*}    -- Motor/ Neurological testing
+									CLUSTER[at0008] occurrences matches {0..1} matches {*}    -- Other developmental assessment
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Developmental assessment">
+					description = <"Developmental assessment">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Psycological testing">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Motor/ Neurological testing">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Other developmental assessment">
+					description = <"">
+				>
+			>
+		>
+	>
