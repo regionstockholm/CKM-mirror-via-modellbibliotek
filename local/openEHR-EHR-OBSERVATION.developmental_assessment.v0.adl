@@ -23,7 +23,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"4776e5628f33d1f62b82a058acfcf2a2">
+		["MD5-CAM-1.0.1"] = <"d58705d4a3922e18e781b69c2b3075e8">
 		["build_uid"] = <"51ef2d1b-9be5-3a6d-a6c2-8e94b161a43e">
 	>
 
@@ -36,9 +36,48 @@ definition
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									CLUSTER[at0005] occurrences matches {0..1} matches {*}    -- Psycological testing
-									CLUSTER[at0007] occurrences matches {0..1} matches {*}    -- Motor/ Neurological testing
-									CLUSTER[at0008] occurrences matches {0..1} matches {*}    -- Other developmental assessment
+									CLUSTER[at0005] occurrences matches {0..1} matches {    -- Psycological testing
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0010] occurrences matches {0..1} matches {    -- Type of psycological testing
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0007] occurrences matches {0..1} matches {    -- Motor/ Neurological testing
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0011] occurrences matches {0..1} matches {    -- Type of motor testing
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {    -- Type of neurological testing
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0008] occurrences matches {0..1} matches {    -- Other developmental assessment
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0014] occurrences matches {0..1} matches {    -- Test name
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {    -- Date of implementation
+												value matches {
+													DV_DATE_TIME matches {*}
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {    -- Results
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
 								}
 							}
 						}
@@ -78,6 +117,30 @@ ontology
 				>
 				["at0008"] = <
 					text = <"Other developmental assessment">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Type of psycological testing">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Type of motor testing">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Type of neurological testing">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Test name">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Date of implementation">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Results">
 					description = <"">
 				>
 			>
