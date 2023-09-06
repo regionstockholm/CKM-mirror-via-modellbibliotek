@@ -1,0 +1,236 @@
+archetype (adl_version=1.4; uid=08d8f354-46e0-41b2-bd90-6d716e529945)
+	openEHR-EHR-CLUSTER.macroscopy_breast_carnicoma.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2018-12-14">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"20746a7715596fc72ea8f02ad196803d">
+		["build_uid"] = <"a75a2899-d7de-3493-adcb-9649e59a2c7c">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Macroscopic findings - Breast cancer
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0030] occurrences matches {0..1} matches {    -- Information from anamnesis or referral
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0031] occurrences matches {0..*} matches {    -- Description
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0042] occurrences matches {0..1} matches {    -- Specimen handling
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0041] occurrences matches {0..*} matches {    -- Time measurements
+						value matches {
+							DV_TIME matches {*}
+						}
+					}
+					ELEMENT[at0043] occurrences matches {0..*} matches {    -- Relevant information regarding the handling of specimen
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0046] occurrences matches {0..1} matches {    -- Visual markings/orientation of specimen
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0004] occurrences matches {0..1} matches {    -- Breast specimen properties
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Specimen type
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.specimen\.v0/}
+					}
+					allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Specimen laterality
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location\.v1/}
+					}
+					CLUSTER[at0035] occurrences matches {0..1} matches {    -- Specimen dimensions
+						items cardinality matches {1..*; unordered} matches {
+							allow_archetype CLUSTER[at0036] occurrences matches {0..*} matches {    -- Specimen dimensions
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.physical_properties\.v0/}
+							}
+							allow_archetype CLUSTER[at0037] occurrences matches {0..*} matches {    -- Skin dimensions
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.physical_properties\.v0/}
+							}
+						}
+					}
+					CLUSTER[at0038] occurrences matches {0..1} matches {    -- Specimen details
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0039] occurrences matches {0..*} matches {    -- Relevant details about specimen
+								value matches {
+									DV_CODED_TEXT matches {*}
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0013] occurrences matches {0..1} matches {    -- Tumour properties
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Number of tumours
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {    -- Tumour appearance
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Tumour dimensions
+						include
+							archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.physical_properties\.v0/}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Distance from tumour centre to mamill
+						value matches {
+							DV_QUANTITY matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0018] occurrences matches {0..*} matches {    -- Distance from tumour periphery to resection margins
+						include
+							archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.tumour_resection_margins\.v0/}
+					}
+					ELEMENT[at0044] occurrences matches {0..1} matches {    -- Distance between tumours
+						value matches {
+							DV_QUANTITY matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0032] occurrences matches {0..1} matches {    -- Comment on macroscopic examination
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Macroscopic findings - Breast cancer">
+					description = <"macroscopy_breast_carnicoma">
+				>
+				["at0004"] = <
+					text = <"Breast specimen properties">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Specimen type">
+					description = <"What kind of specimen is examined e.g. mastectomy, excision, sentinel node etc. ">
+				>
+				["at0006"] = <
+					text = <"Specimen laterality">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Tumour properties">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Number of tumours">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Tumour appearance">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Tumour dimensions">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Distance from tumour centre to mamill">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Distance from tumour periphery to resection margins">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Information from anamnesis or referral">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Comment on macroscopic examination">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Specimen dimensions">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Specimen dimensions">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Skin dimensions">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Specimen details">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Relevant details about specimen">
+					description = <"Details about specimen e.g. if the mamill is present or not etc.">
+				>
+				["at0041"] = <
+					text = <"Time measurements">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Specimen handling">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Relevant information regarding the handling of specimen">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Distance between tumours">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Visual markings/orientation of specimen">
+					description = <"*">
+				>
+			>
+		>
+	>
