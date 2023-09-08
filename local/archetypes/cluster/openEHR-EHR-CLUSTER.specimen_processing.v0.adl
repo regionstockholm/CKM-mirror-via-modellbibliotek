@@ -1,0 +1,353 @@
+﻿archetype (adl_version=1.4; uid=c8ed1565-a3a3-41ea-b69b-7a000364c41d)
+	openEHR-EHR-CLUSTER.specimen_processing.v0
+
+concept
+	[at0000]	-- Specimen processing
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Simon Schumacher">
+				["organisation"] = <"HiGHmed">
+				["email"] = <"sschuma9@uni-koeln.de">
+			>
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Liv Laugen">
+				["organisation"] = <"​Oslo University Hospital, Norway">
+				["email"] = <"liv.laugen@ous-hf.no">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll / Liv Laugen">
+		["organisation"] = <"Ocean Informatics / Oslo university hospital">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"2009-01-27">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"*To record details about the preparation and processing of a specimen collected from, or related to, an individual for further analysis, preservation or storage. (en)">
+			use = <"*Use to record details about the preparation and processing of a specimen collected from, or related to, an individual for further analysis, preservation or storage.
+
+The archetype has been designed to be nested within the CLUSTER.specimen archetype and to record the details about a single process step OR a multistep process. If there is only one process or step, then use the data elements at root level. If there is a multistep process, each separate step can be represented using a separate instance of the 'Process activity' internal cluster which contains one instance of this same CLUSTER.specimen_processing for each process step. (en)">
+			keywords = <"*specimen (en)", "*laboratory (en)", "*sample (en)", "*histopathology (en)", "*histology (en)", "*pathology (en)", "*cytology (en)", "*filtration (en)", "*centrifugation (en)", "*staining (en)", "*fixation (en)", "*dehydration (en)", "*embedding (en)", "*slicing (en)", "*pre-analytics (en)", "*FFPE (en)", "*freezing (en)", "*DNA (en)", "*extraction (en)", "*PCR, histochemistry (en)", "*immunohistochemistry (en)", "*FISH (en)", "*incubation (en)", "*scanning (en)", "*WSI (en)", "*homogenization (en)">
+			misuse = <"*Not to be used to represent specimen transportation - use CLUSTER.transportation for this purpose. 
+Not to be used to represent specimen storage - use EVALUATION.specimen_summary for this purpose. (en)">
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere detaljer om preparering og behandling av et prøvemateriale, tatt fra eller relatert til et individ, for videre analyse, konservering eller lagring.">
+			use = <"For å registrere detaljer om preparering og behandling av et prøvemateriale, tatt fra eller relatert til et individ, for videre analyse, konservering eller lagring.
+
+Denne arketypen er laget for å nøstes inn i CLUSTER.specimen arketypen og for å registrere detaljer om enten en enkelt behandlingsaktivitet eller alle individuelle trinn i en flertrinns behandlingsprosess. Hvis det kun er et prosesseringstrinn, holder det å bruke dataelementene på rotnivået. Hvis det derimot er en flertrinnsprosess, kan hvert enkelt trinn representeres ved å bruke en separat instans av denne arketypen, CLUSTER.specimen_processing, i SLOTet \"Behandlingsaktivitet\".">
+			keywords = <"laboratorie", "histologi", "patologi", "cytologi", "filtrering", "filtrasjon", "sentrifugering", "farging", "fiksering", "fixering", "dehydrering", "støping", "snitting", "preanalyttisk", "FFPE", "frysing", "DNA", "RNA", "ekstraksjon", "PCR", "immunhistokjemi", "FISH", "inkubering", "skanning", "scanning", "WSI", "homogenisering", "materiale", "prøve", "blod", "væske">
+			misuse = <"Skal ikke brukes til prøvetransport - bruk CLUSTER.transportation (Transport av et objekt) til dette.
+Skal ikke brukes til dokumentasjon av lagring av et prøvemateriale - bruk EVALUATION.specimen_summary (Prøvematerialesammendrag) til dette.">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about the preparation and processing of a specimen collected from, or related to, an individual for further analysis, preservation or storage.">
+			use = <"Use to record details about the preparation and processing of a specimen collected from, or related to, an individual for further analysis, preservation or storage.
+
+The archetype has been designed to be nested within the CLUSTER.specimen archetype and to record the details about a single process step OR a multistep process. If there is only one process or step, then use the data elements at root level. If there is a multistep process, each separate step can be represented using a separate instance of the 'Process activity' internal cluster which contains one instance of this same CLUSTER.specimen_processing for each process step.">
+			keywords = <"specimen", "laboratory", "sample", "histopathology", "histology", "pathology", "cytology", "filtration", "centrifugation", "staining", "fixation", "dehydration", "embedding", "slicing", "pre-analytics", "FFPE", "freezing", "DNA", "extraction", "PCR, histochemistry", "immunohistochemistry", "FISH", "incubation", "scanning", "WSI", "homogenization">
+			misuse = <"Not to be used to represent specimen transportation - use CLUSTER.transportation for this purpose. 
+Not to be used to represent specimen storage - use EVALUATION.specimen_summary for this purpose.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Koray Atalag University of Auckland", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Hanne Marte Bårholm, Helse Vest IKT, Norway (openEHR Editor)", "Clara Calleja Vega, CatSalut, Spain", "Stefan Dubois, Dep't of Pathology and Genetics, University Hospitals of Lund and Malmö, Sweden", "Mikkel Johan Gaup Grønmo, Helse Nord IKT, Norway (openEHR Editor)", "Sam Heard Ocean Informatics", "Karsten Heusser, German Aerospace Center, Germany", "Maritn Kapinos, PROSOFT Košice, a.s., Slovakia", "Martin Kapinos, PROSOFT Košice, a.s., Slovakia", "Martin Koch, Servei Català de la Salut, Spain", "Kanika Kuwelker, Helse Vest IKT, Norway (openEHR Editor)", "Jörgen Kuylenstierna, eWeave AB, Sweden", "Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Brad Littleton, Big Picture Medical, Australia", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Terje Sagmyr, Helse Vest IKT, Norway (openEHR Editor)", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "Erik Sundvall, Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University, Sweden", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)", "Frode Stenvik, Helse Sør-Øst, Norway", "Gunn Elin Blakkisrud, DIPS ASA, Norway", "Kåre Flø, DIPS ASA, Norway", "Nina Louise Jebsen, Haukeland Universitetssykehus, Norway", "Ragnhild Schultz, OUS, Norway", "Siri Laronningen, Kreftregisteret, Norway", "Terje Nordberg, Helse Bergen, Norway">
+	other_details = <
+		["licence"] = <"Licence: This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.
+">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"915C33D1EF0546D876C7074AF91B8CF6">
+		["build_uid"] = <"47b45c6d-f774-49be-8f33-a9b2d95eec53">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Specimen processing
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0094] occurrences matches {0..1} matches {    -- Process name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0089] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0074] occurrences matches {0..1} matches {    -- Method
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0090] occurrences matches {0..1} matches {    -- Status
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0096] occurrences matches {0..1} matches {    -- Start date/time
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0097] occurrences matches {0..1} matches {    -- Stop date/time
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0091] occurrences matches {0..*} matches {    -- Additive
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0088] occurrences matches {0..*} matches {    -- Device details
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+			}
+			CLUSTER[at0086] occurrences matches {0..*} matches {    -- Process activity
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0071] occurrences matches {0..1} matches {    -- Sequence
+						value matches {
+							DV_TEXT matches {*}
+							DV_COUNT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0092] occurrences matches {0..*} matches {    -- Process activity details
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.specimen_processing\.v0|openEHR-EHR-CLUSTER\.specimen_processing\.v1/}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0093] occurrences matches {0..*} matches {    -- Additional details
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0095] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Specimen processing">
+					description = <"Details about the preparation and processing of a specimen.">
+				>
+				["at0071"] = <
+					text = <"Sequence">
+					description = <"The sequence number within a multi-step sequence.">
+					comment = <"For example: 2 or step 2 of 3. 
+If there is only one processing step event or if this instance is the overview of all processing step, this data element is redundant.">
+				>
+				["at0074"] = <
+					text = <"Method">
+					description = <"The technique or method used to prepare or process the specimen.">
+					comment = <"For example: fixation, embedding, sectioning, staining, scanning, centrifugation, freezing. Coding of the method with a terminology is preferred, where possible.">
+				>
+				["at0086"] = <
+					text = <"Process activity">
+					description = <"Details of a single activity carried out during a multi-step process.">
+				>
+				["at0088"] = <
+					text = <"Device details">
+					description = <"Details of the device used in the preparation or processing activity.">
+				>
+				["at0089"] = <
+					text = <"Description">
+					description = <"A narrative description of the preparation or processing activity.">
+					comment = <"For example: 'Centrifuged EDTA plasma, separated the plasma from the cells by hand using a single channel pipette, froze the plasma within 2 hours.'">
+				>
+				["at0090"] = <
+					text = <"Status">
+					description = <"The stage of preparation or processing of the specimen.">
+					comment = <"For example: planned, in-progress or completed. Coding with a terminology preferred where possible.">
+				>
+				["at0091"] = <
+					text = <"Additive">
+					description = <"Identification of a substance used in the preparation or processing.">
+					comment = <"For example: formalin for fixation, embryo culture media or buffer solution. This data element has multiple occurrences to allow more than one additive to be recorded.">
+				>
+				["at0092"] = <
+					text = <"Process activity details">
+					description = <"Details about a single activity within a multistep process.">
+				>
+				["at0093"] = <
+					text = <"Additional details">
+					description = <"Additional details about the preparation and processing of a specimen.">
+				>
+				["at0094"] = <
+					text = <"Process name">
+					description = <"The name of the preparation or processing activity.">
+					comment = <"For example: preparation for microscopic examination, sperm preparation for IVF treatment, fixation, dehydration, paraffin infiltration, centrifugation.">
+				>
+				["at0095"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the preparation and processing of a specimen not captured in other fields.">
+				>
+				["at0096"] = <
+					text = <"Start date/time">
+					description = <"The date and time that the process activity started.">
+				>
+				["at0097"] = <
+					text = <"Stop date/time">
+					description = <"The date and time that the process activity stopped.">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Specimen processing (en)">
+					description = <"*Details about the preparation and processing of a specimen. (en)">
+				>
+				["at0071"] = <
+					text = <"*Sequence (en)">
+					description = <"*The sequence number within a multi-step sequence. (en)">
+					comment = <"*For example: 2 or step 2 of 3. 
+If there is only one processing step event or if this instance is the overview of all processing step, this data element is redundant. (en)">
+				>
+				["at0074"] = <
+					text = <"*Method (en)">
+					description = <"*The technique or method used to prepare or process the specimen. (en)">
+					comment = <"*For example: fixation, embedding, sectioning, staining, scanning, centrifugation, freezing. Coding of the method with a terminology is preferred, where possible. (en)">
+				>
+				["at0086"] = <
+					text = <"*Process activity (en)">
+					description = <"*Details of a single activity carried out during a multi-step process. (en)">
+				>
+				["at0088"] = <
+					text = <"Gerätebeschreibung">
+					description = <"*Details of the device used in the preparation or processing activity. (en)">
+				>
+				["at0089"] = <
+					text = <"*Description (en)">
+					description = <"*A narrative description of the preparation or processing activity. (en)">
+					comment = <"*For example: 'Centrifuged EDTA plasma, separated the plasma from the cells by hand using a single channel pipette, froze the plasma within 2 hours.' (en)">
+				>
+				["at0090"] = <
+					text = <"*Status (en)">
+					description = <"*The stage of preparation or processing of the specimen. (en)">
+					comment = <"*For example: planned, in-progress or completed. Coding with a terminology preferred where possible. (en)">
+				>
+				["at0091"] = <
+					text = <"*Additive (en)">
+					description = <"*Identification of a substance used in the preparation or processing. (en)">
+					comment = <"*For example: formalin for fixation, embryo culture media or buffer solution. This data element has multiple occurrences to allow more than one additive to be recorded. (en)">
+				>
+				["at0092"] = <
+					text = <"*Process activity details (en)">
+					description = <"*Details about a single activity within a multistep process. (en)">
+				>
+				["at0093"] = <
+					text = <"*Additional details (en)">
+					description = <"*Additional details about the preparation and processing of a specimen. (en)">
+				>
+				["at0094"] = <
+					text = <"*Process name (en)">
+					description = <"*The name of the preparation or processing activity. (en)">
+					comment = <"*For example: preparation for microscopic examination, sperm preparation for IVF treatment, fixation, dehydration, paraffin infiltration, centrifugation. (en)">
+				>
+				["at0095"] = <
+					text = <"*Comment (en)">
+					description = <"*Additional narrative about the preparation and processing of a specimen not captured in other fields. (en)">
+				>
+				["at0096"] = <
+					text = <"*Start date/time (en)">
+					description = <"*The date and time that the process activity started. (en)">
+				>
+				["at0097"] = <
+					text = <"*Stop date/time (en)">
+					description = <"*The date and time that the process activity stopped. (en)">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Prøvebehandling">
+					description = <"Detaljer om preparering og behandling av et prøvemateriale.">
+				>
+				["at0071"] = <
+					text = <"Sekvensnummer">
+					description = <"Sekvensnummeret i en flertrinns preparering eller behandlingsaktivitet.">
+					comment = <"For eksempel: 2 eller trinn 2 av 3. 
+Hvis det bare er ett et enkelt preparering eller behandlingstrinn eller hvis denne forekomsten er sammendraget over alle behandlingstrinn, er dette dataelementet overflødig.">
+				>
+				["at0074"] = <
+					text = <"Metode">
+					description = <"Teknikken eller metoden som er blitt brukt på prepareringen eller behandlingsaktiviteten.">
+					comment = <"For eksempel: fiksering, støping, snitting, farging, skanning, sentrifugering, frysing. Koding av metoden med en terminologi foretrekkes, der det er mulig.">
+				>
+				["at0086"] = <
+					text = <"Behandlingsaktivitet">
+					description = <"Detaljer om en enkelt aktivitet utført under en flertrinnsprosess.">
+				>
+				["at0088"] = <
+					text = <"Medisinsk utstyr">
+					description = <"Detaljer om det medisinske utstyret som er brukt i prepareringen eller behandlingsaktiviteten.">
+				>
+				["at0089"] = <
+					text = <"Beskrivelse">
+					description = <"En tekstlig beskrivelse av prepareringen eller behandlingsaktiviteten.">
+					comment = <"For eksempel: \"Sentrifugert EDTA-plasma, separert plasma fra cellene manuelt ved bruk av enkeltkanalpipette, frøs plasma innen 2 timer.\"">
+				>
+				["at0090"] = <
+					text = <"Status">
+					description = <"Statusen til prepareringen eller behandlingsaktiviteten.">
+					comment = <"For eksempel: planlagt, i prosess eller fullført. Koding av metoden med en terminologi foretrekkes, der det er mulig.">
+				>
+				["at0091"] = <
+					text = <"Tilsetningsstoff">
+					description = <"Identifisering av substansene som brukes i prepareringen eller behandlingsaktiviteten">
+					comment = <"For eksempel: formalin til fiksering, embryokultur, bufferløsning. Dette dataelementet er gjort gjentagende for å tillate at mer enn ett tilsetningsstoff kan registreres.">
+				>
+				["at0092"] = <
+					text = <"Behandlingsaktivitet detaljer">
+					description = <"Detaljer om en enkelt preparerings eller behandlingsaktiviteten.">
+				>
+				["at0093"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Ytterligere detaljer om prepareringen eller behandlingsaktiviteten.">
+				>
+				["at0094"] = <
+					text = <"Prøvebehandlingsnavn">
+					description = <"Navnet på prepareringen eller behandlingsaktiviteten.">
+					comment = <"For eksempel: preparering av prøve for mikroskopisk undersøkelse, preparering av sæd til IVF behandling, fiksering, dehydrering, parafinstøping, sentrifugering.">
+				>
+				["at0095"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere fritekst om prepareringen eller behandlingsaktiviteten som ikke dekkes av andre felt.">
+				>
+				["at0096"] = <
+					text = <"Start dato/tid">
+					description = <"Dato/tid for da prepareringen eller behandlingsaktiviteten startet.">
+				>
+				["at0097"] = <
+					text = <"Slutt dato/tid">
+					description = <"Dato/tid for da prepareringen eller behandlingsaktiviteten sluttet.">
+				>
+			>
+		>
+	>
