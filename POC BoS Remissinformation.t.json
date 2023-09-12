@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "fd9744cbb0271130e0c5e90dcec7c6b6",
+      "MD5-CAM-1.0.1" : "258e155ba7116e73e59a62989e31ad03",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "5.0.0",
+      "sem_ver" : "6.0.0",
       "build_uid" : ""
     },
     "details" : {
@@ -366,6 +366,26 @@
           "children" : [ {
             "@type" : "C_COMPLEX_OBJECT",
             "rmTypeName" : "ELEMENT",
+            "nodeId" : "at0010.1",
+            "attributes" : [ {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "value",
+              "children" : [ {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "DV_TEXT",
+                "attributes" : [ ],
+                "attributeTuples" : [ ]
+              }, {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "DV_IDENTIFIER",
+                "attributes" : [ ],
+                "attributeTuples" : [ ]
+              } ]
+            } ],
+            "attributeTuples" : [ ]
+          }, {
+            "@type" : "C_COMPLEX_OBJECT",
+            "rmTypeName" : "ELEMENT",
             "nodeId" : "at0011.1",
             "attributes" : [ {
               "@type" : "C_ATTRIBUTE",
@@ -488,6 +508,13 @@
           "text" : "*(Synthesized) (en)",
           "code" : "ac0.1",
           "description" : ""
+        },
+        "at0010.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0010.1",
+          "text" : "Remissidentitet",
+          "description" : "Den lokala identifieraren som tilldelats av det begärande kliniska systemet.",
+          "comment" : "Vanligtvis motsvarande HL7 Placer Order Identifier."
         }
       },
       "pt-br" : {
@@ -1340,9 +1367,6 @@
           "/items[at0013]" : {
             "fhir_mapping" : "*Specimen.collection.sourceSite(en)"
           },
-          "/items[at0034]" : {
-            "fhir_mapping" : "*Specimen.receivedTime(en)"
-          },
           "/items[at0027]" : {
             "fhir_mappings" : "*Specimen.collection.quantity(en)"
           },
@@ -1357,6 +1381,9 @@
           },
           "/items[at0070.1]" : {
             "fhir_mapping" : "*Specimen.collection.collector(en)"
+          },
+          "/items[at0034.1]" : {
+            "fhir_mapping" : "*Specimen.receivedTime(en)"
           }
         },
         "en" : {
@@ -1365,9 +1392,6 @@
           },
           "/items[at0013]" : {
             "fhir_mapping" : "Specimen.collection.sourceSite"
-          },
-          "/items[at0034]" : {
-            "fhir_mapping" : "Specimen.receivedTime"
           },
           "/items[at0027]" : {
             "fhir_mapping" : "Specimen.collection.quantity"
@@ -1389,6 +1413,9 @@
           },
           "/items[at0045.1]" : {
             "fhir_mapping" : "Specimen.note"
+          },
+          "/items[at0034.1]" : {
+            "fhir_mapping" : "Specimen.receivedTime"
           }
         },
         "pt-br" : { },
@@ -1400,9 +1427,6 @@
           "/items[at0013]" : {
             "fhir_mapping" : "Specimen.collection.bodySite"
           },
-          "/items[at0034]" : {
-            "fhir_mapping" : "Specimen.receivedTime"
-          },
           "/items[at0027]" : {
             "fhir_mapping" : "Specimen.collection.quantity"
           },
@@ -1423,6 +1447,9 @@
           },
           "/items[at0045.1]" : {
             "fhir_mapping" : "Specimen.note"
+          },
+          "/items[at0034.1]" : {
+            "fhir_mapping" : "Specimen.receivedTime"
           }
         },
         "sv" : {
@@ -1449,6 +1476,12 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0098.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0097.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
@@ -1505,6 +1538,12 @@
               "attributeTuples" : [ ]
             } ]
           } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0034.1",
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -1751,7 +1790,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Provmaterial",
+            "text" : "Preparat",
             "description" : "A physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
             "comment" : "For example: Tissue or body fluid."
           },
@@ -1835,7 +1874,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Information om enskilt provmaterial",
+            "text" : "Preparat",
             "description" : "Ett fysiskt prov taget från, eller relaterat till, en individ i syfte att utföra en bedömning, undersökning eller analys.",
             "comment" : "Exempelvis vävnad eller kroppsvätska."
           },
@@ -1850,6 +1889,26 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
             "description" : ""
+          },
+          "at0098.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0098.1",
+            "text" : "Preparattyp",
+            "description" : "*A name or label describing the specimen. (en)",
+            "comment" : "*Usually only relevant for anatomical pathology samples. For example: 'Sigmoid resection with a piece of bladder wall' or 'Aggregate of multiple skin biopsy fragments'. (en)"
+          },
+          "at0097.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0097.1",
+            "text" : "Beskrivning av preparat",
+            "description" : "*Narrative description about the specimen being examined. (en)",
+            "comment" : "*For example: the color and viscosity of a liquid; the shape of a solid tissue; or a description of tissue fragments. (en)"
+          },
+          "at0034.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0034.1",
+            "text" : "Ankomsttid labb",
+            "description" : "Datum och tid när provet togs emot av laboratoriet."
           }
         }
       },
@@ -2063,6 +2122,26 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0013.1",
           "attributes" : [ ],
@@ -2142,7 +2221,15 @@
         "sl" : { },
         "nb" : { },
         "de" : { },
-        "sv" : { }
+        "sv" : {
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "ID Provbehållare",
+            "description" : "*The unique identifier given to the container. (en)",
+            "comment" : "*This has multiple occurrence to make it possible to register several IDs, for example EUDAMED number, batch number, tracing number, suffix number for type of container or manufacturer's barcode. (en)"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -2552,7 +2639,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Mottagande vårdenhet/klinik",
+            "text" : "Mottagande laboratorium",
             "description" : "*An entity comprising one or more people and having a particular purpose. (en)",
             "comment" : "*For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support. (en)"
           }
