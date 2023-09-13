@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.1.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "f321a355e3294107e036e4ca23cddd4e",
+      "MD5-CAM-1.0.1" : "8fe1f88896993e4788895a0387746eb3",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -367,7 +367,165 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "F0C4134C4DCAEB8F6EBD3A9318C5B87B"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung von Angaben über alle Aktivitäten, die im Zusammenhang mit der Planung, Vorbereitung, Rezeptbearbeitung, Ausgabe, Verabreichung, Absetzung und sonstigen Verwendung von Medikamenten, Impfungen, Nahrungsergänzungsmitteln oder anderen therapeutischen Mitteln stehen.",
+          "keywords" : [ "Arzneimittel", "Medikament", "verschreiben", "verordnen", "rezeptieren", "dosieren", "ausgeben", "Gabe", "Verabreichung", "Applikation", "Anwendung", "Medikation", "Beendigung", "Einstellen", "Absetzen", "Heilmittel", "therapeutisches Produkt", "Versorgung", "zubereiten", "Medizin", "Herstellung", "Präparat", "medizinisch", "medikamentös", "Verschreibung", "Rezept", "Impfstoff", "Impfung", "Dosierung", "Darreichungsform", "Applikationsform", "Applikationsart", "Verabreichungsweg", "Nachbeobachtung" ],
+          "use" : "Zur Darstellung von Informationen über Aktivitäten der Arzneimittelanwendung, einschließlich der Planung, Vorbereitung, Aussetzung, Absetzung und Beendigung von Arzneimittelverordnungen, sowie der aktuellen Verabreichung von Arzneimitteln. Die Erfassung der Daten bestimmter Aktivitäten erfolgt durch die im \"Pathway/Pfad\" des Archetyps definierten Arbeitsschritte. \r\n\r\nDieser Archetyp ist für alle Arten von Arzneimitteln und die damit verbundene Verordnung bestimmt, unabhängig davon, ob sie von einem Arzt verschrieben werden oder ob sie \"rezeptfrei\" gekauft werden. Der Anwendungsbereich dieses Arzneimittel-Archetyps umfasst auch die Anwendung von Impfungen, parenteralen Lösungen oder anderen therapeutischen Produkten, wie Verbänden, Nahrungsergänzungs- oder anderen Mitteln, die zum Erzeugen einer therapeutischen Wirkung angewandt oder verabreicht werden und ein gemeinsames Muster für die Datenerfassung haben. Im Zusammenhang mit einer Medikamenten- oder Impfliste wird dieser Archetyp zur Darstellung von verschriebenen oder verabreichten Arzneimitteln oder Impfungen verwendet. \r\n\r\nZusätzliche strukturierte und detaillierte Informationen über die Arzneimittel-Aktivität können über zweckgebundene Archetypen erfasst werden. Sie können in die SLOTs \"Arzneimitteldetails\", \"Dosis\", \"Lokalisation\", \"Verabreichungsmittel\" oder \"Zusätzliche Details\" eingefügt werden. \r\n\r\nZeitliche Abläufe im Zusammenhang mit der Arzneimittelanwendung könnten auf zwei Arten gehandhabt werden:\r\n- unter Verwendung des Referenzmodells - die Zeit der Ausführung eines beliebigen Prozessschrittes wird über die Verwendung des ACTION-Time-Attributs aufgezeichnet.\r\n- mit dem Archetyp-Datenelement - das Datenelement \"Ursprünglich geplantes Datum/Uhrzeit\" soll die Zeit erfassen, zu der das Arzneimittel zur Verabreichung bestimmt war. Hinweis: Das entsprechende Attribut \"ACTION-Time\" für den geplanten Prozessschritt erfasst die Zeit, zu der die klinische Aktivität in einem System terminiert wurde, nicht jedoch das beabsichtigte Datum/Uhrzeit, zu dem die Aktivität ausgeführt werden sollte.\r\n\r\nIn der Praxis werden einige Arzneimittel (z.B. bei Reanimation in der Notaufnahme) auf der Grundlage eines Protokolls oder einer mündlichen Anordnung verabreicht und nicht im Voraus verordnet. Die Details zu dem Arzneimittel werden zusammen mit dem Prozessschritt \"Dosis wurde verabreicht\" hinzugefügt. Für eine andauernde Arzneimittelbehandlung werden die Daten zum Arzneimittel zusammen mit dem Prozessschritt \"Dosis wurde verabreicht\" bei jeder Verabreichung erfasst. Die Verordnung bleibt dabei beim Status \"Aktiv\". Wenn das letzte Ereignis vermerkt wird, wird der Prozessschritt \"Arzneimittelbehandlung ist abgeschlossen\" erfasst. Die Verordnung des Arzneimittels erhält nun den Status \"abgeschlossen\".\r\n\r\nIn anderen Situationen, wie z.B. in der Sekundärversorgung, kann es eine formale Verordnung für ein Arzneimittel mit einem entsprechenden Archetyp INSTRUCTION.medication_order geben. Dieser ACTION-Archetyp wird dann zur Darstellung des Workflows, also wann und wie die Verordnung ausgeführt wurde, verwendet. \r\n\r\nDie Darstellung von Informationen mit diesem ACTION-Archetyp zeigt an, dass eine bestimmte Aktivität tatsächlich stattgefunden hat; dies ist in den meisten Fällen die Verabreichung eines Arzneimittels, kann aber auch ein verzögerter Bereitstellungsversuch oder eine andere Aktivität sein, wie z.B. das Aussetzen einer Medikamentengabe zur Vorbereitung auf eine Operation. Gibt es eine offizielle Verordnung des Arzneimittels, wird der Status dieser Verordnung durch den Prozessschritt repräsentiert, in welchem die Daten registriert werden. Mit diesem Archetyp kann beispielsweise der weitere Verlauf einer Paracetamol-Verordnung in den EHR Prozessschritten dargestellt werden. Das Datenelement \"Begründung\" wird dabei verwendet, um den Grund zu dokumentieren, warum dieser Prozessschritt, z.B. das Weglassen einer Dosis oder das Einstellen einer Arzneimittelgabe, vorgenommen wurde. \r\n\r\nWird dieser ACTION-Archetyp mit dem entsprechenden Archetyp INSTRUCTION.medication_order verwendet, werden die Informationen, die sich nicht von der Verordnung- zur Anwendungsaktivität geändert haben, in der Aktion im Allgemeinen nicht wiederholt. Es wird als gute Praxis angesehen, obwohl dies nicht obligatorisch ist, das Arzneimittel in der AKTION aufzuzeichnen.\r\n\r\nDie Prozessschritte unterscheiden sich zwischen denen, die sich direkt auf die Erfüllung der Verordnung beziehen, wie Autorisierung, Zubereitung und Verabreichung der Dosis, und denen, die sich auf die Handhabung des Rezeptes beziehen, wie Ausstellung, erneute Autorisierung und Abgabe. In einigen Ländern wird das als ein Prozessschritt angesehen. In anderen wird es als hilfreich erachtet, die Erfüllung der Verordnung und die Handhabung des Rezeptes in separaten Templates darzustellen.\r\n\r\nDie meisten Namen der Prozessschritte dieses Archetyps enthalten die Namen \"Arzneimittel\" oder \"Rezept\" bzw. \"Verordnung\". Dies soll die Unterscheidung der einzelnen Prozessschritte erleichtern. \r\n\r\nIn einigen Ländern kann ein Rezept erneut genehmigt werden, um eine laufende Medikamentenverordnung fortzusetzen, während in anderen Ländern unter diesen Umständen ein völlig neues Rezept ausgestellt werden muss. In letzterem Fall ist der Prozessschritt \"Rezept ist re-autorisiert\" nicht anwendbar.",
+          "misuse" : "Nicht zur Repräsentation eines Arzneimittelrezeptes oder Verordnung verwenden. Für diesen Zweck muss der Archetyp INSTRUCTION.medication_order eingesetzt werden.\r\n\r\nNicht zur Repräsentation der Verabreichung oder Abgabe von Blutprodukten verwenden. Sie haben meist einen vollkommen anderen klinischen Ablauf und erfordern meist andere unterstützende Informationen. Ein anderer geeigneter ACTION-Archetyp muss für diesen Zweck verwendet werden.\r\n\r\nNicht zur Darstellung von Details über die Compliance/Therapietreue, Nebenwirkungen oder Toxizität verwenden. Für diesen Zweck muss ein anderer Archetyp verwendet werden.\r\n\r\nNicht für den Medikamentenabgleich verwenden. Für diesen Zweck muss der passende Archetyp verwendet werden. \r\n\r\nNicht für eine formelle Überprüfung einer ganzen Medikamentenliste, z.B. durch einen Apotheker, verwenden. Für diesen Zweck müssen andere geeignete Archetypen verwendet werden.\r\n",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "этот архетип класса ДЕЙСТВИЕ позволяет записывать активность, связанную с введением лекарств или применением лечения. Обычно такая активность возникает в ответ на назначение лекарства врачом, но также может быть при самолечении или лечении по совету аптекаря. Информация о времени приема отсутствует, так как использование данного архетипа предполагает, что действие произведено в настоящий момент времени.",
+          "keywords" : [ "лекарство", "медикамент", "введение", "прием" ],
+          "use" : "*For recording the planning, issuing of a prescription, dispensing, administration, cessation, suspension, completion of a medicine, vaccine or other therapeutic good . This will usually be in response to a medication order but may be administered immediately without an order at times, thus requiring recording of the administration alone (e.g. in an emergency situation). \r\n\r\nSuch a record may be made to indicate the administration of a dose, dispensing of a certain quantity or as a record of ceasing a medication. The state of the medication instruction is altered by the action taken as indicated in the Pathway definition.\r\n\r\nThere is a date and time at which this ACTION took place (as there is for all ACTIONs)  and use of this archetype indicates that some action has actually occurred.(en)",
+          "misuse" : "*Do not use when recording an instruction or order (use INSTRUCTION.medication).(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "För registrering av detaljer om aktiviteter som är relaterade till planering, schemaläggning, recepthantering, utdelning, administrering, upphörande och annan användning av läkemedel, vaccin, näringsprodukt eller annan behandlings produkt.",
+          "keywords" : [ "medicinering", "förskrivning", "fördela", "administrering", "upphörande", "bra behandling", "tillförsel", "medicin", "läkemedel", "förberedelse", "medicinsk", "recept", "vaccin", "vaccination", "dosering", "form", "rutt", "uppföljning" ],
+          "use" : "Används för att registrera information om de aktiviteter som krävs för att stödja alla aspekter av läkemedelshantering inklusive planering, schemaläggning, avbrott, avbokning, slutförande av läkemedelsbeställningar och den faktiska administreringen av läkemedelsföremål. Detta görs genom att registrera data för specifika aktiviteter, som definieras av \"Pathway\" -flödesstegen i denna arketyp.\r\n\r\nArketypen är avsedd för att användas för alla typer av medicineringar och relaterade beställningar, oavsett om det ordinerats av en vårdpersonal eller är receptfri. I skopet inkluderar också beställningar på vaccinationer, parenterala vätskor eller andra behandlings produkter, såsom bandage, näringsprodukter eller andra föremål som appliceras eller administreras för att ha en behandlingseffekts. Något gemensamt mellan de är att alla har samma dataregistrerings pattern/mönster. Denna arketyp kommer att användas för bara registrering av medicinering eller vaccination som har ordinerats eller administrerats i en läkemedels- eller vaccinationslista.\r\n\r\nYtterligare strukturerad och detaljerad information om aktiviteten kan fångas med hjälp av målbaserade och specifika arketyper infogade i '' Preparations details '', '' Amount'', 'Structured body site', 'Administration device' eller 'Additional details' SLOTs.\r\n\r\nTider relaterade till läkemedelshantering kan hanteras på ett av två sätten:\r\n- Använda Referensmodellen -för att registrera tiden för att utföra alla steg, använd attributet ACTION time \r\n- Archetyped data element - dataelementet \"Original schemalagt datum / tid\" är avsett att registrera den tid då läkemedelsartikeln var avsedd att administreras. Notera! Motsvarande ACTION-tidsattribut för den schemalagda steget registrerar den tid då den kliniska aktiviteten planerades i ett system, det beskriver inte det bestämda datumet / tiden när aktiviteten är avsedd att utföras.\r\n\r\nI praktiken kommer vissa läkemedel (till exempel vid återupplivning på akutmottagningen) att administreras baserad på protokoll eller en muntlig ordination. Det kommer inte att beställas i förväg. Läkemedlets detaljer kommer att läggas till i steget: \"Dos administrerad\". För en pågående medicinering kommer data om läkemedelsartikeln att registreras i steget \"Dos administrerad\", man behöver lämna instruktionen i aktivt tillstånd tills medicineringen är klar. När den sista händelsen registreras och information om sista steget \"Läkemedelsprocess slutförd\" är klarregistrerad då visas \"status klar\" för ordinationen.\r\n\r\nI andra situationer, till exempel sekundärvård, kan det finnas en formell beställning av ett läkemedels artikel med en motsvarande INSTRUKTION.medicin_order-arketyp. Denna ACTION-arketyp kan sedan användas för att registrera arbetsflödet för tid, datum och hur ordinationen har genomförts. \r\n\r\nDet kan vara så att leverantören har inte hunnit med leverans av läkemedlet i tid eller annan aktivitet orsakat så att förberedelse av läkemedels artikel har avbrutits. Om det finns en formell beställning för läkemedelsartikeln, administreras detta i själva processen för förberedelse av medicinska artikel, \r\nOm det finns en formell beställning för en läkemedelsartikel kommer statusbeskrivning av denna artikel presenteras i steget där data är registrerad. \r\n\r\nExempelvis, Med hjälp av denna arketyp kan det fortskridande tillståndet för en Paracetamol beställning registreras. detta görs genom att det separata poster i EHR-framstegsnoterna vid varje \"Pathway\" -steg. När man dokumenterar anledningen till varför en aktivitet utfördes eller ett vägsteg valdes.\r\nElementet \"orsak\" används för att registrera anledningen till varför en aktivitet upphördes eller ett vägsteg valdes, till exempel varför en dos utelämnades eller en nedicineringen upphörde.\r\n\r\nAnvändning av ACTION-arketyp samt INSTRUCTION.medication_order-arketyp gör så att oförändrade information från ordningen till hanteringsaktiviteten i ACTION inte upprepas. Det anses vara bra praxis, men inte obligatoriskt, att registrera läkemedelsartikeln i HANDLINGEN.\r\n\r\nVägstegen skapar skillnader mellan de som direkt relatera sig till uppfyllandet av beställningen, såsom auktorisering, beredning och dosadministration, och de som avser hantering av receptet såsom utfärdande, om identifiering och utdelning. I vissa jurisdiktioner betraktas dessa som en enda väg, i andra kan det vara till hjälp att hantera beställning och recept i separata mallar.\r\n\r\nNamnen på de flesta vägstegen i den här arketypen börjar med antingen \"Medicinering\" eller \"Recept\". Detta för att göra det lättare att skilja mellan de vägsteg som är relaterade till recepthantering och de som är associerade med hanteringen av själva läkemedelsbeställningen.\r\n\r\nI vissa jurisdiktioner kan ett recept godkännas på nytt, detta för att kunna fortsätta med en pågående läkemedelsbeställning, medan i andra måste ett helt nytt recept utfärdas under dessa omständigheter. I det sistnämnda gäller inte vägsteget \"Receptbeläggning på nytt\".\r\n",
+          "misuse" : "Får inte användas för att registrera en läkemedelsordination eller instruktion. Använd arketypen INSTRUCTION.medication_order för detta ändamål.\r\n\r\nAnvänds inte arketypen för att registrera administrering eller dosering av blodprodukter, vilket innebär en helt annan klinisk process och sannolikt kommer att kräva annan stödjande information. Använd en annan lämplig ACTION-arketyp för detta ändamål.\r\n\r\nFår inte användas för registrering av detaljer om efterlevnadsbehandling, sekundära effekter eller toxicitet. Använd andra arketyper för dessa ändamål.\r\n\r\nFår inte användas för avstämning av läkemedel. Använd andra lämpliga arketyper för detta ändamål.\r\n\r\nFår inte användas för en formell granskning av en hel läkemedelslista, till exempel av en apotekare. Använd andra lämpliga arketyper för detta ändamål.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om enhver legemiddelrelatert oppgave som utføres fra et legemiddel er ordinert eller rekvirert til det er utdelt eller eventuelt kassert, for eksempel bestilling, istandgjøring, administrering, ekspedering eller seponering.",
+          "keywords" : [ "medikasjon", "utdeling", "administrasjon", "utsettelse", "seponering", "terapeutisk vare", "medisinsk vare", "tilførsel", "medisin", "apotekervare", "legemiddel", "legemiddellogistikk", "istandgjøring", "opptrekking", "utblanding", "apotekvare", "administrere", "gi", "preparat", "resept", "e-resept", "ekspedering" ],
+          "use" : "Brukes til å registrere detaljer om enhver legemiddelrelatert oppgave som utføres fra et legemiddel er ordinert eller rekvirert til det er utdelt eller eventuelt kassert, for eksempel bestilling, istandgjøring, administrering eller ekspedering. Dette gjøres ved å registrere data i sammenheng med spesifikke aktiviteter, som definert av \"Pathway\" prosesstrinnene i arketypen.\r\n\r\nDenne arketypen er ment for å brukes til en hvilken som helst type legemiddel og tilhørende ordinering, enten den er ordinert av en kliniker eller tilgjengelig uten resept. Den er ment å også dekke vaksiner, parenterale væsker, ernæringsprodukter eller medisinsk forbruksmateriell. Innenfor en legemiddelliste eller vaksinasjonsliste brukes denne arketypen for å registrere hva som er ordinert eller administrert.\r\n\r\nYtterligere strukturerte detaljer om aktiviteten kan ved behov registreres ved hjelp av spesifikke arketyper som settes inn i SLOTene \"Legemiddeldetaljer\", \"Legemiddelmengde\", \"Strukturert anatomisk lokalisering\", \"Administreringsutstyr\" eller \"Ytterligere detaljer\".\r\n\r\nTiming i forbindelse med legemiddelhåndtering kan gjøres på to forskjellige måter:\r\n- Ved å bruke referansemodellen: Tidspunktet for utførelsen av en aktivitet bruker \"ACTION time\"-attributten for hvert prosesstrinn, for eksempel når en dose ble administrert eller når legemiddelet ble seponert.\r\n- Ved hjelp av informasjonselementer i arketyper: Elementet \"Opprinnelig planlagt tid\" er ment for å registrere tidspunktet da legemiddelet ifølge ordineringen skulle vært administrert. Merk: Den korresponderende \"ACTION time\"-attributten for prosesstrinn av typen \"scheduled\" vil registrere tidspunktet da planleggings-steget ble lagt inn i systemet, ikke tidspunktet når aktiviteten er planlagt å bli utført.\r\n\r\nI praksis vil noen legemidler, for eksempel under gjenoppliving, administreres på bakgrunn av en prosedyre eller verbal ordinering, og ikke bli registrert på forhånd. Detaljer om legemiddelet vil i disse tilfellene bli registrert i sammenheng med prosesstrinnet \"Legemiddel administrert\". Når det skal gjøres flere administreringer, blir informasjon om legemiddelet bli registrert i sammenheng med prosesstrinnet \"Legemiddel administrert\" for hver administrering, og instruksjonen beholder statusen \"active\". Når siste administrering er utført, settes prosesstrinnet \"Medisinering fullført\".\r\n\r\nI andre situasjoner, som for eksempel vanlig ordinering i sykehus, kan det eksistere en formell ordinering for hvert legemiddel i form av en \"INSTRUCTION.medication_order\"-arketype. Denne ACTION-arketypen kan da brukes for å registrere arbeidsflyten for når og hvordan ordineringen ble utført.\r\n\r\nÅ registrere informasjon ved hjelp av denne ACTION-arketypen indikerer at en aktivitet faktisk har blitt utført. Dette vil vanligvis være administrering av legemiddelet, me kan også være forsinket levering fra apotek eller andre aktiviteter som å nulle ut legemiddelet i forkant av en operasjon. Dersom det finnes en formell ordinering av legemiddelet, representeres status for ordineringen ved prosesstrinnet informasjonen er registrert i sammenheng med. For eksempel kan arketypen brukes for å registrere den pågående statusen for en paracetamol-ordinering gjennom en serie registreringer i journalen som hver har sitt prosesstrinn. Man kan bruke elementet \"Årsak\" dersom man trenger å registrere begrunnelsen for at en aktivitet ble utført eller et prosesstrinn ble valgt, for eksempel hvorfor en enkeltdose ble nullet eller legemiddelet ble seponert.\r\n\r\nNår denne ACTION-arketypen brukes sammen med den korresponderende INSTRUCTION.medication_order-arketypen, vil man generelt ikke gjenta informasjon som ikke er endret fra ordineringen. Det regnes som god praksis, men ikke obligatorisk, å registrere legemiddelnavnet også i ACTION-arketypen.\r\n\r\nNavnene på prosesstrinnene skiller mellom dem som har direkte sammenheng med utførelse av ordineringen, som autorisering, istandgjøring eller administrering, og dem som har med resepthåndtering å gjøre, som utstedelse eller ekspedering. I noen myndighetsområder er dette regnet som én prosess, mens det i andre kan være nyttig å håndtere dem separat.\r\n\r\nI noen myndighetsområder kan en resept reautoriseres for å fortsette en pågående ordinering, mens det i andre må utstedes en helt ny resept. For sistnevnte områder er ikke prosesstrinnene \"Reautorisering av resept satt på vent\" eller \"Resept reautorisert\" relevante.",
+          "misuse" : "Skal ikke brukes for å registrere ordinering av legemidler. Bruk arketypen INSTRUCTION.medication_order for dette formålet.\r\n\r\nSkal ikke brukes for å registrere administrering eller utlevering av blodkomponenter, da dette er en grunnleggende annerledes prosess som krever annen informasjon. Bruk en annen, passende ACTION-arketype til dette formålet.\r\n\r\nSkal ikke brukes for å registrere detaljer om adheranse, sekundæreffekter eller toksisitet. Bruk andre arketyper for disse formålene.\r\n\r\nSkal ikke brukes for legemiddelsamstemming. Bruk andre arketyper for dette formålet.\r\n\r\nSkal ikke brukes for en formell gjennomgang av en hel legemiddelliste, for eksempel av farmasøyt. Bruk andre arketyper for dette formålet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Este ACTION permite la grabación de las ordenes de prescripciones. Esto será normalmente en respuesta a una orden de medicación o prescripción, pero puede ser autoadministrado o suministrada por una farmacia. No existe informacion sobre si el uso de este arquetipo implica que alguna accion haya efectivamente sido ejecutada",
+          "keywords" : [ "*medication(en)", "*prescibe(en)", "*dispense(en)", "*administration(en)", "*cessation(en)", "*therapeutic good(en)", "*supply(en)", "*medicine(en)", "*drug(en)" ],
+          "use" : "*For recording the planning, issuing of a prescription, dispensing, administration, cessation, suspension, completion of a medicine, vaccine or other therapeutic good . This will usually be in response to a medication order but may be administered immediately without an order at times, thus requiring recording of the administration alone (e.g. in an emergency situation). \r\n\r\nSuch a record may be made to indicate the administration of a dose, dispensing of a certain quantity or as a record of ceasing a medication. The state of the medication instruction is altered by the action taken as indicated in the Pathway definition.\r\n\r\nThere is a date and time at which this ACTION took place (as there is for all ACTIONs)  and use of this archetype indicates that some action has actually occurred.(en)",
+          "misuse" : "*Do not use when recording an instruction or order (use INSTRUCTION.medication).(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para registrar detalhes sobre qualquer atividade relacionada ao planejamento, agendamento, gestão da prescrição, dispensação, administração, término e outro uso de um medicamento, vacina, produto nutricional ou outro insumo terapêutico.",
+          "keywords" : [ "medicamento", "prescrever", "dispensar", "administração", "término", "insumo terapêutico", "suprimento", "medicamento", "fármaco", "preparo", "medicinal", "prescrição", "vacina", "vacinação", "dose", "forma", "via", "seguimento" ],
+          "use" : "Usado para registrar informação sobre as atividades necessárias para suportar todos os aspectos da gestão de medicação, incluindo o planejamento, agendamento, suspensão, cancelamento e finalização de solicitação de medicação, assim como a administração de items de medicação. Isso é feito pela gravação de dados de atividades específicas, como definido pelo \"Fluxo\" das etapas do processo de cuidado neste arquétipo.\r\n\r\nEste arquétipo objetiva ser usado para qualquer tipo de medicação e solicitaçao relacionada, tanto prescrita por um profissional de saúde ou disponível para aquisição em venda livre. O escopo este arquétipo de medicação também inclui solicitações para vacinação, fluidos parenterais e outros insumos terapêuticos, como curativos, produtos nutricionais e outros items que são aplicados ou administraçõ para alcançar um efeito terapêutico e que têm padrões comuns de registro de dados. Dentro do contexto de uma lista de medicação ou vacinação, este arquétipo poderá ser usado para registrar a medicação ou vacinação que foi prescrita ou administrada.\r\n\r\nInformações adicionais estruturadas ou detalhadas sobre a atividade podem ser capturadas usando arquétipos específicos inseridos nos SLOTs \"Detalhes do preparo\", \"Quantidade\", \"Local do corpo estruturado\", \"Dispositivo de administração\" ou \"Detalhes adicionais\", quando necessário.\r\n\r\nTempos relacionados à gestão de medicação podem ser geridos por uma das opções:\r\n- Usando o modelo de referência - o tempo da realização de qualquer etapa do processo usará o atributo do tempo da ACTION para cada etapa.\r\n- Elementos de dados arquetipados - o elemento de dado \"Data/hora original do agendamento\" pretende registrar o momento que o item de medicação foi marcado para ser administrado. Nota: o atributo ACTION de tempo correspondente para a etapa do processo agendada registrará o momento no qual a atividade clínica foi agendada no sistema, não sendo a data/hora na qual a atividade deve ser realizada.\r\n\r\nNa prática, algumas medicações (por exemplo, durante ressuscitação no departamento de emergência) serão administradas baseadas em um protocolo ou solicitação verbal e não serão solicitadas com antecedência. Os detalhes sobre a medicação serão adicionados na etapa \"Dose administrada\" do processo. Para um curso de medicação em andamento, dados sobre o item de medicação serão gravados na etapa \"Dose administrada\" para administração, deixando a instrução em estado ativo. Quando a última ocorrência é gravada a etapa \"Curso de medicação completo\" é registrada mostrando que esta solicitação está agora com estado completo.\r\n\r\nEm outras situações, como cuidado secundário, pode haver solicitação forma para um item de medicação usado o arquétipo correspondente INSTRUCTION.medication_order. Este arquétipo ACTION pode então ser usado para gravar o fluxo de trabalho de quando e como a solicitação foi realizada. \r\n\r\nO registro da informação usando este arquétipo ACTION indica que algum tipo de atividade realmente ocorreu; esta será mais frequentemente a administração de um medicamento em si, mas pode ser uma tentativa de suprimento adiada ou outra atividade como a suspensão de um item de medicação no preparo para um procedimento. Se há uma solicitação formal para o item de medicação, o estado desta solicitação é representado pela etapa do processo no qual o dado é gravado. Por exemplo, usando este arquétipo o estado progressivo de uma solicitação de paracetamol pode ser gravado em entradas diferentes nas notas do PEP em cada etapa do \"Processo\". Quando documentar o motivo pelo qual uma atividade foi realizada ou uma etapa do processo foi escolhida, por exemplo o por quê uma dose foi omitida ou a medicação terminada, o elemento \"Motivo\" pode ser usado.\r\n\r\nQuando este arquétipo ACTION é usado com o arquétipo correspondente NSTRUCTION.medication_order, a informação que não foi alterada na solicitação para a atividade de gestão não são geralmente repetidas na ação. É considerado boa prática, embora não obrigatória, gravar o item de medicação na ACTION.\r\n\r\nAs etapas do processo distinguem entre aqueles que diretamente se relacionam a cumprir a solicitação, como uma autorização, preparo ou administração da dose, e aqueles que se relacionam ao manuseio da prescrição como um problema, reautorização, dispensação. Em algumas jurisdições, estes são considerados como um processo único, em outras pode ser útil a gestão de cumprimento de solicitações e prescrição em modelos separados.\r\n\r\nOs nomes da maioria das etapas do processo neste arquétipo começam ou com \"Medicação\" ou \"Prescrição\" para facilitar a diferenciação entre as etapas do processo associadas com o manuseio da prescrição e aqueles que são associados com o manuseio da solicitação de medicação em si.\r\n\r\nEm algumas jurisdições, a prescrição pode ser reautorizada para o propósito de continuar uma solicitação de medicação em curso, enquanto em outras uma prescrição inteiramente nova precisa ser emitida nestas circunstâncias. No último caso, a etapa do processo \"Prescrição reautorizada\" não se aplica.",
+          "misuse" : "Não deve ser usado para registrar uma solicitação de medicação ou instrução. Use o arquétipo INSTRUCTION.medication_order para este propósito. \r\n\r\nNão deve ser usado para gravar a administração ou dispensação de hemoderivados, que envolvem um processo clínico fundamentalmente diferente e é provável que requeira informação de suporte deiferentes. Use um arquétipo ACTION apropriado para este propósito.\r\n\r\nNão deve ser usado para gravar detalhes sobre aderência terapêutica, efeitos secundários ou toxicidade. Use outros arquétipos para estes propósitos.\r\n\r\nNão deve ser usado para reconciliação de medicamentos. Use arquétipos apropriados para este propósito.\r\n\r\nNão deve ser usado para uma revisão formal de uma lista inteira de medicameção, por exemplo por um farmacêutico. Use arquétipos apropriados para este propósito.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "For recording details about any activity related to the planning, scheduling, prescription management, dispensing, administration, cessation and other use of a medication, vaccine, nutritional product or other therapeutic item.",
+          "keywords" : [ "medication", "prescribe", "dispense", "administration", "cessation", "therapeutic good", "supply", "medicine", "drug", "preparation", "medicinal", "prescription", "vaccine", "vaccination", "dosage", "form", "route", "follow-up" ],
+          "use" : "Use to record information about the activities required to support all aspects of medication management, including the planning, scheduling, suspension, cancellation and completion of medication orders, as well as the actual administration of medication items. This is done by the recording of data against specific activities, as defined by the 'Pathway' careflow steps in this archetype.\r\n\r\nThis archetype is intended to be used for any type of medication and related order, whether prescribed by a health professional or available for purchase 'over the counter'. The scope of this medication archetype also includes orders for vaccinations, parenteral fluids or other therapeutic goods, such as bandages, nutritional products or other items that are applied or administered to have a therapeutic effect and which have a common pattern for data recording. Within the context of a Medication or Vaccination List, this archetype will be used to record only what medication or vaccination has been prescribed or administered.\r\n\r\nAdditional structured and detailed information about the activity can be captured using purpose-specific archetypes inserted into the 'Preparations details', 'Amount', 'Structured body site', 'Administration device' or 'Additional details' SLOTs, where required.\r\n\r\nTimings related to medication management can be managed in one of two ways:\r\n- Using the reference model - the time for performance of any pathway step will use the ACTION time attribute for each step.\r\n- Archetyped data elements - the 'Original scheduled date/time' data element is intended to record the time when the medication item was intended to be administered. Note: the corresponding ACTION time attribute for the Scheduled pathway step will record the time that the clinical activity was scheduled into a system, not the intended date/time on which the activity is intended to be carried out.\r\n\r\nIn practice, some medications (for example, during resuscitation in the emergency department) will be administered on the basis of a protocol or verbal order and not be ordered in advance. The details about the medication will be added against the pathway step 'Dose administered'. For an ongoing course of medication, data about the medication item will be recorded against the 'Dose administered' step at each administration, leaving the instruction in the active state. When the last occurrence is recorded the ‘Medication course completed' step is recorded showing that this order is now in the completed state.\r\n\r\nIn other situations, such as secondary care, there may be a formal order for a medication item using a corresponding INSTRUCTION.medication_order archetype. This ACTION archetype can then be used to record the workflow of when and how the order has been carried out.\r\n\r\nRecording information using this ACTION archetype indicates that some sort of activity has actually occurred; this will most commonly be the administration of the medication item itself, but may be a delayed supply attempt or another activity such as suspending the medication item in preparation for a procedure. If there is a formal order for the medication item, the state of this order is represented by the Pathway step against which the data is recorded. For example, using this archetype the progressing state of a Paracetamol order may be recorded through separate entries in the EHR progress notes at each 'Pathway' step. When documenting the reason for why an activity was performed or a pathway step was chosen, for example why a dose was omitted or the medication was ceased, the element \"Reason\" may be used. \r\n\r\nWhen this ACTION archetype is used with the corresponding INSTRUCTION.medication_order archetype, information which hasn't changed from the order to the management activity aren't generally repeated in the action. It's considered good practice, though not mandatory, to record the medication item in the ACTION.\r\n\r\nThe pathway steps make a distinction between those which relate directly to fulfillment of the order, such as authorisation, preparation and dose administration, and those which relate to handling of the prescription such as issue, re-authorisation, dispensing. In some jurisdictions these are regarded as a single pathway, in others it may be helpful to handle order fulfillment and prescription in separate templates.\r\n\r\nThe names of most of the pathway steps in this archetype start with either \"Medication\" or \"Prescription\" to make it easier to differentiate between the pathway steps that are associated with prescription handling and those that are associated with handling the medication order itself.\r\n\r\nIn some jurisdictions, a prescription can be re-authorised for the purpose of continuing an ongoing medication order, while in others an entirely new prescription must be issued in these circumstances. In the latter, the pathway step 'Prescription re-authorised' is not applicable.",
+          "misuse" : "Not to be used for recording a medication order or instruction. Use the INSTRUCTION.medication_order archetype for this purpose.\r\n\r\nNot to be used to record the administration or dispensing of blood products, which involves a fundamentally different clinical process and is likely to require different supporting information. Use a different appropriate ACTION archetype for this purpose.\r\n\r\nNot to be used for recording details about therapeutic adherence, secondary effects or toxicity. Use other archetypes for these purposes.\r\n\r\nNot to be used for medication reconcilliation. Use other appropriate archetypes for this purpose.\r\n\r\nNot to be used for a formal review of an entire medication list, for example by a pharmacist. Use other appropriate archetypes for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sl"
+          },
+          "purpose" : "*The recording of activities undertaken with regard to a medicine, vaccine or other therapeutic good and linking to the instruction if appropriate.",
+          "keywords" : [ "*medication", "*prescibe", "*dispense", "*administration", "*cessation", "*therapeutic good", "*supply", "*medicine", "*drug" ],
+          "use" : "*For recording the planning, issuing of a prescription, dispensing, administration, cessation, suspension, completion of a medicine, vaccine or other therapeutic good . This will usually be in response to a medication order but may be administered immediately without an order at times, thus requiring recording of the administration alone (e.g. in an emergency situation). \r\n\r\nSuch a record may be made to indicate the administration of a dose, dispensing of a certain quantity or as a record of ceasing a medication. The state of the medication instruction is altered by the action taken as indicated in the Pathway definition.\r\n\r\nThere is a date and time at which this ACTION took place (as there is for all ACTIONs)  and use of this archetype indicates that some action has actually occurred.",
+          "misuse" : "*Do not use when recording an instruction or order (use INSTRUCTION.medication).",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "يُمَكِّن هذا الفعل من تسجيل الأفعال التي يتم تنفيذها فيما يتعلق بالأدوية. و عادة ما يكون ذلك استجابة لأمر دوائي أو وصفة دوائية, و لكنه قد يكون إما قام المريض بتناوله بنفسه أو عن طريق الصيدلية. لا يوجد في هذا النموذج تفاصيل حول الوقت حيث إنه يشير إلى فعل تم في الواقع.",
+          "keywords" : [ "*medication(en)", "*prescibe(en)", "*dispense(en)", "*administration(en)", "*cessation(en)", "*therapeutic good(en)", "*supply(en)", "*medicine(en)", "*drug(en)" ],
+          "use" : "*For recording the planning, issuing of a prescription, dispensing, administration, cessation, suspension, completion of a medicine, vaccine or other therapeutic good . This will usually be in response to a medication order but may be administered immediately without an order at times, thus requiring recording of the administration alone (e.g. in an emergency situation). \r\n\r\nSuch a record may be made to indicate the administration of a dose, dispensing of a certain quantity or as a record of ceasing a medication. The state of the medication instruction is altered by the action taken as indicated in the Pathway definition.\r\n\r\nThere is a date and time at which this ACTION took place (as there is for all ACTIONs)  and use of this archetype indicates that some action has actually occurred.(en)",
+          "misuse" : "*Do not use when recording an instruction or order (use INSTRUCTION.medication).(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "用于记录关于任何与药物、疫苗、营养产品/制品或其他治疗类制剂（therapeutic item）的计划[编制]、排程/安排、处方管理、配发、施用/给药、停止/停用和其他使用情况相关的活动的详情。",
+          "keywords" : [ "药物", "药物治疗", "用药", "开立处方", "开具处方", "开处方", "配发", "调剂和发放", "施用", "给药", "停止", "停止施用", "停用", "治疗类产品", "供应", "供给", "药品", "药用", "医药", "处方", "疫苗", "疫苗接种", "接种疫苗", "免疫接种", "免疫", "剂量", "剂量药物", "剂型", "形式", "途径", "给药途径", "用药途径", "随访", "跟踪" ],
+          "use" : "用于记录关于那些支持药物管理各个方面时所需活动的信息，而这些活动包括药物医嘱的计划[编制]、排程/安排、暂停、取消和完成，以及具体药物的实际施用/给药。方法就是按照本原始型之中的“路径”照护服务流程步骤的定义，来记录针对种种具体活动的数据。\r\n\r\n本原始型旨在用于任何类型的药物医嘱和相关医嘱，无论是健康专业人员的处方所开具的药物还是可在“药房柜台”购买的非处方药。这一药物原始型的范围还包括关于疫苗接种、注射液或其他治疗类制剂/产品的医嘱。例如，绷带、营养产品/制品或其他应用或施用起来具有治疗效果的产品/制品/制剂；而且，此类的产品/制品/制剂在数据记录方面有着共同的模式。在药物或疫苗接种清单的背景下，本原始型将仅仅用于记录处方已开具或已施用的药物或疫苗[接种]。\r\n\r\n如果需要，可以利用插入到“制剂详情”（Preparations details）、“数量”（Amount）、“结构化身体部位”（Structured body site）、“施用/给药设备”（Administration device）或“其他详情”（Additional details）槽位（SLOT）之中针对具体目的的原始型，来采集关于相应活动的其他结构化详情。\r\n\r\n可以采用下列两种方式之一来管理与药物管理相关的时间特征（时机安排）信息：\r\n- 利用参考模型 - 任何路径步骤的执行时间将采用的是每个步骤的行动（ACTION）时间属性。\r\n- 原始型数据元 - “原始预定日期/时间”（Original scheduled date/time）数据元旨在记录预定/打算施用相应药物的时间。注意：已排程/安排计划（Scheduled）路径步骤的相应行动（ACTION）时间属性将记录的是将相应的临床活动排程/安排到系统当中的时间，而不是预定/打算开展相应活动的预定日期/时间。\r\n\r\n在实际工作中，一些药物（如急诊科复苏期间的用药）将根据特定的诊疗方案或口头医嘱来进行施用/给药，而不是提前开立医嘱。将会针对路径步骤“施用/给药剂量”（Dose administered），来添加关于药物的详情。对于正在进行之中的药物治疗过程，将会针对每次施用/给药时的步骤“施用/给药剂量”（Dose administered），来记录关于相应具体药物的数据，并使相应的医嘱指令保持有效状态。当记录最后一次施用/给药的情况时，将记录的步骤是“已完成的药物治疗过程”（Medication course completed），表明该医嘱现在处于已完成的状态。\r\n\r\n在其他的情况下，如二级照护服务/医疗护理服务，则可能存在针对相应具体药物的正式医嘱，而此类的医嘱采用的是相应的药物医嘱原始型 INSTRUCTION.medication_order。这样，就可以利用当前的行动（ACTION）原始型来记录关于何时以及如何执行该医嘱的工作流。\r\n\r\n采用当前这一行动（ACTION）原始型来记录信息表明，实际上已经发生了某种活动；此类活动最为常见的就是相应具体药物本身的施用/给药，但也可能是延迟供应的尝试，或者是其他活动，如为准备某项操作而暂停相应的具体药物。如果相应具体的药物有正式的医嘱，则采用据以记录相应数据的路径步骤来表达该医嘱的状态。例如，可以采用这一原始型，利用每个“路径”步骤时EHR病程记录之中的不同条目，来记录对乙酰氨基酚（扑热息痛）医嘱的进展状态。\r\n在记录关于开展特定活动或选择特定路径步骤的原因时，如为何省略特定剂量的药物或停用相应的药物，则可以使用数据元“原因”（Reason）。\r\n\r\n当这一行动（ACTION）原始型与相应的药物医嘱原始型INSTRUCTION.medication_order 一起使用时，一般并不会在相应的动作之中重复从医嘱到管理活动并未发生变化的信息。在行动（ACTION）中记录相应的具体药物属于是一种很好的做法，虽然并非强制性的要求。\r\n\r\n路径步骤可以区分那些跟医嘱执行直接相关的步骤，如授权、准备和剂量施用，与那些跟处方处理相关的步骤，如签发、重新授权、配发。在某些司法管辖区域，会将这些步骤视为同一路径[的内容]，而在其他的司法管辖区域，可能会有所帮助的做法则是采用不同的模板来处理医嘱履行和处方。\r\n\r\n本原始型之中大多数路径步骤的名称均以“药物”或“处方”开头，以便更易于区分那些跟处方处理相关的路径步骤与那些跟处理药物医嘱本身相关的路径步骤【中文名称的情况可能并非如此】。\r\n\r\n在某些司法管辖区域，要继续沿用持续使用的药物医嘱，可以重新授权相应的处方，而在其他的司法管辖区域，在此类的情况下，则必须签发全新的处方。在后一种情况下，路径步骤“已重新授权的处方”（Prescription re-authorised）将不适用。",
+          "misuse" : "不得用于记录药物医嘱或说明。对于此类的用途，应当采用药物医嘱原始型INSTRUCTION.medication_order。\r\n\r\n不得用于记录血液制品的施用或配发，因为其涉及的是截然不同的临床过程，且很可能需要不同的支持信息。 对于此类的用途，应当采用合适的行动（ACTION）原始型。\r\n\r\n不得用于记录关于治疗依从性、继发反应或毒性的详情。对于此类的用途，应当采用其他的原始型。\r\n\r\n不得用于药物汇整/核对协调。对于此类的用途，应当采用其他合适的原始型。\r\n\r\n不得将其用于药师等对整个药物清单的正式审核。对于此类的用途，应当采用其他合适的原始型。",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-ACTION.medication.v1",
     "differential" : true,
@@ -379,27 +537,1568 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "ACTION",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "ism_transition",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0109.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "526" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0109" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0145.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "526" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0145" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0013.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "527" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0013" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0012.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "528" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0012" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0150.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "528" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0150" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0016.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "529" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0016" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0153.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "529" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0153" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0002" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0003" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0106.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0106" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0010.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0010" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0148.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0148" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0004.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0004" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0041.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0041" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0005.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0005" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0006.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0006" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0018.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0018" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0044.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "245" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0044" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0008.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "530" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0008" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0009.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "530" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0009" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0011.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "530" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0011" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0015.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "531" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0015" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0039.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "531" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0039" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0151.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "531" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0151" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0007.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "532" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0007" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ISM_TRANSITION",
+          "occurrences" : "0..0",
+          "nodeId" : "at0152.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "current_state",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "532" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          }, {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "careflow_step",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0152" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      }, {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "description",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0017",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0020.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0156.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0132.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "1..1",
+                      "terminologyId" : {
+                        "value" : "local"
+                      },
+                      "constraint" : [ "ac0.1" ],
+                      "selectedTerminologies" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0133.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0043.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE_TIME",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0154.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE_TIME",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0155.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0021.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "CLUSTER",
+              "nodeId" : "at0140",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "items",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0147.1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0141.1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0143.1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0033.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0149.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_BOOLEAN",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0025.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0024.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0104.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-medication-001.v2",
+              "referenceType" : "archetypeOverlay"
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "ar-sy" : { },
-        "sl" : { },
-        "es-ar" : { },
-        "ru" : { },
-        "en" : { },
-        "nb" : { },
-        "pt-br" : { },
-        "de" : { },
-        "sv" : { },
-        "zh-cn" : { }
+        "ar-sy" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "sl" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "es-ar" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "ru" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "en" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "nb" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "pt-br" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "sv" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "zh-cn" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
-      "valueSets" : { }
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0138", "at0139" ]
+        }
+      }
     },
     "adlVersion" : "1.4",
     "buildUid" : "d759dc1c-2029-4663-a29e-065a87bfe41d",
@@ -552,7 +2251,210 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "6780584ECAE98538AF60C1335D7ED4BF"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung von Details über ein einzelnes identifiziertes gesundheitliches Problem oder eine Diagnose.\r\n\r\nDer angestrebte Anwendungsbereich eines gesundheitlichen Problems wurde im Rahmen der medizinischen Dokumentation bewusst breit gehalten, um die reale und wahrgenommene Beeinträchtigungen, die auf das Wohlbefinden eines Individuums nachteilig auswirken könnten, zu erfassen. Ein gesundheitliches Problem kann durch das Individuum selber, durch einen Betreuer oder eine medizinische Fachkraft festgestellt werden. Im Gegensatz dazu wird eine Diagnose zusätzlich durch objektive klinische Kriterien definiert und wird normalerweise nur durch eine medizinische Fachkraft festgestellt.",
+          "keywords" : [ "Sachverhalt", "Beschwerde", "Problem", "Diagnose", "Befinden", "Verletzung", "Klinisches Bild" ],
+          "use" : "Zur Dokumentation eines einzelnen identifizierten gesundheitlichen Problems bzw. einer Diagnose.\r\n\r\nKlare Definitionen, welche eine eindeutige Abgrenzung zwischen einem 'Problem' und einer 'Diagnose' zulassen würden, sind in der praktischen Anwendung nahezu unmöglich - wir können nicht verlässlich festlegen, wann ein Problem als Diagnose angesehen werden sollte. Wenn Diagnose- oder Klassifizierungskriterien zutreffen, können wir einen Gesundheitszustand mit Bestimmtheit als Diagnose bezeichnen. Jedoch kann, auch wenn diese Kriterien noch nicht zutreffen, die Bezeichnung 'Diagnose' zutreffend sein. Die Menge an unterstützenden Hinweisen, die für die Bezeichnung 'Diagnose' notwendig ist, ist nicht einfach festzulegen und variiert in Wirklichkeit wohl abhängig vom Gesundheitszustand. Viele Normungsgremien haben sich mit dieser Definitionsproblematik seit Jahren befasst, ohne zu einem eindeutigen Ergebnis zu kommen.\r\n\r\nFür den Zweck der klinischen Dokumentation im Zuge dieses Archetyps werden Problem und Diagnose als Kontinuum betrachtet, wobei ein zunehmender Detaillierungsgrad und unterstützende Beweise in der Regel dem Label der 'Diagnose' Gewicht verleihen. In diesem Archetyp ist es nicht notwendig eine Zuordnung des Gesundheitszustandes als 'Problem' oder 'Diagnose' vorzunehmen. Die Datenanforderungen zur Unterstützung der beiden sind identisch, wobei eine zusätzliche Datenstruktur erforderlich ist, um die Einbeziehung der Nachweise zu unterstützen, wenn und sobald sie verfügbar sind. Beispiele von Problemen beinhalten: Der vom Individuum geäußerte Wunsch, Gewicht zu verlieren, ohne die formale Diagnose der Fettleibigkeit; oder ein Beziehungsproblem mit einem Familienmitglied. Beispiele formaler Diagnosen beinhalten: Krebs, welcher durch historische Information gestützt wird; Untersuchungsergebnisse; histopathologische Ergebnisse; radiologische Befunde - Diese erfüllen die Anforderungen an diagnostische Kriterien. In der Realität sind Probleme und Diagnosen nicht eindeutig einem der beiden Extreme des Problem-Diagnose-Spektrums zuzuordnen, sondern irgendwo dazwischen.\r\n\r\nDieser Archetyp kann in verschiedenen Zusammenhängen verwendet werden. Zum Beispiel: Dokumentation eines Problems oder einer Diagnose während einer klinischen Beratung; Ausfüllen einer persistenten Problemliste; Zusammenfassende Aussage in einem Entlassungsdokument.\r\n\r\nIn der Praxis verwenden Kliniker viele kontextspezifische Merkmale wie Vergangenheit/Gegenwart, Primär/Sekundär, Aktiv/Inaktiv, Aufnahme/Entlassung etc. Die Zusammenhänge können orts-, spezialisierungs-, episoden- oder workflowspezifisch sein, was zu Verwirrung oder gar potenziellen Sicherheitsproblemen führen kann, wenn die Merkmale in Problemlisten fortbestehen oder in Dokumenten geteilt werden, die außerhalb des ursprünglichen Kontextes liegen. Diese Merkmale können separat archetypisiert und in den Slot 'Status' aufgenommen werden, da ihre Verwendung unter verschiedenen Bedingungen variiert. Es wird erwartet, dass diese meist im entsprechenden Kontext verwendet und nicht ohne klares Verständnis der möglichen Folgen aus diesem Kontext heraus geteilt werden. So kann beispielsweise eine Primärdiagnose des einen Arztes eine Sekundärdiagnose für einen anderen Spezialisten darstellen; ein aktives Problem kann inaktiv werden (oder umgekehrt) und dies kann sich auf die sichere Verwendung der klinischen Entscheidungshilfe auswirken. Die Problem/Diagnose Merkmale sollen generell an die Kontexte der lokalen klinischen Systeme angepasst werden und in der Praxis sollte der jeweilige Status von Klinikern manuell kuratiert werden, um sicherzustellen, dass die Listen der aktuellen/vergangenen, aktiven/inaktiven oder primären/sekundären Probleme klinisch korrekt sind.\r\n\r\nDieser Archetyp wird als Komponente im Sinne des von Larry Weed beschriebenen 'Problem Oriented Medical Record' verwendet. Zusätzliche Archetypen, die klinische Konzepte wie z.B. die Erkrankung als übergreifender Organisator für Diagnosen usw. repräsentieren, müssen entwickelt werden, um diesen Ansatz zu unterstützen.\r\n\r\nIn einigen Situationen könnte angenommen werden, dass die Identifizierung einer Diagnose nur innerhalb der Expertise von Ärzten liegt, aber das ist nicht die Absicht dieses Archetyps. Diagnosen können mit diesem Archetyp von jedem Angehörigen der Gesundheitsberufe erfasst werden.",
+          "misuse" : "Nicht zur Dokumentation von Symptomen, welche vom Individuum beschrieben werden. Verwenden Sie den Archetyp CLUSTER.symptom, normalerweise innerhalb des OBSERVATION.story Archetyps.\r\n\r\nNicht zur Dokumentation von Untersuchungsergebnissen. Verwenden Sie untersuchungsbezogene CLUSTER Archetypen, normalerweise verschachtelt innerhalb des OBSERVATION.exam Archetyps.\r\n\r\nNicht zur Dokumentation von Laborergebnissen oder verwandten Diagnosen. Verwenden Sie einen geeigneten Archetyp aus der Familie der Labor-OBSERVATION Archetypen.\r\n\r\nNicht zur Dokumentation von Ergebnissen aus bildgebenden Verfahren. Verwenden Sie einen geeigneten Archetyp aus der Famile der Bildgebung-OBSERVATION Archetypen.\r\n\r\nNicht zur Dokumentation von Differentialdiagnosen. Verwenden Sie den Archetyp EVALUATION.differential_diagnosis.\r\n\r\nNicht zur Dokumentation von 'Grund für Kontakt' oder 'Bestehende Beschwerden'. Verwenden Sie den Archetyp EVALUATION.reason_for_encounter.\r\n\r\nNicht zur Dokumentation von Prozeduren. Verwenden Sie den Archetyp ACTION.procedure.\r\n\r\nNicht zur Dokumentation von Details über Schwangerschaft. Verwenden Sie die Archetypen EVALUATION.pregnancy_bf_status und EVALUATION.pregnancy sowie verwandte Archetypen.\r\n\r\nNicht zur Dokumentation von Aussagen über Gesundheitsrisiken oder potentielle Gesundheitsprobleme. Verwenden Sie den Archetyp EVALUATION.health_risk.\r\n\r\nNicht zur Dokumentation von Aussagen über Nebenwirkungen, Allergien oder Intoleranzen. Verwenden Sie den Archetyp EVALUATION.adverse_reaction.\r\n\r\nNicht zur Dokumentation einer expliziten Abwesenheit oder Nicht-Anwesenheit eines Problems oder einer Diagnose, wie zum Beispiel 'Kein bekanntes Problem bzw. Diagnose' oder 'Kein Diabetes festgestellt'. Verwenden Sie den Archetyp EVALUATION.exclusion-problem_diagnosis um eine postitive Aussage über den Ausschluss eines Problems oder einer Diagnose zu treffen.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "*For recording details about a single, identified health problem or diagnosis. \r\n\r\nThe intended scope of a health problem is deliberately kept loose in the context of clinical documentation, so as to capture any real or perceived concerns that may adversely affect an individual's wellbeing to any degree. A health problem may be identified by the individual, a carer or a healthcare professional. However, a diagnosis is additionally defined based on objective clinical criteria, and usually determined only by a healthcare professional.(en)",
+          "keywords" : [ "*issue(en)", "*condition(en)", "*problem(en)", "*diagnosis(en)", "*concern(en)", "*injury(en)", "*clinical impression(en)" ],
+          "use" : "*Use for recording details about a single, identified health problem or diagnosis. \r\n\r\nClear definitions that enable differentiation between a 'problem' and a 'diagnosis' are almost impossible in practice - we cannot reliably tell when a problem should be regarded as a diagnosis. When diagnostic or classification criteria are successfully met, then we can confidently call the condition a formal diagnosis, but prior to these conditions being met and while there is supportive evidence available, it can also be valid to use the term 'diagnosis'. The amount of supportive evidence required for the label of diagnosis is not easy to define and in reality probably varies from condition to condition. Many standards committees have grappled with this definitional conundrum for years without clear resolution.\r\n\r\nFor the purposes of clinical documentation with this archetype, problem and diagnosis are regarded as a continuum, with increasing levels of detail and supportive evidence usually providing weight towards the label of 'diagnosis'. In this archetype it is not neccessary to classify the condition as a 'problem' or 'diagnosis'. The data requirements to support documentation of either are identical, with additional data structure required to support inclusion of the evidence if and when it becomes available. Examples of problems include: the individual's expressed desire to lose weight, but without a formal diagnosis of Obesity; or a relationship problem with a family member. Examples of formal diagnoses would include a cancer that is supported by historical information, examination findings, histopathological findings, radiological findings and meets all requirements for known diagnostic criteria. In practice, most problems or diagnoses do not sit at either end of the problem-diagnosis spectrum, but somewhere in between.\r\n\r\nThis archetype can be used within many contexts. For example, recording a problem or a clinical diagnosis during a clinical consultation; populating a persistent Problem List; or to provide a summary statement within a Discharge Summary document.\r\n\r\nIn practice, clinicians use many context-specific qualifiers such as past/present, primary/secondary, active/inactive, admission/discharge etc. The contexts can be location-, specialisation-, episode- or workflow-specific, and these can cause confusion or even potential safety issues if perpetuated in Problem Lists or shared in documents that are outside of the original context. These qualifiers can be archetyped separately and included in the ‘Status’ slot, because their use varies in different settings. It is expected that these will be used mostly within the appropriate context and not shared out of that context without clear understanding of potential consequences. For example, a primary diagnosis to one clinician may be a secondary one to another specialist; an active problem can become inactive (or vice versa) and this can impact the safe use of clinical decision support. In general these qualifiers should be applied locally within the context of the clinical system, and in practice these statuses should be manually curated by clinicians to ensure that lists of Current/Past, Active/Inactive or Primary/Secondary Problems are clinically accurate. \r\n\r\nThis archetype will be used as a component within the Problem Oriented Medical Record as described by Larry Weed. Additional archetypes, representing clinical concepts such as condition as an overarching organiser for diagnoses etc, will need to be developed to support this approach.\r\n\r\nIn some situations, it may be assumed that identification of a diagnosis fits only within the expertise of physicians, but this is not the intent for this archetype. Diagnoses can be recorded using this archetype by any healthcare professional.(en)",
+          "misuse" : "*Not to be used to record symptoms as described by the individual - use the CLUSTER.symptom archetype, usually within the OBSERVATION.story archetype.\r\n\r\nNot to be used to record examination findings - use the family of examination-related CLUSTER archetypes, usually nested within the OBSERVATION.exam archetype.\r\n\r\nNot to be used to record laboratory test results or related diagnoses, for example pathological diagnoses - use an appropriate archetype from the laboratory family of OBSERVATION archetypes.\r\n\r\nNot to be used to record imaging examination results or imaging diagnoses - use an appropriate archetype from the imaging family of OBSERVATION archetypes.\r\n\r\nNot to be used to record 'Differential Diagnoses' - use the EVALUATION.differential_diagnosis archetype.\r\n\r\nNot to be used to record 'Reason for Encounter' or 'Presenting Complaint' - use the EVALUATION.reason_for_encounter archetype.\r\n\r\nNot to be used to record procedures - use the ACTION.procedure archetype.\r\n\r\nNot to be used to record details about pregnancy - use the EVALUATION.pregnancy_bf_status and EVALUATION.pregnancy and related archetypes.\r\n\r\nNot to be used to record statements about health risk or potential problems - use the EVALUATION.health_risk archetype.\r\n\r\nNot to be used to record statements about adverse reactions, allergies or intolerances - use the EVALUATION.adverse_reaction archetype.\r\n\r\nNot to be used for the explicit recording of an absence (or negative presence) of a problem or diagnosis, for example ‘No known problem or diagnoses’ or ‘No known diabetes’. Use the EVALUATION.exclusion-problem_diagnosis archetype to express a positive statement about exclusion of a problem or diagnosis.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att dokumentera ett enskilt identifierat hälsoproblem eller diagnos. Spännvidden av ett hälsoproblem har avsiktligt gjorts bred, för att kunna fånga upp eventuella verkliga eller upplevda *oroskänslor* som kan inverka negativt på en individs välbefinnande. Ett hälsoproblem kan identifieras av individen, en vårdgivare eller en sjukvårdspersonal. En diagnos definieras däremot baserat på objektiva kliniska kriterier, oftast fastställd endast av sjukvårdspersonal.",
+          "keywords" : [ "*fråga", "tillstånd", "problem", "diagnos", "oro", "skada", "klinisk tolkning" ],
+          "use" : "Används för att beskriva ett enskilt identifierat hälsoproblem eller diagnos.\r\nTydliga definitioner som möjliggör en differentiering mellan ett \"problem\" och en \"diagnos\" är nästan omöjliga i praktiken. Vi kan inte på ett tillförlitligt sätt säga när ett problem bör betraktas som en diagnos. När diagnostiska eller klassificeringskriterier är uppfyllda kan vi tryggt kalla tillståndet en formell diagnos. \r\n\r\nOm det finns stödjande bevis tillgängligt, kan det ändå vara giltigt att använda termen \"diagnos\" trots att dessa villkor ännu inte uppfyllts. Det är inte lätt att definiera mängden stödjande bevis som krävs för diagnosmärkning och i verkligheten varierar det från fall till fall. Många standardkommittéer har brottats med denna definitionsgåta i åratal utan tydlig upplösning.\r\n\r\nVid tillämpning av klinisk dokumentation med denna arketyp betraktas problem och diagnoser som ett kontinuum med utrymme för fler detaljer och stödjande bevis som vanligtvis ger stöd för märkningen \"diagnos\". I denna arketyp är det inte nödvändigt att klassificera tillståndet som ett \"problem\" eller \"diagnos\". Kraven för att stödja dokumentation av vardera är identiska, innehållande extra datastruktur som krävs för att stödja inmatning av bevis om och när den blir tillgänglig.\r\nExempel på problem är: individens uttryckliga önskan att gå ner i vikt, men utan en formell diagnos av fetma eller ett relationsproblem med en familjemedlem. Exempel på formella diagnoser skulle omfatta cancer som stöds av anamnes, undersökningsfynd, histopatologiska fynd, radiologiska fynd samt möter alla kända kriteriekrav för diagnostik. \r\n\r\nI praktiken befinner sig de flesta problem eller diagnoser inte i någon ände av problemet-diagnos spektrumet, utan någonstans däremellan. \r\nDenna arketyp kan användas i flera kontexter, exempelvis för dokumentation av ett problem eller en klinisk diagnos under en klinisk konsultation, ifyllnad av en fast problemlista eller för en redogörande sammanfattning i ett utskrivningsdokument.\r\n\r\nI praktiken använder kliniker många kontext-specifika bestämningar som exempelvis tidigare och nuvarande, primär och sekundär, aktiv och inaktiv, inskrivning och utskrivning etc. Kontexterna kan vara plats-, specialitet-, episod-eller arbetsflödes-specifika. Dessa kan orsaka förvirring eller t.o.m. vara potentiella säkerhetsproblem om de förevigas i problemlistor eller delas i dokument som är utanför den ursprungliga kontexten.\r\nDessa bestämningar kan vara separata i arketyperna och ingår i \"status\"-fältet, eftersom deras användning varierar i olika inställningar. \r\nDet förväntas att de huvudsakligen används i en lämplig kontext och inte sprids utanför kontexten utan tydlig förståelse för potentiella konsekvenser.\r\nExempelvis kan en diagnos vara primär för en kliniker och sekundär för en annan specialist, ett aktivt problem kan bli inaktivt (eller vice versa) och detta kan påverka den säkra användningen av kliniskt beslutsstöd.\r\n\r\nI allmänhet bör dessa bestämningar tillämpas lokalt inom ramen för det kliniska systemet, och i praktiken bör dessa tillstånd ordnas manuellt av kliniker för att säkerställa att listor över nuvarande och tidigare, aktiv och inaktiv eller primärt och sekundärt problem är kliniskt korrekta.\r\nDenna arketyp kommer att användas som en komponent inom den problemorienterade patientjournalen som beskrivs av Larry Weed. Ytterligare arketyper, som presenterar kliniska begrepp som villkor som en övergripande organisatör för diagnoser etc. kommer att behöva utvecklas för att stödja denna strategi.\r\n\r\nI vissa situationer, kan identifiering av en diagnos vara lämplig enbart inom läkarnas expertis, men det är inte avsikten med denna arketyp. Diagnoser kan dokumenteras med hjälp av denna arketyp av vilken som helst sjukvårdspersonal.\r\n",
+          "misuse" : "Ska inte användas för att dokumentera symtom som beskrivs av individen. Använd CLUSTER. symptom arketypen vanligtvis inom OBSERVATION.story-arketypen för det ändamålet.\r\n\r\nSka inte användas för att dokumentera undersökningsfynd. Använda då istället arketyper från den undersökningsrelaterade gruppen CLUSTER- som oftast är inkapslad i Observation Exam-arketypen.\r\n\r\nSka inte användas för att dokumentera testresultat från laboratoriet eller till relaterade diagnoser, exempelvis patologiska diagnoser. Använd då istället en lämplig arketyp från laboratoriegruppen OBSERVATION.\r\n\r\nSka inte användas för att dokumentera undersökningsfynd genom bildmedia eller bilddiagnostik. Använd då istället en lämplig arketyp från bildmediegruppen OBSERVATION arketyper.\r\n\r\nSka inte användas för att dokumentera \"differentialdiagnostik\". Använd då istället EVALUATION.differential_diagnosis-arketypen.\r\n\r\nSka inte användas för att dokumentera \"Anledning till Vårdtillfälle\" eller \"Huvudsakligt besvär\". Använd EVALUATION.reason_for_encounter-arketypen till dessa ändamål.\r\n\r\nSka inte användas för att dokumentera åtgärder. Använd då istället ACTION.procedure-arketypen.\r\n\r\nSka inte användas för att dokumentera uppgifter om graviditet. Använd EVALUATION.pregnancy_bf_status och EVALUATION.pregnancy och relaterade arketyper till dessa ändamål.\r\n\r\nSka inte användas för att dokumentera bedömningar om hälsorisker eller potentiella problem. Använd då istället EVALUATION.health_risk-arketypen.\r\n\r\nSka inte användas för att dokumentera redogörelser om biverkningar, allergier eller intoleranser. Använd EVALUATION.adverse_reaction-arketyp för dessa ändamål.\r\n\r\nSka inte användas för särskild dokumentering av frånvaro (eller negativ närvaro) av ett problem eller en diagnos, exempelvis \"inga kända problem eller diagnoser\" eller \"Ingen känd diabetes\". Använd EVALUATION.exclusion-problem_arketypen för att uttrycka ett positivt utlåtande om uteslutning av ett problem eller diagnos. \r\n\r\n",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ko" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ko"
+          },
+          "purpose" : "단일한 확인된 건강 문제 또는 진단에 대한 상세내역을 기록하기 위함.\r\n\r\n의도된 건강 문제의 범위는 어느 정도로 개인의 웰빙에 좋지않은 방향으로 영향을 주는 모든 실제 또는 인지된 걱정(concern)를 획득하기 위해 궁극적으로 임상 문서의 문맥에서 느슨하게 유지됨. 건강 문제는 해당 개인, 또는 보호자, 헬스케어 전문가에 의해 확인될 수도 있음. 그러나 진단은 객관적인 임상적 기준에 근거하여 추가적으로 정의되며, 일반적으로 헬스케어 전문가들에 의해서만 결정됨.",
+          "keywords" : [ "이슈", "상태", "진단", "걱정", "상해", "임상소견" ],
+          "use" : "단일한 확인된 건강 문제 또는 진단에 대한 상세내역을 기록하기 위함.\r\n\r\n'문제(problem)'와 '진단(diagnosis)' 간의 차이를 구분할 수 있는 명확한 정의는 실무에서 거의 불가능함 - 우리는 문제가 언제 진단으로 간주되어야 하는지를 신뢰성있게 구별할 수 없음. 진단 또는 분류 기준이 성공적으로 만족될 때, 우리는 상태(condition)를 정규적인 진단으로 확실하게 말할 수 있지만, 이런 상태를 만족하기 이전에, 지지할 수 있는 증거를 이용가능하다면 '진단'이라는 용어를 또한 사용하는 것이 유효할 수 있음. 진단이라는 표시를 위해 필요한 지지할 수 있는 증거의 양은 정의하기 쉽지 않고 실제로 상태에 따라 다양할 수 있음. 많은 표준 기구는 수 년 동안 명확한 해결책없이 이러한 정의적인 문제로 가득 차 있음. \r\n\r\n이 아키타입을 통한 임상 문서의 목적을 위해서, 증가하는 상세내용의 수준과 일반적으로 '진단'의 표시에 대한 무게감을 제공하는 지지할 수 있는 증거를 가지고, 문제와 진단은 연속된 것(a continuum)으로 간주됨. 이 아키타입 내에서 상태를 '문제' 또는 '진단'로 분류할 필요는 없음. 두 가지의 문서화를 보조하기 위한 데이터 요구사항은 동일하며, 증거가 이용가능하거나/이용가능할 때 이 증거의 포함(inclusion)을 지원하는 데 필요한 추가적인 데이터 구조를 가지고 있음. 문제의 예는 다음을 포함함 : 체중을 줄이고 싶다는 개인의 표현, 그러나 비만의 정규적인 진단은 없음. 또는 가정 구성원과의 관계 문제. 정규적인 진단의 예는 과거 정보와 검사 소견, 조직병리학적 소견, 영상의학적 소견에 의해 지지되고 알려진 진단적 기준을 위한 모든 요구사항을 만족하는 암이 포함됨. 실무에서 대부분의 문제와 진단은 문제-진단 스펙트럼의 양 끝에 있지 않지만 그 사이 어딘가에 있음.\r\n\r\n이 아키타입은 많은 문맥 내에서 사용될 수 있음. 예를 들어, 임상 자문 동안 문제 또는 임상적 진단를 기록하는 것; 영속적인 문제 목록(persistent Problem List)을 채우는 것; 또는 퇴원 요약 문서(Dischatge Summary document) 내에 요약 문장(summary statement)을 제공하는 것.\r\n\r\n실무에서 임상의는 과거/현재(Present/Past), 일차/이차(Primary/Secondary), 활성/비활성(Active/Inactive), 입원/퇴원(Admission/Discharge) 등 많은 문맥-특징적인 한정자(qualifiers)를 사용함. 문맥은 위치-, 세부전공-, 에피소드-, 워크플로우-특징적 이며 이러한 것들은 원래 문맥에서 벗어난 문제 목록에서 유지되거나 문서 내에서 공유된다면 혼란 또는 심어서 잠재적인 안전 이슈를 발생시킬 수 있음. 이러한 한정자의 이용이 잠재적인 결과에 대한 명확한 이해없이 문맥에 따라 다양하기 때문에, 한정자는 구분되어 아키타입화될 수 있고 'Status' slot에 포함될 수 있음. 예를 들어, 어떤 한 임상의의 일차 진단은 다른 전문의에게는 이차 진단일 수 있음; 현재 활성화된(active) 진단은 비활성화될 수 있음 (또는 그 반대) 그리고 이것은 안전한 임상의사결정의 사용에 영향을 줄 수 있음. 일반적으로 이러한 한정자는 임상 시스템의 문맥 내에서 그 부분에서 적용되어야 하고, 실무에서 이러한 상태는, 현재/과거 또는 활성/비활성, 일차/이차 문제의 목록은 임상적으로 정확하다는 것을 보장하기위해서 임상의에 의해 수기로 조정될 수 있음.\r\n\r\n이 아키타입은 Larry Weed가 기술한 문제지향의무기록(Problem Oriented Medical Record) 내에서 컴포넌트로 사용될 것임. 상태와 같은 임상 개념을 진단을 위한 포괄적인 구성자(organizer)로 표현하는 추가적인 아키타입은 이러한 접근방식을 지원하기 위해 개발될 필요가 있을 것임.\r\n\r\n몇몇 상황에서, 진단의 확인은 임상의의 전문성 안에서만 적용한다는 가정이 될 수 있지만 이것은 이 아카타입이 의도하는 바는 아님. 모든 헬스케어 전문가가 이 아키타입을 이용해 진단을 기록할 수 있음.",
+          "misuse" : "개인에 의해 기술된 증상을 기록하는데 사용하지 않아야 함 - 보통 OBSERVATION.story archetype 내에서 CLUSTER.symptom archetype을 사용해야 함.\r\n\r\n검사 소견을 기록하는데 사용하지 않아야 함 - 보통 OBSERVATION.exam archetype 내에 중첩되어, examination-related CLUSTER archetypes 계열을 사용해야 함.\r\n\r\n검사실 검사 결과 또는 병리학적 검사와 같은 관련된 진단을 기록하는데 사용하지 않아야 함 - 보통 검사실 계열의 OBSERVATION archetype에서 적당한 archetype을 사용해야 함.\r\n\r\n이미지 검사 결과 또는 이미지 진단을 기록하는데 사용하지 않아야 함 - 이미지 계열의 OBSERVATION archetype에서 적당한 archetype을 사용해야 함.\r\n\r\n'감별 진단'을 기록하는데 사용하지 않아야 함 - EVALUATION.differential_diagnosis archetype을 사용해야 함.\r\n\r\n'내원의 이유(Reason for Encounter)' 또는 '주호소(Presenting Complaint)'를 기록하는데 사용지 않아야 함 - EVALUATION.reason_for_encounter archetype을 사용해야 함.\r\n\r\n'처치(procedure)'를 기록하는데 사용하지 않아야 함 - ACTION.procedure archetype를 사용해야 함.\r\n\r\n임신에 대한 상세내용을 기록하는데 사용하지 않아야 함 - EVALUATION.pregnancy_bf_status와 EVALUATION.pregnancy 그리고 관련된 archetypes를 사용해야 함.\r\n\r\n건강 위험요소(health risk) 및 잠재적인 문제에 대한 진술문을 기록하는데 사용하지 않아야 함 - EVALUATION.health_risk archetype을 사용해야 함.\r\n\r\n이상반응(adverse reactions), 알레르기(allergies) 또는 불내성(intolerances)에 대한 진술문을 기록하는데 사용하지 않아야 함 - EVALUATION.adverse_reaction archetype을 사용해야 함.\r\n\r\n'알려진 문제 또는 진단 없음' 또는 '알려진 당뇨병 없음' 등과 같은 문제와 진단의 부재(absence (or negative presence))을 명시적으로 기록하는데 사용하지 않아야 함 - 문제 또는 진단의 배제(exclusion)에 대한 긍정 진술문(positive statement)을 표현하는데 EVALUATION.exclusion-problem_diagnosis archetype을 사용해야 함.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para gravar detalhes sobre um único problema de saúde ou diagnóstico identificado.\r\n\r\nO escopo pretendido de um problema de saúde é deliberadamente mantido livre no contexto da documentação clínica, de forma a captar quaisquer preocupações reais ou percebidas que podem afetar adversamente, em qualquer grau, o bem-estar de um indivíduo. Um problema de saúde pode ser identificado pela o indivíduo, um prestador de cuidados ou de um profissional de saúde. No entanto, o diagnóstico é adicionalmente definido com base em critérios clínicos objetivos, e, geralmente, determinado apenas por um profissional de saúde.",
+          "keywords" : [ "caso", "condição", "problema", "diagnóstico", "preocupação", "prejuízo", "impressão clínica" ],
+          "use" : "Para gravar detalhes sobre um único problema de saúde ou diagnóstico identificado.\r\n\r\nDefinições claras que permitem a diferenciação entre um \"problema\" e um \"diagnóstico\" são quase impossíveis na prática - não podemos dizer de forma segura quando um problema deve ser considerado como um diagnóstico. Quando o diagnóstico ou os critérios de classificação são cumpridos com sucesso, então com confiança podemos chamar a condição de um diagnóstico formal, mas antes que essas condições sejam cumpridas e enquanto houver evidências para tanto, também pode ser válido usar o termo \"diagnóstico\". A quantidade de evidências de apoio requerida para a indicação de diagnóstico não é fácil de ser definida e na realidade, provavelmente varia de condição para condição. Muitos comitês de padrões têm, por anos, se confrontado com esse dilema de definição sem resolução clara. \r\n\r\nEste arquétipo pode ser utilizado em muitos contextos. Por exemplo, na gravação de um problema ou um diagnóstico durante uma consulta clínica; preencher uma lista de problema persistente; ou para fornecer uma declaração de resumo de um documento Sumário de Alta.\r\n\r\nNa prática, os clínicos usam muitos qualificadores de contexto específico, como passado / presente, primário / secundário, ativo / inativo, admissão / alta, etc. Os contextos podem ser: localização, especialização, episódio ou específicos de fluxo de trabalho, e estes podem causar confusão ou até mesmo potenciais problemas de segurança se persistido nas listas de problemas ou compartilhados em documentos que estão fora do contexto original. Estes qualificadores podem ser arquetipados separadamente e incluídos no slot 'Estado', porque seu uso varia em diferentes contextos. Espera-se que estes serão utilizados em sua maioria dentro do contexto apropriado e não compartilhados fora desse contexto, sem compreensão clara das consequências potenciais. Por exemplo, um diagnóstico primário para um clínico pode ser um secundário para outro especialista; um problema ativo pode se tornar inativo (ou vice-versa) e isso pode impactar no uso seguro do apoio à decisão clínica. Em geral, estes qualificadores devem ser aplicados localmente dentro do contexto do sistema clínico e na prática, esses estados devem ser criados manualmente pelos clínicos para assegurar que as listas de problemas: Presente / Passado, ativo / inativo ou primário / secundário são clinicamente precisas.\r\n\r\nEste arquétipo será usado como um componente dentro do Registro Clínico Orientado à Problemas, tal como descrito por Larry Weed. Arquétipos adicionais, que representam conceitos clínicos, tais como: condição como um organizador abrangente para diagnósticos etc, terão de ser desenvolvidos para apoiar esta abordagem.\r\n\r\nEm algumas situações, pode ser assumido que a identificação de um diagnóstico só se encaixa dentro da expertise do médico, mas esta não é a intenção para este arquétipo. Os diagnósticos podem ser gravados utilizando esse arquétipo por qualquer profissional de saúde.",
+          "misuse" : "Não deve ser usado para registrar os sintomas descritos pelo indivíduo, para isso, use o arquétipo CLUSTER.symptom, geralmente dentro do arquétipo OBSERVATION.story.\r\n\r\nNão deve ser usado para registrar achados do exame, use o CLUSTER da família de arquétipos relacionadas ao exame, geralmente aninhados dentro do arquétipo OBSERVATION.exam.\r\n\r\nNão deve ser usado para registrar os resultados dos testes de laboratório ou diagnósticos relacionados, por exemplo, em diagnósticos patológicos use um arquétipo apropriado da família de laboratório dos arquétipos OBSERVATION.\r\n\r\nNão deve ser usado para registrar os resultados dos exames de imagem ou de diagnóstico por imagem, use um arquétipo apropriado a partir da família de imagem dos arquétipos OBSERVATION.\r\n\r\nNão deve ser usado para gravar 'diagnósticos diferenciais', use o arquétipo EVALUATION.differential_diagnosis.\r\n\r\nNão deve ser usado para gravar 'Motivo do Encontro \"ou\" queixa apresentada', use o arquétipo EVALUATION.reason_for_encounter.\r\n\r\nNão deve ser usado para gravar procedimentos, use o arquétipo ACTION.procedure.\r\n\r\nNão deve ser usado para registrar detalhes sobre a gravidez, use o EVALUATION.pregnancy_bf_status e EVALUATION.pregnancy e os arquétipos relacionados.\r\n\r\nNão deve ser usado para gravar o estadiamento sobre o risco ou os problemas de saúde potenciais, use o arquétipo risco EVALUATION.health.\r\n\r\nNão deve ser usado para gravar declarações sobre reações adversas, alergias ou intolerâncias, use o arquétipo EVALUATION.adverse_reaction.\r\n\r\nNão deve ser usado para a gravação de uma ausência explícita (ou presença negativa) de um problema ou diagnóstico, por exemplo: \"sem problema ou diagnósticos conhecido\" ou \"diabetes não conhecido\". Use o arquétipo EVALUATION.exclusion-problem_diagnosis para expressar uma declaração positiva sobre a exclusão de um problema ou diagnóstico.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "For recording details about a single, identified health problem or diagnosis. \r\n\r\nThe intended scope of a health problem is deliberately kept loose in the context of clinical documentation, so as to capture any real or perceived concerns that may adversely affect an individual's wellbeing to any degree. A health problem may be identified by the individual, a carer or a healthcare professional. However, a diagnosis is additionally defined based on objective clinical criteria, and usually determined only by a healthcare professional.",
+          "keywords" : [ "issue", "condition", "problem", "diagnosis", "concern", "injury", "clinical impression" ],
+          "use" : "Use for recording details about a single, identified health problem or diagnosis. \r\n\r\nClear definitions that enable differentiation between a 'problem' and a 'diagnosis' are almost impossible in practice - we cannot reliably tell when a problem should be regarded as a diagnosis. When diagnostic or classification criteria are successfully met, then we can confidently call the condition a formal diagnosis, but prior to these conditions being met and while there is supportive evidence available, it can also be valid to use the term 'diagnosis'. The amount of supportive evidence required for the label of diagnosis is not easy to define and in reality probably varies from condition to condition. Many standards committees have grappled with this definitional conundrum for years without clear resolution.\r\n\r\nFor the purposes of clinical documentation with this archetype, problem and diagnosis are regarded as a continuum, with increasing levels of detail and supportive evidence usually providing weight towards the label of 'diagnosis'. In this archetype it is not neccessary to classify the condition as a 'problem' or 'diagnosis'. The data requirements to support documentation of either are identical, with additional data structure required to support inclusion of the evidence if and when it becomes available. Examples of problems include: the individual's expressed desire to lose weight, but without a formal diagnosis of Obesity; or a relationship problem with a family member. Examples of formal diagnoses would include a cancer that is supported by historical information, examination findings, histopathological findings, radiological findings and meets all requirements for known diagnostic criteria. In practice, most problems or diagnoses do not sit at either end of the problem-diagnosis spectrum, but somewhere in between.\r\n\r\nThis archetype can be used within many contexts. For example, recording a problem or a clinical diagnosis during a clinical consultation; populating a persistent Problem List; or to provide a summary statement within a Discharge Summary document.\r\n\r\nIn practice, clinicians use many context-specific qualifiers such as past/present, primary/secondary, active/inactive, admission/discharge etc. The contexts can be location-, specialisation-, episode- or workflow-specific, and these can cause confusion or even potential safety issues if perpetuated in Problem Lists or shared in documents that are outside of the original context. These qualifiers can be archetyped separately and included in the ‘Status’ slot, because their use varies in different settings. It is expected that these will be used mostly within the appropriate context and not shared out of that context without clear understanding of potential consequences. For example, a primary diagnosis to one clinician may be a secondary one to another specialist; an active problem can become inactive (or vice versa) and this can impact the safe use of clinical decision support. In general these qualifiers should be applied locally within the context of the clinical system, and in practice these statuses should be manually curated by clinicians to ensure that lists of Current/Past, Active/Inactive or Primary/Secondary Problems are clinically accurate. \r\n\r\nThis archetype will be used as a component within the Problem Oriented Medical Record as described by Larry Weed. Additional archetypes, representing clinical concepts such as condition as an overarching organiser for diagnoses etc, will need to be developed to support this approach.\r\n\r\nIn some situations, it may be assumed that identification of a diagnosis fits only within the expertise of physicians, but this is not the intent for this archetype. Diagnoses can be recorded using this archetype by any healthcare professional.",
+          "misuse" : "Not to be used to record symptoms as described by the individual - use the CLUSTER.symptom archetype, usually within the OBSERVATION.story archetype.\r\n\r\nNot to be used to record examination findings - use the family of examination-related CLUSTER archetypes, usually nested within the OBSERVATION.exam archetype.\r\n\r\nNot to be used to record laboratory test results or related diagnoses, for example pathological diagnoses - use an appropriate archetype from the laboratory family of OBSERVATION archetypes.\r\n\r\nNot to be used to record imaging examination results or imaging diagnoses - use an appropriate archetype from the imaging family of OBSERVATION archetypes.\r\n\r\nNot to be used to record 'Differential Diagnoses' - use the EVALUATION.differential_diagnosis archetype.\r\n\r\nNot to be used to record 'Reason for Encounter' or 'Presenting Complaint' - use the EVALUATION.reason_for_encounter archetype.\r\n\r\nNot to be used to record procedures - use the ACTION.procedure archetype.\r\n\r\nNot to be used to record details about pregnancy - use the EVALUATION.pregnancy_bf_status and EVALUATION.pregnancy and related archetypes.\r\n\r\nNot to be used to record statements about health risk or potential problems - use the EVALUATION.health_risk archetype.\r\n\r\nNot to be used to record statements about adverse reactions, allergies or intolerances - use the EVALUATION.adverse_reaction archetype.\r\n\r\nNot to be used for the explicit recording of an absence (or negative presence) of a problem or diagnosis, for example ‘No known problem or diagnoses’ or ‘No known diabetes’. Use the EVALUATION.exclusion-problem_diagnosis archetype to express a positive statement about exclusion of a problem or diagnosis.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل تفاصيل حول قضية أو عقبة تؤثر على السلامة البدنية, العقلية و/أو الاجتماعية لشخص ما",
+          "keywords" : [ "القضية", "الظرف الصحي", "المشكلة", "العقبة" ],
+          "use" : "يستخدم لتسجيل المعلومات العامة حول المشكلات المتعلقة بالصحة.\r\nيحتوي النموذج على معلومات متعددة,و يمكن استخدامه في تسجيل المشكلات الحاضرة و السابقة.\r\nو يمكن تحديد المشكلة بواسطة المريض نفسه أو من يقوم بتقديم الرعاية الصحية.\r\nبعض الأمثلة تتضمن ما يلي:\r\n- بعض الأعراض التي لا تزال تحت الملاحظة و لكنها تمثل تشخيصات مبدأية\r\n- الرغبة لفقد الوزن دون تشخيص مؤكد بالسمنة\r\n- الرغبة بالإقلاع عن التدخين بواسطة الشخص\r\n- مشكلة في العلاقة مع أحد أفراد العائلة",
+          "misuse" : "لا يستخدم لتسجيل التشخيصات المؤكدة. استخدم بدلا من ذلك النموذج المخصص من هذا النموذج, تقييم.المشكلة - التشخيص",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "it" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "it"
+          },
+          "purpose" : "Registrare i dettagli di un singolo problema di salute identificato o di una diagnosi. \r\n\r\nL'ambito previsto di un problema di salute viene deliberatamente lasciato libero nel contesto della documentazione clinica, in modo da catturare qualsiasi preoccupazione reale o percepita che possa influire negativamente sul benessere di un individuo in qualsiasi misura. Un problema di salute può essere identificato dall'individuo, da un caregiver o da un operatore sanitario. Tuttavia, una diagnosi viene definita in aggiunta sulla base di criteri clinici oggettivi e solitamente determinata solo da un professionista sanitario.",
+          "keywords" : [ "problema, condizione, diagnosi, preoccupazione, lesione, impressione clinica" ],
+          "use" : "Usato per registrare i dettagli di un singolo problema di salute identificato o di una diagnosi. \r\n\r\nDefinizioni chiare che consentono di distinguere tra un \"problema\" e una \"diagnosi\" sono quasi impossibili nella pratica - non possiamo dire in modo affidabile quando un problema deve essere considerato una diagnosi. Quando i criteri diagnostici o di classificazione sono soddisfatti con successo, allora possiamo tranquillamente definire la condizione come una diagnosi formale, ma prima che queste condizioni siano soddisfatte e mentre ci sono prove di supporto disponibili, può anche essere valido l'uso del termine \"diagnosi\". La quantità delle prove di supporto richieste per la classificazione della diagnosi non è facile da definire e in realtà probabilmente varia da una condizione all'altra. Molti comitati di standardizzazione si sono trovati alle prese con questo enigma di definizione per anni senza una chiara risoluzione.\r\n\r\nAi fini della documentazione clinica con questo archetipo, il problema e la diagnosi sono considerati un continuum, con livelli crescenti di dettaglio e prove di supporto che di solito fanno propendere verso all'etichetta di \"diagnosi\". In questo archetipo non è necessario classificare la condizione come \"problema\" o \"diagnosi\". I requisiti dei dati a supporto della documentazione di entrambi sono identici, con una struttura di dati aggiuntivi necessari per supportare l'inclusione dell'evidenza se e quando essa diventa disponibile. Esempi di problemi sono: il desiderio espresso dall'individuo di perdere peso, ma senza una diagnosi formale di obesità; o un problema di relazione con un membro della famiglia. Esempi di diagnosi formali includono un cancro che è supportato da informazioni storiche, risultati di esami, risultati istopatologici, risultati radiologici e soddisfa tutti i requisiti per i criteri diagnostici noti. In pratica, la maggior parte dei problemi o delle diagnosi non si colloca ad una delle due estremità dello spettro diagnostico del problema, ma da qualche parte nel mezzo.\r\n\r\nQuesto archetipo può essere utilizzato in molti contesti. Per esempio, la registrazione di un problema o di una diagnosi clinica durante un consulto clinico; la compilazione di un Elenco dei Problemi persistente; o per fornire una dichiarazione riassuntiva all'interno di un documento di Riepilogo delle dimissioni.\r\n\r\nIn pratica, i clinici usano molte qualificazioni specifiche del contesto, come passato/presente, primario/secondario, attivo/inattivo, ricovero/dimissione, ecc. I contesti possono essere specifici per il luogo, la specializzazione, l'episodio o il flusso di lavoro, e questi possono causare confusione o anche potenziali problemi di sicurezza se vengono riportati in elenchi di problemi o condivisi in documenti che sono al di fuori del contesto originale. Questi qualificatori possono essere archetipizzati separatamente e inclusi nello slot \"Status\", perché il loro uso varia in diverse configurazioni. Ci si aspetta che questi vengano usati per lo più all'interno del contesto appropriato e che non vengano condivisi al di fuori di tale contesto senza una chiara comprensione delle potenziali conseguenze. Per esempio, una diagnosi primaria per un clinico può essere secondaria per un altro specialista; un problema attivo può diventare inattivo (o viceversa) e questo può avere un impatto sull'uso sicuro del supporto decisionale clinico. In generale queste qualificazioni dovrebbero essere applicate localmente nel contesto del sistema clinico, e in pratica questi stati dovrebbero essere gestiti manualmente dai clinici per assicurare che le liste dei problemi attuali/passivi, attivi/inattivi o primari/secondari siano clinicamente accurate. \r\n\r\nQuesto archetipo sarà utilizzato come componente all'interno della cartella clinica orientata ai problemi, come descritto da Larry Weed. Ulteriori archetipi - che rappresentano concetti clinici come la condizione come un organizzatore generale per le diagnosi, ecc. - dovrà essere sviluppato per sostenere questo approccio.\r\n\r\nIn alcune situazioni, si può presumere che l'identificazione di una diagnosi rientri solo nelle competenze dei medici, ma questo non è l'intento di questo archetipo. Le diagnosi possono essere registrate utilizzando questo archetipo da qualsiasi professionista sanitario.",
+          "misuse" : "Da non utilizzare per registrare i sintomi come descritto dall'individuo - utilizzare l'archetipo di CLUSTER.symptom, di solito all'interno dell'archetipo di OBSERVATION.story.\r\n\r\nDa non utilizzare per registrare i risultati dell'esame - utilizzare la famiglia di archetipi CLUSTER.symptom, di solito annidati all'interno dell'archetipo di OBSERVATION.exam.\r\n\r\nDa non utilizzare per registrare i risultati di esami di laboratorio o diagnosi correlate, ad esempio diagnosi patologiche - utilizzare un archetipo appropriato della famiglia di archetipi di OBSERVATION.exam.\r\n\r\nDa non utilizzare per registrare i risultati degli esami di imaging o le diagnosi di imaging - utilizzare un archetipo appropriato della famiglia di archetipi di imaging dell'OBSERVATION.\r\n\r\nDa non utilizzare per registrare le \"diagnosi differenziali\" - utilizzare l'archetipo EVALUATION.differential_diagnosis.\r\n\r\nDa non utilizzare per registrare \"Motivo dell'incontro\" o \"Presentazione di un reclamo\" - utilizzare l'archetipo EVALUATION.reason_for_encounter.\r\n\r\nDa non utilizzare per registrare le procedure - utilizzare l'archetipo ACTION.procedure.\r\n\r\nDa non utilizzare per registrare i dettagli sulla gravidanza - utilizzare lo stato di EVALUATION.pregnancy_bf_status e EVALUATION.pregnancy e i relativi archetipi.\r\n\r\nDa non utilizzare per registrare dichiarazioni sul rischio per la salute o su potenziali problemi - utilizzare l'archetipo EVALUATION.health_risk.\r\n\r\nDa non utilizzare per registrare dichiarazioni su reazioni avverse, allergie o intolleranze - utilizzare l'archetipo EVALUATION.adverse_reaction.\r\n\r\nDa non utilizzare per la registrazione esplicita di un'assenza (o presenza negativa) di un problema o di una diagnosi, ad esempio \"Nessun problema o diagnosi nota\" o \"Nessun diabete noto\". Utilizzare l'archetipo EVALUATION.exclusion-problem_diagnosis per esprimere una dichiarazione positiva sull'esclusione di un problema o di una diagnosi.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Este arquetipo se utilizará para registrar un único problema de salud o diagnóstico identificado para el paciente.\r\n\r\nEl alcance del arquetipo se dejó deliberadamente abierto, para poder capturar cualquier inquietud real o percibida que afecte en cualquier grado la salud de un paciente. Independientemente de quién detecte el problema, el diagnóstico debe ser definido basado en criterios clínicos objetivos, determinados por un profesional clínico.",
+          "keywords" : [ "problema", "diagnóstico", "preocupación", "condición", "enfermedad" ],
+          "use" : "Este arquetipo se utilizará para registrar un único problema de salud o diagnóstico identificado para el paciente.",
+          "misuse" : "No se debe utilizar para registrar síntomas descritos por el paciente, para eso utilizar el arquetipo CLUSTER.symtom.\r\n\r\nNo se debe utilizar para registrar hallazgos, para eso utilizar arquetipos relacionados con la examinación, usualmente relacionados con el arquetipo OBSERVATION.exam\r\n\r\nNo se debe utilizar para registrar diagnósticos realizados sobre resultados de estudios diagnósticos como laboratorio o imagenología.\r\n\r\nNo se debe utilizar para registrar el motivo de consulta o problema presentado por el paciente, para eso utilizar el arquetipo EVALUATION.reason_for_encounter\r\n\r\nNo se debe utilizar para registrar riesgos o problemas potenciales, para eso utilizar el arquetipo EVALUATION.health_risk\r\n\r\nNo se debe utilizar para registrar la ausencia de un problema, para eso utilizar el arquetipo EVALUATION.exclusion-problem_diagnosis",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh"
+          },
+          "purpose" : "",
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : {
+            "notes" : "Generated automatically by Adl Designer"
+          }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om ett identifisert helseproblem eller en diagnose.\r\n\r\nOmfanget for et helseproblem er med vilje løst definert, for å kunne registrere en reell eller selvoppfattet bekymring som i større eller mindre grad kan påvirke et individs velvære negativt. Et helseproblem kan identifiseres av individet selv, en omsorgsperson eller av helsepersonell. En diagnose er derimot definert basert på objektive kliniske kriterier, og stilles som regel bare av helsepersonell.",
+          "keywords" : [ "emne", "problem", "tilstand", "hindring", "diagnose", "helseproblem", "bekymring", "funn", "helsetilstand", "konflikt", "utfordring", "klinisk bilde" ],
+          "use" : "Brukes til å registrere detaljer om ett identifisert helseproblem eller en diagnose. \r\n\r\nÅ klart definere skillet mellom et \"problem\" og en \"diagnose\" er i praksis nesten umulig, og vi kan ikke på en pålitelig måte si når et problem skal ses på som en diagnose. Når diagnostiske- eller klassifikasjonskriterier er innfridd kan vi trygt kalle tilstanden en formell diagnose, men før disse kriteriene er møtt kan det dersom det finnes støttende funn også være riktig å kalle den en diagnose. Mengden støttende funn som kreves for å sette merkelappen \"diagnose\" er ikke lett å definere, og varierer sannsynligvis i praksis fra tilstand til tilstand. Mange standardiseringskomiteer har arbeidet med dette definisjonsproblemet i årevis uten å komme til noen klar konklusjon.\r\n\r\nNår det gjelder klinisk dokumentasjon med denne arketypen må problemer og diagnoser ses på som deler av et spektrum der økende detaljgrad og mengde støttende funn som regel gir vekt mot merkelappen \"diagnose\". I denne arketypen er det ikke nødvendig å klassifisere tilstanden som enten et problem eller en diagnose. Datastrukturen for å dokumentere dem er identisk, med tilleggsstrukturer som støtter inklusjon av nye funn når eller hvis de blir tilgjengelige. Eksempler på problemer kan være et individs uttrykte ønske om å gå ned i vekt uten en formell diagnose av fedme, eller problemer i forholdet til et familiemedlem. Eksempler på formelle diagnoser kan være en kreftsvulst der diagnosen er støttet av historisk informasjon, undersøkelsesfunn, histologiske funn, radiologiske funn, og som møter alle diagnosekriterier. I praksis er de fleste problemer eller diagnoser ikke i hver sin ende av problem/diagnose-spektrumet, men et sted mellom.\r\n\r\nDenne arketypen kan brukes i mange sammenhenger. Eksempler kan være å registrere et problem eller en klinisk diagnose under en klinisk konsultasjon, fylle en persistent problemliste, eller for å gi oppsummerende informasjon i en epikrise.\r\n\r\nI praksis bruker klinikere mange kvalifikatorer som nåværende/tidligere, hoved/bidiagnose, aktiv/inaktiv, innleggelse/utskriving, etc. Sammenhengene kan være steds-, spesialiserings-, episode- eller arbeidsflytspesifikke, og disse kan forårsake forvirring eller til og med mulige sikkerhetsrisikoer dersom de videreføres i problemlister eller deles i dokumenter utenfor sin opprinnelige sammenheng. Disse kvalifikatorene kan arketypes separat og inkluderes i \"Status\"-SLOTet, fordi bruken varierer i ulike settinger. Disse vil sannsynligvis hovedsakelig brukes i passende sammenhenger, og ikke deles utenfor sammenhengen uten en klar forståelse av mulige konsekvenser. For eksempel kan en hoveddiagnose for en kliniker være en bidiagnose for en annen spesialist, et aktivt problem kan bli inaktivt (og omvendt), og dette kan ha innvirkning på sikkerhet og beslutningsstøtte. Generelt burde disse kvalifikatorene brukes lokalt og innenfor kontekst i det kliniske systemet, og i praksis bør de manuelt administreres av klinikere for å sikre at lister over nåværende/tidligere, aktiv/inaktiv eller hoved/bidiagnoser er klinisk presise.\r\n\r\nDenne arketypen vil bli brukt som en komponent i den problemorienterte journalen som beskrevet av Larry Weed. Tilleggsarketyper som representerer kliniske konsepter som f.eks. \"tilstand\" som en overbygning for diagnoser etc, vil måtte utvikles for å støtte dette.\r\n\r\nI noen situasjoner antas det at å stille en diagnose ligger fullstendig innenfor legers domene, men dette er ikke hensikten med denne arketypen. Diagnoser kan registreres av alt helsepersonell ved hjelp av denne arketypen.",
+          "misuse" : "Brukes ikke til å registrere symptomer slik de beskrives av individet. Til dette brukes CLUSTER.symptom-arketypen, som regel innenfor OBSERVATION.story-arketypen.\r\n\r\nBrukes ikke til å registrere funn ved klinisk undersøkelse. Til dette brukes gruppen av undersøkelsesrelaterte CLUSTER-arketyper, som regel innenfor OBSERVATION.exam-arketypen.\r\n\r\nBrukes ikke til å registrere laboratoriesvar eller relaterte diagnoser for eksempel patologiske diagnoser. Til dette brukes en passende arketype fra laboratoriefamilien av OBSERVATION-arketyper.\r\n\r\nBrukes ikke til å registrere billeddiagnostiske svar eller diagnoser. Til dette brukes en passende arketype fra billeddiagnostikkfamilien av OBSERVATION-arketyper.\r\n\r\nBrukes ikke til å registrere differensialdiagnoser. Til dette brukes EVALUATION.differential_diagnosis-arketypen.\r\n\r\nBrukes ikke til å registrere kontaktårsak eller klinisk problemstilling ved kontakt. Til dette brukes EVALUATION.reason_for_encounter-arketypen.\r\n\r\nBrukes ikke til å registrere prosedyrer, til dette brukes ACTION.procedure-arketypen.\r\n\r\nBrukes ikke til å registrere detaljer om graviditet utover diagnoser. Til dette brukes EVALUATION.pregnancy_bf_status og EVALUATION.pregnancy, samt relaterte arketyper.\r\n\r\nBrukes ikke til å registrere vurderinger av potensiale og sannsynlighet for fremtidige problemer, diagnoser eller andre uønskede helseeffekter, til dette brukes EVALUATION.health_risk-arketypen.\r\n\r\nBrukes ikke til å registrere utsagn om uønskede reaksjoner, allergier eller intoleranser - bruk EVALUATION.adverse_reaction-arketypen.\r\n\r\nBrukes ikke til å registrere et eksplisitt fravær (eller negativ tilstedeværelse) av et problem eller en diagnose, f.eks. \"ingen kjente problemer eller diagnoser\" eller \"ingen kjent diabetes\". Bruk EVALUATION.exclusion-problem_diagnosis for å uttrykke fravær av et problem eller en diagnose.\r\n\r\nBrukes ikke til å registrere pasientens tilgjengelige ressurser for egenomsorg - bruk egne EVALUATION-arketyper for dette formålet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Para el registro de detalles acerca de un único problema de salud o diagnóstico.\r\nEl alcance previsto del problema de salud se mantiene deliberadamente poco definido en el contexto de la documentación clínica, de modo tal que pueda representarse cualquier problema, real o percibido, que pueda afectar al bienestar de un individuo en cualquier grado. Un problema de salud puede ser identificado por un individuo, un cuidador, o un profesional de la salud. Para la definición de un diagnóstico se require además de criterios clínicos objetivos, habitualmente determinados por un profesional de la salud.",
+          "keywords" : [ "asunto", "condición", "problema", "diagnóstico", "preocupación", "lesión", "impresión clínica" ],
+          "use" : "Utilícese para registrar detalles acerca de un único problema de salud o diagnóstico.\r\n\r\nUna definición clara que permita diferenciar un \"problema\" de un \"diagnóstico\" es casi imposible en la práctica - no podemos determinar en forma confiable cuando un problema debería ser considerado un diagnóstico. Cuando se cumplen con éxito determinados criterios diagnósticos o de clasificación es posible denominar una condición como un diagnóstico formal, pero previo al cumplimiento de dichos criterios y en tanto exista evidencia clínica que lo sustente, también puede ser válido el uso del término \"diagnóstico\". La cantidad de evidencia de apoyo varía de caso en caso. Muchos comités de estándares han lidiado con este problema por años sin lograr una resolución clara.\r\n\r\nA los fines de la documentación clínica mediante este arquetipo, problema y diagnóstico son considerados como un continuo, donde el incremento de los niveles de detalle y sustento en la evidencia inclinan la balanza hacia la etiqueta de \"diagnóstico\". Los requerimientos de datos que sustentan la documentación de ambos son idénticos, siendo necesarias estructuras de datos adicionales para sustentar la inclusión de la evidencia cuando esta exista y se encuentre disponible. Los ejemplos de problemas incluyen: la expresión del deseo de bajar de peso por parte de un individuo sin la existencia de un diagnóstico formal de obesidad, o un problema de relación con un familiar. Los ejemplos de diagnósticos formales incluyen un cáncer fundamentado en información histórica, los hallazgos de un examen, los hallazgos histopatológicos, los hallazgos radiológicos, y que cumplen todos los criterios diagnósticos. En la práctica, la mayoría de los problemas o diagnósticos no se encuentran en los extremos del espectro problema-diagnóstico sino que se ubican en alguna posición intermedia.\r\n\r\nEste arquetipo puede ser utilizado en diversos contextos. Por ejemplo, para registrar un problema o diagnóstico clínico durante una consulta clínica, para la elaboración de una Lista de Problemas persistente, o para proveer una afirmación sumaria dentro de un documento de Resumen de Alta.\r\n\r\nEn la práctica, los clínicos utilizan muchos calificadores dependientes del contexto, tales como pasado/actual, primario/secundario, activo/inactivo, admisión/egreso, etc. Estos contextos pueden ser relativos a la localización, la especialización, el episodio, o a un instancia de un proceso, pudiendo entonces generar confusión o riesgos potenciales de seguridad para el paciente si son incluidos en Listas de Problemas o documentos compartidos que carecen del contexto original. Estos contextos pueden ser arquetipados en forma separada e incluidos en el slot de \"Estado\", dado que su uso varía en diferentes escenarios. Su uso mayormente pretendido debe darse en el contexto apropiado y no debería ser compartido fuera de dicho contexto sin una clara comprensión de sus consecuencias potenciales. Por ejemplo: un diagnóstico primario podría ser un diagnóstico secundario para otro especialista; un problema activo puede tornarse inactivo (o viceversa) e impactar en la seguridad de una decisión clínica. En general, estos calificadores deberían aplicarse localmente dentro del contexto del sistema clínico y en la práctica estos estados deberían ser manualmente mantenidos por clínicos a fin de asegurar que las listas de problemas, actuales o pasados, activos o inactivos o primarios y secundarios, sean clínicamente exactos.\r\n\r\nEste arquetipo será utilizado como un componente del Registro Médico Orientado al Problema descripto por Larry Weed. Se requerirá del desarrollo de arquetipos adicionales para la representación de conceptos clínicos tales como una condición para un organizador general de diagnósticos, etc.\r\n\r\nEn algunas situaciones puede asumirse que la identificación de un diagnóstico solo se ajusta a la experticia del médico, pero no es el propósito de este arquetipo. Los diagnósticos pueden ser registrados mediante este arquetipo por parte de cualquier profesional.\r\n",
+          "misuse" : "No debe ser utilizado para registrar síntomas tal cual fueron descriptos por el individuo; para ello se debe utilizar el arquetipo CLUSTER.symptom, habitualmente dentro del contexto del arquetipo OBSERVATION.story.\r\n\r\nNo debe ser utilizado para registrar hallazgo de exámenes, para ello se debe utilizar la familia de arquetipos relacionados a exámenes, habitualmente contenidos dentro del arquetipo OBSERVATION.exam.\r\n\r\nNo debe ser utilizado para registrar hallazgos de pruebas de laboratorio o diagnósticos relacionados (como por ejemplo diagnósticos patológicos); para ello se debe utilizar un arquetipo apropiado de la familia de arquetipos del tipo OBSERVATION.\r\n\r\nNo debe ser utilizado para registrar resultados de exámenes por imágenes o diagnósticos imagenológicos; para ello se debe utilizar un arquetipo apropiado de la familia de arquetipos del tipo OBSERVATION.\r\n\r\nNo debe ser utilizado para registrar diagnósticos diferenciales; para ello se debe utilizar el arquetipo EVALUATION.differential_diagnosis.\r\n\r\nNo debe ser utilizado para registrar \"Motivos de Consulta\"; para ello se debe utilizar el arquetipo EVALUATION.reason_for_encounter.\r\n\r\nNo debe ser utilizado para registrar procedimientos; para ello se debe utilizar el arquetipo ACTION.procedure.\r\n\r\nNo debe ser utilizado para registrar detalles acerca del embarazo; para ello se debe utilizar los arquetipos EVALUATION.pregnancy_bf_status, EVALUATION.pregnancy y los arquetipos relacionados.\r\n\r\nNo debe ser utilizado para registrar aseveraciones acerca de riesgos para la salud o problemas potenciales; para ello se debe utilizar el arquetipo EVALUATION.health_risk.\r\n\r\nNo debe ser utilizado para registrar aseveraciones acerca de reacciones adversas, alergias o intolerancias; para ello se debe utilizar el arquetipo EVALUATION.adverse_reaction.\r\n\r\n\r\nNo debe ser utilizado para registrar la ausencia explícita (o presencia negativa) de un problema o diagnóstico (como por ejemplo \"sin diagnósticos o problemas conocidos\" o \"sin diabetes conocida\"); para expresar una aseveración positiva acerca de la exclusión de un problema o diagnóstico se debe utilizar el arquetipo EVALUATION.exclusion-problem_diagnosis.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "*For recording details about a single, identified health problem or diagnosis. \r\n\r\nThe intended scope of a health problem is deliberately kept loose in the context of clinical documentation, so as to capture any real or perceived concerns that may adversely affect an individual's wellbeing to any degree. A health problem may be identified by the individual, a carer or a healthcare professional. However, a diagnosis is additionally defined based on objective clinical criteria, and usually determined only by a healthcare professional.(en)",
+          "keywords" : [ "*issue(en)", "*condition(en)", "*problem(en)", "*diagnosis(en)", "*concern(en)", "*injury(en)", "*clinical impression(en)" ],
+          "use" : "*Use for recording details about a single, identified health problem or diagnosis. \r\n\r\nClear definitions that enable differentiation between a 'problem' and a 'diagnosis' are almost impossible in practice - we cannot reliably tell when a problem should be regarded as a diagnosis. When diagnostic or classification criteria are successfully met, then we can confidently call the condition a formal diagnosis, but prior to these conditions being met and while there is supportive evidence available, it can also be valid to use the term 'diagnosis'. The amount of supportive evidence required for the label of diagnosis is not easy to define and in reality probably varies from condition to condition. Many standards committees have grappled with this definitional conundrum for years without clear resolution.\r\n\r\nFor the purposes of clinical documentation with this archetype, problem and diagnosis are regarded as a continuum, with increasing levels of detail and supportive evidence usually providing weight towards the label of 'diagnosis'. In this archetype it is not neccessary to classify the condition as a 'problem' or 'diagnosis'. The data requirements to support documentation of either are identical, with additional data structure required to support inclusion of the evidence if and when it becomes available. Examples of problems include: the individual's expressed desire to lose weight, but without a formal diagnosis of Obesity; or a relationship problem with a family member. Examples of formal diagnoses would include a cancer that is supported by historical information, examination findings, histopathological findings, radiological findings and meets all requirements for known diagnostic criteria. In practice, most problems or diagnoses do not sit at either end of the problem-diagnosis spectrum, but somewhere in between.\r\n\r\nThis archetype can be used within many contexts. For example, recording a problem or a clinical diagnosis during a clinical consultation; populating a persistent Problem List; or to provide a summary statement within a Discharge Summary document.\r\n\r\nIn practice, clinicians use many context-specific qualifiers such as past/present, primary/secondary, active/inactive, admission/discharge etc. The contexts can be location-, specialisation-, episode- or workflow-specific, and these can cause confusion or even potential safety issues if perpetuated in Problem Lists or shared in documents that are outside of the original context. These qualifiers can be archetyped separately and included in the ‘Status’ slot, because their use varies in different settings. It is expected that these will be used mostly within the appropriate context and not shared out of that context without clear understanding of potential consequences. For example, a primary diagnosis to one clinician may be a secondary one to another specialist; an active problem can become inactive (or vice versa) and this can impact the safe use of clinical decision support. In general these qualifiers should be applied locally within the context of the clinical system, and in practice these statuses should be manually curated by clinicians to ensure that lists of Current/Past, Active/Inactive or Primary/Secondary Problems are clinically accurate. \r\n\r\nThis archetype will be used as a component within the Problem Oriented Medical Record as described by Larry Weed. Additional archetypes, representing clinical concepts such as condition as an overarching organiser for diagnoses etc, will need to be developed to support this approach.\r\n\r\nIn some situations, it may be assumed that identification of a diagnosis fits only within the expertise of physicians, but this is not the intent for this archetype. Diagnoses can be recorded using this archetype by any healthcare professional.(en)",
+          "misuse" : "*Not to be used to record symptoms as described by the individual - use the CLUSTER.symptom archetype, usually within the OBSERVATION.story archetype.\r\n\r\nNot to be used to record examination findings - use the family of examination-related CLUSTER archetypes, usually nested within the OBSERVATION.exam archetype.\r\n\r\nNot to be used to record laboratory test results or related diagnoses, for example pathological diagnoses - use an appropriate archetype from the laboratory family of OBSERVATION archetypes.\r\n\r\nNot to be used to record imaging examination results or imaging diagnoses - use an appropriate archetype from the imaging family of OBSERVATION archetypes.\r\n\r\nNot to be used to record 'Differential Diagnoses' - use the EVALUATION.differential_diagnosis archetype.\r\n\r\nNot to be used to record 'Reason for Encounter' or 'Presenting Complaint' - use the EVALUATION.reason_for_encounter archetype.\r\n\r\nNot to be used to record procedures - use the ACTION.procedure archetype.\r\n\r\nNot to be used to record details about pregnancy - use the EVALUATION.pregnancy_bf_status and EVALUATION.pregnancy and related archetypes.\r\n\r\nNot to be used to record statements about health risk or potential problems - use the EVALUATION.health_risk archetype.\r\n\r\nNot to be used to record statements about adverse reactions, allergies or intolerances - use the EVALUATION.adverse_reaction archetype.\r\n\r\nNot to be used for the explicit recording of an absence (or negative presence) of a problem or diagnosis, for example ‘No known problem or diagnoses’ or ‘No known diabetes’. Use the EVALUATION.exclusion-problem_diagnosis archetype to express a positive statement about exclusion of a problem or diagnosis.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
     "differential" : true,
@@ -600,32 +2502,14 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0077.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0003.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -673,16 +2557,7 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0030.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -744,16 +2619,7 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0070.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             } ]
           } ],
@@ -1141,6 +3007,593 @@
         "organisation" : "浙江大学",
         "email" : "3160100913@zju.edu.cn"
       },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "6496ba42-92f5-4b44-9b20-69b16457818c",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "89BA41E6CD217F7E2639D05A6B02465C"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.medication.v2",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-medication-001.v2"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0132.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0071.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0142.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.1" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..0",
+          "nodeId" : "at0152.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0115.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0151.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0150.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "defaultValue" : {
+                "@type" : "DV_IDENTIFIER"
+              },
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0139.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0148.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0133.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0138.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-medication-002.v2",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "nb" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "pt" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "nl" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "sv" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0143", "at0146", "at0144", "at0145", "at0001" ]
+        }
+      }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "20797e3d-bdcd-4134-b39a-a923abbb968a",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Ramona Wellmann, Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "wellmann.ramona@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Sofia Janstad",
+        "organisation" : "SLL",
+        "email" : "sofia.lang-janstad@sll.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Silje Ljosland Bakke",
+        "organisation" : "Nasjonal IKT HF, Helse Vest IKT AS",
+        "email" : "silje.ljosland.bakke@helse-vest-ikt.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt"
+      },
+      "author" : {
+        "name" : "Beatriz de Faria Leao",
+        "organisation" : "Bleao Informática em Saúde",
+        "email" : "bfleao@terra.com.br"
+      },
+      "accreditation" : "MD, PhD",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Joost Holslag",
+        "organisation" : "Nedap",
+        "email" : "joost.holslag@nedap.com"
+      },
+      "accreditation" : "MD",
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "3bcf851c-8ada-4e94-ab95-706de199c31a",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "89BA41E6CD217F7E2639D05A6B02465C"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.medication.v2",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-medication-002.v2"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0151.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0150.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "defaultValue" : {
+                "@type" : "DV_IDENTIFIER"
+              },
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0127.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.1" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0133.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "nb" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "pt" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "nl" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        },
+        "sv" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0080", "at0083", "at0084" ]
+        }
+      }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "20797e3d-bdcd-4134-b39a-a923abbb968a",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Ramona Wellmann, Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "wellmann.ramona@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Sofia Janstad",
+        "organisation" : "SLL",
+        "email" : "sofia.lang-janstad@sll.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Silje Ljosland Bakke",
+        "organisation" : "Nasjonal IKT HF, Helse Vest IKT AS",
+        "email" : "silje.ljosland.bakke@helse-vest-ikt.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt"
+      },
+      "author" : {
+        "name" : "Beatriz de Faria Leao",
+        "organisation" : "Bleao Informática em Saúde",
+        "email" : "bfleao@terra.com.br"
+      },
+      "accreditation" : "MD, PhD",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Joost Holslag",
+        "organisation" : "Nedap",
+        "email" : "joost.holslag@nedap.com"
+      },
+      "accreditation" : "MD",
       "otherDetails" : { }
     } ]
   } ],
