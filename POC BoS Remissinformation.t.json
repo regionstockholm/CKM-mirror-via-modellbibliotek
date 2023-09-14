@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "258e155ba7116e73e59a62989e31ad03",
+      "MD5-CAM-1.0.1" : "46034d1d6e36d42744d0c6a3d1bb8e43",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "6.0.1",
+      "sem_ver" : "7.0.0",
       "build_uid" : ""
     },
     "details" : {
@@ -515,6 +515,34 @@
           "text" : "Remissidentitet",
           "description" : "Den lokala identifieraren som tilldelats av det begärande kliniska systemet.",
           "comment" : "Vanligtvis motsvarande HL7 Placer Order Identifier."
+        },
+        "at0132" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0132",
+          "text" : "Specifika detaljer",
+          "description" : "Ytterligare detaljer om den begärda tjänsten.",
+          "comment" : "Till exempel: Provdetaljer för en laboratorietestförfrågan eller anatomisk plats för en procedurförfrågan.\n\n"
+        },
+        "at0121.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0121.1",
+          "text" : "Analyskod",
+          "description" : "Namnet på den enskilda tjänsten eller aktiviteten som efterfrågas.\r\n",
+          "comment" : "Kodning av \"Namn på tjänst\" med ett kodsystem är att föredra, om möjligt. Till exempel 'remiss' till en endokrinolog för behandling av diabetes."
+        },
+        "at0148.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0148.1",
+          "text" : "Laboratoriedisciplin",
+          "description" : "Kategori på typ av efterfrågad tjänst",
+          "comment" : "Kodning av \"Typ av tjänst\" är att föredra, om möjligt. Om 'Namn på tjänst' är kodat är det möjligt för detta dataelement att härledas från koden. Exempelvis: biokemi eller mikrobiologi laboratorium, ultraljud eller datatomografi."
+        },
+        "at0062.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0062.1",
+          "text" : "Frågeställning",
+          "description" : "En kort mening om varför tjänsten efterfrågas.",
+          "comment" : "Kodning av detta dataelement är önskvärt, om möjligt. \r\nDetta dataelement tillåter flera värden om så behövs och gör det möjligt för användaren att ge flera svar. Till exempel: \"hantera diabeteskomplikationer\"."
         }
       },
       "pt-br" : {
@@ -2397,6 +2425,32 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0004.1",
           "attributes" : [ ],
@@ -2434,6 +2488,20 @@
             "text" : "Remitterande vårdenhet/klinik",
             "description" : "*An entity comprising one or more people and having a particular purpose. (en)",
             "comment" : "*For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support. (en)"
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Kombika",
+            "description" : "Identifierare associerad med den identifierade organisationen.",
+            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Vårdenhet",
+            "description" : "Namnet som en organisation är känd för.",
+            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'."
           }
         }
       },
@@ -2589,6 +2657,32 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0004.1",
           "attributes" : [ ],
@@ -2642,6 +2736,20 @@
             "text" : "Mottagande laboratorium",
             "description" : "*An entity comprising one or more people and having a particular purpose. (en)",
             "comment" : "*For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support. (en)"
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Kombika",
+            "description" : "Identifierare associerad med den identifierade organisationen.",
+            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Laboratorieenhet",
+            "description" : "Namnet som en organisation är känd för.",
+            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'."
           }
         }
       },
