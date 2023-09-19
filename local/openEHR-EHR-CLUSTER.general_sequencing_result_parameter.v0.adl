@@ -1,0 +1,248 @@
+archetype (adl_version=1.4; uid=662cbae0-6ab8-4ad9-a847-547e69b5c356)
+	openEHR-EHR-CLUSTER.general_sequencing_result_parameter.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Aurelie Tomczak">
+				["organisation"] = <"au.tomczak@yahoo.com">
+				["email"] = <"Institute of Pathology, University Hospital Heidelberg">
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2020-07-17">
+		["name"] = <"Aurelie Tomczak">
+		["organisation"] = <"Institute of Pathology, University Hospital Heidelberg">
+		["email"] = <"au.tomczak@yahoo.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"To record general sequencing result parameter of a performed sequencing test.">
+			keywords = <"Tumor cell content","BRCAness","Microsatellite instability (MSI)","Tumor Mutational Burden (TMB) per Mb","Sequencing result parameter","Whole genome sequencing","Targeted sequencing">
+			copyright = <"© openEHR Foundation">
+			use = <"Use to report general sequencing result parameter determined for the genome by a sequencing test.
+This archetype is meant to be used in the \"Test result\" SLOT of the Laboratory test result observation archetype.">
+			misuse = <"Not to be used to report genetic variants, but only general parameters that are determined once per sequencing run. ">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record general sequencing result parameter of a performed sequencing test.">
+			keywords = <"Tumor cell content","BRCAness","Microsatellite instability (MSI)","Tumor Mutational Burden (TMB) per Mb","Sequencing result parameter","Whole genome sequencing","Targeted sequencing">
+			use = <"Use to report general sequencing result parameter determined for the genome by a sequencing test.
+This archetype is meant to be used in the \"Test result\" SLOT of the Laboratory test result observation archetype.">
+			misuse = <"Not to be used to report genetic variants, but only general parameters that are determined once per sequencing run.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"HiGHmed">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.highmed">
+		["MD5-CAM-1.0.1"] = <"D29DAAA9079EEC0DC606871E6266F676">
+		["build_uid"] = <"d42de821-caab-46a8-93d2-01a84b34d20e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- General sequencing result parameter
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Sequenced tissue type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Normal tissue
+							at0003]    -- Tumor tissue
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Tumor cell content (pathologic/histologic)
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::380]>
+						list = <
+							["1"] = <
+								units = <"%">
+							>
+						>
+					>
+					DV_PROPORTION matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Tumor cell content (bioinformatic)
+				value matches {
+					DV_PROPORTION matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::380]>
+						list = <
+							["1"] = <
+								units = <"%">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Microsatellite instability (MSI)
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..2|}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Tumor Mutational Burden (TMB) per Mb
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- BRCAness
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..1|}
+					}
+				}
+			}
+			CLUSTER[at0009] occurrences matches {0..*} matches {    -- Further result parameter
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0013] matches {    -- Parameter name
+						value matches {
+							DV_TEXT matches {*}
+							DV_CODED_TEXT matches {*}
+							DV_IDENTIFIER matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {*}    -- Parameter value
+					ELEMENT[at0012] occurrences matches {0..1} matches {*}    -- Qualitative parameter interpretation
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"General sequencing result parameter">
+					description = <"General sequencing result parameter.">
+				>
+				["at0001"] = <
+					text = <"Sequenced tissue type">
+					description = <"Normal vs. tumor sample.">
+				>
+				["at0002"] = <
+					text = <"Normal tissue">
+					description = <"Identifies germline mutations.">
+				>
+				["at0003"] = <
+					text = <"Tumor tissue">
+					description = <"Identifies somatic mutations.">
+				>
+				["at0004"] = <
+					text = <"Tumor cell content (pathologic/histologic)">
+					description = <"Tumor cell content determinded by pathologic/histologic methods.">
+				>
+				["at0005"] = <
+					text = <"Tumor cell content (bioinformatic)">
+					description = <"Tumor cell content determinded by bioinformatic methods.">
+				>
+				["at0006"] = <
+					text = <"Tumor Mutational Burden (TMB) per Mb">
+					description = <"Tumor Mutational Burden (TMB) per Megabase.">
+				>
+				["at0007"] = <
+					text = <"Microsatellite instability (MSI)">
+					description = <"Microsatellite instability (MSI).">
+				>
+				["at0008"] = <
+					text = <"BRCAness">
+					description = <"BRCAness is defined as a phenotypic copy of germline BRCA mutations.">
+				>
+				["at0009"] = <
+					text = <"Further result parameter">
+					description = <"Cluster to include additional result parameter not already defined above.">
+				>
+				["at0011"] = <
+					text = <"Parameter value">
+					description = <"Parameter value.">
+				>
+				["at0012"] = <
+					text = <"Qualitative parameter interpretation">
+					description = <"Qualitative parameter interpretation, if applicable.">
+				>
+				["at0013"] = <
+					text = <"Parameter name">
+					description = <"Parameter name.">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Allgemeiner Sequenzierungsergebnisparameter">
+					description = <"Allgemeiner Sequenzierungsergebnisparameter.">
+				>
+				["at0001"] = <
+					text = <"Sequenzierter Gewebetyp">
+					description = <"Normal vs. Tumorprobe.">
+				>
+				["at0002"] = <
+					text = <"Normales Gewebe">
+					description = <"Identifiziert Keimbahnmutationen.">
+				>
+				["at0003"] = <
+					text = <"Tumorgewebe">
+					description = <"Identifiziert somatische Mutationen.">
+				>
+				["at0004"] = <
+					text = <"Tumorzellgehalt (pathologisch/histologisch)">
+					description = <"Tumorzellgehalt bestimmt durch pathologische/histologische Methoden.">
+				>
+				["at0005"] = <
+					text = <"Tumorzellinhalt (bioinformatisch)">
+					description = <"Tumorzellgehalt bestimmt durch bioinformatische Methoden.">
+				>
+				["at0006"] = <
+					text = <"Tumormutationsbelastung (TMB) pro Mb">
+					description = <"Tumormutationslast (TMB) pro Megabase.">
+				>
+				["at0007"] = <
+					text = <"Mikrosatelliteninstabilität (MSI)">
+					description = <"Mikrosatelliten-Instabilität (MSI).">
+				>
+				["at0008"] = <
+					text = <"BRCAness">
+					description = <"BRCAness ist definiert als eine phänotypische Kopie von Keimbahn-BRCA-Mutationen.">
+				>
+				["at0009"] = <
+					text = <"Weitere Ergebnisparameter">
+					description = <"Cluster, um zusätzliche Ergebnisparameter aufzunehmen, die oben noch nicht definiert sind.">
+				>
+				["at0011"] = <
+					text = <"Parameterwert">
+					description = <"Parameterwert.">
+				>
+				["at0012"] = <
+					text = <"Qualitative Parameterinterpretation">
+					description = <"Gegebenenfalls qualitative Parameterinterpretation.">
+				>
+				["at0013"] = <
+					text = <"Parametername">
+					description = <"Parametername.">
+				>
+			>
+		>
+	>
