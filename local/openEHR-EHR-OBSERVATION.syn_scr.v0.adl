@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"77d972f71475db75400210be51459dd7">
+		["MD5-CAM-1.0.1"] = <"a20444dd549637ac295c7c52574746b0">
 		["build_uid"] = <"36665e10-c773-3454-8b46-a182bcc51e8f">
 	>
 
@@ -53,30 +53,36 @@ definition
 												defining_code matches {
 													[local::
 													at0005,    -- Yes
-													at0006,    -- No
-													at0010]    -- Examined at an eye center
+													at0006]    -- No
 												}
 											}
 										}
 									}
-									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Vision status
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Examined at a vision center
 										value matches {
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
-													at0008,    -- Status höger öga
-													at0009]    -- Status vänster öga
+													at0013,    -- Yes
+													at0014]    -- No
 												}
 											}
 										}
 									}
-									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Aid
-										value matches {
-											DV_CODED_TEXT matches {
-												defining_code matches {
-													[local::
-													at0013,    -- Glasögon behövs
-													at0014]    -- Glasögon behövs inte
+									CLUSTER[at0016] occurrences matches {0..1} matches {    -- Status in left eye
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0018] occurrences matches {0..1} matches {    -- Helping aid
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0015] occurrences matches {0..1} matches {    -- Status in right eye
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0017] occurrences matches {0..1} matches {    -- Helping aid
+												value matches {
+													DV_CODED_TEXT matches {*}
 												}
 											}
 										}
@@ -122,32 +128,32 @@ ontology
 					text = <"No">
 					description = <"">
 				>
-				["at0007"] = <
-					text = <"Vision status">
-					description = <"">
-				>
-				["at0008"] = <
-					text = <"Status höger öga">
-					description = <"">
-				>
-				["at0009"] = <
-					text = <"Status vänster öga">
-					description = <"">
-				>
-				["at0010"] = <
-					text = <"Examined at an eye center">
-					description = <"">
-				>
 				["at0012"] = <
-					text = <"Aid">
+					text = <"Examined at a vision center">
 					description = <"">
 				>
 				["at0013"] = <
-					text = <"Glasögon behövs">
+					text = <"Yes">
 					description = <"">
 				>
 				["at0014"] = <
-					text = <"Glasögon behövs inte">
+					text = <"No">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Status in right eye">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Status in left eye">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Helping aid">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Helping aid">
 					description = <"">
 				>
 			>
@@ -182,32 +188,32 @@ ontology
 					text = <"Nej">
 					description = <"">
 				>
-				["at0007"] = <
-					text = <"Syn status">
-					description = <"">
-				>
-				["at0008"] = <
-					text = <"Status höger öga">
-					description = <"">
-				>
-				["at0009"] = <
-					text = <"Status vänster öga">
-					description = <"">
-				>
-				["at0010"] = <
+				["at0012"] = <
 					text = <"Undersökts på syncentral">
 					description = <"">
 				>
-				["at0012"] = <
-					text = <"Hjälpmedel">
-					description = <"">
-				>
 				["at0013"] = <
-					text = <"Glasögon behövs">
+					text = <"Ja">
 					description = <"">
 				>
 				["at0014"] = <
-					text = <"Glasögon behövs inte">
+					text = <"Nej">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Status vänster öga">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Status höger öga">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Hjälpmedel">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Hjälpmedel">
 					description = <"">
 				>
 			>
