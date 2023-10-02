@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "3ba1ecc2b6ee0e1433b2dbe459855671",
+      "MD5-CAM-1.0.1" : "953aefe456f6b023295edeb64b10f453",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "8.0.0",
+      "sem_ver" : "9.0.0",
       "build_uid" : ""
     },
     "details" : {
@@ -1409,9 +1409,6 @@
           "/items[at0027]" : {
             "fhir_mappings" : "*Specimen.collection.quantity(en)"
           },
-          "/items[at0007]" : {
-            "fhir_mapping" : "*Specimen.collection.method(en)"
-          },
           "/items[at0029]" : {
             "fhir_mapping" : "*Specimen.type(en)"
           },
@@ -1423,6 +1420,9 @@
           },
           "/items[at0034.1]" : {
             "fhir_mapping" : "*Specimen.receivedTime(en)"
+          },
+          "/items[at0007.1]" : {
+            "fhir_mapping" : "*Specimen.collection.method(en)"
           }
         },
         "en" : {
@@ -1434,9 +1434,6 @@
           },
           "/items[at0027]" : {
             "fhir_mapping" : "Specimen.collection.quantity"
-          },
-          "/items[at0007]" : {
-            "fhir_mapping" : "Specimen.collection.method"
           },
           "/items[at0029]" : {
             "fhir_mapping" : "Specimen.type"
@@ -1455,6 +1452,9 @@
           },
           "/items[at0034.1]" : {
             "fhir_mapping" : "Specimen.receivedTime"
+          },
+          "/items[at0007.1]" : {
+            "fhir_mapping" : "Specimen.collection.method"
           }
         },
         "pt-br" : { },
@@ -1469,9 +1469,6 @@
           "/items[at0027]" : {
             "fhir_mapping" : "Specimen.collection.quantity"
           },
-          "/items[at0007]" : {
-            "fhir_mapping" : "Specimen.collection.method"
-          },
           "/items[at0029]" : {
             "fhir_mapping" : "Specimen.type"
           },
@@ -1489,6 +1486,9 @@
           },
           "/items[at0034.1]" : {
             "fhir_mapping" : "Specimen.receivedTime"
+          },
+          "/items[at0007.1]" : {
+            "fhir_mapping" : "Specimen.collection.method"
           }
         },
         "sv" : {
@@ -1514,12 +1514,14 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
           "nodeId" : "at0098.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
           "nodeId" : "at0097.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
@@ -1594,8 +1596,21 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0007.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0079.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0087.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
@@ -1913,7 +1928,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Preparat",
+            "text" : "Operationspreparat",
             "description" : "Ett fysiskt prov taget från, eller relaterat till, en individ i syfte att utföra en bedömning, undersökning eller analys.",
             "comment" : "Exempelvis vävnad eller kroppsvätska."
           },
@@ -1948,6 +1963,13 @@
             "code" : "at0034.1",
             "text" : "Ankomsttid labb",
             "description" : "Datum och tid när provet togs emot av laboratoriet."
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007.1",
+            "text" : "Operationstyp",
+            "description" : "Den metod som används för att ta provet.",
+            "comment" : "Exempelvis venpunktion, biopsi eller resektion. Kodning av provtagningsmetod till en terminologi är att föredra i de fall det är möjligt. Om provtagningsmetoden inkluderas i \"Provtyp\" via prekoordinerade koder blir detta dataelement redundant. \r\n"
           }
         }
       },
