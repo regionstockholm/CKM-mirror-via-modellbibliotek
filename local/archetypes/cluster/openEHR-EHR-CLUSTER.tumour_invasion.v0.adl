@@ -1,30 +1,43 @@
-﻿archetype (adl_version=1.4; uid=75ab50d5-67b5-4523-b29f-025c234c0235)
+archetype (adl_version=1.4; uid=75ab50d5-67b5-4523-b29f-025c234c0235)
 	openEHR-EHR-CLUSTER.tumour_invasion.v0
 
 concept
-	[at0000]	-- Tumour - direct invasion
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
 description
 	original_author = <
+		["date"] = <"27/07/2009">
 		["name"] = <"Dr Ian McNicoll">
 		["organisation"] = <"Ocean Informatics, Scotland">
 		["email"] = <"ian.mcnicoll@oceaninformatics.com">
-		["date"] = <"27/07/2009">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia (openEHR Editor)","Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","David Rowed, VAMC Clinic, Australia (openEHR Editor)">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record detailed findings about invasion of local tissue by tumour as part of microscopic histopathological examination of tissue. ">
+			keywords = <"histopathology","histology","pathology","lab","cancer","tumour","malignancy">
+			copyright = <"© openEHR Foundation">
 			use = <"To record detailed findings about invasion of local tissue by tumour as part of microscopic examination of tissue. 
 Use as a component archetype in the context of a suite of archetypes that make up a histopathology report ie OBSERVATION.lab_test.histopathology.">
-			keywords = <"histopathology", "histology", "pathology", "lab", "cancer", "tumour", "malignancy">
 			misuse = <"Not designed to be used within any other archetype other than OBSERVATION.lab_test.histopathology.">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Sam Heard, Ocean Informatics, Australia (openEHR Editor)", "Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "David Rowed, VAMC Clinic, Australia (openEHR Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -32,67 +45,66 @@ Use as a component archetype in the context of a suite of archetypes that make u
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7B4CA1EA34BD7950890E5DF7C64A0478">
+		["MD5-CAM-1.0.1"] = <"0bd63f49a5db1517607cdc9265a51915">
 		["build_uid"] = <"9aaa9403-8a65-4ef8-a247-7cb72307c327">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	CLUSTER[at0000] matches {	-- Tumour - direct invasion
+	CLUSTER[at0000] matches {    -- Tumour - direct invasion
 		items cardinality matches {0..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Tissue name
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Tissue name
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			allow_archetype CLUSTER[at0002] occurrences matches {0..1} matches {	-- Location  
+			allow_archetype CLUSTER[at0002] occurrences matches {0..1} matches {    -- Location
 				include
 					archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location-precise\.v1/}
 				exclude
 					archetype_id/value matches {/.*/}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Direct invasion
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Direct invasion
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
 							[local::
-							at0004, 	-- Present
-							at0013, 	-- Present - focal
-							at0014, 	-- Present - diffuse/extensive
-							at0015, 	-- Suspicious
-							at0005, 	-- Absent
-							at0006]	-- Indeterminate
+							at0004,    -- Present
+							at0013,    -- Present - focal
+							at0014,    -- Present - diffuse/extensive
+							at0015,    -- Suspicious
+							at0005,    -- Absent
+							at0006]    -- Indeterminate
 						}
 					}
 				}
 			}
-			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Nature of involvement
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Nature of involvement
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
 							[local::
-							at0008, 	-- Focal
-							at0009, 	-- Extensive
-							at0010]	-- Indeterminate
+							at0008,    -- Focal
+							at0009,    -- Extensive
+							at0010]    -- Indeterminate
 						}
 					}
 					DV_TEXT matches {*}
 				}
 			}
-			allow_archetype CLUSTER[at0011] occurrences matches {0..1} matches {	-- Resection margin  
+			allow_archetype CLUSTER[at0011] occurrences matches {0..1} matches {    -- Resection margin
 				include
 					archetype_id/value matches {/openEHR-EHR-CLUSTER\.tumour_resection_margins\.v1/}
 				exclude
 					archetype_id/value matches {/.*/}
 			}
-			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Description
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Description
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -107,7 +119,7 @@ ontology
 					description = <"The name of the local tissue or structure being examined for evidence of local invasion by tumour.">
 				>
 				["at0002"] = <
-					text = <"Location  ">
+					text = <"Location">
 					description = <"The location of the tissue being examined for evidence of direct invasion by tumour.">
 				>
 				["at0003"] = <
@@ -143,7 +155,7 @@ ontology
 					description = <"The nature of direct invasion by tumour has not been determined">
 				>
 				["at0011"] = <
-					text = <"Resection margin  ">
+					text = <"Resection margin">
 					description = <"Details of the local tissue surgical resection margin.">
 				>
 				["at0012"] = <
@@ -161,6 +173,74 @@ ontology
 				["at0015"] = <
 					text = <"Suspicious">
 					description = <"There is suspicion of direct invasion of the tissue by tumour">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Tumour - direct invasion (en)">
+					description = <"*To records details of the direct invasion of local tissues or structures by tumour. (en)">
+				>
+				["at0001"] = <
+					text = <"*Tissue name (en)">
+					description = <"*The name of the local tissue or structure being examined for evidence of local invasion by tumour. (en)">
+				>
+				["at0002"] = <
+					text = <"*Location   (en)">
+					description = <"*The location of the tissue being examined for evidence of direct invasion by tumour. (en)">
+				>
+				["at0003"] = <
+					text = <"*Direct invasion (en)">
+					description = <"*Finding of direct invasion by tumour of local tissue. (en)">
+				>
+				["at0004"] = <
+					text = <"*Present (en)">
+					description = <"*There is evidence of local invasion by tumour (en)">
+				>
+				["at0005"] = <
+					text = <"*Absent (en)">
+					description = <"*There is no evidence of local invasion by tumour (en)">
+				>
+				["at0006"] = <
+					text = <"*Indeterminate (en)">
+					description = <"*Evidence of local invasion by tumour has not been determined (en)">
+				>
+				["at0007"] = <
+					text = <"*Nature of involvement (en)">
+					description = <"*The nature of involvement of tumour in local tissue. (en)">
+				>
+				["at0008"] = <
+					text = <"*Focal (en)">
+					description = <"*Focal direct invasion of the tissue by tumour. (en)">
+				>
+				["at0009"] = <
+					text = <"*Extensive (en)">
+					description = <"*Extensive direct invasion of the tissue by tumour. (en)">
+				>
+				["at0010"] = <
+					text = <"*Indeterminate (en)">
+					description = <"*The nature of direct invasion by tumour has not been determined (en)">
+				>
+				["at0011"] = <
+					text = <"*Resection margin   (en)">
+					description = <"*Details of the local tissue surgical resection margin. (en)">
+				>
+				["at0012"] = <
+					text = <"*Description (en)">
+					description = <"*A text description of direct tumour invasion of local tissue. (en)">
+				>
+				["at0013"] = <
+					text = <"*Present - focal (en)">
+					description = <"*There is evidence of focal direct invasion of the tissue by tumour (en)">
+				>
+				["at0014"] = <
+					text = <"*Present - diffuse/extensive (en)">
+					description = <"*There is evidence of diffuse or extensive direct invasion of the tissue by tumour (en)">
+				>
+				["at0015"] = <
+					text = <"*Suspicious (en)">
+					description = <"*There is suspicion of direct invasion of the tissue by tumour (en)">
 				>
 			>
 		>
