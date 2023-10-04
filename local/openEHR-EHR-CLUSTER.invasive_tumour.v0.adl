@@ -1,0 +1,90 @@
+archetype (adl_version=1.4; uid=fa153246-8f5c-43bf-b973-f69d074332ac)
+	openEHR-EHR-CLUSTER.invasive_tumour.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2023-10-04">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"ca8dc3a05b37b844d2f0952d6afc47fa">
+		["build_uid"] = <"51345cae-e147-38ca-a4e2-e46268fe31a2">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Invasive_tumour
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- Anatomical location
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Involvement of dermis or muscle
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Invasive_tumour">
+					description = <"Invasive_tumour">
+				>
+				["at0001"] = <
+					text = <"Anatomical location">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Involvement of dermis or muscle">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Invasiv tumör">
+					description = <"*Invasive_tumour (en)">
+				>
+				["at0001"] = <
+					text = <"Tumörlokalisation">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Kliniskt tumörengagemang hud/muskel">
+					description = <"">
+				>
+			>
+		>
+	>
