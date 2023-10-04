@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "e344a21e3ab1f0cbc72922d6e882a114",
+      "MD5-CAM-1.0.1" : "e681be68d2cc658dc3f4a86c3c7d9cb0",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "16.0.0",
+      "sem_ver" : "17.0.0",
       "build_uid" : ""
     },
     "details" : {
@@ -579,6 +579,13 @@
           "text" : "Frågeställning",
           "description" : "En kort mening om varför tjänsten efterfrågas.",
           "comment" : "Kodning av detta dataelement är önskvärt, om möjligt. \r\nDetta dataelement tillåter flera värden om så behövs och gör det möjligt för användaren att ge flera svar. Till exempel: \"hantera diabeteskomplikationer\"."
+        },
+        "at0152.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0152.1",
+          "text" : "Preoperativ diagnos",
+          "description" : "Den kliniska anledningen till den efterfrågade tjänsten.",
+          "comment" : "Kodning av den kliniska indikationen med en terminologi är att föredra, där det är möjligt. Detta dataelement tillåter flera förekomster. Till exempel: 'Angina' eller 'Type 1 Diabetes mellitus'."
         }
       },
       "pt-br" : {
@@ -3640,7 +3647,7 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "23380a2b-4ab5-424d-9545-920c8f73e989",
+    "uid" : "d31802e5-551d-432e-b09a-d34df870ccc8",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
       "originalAuthor" : { },
@@ -3649,7 +3656,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "ca8dc3a05b37b844d2f0952d6afc47fa"
+        "PARENT:MD5-CAM-1.0.1" : "f8450cf8482a451d58f8fb791d11ecb6"
       },
       "details" : { }
     },
@@ -3715,7 +3722,7 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "460cd88b-946b-46e2-a046-7f5ff57d5de9",
+    "uid" : "560ad0ba-a89a-46c2-b4d5-43d1efb6797b",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
       "originalAuthor" : { },
@@ -3758,6 +3765,88 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0061.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0067", "at0068", "at0069", "at0070", "at0071", "at0072", "at0073", "at0074", "at0075", "at0076", "at0077", "at0078" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DURATION",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_DURATION",
+                  "rmTypeName" : "DURATION",
+                  "occurrences" : "1..1",
+                  "patternedConstraint" : "PTHM",
+                  "constraint" : [ {
+                    "lower" : "PT0M",
+                    "upper" : "PT12H",
+                    "lowerIncluded" : true,
+                    "upperIncluded" : true,
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : false
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_QUANTITY",
+              "attributes" : [ ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_REAL",
+                    "constraint" : [ {
+                      "lower" : -360.0,
+                      "upper" : 360.0,
+                      "lowerIncluded" : false,
+                      "upperIncluded" : false,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_STRING",
+                    "constraint" : [ "deg" ]
+                  } ]
+                } ]
+              } ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0080.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -3770,7 +3859,6 @@
                 "rmAttributeName" : "property",
                 "children" : [ {
                   "@type" : "C_TERMINOLOGY_CODE",
-                  "occurrences" : "0..1",
                   "terminologyId" : {
                     "value" : "openehr"
                   },
@@ -3781,11 +3869,11 @@
                 "@type" : "C_ATTRIBUTE_TUPLE",
                 "members" : [ {
                   "@type" : "C_ATTRIBUTE",
-                  "rmAttributeName" : "units",
+                  "rmAttributeName" : "magnitude",
                   "children" : [ ]
                 }, {
                   "@type" : "C_ATTRIBUTE",
-                  "rmAttributeName" : "magnitude",
+                  "rmAttributeName" : "units",
                   "children" : [ ]
                 }, {
                   "@type" : "C_ATTRIBUTE",
@@ -3795,12 +3883,7 @@
                 "tuples" : [ {
                   "@type" : "C_PRIMITIVE_TUPLE",
                   "members" : [ {
-                    "@type" : "C_STRING",
-                    "rmTypeName" : "STRING",
-                    "constraint" : [ "mm" ]
-                  }, {
                     "@type" : "C_REAL",
-                    "rmTypeName" : "REAL",
                     "constraint" : [ {
                       "lower" : 0.0,
                       "lowerIncluded" : true,
@@ -3809,8 +3892,60 @@
                       "upperUnbounded" : true
                     } ]
                   }, {
+                    "@type" : "C_STRING",
+                    "constraint" : [ "cm" ]
+                  }, {
                     "@type" : "C_INTEGER",
-                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 1,
+                      "upper" : 1,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : false,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : true
+                    } ]
+                  }, {
+                    "@type" : "C_STRING",
+                    "constraint" : [ "[in_i]" ]
+                  }, {
+                    "@type" : "C_INTEGER",
+                    "constraint" : [ {
+                      "lower" : 1,
+                      "upper" : 1,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                }, {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_REAL",
+                    "constraint" : [ {
+                      "lower" : 0.0,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : false,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : true
+                    } ]
+                  }, {
+                    "@type" : "C_STRING",
+                    "constraint" : [ "mm" ]
+                  }, {
+                    "@type" : "C_INTEGER",
                     "constraint" : [ {
                       "lower" : 1,
                       "upper" : 1,
@@ -3845,18 +3980,18 @@
         "en" : { },
         "nb" : { },
         "sv" : {
-          "at0079.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0079.1",
-            "text" : "Mamill",
-            "description" : "Identifierat kroppsställe som används som mittpunkt för den imaginära cirkeln.",
-            "comment" : "Till exempel: bröstvårtan när man undersöker ett bröst, eller anus vid undersökning av hemorrojder."
-          },
           "at0080.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0080.1",
             "text" : "Avstånd från mamill",
             "description" : "Avstånd till platsen från den identifierade mittpunkten."
+          },
+          "at0061.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0061.1",
+            "text" : "Klockslag",
+            "description" : "Riktningens vinkel mot det fysiska stället i förhållande till referensriktningen, antingen som positionen för en timme på en urtavla eller som ett antal grader.\r\n",
+            "comment" : "Till exempel: lokalisering av hemorrojder i analkanalen beskrivs ofta som klockan 3, 7 och 11. I detta exempel är perineum klockan tolv när patienten är i litotomiläge och betraktas som referensriktningen. För grader är positiva värden medsols, medan negativa värden är moturs.\r\n"
           }
         }
       },
