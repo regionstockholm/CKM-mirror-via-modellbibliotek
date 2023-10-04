@@ -6,6 +6,13 @@ concept
 
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
 
 description
 	original_author = <
@@ -13,6 +20,10 @@ description
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 		>
@@ -23,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0af219c063a5f51467864389a614b7cb">
+		["MD5-CAM-1.0.1"] = <"bcca034a52d08c52f225b3a5b8a571a3">
 		["build_uid"] = <"51ef2d1b-9be5-3a6d-a6c2-8e94b161a43e">
 	>
 
@@ -90,6 +101,16 @@ definition
 				}
 			}
 		}
+		protocol matches {
+			ITEM_TREE[at0018] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
 	}
 
 ontology
@@ -150,6 +171,82 @@ ontology
 				>
 				["at0017"] = <
 					text = <"Type of gross motor skills testing">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0019"] = <
+					text = <"CLUSTER_SLOT">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Utvecklings bedömning">
+					description = <"*Developmental assessment (en)">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Psykologisk bedömning">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Motorisk/neurologisk bedömning">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Annan utvecklingsbedömning">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Typ av psykologisk bedömning">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Typ av motorisk bedömning">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Typ av neurologisk bedömning">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Test namn">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Datum för genomförande">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Utfall">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Typ av grov motorisk bedömning">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0019"] = <
+					text = <"*CLUSTER_SLOT (en)">
 					description = <"">
 				>
 			>
