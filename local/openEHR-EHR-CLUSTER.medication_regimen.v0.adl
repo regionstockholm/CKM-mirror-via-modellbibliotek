@@ -26,7 +26,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0b59acc7678554d716a828696127e75b">
+		["MD5-CAM-1.0.1"] = <"62ee5787ca0f43186ade34de7f9c8b5a">
 		["build_uid"] = <"cf6d0ca2-d284-3e26-ba02-d552fbcfa840">
 	>
 
@@ -34,6 +34,11 @@ definition
 	CLUSTER[at0000] matches {    -- Medication regimen
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Regimen name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0031] occurrences matches {0..1} matches {    -- Regimen protocol version
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -78,7 +83,10 @@ ontology
 				>
 				["at0001"] = <
 					text = <"Regimen name">
-					description = <"">
+					description = <"The name of the medication regimen which was in place when the medication was prescribed/administered.
+
+This can be coded if required, possibly derived from a registry such as https://kunskapsbanken.cancercentrum.se/om-kakor/">
+					comment = <"For example: 'Abemaciklib'">
 				>
 				["at0004"] = <
 					text = <"Line of treatment">
@@ -115,6 +123,11 @@ ontology
 				["at0030"] = <
 					text = <"Course day">
 					description = <"">
+				>
+				["at0031"] = <
+					text = <"Regimen protocol version">
+					description = <"The version of the regimen protocol used. ">
+					comment = <"For example: '1.3'">
 				>
 			>
 		>
