@@ -1,0 +1,148 @@
+archetype (adl_version=1.4; uid=468202d5-849d-48a6-8ce1-f942d18b048b)
+	openEHR-EHR-CLUSTER.medication_regimen.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-10-20">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"9c6793eb60c72e7d2027965a080cf56f">
+		["build_uid"] = <"cf6d0ca2-d284-3e26-ba02-d552fbcfa840">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Medication regimen
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Regimen name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0027] occurrences matches {0..1} matches {    -- Course number
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0030] occurrences matches {0..1} matches {    -- Course day
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|1..31|}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Line of treatment
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- 1 - First-line treatment
+							at0011,    -- 2 - Second-line treatment
+							at0012,    -- 3 - Third-line treatment
+							at0013,    -- 4 - Fourth line treatment
+							at0014,    -- 5 - Fifth line treatment
+							at0015]    -- >5 - >5
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Clinical trial medication?
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Clinical trial name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Exclude from regimen ?
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication regimen">
+					description = <"Medication regimen">
+				>
+				["at0001"] = <
+					text = <"Regimen name">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Line of treatment">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Clinical trial medication?">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Clinical trial name">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Exclude from regimen ?">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"1 - First-line treatment">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"2 - Second-line treatment">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"3 - Third-line treatment">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"4 - Fourth line treatment">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"5 - Fifth line treatment">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <">5 - >5">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Course number">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Course day">
+					description = <"">
+				>
+			>
+		>
+	>
