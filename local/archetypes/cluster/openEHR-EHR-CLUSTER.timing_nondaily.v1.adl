@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=30f325b6-e6cc-42c8-bcaf-df19bc486355)
+archetype (adl_version=1.4; uid=30f325b6-e6cc-42c8-bcaf-df19bc486355)
 	openEHR-EHR-CLUSTER.timing_nondaily.v1
 
 concept
-	[at0000]	-- Timing - non-daily
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -31,24 +32,27 @@ language
 			>
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2015-09-11">
 		["name"] = <"Ian McNicoll">
 		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
 		["email"] = <"ian@freshehr.com">
-		["date"] = <"2015-09-11">
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Syed Ajaz, Alberta Health Services, Canada","Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","SB Bhattacharyya, Sudisa Consultancy Services, India","Laila Bruun, Oslo universitetssykehus HF, Norway","Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom","Heather Grain, Llewelyn Grain Informatics, Australia","Kristian Heldal, Telemark Hospital Trust, Norway","Annette Hole Sjøborg, DIPS ASA, Norway","Hilde Hollås, DIPS AS, Norway","Evelyn Hovenga, EJSH Consulting, Australia","Tom Jarl Jakobsen, Helse Bergen, Norway","Nils Kolstrup, Skansen Legekontor og Nasjonalt Senter for samhandling og telemedisin, Norway","Heather Leslie, Ocean Health Systems, Australia (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Lars Morgan Karlsen, Nordlandssykehuset Bodø, Norway","Isaiah Nyabuto, GIZ, Kenya","Andrej Orel, Marand d.o.o., Slovenia","Anne Pauline Anderssen, Helse Nord RHF, Norway","Vladimir Pizzo, Hospital Sírio Libanês, Brazil","Anoop Shah, University College London, United Kingdom","Norwegian Review Summary, Nasjonal IKT HF, Norway","Nyree Taylor, Ocean Informatics, Australia","Rowan Thomas, St. Vincent's Hospital Melbourne, Australia","Anders Thurin, SU, Sweden","Stian Torleif Varpe, Helse Bergen, Norway","Karl Trygve Kalleberg, Oslo Universitetssykehus, Norway","Gro-Hilde Ulriksen, Norwegian center for ehealthresearch, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Lars Ivar Mehlum, Nasjonal IKT HF, Norway">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Repräsentation strukturierter Informationen über das geplante Zeitablaufmuster einer therapeutischen oder diagnostischen Aktivität, die über Tage, Wochen, Monate oder Jahre erfolgt.">
+			keywords = <"Zeitablauf,","Zeitpunkt,","Verabreichung,","Applikation,","Dosierung,","Häufigkeit,","Frequenz,","Intervall,","Verordnung,","Rezept,","Empfehlung,","Zeitplan,","Plan,","Wiederholung">
 			use = <"Zur Repräsentation strukturierter Informationen über das geplante Zeitablaufmuster einer therapeutischen oder diagnostischen Aktivität, die sich über Tage, Wochen, Monate oder Jahre erstreckt. 
 
 Dieser Archetyp ist für die Verwendung innerhalb des SLOTs \"Wiederholungszeitpunkte\" innerhalb des Archetyps CLUSTER.therapeutic_direction vorgesehen, kann aber auch in anderen CLUSTER- und ENTRY-Archetypen verwendet werden, wenn dies klinisch sinnvoll ist.
 
 In Anwendungsfällen, in denen es sinnvoll ist, ausdrücklich festzulegen, dass eine Aktivität jeden Tag stattfinden soll, kann das Element \"Wiederholungsintervall\" auf \"1 Tag\" gesetzt werden.
 ">
-			keywords = <"Zeitablauf,", "Zeitpunkt,", "Verabreichung,", "Applikation,", "Dosierung,", "Häufigkeit,", "Frequenz,", "Intervall,", "Verordnung,", "Rezept,", "Empfehlung,", "Zeitplan,", "Plan,", "Wiederholung">
 			misuse = <"Nicht zur Darstellung von Angaben zum Zeitablauf innerhalb eines Zeitraums von 24 Stunden verwenden. Verwenden Sie dazu den Archetyp CLUSTER.timing_daily. 
 
 In Anwendungsfällen, in denen davon ausgegangen werden kann, dass eine Aktivität jeden Tag ausgeführt werden sollte, ist dieser Archetyp überflüssig.">
@@ -56,12 +60,12 @@ In Anwendungsfällen, in denen davon ausgegangen werden kann, dass eine Aktivit�
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere strukturert informasjon om planlagt timing av en terapeutisk eller diagnostisk aktivitet som forekommer over dager, uker, måneder eller år.">
+			keywords = <"timing, administrering, administrasjon, dosering, frekvens, intervall, ordinering, forskriving, foreskriving, anbefaling, plan, behandlingsintervall", ...>
 			use = <"Brukes for å registrere strukturert informasjon om planlagt timing av en terapeutisk eller diagnostisk aktivitet som forekommer over dager, uker, måneder eller år.
 
 Arketypen er laget for å brukes i SLOTet \"Anvisningsrepetisjon\" i arketypen CLUSTER.therapeutic_direction (Terapeutisk anvisning), men kan også brukes i andre CLUSTER- og ENTRY-arketyper der det er klinisk passende.
 
 I brukstilfeller der det er nødvendig å eksplisitt spesifisere at en aktivitet skal forekomme hver dag, kan elementet \"Repetisjonsintervall\" settes til \"1 dag\".">
-			keywords = <"timing, administrering, administrasjon, dosering, frekvens, intervall, ordinering, forskriving, foreskriving, anbefaling, plan, behandlingsintervall", ...>
 			misuse = <"Skal ikke brukes til å registrere detaljer om timing innenfor et døgn. Bruk arketypen CLUSTER.timing_daily for dette formålet.
 
 I tilfeller der det trygt kan antas at en aktivitet skal utføres hver eneste dag, er denne arketypen overflødig.">
@@ -77,20 +81,18 @@ This archetype is designed to be used within the 'Direction repetition' SLOT wit
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record structured information about the intended timing pattern for a therapeutic or diagnostic activity occurring over days, weeks, months or years.">
+			keywords = <"timing, administration, dosing, frequency, interval, order, recommendation, schedule, plan, repetition", ...>
+			copyright = <"© openEHR Foundation">
 			use = <"Use to record structured information about the intended timing pattern for a therapeutic or diagnostic activity occurring over days, weeks, months or years.
 
 This archetype is designed to be used within the 'Direction repetition' SLOT within the CLUSTER.therapeutic_direction archetype, but can also be used in other CLUSTER and ENTRY class archetypes where clinically appropriate.
 
 In use cases where it's necessary to specify explicitly that an activity is to take place every day, the \"Repetition interval\" element can be set to \"1 day\".">
-			keywords = <"timing, administration, dosing, frequency, interval, order, recommendation, schedule, plan, repetition", ...>
 			misuse = <"Not to be used to record timing details within a single 24 hour time period. Use the CLUSTER.timing_daily archetype for this purpose.
 
 In use cases where it can be safely assumed that an activity should be carried out every single day, this archetype is redundant.">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Syed Ajaz, Alberta Health Services, Canada", "Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "SB Bhattacharyya, Sudisa Consultancy Services, India", "Laila Bruun, Oslo universitetssykehus HF, Norway", "Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway", "Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom", "Heather Grain, Llewelyn Grain Informatics, Australia", "Kristian Heldal, Telemark Hospital Trust, Norway", "Annette Hole Sjøborg, DIPS ASA, Norway", "Hilde Hollås, DIPS AS, Norway", "Evelyn Hovenga, EJSH Consulting, Australia", "Tom Jarl Jakobsen, Helse Bergen, Norway", "Nils Kolstrup, Skansen Legekontor og Nasjonalt Senter for samhandling og telemedisin, Norway", "Heather Leslie, Ocean Health Systems, Australia (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Lars Morgan Karlsen, Nordlandssykehuset Bodø, Norway", "Isaiah Nyabuto, GIZ, Kenya", "Andrej Orel, Marand d.o.o., Slovenia", "Anne Pauline Anderssen, Helse Nord RHF, Norway", "Vladimir Pizzo, Hospital Sírio Libanês, Brazil", "Anoop Shah, University College London, United Kingdom", "Norwegian Review Summary, Nasjonal IKT HF, Norway", "Nyree Taylor, Ocean Informatics, Australia", "Rowan Thomas, St. Vincent's Hospital Melbourne, Australia", "Anders Thurin, SU, Sweden", "Stian Torleif Varpe, Helse Bergen, Norway", "Karl Trygve Kalleberg, Oslo Universitetssykehus, Norway", "Gro-Hilde Ulriksen, Norwegian center for ehealthresearch, Norway", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Lars Ivar Mehlum, Nasjonal IKT HF, Norway">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -348,7 +350,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
