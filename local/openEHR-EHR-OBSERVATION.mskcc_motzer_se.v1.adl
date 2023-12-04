@@ -37,13 +37,13 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"719b2923ca3be3c622298adbfffd7328">
+		["MD5-CAM-1.0.1"] = <"2b321213ce06553445d822b6280eafd2">
 		["build_uid"] = <"f46adbf4-d5d2-4d8e-ac22-5d82a19a9831">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- mskcc_motzer_se
+	OBSERVATION[at0000] matches {    -- IMDC Risk Calcutor
 		data matches {
 			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
@@ -88,9 +88,31 @@ definition
 											}
 										}
 									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {    -- Interpretation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0021,    -- Favourable-risk disease
+													at0022,    -- Intermediate-risk disease
+													at0023]    -- Poor-risk disease
+												}
+											}
+										}
+									}
 								}
 							}
 						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0024] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0025] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
 					}
 				}
 			}
@@ -102,7 +124,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"mskcc_motzer_se">
+					text = <"IMDC Risk Calcutor">
 					description = <"An assessment score used for metastatic renal cell carcinoma (RCC) to predict survival based on clinical and laboratory data in metastatic RCC patients.">
 				>
 				["at0001"] = <
@@ -179,7 +201,35 @@ ontology
 				>
 				["at0019"] = <
 					text = <"Total score">
-					description = <"*">
+					description = <"0 factors = Favourable-risk disease
+1-2 factors = Intermediate-risk disease
+3+ factors = Poor-risk disease">
+				>
+				["at0020"] = <
+					text = <"Interpretation">
+					description = <"0 factors = Favourable-risk disease
+1-2 factors = Intermediate-risk disease
+3+ factors = Poor-risk disease">
+				>
+				["at0021"] = <
+					text = <"Favourable-risk disease">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Intermediate-risk disease">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Poor-risk disease">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0025"] = <
+					text = <"Extension">
+					description = <"">
 				>
 			>
 		>
