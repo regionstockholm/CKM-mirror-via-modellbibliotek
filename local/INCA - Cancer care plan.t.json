@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.1",
+      "sem_ver" : "1.1.0-alpha.1",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "95909c561eb962714941638e28d7cbb2",
+      "MD5-CAM-1.0.1" : "32d05edd3de45c67082575076ce50d56",
       "PARENT:MD5-CAM-1.0.1" : "611E29DA4F53EA8344AD9B2AA38E0F0E"
     },
     "details" : {
@@ -119,7 +119,7 @@
         "at0000.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0000.1",
-          "text" : "INCA - Cancer care plan",
+          "text" : "Cancer care plan",
           "description" : "A persistent and managed list of any combination of archetypes that will support the accurate recording of a Care plan."
         }
       }
@@ -384,7 +384,25 @@
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "DV_CODED_TEXT",
                   "occurrences" : "1..1",
-                  "attributes" : [ ],
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
+                      "terminologyId" : {
+                        "value" : "inca-icd-cancer"
+                      },
+                      "constraint" : [ ],
+                      "selectedTerminologies" : [ "inca-icd-cancer" ],
+                      "includedExternalTerminologyCodes" : [ {
+                        "terminologyId" : "inca-icd-cancer",
+                        "code" : "C00",
+                        "value" : "Malignant neoplasms of lip, oral cavity and pharynx"
+                      } ]
+                    } ]
+                  } ],
                   "attributeTuples" : [ ]
                 } ]
               } ],
@@ -1345,7 +1363,23 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "584f371807d40e5127734acf27f19726"
       },
-      "details" : { }
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the results for each component parameter and their total sum for the MSKCC/Motzer score.",
+          "keywords" : [ "renal", "cell", "carcinoma", "RCC", "cancer", "metastatic " ],
+          "use" : "Use to record the results for each component parameter and their total sum for the MSKCC/Motzer score.",
+          "copyright" : "© Cambio CDS, openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.mskcc_motzer_se.v1",
     "differential" : true,
