@@ -1,0 +1,189 @@
+archetype (adl_version=1.4; uid=259b2398-3218-40e2-a243-673db5a44fbb)
+	openEHR-EHR-EVALUATION.holistic_needs_assessment_summary.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2021-02-18">
+		["name"] = <"Dr Paul Miller">
+		["organisation"] = <"NHS Education Scotland Digital Service (NDS)">
+		["email"] = <"paul.miller@nhs.scot">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To provide a place to summarise the outcome of a MacMillan Holistic Needs Assessment. ">
+			keywords = <"holistic, needs, assessment, mcmillan", ...>
+			use = <"Should be used wherever it is apporopriate to provide a summary of the Holistic Needs Assessment rather than the detailed results. It is aligned to the MacMillan HNA.">
+			misuse = <"Would not recommend using this for other non-MacMillan HNA">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"See https://be.macmillan.org.uk/Downloads/ResourcesForHSCPs/MAC13689ConcernsChecklist17AWweb.pdf for the version of the full HNA
+See Macmillan_holistic_assessment.v0, Draft template [Internet]. Apperta UK, Apperta UK Clinical Knowledge Manager [cited: 2021-02-21]. Available from: https://ckm.apperta.org/ckm/templates/1051.57.272 for the associated template for the full HNA.
+">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"4860c1dd4ddfa09d7555f3bf5d2bca93">
+		["build_uid"] = <"cd64ebc5-fa41-3b6c-be1f-609c138c901b">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Holistic Needs Assessment Summary
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Holistic Needs Assessment Completed
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Location of Holistic Needs Assessment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {    -- Summary of HNA
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0005] occurrences matches {0..1} matches {    -- Link to HNA
+						include
+							archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.multimedia\.v0/}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Summary of Physical concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Summary of Practical concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Summary of Emotional Concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Summary of Family or Relationship concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Summary of Spiritual concerns
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Summary of Information or Support
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0014] occurrences matches {0..1} matches {    -- Questions
+						include
+							archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.issue_uk\.v0/}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0012] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Any other context
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Date last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Holistic Needs Assessment Summary">
+					description = <"Holistic Needs Assessment Summary">
+					comment = <"Use for managing a summary of the McMillan Holistic Needs Assessment process.">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Holistic Needs Assessment Completed">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Location of Holistic Needs Assessment">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Link to HNA">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Summary of Physical concerns">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Summary of Practical concerns">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Summary of Emotional Concerns">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Summary of Family or Relationship concerns">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Summary of Spiritual concerns">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Summary of Information or Support">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Questions">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Summary of HNA">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Any other context">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Date last updated">
+					description = <"">
+				>
+			>
+		>
+	>
