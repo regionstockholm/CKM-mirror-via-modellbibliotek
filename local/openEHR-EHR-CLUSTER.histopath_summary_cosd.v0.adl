@@ -1,0 +1,164 @@
+archetype (adl_version=1.4; uid=653c9229-47c2-44a1-b9dd-a6b5730d40b3)
+	openEHR-EHR-CLUSTER.histopath_summary_cosd.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2017-05-13">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording and reporting of histopathology details in the context of the Genomics England cancer datasets.">
+			copyright = <"© Clinical Models UK">
+			use = <"Use to record histopathology details not elsewhere captured as part of recording and reporting investigations for the Genomics England cancer datasets.
+
+The archetype is intended to be used inside a laboratory test observation.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Ian McNicoll, freshEHR Clinical Informatics Ltd.<ian@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"83b092db4175500a3c98aa7cde93d2a8">
+		["build_uid"] = <"4284cded-1ee1-4582-8b71-4a82b54db173">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Histopathology summary
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Number of nodes positive
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Number of nodes examined
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|>0|}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Size of largest tumor in node
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Excision margin
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0020] occurrences matches {0..1} matches {    -- Tumour type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {    -- Pre-operative therapy
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0038] occurrences matches {0..1} matches {    -- Synchronous tumour
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Tumour size
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {    -- Cancer vascular or lymphatic invasion
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0037] occurrences matches {0..1} matches {    -- Pre-invasive elements
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Histopathology summary">
+					description = <"To record details of a GEL histopathology summary.">
+				>
+				["at0002"] = <
+					text = <"Number of nodes positive">
+					description = <"The number of local and regional nodes reported as being positive for the presence of Tumour metastases (in this specimen report only).">
+				>
+				["at0003"] = <
+					text = <"Number of nodes examined">
+					description = <"Number of nodes examined, where applicable.">
+				>
+				["at0004"] = <
+					text = <"Size of largest tumor in node">
+					description = <"Maximum dimension of the largest tumour in mm on the histopathology report.">
+				>
+				["at0005"] = <
+					text = <"Excision margin">
+					description = <"Details of excision margins.">
+				>
+				["at0018"] = <
+					text = <"Tumour size">
+					description = <"Maximum dimension of the largest tumour in mm on the histopathology report.">
+				>
+				["at0019"] = <
+					text = <"Pre-operative therapy">
+					description = <"Statement about pre-operative therapy.">
+				>
+				["at0020"] = <
+					text = <"Tumour type">
+					description = <"Details of the tumour type.">
+				>
+				["at0028"] = <
+					text = <"Cancer vascular or lymphatic invasion">
+					description = <"An indication of the presence or absence of unequivocal tumour in lymphatic and/or vascular spaces.">
+				>
+				["at0037"] = <
+					text = <"Pre-invasive elements">
+					description = <"Description of atypia or in situ disease, if present.">
+				>
+				["at0038"] = <
+					text = <"Synchronous tumour">
+					description = <"">
+				>
+			>
+		>
+	>
