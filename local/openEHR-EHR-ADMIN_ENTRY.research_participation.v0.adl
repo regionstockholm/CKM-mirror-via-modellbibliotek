@@ -1,0 +1,75 @@
+archetype (adl_version=1.4; uid=434592a6-6033-47c7-b4bd-912ce97236dd)
+	openEHR-EHR-ADMIN_ENTRY.research_participation.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2021-03-12">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"e25d12a0a6d4bf8dd3c4fe3712ea0411">
+		["build_uid"] = <"38a436be-fe18-32a5-96e2-a5b49350bfd8">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- Research participation
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Study name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Study identifier
+						value matches {
+							DV_IDENTIFIER matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Research participation">
+					description = <"Research participation">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Study name">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Study identifier">
+					description = <"">
+				>
+			>
+		>
+	>
