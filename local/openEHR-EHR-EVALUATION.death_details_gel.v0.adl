@@ -1,0 +1,178 @@
+archetype (adl_version=1.4; uid=b913ca72-4bb7-4bed-844c-378df1302c3f)
+	openEHR-EHR-EVALUATION.death_details_gel.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2017-01-11">
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the recording of death details in the Genomics England cancer and rare diseases datasets.">
+			copyright = <"© Clinical Models UK">
+			use = <"Use to record death details in the context of Genomics England cancer and rare diseases datasets.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"E4644725A4181532E08BD6BC2994B4BB">
+		["build_uid"] = <"513b4d90-e4d1-4f6d-8442-3a65d4b8f558">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Death details GEL
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {    -- Date of death
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Death location
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003,    -- 1: Hospital
+									at0004,    -- 2: NHS hospice or specialist palliative care unit
+									at0005,    -- 3: Voluntary hospice or specialist palliative care unit
+									at0006,    -- 4: Patient's own home
+									at0007,    -- 5: Care home
+									at0008]    -- 6: Other
+								}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Significant condition not leading to death
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Immediate cause
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Significant condition leading to death
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Underlying cause
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..*} matches {    -- Related diagnosis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0014] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0015] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Death details GEL">
+					description = <"Local archetype to capture death details in Genomics England cancer and rare diseases datasets.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Death location">
+					description = <"The location where death occurred.">
+				>
+				["at0003"] = <
+					text = <"1: Hospital">
+					description = <"The participant died in hospital.">
+				>
+				["at0004"] = <
+					text = <"2: NHS hospice or specialist palliative care unit">
+					description = <"The participant died in an NHS hospice or NHS specialist palliative care unit.">
+				>
+				["at0005"] = <
+					text = <"3: Voluntary hospice or specialist palliative care unit">
+					description = <"The participant died in a voluntary hospice or voluntary specialist palliative care unit.">
+				>
+				["at0006"] = <
+					text = <"4: Patient's own home">
+					description = <"The participant died in their own home.">
+				>
+				["at0007"] = <
+					text = <"5: Care home">
+					description = <"The participant died in a care home.">
+				>
+				["at0008"] = <
+					text = <"6: Other">
+					description = <"The participant died in a location not specified by the other options.">
+				>
+				["at0009"] = <
+					text = <"Significant condition not leading to death">
+					description = <"Significant condition not leading to death. Coded according to the International Classification of Diseases (ICD) code of the condition leading to death as recorded on the death certificate.">
+				>
+				["at0010"] = <
+					text = <"Immediate cause">
+					description = <"Immediate cause of death. Coded according to the International Classification of Diseases (ICD) code of the condition leading to death as recorded on the death certificate.">
+				>
+				["at0011"] = <
+					text = <"Significant condition leading to death">
+					description = <"Condition leading to death. Coded according to the International Classification of Diseases (ICD) code of the condition leading to death as recorded on the death certificate.">
+				>
+				["at0012"] = <
+					text = <"Underlying cause">
+					description = <"Underlying cause of death. Coded according to the International Classification of Diseases (ICD) code of the condition leading to death as recorded on the death certificate.">
+				>
+				["at0013"] = <
+					text = <"Related diagnosis">
+					description = <"Any other relevant diagnosis. Coded according to the International Classification of Diseases (ICD) code of the condition leading to death as recorded on the death certificate.">
+				>
+				["at0014"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local context or to align with other reference models/formalisms.">
+					comment = <"e.g. Local hospital departmental infomation or additional metadata to align with HL7 or CDISC equivalents.">
+				>
+				["at0016"] = <
+					text = <"Date of death">
+					description = <"The date of death of the patient.">
+				>
+			>
+		>
+	>
