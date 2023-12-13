@@ -1,0 +1,102 @@
+archetype (adl_version=1.4; uid=71f8c354-5602-4941-8c81-26912849d7ee)
+	openEHR-EHR-CLUSTER.upper_gi_staging_uk.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2017-09-27">
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific GI cancer staging details in the context of GEL cancer datasets.">
+			copyright = <"© Clinical Models UK">
+			use = <"Use to record specific GI cancer staging details as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype or in the Specific details slot of a problem diagnosis evaluation archetype.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"742ad88a6a2212f2d053bea8c9349b25">
+		["build_uid"] = <"6c78b3e4-b053-405c-a7ab-57080a174bd6">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Upper GI staging
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- BCLC stage
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Portal invasion
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Number of lesions
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|>=0|}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Pancreatic clinical stage
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Transarterial chemoembolisation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Upper GI staging">
+					description = <"Details of specific upper GI cancer staging in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"BCLC stage">
+					description = <"Barcelona clinic liver cancer stage.">
+				>
+				["at0003"] = <
+					text = <"Portal invasion">
+					description = <"Statement about portal invasion.">
+				>
+				["at0007"] = <
+					text = <"Number of lesions">
+					description = <"Number of lesions as per radiological findings.">
+				>
+				["at0008"] = <
+					text = <"Pancreatic clinical stage">
+					description = <"Details of clinical stage for pancreatic cancer.">
+				>
+				["at0014"] = <
+					text = <"Transarterial chemoembolisation">
+					description = <"Statement about transarterial chemoembolisation.">
+				>
+			>
+		>
+	>
