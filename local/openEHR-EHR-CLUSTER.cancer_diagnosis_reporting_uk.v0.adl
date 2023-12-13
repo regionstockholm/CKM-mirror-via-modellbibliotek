@@ -1,0 +1,178 @@
+archetype (adl_version=1.4; uid=c5944eb0-882d-4fbb-8e3a-3c26af491009)
+	openEHR-EHR-CLUSTER.cancer_diagnosis_reporting_uk.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2017-03-23">
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of cancer diagnosis specific details not available elsewhere in the context of Genomics England Cancer datasets.">
+			copyright = <"© Clinical Models UK">
+			use = <"Use to record metastatic site, tumour laterality, morphology, topography and recurrence indicator as part of a cancer diagnosis record in the Genomics England Cancer dataset. This cluster is intended to be used inside a Problem/Diagnosis archetype.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"3898efdd1ec5308132696caf4c498506">
+		["build_uid"] = <"7b219b70-e6b8-4c9b-b227-9de5193e888b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Cancer diagnosis
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Recurrence indicator
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0052] occurrences matches {0..1} matches {    -- Detailed diagnosis coding
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0053] occurrences matches {0..1} matches {    -- Cancer group
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Morphology
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Topography
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {    -- Tumour laterality
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0035] occurrences matches {0..1} matches {    -- Basis of diagnosis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0047] occurrences matches {0..*} matches {    -- Disease progression
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0048] occurrences matches {0..1} matches {    -- Metastatic site
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0049] occurrences matches {0..1} matches {    -- Progression date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0050] occurrences matches {0..1} matches {    -- Disease transformation
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0051] occurrences matches {0..1} matches {    -- Morphology transformation date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0038] occurrences matches {0..1} matches {    -- Clonal Plasma Cell %
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::380]>
+						list = <
+							["1"] = <
+								units = <"%">
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cancer diagnosis">
+					description = <"Local cluster to capture specific details (not available elsewhere) for cancer diagnosis in Genomics England Cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Morphology">
+					description = <"The morphology code for the diagnosed cancer as defined by ICDO3 or SNOMED CT or SNOMED RT. Terminology mappings should be used.">
+					comment = <"The SNOMED version should be captured as part of the code string.">
+				>
+				["at0002"] = <
+					text = <"Topography">
+					description = <"The topography code for the diagnosed cancer as defined by ICDO3 or SNOMED CT or SNOMED RT. Terminology mappings should be used.">
+					comment = <"The SNOMED version should be captured as part of the code string.">
+				>
+				["at0013"] = <
+					text = <"Recurrence indicator">
+					description = <"An indication of whether a diagnosis of recurrence has been recorded for which a new Cancer Care Plan is required.">
+				>
+				["at0028"] = <
+					text = <"Tumour laterality">
+					description = <"Tumour laterality identifies the side of the body for a tumour relating to paired organs within a PATIENT based on the evidence from a pathological examination.">
+				>
+				["at0035"] = <
+					text = <"Basis of diagnosis">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Clonal Plasma Cell %">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"Disease progression">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Metastatic site">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"Progression date">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"Disease transformation">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Morphology transformation date">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Detailed diagnosis coding">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"Cancer group">
+					description = <"">
+				>
+			>
+		>
+	>
