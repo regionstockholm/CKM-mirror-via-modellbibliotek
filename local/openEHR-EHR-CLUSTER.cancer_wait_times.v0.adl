@@ -1,0 +1,119 @@
+archetype (adl_version=1.4; uid=a750c62d-89ab-4d7e-a218-6e7fb54faeac)
+	openEHR-EHR-CLUSTER.cancer_wait_times.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2021-05-04">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"a75a60c1c8b223f5d262ed80a05e3fce">
+		["build_uid"] = <"d0ac4746-60bd-37be-8cfa-90ae65f16f05">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Cancer times
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Wait time
+				value matches {
+					DV_DURATION matches {
+						value matches {PD}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Target
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- FDS Target
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Known to Palliative care
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008,    -- Yes
+							at0009]    -- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Somerset Care Id
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Patient informed date
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cancer times">
+					description = <"cancer wait times">
+				>
+				["at0004"] = <
+					text = <"Target">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"FDS Target">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Wait time">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Known to Palliative care">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Patient informed date">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Somerset Care Id">
+					description = <"">
+				>
+			>
+		>
+	>
