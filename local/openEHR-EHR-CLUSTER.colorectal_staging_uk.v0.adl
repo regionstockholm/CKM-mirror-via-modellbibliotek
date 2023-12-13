@@ -1,0 +1,73 @@
+archetype (adl_version=1.4; uid=d15950ff-9bb6-4a3e-a697-55aef775400a)
+	openEHR-EHR-CLUSTER.colorectal_staging_uk.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2017-09-27">
+		["name"] = <"Hildegard Franke">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"hildi@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For the capture and reporting of specific diagnosis details for colorectal cancer in the context of the GEL cancer datasets.">
+			copyright = <"© Clinical Models UK">
+			use = <"Use to record specific diagnosis details for colorectal cancer as part of GEL cancer datasets.
+
+This cluster archetype is intended to be used in the Test findings slot in a laboratory test result observation archetype or in the Specific details slot in a problem/diagnosis evaluation archetype.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["current_contact"] = <"Hildegard Franke, freshEHR Clinical Informatics Ltd.<hildi@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"e76d6c0e327fb244aed00ec8f5c293ec">
+		["build_uid"] = <"bed53ceb-74fb-46b6-bd59-985155a266ea">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Colorectal staging
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Synchronous tumour indicator
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0012] occurrences matches {0..*} matches {    -- Dukes staging
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.modified_dukes_stage\.v0/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Colorectal staging">
+					description = <"Specific diagnosis details for colorectal cancer in the context of GEL cancer datasets.">
+				>
+				["at0001"] = <
+					text = <"Synchronous tumour indicator">
+					description = <"Details of synchronous tumour indicator.">
+				>
+				["at0012"] = <
+					text = <"Dukes staging">
+					description = <"">
+				>
+			>
+		>
+	>
