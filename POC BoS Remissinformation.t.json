@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "28735914f2e720f864ef2e56b19135f9",
+      "MD5-CAM-1.0.1" : "3f4d9239a25dcb4bcde739cd7f7ae213",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "22.0.0",
+      "sem_ver" : "23.0.0",
       "build_uid" : ""
     },
     "details" : {
@@ -420,6 +420,9 @@
               }, {
                 "@type" : "C_COMPLEX_OBJECT",
                 "rmTypeName" : "DV_IDENTIFIER",
+                "defaultValue" : {
+                  "@type" : "DV_IDENTIFIER"
+                },
                 "attributes" : [ ],
                 "attributeTuples" : [ ]
               } ]
@@ -517,7 +520,7 @@
           "code" : "at0152.1",
           "text" : "Preoperativ diagnos",
           "description" : "The clinical reason for the ordered service.",
-          "comment" : "Coding of the clinical indication with a terminology is preferred, where possible. This data element allows multiple occurrences. For example: 'Angina' or 'Type 1 Diabetes mellitus'."
+          "comment" : "Coding of the clinical indication with a terminology is preferred, where possible. This data element allows multiple occurrences. For example: 'Angina' or 'Type 1 Diabetes mellitus'.\n\nSka hämtas från ROS och mappas in i CDR."
         }
       },
       "nb" : {
@@ -556,7 +559,7 @@
           "code" : "at0010.1",
           "text" : "Remissidentitet",
           "description" : "Den lokala identifieraren som tilldelats av det begärande kliniska systemet.",
-          "comment" : "Vanligtvis motsvarande HL7 Placer Order Identifier."
+          "comment" : "Vanligtvis motsvarande HL7 Placer Order Identifier.\n\nSka hämtas från ROS och mappas in i CDR."
         },
         "at0121.1" : {
           "@type" : "ARCHETYPE_TERM",
@@ -922,7 +925,16 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0034.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -1022,6 +1034,36 @@
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_TEXT",
               "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0080.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_COUNT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "magnitude",
+                "children" : [ {
+                  "@type" : "C_INTEGER",
+                  "rmTypeName" : "INTEGER",
+                  "occurrences" : "1..1",
+                  "constraint" : [ {
+                    "lower" : 0,
+                    "lowerIncluded" : true,
+                    "upperIncluded" : false,
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : true
+                  } ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             } ]
           } ],
@@ -1260,7 +1302,35 @@
             "code" : "at0007.1",
             "text" : "Operationstyp",
             "description" : "Den metod som används för att ta provet.",
-            "comment" : "Exempelvis venpunktion, biopsi eller resektion. Kodning av provtagningsmetod till en terminologi är att föredra i de fall det är möjligt. Om provtagningsmetoden inkluderas i \"Provtyp\" via prekoordinerade koder blir detta dataelement redundant. \r\n"
+            "comment" : "Exempelvis venpunktion, biopsi eller resektion. Kodning av provtagningsmetod till en terminologi är att föredra i de fall det är möjligt. Om provtagningsmetoden inkluderas i \"Provtyp\" via prekoordinerade koder blir detta dataelement redundant. \n\n\nSka hämtas från ROS och mappas in i CDR.\n"
+          },
+          "at0080" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0080",
+            "text" : "Antal behållare",
+            "description" : "Det totala antalet fysiska enheter som provmaterialet är distribuerat i. \r\n",
+            "comment" : "Till exempel: antal provbehållare, provrör, provflaskor, block, objektglas eller galler.\n\nSka hämtas från ROS och mappas in i CDR.\n\n"
+          },
+          "at0015.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0015",
+            "text" : "Datum/tid för provtagning",
+            "description" : "Datum och tid för när provtagningen ska äga rum eller har ägt rum.",
+            "comment" : "Datum/tid kommer främst att anges i arketyper av typerna INSTRUCTION, ACTION eller OBSERVATION. Detta är dock en kritisk informationsdel och därför det kan vara användbart att ha möjlighet att också länka den direkt till provmaterialet.\n\n\nSka hämtas från ROS och mappas in i CDR.\n\n"
+          },
+          "at0034.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0034",
+            "text" : "Datum/tid ankomst till labb",
+            "description" : "Datum och tid när provet togs emot av laboratoriet.",
+            "comment" : "Ska hämtas från ROS och mappas in i CDR."
+          },
+          "at0080.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0080.1",
+            "text" : "Antal behållare",
+            "description" : "Det totala antalet fysiska enheter som provmaterialet är distribuerat i. \r\n",
+            "comment" : "Till exempel: antal provbehållare, provrör, provflaskor, block, objektglas eller galler.\n\n\n"
           }
         }
       },
@@ -1656,7 +1726,16 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0034.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -2053,7 +2132,8 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0034.1",
             "text" : "Ankomsttid labb",
-            "description" : "Datum och tid när provet togs emot av laboratoriet."
+            "description" : "Datum och tid när provet togs emot av laboratoriet.",
+            "comment" : "Ska hämtas från ROS och mappas in i CDR."
           },
           "at0007.1" : {
             "@type" : "ARCHETYPE_TERM",
@@ -2562,6 +2642,9 @@
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_IDENTIFIER",
+              "defaultValue" : {
+                "@type" : "DV_IDENTIFIER"
+              },
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
@@ -2618,14 +2701,14 @@
             "code" : "at0003.1",
             "text" : "Kombika",
             "description" : "Identifierare associerad med den identifierade organisationen.",
-            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare.\n\nSka hämtas från ROS och mappas in i CDR."
           },
           "at0001.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.1",
             "text" : "Vårdenhet",
             "description" : "Namnet som en organisation är känd för.",
-            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'."
+            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'.\n\nSka hämtas från ROS och mappas in i CDR."
           }
         }
       },
@@ -2794,6 +2877,9 @@
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_IDENTIFIER",
+              "defaultValue" : {
+                "@type" : "DV_IDENTIFIER"
+              },
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
@@ -2866,14 +2952,14 @@
             "code" : "at0003.1",
             "text" : "Kombika",
             "description" : "Identifierare associerad med den identifierade organisationen.",
-            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare.\n\nSka hämtas från ROS och mappas in i CDR."
           },
           "at0001.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.1",
             "text" : "Laboratorieenhet",
             "description" : "Namnet som en organisation är känd för.",
-            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'."
+            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'.\n\nSka hämtas från ROS och mappas in i CDR."
           }
         }
       },
@@ -3137,7 +3223,7 @@
                   "terminologyId" : {
                     "value" : "local"
                   },
-                  "constraint" : [ "ac0.2" ],
+                  "constraint" : [ "ac0.7" ],
                   "selectedTerminologies" : [ ]
                 } ]
               } ],
@@ -3229,12 +3315,6 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "ar-sy" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
@@ -3245,16 +3325,16 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "sl" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
@@ -3265,16 +3345,16 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "en" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
@@ -3285,16 +3365,16 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "nb" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
@@ -3305,16 +3385,16 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "pt-br" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
@@ -3325,16 +3405,16 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "de" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
@@ -3345,16 +3425,16 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "nl" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
@@ -3365,16 +3445,16 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         },
         "sv" : {
-          "ac0.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.2",
-            "description" : ""
-          },
           "ac0.3" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
@@ -3385,6 +3465,26 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.4",
+            "description" : ""
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002",
+            "text" : "Lateralitet",
+            "description" : "Den sida av kroppen där det identifierade kroppsstället är lokaliserat.",
+            "comment" : "Om det identifierade kroppsstället saknar lateralitet ska detta fält inte användas. \nOm fältet \"Namn på kroppsställe\" har prekoordinerade termer som innefattar lateralitet är detta fält redundant.\n\nSka hämtas från ROS och mappas in i CDR."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "Namn på kroppsställe",
+            "description" : "Identifiering av enskilt fysiskt ställe på eller i människokroppen.",
+            "comment" : "Det här är det enda obligatoriska fältet i denna arketyp och det ska användas som det primära stället att registrera en anatomisk lokalisation med ett vedertaget namn. Det rekommenderas starkt att \"Namn på kroppsställe\" anges så specifikt som det är anatomiskt möjligt. Till exempel; registrera \"övre ögonlock\" snarare än \"ögonlock\" med \"övre\" som kvalificering; \"femte revbenet\" snarare än \"revben\" med en numerisk kvalificering. Använd de andra dataelementen för lateralitet, aspekt, region och anatomisk linje för att ge mer information.\n\nDetta dataelement bör kodas med en terminologi som kan starta beslutsstödsfunktionalitet när så är möjligt - en lämplig terminologi för användning här kan innehålla enskilda begrepp eller listor med förkoordinerade termer. Fritext bör endast användas om det inte finns någon lämplig terminologi.\n\nOm kroppsställets namn anges i den överordnade arketypen kan detta dataelement vara överflödigt. Emellertid har användningsfall identifierats där datavärdet kan kopieras till detta element för att stödja semantiska utsökningsfrågor baserat på denna arketyp snarare än den överordnade arketypen.\n\nSka hämtas från ROS och mappas in i CDR.\n"
+          },
+          "ac0.7" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.7",
             "description" : ""
           }
         }
@@ -3415,6 +3515,21 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.4",
           "members" : [ "at0067", "at0068", "at0069", "at0070", "at0071", "at0072", "at0073", "at0074", "at0080", "at0081", "at0075", "at0076", "at0082", "at0077", "at0078", "at0079" ]
+        },
+        "ac0.5" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.5",
+          "members" : [ "at0003", "at0004" ]
+        },
+        "ac0.6" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.6",
+          "members" : [ "at0003", "at0004" ]
+        },
+        "ac0.7" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.7",
+          "members" : [ "at0003", "at0004" ]
         }
       }
     },
