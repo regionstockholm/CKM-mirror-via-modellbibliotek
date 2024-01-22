@@ -30,16 +30,15 @@ description
 		["custodian_organisation"] = <"openEHR Foundation">
 		["references"] = <"Derived from: Care Plan, Draft Archetype [Internet]. Australian Digital Health Agency, Australian Digital Health Agency Clinical Knowledge Manager [cited: 2016-08-22]. Available from: http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.1220">
 		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
-		["original_namespace"] = <"org.openehr">
-		["original_publisher"] = <"openEHR Foundation">
+		["original_namespace"] = <"se.org.karolinska">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"6c2a64d283b506e0cc360c100268f3b6">
-		["build_uid"] = <"5bc62fc0-a917-4204-bc09-f62e757c4f56">
-		["revision"] = <"0.0.1-alpha">
+		["MD5-CAM-1.0.1"] = <"eb03a68152bd28332a8c1c1dba49f8ff">
+		["build_uid"] = <"9583c880-8b9e-4a52-8e8d-615900b808a7">
+		["revision"] = <"1.1.0-alpha">
 	>
 
 definition
-	ACTION[at0000] matches {    -- care_plan_ka
+	ACTION[at0000] matches {    -- Care plan
 		ism_transition matches {
 			ISM_TRANSITION[at0003] matches {    -- Care plan Need Identified
 				current_state matches {
@@ -231,6 +230,19 @@ definition
 							DV_TEXT matches {*}
 						}
 					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {    -- Clinical status
+						value matches {
+							DV_TEXT matches {*}
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0038,    -- Draft
+									at0039,    -- Active
+									at0040]    -- Inactive
+								}
+							}
+						}
+					}
 					ELEMENT[at0025] occurrences matches {0..1} matches {    -- Reason
 						value matches {
 							DV_TEXT matches {*}
@@ -252,6 +264,10 @@ definition
 							DV_DATE_TIME matches {*}
 						}
 					}
+					allow_archetype CLUSTER[at0036] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
 				}
 			}
 		}
@@ -262,7 +278,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"care_plan_ka">
+					text = <"Care plan">
 					description = <"Plan or sequence of discrete activities developed to achieve a specified management goal or treatment outcome, carried out by health professionals and/or the patient.">
 				>
 				["at0002"] = <
@@ -336,6 +352,26 @@ ontology
 				["at0035"] = <
 					text = <"Care Plan Suspended">
 					description = <"Care plan is temporarily suspended but intended to resume at a later date.">
+				>
+				["at0036"] = <
+					text = <"Extension">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Clinical status">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Draft">
+					description = <"The plan is in draft and should not be applied to the person.">
+				>
+				["at0039"] = <
+					text = <"Active">
+					description = <"The plan is in draft and should be applied to the person.">
+				>
+				["at0040"] = <
+					text = <"Inactive">
+					description = <"The plan is inactive and and should not be applied to the person.">
 				>
 			>
 		>
