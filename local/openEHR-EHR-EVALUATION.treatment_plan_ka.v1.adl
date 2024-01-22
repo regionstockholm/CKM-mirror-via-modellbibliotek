@@ -1,0 +1,292 @@
+archetype (adl_version=1.4; uid=2642f3ec-8f91-47f4-936a-7be45efab8e1)
+	openEHR-EHR-EVALUATION.treatment_plan_ka.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+		["date"] = <"2024-01-22">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"0978c3ca78a9a0edd8cee287293b2e97">
+		["build_uid"] = <"ec184625-acf0-3e8b-80f7-f84a5cfc4ea6">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Treatment plan
+		data matches {
+			ITEM_TREE[at0003] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Therapy name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Therapy variant
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Therapy category
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006,    -- Medical oncology
+									at0007,    -- Other medication
+									at0008,    -- Radiation therapy
+									at0009,    -- Surgical procedures
+									at0010]    -- Ancillary treatment
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Line of treatment
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015,    -- First
+									at0016,    -- Second
+									at0017]    -- Third
+								}
+							}
+						}
+					}
+					CLUSTER[at0031] occurrences matches {0..1} matches {    -- Variance
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0020] occurrences matches {0..1} matches {    -- Variance
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0021,    -- Recommendation source
+											at0022,    -- Formal Protocol
+											at0023,    -- Local recommendation
+											at0024,    -- Active plan
+											at0025,    -- Details of variance
+											at0026]    -- Justification
+										}
+									}
+								}
+							}
+							ELEMENT[at0030] occurrences matches {0..1} matches {    -- Recommendation source
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0032,    -- Medical oncology
+											at0033,    -- Other medication
+											at0034,    -- Radiation therapy
+											at0035,    -- Surgical procedures
+											at0036]    -- Ancillary treatment
+										}
+									}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {    -- Justification
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {    -- Intent
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {    -- Intended end date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {    -- Intended start date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Details
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Treatment plan">
+					description = <"Treatment plan ka">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Extension">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Justification">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Therapy category">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Medical oncology">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Other medication">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Radiation therapy">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Surgical procedures">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Ancillary treatment">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Therapy name">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Therapy variant">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Intent">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Line of treatment">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"First">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Second">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Third">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Variance">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Recommendation source">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Formal Protocol">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Local recommendation">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Active plan">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Details of variance">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Justification">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Intended start date">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Intended end date">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Details">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Recommendation source">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Variance">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Medical oncology">
+					description = <"null">
+				>
+				["at0033"] = <
+					text = <"Other medication">
+					description = <"null">
+				>
+				["at0034"] = <
+					text = <"Radiation therapy">
+					description = <"null">
+				>
+				["at0035"] = <
+					text = <"Surgical procedures">
+					description = <"null">
+				>
+				["at0036"] = <
+					text = <"Ancillary treatment">
+					description = <"null">
+				>
+			>
+		>
+	>
