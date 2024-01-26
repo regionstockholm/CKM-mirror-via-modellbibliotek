@@ -15,17 +15,17 @@ language
 				["email"] = <"au.tomczak@yahoo.com, Strauch.Natalia@mh-hannover.de">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			author = <
 				["name"] = <"Vebjørn Arntzen / Liv Laugen">
 				["organisation"] = <"​Oslo University Hospital, Norway">
 				["email"] = <"varntzen@ous-hf.no, liv.laugen@ous-hf.no">
-			>
-		>
-		["sv"] = <
-			language = <[ISO_639-1::sv]>
-			author = <
 			>
 		>
 	>
@@ -93,7 +93,7 @@ Richards S, Aziz N, Bale S, Bick D, Das S, Gastier-Foster J, Grody WW, Hegde M, 
 		["original_namespace"] = <"org.openehr">
 		["custodian_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
-		["MD5-CAM-1.0.1"] = <"cbe1447d7431be8c8986a230d0bfeefb">
+		["MD5-CAM-1.0.1"] = <"77615833fdea4c57d39cf6d92d18156e">
 		["build_uid"] = <"6a69501f-0a41-47db-8056-bcdc30bdfc86">
 		["revision"] = <"1.0.3">
 	>
@@ -148,7 +148,7 @@ definition
 							DV_PARSABLE matches {*}
 						}
 					}
-					ELEMENT[at0013] occurrences matches {0..1} matches {    -- Amino acid change type
+					ELEMENT[at0013] occurrences matches {0..*} matches {    -- Amino acid change type
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
@@ -163,7 +163,8 @@ definition
 									at0092,    -- Missense
 									at0093,    -- Nonsense
 									at0094,    -- Silent
-									at0095]    -- Stop codon mutation
+									at0095,    -- Stop codon mutation
+									at0103]    -- Splice region variant
 								}
 							}
 							DV_TEXT matches {*}
@@ -753,6 +754,10 @@ If both this element and the 'Structured variant' SLOT are used simultaneously, 
 					description = <"A reference to a specific variation recorded into an external biological variation database.">
 					comment = <"For example: 'rs123456' (Item name) from 'dbSNP' (Knowledge base name) 'version 151' (Knowledge base version). This CLUSTER.knowledge_base_reference archetype is repeatable to allow several different IDs from different databases for the same variant.">
 				>
+				["at0103"] = <
+					text = <"Splice region variant">
+					description = <"A variant that might affect the splicing of the gene">
+				>
 			>
 		>
 		["nb"] = <
@@ -1086,6 +1091,10 @@ Hvis man bruker både dette dataelementet og SLOTet \"Strukturert variantbeskriv
 					description = <"En referanse til en spesifikk variant registrert i en ekstern biologisk variantdatabase.">
 					comment = <"For eksempel: rs123456 (variant ID) fra dbSNP (Kildenavn/kunnskapsbase) version 151 (Kildeversjon). Dette kunnskapsbase/kildehenvisnings CLUSTERet kan repeteres slik at det er mulig å registrere flere variant IDer fra forskjellige databaser for den samme varianten.">
 				>
+				["at0103"] = <
+					text = <"*Splice region variant (en)">
+					description = <"*A variant that might affect the splicing of the gene (en)">
+				>
 			>
 		>
 		["de"] = <
@@ -1417,6 +1426,10 @@ If both this element and the \"Structured variant\" SLOT are used simultaneously
 					description = <"A reference to a specific variation recorded into an external biological variation database.">
 					comment = <"For example: rs123456 (Item name) from dbSNP (Knowledge base name) version 151 (Knowledge base version). This CLUSTER.knowledge_base_reference archetype is repeatable to allow several different IDs from different databases for the same variant.">
 				>
+				["at0103"] = <
+					text = <"*Splice region variant (en)">
+					description = <"*A variant that might affect the splicing of the gene (en)">
+				>
 			>
 		>
 		["sv"] = <
@@ -1747,6 +1760,10 @@ If both this element and the 'Structured variant' SLOT are used simultaneously, 
 					text = <"Variantidentifikation">
 					description = <"*A reference to a specific variation recorded into an external biological variation database. (en)">
 					comment = <"*For example: 'rs123456' (Item name) from 'dbSNP' (Knowledge base name) 'version 151' (Knowledge base version). This CLUSTER.knowledge_base_reference archetype is repeatable to allow several different IDs from different databases for the same variant. (en)">
+				>
+				["at0103"] = <
+					text = <"*Splice region variant (en)">
+					description = <"*A variant that might affect the splicing of the gene (en)">
 				>
 			>
 		>
