@@ -1,0 +1,118 @@
+archetype (adl_version=1.4; uid=b4a42498-1792-476f-9198-cb2e19d11e64)
+	openEHR-EHR-OBSERVATION.addlitional_details_genomic_variant_result.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2024-01-26">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"7d2f42de1bed6f8ef18c883be06653e7">
+		["build_uid"] = <"0f4fa135-faaf-3fd2-bfd5-3658213c213e">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Addlitional details genomic variant result
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Clonality
+										value matches {
+											DV_CODED_TEXT matches {*}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Source
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Oncokb Tier
+										value matches {
+											DV_COUNT matches {*}
+											DV_QUANTITY matches {*}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Assessment
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Variant description
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Addlitional details genomic variant result">
+					description = <"Addlitional details genomic variant result">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Clonality">
+					description = <"Description of the clonality of the variant
+">
+				>
+				["at0005"] = <
+					text = <"Source">
+					description = <"Source of the genomic variant, if it is inherited or acquired ">
+				>
+				["at0006"] = <
+					text = <"Oncokb Tier">
+					description = <"Classification according to the ONCOKB">
+				>
+				["at0007"] = <
+					text = <"Assessment">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Variant description">
+					description = <"">
+				>
+			>
+		>
+	>
