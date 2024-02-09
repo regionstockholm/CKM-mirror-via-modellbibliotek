@@ -59,7 +59,7 @@ This archetype is meant to be used in the \"Test result\" SLOT of the Laboratory
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.highmed">
-		["MD5-CAM-1.0.1"] = <"8fb471b715b3c3a280041561f7247ef9">
+		["MD5-CAM-1.0.1"] = <"c8ccf8b721c506388e6812a8064502e9">
 		["build_uid"] = <"d42de821-caab-46a8-93d2-01a84b34d20e">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -112,9 +112,33 @@ definition
 					}
 				}
 			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Microsatellite instability (MSI) Interpretation
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015,    -- MSI-H
+							at0016,    -- MSS
+							at0017]    -- NA
+						}
+					}
+				}
+			}
 			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Tumor Mutational Burden (TMB) per Mb
 				value matches {
 					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Tumor Mutational Burden (TMB) Interpretation
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0019,    -- Low
+							at0020,    -- High
+							at0021]    -- NA
+						}
+					}
 				}
 			}
 			ELEMENT[at0008] occurrences matches {0..1} matches {    -- BRCAness
@@ -126,15 +150,19 @@ definition
 			}
 			CLUSTER[at0009] occurrences matches {0..*} matches {    -- Further result parameter
 				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0013] matches {    -- Parameter name
+					ELEMENT[at0013] matches {    -- Konstitutionella (potentiellt ärftliga) varianter
 						value matches {
-							DV_TEXT matches {*}
-							DV_CODED_TEXT matches {*}
-							DV_IDENTIFIER matches {*}
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0022,    -- Yes
+									at0023,    -- No
+									at0024]    -- NA
+								}
+							}
 						}
 					}
 					ELEMENT[at0011] occurrences matches {0..1} matches {*}    -- Parameter value
-					ELEMENT[at0012] occurrences matches {0..1} matches {*}    -- Qualitative parameter interpretation
 				}
 			}
 		}
@@ -188,13 +216,53 @@ ontology
 					text = <"Parameter value">
 					description = <"Parameter value.">
 				>
-				["at0012"] = <
-					text = <"Qualitative parameter interpretation">
-					description = <"Qualitative parameter interpretation, if applicable.">
-				>
 				["at0013"] = <
-					text = <"Parameter name">
+					text = <"Konstitutionella (potentiellt ärftliga) varianter">
 					description = <"Parameter name.">
+				>
+				["at0014"] = <
+					text = <"Microsatellite instability (MSI) Interpretation">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"MSI-H">
+					description = <"Instable-high">
+				>
+				["at0016"] = <
+					text = <"MSS">
+					description = <"Stable">
+				>
+				["at0017"] = <
+					text = <"NA">
+					description = <"Not applicable">
+				>
+				["at0018"] = <
+					text = <"Tumor Mutational Burden (TMB) Interpretation">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Low">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"High">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"NA">
+					description = <"Not applicable">
+				>
+				["at0022"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"NA">
+					description = <"Not applicable">
 				>
 			>
 		>
@@ -244,13 +312,53 @@ ontology
 					text = <"Parameterwert">
 					description = <"Parameterwert.">
 				>
-				["at0012"] = <
-					text = <"Qualitative Parameterinterpretation">
-					description = <"Gegebenenfalls qualitative Parameterinterpretation.">
-				>
 				["at0013"] = <
-					text = <"Parametername">
+					text = <"*Konstitutionella (potentiellt ärftliga) varianter (en)">
 					description = <"Parametername.">
+				>
+				["at0014"] = <
+					text = <"*Microsatellite instability (MSI) Interpretation  (en)">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"*MSI-H (en)">
+					description = <"*Instable-high (en)">
+				>
+				["at0016"] = <
+					text = <"*MSS (en)">
+					description = <"*Stable (en)">
+				>
+				["at0017"] = <
+					text = <"*NA (en)">
+					description = <"*Not applicable (en)">
+				>
+				["at0018"] = <
+					text = <"*Tumor Mutational Burden (TMB) Interpretation (en)">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"*Low (en)">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"*High (en)">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"*NA (en)">
+					description = <"*Not applicable (en)">
+				>
+				["at0022"] = <
+					text = <"*Yes (en)">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"*No (en)">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"*NA (en)">
+					description = <"*Not applicable (en)">
 				>
 			>
 		>
@@ -300,13 +408,53 @@ ontology
 					text = <"*Parameter value (en)">
 					description = <"*Parameter value. (en)">
 				>
-				["at0012"] = <
-					text = <"*Qualitative parameter interpretation (en)">
-					description = <"*Qualitative parameter interpretation, if applicable. (en)">
-				>
 				["at0013"] = <
-					text = <"*Parameter name (en)">
+					text = <"*Konstitutionella (potentiellt ärftliga) varianter (en)">
 					description = <"*Parameter name. (en)">
+				>
+				["at0014"] = <
+					text = <"*Microsatellite instability (MSI) Interpretation  (en)">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"*MSI-H (en)">
+					description = <"*Instable-high (en)">
+				>
+				["at0016"] = <
+					text = <"*MSS (en)">
+					description = <"*Stable (en)">
+				>
+				["at0017"] = <
+					text = <"*NA (en)">
+					description = <"*Not applicable (en)">
+				>
+				["at0018"] = <
+					text = <"*Tumor Mutational Burden (TMB) Interpretation (en)">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"*Low (en)">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"*High (en)">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"*NA (en)">
+					description = <"*Not applicable (en)">
+				>
+				["at0022"] = <
+					text = <"*Yes (en)">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"*No (en)">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"*NA (en)">
+					description = <"*Not applicable (en)">
 				>
 			>
 		>
