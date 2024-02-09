@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"17c8d2ecb154c13d1f3d16b07cad05f3">
+		["MD5-CAM-1.0.1"] = <"f6e9d6748a79229a6fc4d3f8c25dcc6e">
 		["build_uid"] = <"5c5b3c97-b944-3385-84ca-b335a60641d9">
 	>
 
@@ -43,17 +43,47 @@ definition
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Clonality
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007,    -- Clonal
+							at0008,    -- Subclonal
+							at0009]    -- Not Relevant
+						}
+					}
 				}
 			}
 			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Second hit
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- NA
+							at0011,    -- NO
+							at0012,    -- DEL
+							at0013,    -- LOH
+							at0014,    -- SNV
+							at0015,    -- INDEL
+							at0016,    -- GSR
+							at0017,    -- AMP
+							at0018,    -- MULTI
+							at0019]    -- AI
+						}
+					}
 				}
 			}
 			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Assessment
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0020,    -- NA
+							at0021,    -- HOM DEL
+							at0022,    -- FOCAL AMP
+							at0023,    -- FOCAL DEL
+							at0024]    -- MULTI
+						}
+					}
 				}
 			}
 			ELEMENT[at0004] occurrences matches {0..1} matches {    -- ONCOKB Tier
@@ -61,14 +91,41 @@ definition
 					DV_COUNT matches {*}
 				}
 			}
-			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Source
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Origin
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0025,    -- Somatic
+							at0026,    -- Germline
+							at0027]    -- cfdna
+						}
+					}
 				}
 			}
 			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Variant category
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0028,    -- Small variants
+							at0029,    -- cnas
+							at0030]    -- gsr
+						}
+					}
+				}
+			}
+			ELEMENT[at0031] occurrences matches {0..1} matches {    -- gsr consequence
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0032,    -- Fusion
+							at0033,    -- Activation
+							at0034,    -- Inactivation
+							at0035]    -- Unknown
+						}
+					}
 				}
 			}
 		}
@@ -100,11 +157,127 @@ ontology
 					description = <"Classification according to the ONCOKB">
 				>
 				["at0005"] = <
-					text = <"Source">
+					text = <"Origin">
 					description = <"">
 				>
 				["at0006"] = <
 					text = <"Variant category">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Clonal">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Subclonal">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Not Relevant">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"NA">
+					description = <"Not applicable">
+				>
+				["at0011"] = <
+					text = <"NO">
+					description = <"No Second hit">
+				>
+				["at0012"] = <
+					text = <"DEL">
+					description = <"Deletion">
+				>
+				["at0013"] = <
+					text = <"LOH">
+					description = <"LOH (Loss of heterozygosity)">
+				>
+				["at0014"] = <
+					text = <"SNV">
+					description = <"Single Nucleotide Variant">
+				>
+				["at0015"] = <
+					text = <"INDEL">
+					description = <"Insertion and Deletion">
+				>
+				["at0016"] = <
+					text = <"GSR">
+					description = <"GSR (Genomic Structural rearrangements)">
+				>
+				["at0017"] = <
+					text = <"AMP">
+					description = <"Amplification">
+				>
+				["at0018"] = <
+					text = <"MULTI">
+					description = <"Multiple variants">
+				>
+				["at0019"] = <
+					text = <"AI">
+					description = <"Allelic Imbalance">
+				>
+				["at0020"] = <
+					text = <"NA">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"HOM DEL">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"FOCAL AMP">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"FOCAL DEL">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"MULTI">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Somatic">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Germline">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"cfdna">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Small variants">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"cnas">
+					description = <"Copy number alterations">
+				>
+				["at0030"] = <
+					text = <"gsr">
+					description = <"Genomic structural rearrangements">
+				>
+				["at0031"] = <
+					text = <"gsr consequence">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Fusion">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Activation">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Inactivation">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Unknown">
 					description = <"">
 				>
 			>
@@ -133,11 +306,127 @@ ontology
 					description = <"*Classification according to the ONCOKB (en)">
 				>
 				["at0005"] = <
-					text = <"Källa">
+					text = <"*Origin (en)">
 					description = <"">
 				>
 				["at0006"] = <
 					text = <"Variantkategori">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*Clonal (en)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"*Subclonal (en)">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"*Not Relevant (en)">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"*NA (en)">
+					description = <"*Not applicable (en)">
+				>
+				["at0011"] = <
+					text = <"*NO (en)">
+					description = <"*No Second hit (en)">
+				>
+				["at0012"] = <
+					text = <"*DEL (en)">
+					description = <"*Deletion (en)">
+				>
+				["at0013"] = <
+					text = <"*LOH (en)">
+					description = <"*LOH (Loss of heterozygosity) (en)">
+				>
+				["at0014"] = <
+					text = <"*SNV (en)">
+					description = <"*Single Nucleotide Variant (en)">
+				>
+				["at0015"] = <
+					text = <"*INDEL (en)">
+					description = <"*Insertion and Deletion (en)">
+				>
+				["at0016"] = <
+					text = <"*GSR (en)">
+					description = <"*GSR (Genomic Structural rearrangements) (en)">
+				>
+				["at0017"] = <
+					text = <"*AMP (en)">
+					description = <"*Amplification (en)">
+				>
+				["at0018"] = <
+					text = <"*MULTI (en)">
+					description = <"*Multiple variants (en)">
+				>
+				["at0019"] = <
+					text = <"*AI (en)">
+					description = <"*Allelic Imbalance (en)">
+				>
+				["at0020"] = <
+					text = <"*NA (en)">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"*HOM DEL (en)">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"*FOCAL AMP (en)">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"*FOCAL DEL (en)">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"*MULTI (en)">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"*Somatic (en)">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"*Germline (en)">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"*cfdna (en)">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"*Small variants (en)">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"*cnas (en)">
+					description = <"*Copy number alterations (en)">
+				>
+				["at0030"] = <
+					text = <"*gsr (en)">
+					description = <"*Genomic structural rearrangements (en)">
+				>
+				["at0031"] = <
+					text = <"*gsr consequence (en)">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"*Fusion (en)">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"*Activation (en)">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"*Inactivation (en)">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"*Unknown (en)">
 					description = <"">
 				>
 			>
