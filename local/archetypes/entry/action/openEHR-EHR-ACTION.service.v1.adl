@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=472b238c-4432-44f0-9847-9990924f6196)
+archetype (adl_version=1.4; uid=472b238c-4432-44f0-9847-9990924f6196)
 	openEHR-EHR-ACTION.service.v1
 
 concept
-	[at0000]	-- Service
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -38,18 +39,27 @@ language
 				["email"] = <"mattijs.kuhlmann@nedap.com">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2015-12-21">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics, Australia">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2015-12-21">
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","Maria Berggren, Region Uppsala, Sweden","SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India","Hanne Marte Bårholm, Helse Vest IKT, Norway (openEHR Editor)","Gunn Elin Blakkisrud, DIPS ASA, Norway","Kåre Flø, DIPS ASA, Norway","Heather Grain, Llewelyn Grain Informatics, Australia","Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (openEHR Editor)","Evelyn Hovenga, EJSH Consulting, Australia","Gunnar Jårvik, Helse Vest IKT AS, Norway","Mika Kiviaho, Tietoevry, Finland","Kanika Kuwelker, Helse Vest IKT, Norway (openEHR Editor)","Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Mikael Nyström, Cambio Healthcare Systems AB, Sweden","Bjørn Næss, DIPS ASA, Norway","Marte Rime Bø, Direktoratet for e-helse, Norway","Terje Sagmyr, Helse Vest IKT, Norway (openEHR Editor)","Andre Smitt-Ingebretsen, Sørlandet sykehus HF, Norway","Norwegian Review Summary, Norwegian Public Hospitals, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)","Ina Wille, Helse-Vest RHF, Norway">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Um Details über eine einfache, gesundheitsbezogene Dienstleistung oder Aktivität, die von einem Kliniker, einer Organisation oder einer Behörde erbracht wird, darzustellen.">
+			keywords = <"Überweisung","Besuch","Kontakt","Leistung">
 			use = <"Zur Darstellung einer gesundheitsbezogener Dienstleistung oder Aktivität, die von einem Kliniker, einer Organisation oder einer Behörde bereitgestellt wird. Dies beinhaltet das Verfolgen des Fortschritts von der Planung über die Terminierung und Lieferung bis zur Fertigstellung sowie Abweichungen vom beabsichtigten Behandlungspfad wie Verschiebung oder Stornierung. Dies wird durch die Aufzeichnung relevanter Datenelemente zu bestimmten Aktivitäten erreicht, von denen jede als \"Pathway\"-Prozessschritte in diesem Archetyp beschrieben wird.
 
 Der Umfang dieses Archetyps umfasst bewusst Aktivitäten für eine breite Palette klinischer Dienstleistungen, um als nicht spezifisches Archetyp für alle Anwendungsfälle zu dienen. Beispiele hierfür sind unter anderem:
@@ -78,12 +88,16 @@ Die Darstellung von Informationen mit Hilfe dieses ACTION-Archetyps deutet darau
 Wenn die Aktivitäten den üblichen Geplanten > Angesetzten > Aktiven > Abgeschlossenen Zuständen folgen, ist es in der Regel nicht notwendig, einen \"Grund\" aufzuzeichnen - vielmehr wird er in der Regel verwendet, um den Grund für Abweichungen vom typischen Versorgungspfad zu protokollieren.
 
 Bitte beachten Sie, dass im openEHR-Referenzmodell ein 'Time'-Attribut vorhanden ist, das dazu dient, Datum und Uhrzeit zu erfassen, zu welchem Zeitpunkt jeder Schritt des Pfades der Aktion durchgeführt wurde. Dies ist das Attribut, das verwendet werden sollte, um den Beginn der Prozedur (unter Verwendung des Schritts \"Dienstleistung erbracht\") oder die Zeit zu protokollieren, zu der der Leistung abgebrochen wurde (unter Verwendung des Schritts \"Dienstleistung eingestellt\").">
-			keywords = <"Überweisung", "Besuch", "Kontakt", "Leistung">
 			misuse = <"Nicht zur Darstellung von Informationen über durchgeführte Aktivitäten die spezielle Archetypen benötigen, weil sie eine sehr spezifische Datenerfassung oder Anforderungen an Schritte des Pfades haben. Zum Beispiel: ACTION.procedure oder ACTION.health_education.">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere detaljer om en enkel helserelatert tjeneste eller aktivitet utført av en kliniker, organisasjon eller virksomhet.">
+			keywords = <"henvisning","konsultasjon","kontakt">
 			use = <"Brukes for å registrere detaljer om en enkel helserelatert tjeneste eller aktivitet utført av en kliniker, organisasjon eller virksomhet. Dette omfatter sporing av fremdrift fra planlegging, via tidfesting og utførelse til fullføring, i tillegg til avvik fra det tilsiktede forløpet, for eksempel utsettelse eller avlysning. Dette gjøres ved å registrere informasjon i relevante dataelementer om de spesifikke prosesstrinnene i arketypen.
 
 Denne arketypen omfatter aktiviteter for et bredt spekter av ukomplekse kliniske tjenester, for eksempel:
@@ -112,12 +126,12 @@ Ved registrering av informasjon ved hjelp av denne arketypen indikeres det at en
 Dersom aktivitetene følger den vanlige flyten Planlagt > Tidfestet > Aktiv > Fullført, er det som regel ikke nødvendig å registrere en \"Årsak\". Elementet \"Årsak\" er ment brukt for å angi hvorfor et forløp avviker fra den typiske flyten.
 
 Vær oppmerksom på at i openEHR referansemodellen er det et \"Time\"-attributt, som er ment å registrere når hvert prosesstrinn i tjenesteaktiviteten ble utført. Dette er attributtet som skal brukes til å registrere starttidspunktet for tjenesteutføringen (ved å bruke prosesstrinnet 'Tjeneste utført') eller tidspunktet da tjenesten ble avbrutt (ved å bruke prosesstrinnet 'Tjeneste avbrutt').">
-			keywords = <"henvisning", "konsultasjon", "kontakt">
 			misuse = <"Skal ikke brukes til å registrere data om utførte aktiviteter som krever en spesialbygd ACTION-arketype fordi de har svært spesifikke data eller krav til prosesstrinn. For eksempel: ACTION.procedure eller ACTION.health_education.">
 		>
 		["pt-br"] = <
 			language = <[ISO_639-1::pt-br]>
 			purpose = <"*To record details about a health-related service or activity delivered by a clinician, organisation or agency. This includes tracking progress from planning, via scheduling and delivery to completion, as well as deviations from the intended care path such as postponement or cancellation. (en)">
+			keywords = <"referência","visita","encontro">
 			use = <"*To record details about a health-related service or activity delivered by a clinician, organisation or agency. This includes tracking progress from planning, via scheduling and delivery to completion, as well as deviations from the intended care path such as postponement or cancellation. This is achieved by the recording of relevant data elements about specific activities, each of which are described as the 'Pathway' careflow steps in this archetype.
 
 The scope of this archetype deliberately encompasses activities for a broad range of clinical services, to act as a non-specific archetype for all use cases. Examples include, but are not limited to:
@@ -146,12 +160,13 @@ Recording information using this ACTION archetype indicates that some sort of ac
 When the activities follow the usual Planned > Scheduled > Active > Completed states, recording a 'Reason' is not usually necessary - rather, it is usually used to record the reason for deviation from the typical care pathway.
 
 Please note that in the openEHR Reference Model there is a 'Time' attribute, which is intended to record the date and time at which each pathway step of the Action was performed. This is the attribute to use to record the start of the service (using the 'Service delivered' pathway step) or the time that the service was aborted (using the 'Service abandoned' pathway step). (en)">
-			keywords = <"referência", "visita", "encontro">
 			misuse = <"Não deve ser usado para registrar dados sobre atividades realizadas para atividades que exigem um arquétipo ACTION construído para esse fim, pois elas possuem requisitos muito específicos de registro de dados ou de etapas do caminho. Por exemplo: ACTION.procedure ou ACTION.health_education.">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record details about a simple health-related service or activity delivered by a clinician, organisation or agency.">
+			keywords = <"referral","visit","encounter">
+			copyright = <"© openEHR Foundation, Northern Territory Department of Health (Australia)">
 			use = <"To record details about a simple health-related service or activity delivered by a clinician, organisation or agency. This includes tracking progress from planning, via scheduling and delivery to completion, as well as deviations from the intended care path such as postponement or cancellation. This is achieved by the recording of relevant data elements about specific activities, each of which are described as the 'Pathway' careflow steps in this archetype.
 
 The scope of this archetype deliberately encompasses activities for a broad range of clinical services, to act as a non-specific archetype for all non-complex use cases. Examples include, but are not limited to:
@@ -180,13 +195,12 @@ Recording information using this ACTION archetype indicates that some sort of ac
 When the activities follow the usual Planned > Scheduled > Active > Completed states, recording a 'Reason' is not usually necessary - rather, it is usually used to record the reason for deviation from the typical care pathway.
 
 Please note that in the openEHR Reference Model there is a 'Time' attribute, which is intended to record the date and time at which each pathway step of the Action was performed. This is the attribute to use to record the start of the service (using the 'Service delivered' pathway step) or the time that the service was aborted (using the 'Service abandoned' pathway step).">
-			keywords = <"referral", "visit", "encounter">
 			misuse = <"Not to be used to record data about activities carried out for activities that require a purpose built ACTION archetype because they have very specific data recording or pathway step requirements. For example: ACTION.procedure or ACTION.health_education.">
-			copyright = <"© openEHR Foundation, Northern Territory Department of Health (Australia)">
 		>
 		["nl"] = <
 			language = <[ISO_639-1::nl]>
 			purpose = <"Om gegevens vast te leggen over een eenvoudige gezondheidsgerelateerde dienst of activiteit geleverd door een arts, organisatie of instantie.">
+			keywords = <"verwijzing","bezoek">
 			use = <"Om gegevens vast te leggen over een eenvoudige gezondheidsgerelateerde dienst of activiteit geleverd door een arts, organisatie of instantie. Dit omvat het bijhouden van de voortgang van planning, via het maken van afspraken en levering tot voltooiing, evenals afwijkingen van het geplande zorgpad zoals uitstel of annulering. Dit wordt bereikt door het vastleggen van relevante gegevenselementen over specifieke activiteiten, die in dit archetype elk worden beschreven als de zorgstroomstappen 'Pathway'.
 
 De reikwijdte van dit archetype omvat bewust activiteiten voor een breed scala aan klinische diensten, om te fungeren als een niet-specifiek archetype voor alle niet-complexe use cases. Voorbeelden zijn onder andere
@@ -215,12 +229,9 @@ Het vastleggen van informatie met behulp van dit ACTION archetype geeft aan dat 
 Als de activiteiten de gebruikelijke Gepland > Afspraak gemaakt > Actief > Voltooid toestanden volgen, is het vastleggen van een 'Reden' meestal niet nodig - het wordt eerder gebruikt om de reden voor afwijking van het typische zorgpad vast te leggen.
 
 Let op dat er in het openEHR Referentiemodel een attribuut 'Tijd' is, dat bedoeld is om de datum en tijd vast te leggen waarop elke stap in het zorgpad van de Actie werd uitgevoerd. Dit is het te gebruiken attribuut voor het vastleggen van de start van de dienst (bij gebruik van de stap 'Geleverde dienst') of de tijd dat de dienst werd afgebroken (bij gebruik van de stap 'Dienst afgebroken').">
-			keywords = <"verwijzing", "bezoek">
 			misuse = <"Niet te gebruiken om gegevens vast te leggen over uitgevoerde activiteiten voor activiteiten waarvoor een speciaal gebouwd ACTION-archetype nodig is omdat zij zeer specifieke vereisten inzake gegevensregistratie of trajectstappen hebben. Bijvoorbeeld: ACTION.procedure of ACTION.health_education.">
 		>
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "Maria Berggren, Region Uppsala, Sweden", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Hanne Marte Bårholm, Helse Vest IKT, Norway (openEHR Editor)", "Gunn Elin Blakkisrud, DIPS ASA, Norway", "Kåre Flø, DIPS ASA, Norway", "Heather Grain, Llewelyn Grain Informatics, Australia", "Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (openEHR Editor)", "Evelyn Hovenga, EJSH Consulting, Australia", "Gunnar Jårvik, Helse Vest IKT AS, Norway", "Mika Kiviaho, Tietoevry, Finland", "Kanika Kuwelker, Helse Vest IKT, Norway (openEHR Editor)", "Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Bjørn Næss, DIPS ASA, Norway", "Marte Rime Bø, Direktoratet for e-helse, Norway", "Terje Sagmyr, Helse Vest IKT, Norway (openEHR Editor)", "Andre Smitt-Ingebretsen, Sørlandet sykehus HF, Norway", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)", "Ina Wille, Helse-Vest RHF, Norway">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -229,7 +240,7 @@ Let op dat er in het openEHR Referentiemodel een attribuut 'Tijd' is, dat bedoel
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"AD593E18455631079CCA895C6A3612C5">
+		["MD5-CAM-1.0.1"] = <"4b5afa094e5085b606a94f8ba90d4d09">
 		["build_uid"] = <"f596dd3a-2cba-4dec-9d40-ecfefe33b142">
 		["revision"] = <"1.0.1">
 	>
@@ -333,7 +344,7 @@ definition
 					}
 				}
 			}
-			ISM_TRANSITION[at0004] matches {    -- Service delivered
+			ISM_TRANSITION[at0004] matches {    -- Service carried out
 				current_state matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
@@ -344,7 +355,7 @@ definition
 				careflow_step matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
-							[local::at0004]    -- Service delivered
+							[local::at0004]    -- Service carried out
 						}
 					}
 				}
@@ -509,7 +520,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -1182,6 +1192,140 @@ ontology
 				["at0036"] = <
 					text = <"Extra details">
 					description = <"Extra gestructureerde details over de service.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Service (en)">
+					description = <"*A simple health-related service or activity delivered by a clinician, organisation or agency. (en)">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Beställning planerad">
+					description = <"*Service request to healthcare provider is planned. (en)">
+				>
+				["at0003"] = <
+					text = <"Tjänst schemalagd">
+					description = <"*An appointment for the service has been made. (en)">
+				>
+				["at0004"] = <
+					text = <"Tjänst utförs">
+					description = <"*The service, or a single activity in a sequence of recurring service activities, has been carried out. (en)">
+				>
+				["at0005"] = <
+					text = <"Tjänst utförd">
+					description = <"*All service activities have been completed. (en)">
+				>
+				["at0006"] = <
+					text = <"Tjänst kommer ej att utföras">
+					description = <"*The referral has been ceased before the service has been completed. (en)">
+				>
+				["at0008"] = <
+					text = <"Beställning uppskjuten">
+					description = <"*The planned service has been postponed. (en)">
+				>
+				["at0009"] = <
+					text = <"Beställning avbruten">
+					description = <"*The planned service has been cancelled prior to commencement. (en)">
+				>
+				["at0010"] = <
+					text = <"Tjänst inställd">
+					description = <"*The service has been suspended without completion. (en)">
+				>
+				["at0011"] = <
+					text = <"Tjänstenamn">
+					description = <"*Identification of the clinical service carried out. (en)">
+					comment = <"*For example: 'Sarcoma MDT meeting' or 'Physiotherapy referral'. Coding of the specific service name with a terminology is preferred, where possible. (en)">
+				>
+				["at0012"] = <
+					text = <"Orsak">
+					description = <"*Reason that the activity or care pathway step for the identified service was carried out. (en)">
+					comment = <"*For example: the reason for the cancellation or suspension of the service. It is not necessary to record the reason for each pathway step that is expected. Rather this data element is intended to capture the reason for any divergence from a typical service provision process, such as 'Postponed' due to 'Patient had a fever', or a scheduled provision as part of a series may be 'Cancelled' due to 'Patient changed their mind'. Note: The clinical indication for triggering the service provision process may be recorded using the INSTRUCTION.service_request archetype. (en)">
+				>
+				["at0013"] = <
+					text = <"Beskrivning">
+					description = <"*Narrative description about the service, as appropriate for the pathway step. (en)">
+				>
+				["at0014"] = <
+					text = <"Tjänstetyp">
+					description = <"*Type of service carried out. (en)">
+					comment = <"*For example: 'MDT meeting' or 'Referral' (en)">
+				>
+				["at0015"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Beställarens identifierare">
+					description = <"*The local ID assigned to the order by the healthcare provider or organisation requesting the service. (en)">
+					comment = <"*This is equivalent to Placer Identifier in FHIR. (en)">
+				>
+				["at0017"] = <
+					text = <"Beställare">
+					description = <"*Details about the healthcare provider or organisation requesting the service. (en)">
+				>
+				["at0018"] = <
+					text = <"Utförarens identifierare">
+					description = <"*The ID assigned to the order by the provider fulfilling the service. (en)">
+					comment = <"*This is equivalent to Filler Identifier in FHIR. (en)">
+				>
+				["at0019"] = <
+					text = <"Mottagare">
+					description = <"*Details about the healthcare provider or organisation receiving the service request. (en)">
+				>
+				["at0021"] = <
+					text = <"Sekvens">
+					description = <"*The sequence of the specified clinical service. (en)">
+					comment = <"*Only for use in association with the 'Service delivered' pathway step. For example: record that this is the 3rd physiotherapy appointment in a planned sequence. (en)">
+				>
+				["at0023"] = <
+					text = <"Beställning har utgått">
+					description = <"*The referral has expired before the referral episode has been completed. (en)">
+				>
+				["at0025"] = <
+					text = <"Schemalagd tidpunkt">
+					description = <"*The date and/or time on which the service is intended to be performed. (en)">
+					comment = <"*Only for use in association with the 'Service scheduled' pathway step. (en)">
+				>
+				["at0026"] = <
+					text = <"Beställning skickad">
+					description = <"*Request for service sent. (en)">
+				>
+				["at0027"] = <
+					text = <"Servicedetaljer">
+					description = <"*Structured information about the service. (en)">
+					comment = <"*Use to capture detailed, structured information about specified aspects of the service. (en)">
+				>
+				["at0028"] = <
+					text = <"Kommentar">
+					description = <"*Additional narrative about the activity or care pathway step not captured in other fields. (en)">
+				>
+				["at0029"] = <
+					text = <"Multimedia">
+					description = <"*Digital image, video, diagram or other media representing the service. (en)">
+				>
+				["at0031"] = <
+					text = <"Extension">
+					description = <"*Additional information required to capture local content or to align with other reference models/formalisms. (en)">
+					comment = <"*For example: local information requirements or additional metadata to align with FHIR equivalents. (en)">
+				>
+				["at0032"] = <
+					text = <"Planerad tidpunkt">
+					description = <"*The estimated date and/or time on which the service is intended to be performed. (en)">
+					comment = <"*The planned date/time can be expressed as a date/time, interval of date/time, duration or interval of duration from the time of planning, or free or coded text. Only for use in association with the 'Service planned' pathway step. (en)">
+				>
+				["at0035"] = <
+					text = <"Beställning mottagen">
+					description = <"*Request for service received by the service provider. (en)">
+				>
+				["at0036"] = <
+					text = <"Ytterligare detaljer">
+					description = <"*Additional structured details about the service. (en)">
 				>
 			>
 		>
