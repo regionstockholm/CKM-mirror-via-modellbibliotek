@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "2.2.0",
+      "sem_ver" : "2.3.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "cfaec5d0440fdb8f45201369151d2947",
+      "MD5-CAM-1.0.1" : "1adc7a1f0e5c6dce831236248ca54794",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -225,9 +225,99 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "AD593E18455631079CCA895C6A3612C5"
+        "PARENT:MD5-CAM-1.0.1" : "4b5afa094e5085b606a94f8ba90d4d09"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Um Details über eine einfache, gesundheitsbezogene Dienstleistung oder Aktivität, die von einem Kliniker, einer Organisation oder einer Behörde erbracht wird, darzustellen.",
+          "keywords" : [ "Überweisung", "Besuch", "Kontakt", "Leistung" ],
+          "use" : "Zur Darstellung einer gesundheitsbezogener Dienstleistung oder Aktivität, die von einem Kliniker, einer Organisation oder einer Behörde bereitgestellt wird. Dies beinhaltet das Verfolgen des Fortschritts von der Planung über die Terminierung und Lieferung bis zur Fertigstellung sowie Abweichungen vom beabsichtigten Behandlungspfad wie Verschiebung oder Stornierung. Dies wird durch die Aufzeichnung relevanter Datenelemente zu bestimmten Aktivitäten erreicht, von denen jede als \"Pathway\"-Prozessschritte in diesem Archetyp beschrieben wird.\r\n\r\nDer Umfang dieses Archetyps umfasst bewusst Aktivitäten für eine breite Palette klinischer Dienstleistungen, um als nicht spezifisches Archetyp für alle Anwendungsfälle zu dienen. Beispiele hierfür sind unter anderem:\r\n- der selbstorganisierte Besuch eines Patienten zu einem vorsorglichen Check-Up bei einem Zahnarzt\r\n- eine Reihe von Besuchen zu einem Physiotherapeuten zur Behandlung einer muskuloskelettalen Belastung\r\n- die Überweisung einen anfordernden Gesundheitsdienstleister, wie zum Beispiel eines Hausarztes, an einen aufnehmenden Gesundheitsdienstleister, wie zum Beispiel einem Facharzt damit der Patient eine bestimmte Dienstleistung, Beratung oder Pflege erhält.\r\n\r\nZusätzliche strukturierte und ausführliche Informationen über diese Dienstleistung können, unter Verwendung eines spezifischen Archetyps der in den SLOT \"Dienstleistungsdetails\" integriert wird, dokumentiert werden.\r\n\r\nDieser Archetyp kann auf zwei Arten verwendet werden:\r\n- als vollständige Darstellung der erbrachten Dienstleistung, oder\r\n- als Rahmen um vorrangig den Status der angeforderten Leistung und separaten OBSERVATION-Archetypen um die eigentlichen Testergebnisse für die erbrachte Dienstleistung darzustellen. Zum Beispiel mit dem Archetyp OBSERVATION.hearing_screening_result.\r\n\r\nDie Zeitplanung im Zusammenhang mit einer Dienstleistung kann auf eine von zwei Arten verwaltet werden:\r\n- durch die Verwendung des Referenzmodells - die Zeit für die Ausführung eines Schritts im Prozess wird das Zeitattribut des ACTION-Archetyps für jeden Schritt verwendet.\r\n- durch die Verwendung von Archetyp-Datenelemente - das Datenfeld \"Geplantes Datum/geplante Uhrzeit\" ist dafür gedacht einen Zeitpunkt aufzuzeichnen, zu der die Dienstleistung durchgeführt werden sollte. Hinweis: Das zugehörige ACTION-Zeitattribut für den geplanten Prozessschritt wird die Zeit aufzeichnen, zu der die klinische Aktivität in ein System eingeplant wurde, nicht das beabsichtigte Datum/die beabsichtigte Uhrzeit, an dem die Aktivität durchgeführt werden soll.\r\n\r\nIn der Praxis werden einige Dienstleistungen (zum Beispiel in der ambulanten Versorgung) einmalig erbracht und nicht im Voraus bestellt. Die Details zu dieser Dienstleistung werden gegen den Schritt im Pfad \"Dienstleistung abgeschlossen\" hinzugefügt. In einigen Fällen wird eine wiederkehrende Dienstleistung bestellt, und in diesem Fall werden bei jeder Gelegenheit Daten unter dem Schritt \"Dienstleistung erbracht\" erfasst, wobei die Anweisung im aktiven Zustand bleibt. Wenn die letzte Erbringung der Dienstleistung erfasst wird, wird die Aktion \"Dienstleistung abgeschlossen\" aufgezeichnet, um anzuzeigen, dass diese Anforderung nun im abgeschlossenen Zustand ist.\r\n\r\nIn anderen Situationen, wie der sekundären Versorgung, gibt es möglicherweise eine formelle Anforderung einer Dienstleistung die dem Archetyp INSTRUCTION.request entspricht. Dieser ACTION-Archetyp kann dann verwendet werden um den Arbeitsablauf und die Durchführung der Anforderung zu beschreiben.\r\n\r\nDie Darstellung von Informationen mit Hilfe dieses ACTION-Archetyps deutet darauf hin, dass eine Art von Aktivität tatsächlich stattgefunden hat. In der Regel handelt es sich dabei um eine tatsächliche Erbringung der Dienstleistung, kann jedoch auch einen fehlgeschlagenen Versuch oder eine andere Aktivität wie die Verschiebung der Dienstleistung umfassen. Wenn es eine formelle Anforderung für die Dienstleistung gibt, wird der Status dieser Bestellung durch den Pathway-Schritt repräsentiert, gegen den die Daten aufgezeichnet werden. Zum Beispiel kann der Fortschrittszustand einer Überweisungsanfrage mithilfe dieses Archetyps durch separate Einträge in den Fortschrittsnotizen der EHR bei jedem \"Pathway\"-Schritt erfasst werden:\r\n- Aufzeichnung eines geplanten Startdatums/geplanter Uhrzeit für die Überweisung (Dienstleistung angesetzt), oder\r\n- Aufzeichnung über eine vollständig erbrachte Überweisung, möglicherweise mit zusätzlichen Informationen zur erbrachten Dienstleistung (Dienstleistung abgeschlossen).\r\n\r\nWenn die Aktivitäten den üblichen Geplanten > Angesetzten > Aktiven > Abgeschlossenen Zuständen folgen, ist es in der Regel nicht notwendig, einen \"Grund\" aufzuzeichnen - vielmehr wird er in der Regel verwendet, um den Grund für Abweichungen vom typischen Versorgungspfad zu protokollieren.\r\n\r\nBitte beachten Sie, dass im openEHR-Referenzmodell ein 'Time'-Attribut vorhanden ist, das dazu dient, Datum und Uhrzeit zu erfassen, zu welchem Zeitpunkt jeder Schritt des Pfades der Aktion durchgeführt wurde. Dies ist das Attribut, das verwendet werden sollte, um den Beginn der Prozedur (unter Verwendung des Schritts \"Dienstleistung erbracht\") oder die Zeit zu protokollieren, zu der der Leistung abgebrochen wurde (unter Verwendung des Schritts \"Dienstleistung eingestellt\").",
+          "misuse" : "Nicht zur Darstellung von Informationen über durchgeführte Aktivitäten die spezielle Archetypen benötigen, weil sie eine sehr spezifische Datenerfassung oder Anforderungen an Schritte des Pfades haben. Zum Beispiel: ACTION.procedure oder ACTION.health_education.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om en enkel helserelatert tjeneste eller aktivitet utført av en kliniker, organisasjon eller virksomhet.",
+          "keywords" : [ "henvisning", "konsultasjon", "kontakt" ],
+          "use" : "Brukes for å registrere detaljer om en enkel helserelatert tjeneste eller aktivitet utført av en kliniker, organisasjon eller virksomhet. Dette omfatter sporing av fremdrift fra planlegging, via tidfesting og utførelse til fullføring, i tillegg til avvik fra det tilsiktede forløpet, for eksempel utsettelse eller avlysning. Dette gjøres ved å registrere informasjon i relevante dataelementer om de spesifikke prosesstrinnene i arketypen.\r\n\r\nDenne arketypen omfatter aktiviteter for et bredt spekter av ukomplekse kliniske tjenester, for eksempel:\r\n- egenhenvisning fra en pasient for kontroll hos tannlege til forebyggende behandling\r\n- en serie konsultasjoner hos en fysioterapeut til behandling av muskel/skjelettbelastning\r\n- en henvisning fra bestillende helsepersonell, for eksempel en fastlege, til mottakende helsepersonell, for eksempel et sykehus, for at pasienten skal motta en bestemt tjeneste, råd eller behandling.\r\n\r\nYtterligere strukturert og detaljert informasjon om tjenesten kan registreres ved å bruke formålsspesifikke arketyper i SLOTet \"Tjenestedetaljer\", der det er nødvendig.\r\n\r\nDenne arketypen kan brukes på to måter:\r\n- som en fullstendig oversikt over tjenesten som ble levert; eller\r\n- som et rammeverk for å registrere tilstanden til den forespurte tjenesten, med separate OBSERVATION-arketyper i samme templat, og som brukes til å registrere de faktiske resultatene av den leverte tjenesten - for eksempel OBSERVATION.hearing_screening_result\r\n\r\nTidspunkter knyttet til en tjeneste kan administreres på en av to måter:\r\n- ved å bruke referansemodellen - tiden for utførelse av ethvert prosesstrinn vil benytte ACTION time referansemodell-attributtet for hvert trinn; eller\r\n- ved bruk av arketypedata - dataelementet \"Tidfestet dato/tid\" er ment å registrere det nøyaktige tidspunktet når tjenesten er planlagt utført. Merk: det tilsvarende ACTION-tidsattributtet for trinnet \"Tjeneste tidfestet\" vil registrere tiden da tjenesten ble planlagt i et system, ikke den tiltenkte dato/klokkeslett som tjenesten er ment å bli utført på.\r\n\r\nI praksis vil enkelte tjenester (for eksempel innen dagbehandling) skje én gang og ikke bestilles og planlagges på forhånd. Detaljene om tjenesten vil bli lagt direkte til i prosesstrinnet, \"Tjeneste fullført\". I andre tilfeller vil en gjentakende tjeneste bli bestilt, og i denne situasjonen vil data knyttet til trinnet '\"Tjeneste utført\" bli registrert ved hver repetisjon av tjenesten, slik at den overordnede helsetjenesteaktiviteten blir værende i aktiv tilstand. Når siste tjeneste er registrert, benyttes prosesstrinnet \"Tjeneste fullført\" som viser at denne bestillingen nå er i fullført tilstand.\r\n\r\nI andre situasjoner, for eksempel andrelinjetjeneste, kan det være en formell bestilling av en tjeneste ved bruk av en tilsvarende INSTRUCTION.service_request-arketype. Denne ACTION-arketypen kan deretter brukes til å registrere arbeidsflyten for når og hvordan bestillingen er utført.\r\n\r\nVed registrering av informasjon ved hjelp av denne arketypen indikeres det at en aktivitet faktisk har skjedd. Dette vil som oftest være tjenesteleveransen i seg selv, kan kan også være et mislykket forsøk eller en utsettelse. Dersom det finnes en formell ordinering av tjenesten, representeres statusen for ordinering ved prosesstrinnet som registreres. For eksempel kan denne arketypen brukes til å følge fremgangen i behandlingen av en henvisning gjennom separate journaloppføringer, hver med sitt prosesstrinn:\r\n- registrere dato/tiden tjenesten er ment utført på ved hjelp av elementet \"Planlagt dato/id\" og prosesstrinnet \"Tjeneste tidfestet\"\r\n- registrere at henvisningen er fullført, potensielt inkludert informasjon om den leverte tjenesten, og prosesstrinnet \"Tjeneste fullført\"\r\n\r\nDersom aktivitetene følger den vanlige flyten Planlagt > Tidfestet > Aktiv > Fullført, er det som regel ikke nødvendig å registrere en \"Årsak\". Elementet \"Årsak\" er ment brukt for å angi hvorfor et forløp avviker fra den typiske flyten.\r\n\r\nVær oppmerksom på at i openEHR referansemodellen er det et \"Time\"-attributt, som er ment å registrere når hvert prosesstrinn i tjenesteaktiviteten ble utført. Dette er attributtet som skal brukes til å registrere starttidspunktet for tjenesteutføringen (ved å bruke prosesstrinnet 'Tjeneste utført') eller tidspunktet da tjenesten ble avbrutt (ved å bruke prosesstrinnet 'Tjeneste avbrutt').",
+          "misuse" : "Skal ikke brukes til å registrere data om utførte aktiviteter som krever en spesialbygd ACTION-arketype fordi de har svært spesifikke data eller krav til prosesstrinn. For eksempel: ACTION.procedure eller ACTION.health_education.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "*To record details about a health-related service or activity delivered by a clinician, organisation or agency. This includes tracking progress from planning, via scheduling and delivery to completion, as well as deviations from the intended care path such as postponement or cancellation. (en)",
+          "keywords" : [ "referência", "visita", "encontro" ],
+          "use" : "*To record details about a health-related service or activity delivered by a clinician, organisation or agency. This includes tracking progress from planning, via scheduling and delivery to completion, as well as deviations from the intended care path such as postponement or cancellation. This is achieved by the recording of relevant data elements about specific activities, each of which are described as the 'Pathway' careflow steps in this archetype.\r\n\r\nThe scope of this archetype deliberately encompasses activities for a broad range of clinical services, to act as a non-specific archetype for all use cases. Examples include, but are not limited to:\r\n- self-referral by a patient for a check-up visit to a dentist for preventive care\r\n- a series of visits to a physiotherapist for management of a musculoskeletal strain; and\r\n- a referral from a requesting healthcare provider, such as a primary care clinician, to a receiving healthcare provider, such as a specialist, for the patient to receive a specific service, advice or care.\r\n\r\nAdditional structured and detailed information about the service can be captured using purpose-specific archetypes inserted into the 'Service detail' slot, where required.\r\n\r\nThis archetype may only be used in two ways:\r\n- as a full record of the service that was delivered; or\r\n- as a framework to record primarily the state of the requested service, with separate OBSERVATION archetypes used to record the actual test results for the delivered service - for example OBSERVATION.hearing_screening_result.\r\n\r\nTimings related to service management can be managed in one of two ways:\r\n- Using the reference model - the time for performance of any pathway step will use the ACTION time attribute for each step.\r\n- Archetyped data elements - the 'Scheduled date/time' data element is intended to record the time when the service was intended to be carried out. Note: the corresponding ACTION time attribute for the Scheduled pathway step will record the time that the clinical activity was scheduled into a system, not the intended date/time on which the activity is intended to be carried out.\r\n\r\nIn practice, some services (for example, in ambulatory care) will occur once and not be ordered in advance. The details about the service will be added against the pathway step, 'Service completed'. In some cases a recurring service will be ordered, and in this situation data against the 'Service delivered' step will be recorded on each occasion, leaving the instruction in the active state. When the last delivery of the service is recorded, the 'Service completed' action is recorded showing that this order is now in the completed state.\r\n\r\nIn other situations, such as secondary care, there may be a formal order for a service using a corresponding INSTRUCTION.request archetype. This ACTION archetype can then be used to record the workflow of when and how the order has been carried out.\r\n\r\nRecording information using this ACTION archetype indicates that some sort of activity has actually occurred; this will usually be the service delivery itself but may be a failed attempt or another activity such as postponement of the service delivery. If there is a formal order for the service, the state of this order is represented by the Pathway step against which the data is recorded. For example, using this archetype the progressing state of a referral request may be recorded through separate entries in the EHR progress notes at each 'Pathway' step:\r\n- record the scheduled Start date/time for the referral (Service scheduled); and\r\n- record that the referral has been completed, potentially including information about the service delivered (Service completed).\r\n\r\nWhen the activities follow the usual Planned > Scheduled > Active > Completed states, recording a 'Reason' is not usually necessary - rather, it is usually used to record the reason for deviation from the typical care pathway.\r\n\r\nPlease note that in the openEHR Reference Model there is a 'Time' attribute, which is intended to record the date and time at which each pathway step of the Action was performed. This is the attribute to use to record the start of the service (using the 'Service delivered' pathway step) or the time that the service was aborted (using the 'Service abandoned' pathway step). (en)",
+          "misuse" : "Não deve ser usado para registrar dados sobre atividades realizadas para atividades que exigem um arquétipo ACTION construído para esse fim, pois elas possuem requisitos muito específicos de registro de dados ou de etapas do caminho. Por exemplo: ACTION.procedure ou ACTION.health_education.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about a simple health-related service or activity delivered by a clinician, organisation or agency.",
+          "keywords" : [ "referral", "visit", "encounter" ],
+          "use" : "To record details about a simple health-related service or activity delivered by a clinician, organisation or agency. This includes tracking progress from planning, via scheduling and delivery to completion, as well as deviations from the intended care path such as postponement or cancellation. This is achieved by the recording of relevant data elements about specific activities, each of which are described as the 'Pathway' careflow steps in this archetype.\r\n\r\nThe scope of this archetype deliberately encompasses activities for a broad range of clinical services, to act as a non-specific archetype for all non-complex use cases. Examples include, but are not limited to:\r\n- self-referral by a patient for a check-up visit to a dentist for preventive care\r\n- a series of visits to a physiotherapist for management of a musculoskeletal strain; and\r\n- a referral from a requesting healthcare provider, such as a primary care clinician, to a receiving healthcare provider, such as a specialist, for the patient to receive a specific service, advice or care.\r\n\r\nAdditional structured and detailed information about the service can be captured using purpose-specific archetypes inserted into the 'Service detail' slot, where required.\r\n\r\nThis archetype may only be used in two ways:\r\n- as a full record of the service that was delivered; or\r\n- as a framework to record primarily the state of the requested service, with separate OBSERVATION archetypes used to record the actual test results for the delivered service - for example OBSERVATION.hearing_screening_result.\r\n\r\nTimings related to service management can be managed in one of two ways:\r\n- Using the reference model - the time for performance of any pathway step will use the ACTION time attribute for each step.\r\n- Archetyped data elements - the 'Scheduled date/time' data element is intended to record the time when the service was intended to be carried out. Note: the corresponding ACTION time attribute for the Scheduled pathway step will record the time that the clinical activity was scheduled into a system, not the intended date/time on which the activity is intended to be carried out.\r\n\r\nIn practice, some services (for example, in ambulatory care) will occur once and not be ordered in advance. The details about the service will be added against the pathway step, 'Service completed'. In some cases a recurring service will be ordered, and in this situation data against the 'Service delivered' step will be recorded on each occasion, leaving the instruction in the active state. When the last delivery of the service is recorded, the 'Service completed' action is recorded showing that this order is now in the completed state.\r\n\r\nIn other situations, such as secondary care, there may be a formal order for a service using a corresponding INSTRUCTION.request archetype. This ACTION archetype can then be used to record the workflow of when and how the order has been carried out.\r\n\r\nRecording information using this ACTION archetype indicates that some sort of activity has actually occurred; this will usually be the service delivery itself but may be a failed attempt or another activity such as postponement of the service delivery. If there is a formal order for the service, the state of this order is represented by the Pathway step against which the data is recorded. For example, using this archetype the progressing state of a referral request may be recorded through separate entries in the EHR progress notes at each 'Pathway' step:\r\n- record the scheduled Start date/time for the referral (Service scheduled); and\r\n- record that the referral has been completed, potentially including information about the service delivered (Service completed).\r\n\r\nWhen the activities follow the usual Planned > Scheduled > Active > Completed states, recording a 'Reason' is not usually necessary - rather, it is usually used to record the reason for deviation from the typical care pathway.\r\n\r\nPlease note that in the openEHR Reference Model there is a 'Time' attribute, which is intended to record the date and time at which each pathway step of the Action was performed. This is the attribute to use to record the start of the service (using the 'Service delivered' pathway step) or the time that the service was aborted (using the 'Service abandoned' pathway step).",
+          "misuse" : "Not to be used to record data about activities carried out for activities that require a purpose built ACTION archetype because they have very specific data recording or pathway step requirements. For example: ACTION.procedure or ACTION.health_education.",
+          "copyright" : "© openEHR Foundation, Northern Territory Department of Health (Australia)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Om gegevens vast te leggen over een eenvoudige gezondheidsgerelateerde dienst of activiteit geleverd door een arts, organisatie of instantie.",
+          "keywords" : [ "verwijzing", "bezoek" ],
+          "use" : "Om gegevens vast te leggen over een eenvoudige gezondheidsgerelateerde dienst of activiteit geleverd door een arts, organisatie of instantie. Dit omvat het bijhouden van de voortgang van planning, via het maken van afspraken en levering tot voltooiing, evenals afwijkingen van het geplande zorgpad zoals uitstel of annulering. Dit wordt bereikt door het vastleggen van relevante gegevenselementen over specifieke activiteiten, die in dit archetype elk worden beschreven als de zorgstroomstappen 'Pathway'.\r\n\r\nDe reikwijdte van dit archetype omvat bewust activiteiten voor een breed scala aan klinische diensten, om te fungeren als een niet-specifiek archetype voor alle niet-complexe use cases. Voorbeelden zijn onder andere\r\n- zelfverwijzing door een patiënt voor een controlebezoek aan een tandarts voor preventieve zorg\r\n- een reeks bezoeken aan een fysiotherapeut voor de behandeling van een overbelasting van het bewegingsapparaat; en\r\n- een verwijzing van een aanvragende zorgverlener, zoals een huisarts, naar een ontvangende zorgverlener, zoals een specialist, om de patiënt een specifieke dienst, advies of zorg te laten ontvangen.\r\n\r\nAanvullende gestructureerde en gedetailleerde informatie over de dienst kan worden vastgelegd met behulp van doel-specifieke archetypes die waar nodig worden ingevoegd in de sleuf \"Dienstinformatie\".\r\n\r\nDit archetype mag slechts op twee manieren worden gebruikt:\r\n- als een volledig verslag van de geleverde dienst; of\r\n- als een kader om voornamelijk de status van de gevraagde dienst vast te leggen, met afzonderlijke OBSERVATION-archetypes die gebruikt worden om de eigenlijke testresultaten voor de geleverde dienst vast te leggen - bijvoorbeeld OBSERVATION.hearing_screening_result.\r\n\r\nTimings met betrekking tot servicebeheer kunnen op twee manieren worden beheerd:\r\n- Met behulp van het referentiemodel - de tijd voor de uitvoering van elke padstap zal het ACTION tijd-attribuut voor elke stap gebruiken.\r\n- Archetypische gegevenselementen - het gegevenselement \"Geplande datum/tijd\" is bedoeld om het tijdstip vast te leggen waarop de dienst uitgevoerd zou worden. Opmerking: het overeenkomstige ACTION tijd-attribuut voor de stap Geplande route registreert het tijdstip waarop de klinische activiteit in een systeem werd gepland, niet de beoogde datum/tijd waarop de activiteit zou worden uitgevoerd.\r\n\r\nIn de praktijk zullen sommige diensten (bijvoorbeeld in de ambulante zorg) eenmalig plaatsvinden en niet vooraf besteld worden. De gegevens over de dienst worden toegevoegd aan de stap 'Dienst voltooid'. In sommige gevallen wordt een terugkerende dienst besteld, en in deze situatie worden de gegevens voor de stap \"Geleverde dienst\" bij elke gelegenheid geregistreerd, waardoor de instructie in de actieve status blijft. Wanneer de laatste levering van de dienst wordt geregistreerd, wordt de actie 'Dienst voltooid' geregistreerd, wat aangeeft dat deze opdracht nu in de status 'voltooid' staat.\r\n\r\nIn andere situaties, zoals secundaire zorg, kan er een formele opdracht zijn voor een dienst met behulp van een overeenkomstig INSTRUCTION.request archetype. Dit ACTION archetype kan dan worden gebruikt om de workflow vast te leggen van wanneer en hoe de opdracht is uitgevoerd.\r\n\r\nHet vastleggen van informatie met behulp van dit ACTION archetype geeft aan dat een of andere activiteit daadwerkelijk heeft plaatsgevonden; dit zal meestal de dienstlevering zelf zijn, maar het kan ook een mislukte poging zijn of een andere activiteit zoals uitstel van de dienstlevering. Als er een formele order is voor de dienst, wordt de status van deze order weergegeven door de Pathway stap waartegen de gegevens worden geregistreerd. Bij gebruik van dit archetype kan de voortgang van een verwijzingsverzoek bijvoorbeeld worden vastgelegd door middel van afzonderlijke vermeldingen in de voortgangsnotities van het EPD bij elke stap van het pad:\r\n- de geplande begindatum/tijd voor de verwijzing vastleggen (dienst gepland); en\r\n- vastleggen dat de verwijzing voltooid is, eventueel met informatie over de geleverde dienst (dienst voltooid).\r\n\r\nAls de activiteiten de gebruikelijke Gepland > Afspraak gemaakt > Actief > Voltooid toestanden volgen, is het vastleggen van een 'Reden' meestal niet nodig - het wordt eerder gebruikt om de reden voor afwijking van het typische zorgpad vast te leggen.\r\n\r\nLet op dat er in het openEHR Referentiemodel een attribuut 'Tijd' is, dat bedoeld is om de datum en tijd vast te leggen waarop elke stap in het zorgpad van de Actie werd uitgevoerd. Dit is het te gebruiken attribuut voor het vastleggen van de start van de dienst (bij gebruik van de stap 'Geleverde dienst') of de tijd dat de dienst werd afgebroken (bij gebruik van de stap 'Dienst afgebroken').",
+          "misuse" : "Niet te gebruiken om gegevens vast te leggen over uitgevoerde activiteiten voor activiteiten waarvoor een speciaal gebouwd ACTION-archetype nodig is omdat zij zeer specifieke vereisten inzake gegevensregistratie of trajectstappen hebben. Bijvoorbeeld: ACTION.procedure of ACTION.health_education.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-ACTION.service.v1",
     "differential" : true,
@@ -751,41 +841,6 @@
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
-              "@type" : "ARCHETYPE_SLOT",
-              "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..*",
-              "nodeId" : "at0027.1",
-              "includes" : [ {
-                "@type" : "ASSERTION",
-                "stringExpression" : "archetype_id/value matches {/.*/}",
-                "expression" : {
-                  "@type" : "BINARY_OPERATOR",
-                  "type" : "BOOLEAN",
-                  "operator" : "matches",
-                  "leftOperand" : {
-                    "@type" : "MODEL_REFERENCE",
-                    "type" : "STRING",
-                    "precedenceOverriden" : false,
-                    "referenceType" : "Attribute",
-                    "path" : "archetype_id/value"
-                  },
-                  "rightOperand" : {
-                    "@type" : "CONSTRAINT",
-                    "type" : "STRING",
-                    "precedenceOverriden" : false,
-                    "referenceType" : "Constraint",
-                    "item" : {
-                      "@type" : "C_STRING",
-                      "constraint" : [ "/.*/" ]
-                    }
-                  },
-                  "precedenceOverriden" : false
-                },
-                "variables" : [ ]
-              } ],
-              "excludes" : [ ],
-              "closed" : false
-            }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
@@ -826,16 +881,7 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0025.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -869,82 +915,12 @@
               } ],
               "attributeTuples" : [ ]
             }, {
-              "@type" : "ARCHETYPE_SLOT",
-              "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..*",
-              "nodeId" : "at0029.1",
-              "includes" : [ {
-                "@type" : "ASSERTION",
-                "stringExpression" : "archetype_id/value matches {/openEHR-EHR-CLUSTER\\.media_file(-[a-zA-Z0-9_]+)*\\.v1/}",
-                "expression" : {
-                  "@type" : "BINARY_OPERATOR",
-                  "type" : "BOOLEAN",
-                  "operator" : "matches",
-                  "leftOperand" : {
-                    "@type" : "MODEL_REFERENCE",
-                    "type" : "STRING",
-                    "precedenceOverriden" : false,
-                    "referenceType" : "Attribute",
-                    "path" : "archetype_id/value"
-                  },
-                  "rightOperand" : {
-                    "@type" : "CONSTRAINT",
-                    "type" : "STRING",
-                    "precedenceOverriden" : false,
-                    "referenceType" : "Constraint",
-                    "item" : {
-                      "@type" : "C_STRING",
-                      "constraint" : [ "/openEHR-EHR-CLUSTER\\.media_file(-[a-zA-Z0-9_]+)*\\.v1/" ]
-                    }
-                  },
-                  "precedenceOverriden" : false
-                },
-                "variables" : [ ]
-              } ],
-              "excludes" : [ ],
-              "closed" : false
-            }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0012.1",
               "attributes" : [ ],
               "attributeTuples" : [ ]
-            }, {
-              "@type" : "ARCHETYPE_SLOT",
-              "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..*",
-              "nodeId" : "at0036.1",
-              "includes" : [ {
-                "@type" : "ASSERTION",
-                "stringExpression" : "archetype_id/value matches {/.*/}",
-                "expression" : {
-                  "@type" : "BINARY_OPERATOR",
-                  "type" : "BOOLEAN",
-                  "operator" : "matches",
-                  "leftOperand" : {
-                    "@type" : "MODEL_REFERENCE",
-                    "type" : "STRING",
-                    "precedenceOverriden" : false,
-                    "referenceType" : "Attribute",
-                    "path" : "archetype_id/value"
-                  },
-                  "rightOperand" : {
-                    "@type" : "CONSTRAINT",
-                    "type" : "STRING",
-                    "precedenceOverriden" : false,
-                    "referenceType" : "Constraint",
-                    "item" : {
-                      "@type" : "C_STRING",
-                      "constraint" : [ "/.*/" ]
-                    }
-                  },
-                  "precedenceOverriden" : false
-                },
-                "variables" : [ ]
-              } ],
-              "excludes" : [ ],
-              "closed" : false
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
@@ -1017,7 +993,8 @@
         "pt-br" : { },
         "de" : { },
         "nb" : { },
-        "nl" : { }
+        "nl" : { },
+        "sv" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -1090,6 +1067,16 @@
         "organisation" : "Nedap",
         "email" : "mattijs.kuhlmann@nedap.com"
       },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
       "otherDetails" : { }
     } ]
   } ],
