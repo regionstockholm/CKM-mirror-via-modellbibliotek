@@ -93,7 +93,7 @@ Richards S, Aziz N, Bale S, Bick D, Das S, Gastier-Foster J, Grody WW, Hegde M, 
 		["original_namespace"] = <"org.openehr">
 		["custodian_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
-		["MD5-CAM-1.0.1"] = <"3c0748bdacf884c7d8c117cbb2f42cbd">
+		["MD5-CAM-1.0.1"] = <"1ecf01fc1f49cfde9645e84cc76e853d">
 		["build_uid"] = <"6a69501f-0a41-47db-8056-bcdc30bdfc86">
 		["revision"] = <"1.0.3">
 	>
@@ -113,7 +113,7 @@ definition
 				include
 					archetype_id/value matches {/openEHR-EHR-CLUSTER\.knowledge_base_reference(-[a-zA-Z0-9_]+)*\.v1/}
 			}
-			ELEMENT[at0101] occurrences matches {0..1} matches {    -- Variant
+			ELEMENT[at0101] occurrences matches {0..*} matches {    -- Variant
 				value matches {
 					DV_PARSABLE matches {*}
 				}
@@ -138,7 +138,7 @@ definition
 							DV_COUNT matches {*}
 						}
 					}
-					ELEMENT[at0011] occurrences matches {0..1} matches {    -- DNA change
+					ELEMENT[at0011] occurrences matches {0..*} matches {    -- DNA change
 						value matches {
 							DV_PARSABLE matches {*}
 						}
@@ -211,12 +211,12 @@ definition
 					}
 					CLUSTER[at0019] occurrences matches {0..1} matches {    -- Gene
 						items cardinality matches {1..*; unordered} matches {
-							ELEMENT[at0020] matches {    -- Gene symbol
+							ELEMENT[at0020] occurrences matches {0..*} matches {    -- Gene symbol
 								value matches {
 									DV_TEXT matches {*}
 								}
 							}
-							ELEMENT[at0021] occurrences matches {0..1} matches {    -- Gene name
+							ELEMENT[at0021] occurrences matches {0..*} matches {    -- Gene name
 								value matches {
 									DV_TEXT matches {*}
 								}
