@@ -1,0 +1,188 @@
+archetype (adl_version=1.4; uid=ae65fb8f-e6ed-4bf6-88d1-271bb55f58cb)
+	openEHR-EHR-CLUSTER.xds_metadata.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2017-11-08">
+		["name"] = <"Borut Fabjan">
+		["organisation"] = <"Better, Slovenia">
+		["email"] = <"borut.fabjan@better.care">
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Boštjan Lah, Better, Slovenia","Ian McNicoll, freshEHR Clinical Informatics, UK">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record additional composition metadata aligned with IHE-XDS which is not already available from the Reference Model COMPOSITION class.">
+			keywords = <"Document, metadata","IHE","XDS">
+			copyright = <"© Apperta Foundation">
+			use = <"Use to add IHE-XDS aligned metadata to a COMPOSITION.context, which along with existing COMPOSITION attributes, allows the composition to be registered in an IHE-XDS environment.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"Apperta Foundation">
+		["references"] = <"Fabjan B. Querying openEHR-based Electronic Health Record in the IHE XDS enviroment [Internet]. eprints.fri.uni-lj.si. 2016 [cited 2020 Apr 23]. Available from: http://eprints.fri.uni-lj.si/3476/
+‌">
+		["current_contact"] = <"Ian McNicoll <ian@freshehr.com>">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"E62D896E2577FA727C75A9EFFD7CA63E">
+		["build_uid"] = <"feed3fab-2d92-470b-a6c9-f19499a58c8b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- XDS Metadata
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Author specialty
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Class code
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Document type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Confidentiality code
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Health care facility type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Practice setting code
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..*} matches {    -- Event code
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Document_media
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							406,
+							407,
+							408,
+							414,
+							415,
+							416,
+							417,
+							418,
+							419,
+							420,
+							421,
+							422,
+							423,
+							424,
+							427,
+							429,
+							517,
+							518,
+							387,
+							388,
+							389,
+							390,
+							391,
+							392,
+							393,
+							394,
+							395,
+							396,
+							397,
+							398,
+							399,
+							400,
+							409,
+							410,
+							411,
+							412,
+							413,
+							401,
+							402,
+							404,
+							405,
+							519,
+							637,
+							682,
+							683]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"XDS Metadata">
+					description = <"Additional composition metadata aligned with IHE-XDS which is not already available from the Reference Model COMPOSITION class.">
+				>
+				["at0001"] = <
+					text = <"Author specialty">
+					description = <"The speciality of the author/composer of the document.">
+				>
+				["at0002"] = <
+					text = <"Class code">
+					description = <"A high-level document class code, normally selected from a valueset provided by the IHE-XDS Affinity Domain.">
+					comment = <"For example: Report, Summary, Images, Plan, Patient Preferences, Workflow.
+These codes are specific to an XDS Affinity Domain.">
+				>
+				["at0003"] = <
+					text = <"Document type">
+					description = <"The code specifying the precise type of document from the user perspective. Normally selected from a valueset provided by the local IHE-XDS Affinity Domain or national standard.">
+					comment = <"for example:  Pulmonary History and Physical, Discharge Summary, Ultrasound Report.
+These codes are specific to an XDS Affinity Domain.">
+				>
+				["at0004"] = <
+					text = <"Confidentiality code">
+					description = <"A term specifying the level of confidentiality of the XDS Document.">
+					comment = <"Coded text is preferred, normally specific to an XDS Affinity Domain.">
+				>
+				["at0007"] = <
+					text = <"Health care facility type">
+					description = <"A term defining the healthcare facility type.">
+					comment = <"Coded text is preferred. The codes are specific to an XDS Affinity Domain.">
+				>
+				["at0009"] = <
+					text = <"Practice setting code">
+					description = <"The code specifying the clinical specialty where the act that resulted in the document was performed.">
+					comment = <"For example: Family Practice, Laboratory, Radiology.
+Coded text is preferred, normally specific to an XDS Affinity Domain.">
+				>
+				["at0010"] = <
+					text = <"Document_media">
+					description = <"Additional metadata about the document itself, including size, url.">
+				>
+				["at0011"] = <
+					text = <"Event code">
+					description = <"This list of codes represents the main clinical acts.">
+					comment = <"For example: Colonoscopy or appendicectomy.">
+				>
+			>
+		>
+	>
