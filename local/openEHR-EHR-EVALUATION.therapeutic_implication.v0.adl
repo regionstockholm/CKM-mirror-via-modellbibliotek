@@ -1,0 +1,284 @@
+archetype (adl_version=1.4; uid=6a5c8e63-c2e3-45c7-8706-d7f16b46ad4f)
+	openEHR-EHR-EVALUATION.therapeutic_implication.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Vebjørn Arntzen">
+				["organisation"] = <"Oslo University Hospital">
+				["email"] = <"varntzen@ous-hf.no">
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"14-11-2012">
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+	>
+	lifecycle_state = <"published">
+	other_contributors = <"Fatima Almeida, Critical SW, Portugal","Tomas Alme, DIPS, Norway","Vebjørn Arntzen, Oslo University Hospital, Norway","Koray Atalag, University of Auckland, New Zealand","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","Lars Bitsch-Larsen, Haukeland University hospital, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom","Heather Grain, Llewelyn Grain Informatics, Australia","Sam Heard, Ocean Informatics, Australia","Evelyn Hovenga, EJSH Consulting, Australia","Lars Karlsen, DIPS ASA, Norway","Lars Morgan Karlsen, DIPS ASA, Norway","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Hildegard McNicoll, freshEHR Clinical Informatics Ltd., United Kingdom","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Bjoern Naess, DIPS ASA, Norway","Bjørn Næss, DIPS ASA, Norway","Andrej Orel, Marand d.o.o., Slovenia","John Tore Valand, Helse Bergen, Norway">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere en kontraindikasjon for en klinisk intervensjon (for eksempel - men ikke begrenset til, en behandling, en prøve eller prosedyre) som ikke må utføres på pasienten på grunn av sannsynlighet eller mulighet for at individet kan påføres skade.">
+			keywords = <"forebygge","unngå","uønsket hendelse","forsiktighet","advarsel">
+			use = <"Brukes for å registrere en kontraindikasjon for en klinisk intervensjon i journalen på grunn av sannsynlighet eller mulighet for at individet kan påføres skade om intervensjonen utføres.
+
+Denne arketypen kan også brukes å opprette en kontraindikasjon for en klinisk intervensjon i journalen til en pasient også i tilfeller hvor den uønskede kliniske effekten kan påføre andre skade og ikke direkte pasienten selv. For eksempel: Administrasjon av levende vaksiner bør registreres som en kontraindikasjon hos et individ som har familiemedlemmer som er immunosupprimert eller som er i en aktiv immunosupprimerende behandling fordi dette familiemedlemmet kan ha en stor risiko for å få en infeksjonssykdom.
+
+Denne arketypen bør regnes som en viktig arketype for beslutningsstøttesystemer i forbindelse med forordning av nye kliniske intervensjoner.
+
+Kontraindikasjonen kan angis på en rekke måter, for eksempel:
+- Tidligere erfaring med en utført prosedyre og med påfølgende klinisk vurdering om at dette ikke skal gjentas.
+- Implantasjon av metallimplantater som utelukker noen bildediagnostiske undersøkelser.
+- Resultat av genundersøkelser som indikerer at en uønsket hendelse kan forekomme om en behandling utføres eller et legemiddel administreres.
+- Ugunstig effekt av liknende behandling, legemiddel eller prosedyre hos familiemedlemmer.
+
+I tilfeller som omhandler legemidler eller vaksiner vil denne arketypen supplere arketypen EVALUATION.adverse_reaction_risk (Risiko for overfølsomhetsreaksjon) ved å angi andre årsaker til at et legemiddel eller en vaksine ikke bør administreres, utover overfølsomhetsreaksjoner. I lys av dette bør klinisk beslutningsstøtte for ordinering inneholde en referanse til denne arketypen samt arketypen EVALUATION.adverse_reaction_risk som en del av en trygg ordineringsprosess.">
+			misuse = <"Brukes ikke for å registrere forekomst av en overfølsomhetsreaksjon knyttet til en substans eller agens. EVALUATION.adverse_reaction_risk (Risiko for overfølsomhetsreaksjon) er en veldig spesifikk type kontraindikasjon, og på grunn av dens allestedsnærværende bruk i journalsystemer er modellert som en egen arketype. 
+
+Brukes ikke for å registrere en tilstand hos et individ som er klinisk signifikant og unikt for dette individet og som er vurdert som viktig informasjon for å gjøre valg om behandling. Bruk arketypen EVALUATION.precaution (Forholdsregel) for dette.
+
+Brukes ikke til å registrere individets personlige preferanser. Bruk spesifikke arketyper for dette formålet.">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a contraindication for a clinical intervention (including, but not limited to, a treatment, test or procedure) that should not be carried out due to the likelihood, or possibility, of harm being caused to an individual.">
+			keywords = <"contraindication","prevent","avoid","adverse event","caution","alert","warning">
+			copyright = <"© openEHR Foundation">
+			use = <"To record a contraindication for a clinical intervention in the health record of an individual due to the likelihood, or possibility, of causing harm to the individual if the identified intervention is carried out. 
+
+This archetype may also be used to record a contraindication for a clinical intervention in the health record of the individual, even though the resulting clinical effect may cause harm to others and not directly on the individual. For example: administration of live vaccines should be contraindicated in an individual who has a family member in an immunosuppressed state or actively taking immunosuppressive therapy, as that family member may be at significant risk of contracting the infectious disease. 
+
+This archetype should be regarded as a critical archetype by any clinical decision support system testing for any relevant therapeutic precautions as a clinician commences a new clinical Intervention for an individual.
+
+This contraindication may be identified in a number of ways including, but not limited to: 
+- previous experience of a procedure being performed and subsequent clinical assessment that this should not be repeated; 
+- implantation of a metal device which precludes some imaging examinations
+- genomic test results that indicate an adverse event may take place if a treatment or medication is administered; or
+- adverse experience by a family member to a similar treatment, medication or procedure.
+
+In the case of medications or vaccines, this archetype complements the EVALUATION.adverse_reaction_risk archetype by identifying other reasons why a medication or vaccine should not be administered, other than an adverse reaction. In view of this, clinical decision support for prescribing should include reference to this archetype plus the EVALUATION.adverse_reaction_risk as part of a safe prescribing process.">
+			misuse = <"Not to be used to record the occurrence of an adverse reaction to a substance or agent. Adverse reaction risk is a very specific type of contradiction and because of its ubiquity has been modelled separately as EVALUATION.adverse_reaction_risk for this purpose.
+
+Not to be used to record a condition or state of the individual that is clinically significant and unique or idiosyncratic for this individual, and is considered vital information when making treatment decisions. Use EVALUATION.precaution for this purpose.
+
+Not to be used to record personal preferences of the individual. Use specific archetypes for this purpose.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"22eef6d61d012e7f79815cd15efd49be">
+		["build_uid"] = <"00e0e6eb-6f7d-4f05-b63c-23eaafc8cfc6">
+		["revision"] = <"1.1.1">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Genomic therapeutic implication
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Tree
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {1..*} matches {    -- Intervention name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..*} matches {    -- Phenotypic implication
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..*} matches {    -- Genomic rationale
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {    -- Rationale link
+						value matches {
+							DV_EHR_URI matches {*}
+							DV_URI matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0030] occurrences matches {0..*} matches {    -- Other detail
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {    -- Intervention guidance
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0006] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0024] occurrences matches {0..1} matches {    -- Knowledge link
+						value matches {
+							DV_URI matches {*}
+							DV_MULTIMEDIA matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0020] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Last updated
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Genomic therapeutic implication">
+					description = <"A clinical intervention (including, but not limited to, use of a treatment or performance of a test or procedure) that should not be carried out due to the likelihood, or possibility, of harm being caused to an individual.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Intervention name">
+					description = <"Identification, by name, of a clinical intervention or class of intervention including, but not limited to, a treatment, test or procedure that is implicated by the genomics finding">
+					comment = <"Coding of the identified 'Contraindicated intervention' with a terminology is desirable, where possible.">
+				>
+				["at0004"] = <
+					text = <"Last updated">
+					description = <"Date when the contraindication information was last updated.">
+				>
+				["at0006"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the contraindication, not captured in other fields.">
+				>
+				["at0020"] = <
+					text = <"Extension">
+					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
+					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0021"] = <
+					text = <"Phenotypic implication">
+					description = <"The ">
+					comment = <"e.g. \"Poor metaboliser' or 'toxicity'">
+				>
+				["at0024"] = <
+					text = <"Knowledge link">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Genomic rationale">
+					description = <"A text or coded text representation of the genotypic or phenotypic finding(s) which lead to the therapeutic implication.">
+				>
+				["at0021.1"] = <
+					text = <"Element">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Rationale link">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Intervention guidance">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Other detail">
+					description = <"Further details of relevant intervention guidance or phenotypic / genotypic details.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"therapeutic_implication">
+					description = <"Et klinisk tiltak (for eksempel - men ikke begrenset til, en behandling, en prøve eller prosedyre) som ikke må utføres på pasienten på grunn av sannsynlighet eller mulighet for at individet kan påføres skade.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Kontraindisert intervensjon">
+					description = <"Navnet på den kliniske intervensjonen eller type tiltak som ikke bør utføres. For eksempel - men ikke begrenset til, en behandling, en prøve eller prosedyre.">
+					comment = <"Det er ønskelig at \"Kontraindisert intervensjon\" kodes med en terminologi dersom mulig.">
+				>
+				["at0004"] = <
+					text = <"Sist oppdatert">
+					description = <"Dato da kontraindikasjonen sist ble oppdatert.">
+				>
+				["at0006"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere informasjon om kontraindikasjonen, som ikke er fanget i andre felt.">
+				>
+				["at0020"] = <
+					text = <"Tilleggsinformasjon">
+					description = <"Ytterligere informasjon som trengs for å kunne registrere lokalt definert innhold eller for å tilpasse til andre referansemodeller/formalismer.">
+					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR.">
+				>
+				["at0021"] = <
+					text = <"Klinisk indikasjon">
+					description = <"Den kliniske årsaken til at den identifiserte \"Kontraindisert intervensjon\" ikke skal benyttes eller utføres.">
+					comment = <"I denne arketypen vil dataelementet \"Klinisk indikasjon\" representere den kliniske årsaken til at den identifiserte intervensjonen ikke skal utføres. For eksempel \"Implantert pacemaker\" som indikasjon for å hindre undersøkelse med MR. Koding av \"Indikasjon\" med en terminologi er ønskelig, der det er mulig. Merk: en valgfri URI lenke til dokumentasjon i pasientjournalen er også tillatt ved å benytte attributter fra referansemodellen. Siden denne URI-lenken kan være utilgjengelig i en melding eller av mottakende system, bør en beskrivelse i fritekst med rasjonale være registrert.">
+				>
+				["at0024"] = <
+					text = <"*Guidance (en)">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"*Evidence (en)">
+					description = <"">
+				>
+				["at0021.1"] = <
+					text = <"*Element (en)">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"*ANY (en)">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"*DV_TEXT (en)">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"*CLUSTER_SLOT (en)">
+					description = <"">
+				>
+			>
+		>
+	>
