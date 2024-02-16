@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "3f4d9239a25dcb4bcde739cd7f7ae213",
+      "MD5-CAM-1.0.1" : "e9840b916b7e9c4d059ef46e0909b265",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "23.0.0",
+      "sem_ver" : "24.0.0",
       "build_uid" : ""
     },
     "details" : {
@@ -364,7 +364,7 @@
               }, {
                 "@type" : "C_ARCHETYPE_ROOT",
                 "rmTypeName" : "CLUSTER",
-                "occurrences" : "0..1",
+                "occurrences" : "0..*",
                 "nodeId" : "at0132.1",
                 "attributes" : [ ],
                 "attributeTuples" : [ ],
@@ -494,31 +494,10 @@
           "code" : "ac0.1",
           "description" : ""
         },
-        "at0148.1" : {
-          "@type" : "ARCHETYPE_TERM",
-          "code" : "at0148.1",
-          "text" : "Laboratoriedisciplin",
-          "description" : "Category of service requested.",
-          "comment" : "Coding of the 'Service type' with a coding system is desirable, if available. If the 'Service name' was coded, it is possible for this data point to be derived from the code. For example: biochemistry or microbiology laboratory, ultrasound or CT imaging."
-        },
-        "at0121.1" : {
-          "@type" : "ARCHETYPE_TERM",
-          "code" : "at0121.1",
-          "text" : "Analyskod",
-          "description" : "The name of the single service or activity requested.",
-          "comment" : "Coding of the 'Service name' with a coding system is desirable, if available. For example: 'referral' to an endocrinologist for diabetes management."
-        },
-        "at0062.1" : {
-          "@type" : "ARCHETYPE_TERM",
-          "code" : "at0062.1",
-          "text" : "Frågeställning",
-          "description" : "A short phrase describing the reason for the request.",
-          "comment" : "Coding of the 'Reason for request' with a coding system is desirable, if available. This data element allows multiple occurrences to enable the user to record a multiple responses, if required. For example: 'manage diabetes complications'."
-        },
         "at0152.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0152.1",
-          "text" : "Preoperativ diagnos",
+          "text" : "Clinical indication",
           "description" : "The clinical reason for the ordered service.",
           "comment" : "Coding of the clinical indication with a terminology is preferred, where possible. This data element allows multiple occurrences. For example: 'Angina' or 'Type 1 Diabetes mellitus'.\n\nSka hämtas från ROS och mappas in i CDR."
         }
@@ -925,16 +904,7 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0034.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DATE_TIME",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -1208,13 +1178,6 @@
           }
         },
         "en" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Information om provmaterial",
-            "description" : "A physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
-            "comment" : "For example: Tissue or body fluid."
-          },
           "ac0.1" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
@@ -1226,13 +1189,6 @@
             "text" : "(Synthesized)",
             "code" : "ac0.2",
             "description" : ""
-          },
-          "at0015.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0015.1",
-            "text" : "Provtagningstidpunkt",
-            "description" : "The date and time that collection has been ordered to take place or has taken place.",
-            "comment" : "This datetime will be captured primarily in the INSTRUCTION timing, ACTION time or OBSERVATION times. However, as this is a critical piece of information, it can be useful to also associate it directly with the specimen itself."
           }
         },
         "pt-br" : {
@@ -1303,13 +1259,6 @@
             "text" : "Operationstyp",
             "description" : "Den metod som används för att ta provet.",
             "comment" : "Exempelvis venpunktion, biopsi eller resektion. Kodning av provtagningsmetod till en terminologi är att föredra i de fall det är möjligt. Om provtagningsmetoden inkluderas i \"Provtyp\" via prekoordinerade koder blir detta dataelement redundant. \n\n\nSka hämtas från ROS och mappas in i CDR.\n"
-          },
-          "at0080" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0080",
-            "text" : "Antal behållare",
-            "description" : "Det totala antalet fysiska enheter som provmaterialet är distribuerat i. \r\n",
-            "comment" : "Till exempel: antal provbehållare, provrör, provflaskor, block, objektglas eller galler.\n\nSka hämtas från ROS och mappas in i CDR.\n\n"
           },
           "at0015.1" : {
             "@type" : "ARCHETYPE_TERM",
@@ -1726,16 +1675,7 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0034.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DATE_TIME",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -2677,15 +2617,7 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "en" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Remitterande vårdenhet/klinik",
-            "description" : "An entity comprising one or more people and having a particular purpose.",
-            "comment" : "For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support."
-          }
-        },
+        "en" : { },
         "nb" : { },
         "de" : { },
         "sv" : {
@@ -2707,257 +2639,6 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.1",
             "text" : "Vårdenhet",
-            "description" : "Namnet som en organisation är känd för.",
-            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'.\n\nSka hämtas från ROS och mappas in i CDR."
-          }
-        }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "8543bf4b-0e15-4990-8a02-c7d082df8617",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Sarah Ballout, Natalia Strauch",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "ballout.sarah@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : {
-        "name" : "Therese Lindberg, Erik Sundvall",
-        "organisation" : "Cambio CDS, Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University",
-        "email" : "therese.lindberg@cambio.se, erik.sundvall@regionstockholm.se"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Liv Laugen, John Tore Valand, Vebjørn Arntzen, Kanika Kuwelker",
-        "organisation" : "​Oslo University Hospital, Norway, Helse Bergen, Helse Vest IKT",
-        "email" : "liv.laugen@ous-hf.no, john.tore.valand@helse-bergen.no, john.tore.valand@helse-vest-ikt.no, varntzen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "7a7ebc25-2b33-4aee-b3b3-66bae2f7bf53",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "5DFD0809E7CD46EA0712A590C68F545B"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Darstellung von Informationen zur einer Organisation, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden.",
-          "keywords" : [ "Organisation, Anbieter, Versorger, Betreuer, Netzwerk, Verbund, Gruppe" ],
-          "use" : "Der Archetyp wird verwendet, um Informationen zur einer Organisation darzustellen, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden, oft ad hoc oder wenn die Verwendung von einem formellen demografischen Register oder einem Index nicht angemessen oder nicht möglich ist.\r\nBeispiele beinhalten:\r\n- der Inhaber einer Patientenverfügung unter Verwendung des SLOT „Inhaber der Kopie“ innerhalb des Archetyps EVALUATION.advance_care_directive oder\r\n- Name und Kontaktdaten einer Organisation, die die Betreuung einer Person in ihrem zu Hause übernimmt.\r\n\r\nDieser Archetyp wurde entwickelt, um Angaben zu offiziell anerkannten Einrichtungen, wie einem eingetragenen Unternehmen, einem Krankenhaus und seinen anerkannten „Unterorganisationen“, wie einer operativ getrennten oder spezialisierten Satellitenklinik oder einem häuslichen Pflegedienst, zu enthalten. Es kann auch verwendet werden, um Kontaktinformationen über informellere Netzwerke oder Gruppen darzustellen, wie z. B. eine lokale Selbsthilfegruppe.\r\n\r\nDieser Archetyp könnte auch als Proxy für formale demografische Daten verwendet werden, wenn ein Template mit Domänenexperten überprüft wird – beispielsweise bei einer Bewertung, bei der die Prüfer erwarten würden, dass die Details zu der Organisation oben auf dem Bewertungsformular angezeigt werden.",
-          "misuse" : "Der Archetyp darf nicht verwendet werden, um ein offizielles Register oder einen Index darzustellen, zu ersetzen oder zu führen. Verwenden Sie zu diesem Zweck einen formellen Gesundheitsanbieter-Index (Health Provider Index) oder Archetypen, die auf dem openEHR Demographic Information Model basieren.\r\n\r\nDer Archetyp darf nicht verwendet werden, um den Pflegeort und ähnliche Datenelemente darzustellen, die formal in der Patientenakte unter Verwendung der Reference Model-Attribute dargestellt werden sollten.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "purpose" : "Att registrera information om en organisation på det sätt som det behöver representeras i en journalanteckning.\r\n",
-          "keywords" : [ "organisation, leverantör, vårdgivare, vårdenhet, enhet, avdelning, nätverk, grupp" ],
-          "use" : "Används för att registrera information om en organisation som behöver representeras i journalen. Används exempelvis ad hoc eller i de fall då formella demografiska register eller kataloger inte kan användas istället. \r\nExempel inkluderar:\r\n- namn och kontaktuppgifter för en organisation som har en fysisk kopia av patientens önskemål om vård i händelse av att patienten inte längre kan kommunicera\r\n- namn och kontaktuppgifter för hemtjänst- eller hemsjukvårdsorganisation för en individ\r\n\r\nDenna arketyp har utformats för att dokumentera information om formellt erkända enheter, såsom ett registrerat företag, ett sjukhus och dess erkända \"underorganisationer\", såsom en separat eller specialiserad satellitklinik eller hemsjukvård. Den kan också användas för att dokumentera kontaktinformation om mer informella nätverk eller grupper, till exempel en lokal stödgrupp.\r\n\r\nDen här arketypen kan också användas som en proxy för formell demografisk data när man granskar en mall med domänexperter - exempelvis där granskare förväntar sig att se en organisations information i ett formulär.",
-          "misuse" : "*Not to be used to represent, replace or maintain an official register or index. Use a formal Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the location of care and similar data elements that should be represented formally in the health record using the Reference Model attributes. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For å registrere detaljer om en organisasjon, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet.",
-          "keywords" : [ "organisasjon, leverandør, omsorgsperson, nettverk, gruppe" ],
-          "use" : "Brukes for å registrere detaljer om en organisasjon, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet, ofte ad hoc eller i de tilfeller når det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.\r\n\r\nFor eksempel:\r\n- kopiinnhaver av av et fremtidig behandlingsvalg ved å bruke \"Kopiholder\"-SLOTet i arketypen \"EVALUATION.advance_care_directive\" (Fremtidig behandlingsvalg).\r\n- navn og kontaktdetaljer for en organisasjon som yter hjemmehjelp til en enkeltperson.\r\n\r\nDenne arketypen er utformet for å registrere detaljer om formelt anerkjente enheter, for eksempel en registrert virksomhet, et sykehus og dets \"underorganisasjoner\", en operativt separat eller spesialisert satellittklinikk eller hjemmetjeneste. Den kan også brukes til å registrere kontaktinformasjon om mer uformelle nettverk eller grupper, for eksempel en lokal støttegruppe.\r\n\r\nDenne arketypen kan også brukes som en midlertidig erstatning for formelle demografiske data når man gjennomgår et templat med domeneeksperter - for eksempel en vurdering der man i templatet forventer å se detaljer om en organisasjon i et vurderingsskjema.",
-          "misuse" : "Brukes ikke til å representere, erstatte eller vedlikeholde formelle demografiske opplysninger. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.\r\n\r\nBrukes ikke for å representere behandlingssted eller lignende dataelementer, som skal representeres formelt i pasientjournalen. Bruk attributter fra Referansemodellen for dette formålet.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record details about an organisation as they are known or understood in the course of clinical documentation.",
-          "keywords" : [ "organisation, organization, provider, carer, network, group" ],
-          "use" : "Use to record details of an organisation as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype; or\r\n- the name and contact details of an organisation providing home care to an individual.\r\n\r\nThis archetype has been designed to carry details of formally recognised entities, such as a registered business, a hospital and its recognised 'sub-organisations', such as an operationally separate or specialised satellite clinic or home care service. It may also be used to carry contact information about more informal networks or groups, such as a local community support group.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see an organisations' details on an assessment form.",
-          "misuse" : "Not to be used to represent, replace or maintain an official register or index. Use a formal Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the location of care and similar data elements that should be represented formally in the health record using the Reference Model attributes.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.organisation.v1",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-organisation-002.v1"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0001.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0003.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_IDENTIFIER",
-              "defaultValue" : {
-                "@type" : "DV_IDENTIFIER"
-              },
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0019.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Mottagande vårdenhet/klinik",
-            "description" : "An entity comprising one or more people and having a particular purpose.",
-            "comment" : "For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support."
-          }
-        },
-        "nb" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Organisasjon (2)",
-            "description" : "En entitet som består av ett eller flere mennesker med et bestemt formål.",
-            "comment" : "For eksempel: Et firma, institusjon, selskap, forening, nettverk, avdeling, gruppe i nærmiljøet, forsikringsselskap, behandlingsteam eller en gruppe av naboer som opptrer som støtte."
-          }
-        },
-        "de" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Organisation (2)",
-            "description" : "Eine Einheit, die aus einer oder mehreren Personen besteht und ein bestimmtes Ziel hat.",
-            "comment" : "Zum Beispiel: ein Unternehmen, eine Institution, ein Verband, ein Netzwerk, eine Abteilung, eine Gemeindegruppe, eine Gesundheitspraxisgruppe, ein Kostenträger/Versicherer, ein Pflegeteam oder eine Gruppe von Nachbarn, die Pflege oder Unterstützung leisten."
-          }
-        },
-        "sv" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Mottagande laboratorium",
-            "description" : "*An entity comprising one or more people and having a particular purpose. (en)",
-            "comment" : "*For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support. (en)"
-          },
-          "at0003.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0003.1",
-            "text" : "Kombika",
-            "description" : "Identifierare associerad med den identifierade organisationen.",
-            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare.\n\nSka hämtas från ROS och mappas in i CDR."
-          },
-          "at0001.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0001.1",
-            "text" : "Laboratorieenhet",
             "description" : "Namnet som en organisation är känd för.",
             "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'.\n\nSka hämtas från ROS och mappas in i CDR."
           }
@@ -4412,6 +4093,192 @@
         "codeString" : "sv"
       },
       "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "78de5996-6b50-4944-bcee-8caa0d129dc7",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "5DFD0809E7CD46EA0712A590C68F545B"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.organisation.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-organisation-002.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0004.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0019.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Organisation (2)",
+            "description" : "An entity comprising one or more people and having a particular purpose.",
+            "comment" : "For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support."
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Organisasjon (2)",
+            "description" : "En entitet som består av ett eller flere mennesker med et bestemt formål.",
+            "comment" : "For eksempel: Et firma, institusjon, selskap, forening, nettverk, avdeling, gruppe i nærmiljøet, forsikringsselskap, behandlingsteam eller en gruppe av naboer som opptrer som støtte."
+          }
+        },
+        "de" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Organisation (2)",
+            "description" : "Eine Einheit, die aus einer oder mehreren Personen besteht und ein bestimmtes Ziel hat.",
+            "comment" : "Zum Beispiel: ein Unternehmen, eine Institution, ein Verband, ein Netzwerk, eine Abteilung, eine Gemeindegruppe, eine Gesundheitspraxisgruppe, ein Kostenträger/Versicherer, ein Pflegeteam oder eine Gruppe von Nachbarn, die Pflege oder Unterstützung leisten."
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Mottagande laboratorium",
+            "description" : "*An entity comprising one or more people and having a particular purpose. (en)",
+            "comment" : "*For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support. (en)"
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Laboratorieenhet",
+            "description" : "Namnet som en organisation är känd för.",
+            "comment" : "Exempelvis: 'Royal Children's Hospital'; 'ABC District Nursing Service'; 'YNWA Oslo' or 'JB Smith Lawyers'."
+          },
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Kombika",
+            "description" : "Identifierare associerad med den identifierade organisationen.",
+            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "8543bf4b-0e15-4990-8a02-c7d082df8617",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Sarah Ballout, Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "ballout.sarah@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Therese Lindberg, Erik Sundvall",
+        "organisation" : "Cambio CDS, Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University",
+        "email" : "therese.lindberg@cambio.se, erik.sundvall@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Liv Laugen, John Tore Valand, Vebjørn Arntzen, Kanika Kuwelker",
+        "organisation" : "​Oslo University Hospital, Norway, Helse Bergen, Helse Vest IKT",
+        "email" : "liv.laugen@ous-hf.no, john.tore.valand@helse-bergen.no, john.tore.valand@helse-vest-ikt.no, varntzen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
+      },
       "otherDetails" : { }
     } ]
   } ],
