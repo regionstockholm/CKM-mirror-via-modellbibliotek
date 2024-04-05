@@ -1,0 +1,111 @@
+archetype (adl_version=1.4; uid=4ce69cc4-52af-4fd9-9cb8-aa238afebd8f)
+	openEHR-EHR-CLUSTER.care_journey_metadata.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2022-03-10">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"ae2360993187fb6ee881771ee19676ef">
+		["build_uid"] = <"0742452c-9047-42cb-aafe-654f90469e4c">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Care journey metadata
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Care plan name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Care plan identifier
+				value matches {
+					DV_TEXT matches {*}
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Patient journey identifier
+				value matches {
+					DV_TEXT matches {*}
+					DV_IDENTIFIER matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Care journey metadata">
+					description = <"To capture Care plan metadata">
+				>
+				["at0001"] = <
+					text = <"Care plan name">
+					description = <"The name , preferably coded of the Care plan with which this journey is associated, and against which the composition was updated.">
+				>
+				["at0002"] = <
+					text = <"Care plan identifier">
+					description = <"The identifier , preferably coded, of the Care plan with which this journey is associated, and against which the composition was updated.">
+				>
+				["at0003"] = <
+					text = <"Patient journey identifier">
+					description = <"A patient-journey specific identifier i.e unique to a patient's journey along a specific care pathway.">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Metadaten zur Pflegereise">
+					description = <"*To capture Care plan metadata (en)">
+				>
+				["at0001"] = <
+					text = <"Name des Pflegeplans">
+					description = <"Der Name, vorzugsweise codiert, des Pflegeplans, mit dem diese Reise verknüpft ist und anhand dessen die Zusammensetzung aktualisiert wurde.">
+				>
+				["at0002"] = <
+					text = <"Pflegeplan-ID">
+					description = <"Die vorzugsweise codierte Kennung des Pflegeplans, mit dem diese Reise verknüpft ist und anhand dessen die Zusammensetzung aktualisiert wurde.">
+				>
+				["at0003"] = <
+					text = <"Kennung der Patientenreise">
+					description = <"Eine patientenspezifische Kennung, d. h. eindeutig für die Reise eines Patienten entlang eines bestimmten Behandlungspfads.">
+				>
+			>
+		>
+	>
