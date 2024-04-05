@@ -1,0 +1,433 @@
+archetype (adl_version=1.4; uid=bf6937ad-60bd-4e16-9709-adc785abf95e)
+	openEHR-EHR-CLUSTER.orthopaedic_procedure_details.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2021-01-26">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record orthopaedic surgical procedure details.">
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"ae00babfb9767ab890dec5ffc2c11873">
+		["build_uid"] = <"75ff541a-06d8-47cd-8b83-9ac01f2e6c43">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Orthopaedic Procedure details
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0017] occurrences matches {0..*} matches {    -- Guidance
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0051,    -- Computer guided surgery used
+							at0052,    -- Computer guided surgery not used
+							at0053,    -- Fluoroscopic guidance used
+							at0054]    -- Navigation guidance used
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Patient specific instrumentation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..*} matches {    -- Anaesthetic type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0039,    -- General
+							at0040,    -- Regional - Epidural
+							at0041,    -- Regional - Nerve Block
+							at0042,    -- Regional - Spinal (Intrathecal)
+							at0055]    -- Local Anaesthetic
+						}
+					}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Primary/Revision
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Approach
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0030,    -- Anterior
+							at0031,    -- Posterior
+							at0032,    -- Left
+							at0033,    -- Right
+							at0034,    -- Bilateral
+							at0048,    -- Anterolateral
+							at0049]    -- Lateral
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Method (Approach)
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0035,    -- Arthroscopic
+							at0036,    -- Open
+							at0037,    -- Combined
+							at0038]    -- Misc
+						}
+					}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Patient position
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Other details
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0043] occurrences matches {0..1} matches {    -- Operation funding
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0044,    -- NHS
+							at0045]    -- Independent
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0047] occurrences matches {0..*} matches {    -- Indication
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0026] occurrences matches {0..*} matches {    -- Specific procedure details
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Orthopaedic Procedure details">
+					description = <"Procedure details">
+				>
+				["at0001"] = <
+					text = <"Other details">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Method (Approach)">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Patient position">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Approach">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Primary/Revision">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Anaesthetic type">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Patient specific instrumentation">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Guidance">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Specific procedure details">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Anterior">
+					description = <"Anterior.">
+				>
+				["at0031"] = <
+					text = <"Posterior">
+					description = <"Posterior.">
+				>
+				["at0032"] = <
+					text = <"Left">
+					description = <"Left.">
+				>
+				["at0033"] = <
+					text = <"Right">
+					description = <"Right.">
+				>
+				["at0034"] = <
+					text = <"Bilateral">
+					description = <"Bilateral.">
+				>
+				["at0035"] = <
+					text = <"Arthroscopic">
+					description = <"Arthroscopic.">
+				>
+				["at0036"] = <
+					text = <"Open">
+					description = <"Open.">
+				>
+				["at0037"] = <
+					text = <"Combined">
+					description = <"Combined.">
+				>
+				["at0038"] = <
+					text = <"Misc">
+					description = <"Misc.">
+				>
+				["at0039"] = <
+					text = <"General">
+					description = <"General.">
+				>
+				["at0040"] = <
+					text = <"Regional - Epidural">
+					description = <"Regional - Epidural.">
+				>
+				["at0041"] = <
+					text = <"Regional - Nerve Block">
+					description = <"Regional - Nerve Block.">
+				>
+				["at0042"] = <
+					text = <"Regional - Spinal (Intrathecal)">
+					description = <"Regional - Spinal (Intrathecal).">
+				>
+				["at0043"] = <
+					text = <"Operation funding">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"NHS">
+					description = <"NHS.">
+				>
+				["at0045"] = <
+					text = <"Independent">
+					description = <"Independent.">
+				>
+				["at0047"] = <
+					text = <"Indication">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Anterolateral">
+					description = <"Anterolateral.">
+				>
+				["at0049"] = <
+					text = <"Lateral">
+					description = <"Lateral.">
+				>
+				["at0051"] = <
+					text = <"Computer guided surgery used">
+					description = <"Computer guided surgery used.">
+				>
+				["at0052"] = <
+					text = <"Computer guided surgery not used">
+					description = <"Computer guided surgery not used.">
+				>
+				["at0053"] = <
+					text = <"Fluoroscopic guidance used">
+					description = <"Fluoroscopic guidance used.">
+				>
+				["at0054"] = <
+					text = <"Navigation guidance used">
+					description = <"Navigation guidance used.">
+				>
+				["at0055"] = <
+					text = <"Local Anaesthetic">
+					description = <"Local Anaesthetic">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Details zum orthopädischen Eingriff">
+					description = <"Einzelheiten zum Verfahren">
+				>
+				["at0001"] = <
+					text = <"Weitere Details">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Methode (Ansatz)">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Patientenposition">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Ansatz">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Primär/Revision">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Anästhesietyp">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Patientenspezifische Instrumentierung">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Orientierungshilfe">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Spezifische Verfahrensdetails">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Anterior">
+					description = <"Anterior.">
+				>
+				["at0031"] = <
+					text = <"Posteriorer">
+					description = <"Posteriorer.">
+				>
+				["at0032"] = <
+					text = <"Links">
+					description = <"Links.">
+				>
+				["at0033"] = <
+					text = <"Rechts">
+					description = <"Rechts.">
+				>
+				["at0034"] = <
+					text = <"Bilateral">
+					description = <"Bilateral.">
+				>
+				["at0035"] = <
+					text = <"Arthroskopisch">
+					description = <"Arthroskopisch">
+				>
+				["at0036"] = <
+					text = <"Offen">
+					description = <"Offen">
+				>
+				["at0037"] = <
+					text = <"Kombiniert">
+					description = <"Kombiniert">
+				>
+				["at0038"] = <
+					text = <"Verschiedenes">
+					description = <"Verschiedenes">
+				>
+				["at0039"] = <
+					text = <"Allgemein">
+					description = <"Allgemein">
+				>
+				["at0040"] = <
+					text = <"Regional - Epidural">
+					description = <"Regional - Epidural">
+				>
+				["at0041"] = <
+					text = <"Regional – Nervenblockade">
+					description = <"Regional – Nervenblockade">
+				>
+				["at0042"] = <
+					text = <"Regional - Wirbelsäule (intrathekal)">
+					description = <"Regional - Wirbelsäule (intrathekal)">
+				>
+				["at0043"] = <
+					text = <"Betriebsfinanzierung">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Öffentlich">
+					description = <"Öffentlich">
+				>
+				["at0045"] = <
+					text = <"Unabhängig">
+					description = <"Unabhängig">
+				>
+				["at0047"] = <
+					text = <"Indikation">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Anterolateral">
+					description = <"Anterolateral.">
+				>
+				["at0049"] = <
+					text = <"Seitlich">
+					description = <"Seitlich.">
+				>
+				["at0051"] = <
+					text = <"Computergesteuerte Chirurgie eingesetzt.">
+					description = <"Computergesteuerte Chirurgie eingesetzt.">
+				>
+				["at0052"] = <
+					text = <"Computergesteuerte Chirurgie wird nicht verwendet">
+					description = <"Computergesteuerte Chirurgie wird nicht verwendet">
+				>
+				["at0053"] = <
+					text = <"Durchleuchtungsführung verwendet">
+					description = <"Durchleuchtungsführung verwendet">
+				>
+				["at0054"] = <
+					text = <"Navigationsführung verwendet">
+					description = <"Navigationsführung verwendet">
+				>
+				["at0055"] = <
+					text = <"Lokalanästhetikum">
+					description = <"Lokalanästhetikum">
+				>
+			>
+		>
+	>
