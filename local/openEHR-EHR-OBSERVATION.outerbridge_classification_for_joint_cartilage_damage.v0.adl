@@ -1,0 +1,157 @@
+archetype (adl_version=1.4; uid=1fb01cef-008b-4e96-aee9-b3a00e5de37d)
+	openEHR-EHR-OBSERVATION.outerbridge_classification_for_joint_cartilage_damage.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-03-16">
+		["name"] = <"Kanthan Theivendran">
+		["organisation"] = <"KLT Medical Ltd">
+		["email"] = <"kanthan79@gmail.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To assess and grade any joint during either arthroscopic or open surgery, the extent and severity of articular cartilage lesions/damage.">
+			keywords = <"arthritis, cartilage, chondral, damage, surgery", ...>
+			copyright = <"© While openEHR archetypes are all freely available under an open license, the specific content of this Outerbridge classification for joint cartilage damage archetype can be used freely as long as the original publication has been referenced. The authors of this Archetype are not aware of any licence/copyright linked to the Outerbridge classification for joint cartilage damage. Any use of this archetype within implementations must be in compliance with the terms established by the original publication referenced., Apperta Foundation">
+			use = <"During surgery to document and grade articular cartilage damage severity usually within the larger joints such as shoulder, hip and knee.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["references"] = <"OUTERBRIDGE RE. FURTHER STUDIES ON THE ETIOLOGY OF CHONDROMALACIA PATELLAE. J Bone Joint Surg Br. 1964 May;46:179-90. PMID: 14167619.
+
+Outerbridge RE, Dunlop JA. The problem of chondromalacia patellae. Clin Orthop Relat Res. 1975 Jul-Aug;(110):177-96.
+
+Slattery C, Kweon CY. Classifications in Brief: Outerbridge Classification of Chondral Lesions. Clin Orthop Relat Res. 2018 Oct;476(10):2101-2104.">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"d39a42a09ce4426ef6e669cab53fff10">
+		["build_uid"] = <"1ac25d79-e0e5-41fa-8300-450fa581c9fb">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Outerbridge classification for joint cartilage damage
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Point in time
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0013] occurrences matches {0..*} matches {    -- Outerbridge classification
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0012] occurrences matches {0..1} matches {    -- Location
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0004] occurrences matches {0..1} matches {    -- Joint Cartilage Damage
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0005,    -- Grade 0
+															at0006,    -- Grade I
+															at0007,    -- Grade II
+															at0008,    -- Grade III
+															at0009]    -- Grade IV
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Outerbridge classification for joint cartilage damage">
+					description = <"Based on direct visualisation of any joint, either arthroscopic or open, the Outerbridge classification system was developed to be a simple, easy-to-use, and reproducible grading system of articular cartilage lesions.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Point in time">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Joint Cartilage Damage">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Grade 0">
+					description = <"Normal">
+				>
+				["at0006"] = <
+					text = <"Grade I">
+					description = <"Cartilage with softening and swelling">
+				>
+				["at0007"] = <
+					text = <"Grade II">
+					description = <"Partial-thickness (<50% loss) defect with fissures on the surface that do not reach subchondral bone or exceed 1.3 cm in diameter">
+				>
+				["at0008"] = <
+					text = <"Grade III">
+					description = <"Fissuring to the level of subchondral bone (>50% thickness cartilage loss) in an area with a diameter more than 1.3 cm">
+				>
+				["at0009"] = <
+					text = <"Grade IV">
+					description = <"Exposed subchondral bone (Full cartliage thickness loss)">
+				>
+				["at0010"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models or formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0012"] = <
+					text = <"Location">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Outerbridge classification">
+					description = <"">
+				>
+			>
+		>
+	>
