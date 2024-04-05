@@ -1,0 +1,205 @@
+archetype (adl_version=1.4; uid=ad5f8af4-1428-43f9-80c0-e2cf27bf82c6)
+	openEHR-EHR-CLUSTER.thromboprophylaxis_summary_oo.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2022-04-26">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"2851a3ccb0f56b68186b69eba89f7173">
+		["build_uid"] = <"5eaa52e6-e72d-40f5-aa06-cc79197b699e">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Thromboprophylaxis summary
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Chemical (In Hospital)
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Aspirin
+							at0003,    -- LMWH
+							at0004,    -- Pentasaccharide (e.g. Fondaparinux)
+							at0005,    -- Warfarin
+							at0006,    -- Direct Thrombin Inhibitor (e.g Dabigatran)
+							at0007,    -- Factor Xa Inhibitor (e.g Rivaroxaban/Apixaban)
+							at0016]    -- None
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..*} matches {    -- Mechanical
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0017,    -- Foot Pump
+							at0018,    -- Intermittent Calf Compression
+							at0019,    -- TED Stockings
+							at0020]    -- None
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Thromboprophylaxis summary">
+					description = <"Thromboprophylaxis summary OO">
+				>
+				["at0001"] = <
+					text = <"Chemical (In Hospital)">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Aspirin">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"LMWH">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Pentasaccharide (e.g. Fondaparinux)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Warfarin">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Direct Thrombin Inhibitor (e.g Dabigatran)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Factor Xa Inhibitor (e.g Rivaroxaban/Apixaban)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Mechanical">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"None">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Foot Pump">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Intermittent Calf Compression">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"TED Stockings">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"None">
+					description = <"">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Zusammenfassung der Thromboprophylaxe">
+					description = <"*Thromboprophylaxis summary OO (en)">
+				>
+				["at0001"] = <
+					text = <"Chemisch (im Krankenhaus)">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Aspirin">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"LMWH">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Pentasaccharid (z. B. Fondaparinux)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Warfarin">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Direkter Thrombinhemmer (z. B. Dabigatran)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Faktor-Xa-Inhibitor (z. B. Rivaroxaban/Apixaban)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Mechanisch">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Keiner">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Fußpumpe">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Intermittierende Wadenkompression">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"TED-Strümpfe">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Keiner">
+					description = <"">
+				>
+			>
+		>
+	>
