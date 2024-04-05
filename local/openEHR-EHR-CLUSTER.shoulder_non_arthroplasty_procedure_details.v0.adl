@@ -1,0 +1,620 @@
+archetype (adl_version=1.4; uid=593eb63b-6518-439d-9cce-9af518286ae0)
+	openEHR-EHR-CLUSTER.shoulder_non_arthroplasty_procedure_details.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-03-23">
+		["name"] = <"Kanthan Theivendran">
+		["organisation"] = <"KLT Medical Ltd">
+		["email"] = <"kanthan79@gmail.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"14ff4ef95ee7a40228625afa329a5196">
+		["build_uid"] = <"361c042a-b117-428b-bd4d-f8d8d989fbc7">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Shoulder non arthroplasty procedure details
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0105] occurrences matches {0..*} matches {    -- Subacromial procedure
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0112] occurrences matches {0..1} matches {    -- Subacromial procedure
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0113,    -- Bursectomy
+									at0114,    -- Coracoacromial (CA) ligament release
+									at0115,    -- Acromioplasty
+									at0118]    -- Subacromial balloon spacer
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0139] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0001] occurrences matches {0..*} matches {    -- Rotator cuff repair
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Type of repair
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010,    -- Single row repair
+									at0011,    -- Double row repair
+									at0012,    -- Side to side repair
+									at0013,    -- Not repairable
+									at0014,    -- Partial Repair
+									at0100,    -- Augmented biological repair
+									at0101]    -- Superior capsular reconstruction
+								}
+							}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Number of anchors
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"1">
+										magnitude = <|0.0..10.0|>
+									>
+								>
+							>
+						}
+					}
+					allow_archetype CLUSTER[at0140] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0141] occurrences matches {0..*} matches {    -- ACJ procedure
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0058] occurrences matches {0..1} matches {    -- ACJ procedure
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0059,    -- ACJ Excision
+									at0060,    -- ACJ Coplaning
+									at0138]    -- ACJ Stabilisation
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0142] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0022] occurrences matches {0..*} matches {    -- Labral repair
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0024] occurrences matches {0..1} matches {    -- Repair technique
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0025,    -- Not repairable
+									at0026,    -- Single suture
+									at0027,    -- Mattress suture
+									at0135]    -- Capsulo labral repair
+								}
+							}
+						}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {    -- Number of anchors
+						value matches {
+							DV_QUANTITY matches {*}
+						}
+					}
+					ELEMENT[at0029] occurrences matches {0..*} matches {    -- Position of Anchor
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0030,    -- 3 O'Clock
+									at0031,    -- 4 O'Clock
+									at0032,    -- 5 O'Clock
+									at0033]    -- 6 O'Clock
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0143] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0144] occurrences matches {0..*} matches {    -- Long head of biceps (LHB) procedure
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0124] occurrences matches {0..1} matches {    -- Long head of biceps (LHB) procedure
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0125,    -- Debridement
+									at0126,    -- Tenotomy
+									at0127]    -- Tenodesis
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0145] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0146] occurrences matches {0..*} matches {    -- Glenoid bone block procedure
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0131] occurrences matches {0..1} matches {    -- Glenoid bone block procedure
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0132,    -- Latarjet
+									at0133,    -- Anterior bone block
+									at0134]    -- Posterior bone block
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0147] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0148] occurrences matches {0..*} matches {    -- Remplissage
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0063] occurrences matches {0..1} matches {    -- Remplissage
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0064,    -- Performed
+									at0065]    -- Not performed
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0149] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0150] occurrences matches {0..*} matches {    -- Chondroplasty
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0086] occurrences matches {0..1} matches {    -- Chondroplasty
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0087,    -- Glenoid
+									at0088]    -- Humeral head
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0151] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0152] occurrences matches {0..*} matches {    -- Microfracture
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0119] occurrences matches {0..1} matches {    -- Microfracture
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0120,    -- Glenoid
+									at0121]    -- Humeral head
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0153] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0154] occurrences matches {0..*} matches {    -- Other procedure
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0076] occurrences matches {0..1} matches {    -- Other procedure
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0077,    -- Removal of loose body
+									at0078,    -- Osteophyte excision
+									at0079,    -- Glenohumeral Joint debridement
+									at0080,    -- Axillary nerve neurolysis
+									at0082,    -- Rotator interval release
+									at0083,    -- Capsular release
+									at0084,    -- Capsulorrhaphy
+									at0122,    -- Capsular plication
+									at0123]    -- Capsular shrinkage
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0155] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+			CLUSTER[at0157] occurrences matches {0..1} matches {    -- Procedure narrative
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0137] occurrences matches {0..1} matches {    -- Procedure narrative
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0156] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Shoulder non arthroplasty procedure details">
+					description = <"Shoulder non arthroplasty procedure details">
+				>
+				["at0001"] = <
+					text = <"Rotator cuff repair">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Type of repair">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Single row repair">
+					description = <"Single row repair">
+				>
+				["at0011"] = <
+					text = <"Double row repair">
+					description = <"Double row repair">
+				>
+				["at0012"] = <
+					text = <"Side to side repair">
+					description = <"Side to side repair">
+				>
+				["at0013"] = <
+					text = <"Not repairable">
+					description = <"Not repairable">
+				>
+				["at0014"] = <
+					text = <"Partial Repair">
+					description = <"Partial repair">
+				>
+				["at0017"] = <
+					text = <"Number of anchors">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Labral repair">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Repair technique">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Not repairable">
+					description = <"Not repairable">
+				>
+				["at0026"] = <
+					text = <"Single suture">
+					description = <"Single suture">
+				>
+				["at0027"] = <
+					text = <"Mattress suture">
+					description = <"Mattress suture">
+				>
+				["at0028"] = <
+					text = <"Number of anchors">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Position of Anchor">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"3 O'Clock">
+					description = <"3 O'Clock">
+				>
+				["at0031"] = <
+					text = <"4 O'Clock">
+					description = <"4 O'Clock">
+				>
+				["at0032"] = <
+					text = <"5 O'Clock">
+					description = <"5 O'Clock">
+				>
+				["at0033"] = <
+					text = <"6 O'Clock">
+					description = <"6 O'Clock">
+				>
+				["at0058"] = <
+					text = <"ACJ procedure">
+					description = <"">
+				>
+				["at0059"] = <
+					text = <"ACJ Excision">
+					description = <"ACJ Excision">
+				>
+				["at0060"] = <
+					text = <"ACJ Coplaning">
+					description = <"ACJ Coplaning">
+				>
+				["at0063"] = <
+					text = <"Remplissage">
+					description = <"">
+				>
+				["at0064"] = <
+					text = <"Performed">
+					description = <"Performed">
+				>
+				["at0065"] = <
+					text = <"Not performed">
+					description = <"Not performed">
+				>
+				["at0076"] = <
+					text = <"Other procedure">
+					description = <"">
+				>
+				["at0077"] = <
+					text = <"Removal of loose body">
+					description = <"Removal of loose body">
+				>
+				["at0078"] = <
+					text = <"Osteophyte excision">
+					description = <"Osteophyte excision">
+				>
+				["at0079"] = <
+					text = <"Glenohumeral Joint debridement">
+					description = <"Glenohumeral Joint debridement">
+				>
+				["at0080"] = <
+					text = <"Axillary nerve neurolysis">
+					description = <"Axillary nerve neurolysis">
+				>
+				["at0082"] = <
+					text = <"Rotator interval release">
+					description = <"Rotator interval release">
+				>
+				["at0083"] = <
+					text = <"Capsular release">
+					description = <"Capsular release">
+				>
+				["at0084"] = <
+					text = <"Capsulorrhaphy">
+					description = <"Capsulorrhaphy">
+				>
+				["at0086"] = <
+					text = <"Chondroplasty">
+					description = <"">
+				>
+				["at0087"] = <
+					text = <"Glenoid">
+					description = <"Glenoid">
+				>
+				["at0088"] = <
+					text = <"Humeral head">
+					description = <"Humeral head">
+				>
+				["at0100"] = <
+					text = <"Augmented biological repair">
+					description = <"Augmented biological repair">
+				>
+				["at0101"] = <
+					text = <"Superior capsular reconstruction">
+					description = <"Superior capsular reconstruction">
+				>
+				["at0105"] = <
+					text = <"Subacromial procedure">
+					description = <"">
+				>
+				["at0113"] = <
+					text = <"Bursectomy">
+					description = <"Bursectomy">
+				>
+				["at0114"] = <
+					text = <"Coracoacromial (CA) ligament release">
+					description = <"Coracoacromial (CA) ligament release">
+				>
+				["at0115"] = <
+					text = <"Acromioplasty">
+					description = <"Acromioplasty">
+				>
+				["at0112"] = <
+					text = <"Subacromial procedure">
+					description = <"">
+				>
+				["at0118"] = <
+					text = <"Subacromial balloon spacer">
+					description = <"Subacromial balloon spacer">
+				>
+				["at0119"] = <
+					text = <"Microfracture">
+					description = <"">
+				>
+				["at0120"] = <
+					text = <"Glenoid">
+					description = <"Glenoid">
+				>
+				["at0121"] = <
+					text = <"Humeral head">
+					description = <"Humeral head">
+				>
+				["at0122"] = <
+					text = <"Capsular plication">
+					description = <"Capsular plication">
+				>
+				["at0123"] = <
+					text = <"Capsular shrinkage">
+					description = <"Capsular shrinkage">
+				>
+				["at0124"] = <
+					text = <"Long head of biceps (LHB) procedure">
+					description = <"">
+				>
+				["at0125"] = <
+					text = <"Debridement">
+					description = <"Debridement">
+				>
+				["at0126"] = <
+					text = <"Tenotomy">
+					description = <"Tenotomy">
+				>
+				["at0127"] = <
+					text = <"Tenodesis">
+					description = <"Tenodesis">
+				>
+				["at0131"] = <
+					text = <"Glenoid bone block procedure">
+					description = <"">
+				>
+				["at0132"] = <
+					text = <"Latarjet">
+					description = <"Latarjet">
+				>
+				["at0133"] = <
+					text = <"Anterior bone block">
+					description = <"Anterior bone block">
+				>
+				["at0134"] = <
+					text = <"Posterior bone block">
+					description = <"Posterior bone block">
+				>
+				["at0135"] = <
+					text = <"Capsulo labral repair">
+					description = <"Capsulo labral repair">
+				>
+				["at0137"] = <
+					text = <"Procedure narrative">
+					description = <"">
+				>
+				["at0138"] = <
+					text = <"ACJ Stabilisation">
+					description = <"ACJ Stabilisation">
+				>
+				["at0139"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0140"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0141"] = <
+					text = <"ACJ procedure">
+					description = <"">
+				>
+				["at0142"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0143"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0144"] = <
+					text = <"Long head of biceps (LHB) procedure">
+					description = <"">
+				>
+				["at0145"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0146"] = <
+					text = <"Glenoid bone block procedure">
+					description = <"">
+				>
+				["at0147"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0148"] = <
+					text = <"Remplissage">
+					description = <"">
+				>
+				["at0149"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0150"] = <
+					text = <"Chondroplasty">
+					description = <"">
+				>
+				["at0151"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0152"] = <
+					text = <"Microfracture">
+					description = <"">
+				>
+				["at0153"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0154"] = <
+					text = <"Other procedure">
+					description = <"">
+				>
+				["at0155"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0156"] = <
+					text = <"Device">
+					description = <"">
+				>
+				["at0157"] = <
+					text = <"Procedure narrative">
+					description = <"">
+				>
+			>
+		>
+	>
