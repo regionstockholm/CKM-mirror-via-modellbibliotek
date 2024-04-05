@@ -1,19 +1,36 @@
-﻿archetype (adl_version=1.4; uid=d1fdc700-d729-49f4-88bf-74559c51cf65)
+archetype (adl_version=1.4; uid=d1fdc700-d729-49f4-88bf-74559c51cf65)
 	openEHR-EHR-OBSERVATION.fluid_output-blood.v0
-specialise
+specialize
 	openEHR-EHR-OBSERVATION.fluid_output.v1
 
 concept
-	[at0000.1]	-- Blood loss
+	[at0000.1]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Natalia Strauch">
+				["organisation"] = <"Medizinische Hochschule Hannover">
+				["email"] = <"Strauch.Natalia@mh-hannover.de">
+			>
+		>
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			author = <
 				["name"] = <"Kirsi Poikela">
 				["organisation"] = <"Tieto Sweden AB">
 				["email"] = <"ext.kirsi.poikela@tieto.com">
+			>
+		>
+		["fi"] = <
+			language = <[ISO_639-1::fi]>
+			author = <
+				["name"] = <"Vesa Peltola">
+				["organisation"] = <"Tieto Finland">
+				["email"] = <"vesa.peltola@tieto.com">
 			>
 		>
 		["nb"] = <
@@ -40,17 +57,59 @@ language
 			>
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2019-11-11">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics, Australia">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2019-11-11">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Tomas Alme, DIPS, Norway","Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","Marcus Baw, openGPSoC / BawMedical Ltd, United Kingdom","Ingeborg Berge, Direktoratet for e-helse, Norway","Kristian Berg, Vestvågøy kommune - Fagutviklingsavdelingen, Norway","SB Bhattacharyya, Sudisa Consultancy Services, India","Bjørn Christensen, Helse Bergen HF, Norway","Stephen Chu, NEHTA, Australia","Stig Erik Hegrestad, Helse Førde, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom","Mikkel Gaup Grønmo, FSE, Helse Nord, Norway","Christian Ghan, The Chris O'Brien Lifehouse at RPA, Australia","Heather Grain, Llewelyn Grain Informatics, Australia","Cecilie Graver, Oslo universitetssykehus HF, Norway","Sam Heard, Ocean Informatics, Australia (Editor)","Ingrid Heitmann, Oslo universitetssykehus HF, Norway","Annette Hole Sjøborg, DIPS ASA, Norway","Hilde Hollås, DIPS ASA, Norway","Oliver Hosking, Remote Health NT, Australia","Evelyn Hovenga, EJSH Consulting, Australia","Lars Ivar Mehlum, Helse Bergen HF, Norway","Tom Jarl Jakobsen, Helse Bergen, Norway","Lars Morgan Karlsen, DIPS ASA, Norway","Harmony Kosola, Alberta Health Services, Canada","Anne Kristin Strand, Sykehuspartner HF, Norway","Heather Leslie, Atomica Informatics, Australia","Pedro Leuschner, Centro Hospitalar do Porto, Portugal","Marit Ludvigsen, St Olavs Hospital, Norway","Hallvard Lærum, Direktoratet for e-helse, Norway","Siv Marie Lien, DIPS ASA, Norway","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom","Andrej Orel, Marand d.o.o., Slovenia","Anne Pauline Anderssen, Helse Nord RHF, Norway","Vladimir Pizzo, Hospital Sírio Libanês, Brazil","Navin Ramachandran, NHS, United Kingdom","Tanja Riise, Nasjonal IKT HF, Norway","Fabian Schwarz, NT Health, Australia","Anoop Shah, University College London, United Kingdom","Gary Sinclair, NT DoH, Australia","Iztok Stotl, UKCLJ, Slovenia","Roy Støle, OUS, Norway","Norwegian Review Summary, Nasjonal IKT HF, Norway","Nyree Taylor, Ocean Informatics, Australia","Tesfay Teame, Folkehelseinstittutet, Norway","Rowan Thomas, St. Vincent's Hospital Melbourne, Australia","Stian Torleif Varpe, Helse Bergen, Norway","Gro-Hilde Ulriksen, Norwegian center for ehealthresearch, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
 	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Darstellung von Informationen über die gemessene Flüssigkeit, die über einen beliebigen Mechanismus verloren geht oder ausgeschieden wird.">
+			keywords = <"Flüssigkeit","Gleichgewicht","Haushalt","Abgabe","Urin","erbrechen","ablassen","Drainage","absaugen","Exsudat","Verlust">
+			use = <"Verwenden Sie diesen Archetyp, um Details zu gemessenen Flüssigkeiten darzustellen, die über einen beliebigen Mechanismus verloren gehen oder ausgeschieden werden.
+
+Dieser Archetyp wird verwendet, um Details über Folgendes darzustellen:
+- jede einzelne Messung des Flüssigkeitsabgangs, zum Beispiel die Menge des Erbrochenen; oder
+- die gesamte Flüssigkeitsabgabe aus einer einzigen Quelle über einen bestimmten Zeitraum, beispielsweise die gesamte Urinausscheidung über eine 8-stündige Schicht.
+
+Jede Flüssigkeitsmessung sollte mit einer separaten Instanz dieses Archetyps aufgezeichnet werden.
+
+Die Details, die unter Verwendung dieses Archetyps für die Flüssigkeitsabgabe aufgezeichnet werden, können die Berechnung des Flüssigkeitshaushalts beeinflussen.
+
+Ein Diagramm über den Flüssigkeitshaushalt erfordert normalerweise eine Kombination aus mehreren Instanzen dieses Archetyps und mehreren Instanzen des Archetyps OBSERVATION.fluid_input, um alle verschiedenen Ein- und Ausgänge zu erfassen, sowie eine einzelne Instanz des OBSERVATION.fluid_balance, um den gesamten Flüssigkeitsstatus darzustellen.">
+			misuse = <"Nicht zur Darstellung der Flüssigkeitszufuhr verwenden. Verwenden Sie zu diesem Zweck OBSERVATION.fluid_input.
+
+Nicht zur Darstellung von Berechnungen des Flüssigkeitshaushalts oder zur Darstellung des unmerklichen Flüssigkeitsverlusts verwenden. Verwenden Sie zu diesem Zweck OBSERVATION.fluid_balance.">
+		>
+		["fi"] = <
+			language = <[ISO_639-1::fi]>
+			purpose = <"*To record details about measured fluids lost or excreted via any mechanism.(en)">
+			keywords = <"*fluid(en)","*balance(en)","*output(en)","*urine(en)","*vomit(en)","*drain(en)","*drainage(en)","*aspirate(en)","*exudate(en)","*loss(en)">
+			use = <"*Use to record details about measured fluids lost or excreted via any mechanism.
+
+This archetype will be used to record details about:
+- each single fluid output measurement, for example the volume of each vomit; or
+- the total fluid output from a single source over a specified period of time, for example the total urine output over an 8 hour nursing shift.
+
+Each fluid measurement should be recorded using a separate instance of this archetype.
+
+The details recorded using this fluid output archetype may inform fluid balance calculations. 
+
+A fluid balance chart will typically require a combination of multiple instances of this archetype and multiple instances of OBSERVATION.fluid_input archetype to capture all of the various inputs and outputs, plus a single instance of the OBSERVATION.fluid_balance to record the overall fluid status.(en)">
+			misuse = <"*Not to be used to record fluid input. Use OBSERVATION.fluid_input for this purpose.
+
+Not to be used to record fluid balance calculations or to record the calculation of insensible fluid loss. Use OBSERVATION.fluid_balance for this purpose.(en)">
+		>
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			purpose = <"Att registrera information om uppmätt vätska som förloras eller utsöndras via någon mekanism.">
+			keywords = <"vätska","balans","utsöndring","urin","kräkning","drän","dränageåtgärd","aspiration","exsudat","förlust">
 			use = <"Används för att registrera information om uppmätt vätska som förloras eller utsöndras via någon mekanism.
 
 Används för att registrera information om:
@@ -64,7 +123,6 @@ De uppgifter som registreras kan vidarebefordras till vätskebalans-beräkningar
 
 Ett vätskebalansdiagram kräver vanligtvis en kombination av flera registreringar av denna arketyp samt flera av OBSERVATION.fluid_input-arketypen för att fånga alla olika intagen och utsöndringar samt en registrering av OBSERVATION.fluid_balance för den totala vätskestatusen.
 ">
-			keywords = <"vätska", "balans", "utsöndring", "urin", "kräkning", "drän", "dränageåtgärd", "aspiration", "exsudat", "förlust">
 			misuse = <"Ska inte användas för att registrera vätskeintaget. Använd OBSERVATION.fluid_input för det ändamålet.
 
 Ska inte användas för vätskebalans-beräkningar eller för beräkningar av *perspiratio insensibilis*. Använd observation. fluid_balance för det ändamålet.
@@ -75,6 +133,7 @@ Ska inte användas för vätskebalans-beräkningar eller för beräkningar av *p
 		["es-ar"] = <
 			language = <[ISO_639-1::es-ar]>
 			purpose = <"Registro de detalles acerca de la medición de fluidos perdidos o excretados por cualquier vía.">
+			keywords = <"fluido","balance","egreso","orina","vómito","drenaje","drenado","aspirado","exudado","pérdida">
 			use = <"Utilizado para el registro de detalles acerca de la medición de fluidos perdidos o excretados por cualquier vía.
 
 Este arquetipo será utilizado para el registro de detalles acerca de:
@@ -86,7 +145,6 @@ Cada medición de fluido debe ser registrada utilizando una instancia separada d
 Los detalles registrados utilizando este arquetipo pueden proveer información para el cálculo de balances de fluidos.
 
 Una gráfica de balance de fluidos típicamente requerirá una combinación de múltiples instancias del arquetipo OBSERVATION.fluid_input para capturar los diversos ingresos y egresos, sumando a un instancia única de OBSERVATION.fluid_balance para el registro del estado general de los fluidos.">
-			keywords = <"fluido", "balance", "egreso", "orina", "vómito", "drenaje", "drenado", "aspirado", "exudado", "pérdida">
 			misuse = <"No debe utilizarse para el registro de ingreso de fluidos. Para dicho propósito debe utilizarse OBSERVATION.fluid_input .
 
 No debe utilizarse para registrar el balance de fluidos calculado o de las pérdidas insensibles de fluido. Utilizar OBSERVATION.fluid_balance para dicho propósito.">
@@ -94,6 +152,7 @@ No debe utilizarse para registrar el balance de fluidos calculado o de las pérd
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere detaljer om målt væsketap, uansett mekanisme.">
+			keywords = <"væske","inn/ut","væskebalanse","væsketap","urin","oppkast","drensvæske","aspirat","eksudat","tap","transpirasjon","svette","avføring","sårvæske">
 			use = <"Brukes for å registrere detaljer om målt væsketap, uavhengig av mekanisme.
 
 Denne arketypen skal brukes for å registrere detaljer om:
@@ -105,7 +164,6 @@ De registrerte detaljene i denne væsketap-arketypen kan overføres til et skjem
 For hver enkelt måling man registrerer bør man bruke en separat instans av denne arketypen. 
 
 Et skjema for væskebalanse vil vanligvis bestå av en kombinasjon av flere instanser av både OBSERVATION.fluid_input (Norsk: Væskeinntak) og OBSERVATION.fluid_output (Norsk: Væsketap) for å fange opp alt av inntak og væsketap, pluss en enkelt instans av OBSERVATION.fluid_balance for å registrere den overordnede væskebalansen.">
-			keywords = <"væske", "inn/ut", "væskebalanse", "væsketap", "urin", "oppkast", "drensvæske", "aspirat", "eksudat", "tap", "transpirasjon", "svette", "avføring", "sårvæske">
 			misuse = <"Skal ikke brukes for å registrere væskeinntak. Bruk OBSERVATION.fluid_input (Væskeinntak) til dette. 
 
 Skal ikke brukes for å registrere væskebalanse, eller utregning av perspiratio. Bruk OBSERVATION.fluid_balance (Væskebalanse) til dette.">
@@ -113,6 +171,8 @@ Skal ikke brukes for å registrere væskebalanse, eller utregning av perspiratio
 		["sl"] = <
 			language = <[ISO_639-1::sl]>
 			purpose = <"*To record details of fluid input, often used as part of fluid balance estimation.(en)">
+			keywords = <"*fluid(en)","*fluid balance(en)","*input output(en)","*io(en)","*input(en)">
+			copyright = <"© Australian Digital Health Agency, openEHR Foundation, Nasjonal IKT HF">
 			use = <"*Use to record details of fluid input as part of routine nursing care.
 
 Use to record details of individual fluid input activities, in order to allow fluid balance estimations. For example: \"Oral\", \"Cup of Tea\", 220ml; or 1 litre Normal Saline infusion.
@@ -120,13 +180,13 @@ Use to record details of individual fluid input activities, in order to allow fl
 May also be used to record descriptive assessments of input.
 
 (en)">
-			keywords = <"*fluid(en)", "*fluid balance(en)", "*input output(en)", "*io(en)", "*input(en)">
 			misuse = <"*Do not use as a primary record of the administration of fluids e.g intravascular, dialyisis. May be used alongside administration recrods ,normally an ACTION.(en)">
-			copyright = <"© Australian Digital Health Agency, openEHR Foundation, Nasjonal IKT HF">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record details about measured blood loss loss via any mechanism.">
+			keywords = <"fluid","balance","output","drain","drainage","bleeding","exsanguination","hypovolaemia">
+			copyright = <"© Australian Digital Health Agency, openEHR Foundation, Nasjonal IKT HF">
 			use = <"Use to record details about measured fluids lost or excreted via any mechanism.
 
 This archetype will be used to record details about:
@@ -138,15 +198,11 @@ Each fluid measurement should be recorded using a separate instance of this arch
 Each separate source of blood loss may be recorded using a separate instance of this archetype.
 
 The details recorded using this blood loss archetype may inform fluid balance calculations.">
-			keywords = <"fluid", "balance", "output", "drain", "drainage", "bleeding", "exsanguination", "hypovolaemia">
 			misuse = <"Not to be used to record fluid input. Use OBSERVATION.fluid_input for this purpose.
 
 Not to be used to record fluid balance calculations or to record the calculation of insensible fluid loss. Use OBSERVATION.fluid_balance for this purpose.">
-			copyright = <"© Australian Digital Health Agency, openEHR Foundation, Nasjonal IKT HF">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Tomas Alme, DIPS, Norway", "Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Marcus Baw, openGPSoC / BawMedical Ltd, United Kingdom", "Ingeborg Berge, Direktoratet for e-helse, Norway", "Kristian Berg, Vestvågøy kommune - Fagutviklingsavdelingen, Norway", "SB Bhattacharyya, Sudisa Consultancy Services, India", "Bjørn Christensen, Helse Bergen HF, Norway", "Stephen Chu, NEHTA, Australia", "Stig Erik Hegrestad, Helse Førde, Norway", "Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom", "Mikkel Gaup Grønmo, FSE, Helse Nord, Norway", "Christian Ghan, The Chris O'Brien Lifehouse at RPA, Australia", "Heather Grain, Llewelyn Grain Informatics, Australia", "Cecilie Graver, Oslo universitetssykehus HF, Norway", "Sam Heard, Ocean Informatics, Australia (Editor)", "Ingrid Heitmann, Oslo universitetssykehus HF, Norway", "Annette Hole Sjøborg, DIPS ASA, Norway", "Hilde Hollås, DIPS ASA, Norway", "Oliver Hosking, Remote Health NT, Australia", "Evelyn Hovenga, EJSH Consulting, Australia", "Lars Ivar Mehlum, Helse Bergen HF, Norway", "Tom Jarl Jakobsen, Helse Bergen, Norway", "Lars Morgan Karlsen, DIPS ASA, Norway", "Harmony Kosola, Alberta Health Services, Canada", "Anne Kristin Strand, Sykehuspartner HF, Norway", "Heather Leslie, Atomica Informatics, Australia", "Pedro Leuschner, Centro Hospitalar do Porto, Portugal", "Marit Ludvigsen, St Olavs Hospital, Norway", "Hallvard Lærum, Direktoratet for e-helse, Norway", "Siv Marie Lien, DIPS ASA, Norway", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom", "Andrej Orel, Marand d.o.o., Slovenia", "Anne Pauline Anderssen, Helse Nord RHF, Norway", "Vladimir Pizzo, Hospital Sírio Libanês, Brazil", "Navin Ramachandran, NHS, United Kingdom", "Tanja Riise, Nasjonal IKT HF, Norway", "Fabian Schwarz, NT Health, Australia", "Anoop Shah, University College London, United Kingdom", "Gary Sinclair, NT DoH, Australia", "Iztok Stotl, UKCLJ, Slovenia", "Roy Støle, OUS, Norway", "Norwegian Review Summary, Nasjonal IKT HF, Norway", "Nyree Taylor, Ocean Informatics, Australia", "Tesfay Teame, Folkehelseinstittutet, Norway", "Rowan Thomas, St. Vincent's Hospital Melbourne, Australia", "Stian Torleif Varpe, Helse Bergen, Norway", "Gro-Hilde Ulriksen, Norwegian center for ehealthresearch, Norway", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -155,7 +211,7 @@ Not to be used to record fluid balance calculations or to record the calculation
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0F684951213ADBA2EAB0423C8F80C30D">
+		["MD5-CAM-1.0.1"] = <"ac46fdc1d2d89a13f7172a9e114ea261">
 		["build_uid"] = <"ca41a4da-e6be-4415-8a88-926751403eba">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -266,7 +322,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -769,6 +824,207 @@ ontology
 					description = <"Källan från vilken vätskan försvinner eller utsöndras. 
 ">
 					comment = <"Exempelvis: dränrör, urinkateter eller *nasofaryngeal-rör*. I klinisk tillämpning, om samma typ av vätska observeras från två eller flera källor såsom flera dränage från samma sår, kan källan beskrivas som \"Dränrör 1\" och \"Dranrör 2\". Kodning av källa med en terminologi föredras där det är möjligt.">
+				>
+			>
+		>
+		["fi"] = <
+			items = <
+				["at0000.1"] = <
+					text = <"Nesteiden menetys">
+					description = <"Kehon millä tahansa tavalla menettämien tai erittämien nesteiden mittaaminen.">
+				>
+				["at0036.1"] = <
+					text = <"Nesteen nimi">
+					description = <"Menetetyn tai eritetyn nesteen nimi.">
+					comment = <"For example: urine or vomit. Coding of fluid name with a terminology is preferred, if possible.">
+				>
+				["at0.1"] = <
+					text = <"Blood">
+					description = <"Fluid loss from the body as a result of bleeding.">
+				>
+				["at0.2"] = <
+					text = <"Blood clots?">
+					description = <"Description the presence or absence of blood clots.">
+				>
+				["at0.3"] = <
+					text = <"Present">
+					description = <"Blood clots were present.">
+				>
+				["at0.4"] = <
+					text = <"Absent">
+					description = <"Blood clots were not present.">
+				>
+				["at0000"] = <
+					text = <"Nesteiden menetys">
+					description = <"Kehon millä tahansa tavalla menettämien tai erittämien nesteiden mittaaminen.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Mikä tahansa tapahtuma">
+					description = <"Oletusarvoinen, määrittämättömänä ajanhetkenä tai ajanjaksolla ilmenevä tapahtuma, joka voi olla määritetty tarkasti jossakin mallissa tai suorituksen aikana.">
+				>
+				["at0003"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0018"] = <
+					text = <"Arvio">
+					description = <"Nesteiden tilavuus on arvioitu.">
+				>
+				["at0019"] = <
+					text = <"Mitattu">
+					description = <"Nesteiden tilavuus on mitattu suoraan.">
+				>
+				["at0028"] = <
+					text = <"Mittalaite">
+					description = <"Nesteiden menetyksen mittaamiseen käytettävän laitteen tiedot.">
+					comment = <"For example: Urinary drainage bag.">
+				>
+				["at0031"] = <
+					text = <"Menetelmä">
+					description = <"Nesteen tilavuuden mittaamiseen käytettävä menetelmä.">
+				>
+				["at0032"] = <
+					text = <"Kommentti">
+					description = <"Nesteiden menetykseen liittyvät kertomusmuodossa olevat lisätiedot, joita ei voida ilmoittaa muissa kentissä.">
+				>
+				["at0033"] = <
+					text = <"Erityksen keruulaite">
+					description = <"Tiedot nesteen keräämiseen käytetystä laitteesta.">
+					comment = <"For example: a urinary catheter or a drain tube.">
+				>
+				["at0035"] = <
+					text = <"Tilavuus">
+					description = <"Nesteen tilavuus.">
+					comment = <"If absorbant material, such as diapers and dressings, are weighed as part of managing fluid loss estimates, the weight will need to be converted to a volume for recording.">
+				>
+				["at0036"] = <
+					text = <"Nesteen nimi">
+					description = <"Menetetyn tai eritetyn nesteen nimi.">
+					comment = <"For example: urine or vomit. Coding of fluid name with a terminology is preferred, if possible.">
+				>
+				["at0038"] = <
+					text = <"Nesteen lisätiedot">
+					description = <"Lisätietoja nesteestä, mukaan lukien paljaalla silmällä näkyvä ulkoasu tai muita kokeita, joita ei tällä hetkellä voida kirjata rakenteisiin tietoihin.">
+					comment = <"For example: the colour of the urine.
+">
+				>
+				["at0040"] = <
+					text = <"Laajennus">
+					description = <"Lisätiedot, joita tarvitaan paikallisen sisällön kirjaamiseksi tai yhtenäistämiseksi muiden viitemallien tai formalismien kanssa.">
+					comment = <"e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+				["at0041"] = <
+					text = <"Lähde">
+					description = <"Lähde, josta neste menetetään tai eritetään.">
+					comment = <"For example: drain tube; urinary catheter or nasopharyngal tube. In a clinical application, if the same type of fluid is being observed from two or more sources such as multiple drains from the same wound, the source may be described as “Drain tube 1” and “Drain tube 2”. Coding of the source with a terminology is preferred, where possible.">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000.1"] = <
+					text = <"Flüssigkeitsausscheidung">
+					description = <"Die Messung von Flüssigkeit, die über einen beliebigen Mechanismus aus dem Körper verloren geht oder ausgeschieden wird.">
+				>
+				["at0036.1"] = <
+					text = <"Bezeichnung der Flüssigkeit">
+					description = <"Identifizierung der verlorenen oder ausgeschiedenen Flüssigkeit.">
+					comment = <"Zum Beispiel: Urin oder Erbrechen. Wenn möglich, wird die Codierung des Flüssigkeitsnamens mit einer Terminologie bevorzugt.">
+				>
+				["at0.1"] = <
+					text = <"Blood">
+					description = <"Fluid loss from the body as a result of bleeding.">
+				>
+				["at0.2"] = <
+					text = <"Blutgerinnsel?">
+					description = <"Beschreiben Sie das Vorhandensein oder Fehlen von Blutgerinnseln.">
+				>
+				["at0.3"] = <
+					text = <"Gegenwärtig">
+					description = <"Es waren Blutgerinnsel vorhanden.">
+				>
+				["at0.4"] = <
+					text = <"Abwesend">
+					description = <"Blutgerinnsel waren nicht vorhanden.">
+				>
+				["at0000"] = <
+					text = <"Flüssigkeitsausscheidung">
+					description = <"Die Messung von Flüssigkeit, die über einen beliebigen Mechanismus aus dem Körper verloren geht oder ausgeschieden wird.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Beliebiges Ereignis">
+					description = <"Standardwert, ein undefinierter/s Zeitpunkt oder Intervallereignis, das explizit im Template oder zur Laufzeit der Anwendung definiert werden kann.">
+				>
+				["at0003"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0018"] = <
+					text = <"Geschätzt">
+					description = <"Die Flüssigkeitsmenge wurde geschätzt.">
+				>
+				["at0019"] = <
+					text = <"Gemessen">
+					description = <"Die Flüssigkeitsmenge wurde direkt gemessen.">
+				>
+				["at0028"] = <
+					text = <"Messgerät">
+					description = <"Details des Geräts zur Messung des Flüssigkeitsabgangs.">
+					comment = <"Zum Beispiel: Harnableitungsbeutel.">
+				>
+				["at0031"] = <
+					text = <"Methode">
+					description = <"Die angewendete Vorgehensweise zur Quantifizierung der Flüssigkeitsmenge.">
+				>
+				["at0032"] = <
+					text = <"Kommentar">
+					description = <"Zusätzliche Informationen über die Flüssigkeit, die nicht in anderen Bereichen dargestellt wurden.">
+				>
+				["at0033"] = <
+					text = <"Ablaufvorrichtung">
+					description = <"Details der Vorrichtung, mit der die Flüssigkeit gesammelt wurde.">
+					comment = <"Zum Beispiel: ein Harnkatheter oder eine Kanüle.">
+				>
+				["at0035"] = <
+					text = <"Menge">
+					description = <"Die Menge der Flüssigkeit.">
+					comment = <"Wenn absorbierendes Material wie Windeln und Verbände im Rahmen des Managements der Schätzungen des Flüssigkeitsverlusts gewogen werden, muss zur Erfassung das Gewicht in die Menge umgerechnet werden.">
+				>
+				["at0036"] = <
+					text = <"Bezeichnung der Flüssigkeit">
+					description = <"Identifizierung der verlorenen oder ausgeschiedenen Flüssigkeit.">
+					comment = <"Zum Beispiel: Urin oder Erbrechen. Wenn möglich, wird die Codierung des Flüssigkeitsnamens mit einer Terminologie bevorzugt.">
+				>
+				["at0038"] = <
+					text = <"Flüssigkeitsdetails">
+					description = <"Zusätzliche detaillierte Angaben zur Flüssigkeit, einschließlich des makroskopischen Erscheinungsbilds oder anderer Prüfungen, die derzeit nicht in den strukturierten Daten erfasst sind.">
+					comment = <"Zum Beispiel: die Farbe des Urins.">
+				>
+				["at0040"] = <
+					text = <"Erweiterung">
+					description = <"Zusätzliche Informationen zur Erfassung lokaler Inhalte oder Anpassung an andere Referenzmodelle/Formalismen.">
+					comment = <"Zum Beispiel: Lokaler Informationsbedarf oder zusätzliche Metadaten zur Anpassung an FHIR-Ressourcen oder CIMI-Modelle.">
+				>
+				["at0041"] = <
+					text = <"Quelle">
+					description = <"Die Quelle, aus der die Flüssigkeit verloren geht oder ausgeschieden wird.">
+					comment = <"Zum Beispiel: Kanüle; Harnkatheter oder Nasopharyngalschlauch. Wenn in einer klinischen Anwendung dieselbe Art von Flüssigkeit aus zwei oder mehr Quellen wie mehreren Abflüssen aus derselben Wunde beobachtet wird, kann die Quelle als \"Kanüle 1\" und \"Kanüle 2\" beschrieben werden. Wenn möglich, wird die Codierung der Quelle mit einer Terminologie bevorzugt.">
 				>
 			>
 		>
