@@ -1,0 +1,238 @@
+archetype (adl_version=1.4; uid=dc5ee378-8e0a-4a99-9fa0-7ab0fd967acf)
+	openEHR-EHR-CLUSTER.care_invitation_reminder.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2022-08-04">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			copyright = <"© Apperta Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"04F1BD011B08AFE36F4EFFCF69936E8E">
+		["build_uid"] = <"9f9f95f7-d08f-4dba-99da-e20055c6fa50">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Care invitation reminder
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Topic
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Next invitation / reminder date
+				value matches {
+					DV_DATE matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Number of invitations / reminders sent
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Date last invitation / reminder sent
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..*} matches {    -- Invitation / reminder mode
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008,    -- Email
+							at0009,    -- Post
+							at0010,    -- SMS
+							at0011]    -- Other
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Invitation / reminder progress
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0012,    -- Queued
+							at0013,    -- Sent
+							at0014,    -- Delivery confirmed
+							at0015,    -- Opened
+							at0016]    -- Link opened
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Care invitation reminder">
+					description = <"Care invitation reminder">
+				>
+				["at0001"] = <
+					text = <"Topic">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Next invitation / reminder date">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Number of invitations / reminders sent">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Date last invitation / reminder sent">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Invitation / reminder mode">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Invitation / reminder progress">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Email">
+					description = <"Invitation / reminder has been sent by email">
+				>
+				["at0009"] = <
+					text = <"Post">
+					description = <"Invitation / reminder has been sent by post">
+				>
+				["at0010"] = <
+					text = <"SMS">
+					description = <"Invitation / reminder has been sent by SMS">
+				>
+				["at0011"] = <
+					text = <"Other">
+					description = <"Invitation / reminder has been sent by another mode">
+				>
+				["at0012"] = <
+					text = <"Queued">
+					description = <"Invitation / reminder is queued">
+				>
+				["at0013"] = <
+					text = <"Sent">
+					description = <"Invitation / reminder has been sent">
+				>
+				["at0014"] = <
+					text = <"Delivery confirmed">
+					description = <"Invitation / reminder has been delivered">
+				>
+				["at0015"] = <
+					text = <"Opened">
+					description = <"Invitation / reminder has been opened">
+				>
+				["at0016"] = <
+					text = <"Link opened">
+					description = <"Invitation / reminder link has been opened">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Erinnerung an die Pflegeeinladung">
+					description = <"Erinnerung an die Pflegeeinladung">
+				>
+				["at0001"] = <
+					text = <"Thema">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Nächstes Einladungs-/Erinnerungsdatum">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Anzahl der versendeten Einladungen/Erinnerungen">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Datum der letzten gesendeten Einladung/Erinnerung">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Einladungs-/Erinnerungsmodus">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Fortschritt der Einladung/Erinnerung">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Email">
+					description = <"Einladung / Erinnerung wurde per E-Mail verschickt">
+				>
+				["at0009"] = <
+					text = <"Post">
+					description = <"Einladung / Erinnerung wurde per Post verschickt">
+				>
+				["at0010"] = <
+					text = <"SMS">
+					description = <"Einladung / Erinnerung wurde per SMS versendet">
+				>
+				["at0011"] = <
+					text = <"Andere">
+					description = <"Einladung / Erinnerung wurde von einem anderen Modus gesendet">
+				>
+				["at0012"] = <
+					text = <"*Queued (en)">
+					description = <"*Invitation / reminder is queued (en)">
+				>
+				["at0013"] = <
+					text = <"*Sent (en)">
+					description = <"*Invitation / reminder has been sent (en)">
+				>
+				["at0014"] = <
+					text = <"*Delivery confirmed (en)">
+					description = <"*Invitation / reminder has been delivered (en)">
+				>
+				["at0015"] = <
+					text = <"*Opened (en)">
+					description = <"*Invitation / reminder has been opened (en)">
+				>
+				["at0016"] = <
+					text = <"*Link opened (en)">
+					description = <"*Invitation / reminder link has been opened (en)">
+				>
+			>
+		>
+	>
