@@ -1,0 +1,622 @@
+archetype (adl_version=1.4; uid=509b1986-4766-4179-8892-e40b9052882e)
+	openEHR-EHR-CLUSTER.shoulder_arthroscopic_findings.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-03-17">
+		["name"] = <"Kanthan Theivendran">
+		["organisation"] = <"KLT Medical Ltd">
+		["email"] = <"kanthan79@gmail.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© Apperta Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"533FA112EA71266CAACFDE9776A7D278">
+		["build_uid"] = <"df52f52c-16cb-4ee7-989e-61a1dd70c683">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Shoulder arthroscopic findings
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Rotator cuff tear
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- None
+							at0003,    -- Supraspinatus
+							at0004,    -- Infraspinatus
+							at0005]    -- Subscapularis
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Rotator cuff tear size
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0032,    -- Partial
+							at0033,    -- Small (<1cm)
+							at0034,    -- Medium (1-3cm)
+							at0035,    -- Large (3-5cm)
+							at0036]    -- Massive (>5cm & supraspinatus, infraspinatus, & subscapularis involved)
+						}
+					}
+				}
+			}
+			ELEMENT[at0037] occurrences matches {0..1} matches {    -- Subscapularis tear
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0038,    -- Normal
+							at0039,    -- Partial thickness
+							at0040,    -- Upper 25%
+							at0041,    -- Upper 50%
+							at0042]    -- Complete
+						}
+					}
+				}
+			}
+			ELEMENT[at0043] occurrences matches {0..1} matches {    -- Long head of biceps (LHB) tendon
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0044,    -- Normal
+							at0045,    -- Tendonitis/inflammation
+							at0046,    -- Frayed
+							at0047,    -- Subluxed/Dislocated
+							at0048]    -- Ruptured
+						}
+					}
+				}
+			}
+			ELEMENT[at0055] occurrences matches {0..1} matches {    -- Labrum
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0056,    -- Normal
+							at0057,    -- Anterior (Bankart) Tear
+							at0058,    -- Posterior Tear (Kim's Lesion)
+							at0059,    -- Anterior & Posterior Tear
+							at0085]    -- Boney Bankart
+						}
+					}
+				}
+			}
+			ELEMENT[at0049] occurrences matches {0..1} matches {    -- SLAP
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0050,    -- Normal
+							at0051,    -- Type I - Fraying with intact biceps anchor
+							at0052,    -- Type II - Fraying with detached labrum
+							at0053,    -- Type III - Bucket-handle tear with intact biceps anchor
+							at0054]    -- Type IV - Displaced bucket-handle tear with biceps tendon root tear
+						}
+					}
+				}
+			}
+			ELEMENT[at0060] occurrences matches {0..1} matches {    -- Adhesive Capsulitis
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0061,    -- Present
+							at0062]    -- Absent
+						}
+					}
+				}
+			}
+			CLUSTER[at0011] occurrences matches {0..1} matches {    -- Hill Sachs
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Hill Sachs
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0013,    -- None
+									at0014,    -- Non engaging
+									at0015]    -- Engaging
+								}
+							}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {    -- Hill Sachs Size
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+										magnitude = <|0.0..5.0|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0084] occurrences matches {0..1} matches {    -- Glenoid bone loss
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0086] occurrences matches {0..1} matches {    -- Anterior bone loss (Da)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+										magnitude = <|0.0..20.0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0087] occurrences matches {0..1} matches {    -- Posterior bone loss (Dp)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+										magnitude = <|0.0..20.0|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0020] occurrences matches {0..1} matches {    -- Subacromial space (Impingement lesion)
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0021] occurrences matches {0..1} matches {    -- Acromial Side
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0022,    -- A0 - Normal - smooth surface
+									at0024,    -- A1 - Minor scuffing, haemorrhage or local injection and inflammation
+									at0025,    -- A2 - Marked scuffing / damage of the undersurface of the acromion &
+									at0026]    -- A3 - Bare bone areas
+								}
+							}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {    -- Bursal Side
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0027,    -- B0 - Normal - smooth surface
+									at0028,    -- B1 - Minor scuffing, haemorrhage or local injection and inflammation
+									at0029,    -- B2 - Major scuffing of cuff, partial thickness tear
+									at0030,    -- B3 - Full thickness tear
+									at0031]    -- B4 - Massive cuff tear
+								}
+							}
+						}
+					}
+				}
+			}
+			ELEMENT[at0071] occurrences matches {0..1} matches {    -- Acromial shape
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0072,    -- Type I - Flat
+							at0073,    -- Type II - Curved
+							at0074]    -- Type III - Hooked
+						}
+					}
+				}
+			}
+			ELEMENT[at0066] occurrences matches {0..1} matches {    -- ACJ
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0067,    -- Normal
+							at0068,    -- Mild Arthritis
+							at0069,    -- Moderate Arthritis
+							at0070]    -- Severe Arthritis
+						}
+					}
+				}
+			}
+			ELEMENT[at0063] occurrences matches {0..1} matches {    -- Calcific tendonitis
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0064,    -- Yes
+							at0065]    -- No
+						}
+					}
+				}
+			}
+			ELEMENT[at0075] occurrences matches {0..*} matches {    -- Other findings
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0076,    -- HAGL
+							at0077,    -- ALPSA
+							at0078,    -- Buford complex
+							at0079,    -- Loose body
+							at0080,    -- GLAD
+							at0081,    -- Perthes
+							at0082,    -- Sub-Coracoid impingement
+							at0083]    -- Drive through sign present
+						}
+					}
+				}
+			}
+			ELEMENT[at0088] occurrences matches {0..1} matches {    -- Other findings description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Shoulder arthroscopic findings">
+					description = <"Shoulder arthroscopic findings">
+				>
+				["at0001"] = <
+					text = <"Rotator cuff tear">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"None">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Supraspinatus">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Infraspinatus">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Subscapularis">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Rotator cuff tear size">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Hill Sachs">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Hill Sachs">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"None">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Non engaging">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Engaging">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Hill Sachs Size">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Subacromial space (Impingement lesion)">
+					description = <"">
+					comment = <"Copeland - Levi Classification
+
+Ofer Levy, G. Sforza, Ron M. Dodenhoff, Stephen A. Copeland, Arthroscopic Evaluation of the Impingement Lesion: Pathoanatomy & Classification. JBJS (B) Supp. III,n pg. 233, 2000.">
+				>
+				["at0021"] = <
+					text = <"Acromial Side">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"A0 - Normal - smooth surface">
+					description = <"Normal - smooth surface">
+				>
+				["at0023"] = <
+					text = <"Bursal Side">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"A1 - Minor scuffing, haemorrhage or local injection and inflammation">
+					description = <"Minor scuffing, haemorrhage or local injection and inflammation">
+				>
+				["at0025"] = <
+					text = <"A2 - Marked scuffing / damage of the undersurface of the acromion &">
+					description = <"Marked scuffing / damage of the undersurface of the acromion &">
+				>
+				["at0026"] = <
+					text = <"A3 - Bare bone areas">
+					description = <"Bare bone areas">
+				>
+				["at0027"] = <
+					text = <"B0 - Normal - smooth surface">
+					description = <"Normal - smooth surface">
+				>
+				["at0028"] = <
+					text = <"B1 - Minor scuffing, haemorrhage or local injection and inflammation">
+					description = <"Minor scuffing, haemorrhage or local injection and inflammation">
+				>
+				["at0029"] = <
+					text = <"B2 - Major scuffing of cuff, partial thickness tear">
+					description = <"Major scuffing of cuff, partial thickness tear">
+				>
+				["at0030"] = <
+					text = <"B3 - Full thickness tear">
+					description = <"Full thickness tear">
+				>
+				["at0031"] = <
+					text = <"B4 - Massive cuff tear">
+					description = <"Massive cuff tear">
+				>
+				["at0032"] = <
+					text = <"Partial">
+					description = <"Partial">
+				>
+				["at0033"] = <
+					text = <"Small (<1cm)">
+					description = <"Small (<1cm)">
+				>
+				["at0034"] = <
+					text = <"Medium (1-3cm)">
+					description = <"Medium (1-3cm)">
+				>
+				["at0035"] = <
+					text = <"Large (3-5cm)">
+					description = <"Large (3-5cm)">
+				>
+				["at0036"] = <
+					text = <"Massive (>5cm & supraspinatus, infraspinatus, & subscapularis involved)">
+					description = <"Massive (>5cm & supraspinatus, infraspinatus, & subscapularis involved)">
+				>
+				["at0037"] = <
+					text = <"Subscapularis tear">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Normal">
+					description = <"Normal">
+				>
+				["at0039"] = <
+					text = <"Partial thickness">
+					description = <"Partial thickness">
+				>
+				["at0040"] = <
+					text = <"Upper 25%">
+					description = <"Upper 25%">
+				>
+				["at0041"] = <
+					text = <"Upper 50%">
+					description = <"Upper 50%">
+				>
+				["at0042"] = <
+					text = <"Complete">
+					description = <"Complete">
+				>
+				["at0043"] = <
+					text = <"Long head of biceps (LHB) tendon">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Normal">
+					description = <"Normal">
+				>
+				["at0045"] = <
+					text = <"Tendonitis/inflammation">
+					description = <"Tendonitis/inflammation">
+				>
+				["at0046"] = <
+					text = <"Frayed">
+					description = <"Frayed">
+				>
+				["at0047"] = <
+					text = <"Subluxed/Dislocated">
+					description = <"Subluxed/Dislocated">
+				>
+				["at0048"] = <
+					text = <"Ruptured">
+					description = <"Ruptured">
+				>
+				["at0049"] = <
+					text = <"SLAP">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"Normal">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Type I - Fraying with intact biceps anchor">
+					description = <"Degenerative fraying of the superior labrum free edge with intact peripheral attachment and stable biceps tendon anchor">
+				>
+				["at0052"] = <
+					text = <"Type II - Fraying with detached labrum">
+					description = <"Degenerative fraying with additional detachment of the superior labrum and biceps from the glenoid resulting in an unstable labral-biceps anchor">
+				>
+				["at0053"] = <
+					text = <"Type III - Bucket-handle tear with intact biceps anchor">
+					description = <"bucket-handle tear of the superior labrum with an intact biceps tendon anchor">
+				>
+				["at0054"] = <
+					text = <"Type IV - Displaced bucket-handle tear with biceps tendon root tear">
+					description = <"Displaced bucket-handle labral tear with extension into the biceps tendon root">
+				>
+				["at0055"] = <
+					text = <"Labrum">
+					description = <"">
+				>
+				["at0056"] = <
+					text = <"Normal">
+					description = <"Normal">
+				>
+				["at0057"] = <
+					text = <"Anterior (Bankart) Tear">
+					description = <"Anterior Tear - Bankart tear">
+				>
+				["at0058"] = <
+					text = <"Posterior Tear (Kim's Lesion)">
+					description = <"Posterior Tear">
+				>
+				["at0059"] = <
+					text = <"Anterior & Posterior Tear">
+					description = <"Anterior & Posterior Tear">
+				>
+				["at0060"] = <
+					text = <"Adhesive Capsulitis">
+					description = <"">
+				>
+				["at0061"] = <
+					text = <"Present">
+					description = <"Present">
+				>
+				["at0062"] = <
+					text = <"Absent">
+					description = <"Ansent">
+				>
+				["at0063"] = <
+					text = <"Calcific tendonitis">
+					description = <"">
+				>
+				["at0064"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0065"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0066"] = <
+					text = <"ACJ">
+					description = <"">
+				>
+				["at0067"] = <
+					text = <"Normal">
+					description = <"Normal">
+				>
+				["at0068"] = <
+					text = <"Mild Arthritis">
+					description = <"Mild Arthritis">
+				>
+				["at0069"] = <
+					text = <"Moderate Arthritis">
+					description = <"Moderate Arthritis">
+				>
+				["at0070"] = <
+					text = <"Severe Arthritis">
+					description = <"Severe Arthritis">
+				>
+				["at0071"] = <
+					text = <"Acromial shape">
+					description = <"">
+				>
+				["at0072"] = <
+					text = <"Type I - Flat">
+					description = <"Flat">
+				>
+				["at0073"] = <
+					text = <"Type II - Curved">
+					description = <"Curved">
+				>
+				["at0074"] = <
+					text = <"Type III - Hooked">
+					description = <"Hooked">
+				>
+				["at0075"] = <
+					text = <"Other findings">
+					description = <"">
+				>
+				["at0076"] = <
+					text = <"HAGL">
+					description = <"Humeral Avulsion Glenohumeral Ligament">
+				>
+				["at0077"] = <
+					text = <"ALPSA">
+					description = <"Anterior Labral Periosteal Sleeve Avulsion">
+				>
+				["at0078"] = <
+					text = <"Buford complex">
+					description = <"A congenital glenoid labrum variant where the anterosuperior labrum is absent in the 1-3 o'clock position and the middle glenohumeral ligament is thickened (cord-like)">
+				>
+				["at0079"] = <
+					text = <"Loose body">
+					description = <"Loose body">
+				>
+				["at0080"] = <
+					text = <"GLAD">
+					description = <"Glenoid Labral Articular Defect - Bankart tear with osteochondral defect">
+				>
+				["at0081"] = <
+					text = <"Perthes">
+					description = <"a variation of the Bankart lesion, where the scapula periosteum is lifted and stripped medially with the detached anterior labrum.">
+				>
+				["at0082"] = <
+					text = <"Sub-Coracoid impingement">
+					description = <"Sub-Coracoid impingement (Internal Impingement)">
+				>
+				["at0083"] = <
+					text = <"Drive through sign present">
+					description = <"Drive through sign present">
+				>
+				["at0084"] = <
+					text = <"Glenoid bone loss">
+					description = <"">
+				>
+				["at0085"] = <
+					text = <"Boney Bankart">
+					description = <"Boney Bankart">
+				>
+				["at0086"] = <
+					text = <"Anterior bone loss (Da)">
+					description = <"percentage glenoid bone loss = (1 − [Da + Dp]/[Dp × 2]) × 100 (%)">
+					comment = <"Burkhart SS, Debeer JF, Tehrany AM, Parten PM. Quantifying glenoid bone loss arthroscopically in shoulder instability. Arthroscopy. 2002 May-Jun;18(5):488-91.">
+				>
+				["at0087"] = <
+					text = <"Posterior bone loss (Dp)">
+					description = <"percentage glenoid bone loss = (1 − [Da + Dp]/[Dp × 2]) × 100 (%)">
+					comment = <"Burkhart SS, Debeer JF, Tehrany AM, Parten PM. Quantifying glenoid bone loss arthroscopically in shoulder instability. Arthroscopy. 2002 May-Jun;18(5):488-91.">
+				>
+				["at0088"] = <
+					text = <"Other findings description">
+					description = <"">
+				>
+			>
+		>
+	>
