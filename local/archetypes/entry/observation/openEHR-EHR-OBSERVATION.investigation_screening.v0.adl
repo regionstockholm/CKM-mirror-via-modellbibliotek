@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=2810fae8-aef1-4fb6-89ff-e5496a76ad82)
+archetype (adl_version=1.4; uid=aceb6ad0-81a4-4d7f-a66c-c69ca4550503)
 	openEHR-EHR-OBSERVATION.investigation_screening.v0
 
 concept
-	[at0000]	-- Diagnostic investigation screening questionnaire
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -14,18 +15,31 @@ language
 				["email"] = <"Strauch.Natalia@mh-hannover.de">
 			>
 		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Kanika Kuwelker, John Tore Valand">
+				["organisation"] = <"Helse Vest IKT, Helse Bergen">
+				["email"] = <"kanika.kuwelker@helse-vest-ikt.no, john.tore.valand@helse-vest-ikt.no">
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2022-10-21">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2022-10-21">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Astrid Askeland, Dips AS, Norway","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India","Randi Brendberg, Helse Nord RHF, Norway","Yexuan Cheng, 浙江大学, China","Are Edvardsen, SKDE, Helse Nord RHF, Norway","Alexander Eikrem-Lüthi, Lovisenberg Diakonale Sykehus, Norway","Kåre Flø, DIPS ASA, Norway","Grant Forrest, Lunaria Ltd, United Kingdom","Anca Heyd, DIPS ASA, Norway","Joost Holslag, Nedap, Netherlands","Evelyn Hovenga, EJSH Consulting, Australia","Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway","Gunnar Jårvik, Helse Vest IKT AS, Norway","Anjali Kulkarni, Karkinos, India","Kanika Kuwelker, Helse Vest IKT, Norway","Jörgen Kuylenstierna, eWeave AB, Sweden","Liv Laugen, ​Oslo University Hospital, Norway, Norway","Øygunn Leite Kallevik, Helse Bergen, Norway","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Mikael Nyström, Cambio Healthcare Systems AB, Sweden","Jussara Rotzsch, Hospital Alemão Oswaldo Cruz, Brazil","Andre Smitt-Ingebretsen, Sørlandet sykehus HF, Norway","Natalia Strauch, Medizinische Hochschule Hannover, Germany","Norwegian Review Summary, Norwegian Public Hospitals, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)","Ina Wille, Helse-Vest RHF, Norway">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Eine Reihe von Fragen und zugehörigen Antworten, die zum Screening auf eine bestimmten diagnostischen Untersuchung oder Gruppe von Untersuchungen verwendet werden.">
+			keywords = <"Untersuchung, Screening, Fragebogen, Prävention, Bildgebung, Labor, Pathologie, Blut, Probe, Sputum", ...>
+			copyright = <"© openEHR Foundation, Apperta Foundation">
 			use = <"Eine Reihe von Fragen und zugehörigen Antworten, die zum Screening auf eine bestimmten diagnostischen Untersuchung oder Gruppe von Untersuchungen verwendet werden.
 
 Häufige Anwendungsfälle umfassen, sind aber nicht beschränkt auf:
@@ -43,16 +57,45 @@ Die EVENT-Struktur des Referenz Modells kann verwendet werden, um weiter zu spez
 Die Quelle der Informationen in einer Fragebogenantwort kann in verschiedenen Kontexten variieren, kann jedoch mithilfe des Elements „Information provider“ im Referenzmodell spezifisch identifiziert werden.
 
 Dieser Archetyp wurde entwickelt, um als Screening-Tool oder zur Darstellung einfacher Daten im Fragebogenformat zur Verwendung in Situationen wie einem Krankheitsregister verwendet zu werden. Wenn der Screening-Fragebogen die Durchführung einer Untersuchung identifiziert, wird empfohlen, dass das klinische System die spezifischen Details über die Untersuchung unter Verwendung entsprechenden Archetyps darstellt und beibehält.">
-			keywords = <"Untersuchung, Screening, Fragebogen, Prävention, Bildgebung, Labor, Pathologie, Blut, Probe, Sputum", ...>
 			misuse = <"Darf nicht verwendet werden, um einen Untersuchungsauftrags darzustellen – verwenden Sie zu diesem Zweck INSTRUCTION.service_request.
 
 Darf nicht verwendet werden, um den Fortschritt von Aktivitäten, die im Rahmen einer Untersuchung durchgeführt werden darzustellen – verwenden Sie ACTION.laboratory_test für diesen Zweck.
 
 Nicht zur Darstellung formaler diagnostischer Testergebnisse verwenden – verwenden Sie zu diesem Zweck OBSERVATION.laboratory_test_result oder OBSERVATION.imaging_examination_result.">
 		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om bruk av en spesifisert diagnostisk undersøkelse eller gruppering av undersøkelser.">
+			keywords = <"utredning, kartlegging, spørreskjema, forebygging, bildediagnostikk, laboratorie, patologi, blod, prøve, sputum", ...>
+			copyright = <"© openEHR Foundation, Apperta Foundation">
+			use = <"Bruk for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om bruk av en spesifisert diagnostisk undersøkelse eller gruppering av undersøkelser.
+
+Vanlige bruksområder inkluderer, men er ikke begrenset til:
+- Systematiske spørsmål ved konsultasjoner, for eksempel:
+--- Har du noen gang fått testet kolesterolnivået ditt? Ja, Nei, Ukjent.
+--- Har du blitt testet for rubella-antistoffer? Ja, Nei, Ukjent.
+--- Har du noen gang blitt screenet for sigdcellesykdom? Ja, Nei, Ukjent.
+- Når var ditt siste røntgenbilde av thorax?
+- Når tok du sist INR-prøve?
+
+Semantikken til denne arketypen er med vilje løs, og å spørre etter denne arketypen vil normalt bare være nyttig eller trygt innenfor konteksten til hver spesifikk mal. I en mal vil hvert dataelement vanligvis bli omdøpt til det spesifikke spørsmålet. Der verdisett har blitt foreslått for vanlige brukstilfeller, kan disse tilpasses for lokal bruk ved å bruke DV_TEXT eller DV_BOOLEAN datatypevalg for å matche hvert enkelt brukstilfelle.
+
+EVENT-strukturen fra arketypens referansemodell kan brukes for å spesifisere om spørsmålene relateres til et tidspunkt eller til et tidsintervall. Bruk egne instanser av denne arketypen for å skille mellom spørsmål om sosialrelaterte emner som gjelder et hvilket som helst tidspunkt eller for et tidsintervall. For eksempel; \"Har du noen gang tatt en INR-prøve?\" sammenlignet med \"Har du tatt en INR-prøve i løpet av de siste fire ukene?\".
+
+Kilden til informasjonen i et spørreskjema kan variere i ulike kontekster, men kan identifiseres spesifikt ved å benytte \"Information provider\" elementet i openEHR referansemodell.
+
+Denne arketypen er laget for å bli brukt i et spørreskjema eller for å registrere enkle strukturerte data til for eksempel et sykdomsregister. Dersom det i spørreskjemaet identifiseres at det er noe i de sosiale forholdene som bør lagres i den elektroniske journalen, utover et øyeblikksbilde, er det tenkt at dette skal lagres i persistente arketyper laget spesielt for klinisk bruk.">
+			misuse = <"Skal ikke brukes til å registrere bestilling av diagnostiske tester - bruk ACTION.laboratory_test for dette formålet.
+
+Skal ikke brukes til å registrere fremdriften til aktiviteter utført som en del av utredning - bruk ACTION.laboratory_test for dette formålet.
+
+Skal ikke brukes til å registrere formelle diagnostiske testresultater - bruk OBSERVATION.laboratory_test_result eller OBSERVATION.imaging_examination_result for dette formålet.">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To create a framework for recording answers to pre-defined screening questions about the use of any specified diagnostic investigation or grouping of investigations.">
+			keywords = <"investigation, screening, questionnaire, prevention, imaging, laboratory, pathology, blood, sample, sputum", ...>
+			copyright = <"© openEHR Foundation, Apperta Foundation">
 			use = <"Use to create a framework for recording answers to pre-defined screening questions about the use of any specified diagnostic investigation or grouping of investigations.
 
 Common use cases include, but are not limited to:
@@ -70,25 +113,21 @@ The EVENT structure from the reference model can be used to specify whether the 
 The source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.
 
 This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies an investigation has been carried out, it is recommended that the clinical system record and persist the specific details about the investigation using a relevant archetype.">
-			keywords = <"investigation, screening, questionnaire, prevention, imaging, laboratory, pathology, blood, sample, sputum", ...>
 			misuse = <"Not to be used for recording an order for an investigation - use INSTRUCTION.service_request for this purpose.
 
 Not to be used for recording the progress of activities performed as part of an investigation - use ACTION.laboratory_test for this purpose.
 
 Not to be used to record formal diagnostic test results - use the OBSERVATION.laboratory_test_result or OBSERVATION.imaging_examination_result for this purpose.">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Astrid Askeland, Dips AS, Norway", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Randi Brendberg, Helse Nord RHF, Norway", "Yexuan Cheng, 浙江大学, China", "Are Edvardsen, SKDE, Helse Nord RHF, Norway", "Alexander Eikrem-Lüthi, Lovisenberg Diakonale Sykehus, Norway", "Kåre Flø, DIPS ASA, Norway", "Grant Forrest, Lunaria Ltd, United Kingdom", "Anca Heyd, DIPS ASA, Norway", "Joost Holslag, Nedap, Netherlands", "Evelyn Hovenga, EJSH Consulting, Australia", "Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway", "Gunnar Jårvik, Helse Vest IKT AS, Norway", "Anjali Kulkarni, Karkinos, India", "Kanika Kuwelker, Helse Vest IKT, Norway", "Jörgen Kuylenstierna, eWeave AB, Sweden", "Liv Laugen, ​Oslo University Hospital, Norway, Norway", "Øygunn Leite Kallevik, Helse Bergen, Norway", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Jussara Rotzsch, Hospital Alemão Oswaldo Cruz, Brazil", "Andre Smitt-Ingebretsen, Sørlandet sykehus HF, Norway", "Natalia Strauch, Medizinische Hochschule Hannover, Germany", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)", "Ina Wille, Helse-Vest RHF, Norway">
 	other_details = <
-		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
-		["custodian_organisation"] = <"openEHR Foundation">
-		["original_namespace"] = <"org.openehr">
-		["original_publisher"] = <"openEHR Foundation">
-		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"2C7FC644E878BFFAD84F93E6EC9A8C9A">
-		["build_uid"] = <"d5e1a9d4-307e-4911-8c13-73937238cea3">
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Apperta UK">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"Apperta UK">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"253D67D92010BEB2F153CC700E4A9575">
+		["build_uid"] = <"ad2413ca-895a-4cfc-ae99-2e76dbda9fde">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -200,7 +239,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	terminologies_available = <"SNOMED-CT", ...>
@@ -433,8 +471,122 @@ Die Codierung des „Name der Untersuchung“ mit einer Terminologie wird nach M
 				>
 			>
 		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kartleggingsspørsmål om diagnostiske undersøkelser">
+					description = <"Spørsmål og tilhørende svar som brukes til å kartlegge om det er utført diagnostiske undersøkelser, enten bildeundersøkelser eller laboratorietester.">
+					comment = <"Svarene kan være selvrapporterte.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Resultat">
+					description = <"Undersøkelsesresultatet eller funnene fra screeningundersøkelsen.">
+					comment = <"For eksempel: positiv/negativ.">
+				>
+				["at0003"] = <
+					text = <"Dato">
+					description = <"Datoen og/eller klokkeslettet for den siste undersøkelsen.">
+					comment = <"Kan være en delvis dato, for eksempel bare et år.">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0019"] = <
+					text = <"Tilleggsinformasjon">
+					description = <"Ytterligere informasjon som trengs for å kunne registrere lokalt definert innhold eller for å tilpasse til andre referansemodeller/formalismer.">
+					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR.">
+				>
+				["at0021"] = <
+					text = <"Undersøkelsesnavn">
+					description = <"Navnet på en undersøkelse eller gruppe av undersøkelser.">
+					comment = <"For eksempel: \"Urea og elektrolytter\" eller \"HIV screeningpanel\".
+Koding av \"Undersøkelsesnavn\" med en terminologi foretrekkes der det er mulig.">
+				>
+				["at0022"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0023"] = <
+					text = <"Uspesifikk hendelse">
+					description = <"Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon.">
+				>
+				["at0024"] = <
+					text = <"Tidligere undersøkelse?">
+					description = <"Er den spesifikke undersøkelsen noen gang blitt gjennomført?">
+					comment = <"Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN.">
+				>
+				["at0025"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere fritekst om den spesifikke undersøkelsen som ikke er omfattet av andre felt.">
+				>
+				["at0026"] = <
+					text = <"Spesifikk undersøkelse">
+					description = <"Detaljer om en spesifikk undersøkelse eller gruppe av undersøkelser som er innenfor kartleggingsformålet.">
+					comment = <"Bruk separate instanser av denne CLUSTER'en for å skille mellom spesifikke undersøkelser eller grupperinger av undersøkelser.">
+				>
+				["at0027"] = <
+					text = <"Noen tidligere undersøkelser?">
+					description = <"Finnes det noen tidligere gjennomførte undersøkelser som er innenfor kartleggingsformålet?">
+					comment = <"Navnet på dataelementet kan omformuleres til det spesifikke spørsmålet i et templat eller brukergrensesnitt. Det foreslåtte verdisettet kan tilpasses/endres i det enkelte bruksområde ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN">
+				>
+				["at0028"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Ukjent">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Ukjent">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Kartleggingsformål">
+					description = <"Konteksten eller årsaken for kartleggingen.">
+					comment = <"Dette dataelementet er ment for å sette en kontekst for samlingen av spørsmål/svar til bruk senere for å gjøre spørringer på dataene. Det er ikke forventet at dette dataelementet skal være synlig for en bruker av skjemaet, men kun tilgjengelig i de lagrede dataene. For eksempel: \"Preoperativ screening\" eller navnet på det faktiske spørreskjemaet.">
+				>
+				["at0041"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Strukturerte detaljer eller spørsmål om den spesifikke undersøkelsen.">
+				>
+				["at0042"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Strukturerte detaljer eller spørsmål om kartleggingen av diagnostiske undersøkelser.">
+				>
+				["at0043"] = <
+					text = <"Beskrivelse">
+					description = <"Fritekstbeskrivelse om undersøkelser som er tidligere utført og som er innenfor kartleggingsformålet.">
+				>
+				["at0044"] = <
+					text = <"Positiv">
+					description = <"Resultatet av screeningtesten var positivt.">
+				>
+				["at0045"] = <
+					text = <"Negativ">
+					description = <"Resultatet av screeningtesten var negativt.">
+				>
+			>
+		>
 	>
-	term_bindings = <
+	term_binding = <
 		["SNOMED-CT"] = <
 			items = <
 				["at0030"] = <[SNOMED-CT::261665006]>
