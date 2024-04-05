@@ -1,10 +1,11 @@
-﻿archetype (adl_version=1.4; uid=a8d1333d-63ef-4db0-958f-62643d0fa6c5)
+archetype (adl_version=1.4; uid=a8d1333d-63ef-4db0-958f-62643d0fa6c5)
 	openEHR-EHR-COMPOSITION.report-procedure.v1
-specialise
+specialize
 	openEHR-EHR-COMPOSITION.report.v1
 
 concept
-	[at0000.1]	-- Procedure report
+	[at0000.1]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -32,17 +33,21 @@ language
 			>
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2012-12-10">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Ocean Informatics">
 		["email"] = <"heather.leslie@oceaninformatics.com">
-		["date"] = <"2012-12-10">
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Vebjoern Arntzen, Oslo university hospital, Norway","Silje Ljosland Bakke, Bergen Hospital Trust, Norway (openEHR Editor)","Sistine Barretto-Daniels, Ocean Informatics, Australia","Lars Bitsch-Larsen, Haukeland University hospital, Norway","Heath Frankel, Ocean Informatics, Australia","Heather Grain, Llewelyn Grain Informatics, Australia","Sam Heard, Ocean Informatics, Australia","Lars Karlsen, DIPS ASA, Norway","Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway","Heather Leslie, Ocean Informatics, Australia (openEHR Editor)","Hugh Leslie, Ocean Informatics, Australia","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Andrej Orel, Marand d.o.o., Slovenia","Jussara Rotzsch, UNB, Brazil">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Ein generischer Container-Archetyp zur Speicherung von Informationen über jede eigenständige Prozedur oder durchgeführte Operation.">
+			keywords = <"Bericht","Prozedur","Operation","Verfahren","Ablauf","Vorgang">
 			use = <"Diesen Archetypen als generischer verfahrensbezogener Archetyp verwenden, um Informationen über jedes eigenständige Verfahren oder jede durchgeführte Operation aufzuzeichnen.
 
 Voraussichtlich wird jeder Archetyp des COMPOSITION.Bericht-Prozedur mindestens ein ACTION.Prozedur (oder ein verwandter Archetyp) beinhalten. Je nach Komplexität des Verfahrens kann es eine Vielzahl anderer Archetypen enthalten. Zum Beispiel Archetypen zur Darstellung der damit verbundenen Anästhesie- oder Bildgebungsaktivitäten, die während des Eingriffs durchgeführt wurden.
@@ -57,7 +62,6 @@ Die Erfassung des Anästhetikums, das zur Abdeckung des Eingriffs verwendet wurd
 - im gleichen Prozedurenbericht wie die Prozedur aufgezeichnet wurde. Dies gilt am ehesten, wenn die Narkose von demselben Arzt verabreicht wurde, der den Eingriff durchgeführt hat.
 
 Die Sections-Komponente wurde bewusst frei gelassen, um die Wiederverwendung dieses Archetyps zu optimieren.">
-			keywords = <"Bericht", "Prozedur", "Operation", "Verfahren", "Ablauf", "Vorgang">
 			misuse = <"Nicht für Berichte zu verwenden, die nicht mit einem Verfahren in Zusammenhang stehen. Hierfür verwenden Sie den generischen COMPOSITION.Bericht oder ggf. zweckgebundene COMPOSITIONs.
 
 Nicht für Prozeduren zu verwenden, die als Teil eines Konsultationsvermerks aufgezeichnet werden, z.B. die Entfernung einer Hautläsion in einer Erstversorgungsberatung. Hierfür verwenden Sie einen ACTION.Prozedur Archetyp innerhalb des COMPOSITION.Kontakt.
@@ -67,6 +71,7 @@ Nicht für Prozeduren zu verwenden, die als Teil einer Pflegefortschrittsanzeige
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"En generisk COMPOSITION-arketype for å lagre informasjon om enkeltstående prosedyrer eller operasjoner som er gjennomført.">
+			keywords = <"rapport","prosedyre","operasjon","anestesirapport","operasjonsbeskrivelse","operasjonsprotokoll","prosedyrebeskrivelse">
 			use = <"En generisk container-arketype for å lagre informasjon om enkeltstående prosedyrer eller operasjoner som er gjennomført.
 
 Det forventes at hver enkelt COMPOSTION.report_procedure inneholder minst en ACTION.procedure (eller beslektet arketype), men den kan også inneholde en stor variasjon av andre arketyper avhengig av kompleksiteten av prosedyren som er gjennomført. For eksempel: arketyper som omhandler aktiviteter knyttet til anestesi eller radiologi gjennomført under prosedyren.
@@ -79,7 +84,6 @@ Innholdet i arketypen er bevisst ubegrenset, slik at alle SECTION- og/eller ENTR
 
 
 ">
-			keywords = <"rapport", "prosedyre", "operasjon", "anestesirapport", "operasjonsbeskrivelse", "operasjonsprotokoll", "prosedyrebeskrivelse">
 			misuse = <"Brukes ikke for å dokumentere rapporter som ikke er relatert til en prosedyre. Bruk den generiske COMPOSTION.report eller en spesfikk COMPOSITON-arketype for dette formålet.
 
 Brukes ikke for prosedyrer som er dokumentert som del av et konsultasjonsnotat. For eksempel fjerning av en hudlesjon under en konsultasjon i primærhelsetjenesten. Bruk arketypen ACTION.procedure i arketypen COMPOSITION.encouter for dette formålet.
@@ -89,6 +93,7 @@ Brukes ikke for å registrere prosedyrer som er en del av et sykepleienotat, for
 		["pt-br"] = <
 			language = <[ISO_639-1::pt-br]>
 			purpose = <"Arquétipo genérico para carregar informações sobre procedimentos isolados ou cirurgia realizada.">
+			keywords = <"relatório","procedimento","cirurgia","operação">
 			use = <"Use como um arquétipo relacionado com o procedimento genérico para levar informações sobre qualquer procedimento isolado ou operação realizada.
 
 Prevê-se que cada arquétipo-COMPOSITION.report procedimento irá conter, pelo menos, um ACTION.procedure (ou arquétipo relacionados) mas, dependendo da complexidade do processo pode incluir uma variedade de outros arquétipos, dependendo da natureza e complexidade do procedimento executado . Por exemplo, os arquétipos para descrever as atividades anestésicas ou de imagem associadas realizadas durante o procedimento.
@@ -103,7 +108,6 @@ Gravação do anestésico usado em um procedimento será gravado utilizando arqu
 - No mesmo relatório do procedimento gravado. Isto é o mais provável, se o anestésico foi administrado pelo mesmo médico que realizou o procedimento.
 
 O componente Section foi deliberadamente deixado sem restrições para maximizar a reutilização deste arquétipo">
-			keywords = <"relatório", "procedimento", "cirurgia", "operação">
 			misuse = <"Não deve ser usado para relatórios que não estão relacionados a um procedimento. Use o arquétipo genérico COMPOSITION.report ou composições específicas de uso, conforme apropriado.
 
 Não deve ser utilizado para procedimentos que são gravadas como parte de uma nota de consulta, por exemplo, a remoção de uma lesão de pele em uma consulta na assistência básica - usar um arquétipo ACTION.procedure dentro do COMPOSITION.encouter para esta finalidade.
@@ -113,6 +117,8 @@ Não deve ser utilizado para procedimentos que são gravadas como parte de uma n
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"Generic container archetype to carry information about any stand-alone procedure or operation performed.">
+			keywords = <"report","procedure","operation">
+			copyright = <"© openEHR Foundation">
 			use = <"Use as a generic procedure-related archetype to carry information about any stand-alone procedure or operation performed. 
 
 It is anticipated that each COMPOSITION.report-procedure archetype will contain at least one ACTION.procedure (or related archetype) but depending on the complexity of the procedure it may contain a variety of other archetypes depending on the nature and complexity of the procedure performed. For example, archetypes to describe the associated anaesthetic or imaging activities carried out during the procedure.
@@ -127,17 +133,13 @@ Record of the anaesthetic used to cover the procedure will be recorded using pur
 - in the same Procedure report as the procedure is recorded. This is most likely if the anaesthetic was administered by the same clinician who performed the procedure.
 
 The Sections component has been deliberately left unconstrained to maximise re-use of this archetype.">
-			keywords = <"report", "procedure", "operation">
 			misuse = <"Not to be used for reports that are not related to a procedure. Use the generic COMPOSITION.report or purpose specific COMPOSITIONs as appropriate.
 
 Not to be used for procedures that are recorded as part of a consultation note, for example removal of a skin lesion in a primary care consultation - use a ACTION.procedure archetype inside the COMPOSITION.encouter for this purpose.
 
 Not to be used for procedures that are recorded as part of a nursing progress note, for example insertion of a catheter - use an ACTION.procedure archetype inside the COMPOSITION.progress_note.">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Vebjoern Arntzen, Oslo university hospital, Norway", "Silje Ljosland Bakke, Bergen Hospital Trust, Norway (openEHR Editor)", "Sistine Barretto-Daniels, Ocean Informatics, Australia", "Lars Bitsch-Larsen, Haukeland University hospital, Norway", "Heath Frankel, Ocean Informatics, Australia", "Heather Grain, Llewelyn Grain Informatics, Australia", "Sam Heard, Ocean Informatics, Australia", "Lars Karlsen, DIPS ASA, Norway", "Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway", "Heather Leslie, Ocean Informatics, Australia (openEHR Editor)", "Hugh Leslie, Ocean Informatics, Australia", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Andrej Orel, Marand d.o.o., Slovenia", "Jussara Rotzsch, UNB, Brazil">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -151,28 +153,30 @@ Not to be used for procedures that are recorded as part of a nursing progress no
 	>
 
 definition
-	COMPOSITION[at0000.1] matches {	-- Procedure Report
+	COMPOSITION[at0000.1] matches {    -- Procedure report
 		category matches {
 			DV_CODED_TEXT matches {
-				defining_code matches {[openehr::433]}
+				defining_code matches {
+					[openehr::433]
+				}
 			}
 		}
 		context matches {
 			EVENT_CONTEXT matches {
 				other_context matches {
-					ITEM_TREE[at0001] matches {	-- Tree
+					ITEM_TREE[at0001] matches {    -- Tree
 						items cardinality matches {0..*; unordered} matches {
-							ELEMENT[at0002] occurrences matches {0..1} matches {	-- Report ID
+							ELEMENT[at0002] occurrences matches {0..1} matches {    -- Report ID
 								value matches {
 									DV_TEXT matches {*}
 								}
 							}
-							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Status
+							ELEMENT[at0005] occurrences matches {0..1} matches {    -- Status
 								value matches {
 									DV_TEXT matches {*}
 								}
 							}
-							allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {	-- Extension
+							allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Extension
 								include
 									archetype_id/value matches {/.*/}
 							}
@@ -182,7 +186,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
