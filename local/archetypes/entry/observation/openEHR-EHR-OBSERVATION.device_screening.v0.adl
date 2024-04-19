@@ -9,9 +9,9 @@ language
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			author = <
-				["name"] = <"Natalia Strauch">
+				["name"] = <"Natalia Strauch, Nina Schewe">
 				["organisation"] = <"Medizinische Hochschule Hannover">
-				["email"] = <"Strauch.Natalia@mh-hannover.de">
+				["email"] = <"Strauch.Natalia@mh-hannover.de, schewe.nina@mh-hannover.de">
 			>
 		>
 		["nb"] = <
@@ -33,47 +33,137 @@ description
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
-			purpose = <"*To record the responses to a screening questionnaire for medical devices. (en)">
-			use = <"*Use to record the responses to a screening questionnaire for medical devices.
+			purpose = <"*To create a framework for recording answers to pre-defined screening questions about the presence of implanted medical devices or use of assistive devices. (en)">
+			use = <"*Use to create a framework for recording answers to pre-defined screening questions about the presence of implanted devices or use of assistive aids.
 
 Common use cases include, but are not limited to:
-- Checklist questions about whether the individual uses any devices or aids
-- Questionnaires about the usage of specific devices or aids
+- Screening for implanted devices before an MRI test.
+- Checklist questions about whether the individual uses any assistive devices on admission to hospital.
 
-In order to record the response at a specific point in time or within an interval of time, use the EVENT RM attribute.
+The initial question about any medical device use is focused on implanted devices due to the clinical safety implications, especially when undergoing imaging examinations.
 
-This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data. If the screening process identifies the usage of a specific device and it is intended that the details are to be recorded and persisted as part of an ongoing health record, any further specific details about the device should be recorded using the EVALUATION.device_summary archetype. (en)">
-			misuse = <"">
+Examples of implanted medical devices include, but are not limited to:
+- cochlear implant; 
+- pacemaker; 
+- aneurysm clips;
+- joint replacement; 
+- heart valve; 
+- coronary stent; 
+- bone fixation device eg screws or plates; 
+- deep brain stimulator; or
+- intraocular lens.
+
+Examples of assistive aids include, but are not limited to:
+- wheelchair; 
+- walking stick; 
+- hearing aid; 
+- reading glasses; 
+- prosthetic limb; 
+- braille reader; 
+- speech generating device; or 
+- medication organiser or dispenser.
+
+The semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.
+
+The EVENT structure from the reference model can be used to specify whether the questions relate to a point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a device that has been used at any time in the past and information about a device used within a specified time interval - for example, the difference between \"Do you currently have a pacemaker?\" compared to \"Have you used a wheelchair in the past year?\"
+
+The source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.
+
+This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence or usage of a medical device, it is recommended that the clinical system record and persist the specific details about the device using EVALUATION.device_summary. (en)">
+			keywords = <"*device, implant (en)", ...>
+			misuse = <"*Not to be used to record answers to pre-defined screening questions about surgical/operative procedures when a medical device was implanted. Use the OBSERVATION.procedure_screening for this purpose.
+
+Not to be used to record answers to pre-defined screening questions about medications that have been implanted. Use the OBSERVATION.medication_screening for this purpose. (en)">
 			copyright = <"© openEHR Foundation">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
-			purpose = <"*To record the responses to a screening questionnaire for medical devices. (en)">
-			use = <"*Use to record the responses to a screening questionnaire for medical devices.
+			purpose = <"*To create a framework for recording answers to pre-defined screening questions about the presence of implanted medical devices or use of assistive devices. (en)">
+			use = <"*Use to create a framework for recording answers to pre-defined screening questions about the presence of implanted devices or use of assistive aids.
 
 Common use cases include, but are not limited to:
-- Checklist questions about whether the individual uses any devices or aids
-- Questionnaires about the usage of specific devices or aids
+- Screening for implanted devices before an MRI test.
+- Checklist questions about whether the individual uses any assistive devices on admission to hospital.
 
-In order to record the response at a specific point in time or within an interval of time, use the EVENT RM attribute.
+The initial question about any medical device use is focused on implanted devices due to the clinical safety implications, especially when undergoing imaging examinations.
 
-This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data. If the screening process identifies the usage of a specific device and it is intended that the details are to be recorded and persisted as part of an ongoing health record, any further specific details about the device should be recorded using the EVALUATION.device_summary archetype. (en)">
-			misuse = <"">
+Examples of implanted medical devices include, but are not limited to:
+- cochlear implant; 
+- pacemaker; 
+- aneurysm clips;
+- joint replacement; 
+- heart valve; 
+- coronary stent; 
+- bone fixation device eg screws or plates; 
+- deep brain stimulator; or
+- intraocular lens.
+
+Examples of assistive aids include, but are not limited to:
+- wheelchair; 
+- walking stick; 
+- hearing aid; 
+- reading glasses; 
+- prosthetic limb; 
+- braille reader; 
+- speech generating device; or 
+- medication organiser or dispenser.
+
+The semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.
+
+The EVENT structure from the reference model can be used to specify whether the questions relate to a point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a device that has been used at any time in the past and information about a device used within a specified time interval - for example, the difference between \"Do you currently have a pacemaker?\" compared to \"Have you used a wheelchair in the past year?\"
+
+The source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.
+
+This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence or usage of a medical device, it is recommended that the clinical system record and persist the specific details about the device using EVALUATION.device_summary. (en)">
+			keywords = <"*device, implant (en)", ...>
+			misuse = <"*Not to be used to record answers to pre-defined screening questions about surgical/operative procedures when a medical device was implanted. Use the OBSERVATION.procedure_screening for this purpose.
+
+Not to be used to record answers to pre-defined screening questions about medications that have been implanted. Use the OBSERVATION.medication_screening for this purpose. (en)">
 			copyright = <"© openEHR Foundation">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To record the responses to a screening questionnaire for medical devices.">
-			use = <"Use to record the responses to a screening questionnaire for medical devices.
+			purpose = <"To create a framework for recording answers to pre-defined screening questions about the presence of implanted medical devices or use of assistive devices.">
+			use = <"Use to create a framework for recording answers to pre-defined screening questions about the presence of implanted devices or use of assistive aids.
 
 Common use cases include, but are not limited to:
-- Checklist questions about whether the individual uses any devices or aids
-- Questionnaires about the usage of specific devices or aids
+- Screening for implanted devices before an MRI test.
+- Checklist questions about whether the individual uses any assistive devices on admission to hospital.
 
-In order to record the response at a specific point in time or within an interval of time, use the EVENT RM attribute.
+The initial question about any medical device use is focused on implanted devices due to the clinical safety implications, especially when undergoing imaging examinations.
 
-This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data. If the screening process identifies the usage of a specific device and it is intended that the details are to be recorded and persisted as part of an ongoing health record, any further specific details about the device should be recorded using the EVALUATION.device_summary archetype.">
-			misuse = <"">
+Examples of implanted medical devices include, but are not limited to:
+- cochlear implant; 
+- pacemaker; 
+- aneurysm clips;
+- joint replacement; 
+- heart valve; 
+- coronary stent; 
+- bone fixation device eg screws or plates; 
+- deep brain stimulator; or
+- intraocular lens.
+
+Examples of assistive aids include, but are not limited to:
+- wheelchair; 
+- walking stick; 
+- hearing aid; 
+- reading glasses; 
+- prosthetic limb; 
+- braille reader; 
+- speech generating device; or 
+- medication organiser or dispenser.
+
+The semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.
+
+The EVENT structure from the reference model can be used to specify whether the questions relate to a point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a device that has been used at any time in the past and information about a device used within a specified time interval - for example, the difference between \"Do you currently have a pacemaker?\" compared to \"Have you used a wheelchair in the past year?\"
+
+The source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.
+
+This archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence or usage of a medical device, it is recommended that the clinical system record and persist the specific details about the device using EVALUATION.device_summary.">
+			keywords = <"device, implant", ...>
+			misuse = <"Not to be used to record answers to pre-defined screening questions about surgical/operative procedures when a medical device was implanted. Use the OBSERVATION.procedure_screening for this purpose.
+
+Not to be used to record answers to pre-defined screening questions about medications that have been implanted. Use the OBSERVATION.medication_screening for this purpose.">
 			copyright = <"© openEHR Foundation">
 		>
 	>
@@ -85,9 +175,9 @@ This archetype has been designed to be used as a screening tool or to record sim
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"379412E1A67D20A9A4515501E114CB4E">
-		["build_uid"] = <"fd13b40b-a43b-4805-a4d3-f3f49c4344ed">
-		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
+		["MD5-CAM-1.0.1"] = <"BC3DC35D69FDF6D0F376A5FCA3D2BBAD">
+		["build_uid"] = <"841f07ce-bff2-40e0-9bd6-703d8845e7b9">
+		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -105,7 +195,7 @@ definition
 											DV_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Any presence?
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Any implanted medical device?
 										value matches {
 											DV_CODED_TEXT matches {
 												defining_code matches {
@@ -118,7 +208,7 @@ definition
 											DV_TEXT matches {*}
 										}
 									}
-									CLUSTER[at0022] occurrences matches {0..*} matches {    -- Specific device
+									CLUSTER[at0022] occurrences matches {0..*} matches {    -- Implanted device screening
 										items cardinality matches {1..*; unordered} matches {
 											ELEMENT[at0004] matches {    -- Device name
 												value matches {
@@ -136,6 +226,21 @@ definition
 														}
 													}
 													DV_TEXT matches {*}
+													DV_BOOLEAN matches {*}
+												}
+											}
+											ELEMENT[at0040] occurrences matches {0..1} matches {    -- Description
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0050] occurrences matches {0..1} matches {    -- Timing
+												value matches {
+													DV_TEXT matches {*}
+													DV_DATE_TIME matches {*}
+													DV_INTERVAL<DV_DATE_TIME> matches {*}
+													DV_INTERVAL<DV_DURATION> matches {*}
+													DV_DURATION matches {*}
 												}
 											}
 											allow_archetype CLUSTER[at0039] occurrences matches {0..*} matches {    -- Screening details
@@ -143,6 +248,42 @@ definition
 													archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
 											}
 											ELEMENT[at0025] occurrences matches {0..1} matches {    -- Comment
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0041] occurrences matches {0..*} matches {    -- Assistive aid screening
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0042] matches {    -- Aid name
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0043] occurrences matches {0..1} matches {    -- Presence?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0044,    -- Yes
+															at0045,    -- No
+															at0046]    -- Unknown
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0047] occurrences matches {0..1} matches {    -- Description
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											allow_archetype CLUSTER[at0048] occurrences matches {0..*} matches {    -- Screening details
+												include
+													archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+											}
+											ELEMENT[at0049] occurrences matches {0..1} matches {    -- Comment
 												value matches {
 													DV_TEXT matches {*}
 												}
@@ -176,7 +317,8 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Medical device screening questionnaire">
-					description = <"An individual- or self-reported questionnaire screening for usage of medical devices, including aids and equipment.">
+					description = <"Series of questions and associated answers used to screen for the presence of implanted medical devices or use of assistive aids.">
+					comment = <"The answers may be self-reported.">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -192,11 +334,11 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Device name">
-					description = <"Name of the device or device type being screened.">
+					description = <"Name of the implanted medical device or device type being screened.">
 				>
 				["at0005"] = <
 					text = <"Presence?">
-					description = <"Presence or usage of the device.">
+					description = <"Presence of the implanted device.">
 				>
 				["at0007"] = <
 					text = <"Item tree">
@@ -204,12 +346,13 @@ ontology
 				>
 				["at0021"] = <
 					text = <"Extension">
-					description = <"Additional information required to capture local content or to align with other reference models/formalisms.">
-					comment = <"For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+					description = <"Additional information required to extend the model with local content or to align with other reference models or formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
 				>
 				["at0022"] = <
-					text = <"Specific device">
-					description = <"Screening details about a specified condition or grouping of conditions.">
+					text = <"Implanted device screening">
+					description = <"Screening details about the presence of a specific implanted medical device.">
+					comment = <"For example: cochlear implant; pacemaker; joint replacement; heart valve; coronary stent; bone fixation device eg screws or plates; deep brain stimulator; intraocular lens; or contraceptive device.">
 				>
 				["at0023"] = <
 					text = <"Yes">
@@ -221,36 +364,82 @@ ontology
 				>
 				["at0025"] = <
 					text = <"Comment">
-					description = <"Additional narrative about the specified device, not captured in other fields.">
+					description = <"Additional narrative about the implanted device, not captured in other fields.">
 				>
 				["at0027"] = <
 					text = <"Unknown">
 					description = <"It is not known whether the device is present or absent.">
 				>
 				["at0028"] = <
-					text = <"Any presence?">
-					description = <"Presence or usage of any relevant devices.">
+					text = <"Any implanted medical device?">
+					description = <"Presence of any implanted devices.">
 				>
 				["at0031"] = <
 					text = <"Yes">
-					description = <"Conditions are present.">
+					description = <"">
 				>
 				["at0032"] = <
 					text = <"No">
-					description = <"Conditions are not present.">
+					description = <"">
 				>
 				["at0033"] = <
 					text = <"Unknown">
-					description = <"It is not known whether any conditions are present or absent.">
+					description = <"">
 				>
 				["at0034"] = <
 					text = <"Screening purpose">
 					description = <"The reason for overall screening.">
-					comment = <"For example: pre-operative screening.">
+					comment = <"For example: screening prior to a Magnetic Resonance Imaging examination.">
 				>
 				["at0039"] = <
 					text = <"Screening details">
-					description = <"Additional details or questions about the specific device.">
+					description = <"Additional details or questions about the implanted device.">
+				>
+				["at0040"] = <
+					text = <"Description">
+					description = <"Narrative description about the implanted device.">
+				>
+				["at0041"] = <
+					text = <"Assistive aid screening">
+					description = <"Screening details about the use of a specific assistive medical device.">
+					comment = <"For example: wheelchair; walking stick; hearing aid; reading glasses; prosthetic limb; braille reader; speech generating device or medication organiser.">
+				>
+				["at0042"] = <
+					text = <"Aid name">
+					description = <"Name of the medical device or device type being screened.">
+				>
+				["at0043"] = <
+					text = <"Presence?">
+					description = <"Usage of the assistive aid.">
+				>
+				["at0044"] = <
+					text = <"Yes">
+					description = <"The specific device is present or being used.">
+				>
+				["at0045"] = <
+					text = <"No">
+					description = <"The specific device is not present or being used.">
+				>
+				["at0046"] = <
+					text = <"Unknown">
+					description = <"It is not known whether the device is present or absent.">
+				>
+				["at0047"] = <
+					text = <"Description">
+					description = <"Narrative description about the assistive aid.">
+				>
+				["at0048"] = <
+					text = <"Screening details">
+					description = <"Additional details or questions about the assistive aid.">
+				>
+				["at0049"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the assistive aid, not captured in other fields.">
+				>
+				["at0050"] = <
+					text = <"Timing">
+					description = <"Indication of timing related to the implanted device.">
+					comment = <"The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medical device was implanted. The specific and intended semantics can be further clarified in a template. For example: the actual date and/or time; the dates when the implant was inserted or removed; the interval of time during which the implant was inserted; the implant duration; the age of the individual at the time the implant was inserted; or the duration of time since it was inserted or removed. A partial date is valid, using the DV_DATE_TIME data type, to record only a year.">
 				>
 			>
 		>
@@ -258,7 +447,8 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"*Medical device screening questionnaire (en)">
-					description = <"*An individual- or self-reported questionnaire screening for usage of medical devices, including aids and equipment. (en)">
+					description = <"*Series of questions and associated answers used to screen for the presence of implanted medical devices or use of assistive aids. (en)">
+					comment = <"*The answers may be self-reported. (en)">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -274,11 +464,11 @@ ontology
 				>
 				["at0004"] = <
 					text = <"*Device name (en)">
-					description = <"*Name of the device or device type being screened. (en)">
+					description = <"*Name of the implanted medical device or device type being screened. (en)">
 				>
 				["at0005"] = <
 					text = <"Tilstede?">
-					description = <"*Presence or usage of the device. (en)">
+					description = <"*Presence of the implanted device. (en)">
 				>
 				["at0007"] = <
 					text = <"Item tree">
@@ -286,12 +476,13 @@ ontology
 				>
 				["at0021"] = <
 					text = <"Tilleggsinformasjon">
-					description = <"Ytterligere informasjon som trengs for å kunne registrere lokalt definert innhold eller for å tilpasse til andre referansemodeller/formalismer.">
-					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR.">
+					description = <"*Additional information required to extend the model with local content or to align with other reference models or formalisms. (en)">
+					comment = <"*For example: local information requirements; or additional metadata to align with FHIR. (en)">
 				>
 				["at0022"] = <
-					text = <"*Specific device (en)">
-					description = <"Detaljer om en spesifikk helsetilstand eller en gruppe av helsetilstander.">
+					text = <"*Implanted device screening (en)">
+					description = <"*Screening details about the presence of a specific implanted medical device. (en)">
+					comment = <"*For example: cochlear implant; pacemaker; joint replacement; heart valve; coronary stent; bone fixation device eg screws or plates; deep brain stimulator; intraocular lens; or contraceptive device. (en)">
 				>
 				["at0023"] = <
 					text = <"Ja">
@@ -303,36 +494,82 @@ ontology
 				>
 				["at0025"] = <
 					text = <"Kommentar">
-					description = <"*Additional narrative about the specified device, not captured in other fields. (en)">
+					description = <"*Additional narrative about the implanted device, not captured in other fields. (en)">
 				>
 				["at0027"] = <
 					text = <"Ukjent">
 					description = <"*It is not known whether the device is present or absent. (en)">
 				>
 				["at0028"] = <
-					text = <"Tilstedeværelse?">
-					description = <"*Presence or usage of any relevant devices. (en)">
+					text = <"*Any implanted medical device? (en)">
+					description = <"*Presence of any implanted devices. (en)">
 				>
 				["at0031"] = <
 					text = <"Ja">
-					description = <"Tilstander er tilstede.">
+					description = <"">
 				>
 				["at0032"] = <
 					text = <"Nei">
-					description = <"Tilstander er ikke tilstede.">
+					description = <"">
 				>
 				["at0033"] = <
 					text = <"Ukjent">
-					description = <"Det er ukjent om noen tilstander er tilstede eller fraværende.">
+					description = <"">
 				>
 				["at0034"] = <
 					text = <"Registreringsformål">
 					description = <"Årsaken til registreringen.">
-					comment = <"For eksempel: Pre-operativ screening.">
+					comment = <"*For example: screening prior to a Magnetic Resonance Imaging examination. (en)">
 				>
 				["at0039"] = <
 					text = <"Screening detaljer">
-					description = <"*Additional details or questions about the specific device. (en)">
+					description = <"*Additional details or questions about the implanted device. (en)">
+				>
+				["at0040"] = <
+					text = <"*Description (en)">
+					description = <"*Narrative description about the implanted device. (en)">
+				>
+				["at0041"] = <
+					text = <"*Assistive aid screening (en)">
+					description = <"*Screening details about the use of a specific assistive medical device. (en)">
+					comment = <"*For example: wheelchair; walking stick; hearing aid; reading glasses; prosthetic limb; braille reader; speech generating device or medication organiser. (en)">
+				>
+				["at0042"] = <
+					text = <"*Aid name (en)">
+					description = <"*Name of the medical device or device type being screened. (en)">
+				>
+				["at0043"] = <
+					text = <"Tilstede?">
+					description = <"*Usage of the assistive aid. (en)">
+				>
+				["at0044"] = <
+					text = <"Ja">
+					description = <"*The specific device is present or being used. (en)">
+				>
+				["at0045"] = <
+					text = <"Nei">
+					description = <"*The specific device is not present or being used. (en)">
+				>
+				["at0046"] = <
+					text = <"Ukjent">
+					description = <"*It is not known whether the device is present or absent. (en)">
+				>
+				["at0047"] = <
+					text = <"*Description (en)">
+					description = <"*Narrative description about the assistive aid. (en)">
+				>
+				["at0048"] = <
+					text = <"Screening detaljer">
+					description = <"*Additional details or questions about the assistive aid. (en)">
+				>
+				["at0049"] = <
+					text = <"Kommentar">
+					description = <"*Additional narrative about the assistive aid, not captured in other fields. (en)">
+				>
+				["at0050"] = <
+					text = <"*Timing (en)">
+					description = <"*Indication of timing related to the implanted device. (en)">
+					comment = <"*The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medical device was implanted. The specific and intended semantics can be further clarified in a template. For example: the actual date and/or time; the dates when the implant was inserted or removed; the interval of time during which the implant was inserted; the implant duration; the age of the individual at the time the implant was inserted; or the duration of time since it was inserted or removed. A partial date is valid, using the DV_DATE_TIME data type, to record only a year. (en)">
 				>
 			>
 		>
@@ -340,7 +577,8 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"*Medical device screening questionnaire (en)">
-					description = <"*An individual- or self-reported questionnaire screening for usage of medical devices, including aids and equipment. (en)">
+					description = <"*Series of questions and associated answers used to screen for the presence of implanted medical devices or use of assistive aids. (en)">
+					comment = <"*The answers may be self-reported. (en)">
 				>
 				["at0001"] = <
 					text = <"History">
@@ -355,12 +593,12 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0004"] = <
-					text = <"*Device name (en)">
-					description = <"*Name of the device or device type being screened. (en)">
+					text = <"Gerätename">
+					description = <"*Name of the implanted medical device or device type being screened. (en)">
 				>
 				["at0005"] = <
 					text = <"Vorhanden?">
-					description = <"*Presence or usage of the device. (en)">
+					description = <"*Presence of the implanted device. (en)">
 				>
 				["at0007"] = <
 					text = <"Item tree">
@@ -368,53 +606,100 @@ ontology
 				>
 				["at0021"] = <
 					text = <"Erweiterung">
-					description = <"Zusätzliche Informationen zur Erfassung lokaler Inhalte oder Anpassung an andere Referenzmodelle/Formalismen.">
-					comment = <"Zum Beispiel: Lokaler Informationsbedarf oder zusätzliche Metadaten zur Anpassung an FHIR-Ressourcen oder CIMI-Modelle.">
+					description = <"*Additional information required to extend the model with local content or to align with other reference models or formalisms. (en)">
+					comment = <"*For example: local information requirements; or additional metadata to align with FHIR. (en)">
 				>
 				["at0022"] = <
-					text = <"*Specific device (en)">
-					description = <"*Screening details about a specified condition or grouping of conditions. (en)">
+					text = <"*Implanted device screening (en)">
+					description = <"*Screening details about the presence of a specific implanted medical device. (en)">
+					comment = <"*For example: cochlear implant; pacemaker; joint replacement; heart valve; coronary stent; bone fixation device eg screws or plates; deep brain stimulator; intraocular lens; or contraceptive device. (en)">
 				>
 				["at0023"] = <
-					text = <"*Yes (en)">
-					description = <"*The specific device is present or being used. (en)">
+					text = <"Ja">
+					description = <"Das betreffende Gerät ist vorhanden oder wird verwendet.">
 				>
 				["at0024"] = <
-					text = <"*No (en)">
-					description = <"*The specific device is not present or being used. (en)">
+					text = <"Nein">
+					description = <"Das betreffende Gerät ist nicht vorhanden oder wird nicht verwendet.">
 				>
 				["at0025"] = <
 					text = <"Kommentar">
-					description = <"*Additional narrative about the specified device, not captured in other fields. (en)">
+					description = <"*Additional narrative about the implanted device, not captured in other fields. (en)">
 				>
 				["at0027"] = <
 					text = <"Unbekannt">
-					description = <"*It is not known whether the device is present or absent. (en)">
+					description = <"Es ist nicht bekannt, ob das Gerät vorhanden ist.">
 				>
 				["at0028"] = <
-					text = <"*Any presence? (en)">
-					description = <"*Presence or usage of any relevant devices. (en)">
+					text = <"*Any implanted medical device? (en)">
+					description = <"*Presence of any implanted devices. (en)">
 				>
 				["at0031"] = <
-					text = <"*Yes (en)">
-					description = <"Zustände sind vorhanden.">
+					text = <"Ja">
+					description = <"">
 				>
 				["at0032"] = <
-					text = <"*No (en)">
-					description = <"Keine Zustände sind vorhanden.">
+					text = <"Nein">
+					description = <"">
 				>
 				["at0033"] = <
 					text = <"Unbekannt">
-					description = <"Es ist nicht bekannt, ob Zustände vorhanden oder nicht vorhanden sind.">
+					description = <"">
 				>
 				["at0034"] = <
 					text = <"Zweck des Screenings">
 					description = <"Der Grund für das gesamte Screening.">
-					comment = <"Zum Beispiel: präoperatives Screening.">
+					comment = <"*For example: screening prior to a Magnetic Resonance Imaging examination. (en)">
 				>
 				["at0039"] = <
-					text = <"*Screening details (en)">
-					description = <"*Additional details or questions about the specific device. (en)">
+					text = <"Details zum Screening">
+					description = <"*Additional details or questions about the implanted device. (en)">
+				>
+				["at0040"] = <
+					text = <"*Description (en)">
+					description = <"*Narrative description about the implanted device. (en)">
+				>
+				["at0041"] = <
+					text = <"*Assistive aid screening (en)">
+					description = <"*Screening details about the use of a specific assistive medical device. (en)">
+					comment = <"*For example: wheelchair; walking stick; hearing aid; reading glasses; prosthetic limb; braille reader; speech generating device or medication organiser. (en)">
+				>
+				["at0042"] = <
+					text = <"*Aid name (en)">
+					description = <"*Name of the medical device or device type being screened. (en)">
+				>
+				["at0043"] = <
+					text = <"Vorhanden?">
+					description = <"*Usage of the assistive aid. (en)">
+				>
+				["at0044"] = <
+					text = <"Ja">
+					description = <"Das betreffende Gerät ist vorhanden oder wird verwendet.">
+				>
+				["at0045"] = <
+					text = <"Nein">
+					description = <"Das betreffende Gerät ist nicht vorhanden oder wird nicht verwendet.">
+				>
+				["at0046"] = <
+					text = <"Unbekannt">
+					description = <"Es ist nicht bekannt, ob das Gerät vorhanden ist.">
+				>
+				["at0047"] = <
+					text = <"*Description (en)">
+					description = <"*Narrative description about the assistive aid. (en)">
+				>
+				["at0048"] = <
+					text = <"Details zum Screening">
+					description = <"*Additional details or questions about the assistive aid. (en)">
+				>
+				["at0049"] = <
+					text = <"Kommentar">
+					description = <"*Additional narrative about the assistive aid, not captured in other fields. (en)">
+				>
+				["at0050"] = <
+					text = <"*Timing (en)">
+					description = <"*Indication of timing related to the implanted device. (en)">
+					comment = <"*The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when a medical device was implanted. The specific and intended semantics can be further clarified in a template. For example: the actual date and/or time; the dates when the implant was inserted or removed; the interval of time during which the implant was inserted; the implant duration; the age of the individual at the time the implant was inserted; or the duration of time since it was inserted or removed. A partial date is valid, using the DV_DATE_TIME data type, to record only a year. (en)">
 				>
 			>
 		>
@@ -428,6 +713,9 @@ ontology
 				["at0032"] = <[SNOMED-CT::373067005]>
 				["at0027"] = <[SNOMED-CT::261665006]>
 				["at0033"] = <[SNOMED-CT::261665006]>
+				["at0044"] = <[SNOMED-CT::373066001]>
+				["at0045"] = <[SNOMED-CT::373067005]>
+				["at0046"] = <[SNOMED-CT::261665006]>
 			>
 		>
 	>
