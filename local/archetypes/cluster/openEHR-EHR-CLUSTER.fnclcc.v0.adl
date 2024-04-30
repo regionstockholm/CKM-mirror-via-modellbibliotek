@@ -2,16 +2,16 @@
 	openEHR-EHR-CLUSTER.fnclcc.v0
 
 concept
-	[at0000]	-- FNCLCC Grading System
+	[at0000]	-- FNCLCC grading system
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			author = <
-				["name"] = <"Kanika Kuwelker">
+				["name"] = <"Kanika Kuwelker,  John Tore Valand">
 				["organisation"] = <"Helse Vest IKT">
-				["email"] = <"kanika.kuwelker@helse-vest-ikt.no">
+				["email"] = <"kanika.kuwelker@helse-vest-ikt.no, , john.tore.valand@helse-vest-ikt.no">
 			>
 		>
 	>
@@ -26,7 +26,10 @@ description
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere histologisk grad av bløtvevssarkom ved bruk av FNCLCC sitt graderingssystem.">
-			use = <"Brukes for å registrere histologisk grad av bløtvevssarkom ved bruk av FNCLCC sitt graderingssystem.">
+			use = <"Brukes for å registrere histologisk grad av bløtvevssarkom ved bruk av FNCLCC sitt graderingssystem.
+
+Arketypen er laget for å benyttes i en ENTRY arketype som vil gi den kliniske eller patologiske konteksten. For eksempel: I SLOTet \"Spesifikke detaljer\" i arketypen EVALUATION.problem_diagnosis (Problem/diagnose), i en relevant patologirelatert CLUSTER-arketype som igjen nøstes i laboratoriesvar-arketypen. (OBSERVATION.laboratory_test_result) eller innen andre ENTRY- eller CLUSTER-arketyper der det er klinisk passende.
+">
 			keywords = <"sarkom, bløtvev, kreft, neoplasi, malignitet, onkologi, gradering, grad, FNCLCC", ...>
 			misuse = <"">
 			copyright = <"© openEHR Foundation">
@@ -34,7 +37,9 @@ description
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record the histological grading of soft tissue sarcoma using the FNCLCC grading system.">
-			use = <"Use to record the histological grading of soft tissue sarcoma using the FNCLCC grading system.">
+			use = <"Use to record the histological grading of soft tissue sarcoma using the FNCLCC grading system.
+
+This archetype has been designed to be nested inside an ENTRY or appropriate CLUSTER archetype which will provide a clinical or pathological context - for example: the 'Specific details' SLOT within the EVALUATION.problem_diagnosis archetype; an appropriate histopathology-related CLUSTER archetype within the OBSERVATION.laboratory_test_result context; or within other ENTRY or CLUSTER archetypes, where clinically appropriate.">
 			keywords = <"sarcoma, soft tissue, tumour, cancer, neoplasia, oncology, malignancy, grading, grade, FNCLCC", ...>
 			misuse = <"">
 		>
@@ -44,9 +49,7 @@ description
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
-		["references"] = <"Childhood Soft Tissue Sarcoma Treatment (PDQ®): Health Professional Version. 2002;. Review. PubMed PMID: 26389361.
-
-Kumar R, Ludwig JA, Madewell JE. Soft Tissue Sarcomas. In: Oncologic Imaging: A Multidisciplinary Approach 2 ed. Elselvier: Saunders; 2022. Chapter 38; p.656-669.
+		["references"] = <"Kumar R, Ludwig JA, Madewell JE. Soft Tissue Sarcomas. In: Oncologic Imaging: A Multidisciplinary Approach 2 ed. Elselvier: Saunders; 2022. Chapter 38; p.656-669.
 
 Jean-Michel Coindre; Grading of Soft Tissue Sarcomas: Review and Update. Arch Pathol Lab Med 1 October 2006; 130 (10): 1448–1453. doi: https://doi.org/10.5858/2006-130-1448-GOSTSR
 
@@ -54,13 +57,13 @@ Norwegian translation: Helsedirektoratet. Nasjonalt handlingsprogram med retning
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"688E99A76B13A963E813E628509DF072">
-		["build_uid"] = <"0bbbd806-33b9-4fdc-9da1-3dca06eb2e12">
+		["MD5-CAM-1.0.1"] = <"49368189BF05EDC0FEBB62F8327F82D5">
+		["build_uid"] = <"5a7cdac4-bd31-4458-919f-c91fd22ac48a">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- FNCLCC Grading System
+	CLUSTER[at0000] matches {    -- FNCLCC grading system
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Tumour differentiation
 				value matches {
@@ -83,11 +86,19 @@ definition
 					2|[local::at0016]
 				}
 			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {    -- Total score
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..8|}
+					}
+				}
+			}
 			ELEMENT[at0017] occurrences matches {0..1} matches {    -- Histological grade
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
 							[local::
+							at0022,    -- GX
 							at0018,    -- Grade 1
 							at0019,    -- Grade 2
 							at0020]    -- Grade 3
@@ -104,8 +115,9 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"FNCLCC Grading System">
-					description = <"A framework for the histological grading of soft tissue sarcoma using the grading system by FNCLCC (The Fédération Nationale des Centres de Lutte Contre le Cancer).">
+					text = <"FNCLCC grading system">
+					description = <"A framework for the histological grading of soft tissue sarcoma using the FNCLCC grading system.">
+					comment = <"FNCLCC - Fédération Nationale des Centres de Lutte Contre le Cancer.">
 				>
 				["at0005"] = <
 					text = <"Tumour differentiation">
@@ -120,27 +132,27 @@ ontology
 					description = <"">
 				>
 				["at0008"] = <
-					text = <"Sarcomas closely resembling normal adult mesenchymal tissue (eg, well-differentiated liposarcoma)">
+					text = <"Sarcoma closely resembling normal adult mesenchymal tissue (e.g., low-grade liposarcoma).">
 					description = <"">
 				>
 				["at0009"] = <
-					text = <"Sarcomas for which histologic typing is certain (eg, myxoid liposarcoma)">
+					text = <"Sarcomas for which histological typing is certain (e.g., myxoid/round cell liposarcoma).">
 					description = <"">
 				>
 				["at0010"] = <
-					text = <"Embryonal and undifferentiated sarcomas, sarcomas of doubtful type, syonvial sarcomas, osteosarcomas, PNET">
+					text = <"Embryonal and undifferentiated sarcomas, sarcomas of doubtful type, synovial sarcomas, soft tissue osteosarcoma, Ewing sarcoma/primitive neuroectodermal tumor (PNET) of soft tissue.">
 					description = <"">
 				>
 				["at0011"] = <
-					text = <"0-9 mitoses per 10 HPF">
+					text = <"0-9 mitoses per 1,7 mm2">
 					description = <"">
 				>
 				["at0012"] = <
-					text = <"10-19 mitoses per 10 HPF">
+					text = <"10-19 mitoses per 1.7 mm2">
 					description = <"">
 				>
 				["at0013"] = <
-					text = <"≥20 mitoses per 10 HPF">
+					text = <"≥20 mitoses per 1.7 mm2">
 					description = <"">
 				>
 				["at0014"] = <
@@ -171,13 +183,22 @@ ontology
 					text = <"Grade 3">
 					description = <"Total score 6, 7 or 8.">
 				>
+				["at0021"] = <
+					text = <"Total score">
+					description = <"The total sum of the individual parameters for the score.">
+				>
+				["at0022"] = <
+					text = <"GX">
+					description = <"Grade cannot be assessed.">
+				>
 			>
 		>
 		["nb"] = <
 			items = <
 				["at0000"] = <
-					text = <"FNCLCC graderingssytem">
-					description = <"Et rammeverk for histologisk gradering av bløtvevssarkom i henhold til FNCLCC (The Fédération Nationale des Centres de Lutte Contre le Cancer) sitt graderingssystem.">
+					text = <"FNCLCC graderingssystem">
+					description = <"Et rammeverk for histologisk gradering av bløtvevssarkom i henhold til FNCLCC sitt graderingssystem. ">
+					comment = <"FNCLCC - Fédération Nationale des Centres de Lutte Contre le Cancer.">
 				>
 				["at0005"] = <
 					text = <"Tumors differensiering">
@@ -204,15 +225,15 @@ ontology
 					description = <"">
 				>
 				["at0011"] = <
-					text = <"0-9 mitoser per 10 HPF">
+					text = <"0-9 mitoser per 1,7 mm2">
 					description = <"">
 				>
 				["at0012"] = <
-					text = <"10-19 mitoser per 10 HPF">
+					text = <"10-19 mitoser per 1,7 mm2">
 					description = <"">
 				>
 				["at0013"] = <
-					text = <"≥20 mitoser per 10 HPF">
+					text = <"≥20 mitoser per 1,7 mm2">
 					description = <"">
 				>
 				["at0014"] = <
@@ -233,15 +254,23 @@ ontology
 				>
 				["at0018"] = <
 					text = <"Grad 1">
-					description = <"Totalt 2 eller 3 poeng">
+					description = <"Totalt 2 eller 3 poeng.">
 				>
 				["at0019"] = <
 					text = <"Grad 2">
-					description = <"Totalt 4 eller 5 poeng">
+					description = <"Totalt 4 eller 5 poeng.">
 				>
 				["at0020"] = <
 					text = <"Grad 3">
-					description = <"Totalt 6, 7 eller 8 poeng">
+					description = <"Totalt 6, 7 eller 8 poeng.">
+				>
+				["at0021"] = <
+					text = <"Total skår">
+					description = <"Totalsummen av de enkelte parameterne for skåren. ">
+				>
+				["at0022"] = <
+					text = <"GX">
+					description = <"Grad kan ikke vurderes.">
 				>
 			>
 		>
