@@ -1,0 +1,74 @@
+archetype (adl_version=1.4; uid=b18a5f5e-988d-49c6-9dd2-8db96d28ea5f)
+	openEHR-EHR-CLUSTER.relation_to_main_treatment.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2024-05-20">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"8a6d415bb34e29a2c3b79ad3717ca234">
+		["build_uid"] = <"dbd4ebd6-c634-3783-a297-eb81c5271226">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Adjuvancy
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Relation to main treatment
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Neoadjuvant
+							at0003,    -- Perioperativ
+							at0004]    -- Adjuvant
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Adjuvancy">
+					description = <"Relation to main treatment">
+				>
+				["at0001"] = <
+					text = <"Relation to main treatment">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Neoadjuvant">
+					description = <"wqed">
+				>
+				["at0003"] = <
+					text = <"Perioperativ">
+					description = <"asd">
+				>
+				["at0004"] = <
+					text = <"Adjuvant">
+					description = <"asdasd">
+				>
+			>
+		>
+	>
