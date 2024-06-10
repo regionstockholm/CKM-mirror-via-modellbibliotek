@@ -26,7 +26,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"d78a86e3b9d210cb1b76a9a4dd8a9d41">
+		["MD5-CAM-1.0.1"] = <"4cc6fa294b52315db7bac2b602eb4b6a">
 		["build_uid"] = <"ec184625-acf0-3e8b-80f7-f84a5cfc4ea6">
 	>
 
@@ -36,6 +36,11 @@ definition
 			ITEM_TREE[at0003] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
 					ELEMENT[at0037] occurrences matches {0..1} matches {    -- Synopsis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0052] occurrences matches {0..1} matches {    -- Intent
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -133,11 +138,6 @@ definition
 									DV_DATE_TIME matches {*}
 								}
 							}
-							ELEMENT[at0013] occurrences matches {0..1} matches {    -- Intent
-								value matches {
-									DV_TEXT matches {*}
-								}
-							}
 							ELEMENT[at0048] occurrences matches {0..1} matches {    -- Adjuvancy
 								value matches {
 									DV_CODED_TEXT matches {
@@ -231,10 +231,6 @@ ontology
 				>
 				["at0012"] = <
 					text = <"Therapy variant">
-					description = <"">
-				>
-				["at0013"] = <
-					text = <"Intent">
 					description = <"">
 				>
 				["at0014"] = <
@@ -331,6 +327,10 @@ ontology
 				>
 				["at0051"] = <
 					text = <"Adjuvant">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Intent">
 					description = <"">
 				>
 			>
