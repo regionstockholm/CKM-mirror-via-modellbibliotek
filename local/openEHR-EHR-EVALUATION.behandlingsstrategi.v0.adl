@@ -26,7 +26,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"4cc6fa294b52315db7bac2b602eb4b6a">
+		["MD5-CAM-1.0.1"] = <"161166041c66046b1acc8821373c2a4f">
 		["build_uid"] = <"ec184625-acf0-3e8b-80f7-f84a5cfc4ea6">
 	>
 
@@ -36,6 +36,39 @@ definition
 			ITEM_TREE[at0003] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
 					ELEMENT[at0037] occurrences matches {0..1} matches {    -- Synopsis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0053] occurrences matches {0..1} matches {    -- Behandlingsåtgärd
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0054,    -- Medicinsk onkologisk behandling
+									at0055,    -- Radioterapi
+									at0056,    -- Kirurgi
+									at0057,    -- Aktiv monitorering
+									at0058]    -- Ingen tumörinriktad behandling
+								}
+							}
+						}
+					}
+					ELEMENT[at0059] occurrences matches {0..1} matches {    -- Orsak ingen tumörinriktad behandling
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0060,    -- Lågt funktionsstatus enligt ECOG
+									at0061,    -- Betydande samsjuklighet
+									at0062,    -- Cancer i framskridande stadium
+									at0063,    -- Död innan behandling
+									at0064]    -- Annan orsak
+								}
+							}
+						}
+					}
+					ELEMENT[at0065] occurrences matches {0..1} matches {    -- Specificera annan orsak
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -100,16 +133,7 @@ definition
 							}
 							ELEMENT[at0005] occurrences matches {0..1} matches {    -- Therapy category
 								value matches {
-									DV_CODED_TEXT matches {
-										defining_code matches {
-											[local::
-											at0006,    -- Medical oncology
-											at0007,    -- Other medication
-											at0008,    -- Radiation therapy
-											at0009,    -- Surgical procedures
-											at0010]    -- Ancillary treatment
-										}
-									}
+									DV_CODED_TEXT matches {*}
 								}
 							}
 							allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Details
@@ -203,26 +227,6 @@ ontology
 				>
 				["at0005"] = <
 					text = <"Therapy category">
-					description = <"">
-				>
-				["at0006"] = <
-					text = <"Medical oncology">
-					description = <"">
-				>
-				["at0007"] = <
-					text = <"Other medication">
-					description = <"">
-				>
-				["at0008"] = <
-					text = <"Radiation therapy">
-					description = <"">
-				>
-				["at0009"] = <
-					text = <"Surgical procedures">
-					description = <"">
-				>
-				["at0010"] = <
-					text = <"Ancillary treatment">
 					description = <"">
 				>
 				["at0011"] = <
@@ -331,6 +335,58 @@ ontology
 				>
 				["at0052"] = <
 					text = <"Intent">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"Behandlingsåtgärd">
+					description = <"">
+				>
+				["at0054"] = <
+					text = <"Medicinsk onkologisk behandling">
+					description = <"">
+				>
+				["at0055"] = <
+					text = <"Radioterapi">
+					description = <"">
+				>
+				["at0056"] = <
+					text = <"Kirurgi">
+					description = <"">
+				>
+				["at0057"] = <
+					text = <"Aktiv monitorering">
+					description = <"">
+				>
+				["at0058"] = <
+					text = <"Ingen tumörinriktad behandling">
+					description = <"">
+				>
+				["at0059"] = <
+					text = <"Orsak ingen tumörinriktad behandling">
+					description = <"">
+				>
+				["at0060"] = <
+					text = <"Lågt funktionsstatus enligt ECOG">
+					description = <"">
+				>
+				["at0061"] = <
+					text = <"Betydande samsjuklighet">
+					description = <"">
+				>
+				["at0062"] = <
+					text = <"Cancer i framskridande stadium">
+					description = <"">
+				>
+				["at0063"] = <
+					text = <"Död innan behandling">
+					description = <"">
+				>
+				["at0064"] = <
+					text = <"Annan orsak">
+					description = <"">
+				>
+				["at0065"] = <
+					text = <"Specificera annan orsak">
 					description = <"">
 				>
 			>
