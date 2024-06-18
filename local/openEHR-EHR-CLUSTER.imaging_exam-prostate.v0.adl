@@ -96,7 +96,7 @@ Not to be used to record details related to the overall findings, context or tec
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"bb27aed35ff2693169cdb828e15f8d45">
+		["MD5-CAM-1.0.1"] = <"f65604d2da1305724a0a28fde9ffa5ff">
 		["build_uid"] = <"e090a712-a4a9-4358-ab8a-de5eb58c37ec">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"1.1.2">
@@ -145,6 +145,19 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
+			ELEMENT[at0.5] occurrences matches {0..1} matches {    -- Volume
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::129]>
+						list = <
+							["1"] = <
+								units = <"mL">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
 			ELEMENT[at0.2] occurrences matches {0..1} matches {    -- Width
 				value matches {
 					C_DV_QUANTITY <
@@ -173,6 +186,50 @@ definition
 					>
 				}
 			}
+			ELEMENT[at0.7] occurrences matches {0..1} matches {    -- Membranous urethral length
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0.8] occurrences matches {0..1} matches {    -- Tertiary lobe presence
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.9] occurrences matches {0..1} matches {    -- Tertiary lobe depth
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0.10] occurrences matches {0..1} matches {    -- Tertiary lobe height
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
 			ELEMENT[at0.4] occurrences matches {0..1} matches {    -- Height
 				value matches {
 					C_DV_QUANTITY <
@@ -187,19 +244,6 @@ definition
 					>
 				}
 			}
-			ELEMENT[at0.5] occurrences matches {0..1} matches {    -- Volume
-				value matches {
-					C_DV_QUANTITY <
-						property = <[openehr::129]>
-						list = <
-							["1"] = <
-								units = <"mL">
-								magnitude = <|>=0.0|>
-							>
-						>
-					>
-				}
-			}
 		}
 	}
 
@@ -208,6 +252,39 @@ ontology
 	term_definitions = <
 		["en"] = <
 			items = <
+				["at0000.1"] = <
+					text = <"Imaging examination of the prostate">
+					description = <"Findings on radiological examination of a specified body structure or region.">
+				>
+				["at0001.1"] = <
+					text = <"Body structure">
+					description = <"Identification of the body structure or region examined.">
+					comment = <"For example: 'Liver', 'Right ankle' or 'Lymph node group'. Coding of the body structure with an appropriate terminology, such as SNOMED CT, is recommended. If the body structure has been fully identified in this 'Body structure' element, then the 'Body site' data element and 'Structured body site' SLOT become redundant.">
+				>
+				["at0.2"] = <
+					text = <"Width">
+					description = <"The width of the prostate.">
+				>
+				["at0.3"] = <
+					text = <"Depth">
+					description = <"The depth of the prostate.">
+				>
+				["at0.4"] = <
+					text = <"Height">
+					description = <"The length of the prostate.">
+				>
+				["at0.5"] = <
+					text = <"Volume">
+					description = <"The volume of the prostate.">
+				>
+				["at0.6"] = <
+					text = <"Prostate">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"Imaging examination of a body structure">
+					description = <"Findings on radiological examination of a specified body structure or region.">
+				>
 				["at0001"] = <
 					text = <"Body structure">
 					description = <"Identification of the body structure or region examined.">
@@ -240,39 +317,59 @@ ontology
 					text = <"Comment">
 					description = <"Additional narrative about the imaging findings of the body structure, not captured in other fields.">
 				>
-				["at0000.1"] = <
-					text = <"Imaging examination of the prostate">
-					description = <"Findings on radiological examination of a specified body structure or region.">
+				["at0.7"] = <
+					text = <"Membranous urethral length">
+					description = <"">
 				>
-				["at0001.1"] = <
-					text = <"Body structure">
-					description = <"Identification of the body structure or region examined.">
-					comment = <"For example: 'Liver', 'Right ankle' or 'Lymph node group'. Coding of the body structure with an appropriate terminology, such as SNOMED CT, is recommended. If the body structure has been fully identified in this 'Body structure' element, then the 'Body site' data element and 'Structured body site' SLOT become redundant.">
+				["at0.8"] = <
+					text = <"Tertiary lobe presence">
+					description = <"">
 				>
-				["at0.2"] = <
-					text = <"Width">
-					description = <"The width of the prostate.">
+				["at0.9"] = <
+					text = <"Tertiary lobe depth">
+					description = <"">
 				>
-				["at0.3"] = <
-					text = <"Depth">
-					description = <"The depth of the prostate.">
-				>
-				["at0.4"] = <
-					text = <"Height">
-					description = <"The length of the prostate.">
-				>
-				["at0.5"] = <
-					text = <"Volume">
-					description = <"The volume of the prostate.">
-				>
-				["at0.6"] = <
-					text = <"Prostate">
+				["at0.10"] = <
+					text = <"Tertiary lobe height">
 					description = <"">
 				>
 			>
 		>
 		["nb"] = <
 			items = <
+				["at0000.1"] = <
+					text = <"*Imaging examination of the prostate (en)">
+					description = <"Funn eller observasjoner ved radiologisk undersøkelse av et definert organ eller en kroppsdel.">
+				>
+				["at0001.1"] = <
+					text = <"Kroppsstruktur">
+					description = <"Identifisering av organet eller kroppsdelen som svaret gjelder.">
+					comment = <"For eksempel \"Lever\", \"Høyre ankel\" eller \"Lymfeknutegruppe\". Det er anbefalt å kode kroppsstruktur med en passende terminologi, som SNOMED CT. Dersom den aktuelle strukturen i kroppen er fullt ut angitt i dette \"Kroppsstruktur\"-elementet er det ikke nødvendig å bruke \"Anatomisk lokalisasjon\" eller \"Strukturert anatomisk lokalisasjon\".">
+				>
+				["at0.2"] = <
+					text = <"*Width (en)">
+					description = <"*The width of the prostate. (en)">
+				>
+				["at0.3"] = <
+					text = <"*Depth (en)">
+					description = <"*The depth of the prostate. (en)">
+				>
+				["at0.4"] = <
+					text = <"*Height (en)">
+					description = <"*The length of the prostate. (en)">
+				>
+				["at0.5"] = <
+					text = <"*Volume (en)">
+					description = <"*The volume of the prostate. (en)">
+				>
+				["at0.6"] = <
+					text = <"*Prostate (en)">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"Bildediagnostisk undersøkelse - kroppsstruktur">
+					description = <"Funn eller observasjoner ved radiologisk undersøkelse av et definert organ eller en kroppsdel.">
+				>
 				["at0001"] = <
 					text = <"Kroppsstruktur">
 					description = <"Identifisering av organet eller kroppsdelen som svaret gjelder.">
@@ -305,14 +402,34 @@ ontology
 					text = <"Kommentar">
 					description = <"Ytterligere fritekst om funn eller observasjoner på bilder av kroppsstrukturen og som ikke er fanget i andre felt.">
 				>
+				["at0.7"] = <
+					text = <"*Membranous urethral length (en)">
+					description = <"">
+				>
+				["at0.8"] = <
+					text = <"*Tertiary lobe presence (en)">
+					description = <"">
+				>
+				["at0.9"] = <
+					text = <"*Tertiary lobe depth (en)">
+					description = <"">
+				>
+				["at0.10"] = <
+					text = <"*Tertiary lobe height (en)">
+					description = <"">
+				>
+			>
+		>
+		["de"] = <
+			items = <
 				["at0000.1"] = <
 					text = <"*Imaging examination of the prostate (en)">
-					description = <"Funn eller observasjoner ved radiologisk undersøkelse av et definert organ eller en kroppsdel.">
+					description = <"Befunde zur radiologischen Untersuchung einer bestimmten Körperstruktur oder -region.">
 				>
 				["at0001.1"] = <
-					text = <"Kroppsstruktur">
-					description = <"Identifisering av organet eller kroppsdelen som svaret gjelder.">
-					comment = <"For eksempel \"Lever\", \"Høyre ankel\" eller \"Lymfeknutegruppe\". Det er anbefalt å kode kroppsstruktur med en passende terminologi, som SNOMED CT. Dersom den aktuelle strukturen i kroppen er fullt ut angitt i dette \"Kroppsstruktur\"-elementet er det ikke nødvendig å bruke \"Anatomisk lokalisasjon\" eller \"Strukturert anatomisk lokalisasjon\".">
+					text = <"Körperstruktur">
+					description = <"Identifizierung der untersuchten Körperstruktur oder Region.">
+					comment = <"*For example: 'Liver', 'Right ankle' or 'Lymph node group'. Coding of the body structure with an appropriate terminology, such as SNOMED CT, is recommended. If the body structure has been fully identified in this 'Body structure' element, then the 'Body site' data element and 'Structured body site' SLOT become redundant. (en)">
 				>
 				["at0.2"] = <
 					text = <"*Width (en)">
@@ -334,10 +451,10 @@ ontology
 					text = <"*Prostate (en)">
 					description = <"">
 				>
-			>
-		>
-		["de"] = <
-			items = <
+				["at0000"] = <
+					text = <"Bildgebende Untersuchung einer Körperstruktur">
+					description = <"Befunde zur radiologischen Untersuchung einer bestimmten Körperstruktur oder -region.">
+				>
 				["at0001"] = <
 					text = <"Körperstruktur">
 					description = <"Identifizierung der untersuchten Körperstruktur oder Region.">
@@ -370,33 +487,20 @@ ontology
 					text = <"Kommentar">
 					description = <"Zusätzlicher Text über die bildgebenden Befunde der Körperstruktur, der in anderen Bereichen nicht erfasst wurde.">
 				>
-				["at0000.1"] = <
-					text = <"*Imaging examination of the prostate (en)">
-					description = <"Befunde zur radiologischen Untersuchung einer bestimmten Körperstruktur oder -region.">
+				["at0.7"] = <
+					text = <"*Membranous urethral length (en)">
+					description = <"">
 				>
-				["at0001.1"] = <
-					text = <"Körperstruktur">
-					description = <"Identifizierung der untersuchten Körperstruktur oder Region.">
-					comment = <"*For example: 'Liver', 'Right ankle' or 'Lymph node group'. Coding of the body structure with an appropriate terminology, such as SNOMED CT, is recommended. If the body structure has been fully identified in this 'Body structure' element, then the 'Body site' data element and 'Structured body site' SLOT become redundant. (en)">
+				["at0.8"] = <
+					text = <"*Tertiary lobe presence (en)">
+					description = <"">
 				>
-				["at0.2"] = <
-					text = <"*Width (en)">
-					description = <"*The width of the prostate. (en)">
+				["at0.9"] = <
+					text = <"*Tertiary lobe depth (en)">
+					description = <"">
 				>
-				["at0.3"] = <
-					text = <"*Depth (en)">
-					description = <"*The depth of the prostate. (en)">
-				>
-				["at0.4"] = <
-					text = <"*Height (en)">
-					description = <"*The length of the prostate. (en)">
-				>
-				["at0.5"] = <
-					text = <"*Volume (en)">
-					description = <"*The volume of the prostate. (en)">
-				>
-				["at0.6"] = <
-					text = <"*Prostate (en)">
+				["at0.10"] = <
+					text = <"*Tertiary lobe height (en)">
 					description = <"">
 				>
 			>
