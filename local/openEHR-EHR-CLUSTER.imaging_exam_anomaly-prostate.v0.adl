@@ -111,7 +111,7 @@ Not to be used to record details related to the overall findings, context or tec
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"5a6ed688fd898b889f5784bb4256ba42">
+		["MD5-CAM-1.0.1"] = <"b7f17918324bb02baa7b3d12b4c3178a">
 		["build_uid"] = <"429dcb82-2d40-4344-a99f-0f2477bd07c7">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
@@ -241,12 +241,68 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
 			ELEMENT[at0.8] occurrences matches {0..1} matches {    -- Zone
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.9,    -- Peripheral zone
+							at0.10,    -- Transition zone
+							at0.11,    -- Central zone
+							at0.12]    -- Anterior fibromuscular stroma
+						}
+					}
+				}
+			}
+			ELEMENT[at0.14] occurrences matches {0..1} matches {    -- Volume
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::129]>
+						list = <
+							["1"] = <
+								units = <"mL">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0.15] occurrences matches {0..1} matches {    -- PI-RADS
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
+			ELEMENT[at0.17] occurrences matches {0..1} matches {    -- EPE
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.18] occurrences matches {0..1} matches {    -- SVI right
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.19] occurrences matches {0..1} matches {    -- SVI left
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.20] occurrences matches {0..1} matches {    -- External sphincter
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.21] occurrences matches {0..1} matches {    -- Bladderneck
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.13] occurrences matches {0..1} matches {    -- Sector
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -259,6 +315,58 @@ ontology
 	term_definitions = <
 		["en"] = <
 			items = <
+				["at0000.1"] = <
+					text = <"Imaging examination of an anomaly in prostate">
+					description = <"An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.">
+					comment = <"For example: a cyst or mass; a thrombosis; a polyp; a calculus or a foreign body.">
+				>
+				["at0002.1"] = <
+					text = <"Body site">
+					description = <"Identification of the area of the body under examination.">
+					comment = <"For example: a lymph node group (body structure) which found in the 'Right axilla'. Coding of 'Body site' with a terminology, such as SNOMED CT, is desirable. If the body site has been fully identified in the 'Body structure' data element, this data element becomes redundant.">
+				>
+				["at0.1"] = <
+					text = <"Prostate">
+					description = <"">
+				>
+				["at0036.1"] = <
+					text = <"Type">
+					description = <"The type of anomaly.">
+					comment = <"Coding of the anomaly with an external terminology is preferred, where possible. For example, a cyst or nodule.">
+				>
+				["at0.2"] = <
+					text = <"Lesion of prostate">
+					description = <"">
+				>
+				["at0035.1"] = <
+					text = <"Label">
+					description = <"A label for the anomaly.">
+					comment = <"Use to differentiate one anomaly from another when there is more than one present within the context of the same body structure or region.">
+				>
+				["at0.3"] = <
+					text = <"1">
+					description = <"">
+				>
+				["at0.4"] = <
+					text = <"2">
+					description = <"">
+				>
+				["at0.5"] = <
+					text = <"3">
+					description = <"">
+				>
+				["at0.6"] = <
+					text = <"4">
+					description = <"">
+				>
+				["at0.7"] = <
+					text = <"5">
+					description = <"">
+				>
+				["at0.8"] = <
+					text = <"Zone">
+					description = <"AnaAnatomical zone(s) in the prostate where the lesion is located.">
+				>
 				["at0039"] = <
 					text = <"Texture">
 					description = <"Description of the texture or consistency of the anomaly.">
@@ -279,6 +387,11 @@ ontology
 				["at0018"] = <
 					text = <"Absent">
 					description = <"Calcification is not present.">
+				>
+				["at0000"] = <
+					text = <"Imaging examination of an anomaly">
+					description = <"An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.">
+					comment = <"For example: a cyst or mass; a thrombosis; a polyp; a calculus or a foreign body.">
 				>
 				["at0044"] = <
 					text = <"Vascularisation description">
@@ -365,62 +478,115 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"Description about the effect of the anomaly on surrounding structures.">
 					comment = <"For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.">
 				>
-				["at0000.1"] = <
-					text = <"Imaging examination of an anomaly in prostate">
-					description = <"An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.">
-					comment = <"For example: a cyst or mass; a thrombosis; a polyp; a calculus or a foreign body.">
-				>
-				["at0002.1"] = <
-					text = <"Body site">
-					description = <"Identification of the area of the body under examination.">
-					comment = <"For example: a lymph node group (body structure) which found in the 'Right axilla'. Coding of 'Body site' with a terminology, such as SNOMED CT, is desirable. If the body site has been fully identified in the 'Body structure' data element, this data element becomes redundant.">
-				>
-				["at0.1"] = <
-					text = <"Prostate">
+				["at0.9"] = <
+					text = <"Peripheral zone">
 					description = <"">
 				>
-				["at0036.1"] = <
-					text = <"Type">
-					description = <"The type of anomaly.">
-					comment = <"Coding of the anomaly with an external terminology is preferred, where possible. For example, a cyst or nodule.">
-				>
-				["at0.2"] = <
-					text = <"Lesion of prostate">
+				["at0.10"] = <
+					text = <"Transition zone">
 					description = <"">
 				>
-				["at0035.1"] = <
-					text = <"Label">
-					description = <"A label for the anomaly.">
-					comment = <"Use to differentiate one anomaly from another when there is more than one present within the context of the same body structure or region.">
-				>
-				["at0.3"] = <
-					text = <"1">
+				["at0.11"] = <
+					text = <"Central zone">
 					description = <"">
 				>
-				["at0.4"] = <
-					text = <"2">
+				["at0.12"] = <
+					text = <"Anterior fibromuscular stroma">
 					description = <"">
 				>
-				["at0.5"] = <
-					text = <"3">
-					description = <"">
+				["at0.13"] = <
+					text = <"Sector">
+					description = <"The sector or sectors of the prostate where the lesion is located.">
 				>
-				["at0.6"] = <
-					text = <"4">
-					description = <"">
+				["at0.14"] = <
+					text = <"Volume">
+					description = <"The volume of the lesion.">
 				>
-				["at0.7"] = <
-					text = <"5">
-					description = <"">
+				["at0.15"] = <
+					text = <"PI-RADS">
+					description = <"The PI-RADS value of the lesion.">
 				>
-				["at0.8"] = <
-					text = <"Zone">
-					description = <"AnaAnatomical zone(s) in the prostate where the lesion is located.">
+				["at0.17"] = <
+					text = <"EPE">
+					description = <"Risk of extra-prostatic extension.">
+				>
+				["at0.18"] = <
+					text = <"SVI right">
+					description = <"Risk of seminal vesicle involvement at the right vesicle.">
+				>
+				["at0.19"] = <
+					text = <"SVI left">
+					description = <"Risk of seminal vesicle involvement at the left vesicle.">
+				>
+				["at0.20"] = <
+					text = <"External sphincter">
+					description = <"Risk of sphincter involvement.">
+				>
+				["at0.21"] = <
+					text = <"Bladderneck">
+					description = <"Risk of bladderneck involvement.">
 				>
 			>
 		>
 		["nb"] = <
 			items = <
+				["at0000.1"] = <
+					text = <"*Imaging examination of an anomaly in prostate (en)">
+					description = <"Et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.">
+					comment = <"For eksempel en cyste eller oppfylning, en trombe, en polypp, en nyrestein eller et fremmedlegeme.">
+				>
+				["at0002.1"] = <
+					text = <"Anatomisk lokalisasjon">
+					description = <"Identifisering av organ eller kroppsdel.">
+					comment = <"For eksempel en lymfeknutegruppe (Kroppsstruktur) som er funnet i \"Høyre aksille\" (Anatomisk lokalisasjon). Det er ønskelig å kode \"Anatomisk lokalisasjon\" med en terminologi, som SNOMED CT. Dersom den anatomiske lokalisasjonen er fullt ut angitt i elementet \"Kroppsstruktur\" er det ikke nødvendig å bruke \"Anatomisk lokalisasjon\".">
+				>
+				["at0.1"] = <
+					text = <"*Prostate (en)">
+					description = <"">
+				>
+				["at0036.1"] = <
+					text = <"Type">
+					description = <"Type anomali.">
+					comment = <"Det bør om mulig benyttes ekstern terminologi for å kode anomalien. For eksempel en cyste eller en knute.">
+				>
+				["at0.2"] = <
+					text = <"*Lesion of prostate (en)">
+					description = <"">
+				>
+				["at0035.1"] = <
+					text = <"Merkelapp">
+					description = <"Identifisering eller betegnelse for anomalien.">
+					comment = <"Brukes for å skille mellom en anomali fra en annen dersom det er flere anomaliser til stede innenfor samme kroppsstruktur eller region.">
+				>
+				["at0.3"] = <
+					text = <"*1 (en)">
+					description = <"">
+				>
+				["at0.4"] = <
+					text = <"*2 (en)">
+					description = <"">
+				>
+				["at0.5"] = <
+					text = <"*3 (en)">
+					description = <"">
+				>
+				["at0.6"] = <
+					text = <"*4 (en)">
+					description = <"">
+				>
+				["at0.7"] = <
+					text = <"*5 (en)">
+					description = <"">
+				>
+				["at0.8"] = <
+					text = <"*Zone (en)">
+					description = <"*AnaAnatomical zone(s) in the prostate where the lesion is located. (en)">
+				>
+				["at0000"] = <
+					text = <"Bildediagnostisk undersøkelse - anomali">
+					description = <"Et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.">
+					comment = <"For eksempel en cyste eller oppfylning, en trombe, en polypp, en nyrestein eller et fremmedlegeme.">
+				>
 				["at0002"] = <
 					text = <"Anatomisk lokalisasjon">
 					description = <"Identifisering av organ eller kroppsdel.">
@@ -527,33 +693,85 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"Diameter">
 					description = <"Den målte lengden av anomalien fra kant til kant gjennom sentrum, vanligvis på en tilnærmet rund eller oval anomali.">
 				>
+				["at0.9"] = <
+					text = <"*Peripheral zone (en)">
+					description = <"">
+				>
+				["at0.10"] = <
+					text = <"*Transition zone (en)">
+					description = <"">
+				>
+				["at0.11"] = <
+					text = <"*Central zone (en)">
+					description = <"">
+				>
+				["at0.12"] = <
+					text = <"*Anterior fibromuscular stroma (en)">
+					description = <"">
+				>
+				["at0.13"] = <
+					text = <"*Sector (en)">
+					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
+				>
+				["at0.14"] = <
+					text = <"*Volume (en)">
+					description = <"*The volume of the lesion. (en)">
+				>
+				["at0.15"] = <
+					text = <"*PI-RADS (en)">
+					description = <"*The PI-RADS value of the lesion. (en)">
+				>
+				["at0.17"] = <
+					text = <"*EPE (en)">
+					description = <"*Risk of extra-prostatic extension. (en)">
+				>
+				["at0.18"] = <
+					text = <"*SVI right (en)">
+					description = <"*Risk of seminal vesicle involvement at the right vesicle. (en)">
+				>
+				["at0.19"] = <
+					text = <"*SVI left (en)">
+					description = <"*Risk of seminal vesicle involvement at the left vesicle. (en)">
+				>
+				["at0.20"] = <
+					text = <"*External sphincter (en)">
+					description = <"*Risk of sphincter involvement. (en)">
+				>
+				["at0.21"] = <
+					text = <"*Bladderneck (en)">
+					description = <"*Risk of bladderneck involvement. (en)">
+				>
+			>
+		>
+		["de"] = <
+			items = <
 				["at0000.1"] = <
 					text = <"*Imaging examination of an anomaly in prostate (en)">
-					description = <"Et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.">
-					comment = <"For eksempel en cyste eller oppfylning, en trombe, en polypp, en nyrestein eller et fremmedlegeme.">
+					description = <"*An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)">
+					comment = <"Zum Beispiel: eine Zyste oder Masse, eine Thrombose, ein Polyp, ein Zahnstein oder ein Fremdkörper.">
 				>
 				["at0002.1"] = <
-					text = <"Anatomisk lokalisasjon">
-					description = <"Identifisering av organ eller kroppsdel.">
-					comment = <"For eksempel en lymfeknutegruppe (Kroppsstruktur) som er funnet i \"Høyre aksille\" (Anatomisk lokalisasjon). Det er ønskelig å kode \"Anatomisk lokalisasjon\" med en terminologi, som SNOMED CT. Dersom den anatomiske lokalisasjonen er fullt ut angitt i elementet \"Kroppsstruktur\" er det ikke nødvendig å bruke \"Anatomisk lokalisasjon\".">
+					text = <"Körperstelle">
+					description = <"Identifizierung des zu untersuchenden Bereichs des Körpers.">
+					comment = <"Zum Beispiel: eine Lymphknotengruppe (Körperstruktur), die sich in der „rechten Achselhöhle“ befindet. Eine Kodierung von „Körperstelle“ mit einer Terminologie, wie z. B. SNOMED CT, ist wünschenswert. Wenn die Körperstelle im Datenelement „Körperstruktur“ vollständig identifiziert wurde, wird dieses Datenelement überflüssig.">
 				>
 				["at0.1"] = <
 					text = <"*Prostate (en)">
 					description = <"">
 				>
 				["at0036.1"] = <
-					text = <"Type">
-					description = <"Type anomali.">
-					comment = <"Det bør om mulig benyttes ekstern terminologi for å kode anomalien. For eksempel en cyste eller en knute.">
+					text = <"*Type">
+					description = <"*The type of anomaly.(en)">
+					comment = <"*Coding of the anomaly with an external terminology is preferred, where possible. For example, a cyst or nodule.(en)">
 				>
 				["at0.2"] = <
 					text = <"*Lesion of prostate (en)">
 					description = <"">
 				>
 				["at0035.1"] = <
-					text = <"Merkelapp">
-					description = <"Identifisering eller betegnelse for anomalien.">
-					comment = <"Brukes for å skille mellom en anomali fra en annen dersom det er flere anomaliser til stede innenfor samme kroppsstruktur eller region.">
+					text = <"*Label(en)">
+					description = <"*A label for the anomaly.(en)">
+					comment = <"*Use to differentiate one anomaly from another when there is more than one present within the context of the same body structure or region.(en)">
 				>
 				["at0.3"] = <
 					text = <"*1 (en)">
@@ -579,10 +797,6 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"*Zone (en)">
 					description = <"*AnaAnatomical zone(s) in the prostate where the lesion is located. (en)">
 				>
-			>
-		>
-		["de"] = <
-			items = <
 				["at0039"] = <
 					text = <"Beschaffenheit">
 					description = <"*Description of the texture or consistency of the anomaly. (en)">
@@ -627,6 +841,11 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 				["at0051"] = <
 					text = <"Durchmesser">
 					description = <"Gemessene Linie von Seite zu Seite einer annähernd runden oder ovalen Anomalie, die durch Mittelpunkt der Anomalie verläuft.">
+				>
+				["at0000"] = <
+					text = <"Bildgebende Untersuchung einer Anomalie">
+					description = <"*An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)">
+					comment = <"Zum Beispiel: eine Zyste oder Masse, eine Thrombose, ein Polyp, ein Zahnstein oder ein Fremdkörper.">
 				>
 				["at0002"] = <
 					text = <"Körperstelle">
@@ -689,57 +908,53 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"*Description about the effect of the anomaly on surrounding structures.(en)">
 					comment = <"*For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.(en)">
 				>
-				["at0000.1"] = <
-					text = <"*Imaging examination of an anomaly in prostate (en)">
-					description = <"*An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)">
-					comment = <"Zum Beispiel: eine Zyste oder Masse, eine Thrombose, ein Polyp, ein Zahnstein oder ein Fremdkörper.">
-				>
-				["at0002.1"] = <
-					text = <"Körperstelle">
-					description = <"Identifizierung des zu untersuchenden Bereichs des Körpers.">
-					comment = <"Zum Beispiel: eine Lymphknotengruppe (Körperstruktur), die sich in der „rechten Achselhöhle“ befindet. Eine Kodierung von „Körperstelle“ mit einer Terminologie, wie z. B. SNOMED CT, ist wünschenswert. Wenn die Körperstelle im Datenelement „Körperstruktur“ vollständig identifiziert wurde, wird dieses Datenelement überflüssig.">
-				>
-				["at0.1"] = <
-					text = <"*Prostate (en)">
+				["at0.9"] = <
+					text = <"*Peripheral zone (en)">
 					description = <"">
 				>
-				["at0036.1"] = <
-					text = <"*Type">
-					description = <"*The type of anomaly.(en)">
-					comment = <"*Coding of the anomaly with an external terminology is preferred, where possible. For example, a cyst or nodule.(en)">
-				>
-				["at0.2"] = <
-					text = <"*Lesion of prostate (en)">
+				["at0.10"] = <
+					text = <"*Transition zone (en)">
 					description = <"">
 				>
-				["at0035.1"] = <
-					text = <"*Label(en)">
-					description = <"*A label for the anomaly.(en)">
-					comment = <"*Use to differentiate one anomaly from another when there is more than one present within the context of the same body structure or region.(en)">
-				>
-				["at0.3"] = <
-					text = <"*1 (en)">
+				["at0.11"] = <
+					text = <"*Central zone (en)">
 					description = <"">
 				>
-				["at0.4"] = <
-					text = <"*2 (en)">
+				["at0.12"] = <
+					text = <"*Anterior fibromuscular stroma (en)">
 					description = <"">
 				>
-				["at0.5"] = <
-					text = <"*3 (en)">
-					description = <"">
+				["at0.13"] = <
+					text = <"*Sector (en)">
+					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
 				>
-				["at0.6"] = <
-					text = <"*4 (en)">
-					description = <"">
+				["at0.14"] = <
+					text = <"*Volume (en)">
+					description = <"*The volume of the lesion. (en)">
 				>
-				["at0.7"] = <
-					text = <"*5 (en)">
-					description = <"">
+				["at0.15"] = <
+					text = <"*PI-RADS (en)">
+					description = <"*The PI-RADS value of the lesion. (en)">
 				>
-				["at0.8"] = <
-					text = <"*Zone (en)">
-					description = <"*AnaAnatomical zone(s) in the prostate where the lesion is located. (en)">
+				["at0.17"] = <
+					text = <"*EPE (en)">
+					description = <"*Risk of extra-prostatic extension. (en)">
+				>
+				["at0.18"] = <
+					text = <"*SVI right (en)">
+					description = <"*Risk of seminal vesicle involvement at the right vesicle. (en)">
+				>
+				["at0.19"] = <
+					text = <"*SVI left (en)">
+					description = <"*Risk of seminal vesicle involvement at the left vesicle. (en)">
+				>
+				["at0.20"] = <
+					text = <"*External sphincter (en)">
+					description = <"*Risk of sphincter involvement. (en)">
+				>
+				["at0.21"] = <
+					text = <"*Bladderneck (en)">
+					description = <"*Risk of bladderneck involvement. (en)">
 				>
 			>
 		>
@@ -749,6 +964,10 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 			items = <
 				["at0.1"] = <[SNOMED-CT(2024-05-01)::41216001]>
 				["at0.2"] = <[SNOMED-CT(2024-06-01)::300532006]>
+				["at0.9"] = <[SNOMED-CT(2024-06-01)::279706003]>
+				["at0.10"] = <[SNOMED-CT(2024-06-01)::399384005]>
+				["at0.11"] = <[SNOMED-CT(2024-06-01)::279708002]>
+				["at0.12"] = <[SNOMED-CT(2024-06-01)::717025007]>
 			>
 		>
 	>
