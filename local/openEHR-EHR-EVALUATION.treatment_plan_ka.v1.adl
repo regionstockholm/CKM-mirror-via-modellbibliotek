@@ -26,7 +26,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"896157cff5b38deec7716664722b7816">
+		["MD5-CAM-1.0.1"] = <"12d92f976476f8932673a51b32e187d6">
 		["build_uid"] = <"ec184625-acf0-3e8b-80f7-f84a5cfc4ea6">
 	>
 
@@ -88,12 +88,7 @@ definition
 									DV_TEXT matches {*}
 								}
 							}
-							ELEMENT[at0012] occurrences matches {0..1} matches {    -- Therapy variant
-								value matches {
-									DV_TEXT matches {*}
-								}
-							}
-							ELEMENT[at0005] occurrences matches {0..1} matches {    -- Therapy category
+							ELEMENT[at0005] occurrences matches {0..1} matches {    -- Therapy modality
 								value matches {
 									DV_CODED_TEXT matches {
 										defining_code matches {
@@ -102,14 +97,29 @@ definition
 											at0007,    -- Other medication
 											at0008,    -- Radiation therapy
 											at0009,    -- Surgical procedures
-											at0010]    -- Ancillary treatment
+											at0010,    -- Ancillary treatment
+											at0049,    -- Palliative therapy
+											at0050]    -- No active therapy
 										}
 									}
 								}
 							}
-							allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Details
-								include
-									archetype_id/value matches {/.*/}
+							ELEMENT[at0012] occurrences matches {0..1} matches {    -- Therapy modality variant
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0048] occurrences matches {0..1} matches {    -- Therapy primacy
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0051,    -- Primary therapy
+											at0052,    -- Neoadjuvant
+											at0053]    -- Perioperative
+										}
+									}
+								}
 							}
 							ELEMENT[at0014] occurrences matches {0..1} matches {    -- Line of treatment
 								value matches {
@@ -123,19 +133,34 @@ definition
 									}
 								}
 							}
-							ELEMENT[at0028] occurrences matches {0..1} matches {    -- Intended end date
+							ELEMENT[at0013] occurrences matches {0..1} matches {    -- Intent
 								value matches {
-									DV_DATE_TIME matches {*}
+									DV_TEXT matches {*}
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054,    -- Curative
+											at0055,    -- Palliative
+											at0056,    -- Preventive
+											at0057,    -- Not yet determined
+											at0058]    -- Diagnostic
+										}
+									}
 								}
+							}
+							CLUSTER[at0059] occurrences matches {0..1} matches {*}    -- Responsible care unit
+							allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Details
+								include
+									archetype_id/value matches {/.*/}
 							}
 							ELEMENT[at0027] occurrences matches {0..1} matches {    -- Intended start date
 								value matches {
 									DV_DATE_TIME matches {*}
 								}
 							}
-							ELEMENT[at0013] occurrences matches {0..1} matches {    -- Intent
+							ELEMENT[at0028] occurrences matches {0..1} matches {    -- Intended end date
 								value matches {
-									DV_TEXT matches {*}
+									DV_DATE_TIME matches {*}
 								}
 							}
 						}
@@ -190,7 +215,7 @@ ontology
 					description = <"">
 				>
 				["at0005"] = <
-					text = <"Therapy category">
+					text = <"Therapy modality">
 					description = <"">
 				>
 				["at0006"] = <
@@ -218,7 +243,7 @@ ontology
 					description = <"">
 				>
 				["at0012"] = <
-					text = <"Therapy variant">
+					text = <"Therapy modality variant">
 					description = <"">
 				>
 				["at0013"] = <
@@ -303,6 +328,54 @@ ontology
 				>
 				["at0047"] = <
 					text = <"Plan identifier">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Therapy primacy">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"Palliative therapy">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"No active therapy">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Primary therapy">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Neoadjuvant">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"Perioperative">
+					description = <"">
+				>
+				["at0054"] = <
+					text = <"Curative">
+					description = <"">
+				>
+				["at0055"] = <
+					text = <"Palliative">
+					description = <"">
+				>
+				["at0056"] = <
+					text = <"Preventive">
+					description = <"">
+				>
+				["at0057"] = <
+					text = <"Not yet determined">
+					description = <"">
+				>
+				["at0058"] = <
+					text = <"Diagnostic">
+					description = <"">
+				>
+				["at0059"] = <
+					text = <"Responsible care unit">
 					description = <"">
 				>
 			>
