@@ -111,7 +111,7 @@ Not to be used to record details related to the overall findings, context or tec
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"b7f17918324bb02baa7b3d12b4c3178a">
+		["MD5-CAM-1.0.1"] = <"36c17a439cb1cae204bc91ca6f90c77c">
 		["build_uid"] = <"429dcb82-2d40-4344-a99f-0f2477bd07c7">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
@@ -259,6 +259,16 @@ definition
 					}
 				}
 			}
+			ELEMENT[at0.13] occurrences matches {0..*} matches {    -- Sector
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.22] occurrences matches {0..1} matches {    -- Main sector
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
 			ELEMENT[at0.14] occurrences matches {0..1} matches {    -- Volume
 				value matches {
 					C_DV_QUANTITY <
@@ -302,9 +312,40 @@ definition
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0.13] occurrences matches {0..1} matches {    -- Sector
+			ELEMENT[at0.24] occurrences matches {0..1} matches {    -- Distance external sphincter
 				value matches {
-					DV_TEXT matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0.23] occurrences matches {0..1} matches {    -- Distance bladderneck
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0.25] occurrences matches {0..1} matches {    -- Distance rectum
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
 				}
 			}
 		}
@@ -366,6 +407,54 @@ ontology
 				["at0.8"] = <
 					text = <"Zone">
 					description = <"AnaAnatomical zone(s) in the prostate where the lesion is located.">
+				>
+				["at0.9"] = <
+					text = <"Peripheral zone">
+					description = <"">
+				>
+				["at0.10"] = <
+					text = <"Transition zone">
+					description = <"">
+				>
+				["at0.11"] = <
+					text = <"Central zone">
+					description = <"">
+				>
+				["at0.12"] = <
+					text = <"Anterior fibromuscular stroma">
+					description = <"">
+				>
+				["at0.13"] = <
+					text = <"Sector">
+					description = <"The sector or sectors of the prostate where the lesion is located.">
+				>
+				["at0.14"] = <
+					text = <"Volume">
+					description = <"The volume of the lesion.">
+				>
+				["at0.15"] = <
+					text = <"PI-RADS">
+					description = <"The PI-RADS value of the lesion.">
+				>
+				["at0.17"] = <
+					text = <"EPE">
+					description = <"Risk of extra-prostatic extension.">
+				>
+				["at0.18"] = <
+					text = <"SVI right">
+					description = <"Risk of seminal vesicle involvement at the right vesicle.">
+				>
+				["at0.19"] = <
+					text = <"SVI left">
+					description = <"Risk of seminal vesicle involvement at the left vesicle.">
+				>
+				["at0.20"] = <
+					text = <"External sphincter">
+					description = <"Risk of sphincter involvement.">
+				>
+				["at0.21"] = <
+					text = <"Bladderneck">
+					description = <"Risk of bladderneck involvement.">
 				>
 				["at0039"] = <
 					text = <"Texture">
@@ -478,53 +567,21 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"Description about the effect of the anomaly on surrounding structures.">
 					comment = <"For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.">
 				>
-				["at0.9"] = <
-					text = <"Peripheral zone">
+				["at0.22"] = <
+					text = <"Main sector">
+					description = <"The sector where the largest lesion is located (e.g., from drawing).">
+				>
+				["at0.23"] = <
+					text = <"Distance bladderneck">
 					description = <"">
 				>
-				["at0.10"] = <
-					text = <"Transition zone">
+				["at0.24"] = <
+					text = <"Distance external sphincter">
 					description = <"">
 				>
-				["at0.11"] = <
-					text = <"Central zone">
+				["at0.25"] = <
+					text = <"Distance rectum">
 					description = <"">
-				>
-				["at0.12"] = <
-					text = <"Anterior fibromuscular stroma">
-					description = <"">
-				>
-				["at0.13"] = <
-					text = <"Sector">
-					description = <"The sector or sectors of the prostate where the lesion is located.">
-				>
-				["at0.14"] = <
-					text = <"Volume">
-					description = <"The volume of the lesion.">
-				>
-				["at0.15"] = <
-					text = <"PI-RADS">
-					description = <"The PI-RADS value of the lesion.">
-				>
-				["at0.17"] = <
-					text = <"EPE">
-					description = <"Risk of extra-prostatic extension.">
-				>
-				["at0.18"] = <
-					text = <"SVI right">
-					description = <"Risk of seminal vesicle involvement at the right vesicle.">
-				>
-				["at0.19"] = <
-					text = <"SVI left">
-					description = <"Risk of seminal vesicle involvement at the left vesicle.">
-				>
-				["at0.20"] = <
-					text = <"External sphincter">
-					description = <"Risk of sphincter involvement.">
-				>
-				["at0.21"] = <
-					text = <"Bladderneck">
-					description = <"Risk of bladderneck involvement.">
 				>
 			>
 		>
@@ -581,6 +638,54 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 				["at0.8"] = <
 					text = <"*Zone (en)">
 					description = <"*AnaAnatomical zone(s) in the prostate where the lesion is located. (en)">
+				>
+				["at0.9"] = <
+					text = <"*Peripheral zone (en)">
+					description = <"">
+				>
+				["at0.10"] = <
+					text = <"*Transition zone (en)">
+					description = <"">
+				>
+				["at0.11"] = <
+					text = <"*Central zone (en)">
+					description = <"">
+				>
+				["at0.12"] = <
+					text = <"*Anterior fibromuscular stroma (en)">
+					description = <"">
+				>
+				["at0.13"] = <
+					text = <"*Sector (en)">
+					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
+				>
+				["at0.14"] = <
+					text = <"*Volume (en)">
+					description = <"*The volume of the lesion. (en)">
+				>
+				["at0.15"] = <
+					text = <"*PI-RADS (en)">
+					description = <"*The PI-RADS value of the lesion. (en)">
+				>
+				["at0.17"] = <
+					text = <"*EPE (en)">
+					description = <"*Risk of extra-prostatic extension. (en)">
+				>
+				["at0.18"] = <
+					text = <"*SVI right (en)">
+					description = <"*Risk of seminal vesicle involvement at the right vesicle. (en)">
+				>
+				["at0.19"] = <
+					text = <"*SVI left (en)">
+					description = <"*Risk of seminal vesicle involvement at the left vesicle. (en)">
+				>
+				["at0.20"] = <
+					text = <"*External sphincter (en)">
+					description = <"*Risk of sphincter involvement. (en)">
+				>
+				["at0.21"] = <
+					text = <"*Bladderneck (en)">
+					description = <"*Risk of bladderneck involvement. (en)">
 				>
 				["at0000"] = <
 					text = <"Bildediagnostisk undersøkelse - anomali">
@@ -693,53 +798,21 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"Diameter">
 					description = <"Den målte lengden av anomalien fra kant til kant gjennom sentrum, vanligvis på en tilnærmet rund eller oval anomali.">
 				>
-				["at0.9"] = <
-					text = <"*Peripheral zone (en)">
+				["at0.22"] = <
+					text = <"*Main sector (en)">
+					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
+				>
+				["at0.23"] = <
+					text = <"*Distance bladderneck (en)">
 					description = <"">
 				>
-				["at0.10"] = <
-					text = <"*Transition zone (en)">
+				["at0.24"] = <
+					text = <"*Distance external sphincter (en)">
 					description = <"">
 				>
-				["at0.11"] = <
-					text = <"*Central zone (en)">
+				["at0.25"] = <
+					text = <"*Distance rectum (en)">
 					description = <"">
-				>
-				["at0.12"] = <
-					text = <"*Anterior fibromuscular stroma (en)">
-					description = <"">
-				>
-				["at0.13"] = <
-					text = <"*Sector (en)">
-					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
-				>
-				["at0.14"] = <
-					text = <"*Volume (en)">
-					description = <"*The volume of the lesion. (en)">
-				>
-				["at0.15"] = <
-					text = <"*PI-RADS (en)">
-					description = <"*The PI-RADS value of the lesion. (en)">
-				>
-				["at0.17"] = <
-					text = <"*EPE (en)">
-					description = <"*Risk of extra-prostatic extension. (en)">
-				>
-				["at0.18"] = <
-					text = <"*SVI right (en)">
-					description = <"*Risk of seminal vesicle involvement at the right vesicle. (en)">
-				>
-				["at0.19"] = <
-					text = <"*SVI left (en)">
-					description = <"*Risk of seminal vesicle involvement at the left vesicle. (en)">
-				>
-				["at0.20"] = <
-					text = <"*External sphincter (en)">
-					description = <"*Risk of sphincter involvement. (en)">
-				>
-				["at0.21"] = <
-					text = <"*Bladderneck (en)">
-					description = <"*Risk of bladderneck involvement. (en)">
 				>
 			>
 		>
@@ -796,6 +869,54 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 				["at0.8"] = <
 					text = <"*Zone (en)">
 					description = <"*AnaAnatomical zone(s) in the prostate where the lesion is located. (en)">
+				>
+				["at0.9"] = <
+					text = <"*Peripheral zone (en)">
+					description = <"">
+				>
+				["at0.10"] = <
+					text = <"*Transition zone (en)">
+					description = <"">
+				>
+				["at0.11"] = <
+					text = <"*Central zone (en)">
+					description = <"">
+				>
+				["at0.12"] = <
+					text = <"*Anterior fibromuscular stroma (en)">
+					description = <"">
+				>
+				["at0.13"] = <
+					text = <"*Sector (en)">
+					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
+				>
+				["at0.14"] = <
+					text = <"*Volume (en)">
+					description = <"*The volume of the lesion. (en)">
+				>
+				["at0.15"] = <
+					text = <"*PI-RADS (en)">
+					description = <"*The PI-RADS value of the lesion. (en)">
+				>
+				["at0.17"] = <
+					text = <"*EPE (en)">
+					description = <"*Risk of extra-prostatic extension. (en)">
+				>
+				["at0.18"] = <
+					text = <"*SVI right (en)">
+					description = <"*Risk of seminal vesicle involvement at the right vesicle. (en)">
+				>
+				["at0.19"] = <
+					text = <"*SVI left (en)">
+					description = <"*Risk of seminal vesicle involvement at the left vesicle. (en)">
+				>
+				["at0.20"] = <
+					text = <"*External sphincter (en)">
+					description = <"*Risk of sphincter involvement. (en)">
+				>
+				["at0.21"] = <
+					text = <"*Bladderneck (en)">
+					description = <"*Risk of bladderneck involvement. (en)">
 				>
 				["at0039"] = <
 					text = <"Beschaffenheit">
@@ -908,53 +1029,21 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"*Description about the effect of the anomaly on surrounding structures.(en)">
 					comment = <"*For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.(en)">
 				>
-				["at0.9"] = <
-					text = <"*Peripheral zone (en)">
+				["at0.22"] = <
+					text = <"*Main sector (en)">
+					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
+				>
+				["at0.23"] = <
+					text = <"*Distance bladderneck (en)">
 					description = <"">
 				>
-				["at0.10"] = <
-					text = <"*Transition zone (en)">
+				["at0.24"] = <
+					text = <"*Distance external sphincter (en)">
 					description = <"">
 				>
-				["at0.11"] = <
-					text = <"*Central zone (en)">
+				["at0.25"] = <
+					text = <"*Distance rectum (en)">
 					description = <"">
-				>
-				["at0.12"] = <
-					text = <"*Anterior fibromuscular stroma (en)">
-					description = <"">
-				>
-				["at0.13"] = <
-					text = <"*Sector (en)">
-					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
-				>
-				["at0.14"] = <
-					text = <"*Volume (en)">
-					description = <"*The volume of the lesion. (en)">
-				>
-				["at0.15"] = <
-					text = <"*PI-RADS (en)">
-					description = <"*The PI-RADS value of the lesion. (en)">
-				>
-				["at0.17"] = <
-					text = <"*EPE (en)">
-					description = <"*Risk of extra-prostatic extension. (en)">
-				>
-				["at0.18"] = <
-					text = <"*SVI right (en)">
-					description = <"*Risk of seminal vesicle involvement at the right vesicle. (en)">
-				>
-				["at0.19"] = <
-					text = <"*SVI left (en)">
-					description = <"*Risk of seminal vesicle involvement at the left vesicle. (en)">
-				>
-				["at0.20"] = <
-					text = <"*External sphincter (en)">
-					description = <"*Risk of sphincter involvement. (en)">
-				>
-				["at0.21"] = <
-					text = <"*Bladderneck (en)">
-					description = <"*Risk of bladderneck involvement. (en)">
 				>
 			>
 		>
