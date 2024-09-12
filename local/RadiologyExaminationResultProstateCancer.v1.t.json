@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "2.0.0-alpha.5",
+      "sem_ver" : "1.0.0-alpha.7",
       "build_uid" : "6e9b9b6b-4139-406c-b5dd-da0cfbcef0af",
-      "MD5-CAM-1.0.1" : "e74827e90f2fe47fe40979584fc66242",
+      "MD5-CAM-1.0.1" : "a9dd889a5dfc2d78e22a47ce18b6fd5f",
       "PARENT:MD5-CAM-1.0.1" : "2A64B8463AA11FF22EA7977CDF0E9959"
     },
     "details" : {
@@ -699,16 +699,16 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_terms"
+                                "value" : "Snomed CT"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms" ],
+                              "selectedTerminologies" : [ "Snomed CT" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms",
+                                "terminologyId" : "Snomed CT",
                                 "code" : "709525001",
                                 "value" : "MRI of prostate with contrast"
                               }, {
-                                "terminologyId" : "local_terms",
+                                "terminologyId" : "Snomed CT",
                                 "code" : "409791000119103",
                                 "value" : "MRI of prostate without contrast"
                               } ]
@@ -737,18 +737,14 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_terms"
+                                "value" : "DICOM CID 29 Acquisition Modality value set"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms" ],
+                              "selectedTerminologies" : [ "DICOM CID 29 Acquisition Modality value set" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms",
-                                "code" : "51619007",
-                                "value" : "MRI with contrast"
-                              }, {
-                                "terminologyId" : "local_terms",
-                                "code" : "90084008",
-                                "value" : "MRI without contrast"
+                                "terminologyId" : "DICOM CID 29 Acquisition Modality value set",
+                                "code" : "MR",
+                                "value" : "Magnetic Resonance"
                               } ]
                             } ]
                           } ],
@@ -775,12 +771,12 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "0..1",
                               "terminologyId" : {
-                                "value" : "local_terms"
+                                "value" : "Snomed CT"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms" ],
+                              "selectedTerminologies" : [ "Snomed CT" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms",
+                                "terminologyId" : "Snomed CT",
                                 "code" : "41216001",
                                 "value" : "Prostatic structure"
                               } ]
@@ -1080,6 +1076,13 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0106.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0087.1",
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
@@ -1422,7 +1425,56 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "36c17a439cb1cae204bc91ca6f90c77c"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "*To record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)",
+          "keywords" : [ "*lesion (en)", "*mass (en)", "*tumour (en)", "*tumor (en)", "*nodule (en)", "*cyst (en)", "*calculus (en)", "*thrombosus (en)", "*abnormality (en)", "*anomaly (en)" ],
+          "use" : "*Use to record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.\r\n\r\nIf more than one anomaly has been identified within the context of the same body structure or region, use a separate instance of this archetype to describe each anomaly.\r\n\r\nThe intended scope for this archetype is to record detailed findings about an anomaly using any modality. It is anticipated that specific CLUSTER archetypes will be developed in the future to record common abnormal radiological findings, such as fractures. If a specific archetype to record the anomaly is not available, use this generic archetype to record relevant findings.\r\n\r\nUntil the specific archetypes are developed, current use cases include, but are not limited to:\r\n- a large, mixed solid/cystic lesion containing teeth and hair, identified within the ovary - for example, a dermoid cyst;\r\n- a solid mass identified within the right upper lobe of the lung - for example, a past infection scar or a tumour;\r\n- a calcified lesion identified within the left kidney - for example, a kidney calculus; or\r\n- a soft tissue mass identified within the heart - for example, a thrombosis.\r\n\r\nThis archetype is designed to be nested within the 'Additional details' SLOT in any of the CLUSTER.imaging_exam family of archetypes which will provide the context for the anomaly, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate. (en)",
+          "misuse" : "*Not to be used to record normal or abnormal findings that are expected for a specified imaging examination. Use specialised archetypes from the CLUSTER.imaging_exam family or the generic CLUSTER.imaging_exam archetype for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBERSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression. (en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.",
+          "keywords" : [ "lesjon", "masse", "oppfylning", "tumor", "svulst", "klump", "stein", "forkalkning", "trombe", "avvik", "abnormitet", "misdannelse" ],
+          "use" : "Bruk for å registrere et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.\r\n\r\nBruk en separat instans av denne arketypen for å beskrive hver enkelt anomali dersom det blir identifisert flere enn en anomali i samme kroppsstruktur eller region.\r\n\r\nDet tiltenkte omfanget for denne arketypen er å kunne registrere detaljerte funn om en anomali, uavhengig av modalitet. Det er forventet at det i fremtiden vil bli utviklet spesifikke CLUSTER-arketyper for å registrere funn av vanlige avvik ved radiologiske undersøkelser, som brudd. Dersom en slik spesifikk arketype for å registrere anomalien ikke finnes, bruk denne generiske arketypen for å registrere de relevante funnene.\r\n\r\nInntil de spesifikke arketypene er utviklet, er det nåværende bruksområdet, men ikke begrenset til:\r\n- en stor blandet fast/cystisk lesjon som består av tenner og hår og som er funnet i en eggstokk\r\n- en dermoid cyste\r\n- en solid oppfylning i øvre høyre lungelapp, for eksempel en tumor eller arrvev fra infeksjon\r\n- en forkalkning funnet i venstre nyre, for eksempel en nyrestein\r\n- en bløtvevsmasse funnet i hjertet, for eksempel en trombe\r\n\r\nDenne arketypen er utformet til bruk i SLOT'et \"Strukturerte funn\" i enhver av arketypene innen gruppen CLUSTER.imaging_exam, som vil tilby konteksten for anomalien, men den kan også brukes i andre ENTRY- eller CLUSTER-arketyper der det er klinisk passende.",
+          "misuse" : "Skal ikke brukes for å registrere normale eller unormale funn eller observasjoner som man kan forvente for en spesifisert bildediagnostisk undersøkelse. Bruk spesialiserte arketyper innen gruppen av CLUSTER.imaging_exam - arketyper for dette.\r\n\r\nSkal ikke brukes til å registrere overordnede undersøkelsesfunn, kontekst eller tekniske detaljer relatert til et fullstendig svar på billedundersøkelsen. Bruk arketypen OBSERVATION.imaging_exam_result (Bildediagnostisk svar) for å registrere dette, for eksempel kommentar om undersøkelseskvalitet, differensialdiagnose og overordnet konklusjon.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.",
+          "keywords" : [ "lesion", "mass", "tumour", "tumor", "nodule", "cyst", "calculus", "thrombosus", "abnormality", "anomaly" ],
+          "use" : "Use to record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.\r\n\r\nIf more than one anomaly has been identified within the context of the same body structure or region, use a separate instance of this archetype to describe each anomaly.\r\n\r\nThe intended scope for this archetype is to record detailed findings about an anomaly using any modality. It is anticipated that specific CLUSTER archetypes will be developed in the future to record common abnormal radiological findings, such as fractures. If a specific archetype to record the anomaly is not available, use this generic archetype to record relevant findings.\r\n\r\nUntil the specific archetypes are developed, current use cases include, but are not limited to:\r\n- a large, mixed solid/cystic lesion containing teeth and hair, identified within the ovary - for example, a dermoid cyst;\r\n- a solid mass identified within the right upper lobe of the lung - for example, a past infection scar or a tumour;\r\n- a calcified lesion identified within the left kidney - for example, a kidney calculus; or\r\n- a soft tissue mass identified within the heart - for example, a thrombosis.\r\n\r\nThis archetype is designed to be nested within the 'Additional details' SLOT in any of the CLUSTER.imaging_exam family of archetypes which will provide the context for the anomaly, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate.",
+          "misuse" : "Not to be used to record normal or abnormal findings that are expected for a specified imaging examination. Use specialised archetypes from the CLUSTER.imaging_exam family or the generic CLUSTER.imaging_exam archetype for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBERSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.imaging_exam_anomaly-prostate.v0",
     "differential" : true,
