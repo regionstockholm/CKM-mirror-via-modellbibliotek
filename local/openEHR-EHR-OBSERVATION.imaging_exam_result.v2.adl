@@ -1,0 +1,1739 @@
+﻿archetype (adl_version=1.4; uid=b4a88b6a-33f1-45df-b961-75c3e7eca950)
+	openEHR-EHR-OBSERVATION.imaging_exam_result.v1
+
+concept
+	[at0000]	-- Imaging examination result
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Natalia Strauch">
+				["organisation"] = <"Medizinische Hochschule Hannover">
+				["email"] = <"Strauch.Natalia@mh-hannover.de">
+				["application"] = <"Adl Designer">
+			>
+			other_details = <
+				["notes"] = <"Generated automatically by Adl Designer">
+			>
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Linda Aulin">
+				["organisation"] = <"Region Stockholm">
+				["email"] = <"linda.aulin@sll.se">
+			>
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"Vebjørn Arntzen, Liv Laugen">
+				["organisation"] = <"​Oslo University Hospital, Norway">
+				["email"] = <"varntzen@ous-hf.no, liv.laugen@ous-hf.no">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Atomica Informatics">
+		["email"] = <"heather.leslie@atomicainformatics.com">
+		["date"] = <"2011-02-07">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.">
+			use = <"Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.
+
+Dieser Archetyp wurde entwickelt, mit dem Fokus auf die Befundung und Interpretation einer einzelnen bildgebenden Untersuchung (entspricht einer einzelnen DICOM-Studie). Verweise auf DICOM-bezogene Attribute sind enthalten, aber der Schwerpunkt liegt auf der Darstellung eines klinischen Berichts zu einer bildgebenden Untersuchung und nicht auf der Darstellung von DICOM-bezogenen Attributen, die in einem Radiologieinformationssystem (RIS) erwartet werden könnten. Spezifische Angaben über die DICOM-Serie können mithilfe von Archetyp CLUSTER.imaging_series dargestellt werden, der im SLOT „Seriendetails“ verschachtelt ist.
+
+Detaillierte Befunde, die während einer bildgebenden Untersuchung beobachtet wurden und auf eine bestimmte Körperstruktur oder -region abzielen, können dargestellt werden, indem der Archetyp CLUSTER.imaging_exam und/oder seine Gruppe spezialisierter Archetypen innerhalb des SLOTs „Strukturierte bildgebende Befunde“ in diesem Archetyp verschachtelt werden. Es ist beabsichtigt, dass im Laufe der Zeit die spezifischen Informationen in jeder Spezialisierung erweitert werden, um Befunde mit allen bildgebenden Modalitäten einzubeziehen.
+
+Wird eine bildgebende Untersuchung im Rahmen einer komplexeren Aktivität durchgeführt, wie z. B. eines interventionellen chirurgischen Eingriffs, sollte der bildgebende Befund mit diesem Archetyp erfasst werden.
+Strukturierte Angaben über den chirurgischen Eingriff und verabreichte Medikamente oder Kontrastmittel sollten unter Verwendung der ACTION.procedure- bzw. ACTION.medication-Archetypen dargestellt werden. In dieser Situation wird empfohlen, alle verwandten Archetypen innerhalb derselben Templates zu repräsentieren.
+
+Dieses Ergebnis wird dem anfordernden Kliniker normalerweise als eine Komponente im Kontext eines auf COMPOSITION-basierenden Gesamtberichts berichtet.">
+			keywords = <"Bild, Radiologie, Modalität, Röntgen, CT, Ultraschall, MRI, Diagnostik, Scan, Röntgenbild, X-Ray, Bildgebung, biomagnetisch, Densitometrie, Tomographie, Radiographie, magnetisch, Resonanz, Mammographie, Nuklear, Medizin, Positron, PET, Angiographie, Fluoroskopie", ...>
+			misuse = <"Nicht zur Darstellung von Ergebnissen von körperlichen Untersuchung verwenden. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.exam und/oder seine Gruppe spezialisierter Archetypen.
+
+Darf nicht verwendet werden, um die Funktionalität oder Spezifikationen eines radiologischen Informations- oder Quellsystems zu replizieren.
+
+Darf nicht verwendet werden, um strukturierte Angaben zu einem durchgeführten Verfahren darzustellen. Verwenden Sie für diesen Zweck die spezifischen prozedurbezogenen Archetypen, wie z. B. den Archetyp ACTION.procedure.
+
+Nicht zur Darstellung von strukturierten Anaben über Medikamente, die während des radiologischen Untersuchung verabreicht werden. Verwenden Sie für diesen Zweck spezifische medikamentenbezogene Archetypen, wie z. B. den Archetyp ACTION.medication.
+
+Darf nicht verwendet werden, um Fotos oder Videos in der Gesundheitsakte darzustellen. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.media_file.">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"*To record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques. (en)">
+			use = <"*Use to record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.
+
+This archetype has been designed to focus on the reporting of findings and interpretation associated with a single imaging examination (equivalent to a single DICOM study). References to DICOM-related attributes are included but the focus is on the representation of a clinical report from an imaging examination and not on representing DICOM-related attributes that might be expected within a radiology information system. Specific details about the DICOM series can be recorded using the CLUSTER.imaging_series nested within the 'Series details' SLOT.
+
+Detailed findings observed during an imaging examination and targeting a specified structure or region can be recorded by nesting the CLUSTER.imaging_exam and/or its family of specialised archetypes within the 'Structured imaging findings' SLOT in this archetype. It is intended that over time the specific detail in each specialisation will grow to include findings using all imaging modalities.
+
+If an imaging examination is carried out as part of a more complex activity, such as a surgical operation carried out under imaging guidance, the imaging findings should be recorded using this archetype. 
+Structured details about the surgical procedure and medications or contrast administered should be recorded using the ACTION.procedure and/or ACTION.medication archetypes, respectively. In this situation, it is recommended that all related archetypes should be reported within the same template.
+
+This result will normally be reported back to the requesting clinician as one component within the context of an overall COMPOSITION-based report. (en)">
+			keywords = <"*image, radiology, modality, xray, CT, ultrasound, MRI, diagnostic, scan, x-ray, imaging, biomagnetic, densitometry, tomography, radiography, magnetic, resonance, mammography, nuclear, medicine, positron, PET, angiography, fluoroscopy (en)", ...>
+			misuse = <"*Not to be used to record findings on physical examination. Use the CLUSTER.exam and/or its family of specialised archetypes for this purpose.
+
+Not to be used to replicate the functionality or specifications of a radiology information or source system.
+
+Not to be used to record structured details about any procedure undertaken. Use the specific procedure-related archetypes, such as ACTION.procedure archetype for this purpose.
+
+Not to be used to record structured details about medications administered during the imaging test. Use specific medication-related archetypes, such as the ACTION.medication archetype for this purpose.
+
+Not to be used to record photographs or videos  within the health record. Use the CLUSTER.media_file archetype for this purpose. (en)">
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.">
+			use = <"Brukes for å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.
+
+Denne arketypen har blitt laget med fokus på svarrapportering av funn og tolkning en enkelt bildediagnostisk undersøkelse (tilsvarende en enkelt \"DICOM Study\"). Referanser til DICOM-relaterte attributter er inkludert, men fokuset er på representasjonen av en klinisk rapport fra en bildeundersøkelse og ikke på å representere DICOM-relaterte attributter som kan forventes i et radiologiinformasjonssystem (RIS/PACS). Spesifikke detaljer om DICOM-serien kan registreres ved å nøste arketypen CLUSTER.imaging_study_details i SLOT'et \"Detaljer om undersøkelsesserier\".
+
+Detaljerte funn som er gjort ved en bildediagnostisk undersøkelse som er rettet mot en spesifikk struktur eller region i kroppen, kan registreres ved å nøste CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur) eller en av de spesialiserte CLUSTER.imaging_exam arketypene i SLOT'et \"Strukturerte funn\" i denne arketypen. Det er tenkt at det over tid vil det bli utviklet slike spesialiseringer som hver for seg omhandler funn fra alle modaliteter.
+
+Hvis den bildediagnostiske undersøkelsen er en del av en mer kompleks prosedyre, som en kirurgisk operasjon som utføres under bildeveiledning, skal de radiologiske funn og observasjoner bli registrert i denne arketypen. Strukturerte detaljer om den kirurgiske prosedyren og administrasjon av medikasjon eller kontrast bør registreres i henholdsvis ACTION.procedure (Prosedyre) og/eller ACTION.medication (Legemiddelhåndtering). I dette tilfelle anbefales det at alle relaterte arketyper, som detaljer om prosedyren eller administrasjon av medikasjon/kontrast bør samles i det samme templatet.
+
+Svaret på bildediagnostikken vil normalt sett bli rapportert tilbake til den bestillende kliniker som en komponent innenfor rammen av en samlet COMPOSITION-basert rapport.">
+			keywords = <"bilde", "radiologi", "modalitet", "røntgen", "CT", "ultralyd", "MR", "diagnostisk", "biomagnetisk", "densitometri", "tomografi", "radiografi", "nukleær", "positron", "PET", "fluoroskopi", "bildeveiledet", "gjennomlysning", "nukleærmedisinsk", "angiografi">
+			misuse = <"Skal ikke brukes til funn ved fysiske undersøkelser. Bruk CLUSTER.exam (Undersøkelsesfunn) eller dennes gruppe av spesialiserte arketyper for dette formålet.
+
+Skal ikke brukes til å replikere funksjonaliteten til et radiologi informasjonssystem (RIS/PACS) eller kildesystem.
+
+Skal ikke brukes til å registrere strukturerte detaljer om en klinisk prosedyre som er gjennomført. Bruk da de spesifikke arketypene for prosedyre-relatert innhold, for eksempel ACTION.procedure (Prosedyre).
+
+Brukes ikke til å registrere informasjon om legemidlene som administreres under en bildediagnostisk undersøkelse. Bruk da de spesifikke legemiddelrelaterte arketypene, for eksempel ACTION.medication (Legemiddelhåndtering).
+
+Skal ikke brukes til å lagre fotografier eller video i den elektroniske journalen. Bruk arketypen CLUSTER.media_file (Mediafil) for dette formålet.">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.">
+			use = <"Use to record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.
+
+This archetype has been designed to focus on the reporting of findings and interpretation associated with a single imaging examination (equivalent to a single DICOM study). References to DICOM-related attributes are included but the focus is on the representation of a clinical report from an imaging examination and not on representing DICOM-related attributes that might be expected within a radiology information system. Specific details about the DICOM series can be recorded using the CLUSTER.imaging_series nested within the 'Series details' SLOT.
+
+Detailed findings observed during an imaging examination and targeting a specified structure or region can be recorded by nesting the CLUSTER.imaging_exam and/or its family of specialised archetypes within the 'Structured imaging findings' SLOT in this archetype. It is intended that over time the specific detail in each specialisation will grow to include findings using all imaging modalities.
+
+If an imaging examination is carried out as part of a more complex activity, such as a surgical operation carried out under imaging guidance, the imaging findings should be recorded using this archetype. 
+Structured details about the surgical procedure and medications or contrast administered should be recorded using the ACTION.procedure and/or ACTION.medication archetypes, respectively. In this situation, it is recommended that all related archetypes should be reported within the same template.
+
+This result will normally be reported back to the requesting clinician as one component within the context of an overall COMPOSITION-based report.">
+			keywords = <"image, radiology, modality, xray, CT, ultrasound, MRI, diagnostic, scan, x-ray, imaging, biomagnetic, densitometry, tomography, radiography, magnetic, resonance, mammography, nuclear, medicine, positron, PET, angiography, fluoroscopy", ...>
+			misuse = <"Not to be used to record findings on physical examination. Use the CLUSTER.exam and/or its family of specialised archetypes for this purpose.
+
+Not to be used to replicate the functionality or specifications of a radiology information or source system.
+
+Not to be used to record structured details about any procedure undertaken. Use the specific procedure-related archetypes, such as ACTION.procedure archetype for this purpose.
+
+Not to be used to record structured details about medications administered during the imaging test. Use specific medication-related archetypes, such as the ACTION.medication archetype for this purpose.
+
+Not to be used to record photographs or videos  within the health record. Use the CLUSTER.media_file archetype for this purpose.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"published">
+	other_contributors = <"Andreas Abildgaard, OUS, Norway", "Marit Alice Venheim, Helse Vest IKT, Norway (Nasjonal IKT redaktør)", "Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Sharmila Biswas, Australia", "Randi Brendberg, Helse Nord RHF, Norway", "Eric Browne", "David Cartwright, Queensland Health, Australia", "Stephen Chu, NEHTA, Australia (Editor)", "Matthew Cordell, NEHTA, Australia", "Andre de Wolf, NeHTA, Australia", "Gunn Elin Blakkisrud, DIPS ASA, Norway", "David Evans, Queensland Health, Australia", "Peter Fedorcsak, University of Oslo, Norway (openEHR Editor)", "Kåre Flø, DIPS ASA, Norway", "Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom", "Jacquie Garton-Smith, Royal Perth Hospital and DoHWA, Australia", "Heather Grain, Llewelyn Grain Informatics, Australia", "Grahame Grieve, Health Intersections Pty Ltd, Australia (Editor)", "Roar Holm, Helse Vest IKT A/S, Norway", "Kija Indrearne, Helse Bergen, Norway", "Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (Nasjonal IKT redaktør)", "Aud Jorunn Mjelstad, Helse Bergen, Norway", "Mary Kelaher, NEHTA, Australia", "Diane Kirkham, NEHTA, Australia", "Anjali Kulkarni, Karkinos, India", "Kanika Kuwelker, Helse Vest IKT, Norway (Nasjonal IKT redaktør)", "Robert L'egan, NEHTA, Australia", "Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Luis Marco Ruiz, NST, Spain", "Mike Martyn, The Hobart Anaesthetic Group, Australia", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Chris Mitchell, RACGP, Australia", "Stewart Morrison, NEHTA, Australia", "Arunakiry Natarajan, medondo, Germany", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Bjørn Næss, DIPS ASA, Norway", "Michael Osborne, Mater Health Services, Australia", "Ning Pan, NEHTA, Australia", "Chris Pearce, Melbourne East GP Network, Australia", "Jodie Pycroft, Adelaide Northern Division of General Practice Ltd, Australia", "Cathy Richardson, NEHTA, Australia", "Stephen Royce, NEHTA, Australia", "Eleanor Royle, NEHTA, Australia", "Don Stewart, NEHTA, Australia", "Natalia Strauch, Medizinische Hochschule Hannover, Germany", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "Michael Thompson, Queensland Health, Australia", "Olav Thorsen, Stavanger University Hospital, Norway", "Gordon Tomes, Australian Institute of Health and Welfare, Australia", "John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)", "Richard Townley-O'Neill, NEHTA, Australia">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Clinical Radiology Written Report Guidelines, Version 7.0 [Internet]. Sydney: The Royal Australian and New Zealand College of Radiologists; 2020 Nov 23 [cited 2021 Aug 04]. 10 p. Available from: https://www.ranzcr.com/college/document-library/clinical-radiology-written-report-guidelines.
+
+Digital imaging and Communications in Medicine (DICOM) [Internet]. Medical Imaging Technology Association (MITA); [cited 2022 Jan 25]. Available from: https://www.dicomstandard.org/current.
+
+HL7 FHIR Resource - DiagnosticReport v4.0.1 R4 [Internet]. Health Level Seven International; [accessed 2021 Aug 04]. Available from: https://www.hl7.org/fhir/diagnosticreport.html.
+
+HL7 FHIR Resource - ImagingStudy v4.0.1 R4 [Internet]. Health Level Seven International; [accessed 2021 Aug 04]. Available from: http://hl7.org/fhir/imagingstudy.html.
+
+Larson DB. Strategies for Implementing a Standardized Structured Radiology Reporting Program. Radiographics. 2018 Oct;38(6):1705-1716. doi: 10.1148/rg.2018180040. PMID: 30303804. Available from: https://pubs.rsna.org/doi/10.1148/rg.2018180040.
+
+RSNA.org: RadReport Template Library [Internet]. Radiological Society of North America; [cited 2021 Aug 04]. Available from: https://radreport.org/.
+
+RSNA.org: Proposed Standard Radiology Report Headings. Radiological Society of North America; 2011 Jan 12 [cited 2021 Aug 04]. Available from: http://reportingwiki.rsna.org/index.php/Proposed_Standard_Radiology_Report_Headings.">
+		["current_contact"] = <"Heather Leslie, <heather.leslie@atomicainformatics.com>">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"60DD7069B50AAF5B394E3F246F80BCB5">
+		["build_uid"] = <"7a6046b4-804f-4b4f-bda2-661f5814f290">
+		["revision"] = <"1.1.1">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Imaging examination result
+		data matches {
+			HISTORY[at0001] matches {    -- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0004] matches {    -- Study name
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0091] occurrences matches {0..*} matches {    -- Modality
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0055] occurrences matches {0..1} matches {    -- Target body site
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Structured target body site
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0070] occurrences matches {0..1} matches {    -- Study date
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0072] occurrences matches {0..*} matches {    -- Overall result status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0073,    -- Registered
+													at0074,    -- Partial
+													at0075,    -- Preliminary
+													at0076,    -- Final
+													at0077,    -- Amended
+													at0078,    -- Corrected
+													at0079,    -- Appended
+													at0080,    -- Cancelled
+													at0090]    -- Unknown
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0071] occurrences matches {0..1} matches {    -- Status timestamp
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0061] occurrences matches {0..1} matches {    -- Clinical indication
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Clinical summary
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Imaging findings
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									allow_archetype CLUSTER[at0044] occurrences matches {0..*} matches {    -- Structured imaging findings
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.imaging_exam(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0056] occurrences matches {0..1} matches {    -- Comparison findings
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0063] occurrences matches {0..1} matches {    -- Imaging quality
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0057] occurrences matches {0..1} matches {    -- Imaging quality description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {    -- Overall impression
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0058] occurrences matches {0..*} matches {    -- Imaging differential diagnosis
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..*} matches {    -- Imaging diagnosis
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0059] occurrences matches {0..*} matches {    -- Recommendation
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									allow_archetype CLUSTER[at0045] occurrences matches {0..*} matches {    -- Report representation
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.media_file(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0023] occurrences matches {0..*} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0047] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0048] occurrences matches {0..1} matches {    -- Confounding factors
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0108] occurrences matches {0..1} matches {    -- Position
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									allow_archetype CLUSTER[at0107] occurrences matches {0..*} matches {    -- Stabilising appliance
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0025] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0092] occurrences matches {0..1} matches {    -- Study instance identifier
+						value matches {
+							DV_IDENTIFIER matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0105] occurrences matches {0..1} matches {    -- Study description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0104] occurrences matches {0..1} matches {    -- Report identifier
+						value matches {
+							DV_IDENTIFIER matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0099] occurrences matches {0..1} matches {    -- Study status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0100,    -- Registered
+									at0101,    -- Available
+									at0102,    -- Cancelled
+									at0103]    -- Unknown
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0098] occurrences matches {0..1} matches {    -- Study end point
+						value matches {
+							DV_TEXT matches {*}
+							DV_URI matches {*}
+						}
+					}
+					ELEMENT[at0106] occurrences matches {0..*} matches {    -- Image details
+						value matches {
+							DV_URI matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0026] occurrences matches {0..*} matches {    -- Imaging service
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0087] occurrences matches {0..*} matches {    -- Technique
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0049] occurrences matches {0..1} matches {    -- Technique summary
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0088] occurrences matches {0..*} matches {    -- Procedure
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0062] occurrences matches {0..1} matches {    -- Procedure summary
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0041] occurrences matches {0..*} matches {    -- Structured technique/procedure
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0065] occurrences matches {0..*} matches {    -- Series details
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.imaging_series(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.imaging_series(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0069] occurrences matches {0..*} matches {    -- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					CLUSTER[at0093] occurrences matches {0..*} matches {    -- Comparison study details
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0094] occurrences matches {0..1} matches {    -- Study name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0095] occurrences matches {0..1} matches {    -- Study identifier
+								value matches {
+									DV_IDENTIFIER matches {*}
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0096] occurrences matches {0..1} matches {    -- Study date
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0097] occurrences matches {0..*} matches {    -- Study end point
+								value matches {
+									DV_TEXT matches {*}
+									DV_URI matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0067] occurrences matches {0..*} matches {    -- Comparison series details
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.imaging_series(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.imaging_series(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+						}
+					}
+					CLUSTER[at0027] occurrences matches {0..*} matches {    -- Examination request details
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0031] occurrences matches {0..1} matches {    -- Receiver order identifier
+								value matches {
+									DV_IDENTIFIER matches {*}
+									DV_CODED_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0028] occurrences matches {0..1} matches {    -- Requester order identifier
+								value matches {
+									DV_IDENTIFIER matches {*}
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] occurrences matches {0..*} matches {    -- Examination requested name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0030] occurrences matches {0..*} matches {    -- Requester
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.person(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0083] occurrences matches {0..1} matches {    -- Distribution list
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.organisation(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.person(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0046] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Imaging examination result">
+					description = <"The result of an imaging examination performed on an individual, using radiological techniques.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Study name">
+					description = <"The name of the imaging examination performed.">
+					comment = <"For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR.">
+				>
+				["at0006"] = <
+					text = <"Structured target body site">
+					description = <"Structured detail about the body site or region targetted for imaging.">
+					comment = <"If the body site is specified within the text or code for 'Study name', then this field may be redundant.">
+				>
+				["at0008"] = <
+					text = <"Imaging findings">
+					description = <"Narrative description or overview of all clinical findings.">
+				>
+				["at0014"] = <
+					text = <"Clinical summary">
+					description = <"Narrative description of relevant clinical history that provides context for the examination and interpretation of results.">
+					comment = <"Alternatively this data element can include an RM link to clinical information provided in the original examination request or located elsewhere within the health record.">
+				>
+				["at0020"] = <
+					text = <"Imaging diagnosis">
+					description = <"Single word, phrase or brief description representing the likely condition or diagnosis.">
+					comment = <"This data element has multiple occurrences to allow for more than one differential diagnosis. Coding with a terminology such as SNOMED CT is preferred, where possible. This data element should be considered as mutually exclusive to \"Imaging differential diagnosis\", ie only either \"Imaging diagnosis\" or \"Imaging differential diagnosis\" in each instance of the archetype \"Imaging examination result.\" Equivalent to DiagnosticReport.conclusionCode in FHIR.">
+				>
+				["at0021"] = <
+					text = <"Overall impression">
+					description = <"Narrative concise, clinically relevant interpretation of all imaging findings, and include a comparison with previous studies where appropriate.">
+					comment = <"Also referred to as 'Opinion' or 'Conclusion'. Equivalent to DiagnosticReport.conclusion in FHIR.">
+				>
+				["at0023"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the examination not captured in other fields.">
+					comment = <"For example: a note that the film was given to the patient. Equivalent to DiagnosticReport.note in FHIR.">
+				>
+				["at0025"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0026"] = <
+					text = <"Imaging service">
+					description = <"Details about the service, organisation or individual carrying out the imaging examination.">
+				>
+				["at0027"] = <
+					text = <"Examination request details">
+					description = <"Details about a single imaging examination requested.">
+				>
+				["at0028"] = <
+					text = <"Requester order identifier">
+					description = <"Unique identifier for the imaging examination order assigned by the requester.">
+					comment = <"Equivalent to the HL7 Placer Order Identifier.">
+				>
+				["at0029"] = <
+					text = <"Examination requested name">
+					description = <"Identification of imaging examination requested.">
+					comment = <"This can be useful in situations where the examination requested differs from the examination performed.">
+				>
+				["at0030"] = <
+					text = <"Requester">
+					description = <"Details about the clinician and/or organisation requesting the imaging examination.">
+					comment = <"Equivalent to DICOM Referring Physician's Name (0008,0090)">
+				>
+				["at0031"] = <
+					text = <"Receiver order identifier">
+					description = <"Unique identifier for the imaging examination order assigned by the radiology service.">
+					comment = <"Equivalent to the HL7 Filler Order Identifier or DICOM Accession number attribute (0008,0050).">
+				>
+				["at0041"] = <
+					text = <"Structured technique/procedure">
+					description = <"Additional structured details of technical and clinical aspects of capturing the image/s.">
+				>
+				["at0044"] = <
+					text = <"Structured imaging findings">
+					description = <"Structured details about the imaging examination findings targeting a specific structure or region.">
+				>
+				["at0045"] = <
+					text = <"Report representation">
+					description = <"Digital representation of the examination result.">
+					comment = <"Multiple formats are allowed but they should represent equivalent clinical content. For example a pdf version of the report. Equivalent to DiagnosticReport.presentedForm in FHIR.">
+				>
+				["at0046"] = <
+					text = <"Extension">
+					description = <"Additional information required to extend the model with local content or to align with other reference models or formalisms.">
+					comment = <"For example: local information requirements; or additional metadata to align with FHIR.">
+				>
+				["at0047"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0048"] = <
+					text = <"Confounding factors">
+					description = <"Narrative description of factors, not recorded elsewhere, that may influence the examination findings and/or result.">
+				>
+				["at0049"] = <
+					text = <"Technique summary">
+					description = <"Narrative description about the radiological procedure used to capture the study.">
+					comment = <"Use this data element to describe a summary of technique, including technical limitations or deviation from the normal technical procedures. For example: '5 mm axial images from the lung bases through the pubic symphysis were acquired following the administration of intravenous and oral contrast. Coronal and Sagittal reformatted images were constructed from the source data.'">
+				>
+				["at0055"] = <
+					text = <"Target body site">
+					description = <"Description of the simple body site or region targetted for imaging.">
+					comment = <"If the body site is specified within the text or code for 'Study name', then this field may be redundant. Coding of 'Target body site' with a terminology, such as SNOMED CT, is desirable. Equivalent to ImagingStudy.series.bodySite in FHIR.">
+				>
+				["at0056"] = <
+					text = <"Comparison findings">
+					description = <"Narrative description about the comparison of this examination with previous similar studies.">
+					comment = <"Also use this data element to indicate if no comparison images and/or reports are available. Details about the images used for comparison can be recorded using the 'Comparison study details' CLUSTER, within Protocol.">
+				>
+				["at0057"] = <
+					text = <"Imaging quality description">
+					description = <"Narrative description about the quality of the examination.">
+					comment = <"For example: the nature of any limitations and their impact on interpretation; recommendation that the examination should be repeated; or whether an alternative method of assessment might be more appropriate.">
+				>
+				["at0058"] = <
+					text = <"Imaging differential diagnosis">
+					description = <"Single word, phrase or brief description representing a possible condition or diagnosis.">
+					comment = <"This data element has multiple occurrences to allow for more than one differential diagnosis. Coding with a terminology such as SNOMED CT is preferred, where possible. This data element should be considered as mutually exclusive to \"Imaging diagnosis\", ie only either \"Imaging diagnosis\" or \"Imaging differential diagnosis\" in each instance of the archetype \"Imaging examination result.\"">
+				>
+				["at0059"] = <
+					text = <"Recommendation">
+					description = <"Suggestion for further imaging, investigations and/or referral, and associated rationale.">
+					comment = <"This data element has 0..* occurrences to allow for more than one recommendation. Formal orders for additional imaging examination, investigation should be recorded using an INSTRUCTION archetype, such as INSTRUCTION.service_request.">
+				>
+				["at0061"] = <
+					text = <"Clinical indication">
+					description = <"Narrative description about the reason the examination was originally requested.">
+					comment = <"Also known as 'Clinical question' or 'Clinical query'.">
+				>
+				["at0062"] = <
+					text = <"Procedure summary">
+					description = <"Narrative description about the clinical procedure or other clinical considerations used to capture the study.">
+					comment = <"Use this data element to describe a summary of the clinical procedure, patient positioning, interventions such as Valsalva manoeuvre, and administration of contrast agent, radiopharmaceuticals and/or treatments as part of the imaging study. For example: '80 ml of Isovue-370 was administered intravenously using a bolus-tracking technique centered on the main pulmonary artery'. It can also be used to record an overview of any issues, complications or adverse reactions encountered. ">
+				>
+				["at0063"] = <
+					text = <"Imaging quality">
+					description = <"Assessment about the quality of the examination.">
+					comment = <"Coding of the imaging quality with a value set is recommended. For example: 'excellent, good, fair, poor, and non-diagnostic'; or 'adequate, suboptimal and inadequate'.
+">
+				>
+				["at0065"] = <
+					text = <"Series details">
+					description = <"Details about a series included in this report.">
+				>
+				["at0067"] = <
+					text = <"Comparison series details">
+					description = <"Details about an imaging series being compared to the reported study.">
+				>
+				["at0069"] = <
+					text = <"Device">
+					description = <"Details about imaging device/s used to capture the study.">
+				>
+				["at0070"] = <
+					text = <"Study date">
+					description = <"Date/time when the imaging started.">
+					comment = <"Equivalent to ImagingStudy.started in FHIR.">
+				>
+				["at0071"] = <
+					text = <"Status timestamp">
+					description = <"The date and/or time that ‘Overall result status’ was assigned.">
+				>
+				["at0072"] = <
+					text = <"Overall result status">
+					description = <"The status of the imaging examination result as a whole.">
+					comment = <"The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR. ">
+				>
+				["at0073"] = <
+					text = <"Registered">
+					description = <"The existence of the study is registered, but no result is yet available.">
+				>
+				["at0074"] = <
+					text = <"Partial">
+					description = <"This is a partial (e.g. initial, interim or preliminary) result but data may be incomplete or unverified.">
+				>
+				["at0075"] = <
+					text = <"Preliminary">
+					description = <"Verified early results are available, but not all results are final. This is a sub-category of 'Partial'.">
+				>
+				["at0076"] = <
+					text = <"Final">
+					description = <"The result is complete and verified by an authorised person.">
+				>
+				["at0077"] = <
+					text = <"Amended">
+					description = <"Subsequent to being final, the result has been modified.">
+				>
+				["at0078"] = <
+					text = <"Corrected">
+					description = <"Subsequent to being final, the result has been modified to correct an error. This is a sub-category of 'Amended'.">
+				>
+				["at0079"] = <
+					text = <"Appended">
+					description = <"Subsequent to being final, the result has been modified by adding new content. The existing content is unchanged. This is a sub-category of 'Amended'.">
+				>
+				["at0080"] = <
+					text = <"Cancelled">
+					description = <"The result is unavailable because the test was not started or not completed (also sometimes called 'aborted').">
+				>
+				["at0083"] = <
+					text = <"Distribution list">
+					description = <"Details of additional clinicians or organisations who require a copy of the examination result.">
+					comment = <"The 'Distribution list' is for information-only, and that the primary recipient of the report is the person intended to act on the information.">
+				>
+				["at0087"] = <
+					text = <"Technique">
+					description = <"Name of the radiological procedure used to capture the study.">
+					comment = <"Coding of the 'Technique' with a terminology is permitted. Multiple occurrences allow for identification of one or more techniques.">
+				>
+				["at0088"] = <
+					text = <"Procedure">
+					description = <"Identification of the clinical procedure or management used to capture the study.">
+				>
+				["at0090"] = <
+					text = <"Unknown">
+					description = <"The status of the result is not known.">
+				>
+				["at0091"] = <
+					text = <"Modality">
+					description = <"The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study.">
+					comment = <"For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM.">
+				>
+				["at0092"] = <
+					text = <"Study instance identifier">
+					description = <"Unique identifier for the imaging study assigned by the imaging device.">
+					comment = <"Equivalent to Study Instance UID (0020,000D) in DICOM and ImagingStudy.identifier in FHIR.">
+				>
+				["at0093"] = <
+					text = <"Comparison study details">
+					description = <"Details about images from a prior study used for comparison to the reported study.">
+				>
+				["at0094"] = <
+					text = <"Study name">
+					description = <"The name of the comparison imaging examination performed.">
+				>
+				["at0095"] = <
+					text = <"Study identifier">
+					description = <"Unique identifier for the comparison imaging study.">
+				>
+				["at0096"] = <
+					text = <"Study date">
+					description = <"Date and time the comparison examination started.">
+				>
+				["at0097"] = <
+					text = <"Study end point">
+					description = <"Digital location of the comparison imaging content and metadata.">
+					comment = <"This location identifies the network service providing access (for storage, viewing, querying, or retrieval) for the study. Equivalent to ImagingStudy.endpoint in FHIR.">
+				>
+				["at0098"] = <
+					text = <"Study end point">
+					description = <"Digital location of the imaging content and metadata.">
+					comment = <"This location identifies the network service providing access (for storage, viewing, querying, or retrieval) for the study. Equivalent to ImagingStudy.endpoint in FHIR.">
+				>
+				["at0099"] = <
+					text = <"Study status">
+					description = <"The current state of the imaging study.">
+					comment = <"Equivalent to ImagingStudy.status in FHIR.">
+				>
+				["at0100"] = <
+					text = <"Registered">
+					description = <"The existence of the imaging study is registered, but there is nothing yet available.">
+				>
+				["at0101"] = <
+					text = <"Available">
+					description = <"At least one instance has been associated with this imaging study.">
+				>
+				["at0102"] = <
+					text = <"Cancelled">
+					description = <"The imaging study is unavailable because the study was not started or not completed.">
+				>
+				["at0103"] = <
+					text = <"Unknown">
+					description = <"The status is not known by the radiology source system.">
+				>
+				["at0104"] = <
+					text = <"Report identifier">
+					description = <"Unique identifier for the imaging report assigned by the radiology service.">
+					comment = <"As one instance of this archetype is used per study, this identifier can be used to connect more than one imaging study within a single combined report. Equivalent to DiagnosticReport.identifier in FHIR. ">
+				>
+				["at0105"] = <
+					text = <"Study description">
+					description = <"Radiology service-generated description or classification of the study.">
+					comment = <"Equivalent to ImagingStudy.description in FHIR and Study description (0008, 1030) in DICOM. Possible DICOM examples: MR BREAS, UNIT; NEURO^HEAD; or MR BREASTUNI UE.">
+				>
+				["at0106"] = <
+					text = <"Image details">
+					description = <"Link to full details of any imaging carried out during the study.">
+					comment = <"Typically referencing images used the DICOM enabled modalities, but this data field provides an alternative method to access the images. Equivalent to DiagnosticReport.imagingStudy in FHIR.">
+				>
+				["at0107"] = <
+					text = <"Stabilising appliance">
+					description = <"Identification of a stabilising appliance in use.">
+					comment = <"For example: braces, casts, external fixation.">
+				>
+				["at0108"] = <
+					text = <"Position">
+					description = <"Position of the individual during the imaging examination.">
+					comment = <"For example: standing or lying.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bildediagnostisk svar">
+					description = <"Resultatet av en bildediagnostisk undersøkelse av et individ, og som er gjort ved radiologiske metoder.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Uspesifisert hendelse">
+					description = <"Standard, uspesifisert tidspunkt eller tidsintervall som kan defineres mer eksplisitt i et templat eller i en applikasjon.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Undersøkelsesnavn">
+					description = <"Navnet på den utførte bildediagnostiske undersøkelsen.">
+					comment = <"For eksempel: \"CT abdomen\", \"Doppler ultralyd av nyrearterier\", \"Røntgen thorax\". Det anbefales sterkt å bruke en terminologi der det er mulig, fortrinnsvis en kode som både spesifiserer modalitet og anatomisk lokalisering. Mulige terminologier er NCRP, LOINC, SNOMED CT eller RadLex. Vanligvis tilsvarende FIHR DiagnosticReport.code.">
+				>
+				["at0006"] = <
+					text = <"Strukturert kroppsdel">
+					description = <"Strukturert detaljer om kroppsdelen som var målet for undersøkelsen.">
+					comment = <"Hvis kroppsstedet er spesifisert av en kode i elementet \"Undersøkelsesnavn\", er dette feltet ikke nødvendig.">
+				>
+				["at0008"] = <
+					text = <"Funn">
+					description = <"Tekstlig beskrivelse eller oversikt over alle funnene.">
+				>
+				["at0014"] = <
+					text = <"Kliniske opplysninger">
+					description = <"Beskrivelse av relevant klinisk informasjon som er tilgjengelig på tolkningstidspunktet. Også kalt klinisk sammendrag.">
+					comment = <"Alternativt kan dette elementet inkludere en lenke til klinisk informasjon som er gitt i den originale rekvisisjonen/henvisningen eller annet sted i den elektroniske pasientjournalen.">
+				>
+				["at0020"] = <
+					text = <"Bildediagnostisk diagnose">
+					description = <"Enkeltord, setning eller kort beskrivelse som uttrykker en den sannsynlige tilstand eller diagnose.">
+					comment = <"Dette dataelementet er repeterbart for å tillate flere enn én diagnose. Det er anbefalt å bruke en terminologi dersom mulig, for eksempel SNOMED CT. Dette dataelementet bør oppfattes som gjensidig utelukkende til \"Bildediagnostisk differensialdiagnose\", altså bare enten \"Bildediagnostisk diagnose\" eller \"Bildediagnostisk differensialdiagnose\" i hver instans av arketypen \"Bildediagnostisk svar\". Tilsvarer DiagnosticReport.conclusionCode in FHIR.">
+				>
+				["at0021"] = <
+					text = <"Resymé">
+					description = <"Tekstlig presis og klinisk relevant tolkning av alle funn ved bildeundersøkelsen og inkluderer en sammenligning med tidligere granskninger dersom de er passende.">
+					comment = <"Også referert til som \"Sammendrag\" eller \"Funn og undersøkelsesresultat\". Vanligvis tilsvarerende FHIR DiagnosticReport.conclusion.">
+				>
+				["at0023"] = <
+					text = <"Kommentar">
+					description = <"Ytterligere kommentarer om undersøkelsen som ikke passer i andre felter.">
+					comment = <"For eksempel et notat om at kopi av bilde eller svarrapport er gitt til pasienten. Tilsvarer DiagnosticReport.note i FHIR.">
+				>
+				["at0025"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0026"] = <
+					text = <"Tjenesteleverandør">
+					description = <"Demografiske opplysninger om organisasjon eller person som utfører den bildediagnostiske undersøkelsen.">
+				>
+				["at0027"] = <
+					text = <"Henvisningsdetaljer">
+					description = <"Detaljer om en enkelt henvisning/rekvisisjon.">
+				>
+				["at0028"] = <
+					text = <"Rekvirentens rekvisisjonsID">
+					description = <"Rekvirentens/bestillers lokale ID for rekvisisjonen/henvisningen.">
+					comment = <"Tilsvarende HL7 \"Placer Order Identifier\".">
+				>
+				["at0029"] = <
+					text = <"Bestilt undersøkelsesnavn">
+					description = <"Navn på bestilt undersøkelse.">
+					comment = <"Denne kan være nyttig hvis den rekvirerte undersøkelse avviker fra undersøkelse som faktisk er utført.">
+				>
+				["at0030"] = <
+					text = <"Rekvirent">
+					description = <"Detaljer om den kliniker og/eller organisasjon som rekvirerer undersøkelsen.">
+					comment = <"Tilsvarer DICOM Referring Physician's Name (0008,0090).">
+				>
+				["at0031"] = <
+					text = <"Rekvisisjonsmottakers rekvisisjonsID">
+					description = <"Henvisningens lokale identifikator/referansenummer i tjenesteyter/mottakers system, som regel tildelt av radiologisystemet (RIS/PACS).">
+					comment = <"Tilsvarer HL7 Filler Order Identifier or DICOM Accession number attribute (0008,0050).">
+				>
+				["at0041"] = <
+					text = <"Strukturert teknikk/prosedyre">
+					description = <"Ytterligere strukturerte detaljer med tekniske eller kliniske aspekter knyttet til bildetakingen.">
+				>
+				["at0044"] = <
+					text = <"Strukturerte funn">
+					description = <"Strukturerte detaljer om funn ved bruk av bildeundersøkelse i spesifikke regioner eller strukturer i kroppen.">
+				>
+				["at0045"] = <
+					text = <"Presentasjon av rapporten">
+					description = <"Digital versjon av svarrapporten.">
+					comment = <"Flere formater tillates, men innholdet i de forskjellige formatene må representere det samme innholdet. For eksempel en pdf versjon av rapporten. Tilsvarer DiagnosticReport.presentedForm i FHIR.">
+				>
+				["at0046"] = <
+					text = <"Tilleggsinformasjon">
+					description = <"Ytterligere informasjon som trengs for å kunne registrere lokalt definert innhold eller for å tilpasse til andre referansemodeller/formalismer.">
+					comment = <"For eksempel lokale informasjonsbehov eller ytterligere metadata for å kunne tilpasse til tilsvarende konsepter i FHIR.">
+				>
+				["at0047"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0048"] = <
+					text = <"Konfunderende faktorer">
+					description = <"Tekstlig beskrivelse av faktorer som kan påvirke undersøkelsesfunn og/eller tolkning, og som ikke er registrert annet sted.">
+				>
+				["at0049"] = <
+					text = <"Sammendrag av teknikk">
+					description = <"Tekstlig beskrivelse av den radiologiske prosedyren som er brukt for å gjennomføre undersøkelsen.">
+					comment = <"Bruk dette dataelementet for å gi en oversikt over teknikk, inkludert tekniske begrensninger eller avvik fra normal teknikk. For eksempel: \"5 mm aksiale bilder fra lungebasene gjennom skambensymfysen ble tatt etter administrering av intravenøs og oral kontrast. Koronale og Sagittale omformaterte bilder ble konstruert fra kildedataene.\"">
+				>
+				["at0055"] = <
+					text = <"Kroppsdel">
+					description = <"En beskrivelse av den anatomisk regionen, organet, eller organsystemet som var målet for undersøkelsen.">
+					comment = <"Hvis målområde er spesifisert av en kode i undersøkelsesnavnet, er dette feltet ikke nødvendig. Det er anbefalt å kode \"Kroppsdel\" med en terminologi, som SNOMED CT. Kroppsdelen er vanligvis ekvivalent til FHIR ImagingStudy.series.bodySite.">
+				>
+				["at0056"] = <
+					text = <"Funn ved sammenligning">
+					description = <"Tekstlig beskrivelse med sammenligning mellom denne undersøkelsen og tidligere lignende undersøkelser.">
+					comment = <"Bruk også dette dataelementet for å indikere dersom ingen sammenligningsbilder og/eller rapporter er tilgjengelige. Detaljer om bildene som er brukt for sammenligning kan lagres ved å bruke det interne Clusteret \"Detaljer om sammenlignende bilder\" i protokolldelen av denne arketypen.">
+				>
+				["at0057"] = <
+					text = <"Bildediagnostisk kvalitetsbeskrivelse">
+					description = <"Tekstlig beskrivelse av kvaliteten på undersøkelsen.">
+					comment = <"For eksempel om det er begrensninger ved undersøkelsen og deres konsekvens for tolkning, anbefaling om å gjenta undersøkelsen eller om alternative undersøkelsesmetoder som kan være mer formålstjenlig.">
+				>
+				["at0058"] = <
+					text = <"Bildediagnostisk differensialdiagnose">
+					description = <"Enkeltord, setning eller kort beskrivelse som uttrykker en mulig tilstand eller diagnose.">
+					comment = <"Dette dataelementet er repeterbart for å tillate flere enn én differensialdiagnose. Det er anbefalt å bruke en terminologi dersom mulig, for eksempel SNOMED CT. Dette dataelementet bør oppfattes som gjensidig utelukkende til \"Bildediagnostisk diagnose\", altså bare enten \"Bildediagnostisk diagnose\" eller \"Bildediagnostisk differensialdiagnose\" i hver instans av arketypen \"Bildediagnostisk svar\".">
+				>
+				["at0059"] = <
+					text = <"Anbefaling">
+					description = <"Forslag til videre bildediagnostiske undersøkelser, granskninger og/eller henvisninger, inkludert begrunnelser knyttet til dette.">
+					comment = <"Dette dataelementet er repeterbart for å tillate flere enn en anbefaling. Bruk en INSTRUCTION-arketype for formelle henvisninger for ytterligere bildeundersøkelser, for eksempel INSTRUCTION.service_request (Helsetjenesteforespørsel).">
+				>
+				["at0061"] = <
+					text = <"Problemstilling">
+					description = <"Tekstlig beskrivelse av begrunnelsen for henvisningen/rekvisisjonen.">
+					comment = <"Også kjent som \"Begrunnelse for rekvisisjon/henvisning\".">
+				>
+				["at0062"] = <
+					text = <"Sammendrag av prosedyre">
+					description = <"Tekstlig sammendrag om den kliniske prosedyren eller andre kliniske vurderinger som er knyttet til den radiologiske undersøkelsen.">
+					comment = <"Bruk dette dataelementet for å oppsummere den kliniske prosedyren, pasientens plassering (pasientposisjon), intervensjoner (som for eksempel Valsalva manøver) og administrering av kontrast, radiofarmakum og/eller behandlinger som del av bildeundersøkelsen. For eksempel: \"80 ml Isovue-370 ble administrert intravenøst ved bruk av en bolus-sporingsteknikk sentrert på hovedlungearterien\". Dataelementet kan også bli brukt til å registrere en oversikt over andre problemer, komplikasjoner eller overfølsomhetsreaksjoner som har oppstått.">
+				>
+				["at0063"] = <
+					text = <"Bildediagnostisk kvalitet">
+					description = <"Vurdering om kvaliteten på undersøkelsen.">
+					comment = <"Det anbefales å kode undersøkelseskvalitet med et verdi- eller kodesett, for eksempel \"Utmerket\", \"God\", \"Bra\", \"Dårlig\" og \"Ikke diagnostiserbar\", eller \"Adekvat\", \"Suboptimal\" og \"Inadekvat\".">
+				>
+				["at0065"] = <
+					text = <"Detaljer om bildeserie/r">
+					description = <"Detaljer om en eller flere bildediagnostisk serier som er inkludert i denne resultatrapporten.">
+				>
+				["at0067"] = <
+					text = <"Detaljer om sammenlignende serier">
+					description = <"Detaljer om en serie av bildeundersøkelser som det sammenliknes med.">
+				>
+				["at0069"] = <
+					text = <"Utstyr">
+					description = <"Detaljer om utstyr eller apparat/-er som er brukt ved den bildediagnostiske undersøkelsen.">
+				>
+				["at0070"] = <
+					text = <"Undersøkelsesdato">
+					description = <"Dato/Tid da den bildedannende undersøkelsen startet.">
+					comment = <"Tilsvarer FIHR 'ImagingStudy.started.">
+				>
+				["at0071"] = <
+					text = <"Tidsangivelse for overordnet resultatstatus">
+					description = <"Dato og/eller tid \"Overordnet resultatstatus\" ble gitt. (Tidspunkt for siste statusendring).">
+				>
+				["at0072"] = <
+					text = <"Status på undersøkelsesresultatet">
+					description = <"Den overordnede statusen for hele undersøkelsesresultatet.">
+					comment = <"Verdisetettet her er samordnet med FHIR Diagnostic report status, med unntak av koden \"Entered in error\" som bare er relevant i et meldingsorientert paradigme. Andre lokale koder eller termer kan brukes ved å bruke datatypen \"Fri eller kodet tekst\". I de fleste tilfellene er det bare passende å bruke en statuskode. Dataelementet er imidlertid åpent for flere forekomster for å understøtte bruksområdene der statuser for forskjellige aspekter av resultatet er delt opp i flere elementer. Et eksempel på dette er de norske standard svarrapport av medisinske tjenester v1.4 (HIS 80822:2014), der status for undersøkelsesresultat (Tjenestetype) og status/steg i arbeidsflyt håndteres separat.
+
+Dette elementet tilsvarer FHIR Diagnostic report status.">
+				>
+				["at0073"] = <
+					text = <"Registrert">
+					description = <"Undersøkelsen er registrert i radiologisystemet (RIS), men resultatet er ikke tilgjengelig ennå.">
+				>
+				["at0074"] = <
+					text = <"Ufullstendig">
+					description = <"Undersøkelsen er delvis (dvs initalt, foreløpig eller preliminært) besvart. Resultatet kan være ukomplett eller ubekreftet.">
+				>
+				["at0075"] = <
+					text = <"Foreløpig">
+					description = <"Verifiserte tidlige svar er tilgjengelige, men ikke alle svar er endelige. Dette er en underkategori av \"Ufullstendig\".">
+				>
+				["at0076"] = <
+					text = <"Endelig">
+					description = <"Undersøkelsesresultatene er komplett og bekreftet av ansvarlig(e) person(er).">
+				>
+				["at0077"] = <
+					text = <"Revidert">
+					description = <"Undersøkelsesresultatet har blitt modifisert etter å ha vært i status \"Endelig\".">
+				>
+				["at0078"] = <
+					text = <"Korrigert">
+					description = <"Undersøkelsesresultatet har blitt modifisert, for å rette en feil, etter å ha vært i status \"Endelig\". Dette er en underkategori til \"Revidert\".">
+				>
+				["at0079"] = <
+					text = <"Tillegg">
+					description = <"Nytt innhold har blitt lagt til i undersøkelsesresultatet etter at resultatet har hatt status \"Endelig\". Det eksisterende innholdet er uendret. Dette er en underkategori av \"Revidert\".">
+				>
+				["at0080"] = <
+					text = <"Kansellert">
+					description = <"Svaret er utilgjengelig fordi analysen ikke ble påbegynt eller ferdigstilt (også kalt \"avbrutt\").">
+				>
+				["at0083"] = <
+					text = <"Kopimottakere">
+					description = <"Detaljert informasjon knyttet til kliniker eller organisatorisk enhet som skal motta en kopi av den bildediagnostiske resultatet.">
+					comment = <"Personene eller organisasjonene på distribusjonslisten mottar svaret kun til informasjon, og det er hovedmottakeren av rapporten som forventes å agere på den.">
+				>
+				["at0087"] = <
+					text = <"Teknikk">
+					description = <"Navn på den radiologiske prosedyren som er brukt for å gjennomføre undersøkelsen.">
+					comment = <"Koding av 'Teknikk' med en terminologi er tillatt. Flere forekomster av dataelementet gjør det mulig å identifisere flere enn en teknikk.">
+				>
+				["at0088"] = <
+					text = <"Prosedyre">
+					description = <"Identifisering av den kliniske prosedyren eller håndteringen som er brukt som en del av den bildediagnostiske undersøkelsen.">
+				>
+				["at0090"] = <
+					text = <"Ukjent">
+					description = <"Resultatstatus er ukjent.">
+				>
+				["at0091"] = <
+					text = <"Modalitet">
+					description = <"Typen bildedannende utstyr, prosess eller metode som opprinnelig innhentet eller produserte dataene som ble brukt til å lage bildene i studien.">
+					comment = <"For eksempel: \"Rtg\", \"CT\", \"Ultralyd\", \"UL\", \"MR\", \"Bentetthetsmåling\", \"Tomografi\", \"Mammografi\", \"Nukleærmedisin\", \"PET\", \"Angiografi\" og \"Fluoroskopi\". 
+Dette dataelementet kan være overflødig hvis modaliteten er tydelig representert i 'Undersøkelsesnavnet'. Alternativt kan det også være mulig å autofylle 'Modalitet' fra et kodet 'Undersøkelsesnavn'. Koding av 'Modalitet' med et verdisett anbefales. For eksempel er verdien i kodeverket \"DICOM CID 29 Acquisition Modality\". Vanligvis tilsvarer dette ImagingStudy.modality i FHIR og Modality (0008, 0060) i DICOM.">
+				>
+				["at0092"] = <
+					text = <"Undersøkelses ID">
+					description = <"Unik identifikator for bildeundersøkelsen som tildeles av radiologisystemet (RIS/PACS).">
+					comment = <"Tilsvarer DICOM Study Instance UID (0020,000D) og ImagingStudy.identifier i FHIR.">
+				>
+				["at0093"] = <
+					text = <"Detaljer om sammenlignende bilder">
+					description = <"Detaljer om bilder fra en tidligere bildediagnostisk undersøkelse som er bruk til sammenlikning.">
+				>
+				["at0094"] = <
+					text = <"Undersøkelsesnavn">
+					description = <"Navnet på den bildediagnostiske bildeundersøkelsen som det sammenlignes med.">
+				>
+				["at0095"] = <
+					text = <"Undersøkelses ID">
+					description = <"Den unike identifikatoren til den bildediagnostisk undersøkelsen det sammenlignes med.">
+				>
+				["at0096"] = <
+					text = <"Undersøkelsesdato">
+					description = <"Dato og tid den bildediagnostiske undersøkelsen det sammenlignes med.">
+				>
+				["at0097"] = <
+					text = <"Lagringssted">
+					description = <"Det digitale lagringsstedet for bildeinnhold og metadata.">
+					comment = <"Dette lagringsstedet identifiserer nettverkstjenesten som gir tilgang til undersøkelsen for lagring, visning, spørring eller henting. Tilsvarer ImagingStudy.endpoint i FHIR.">
+				>
+				["at0098"] = <
+					text = <"Lagringssted">
+					description = <"Det digitale lagringsstedet for bildeinnhold og metadata.">
+					comment = <"Dette lagringsstedet identifiserer nettverkstjenesten som gir tilgang til undersøkelsen for lagring, visning, spørring eller henting. Tilsvarer ImagingStudy.endpoint i FHIR.">
+				>
+				["at0099"] = <
+					text = <"Undersøkelsesstatus">
+					description = <"Den nåværende statusen av den bildediagnostiske undersøkelsen i RIS/PACS.">
+					comment = <"Tilsvarer ImagingStudy.status i FHIR.">
+				>
+				["at0100"] = <
+					text = <"Registrert">
+					description = <"Den bildediagnostiske undersøkelsen er registrert i radiologisystemet (RIS), men resultatet er ikke tilgjengelig ennå.">
+				>
+				["at0101"] = <
+					text = <"Tilgjengelig">
+					description = <"Minst én forekomst er ferdig i denne bildediagnostiske undersøkelsen.">
+				>
+				["at0102"] = <
+					text = <"Kansellert">
+					description = <"Den bildediagnostiske undersøkelsen er utilgjengelig fordi undersøkelsen ikke ble startet eller fullført.">
+				>
+				["at0103"] = <
+					text = <"Ukjent">
+					description = <"Statusen er ikke kjent av radiologi informasjonssystemet (RIS) .">
+				>
+				["at0104"] = <
+					text = <"RapportID">
+					description = <"Den lokale, unike identifikator som tildeles en bildediagnostisk svarrapport av radiologisystemet (RIS/PACS).">
+					comment = <"Siden en instans av denne arketypen brukes per undersøkelse, kan denne ID'en knyttes til flere enn en undersøkelse, og brukes for å koble sammen svar på flere undersøkelser i en sammenstilt svarrapport. Tilsvarer DiagnosticReport.identifier i FHIR.">
+				>
+				["at0105"] = <
+					text = <"Klassifikasjon av undersøkelsen">
+					description = <"Klassifikasjon eller beskrivelse av undersøkelsen som tildeles av radiologisystemet (RIS/PACS).">
+					comment = <"Tilsvarer ImagingStudy.description i FHIR og Study description (0008, 1030) i DICOM. Eksempel på mulige verdier i DICOM er \"MR BREAS\", \"UNIT\"; \"NEURO^HEAD\"; or \"MR BREASTUNI UE\".">
+				>
+				["at0106"] = <
+					text = <"Bildedetaljer">
+					description = <"Link til alle detaljer om eventuell bilder utført under den bildediagnostiske undersøkelsen.">
+					comment = <"Vanligvis brukes DICOM modaliteter for å referere til bilder, men dette datafeltet gir en alternativ metode for å få tilgang til bildene. Tilsvarer FHIRs DiagnosticReport.imagingStudy.">
+				>
+				["at0107"] = <
+					text = <"Stabiliserende utstyr">
+					description = <"Identifisering av stabiliserende utstyr som er brukt.">
+					comment = <"For eksempel korsett, gips eller ekstern fiksasjon.">
+				>
+				["at0108"] = <
+					text = <"Stilling">
+					description = <"Individets posisjon ved tidspunktet for den radiologiske undersøkelsen.">
+					comment = <"For eksempel stående eller sittende.">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bildgebendes Untersuchungsergebnis">
+					description = <"Ergebnis einer bildgebenden Untersuchung, die an einer Person mit radiologischen Verfahren durchgeführt wird.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Beliebiges Ereignis">
+					description = <"Standardwert, ein undefinierter/s Zeitpunkt oder Intervallereignis, das explizit im Template oder zur Laufzeit der Anwendung definiert werden kann.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Name der Studie">
+					description = <"Der Name der durchgeführten bildgebenden Untersuchung.">
+					comment = <"Zum Beispiel: „CT Abdomen“, „Doppler-Ultraschall der Nierenarterie“ oder „Röntgenaufnahme des Brustkorbs“. Es wird dringend empfohlen, eine Terminologie zu verwenden, vorzugsweise einen Begriff, der sowohl die Modalität als auch die anatomische Lokalisation angibt, sofern möglich. Beispiele für mögliche Terminologien sind die LOINC Imaging Document Codes, RadLex Playbook oder SNOMED-CT. Entspricht DiagnosticReport.code in FHIR.">
+				>
+				["at0006"] = <
+					text = <"Zielgebiet strukturiert">
+					description = <"Strukturierte Angaben über die Körperstelle oder -region, die für die Bildgebung bestimmt ist.">
+					comment = <"Wenn die Körperstelle durch einen Code im \"Name der Studie\" angegeben wird, kann dieses Datenelement überflüssig sein.">
+				>
+				["at0008"] = <
+					text = <"Bildgebende Befunde">
+					description = <"Die Beschreibung oder Zusammenfassung aller klinischen Ergebnisse.">
+				>
+				["at0014"] = <
+					text = <"Klinische Zusammenfassung">
+					description = <"Die Beschreibung der relevanten klinischen Anamnese, die einen Kontext für die Untersuchung und Interpretation der Ergebnisse liefert.">
+					comment = <"Alternativ kann dieses Datenelement einen RM-Link zu klinischen Informationen enthalten, die in der ursprünglichen Untersuchungsanfrage bereitgestellt wurden oder sich an anderer Stelle in der Gesundheitsakte befinden.">
+				>
+				["at0020"] = <
+					text = <"Bildgebende Diagnose">
+					description = <"Ein einzelnes Wort, eine Phrase oder eine kurze Beschreibung, die einen wahrscheinlichen Zustand oder eine wahrscheinliche Diagnose darstellt.">
+					comment = <"Dieses Datenelement kommt mehrfach vor, um mehr als eine Diagnose zu ermöglichen. Wenn möglich, wird eine Codierung mit einer Terminologie wie SNOMED CT bevorzugt. Dieses Datenelement ist als sich gegenseitig ausschließend zur „Bildgebenden Differenzialdiagnostik“ zu betrachten, dh jeweils nur entweder „Bildgebende Diagnostik“ oder „Bildgebende Differenzialdiagnostik“ des Archetyps „Bildgebendes Untersuchungsergebnis“. Entspricht DiagnosticReport.conclusionCode in FHIR.">
+				>
+				["at0021"] = <
+					text = <"Schlussfolgerung">
+					description = <"Kurz beschriebene, klinisch relevante Interpretation aller bildgebenden Befunde und gegebenenfalls ein Vergleich zu früheren Studien.">
+					comment = <"Auch als „Beurteilung“ oder „Gesamteindruck“ bezeichnet. Entspricht DiagnosticReport.conclusion in FHIR.">
+				>
+				["at0023"] = <
+					text = <"Kommentar">
+					description = <"Zusätzliche Informationen über die Untersuchung, welche noch nicht an anderer Stelle dargestellt wurden.">
+					comment = <"Zum Beispiel: eine Anmerkung, dass der Film dem Patienten gegeben wurde. Entspricht DiagnosticReport.note in FHIR.">
+				>
+				["at0025"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0026"] = <
+					text = <"Bildgebungsdienst">
+					description = <"Angaben über den Dienst, die Organisation oder die Person, die die bildgebende Untersuchung durchführt.">
+				>
+				["at0027"] = <
+					text = <"Details zum Untersuchungsauftrag">
+					description = <"Angaben zur Anforderung einer einzelnen bildgebenden Untersuchung.">
+				>
+				["at0028"] = <
+					text = <"Auftragskennung des Anforderers">
+					description = <"Eindeutige Kennung für den Auftrag der bildgebenden Untersuchung, vom Anforderer vergeben.">
+					comment = <"Entspricht der HL7 Placer Order Identifier.">
+				>
+				["at0029"] = <
+					text = <"Name der angeforderter Untersuchung">
+					description = <"Identifizierung der angeforderten bildgebenden Untersuchung.">
+					comment = <"Dies kann in Situationen nützlich sein, in denen die angeforderte Untersuchung von der durchgeführten Untersuchung abweicht.">
+				>
+				["at0030"] = <
+					text = <"Anforderer">
+					description = <"Angaben zur ärzlichen Person und/oder der Organisation, die die bildgebende Untersuchung anfordert.">
+					comment = <"Entspricht dem DICOM Referring Physician's Name (0008,0090).">
+				>
+				["at0031"] = <
+					text = <"Auftragskennung des Empfängers">
+					description = <"Eindeutige Kennung für den Auftrag der bildgebenden Untersuchung, vergeben durch den radiologischen Dienst.">
+					comment = <"Entspricht dem HL7 Filler Order Identifier oder dem DICOM Accession number attribute (0008,0050).">
+				>
+				["at0041"] = <
+					text = <"Technische / klinische Verfahren strukturiert">
+					description = <"Zusätzliche strukturierte Informationen zu technischen und klinischen Aspekten der Aufnahme des Bildes/der Bilder.">
+				>
+				["at0044"] = <
+					text = <"Strukturierte bildgebende Befunde">
+					description = <"Strukturierte Informationen zu den bildgebenden Befunden, die auf eine bestimmte Körperstruktur oder -region abzielen.">
+				>
+				["at0045"] = <
+					text = <"Berichtsrepräsentation">
+					description = <"Digitale Darstellung des Ergebnisses der Untersuchung.">
+					comment = <"Mehrere Formate sind zulässig, sie sollten jedoch gleichwertige klinische Inhalte darstellen. Zum Beispiel eine PDF-Version des Berichts. Entspricht DiagnosticReport.presentedForm in FHIR.">
+				>
+				["at0046"] = <
+					text = <"Erweiterung">
+					description = <"Zusätzliche Informationen zur Erfassung lokaler Inhalte oder Anpassung an andere Referenzmodelle/Formalismen.">
+					comment = <"Zum Beispiel: Lokaler Informationsbedarf oder zusätzliche Metadaten zur Anpassung an FHIR-Ressourcen.">
+				>
+				["at0047"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0048"] = <
+					text = <"Störfaktoren">
+					description = <"Die Beschreibung von Faktoren, welche noch nicht an anderer Stelle erfasst werden, die Untersuchungsbefunde und / oder -ergebnisse beeinflussen können.">
+				>
+				["at0049"] = <
+					text = <"Zusammenfassung des technischen Verfahrens">
+					description = <"Beschreibung des radiologischen Verfahrens, das zur Erfassung der Studie verwendet wurde.">
+					comment = <"Verwenden Sie dieses Datenelement, um eine Zusammenfassung der technischen Prozedur zu beschreiben, einschließlich technischer Einschränkungen oder Abweichungen von den normalen technischen Verfahren. Zum Beispiel: \"5-mm-Axialbilder von den Lungenbasen durch die Schambeinfuge wurden nach Verabreichung von intravenösem und oralem Kontrastmittel aufgenommen. Aus den Quelldaten wurden koronale und sagittale neu formatierte Bilder erstellt.\"">
+				>
+				["at0055"] = <
+					text = <"Zielgebiet">
+					description = <"Beschreibung der einfachen Körperstelle oder -region, die für die Bildgebung bestimmt ist.">
+					comment = <"Wenn die Körperstelle im Text oder Code für „Name der Studie“ angegeben ist, kann dieses Feld überflüssig sein. Eine Codierung von „Zielgebiet“ mit einer Terminologie, wie z. B. SNOMED CT, ist wünschenswert. Entspricht ImagingStudy.series.bodySite in FHIR.">
+				>
+				["at0056"] = <
+					text = <"Vergleichsbefunde">
+					description = <"Die Beschreibung zum Vergleich dieser Untersuchung mit früheren ähnlichen Studien.">
+					comment = <"Verwenden Sie dieses Datenelement auch, um anzugeben, ob keine Vergleichsbilder und/oder Berichte verfügbar sind. Details zu den zum Vergleich verwendeten Bildern können im CLUSTER „Vergleichstudie Details“ im Archetyp-Teil \"Protocol\" erfasst werden.">
+				>
+				["at0057"] = <
+					text = <"Beschreibung der Qualität der Bildgebung">
+					description = <"Die Beschreibung der Qualität der Untersuchung.">
+					comment = <"Zum Beispiel: die Art jeglicher Einschränkungen und deren Auswirkung auf die Interpretation, Empfehlung zur Wiederholung der Untersuchung oder ob eine alternative Beurteilungsmethode geeigneter sein könnte.">
+				>
+				["at0058"] = <
+					text = <"Bildgebende Differentialdiagnose">
+					description = <"Ein einzelnes Wort, eine Phrase oder eine kurze Beschreibung, die einen möglichen Zustand oder eine mögliche Diagnose darstellt.">
+					comment = <"Dieses Datenelement kommt mehrfach vor, um mehr als eine Angabe von Differentialdiagnose zu ermöglichen. Wenn möglich, wird eine Codierung mit einer Terminologie wie SNOMED-CT bevorzugt. Dieses Datenelement ist als sich gegenseitig ausschließend zu „Bildgebende Diagnose“ zu betrachten, also jeweils nur entweder „Bildgebende Diagnose“ oder „Bildgebende Differentialdiagnose“ in einer Instanz des Archetyps „Bildgebendes Untersuchungsergebnis“.">
+				>
+				["at0059"] = <
+					text = <"Empfehlung">
+					description = <"Vorschlag für weitere Bildgebung, Untersuchungen und/oder Überweisung und dazugehörige Begründung.">
+					comment = <"Dieses Datenelement hat die Kardinalität 0..*, um mehr als eine Angabe von Empfehlung zu ermöglichen. Formelle Anordnungen für zusätzliche bildgebende Untersuchungen, Prüfungen sollten unter Verwendung eines INSTRUCTION-Archetyps wie INSTRUCTION.service_request dargestellt werden.">
+				>
+				["at0061"] = <
+					text = <"Klinische Indikation">
+					description = <"Die Beschreibung des Grundes für die ursprüngliche Untersuchungsanfrage.">
+					comment = <"Auch bekannt als „Klinische Fragestellung“ oder „Klinische Frage“.">
+				>
+				["at0062"] = <
+					text = <"Zusammenfassung der Prozedur">
+					description = <"Beschreibung des klinischen Verfahrens oder andere klinische Aspekte, die zur Erfassung der Studie verwendet wurden.">
+					comment = <"Verwenden Sie dieses Datenelement, um eine Zusammenfassung des klinischen Verfahrens, der Patientenpositionierung, Eingriffe wie Valsalva-Manöver und der Verabreichung von Kontrastmitteln, Radiopharmaka und/oder Behandlungen als Teil der Bildgebungsstudie zu beschreiben. Zum Beispiel: „80 ml Isovue-370 wurden intravenös unter Verwendung einer Bolus-Tracking-Technik verabreicht, die auf die Hauptpulmonalarterie zentriert war“. Es kann auch verwendet werden, um einen Überblick über aufgetretene Probleme, Komplikationen oder Nebenwirkungen darzustellen.">
+				>
+				["at0063"] = <
+					text = <"Qualität der Bildgebung">
+					description = <"Die Beurteilung der Qualität der Untersuchung.">
+					comment = <"Es wird empfohlen, die Qualität der Bildgebung mit einer Wertemenge zu codieren. Zum Beispiel: „ausgezeichnet, gut, mittelmäßig, schlecht und nicht diagnostisch“ oder „angemessen, suboptimal und unzureichend“.">
+				>
+				["at0065"] = <
+					text = <"Seriendetails">
+					description = <"Details zu einer in diesem Bericht enthaltenen Serie.">
+				>
+				["at0067"] = <
+					text = <"Details zur Vergleichsserie">
+					description = <"Details zu einer Bildgebungsserie, die mit der berichteten Studie verglichen wird.">
+				>
+				["at0069"] = <
+					text = <"Gerät">
+					description = <"Details zu Bildgebungsgeräten, die zur Erfassung der Studie verwendet wurden.">
+				>
+				["at0070"] = <
+					text = <"Zeitpunkt der Studie">
+					description = <"Zeitpunkt zum Beginn der Bildgebung.">
+					comment = <"Entspricht ImagingStudy.started in FHIR.">
+				>
+				["at0071"] = <
+					text = <"Zeitstempel des Status">
+					description = <"Der Zeitpunkt, an dem der „Status des Gesamtergebnisses“ bestimm wurde.">
+				>
+				["at0072"] = <
+					text = <"Status des Gesamtergebnisses">
+					description = <"Der Status des Ergebnisses der bildgebenden Untersuchung als Ganzes.">
+					comment = <"Die Werte wurden mit dem Status von Diagnostic report im FHIR abgeglichen, mit Ausnahme von „Entered in error“, das nur für ein datenaustausch-orientiertes Paradigma relevant ist. Andere lokale Codes/Begriffe können über die \"Choice of\" vom Text-Datentyp verwendet werden. In den meisten Anwendungsfällen ist jeweils nur ein Status anwendbar, jedoch erlaubt dieses Datenelement mehrere Vorkommen für die Anwendungsfälle, in denen eine Vielzahl von Status-Typen angegeben werden müssen, normalerweise innerhalb eines Templates. Entspricht DiagnosticReport.status in FHIR.">
+				>
+				["at0073"] = <
+					text = <"Registriert">
+					description = <"Die Existenz der Studie ist registriert, aber es liegt noch kein Ergebnis vor.">
+				>
+				["at0074"] = <
+					text = <"Teilweise">
+					description = <"Dies ist ein Teilergebnis (z. B. Erst-, Zwischen- oder vorläufiges Ergebnis), aber die Daten können unvollständig oder nicht-verifiziert sein.">
+				>
+				["at0075"] = <
+					text = <"Vorläufig">
+					description = <"Verifizierte frühe Ergebnisse sind verfügbar, aber nicht alle Ergebnisse sind endgültig. Dies ist eine Unterkategorie von \"Teilweise\".">
+				>
+				["at0076"] = <
+					text = <"Final">
+					description = <"Das Ergebnis ist vollständig und von einer autorisierten Person verifiziert.">
+				>
+				["at0077"] = <
+					text = <"Geändert">
+					description = <"Nachdem das Ergebnis endgültig war, wurde es geändert.">
+				>
+				["at0078"] = <
+					text = <"Korrigiert">
+					description = <"Nachdem das Ergebnis endgültig war, wurde es modifiziert, um einen Fehler zu korrigieren. Dies ist eine Unterkategorie von „Geändert“.">
+				>
+				["at0079"] = <
+					text = <"Nachgetragen">
+					description = <"Nachdem das Ergebnis endgültig war, wurde es durch Hinzufügen neuer Inhalte modifiziert. Der vorhandene Inhalt bleibt unverändert. Dies ist eine Unterkategorie von „Geändert“.">
+				>
+				["at0080"] = <
+					text = <"Abgebrochen">
+					description = <"Das Ergebnis ist nicht verfügbar, weil die Untersuchung nicht gestartet oder nicht abgeschlossen wurde (manchmal auch als \"gescheitert\" bezeichnet).">
+				>
+				["at0083"] = <
+					text = <"Verteilerliste">
+					description = <"Angaben zu weiteren Ärzten oder Organisationen, die eine Kopie des Untersuchungsergebnisses benötigen.">
+					comment = <"Die „Verteilerliste“ dient nur zu Informationszwecken, und der Hauptempfänger des Berichts ist die Person, die aufgrund der Informationen handeln soll.">
+				>
+				["at0087"] = <
+					text = <"Technisches Verfahren">
+					description = <"Name des radiologischen Verfahrens, das zur Erfassung der Studie verwendet wurde.">
+					comment = <"Die Codierung des „Technischen Verfahrens“ mit einer Terminologie ist erlaubt. Mehrere Vorkommen ermöglichen die Identifizierung einer oder mehrerer Techniken.">
+				>
+				["at0088"] = <
+					text = <"Klinische Prozedur">
+					description = <"Identifizierung des klinischen Verfahrens oder Managements, das zur Erfassung der Studie verwendet wurde.">
+				>
+				["at0090"] = <
+					text = <"Unbekannt">
+					description = <"Der Status des Ergebnisses ist nicht bekannt.">
+				>
+				["at0091"] = <
+					text = <"Modalität">
+					description = <"Die Art des Bildgebungsgeräts, -prozesses oder -verfahrens, das ursprünglich die Daten erfasst oder erzeugt hat, die zur Erstellung der Bilder in der Studie verwendet wurden.">
+					comment = <"Zum Beispiel: „Röntgen“, „CT-Scan“, „Ultraschall“, „MRT“, „Knochendichtemessung“, „Tomografie“, „Mammografie“, „Nuklearmedizin“, „PET“, „Angiografie“ und „Fluoroskopie“. Dieses Datenelement kann redundant sein, wenn die Modalität eindeutig im „Name der Studie“ dargestellt wird. Alternativ ist es möglicherweise auch möglich, die „Modalität“ automatisch aus einem codierten „Name der Studie“ auszufüllen. Es wird empfohlen, die „Modalität“ mit einem Wertesatz zu codieren, z. B. mit dem Wertesatz DICOM CID 29 Acquisition Modality. Entspricht ImagingStudy.modality in FHIR und Modality (0008, 0060) in DICOM.">
+				>
+				["at0092"] = <
+					text = <"Studieninstanz-ID">
+					description = <"Eindeutige Kennung für die vom Bildgebungsgerät zugewiesene Bildgebungsstudie.">
+					comment = <"Entspricht der Study Instance UID (0020.000D) in DICOM und ImagingStudy.identifier in FHIR.">
+				>
+				["at0093"] = <
+					text = <"Details zur Vergleichsstudie">
+					description = <"Details zu Bildern aus einer früheren Studie, die zum Vergleich mit der berichteten Studie verwendet wurden.">
+				>
+				["at0094"] = <
+					text = <"Name der Studie">
+					description = <"Der Name der durchgeführten bildgebenden Vergleichsuntersuchung.">
+				>
+				["at0095"] = <
+					text = <"Studienkennung">
+					description = <"Eindeutige Kennung für die Vergleichsbildgebungsstudie.">
+				>
+				["at0096"] = <
+					text = <"Zeitpunkt der Studie">
+					description = <"Zeitpunkt zum Beginn der Vergleichsuntersuchung.">
+				>
+				["at0097"] = <
+					text = <"Studienendpunkt">
+					description = <"Digitale Position der Vergleichsbildinhalte und Metadaten.">
+					comment = <"Diese Position identifiziert den Netzwerkdienst, der den Zugriff (zum Speichern, Anzeigen, Abfragen oder Abrufen) für die Studie bereitstellt. Entspricht ImagingStudy.endpoint in FHIR.">
+				>
+				["at0098"] = <
+					text = <"Studienendpunkt">
+					description = <"Digitale Position der Bildinhalte und Metadaten.">
+					comment = <"Diese Position identifiziert den Netzwerkdienst, der den Zugriff (zum Speichern, Anzeigen, Abfragen oder Abrufen) für die Studie bereitstellt. Entspricht ImagingStudy.endpoint in FHIR.">
+				>
+				["at0099"] = <
+					text = <"Studienstatus">
+					description = <"Der aktuelle Status der Bildgebungsstudie.">
+					comment = <"Entspricht ImagingStudy.status in FHIR.">
+				>
+				["at0100"] = <
+					text = <"Registriert">
+					description = <"Die Existenz der Bildgebungsstudie ist registriert, aber sie ist noch nichts verfügbar.">
+				>
+				["at0101"] = <
+					text = <"Verfügbar">
+					description = <"Mindestens eine Instanz wurde dieser Bildgebungsstudie zugeordnet.">
+				>
+				["at0102"] = <
+					text = <"Abgebrochen">
+					description = <"Die Bildgebungsstudie ist nicht verfügbar, weil die Studie nicht gestartet oder nicht abgeschlossen wurde.">
+				>
+				["at0103"] = <
+					text = <"Unbekannt">
+					description = <"Der Status ist im radiologischen Quellsystem nicht bekannt.">
+				>
+				["at0104"] = <
+					text = <"Bericht-ID">
+					description = <"Eindeutige Kennung für den vom Radiologiedienst vergebenen Bildgebungsbericht.">
+					comment = <"Da pro Studie eine Instanz dieses Archetyps verwendet wird, kann diese Identifikation verwendet werden, um mehr als eine Bildgebungsstudie in einem einzigen kompakten Bericht zu verbinden. Entspricht DiagnosticReport.identifier in FHIR.">
+				>
+				["at0105"] = <
+					text = <"Studienbeschreibung">
+					description = <"Vom radiologischen Dienst erstellte Beschreibung oder Klassifizierung der Studie.">
+					comment = <"Entspricht ImagingStudy.description in FHIR und Study description (0008, 1030) in DICOM. Mögliche DICOM-Beispiele: MR BREAS, UNIT; NEURO^HEAD oder MR BREASTUNI UE.">
+				>
+				["at0106"] = <
+					text = <"Bildinformationen">
+					description = <"Link zu vollständigen Details aller während der Studie durchgeführten Bildgebungen.">
+					comment = <"Typischerweise wurden beim Referenzieren von Bildern die DICOM-fähigen Modalitäten verwendet, aber dieses Datenfeld bietet eine alternative Methode für den Zugriff auf die Bilder. Entspricht DiagnosticReport.imagingStudy in FHIR.">
+				>
+				["at0107"] = <
+					text = <"Stabilisierende Instrumente">
+					description = <"Identifizierung eines verwendeten Stabilisierungsinstrumentes.">
+					comment = <"Zum Beispiel: Zahnspangen, Gipsverbände, externe Fixierung.">
+				>
+				["at0108"] = <
+					text = <"Position">
+					description = <"Position/Lage der Person während der bildgebenden Untersuchung.">
+					comment = <"Beispiel: stehend oder liegend.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bilddiagnostiskt resultat">
+					description = <"*The result of an imaging examination performed on an individual, using radiological techniques. (en)">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Ospecificerad händelse">
+					description = <"Förinställd, ospecificerad tidpunkt eller tidsintervall som kan definieras mer uttryckligen i en mall (template) eller i en applikation.
+">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"*Study name (en)">
+					description = <"*The name of the imaging examination performed. (en)">
+					comment = <"*For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR. (en)">
+				>
+				["at0006"] = <
+					text = <"*Structured target body site (en)">
+					description = <"*Structured detail about the body site or region targetted for imaging. (en)">
+					comment = <"*If the body site is specified within the text or code for 'Study name', then this field may be redundant. (en)">
+				>
+				["at0008"] = <
+					text = <"*Imaging findings (en)">
+					description = <"*Narrative description or overview of all clinical findings. (en)">
+				>
+				["at0014"] = <
+					text = <"*Clinical summary (en)">
+					description = <"*Narrative description of relevant clinical history that provides context for the examination and interpretation of results. (en)">
+					comment = <"*Alternatively this data element can include an RM link to clinical information provided in the original examination request or located elsewhere within the health record. (en)">
+				>
+				["at0020"] = <
+					text = <"Diagnos">
+					description = <"Enstaka ord, fras eller kort beskrivning som representerar det troliga tillståndet eller diagnosen.">
+					comment = <"*This data element has multiple occurrences to allow for more than one differential diagnosis. Coding with a terminology such as SNOMED CT is preferred, where possible. This data element should be considered as mutually exclusive to \"Imaging differential diagnosis\", ie only either \"Imaging diagnosis\" or \"Imaging differential diagnosis\" in each instance of the archetype \"Imaging examination result.\" Equivalent to DiagnosticReport.conclusionCode in FHIR. (en)">
+				>
+				["at0021"] = <
+					text = <"Slutsats">
+					description = <"Kortfattad och kliniskt relevant tolkning av alla bilddiagnostiska fynd, inklusive en jämförelse med tidigare studier där så är lämpligt.
+">
+					comment = <"*Also referred to as 'Opinion' or 'Conclusion'. Equivalent to DiagnosticReport.conclusion in FHIR. (en)">
+				>
+				["at0023"] = <
+					text = <"Kommentar">
+					description = <"Ytterligare beskrivning av undersökningen som inte fångats i andra fält.">
+					comment = <"*For example: a note that the film was given to the patient. Equivalent to DiagnosticReport.note in FHIR. (en)">
+				>
+				["at0025"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0026"] = <
+					text = <"*Imaging service (en)">
+					description = <"*Details about the service, organisation or individual carrying out the imaging examination. (en)">
+				>
+				["at0027"] = <
+					text = <"Beställningsdetaljer">
+					description = <"*Details about a single imaging examination requested. (en)">
+				>
+				["at0028"] = <
+					text = <"Beställnings-ID">
+					description = <"*Unique identifier for the imaging examination order assigned by the requester. (en)">
+					comment = <"*Equivalent to the HL7 Placer Order Identifier. (en)">
+				>
+				["at0029"] = <
+					text = <"Namn på beställd undersökning">
+					description = <"*Identification of imaging examination requested. (en)">
+					comment = <"*This can be usefule in situations where the examination requested differs from the examination performed. (en)">
+				>
+				["at0030"] = <
+					text = <"Beställare">
+					description = <"*Details about the clinician and/or organisation requesting the imaging examination. (en)">
+					comment = <"*Equivalent to DICOM Referring Physician's Name (0008,0090) (en)">
+				>
+				["at0031"] = <
+					text = <"*Receiver order identifier (en)">
+					description = <"*Unique identifier for the imaging examination order assigned by the radiology service. (en)">
+					comment = <"*Equivalent to the HL7 Filler Order Identifier or DICOM Accession number attribute (0008,0050). (en)">
+				>
+				["at0041"] = <
+					text = <"*Structured technique/procedure (en)">
+					description = <"*Additional structured details of technical and clinical aspects of capturing the image/s. (en)">
+				>
+				["at0044"] = <
+					text = <"*Structured imaging findings (en)">
+					description = <"*Structured details about the imaging examination findings targeting a specific structure or region. (en)">
+				>
+				["at0045"] = <
+					text = <"*Report representation (en)">
+					description = <"*Digital representation of the examination result. (en)">
+					comment = <"*Multiple formats are allowed but they should represent equivalent clinical content. For example a pdf version of the report. Equivalent to DiagnosticReport.presentedForm in FHIR. (en)">
+				>
+				["at0046"] = <
+					text = <"Tilläggsinformation">
+					description = <"Ytterligare information som krävs för att utvidga modellen med lokalt innehåll eller för anpassning till andra referensmodeller.
+">
+					comment = <"Till exempel: lokala informationskrav eller ytterligare metadata för anpassning till FHIR.">
+				>
+				["at0047"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0048"] = <
+					text = <"Möjliga felkällor">
+					description = <"Beskrivning av faktorer som inte registrerats någon annanstans, men som kan påverka fynden och/eller undersökningsresultatet.">
+				>
+				["at0049"] = <
+					text = <"*Technique summary (en)">
+					description = <"*Narrative description about the radiological procedure used to capture the study. (en)">
+					comment = <"*Use this data element to describe a summary of technique, including technical limitations or deviation from the normal technical procedures. For example: '5 mm axial images from the lung bases through the pubic symphysis were acquired following the administration of intravenous and oral contrast. Coronal and Sagittal reformatted images were constructed from the source data.' (en)">
+				>
+				["at0055"] = <
+					text = <"*Target body site (en)">
+					description = <"*Description of the simple body site or region targetted for imaging. (en)">
+					comment = <"*If the body site is specified within the text or code for 'Study name', then this field may be redundant. Coding of 'Target body site' with a terminology, such as SNOMED CT, is desirable. Equivalent to ImagingStudy.series.bodySite in FHIR. (en)">
+				>
+				["at0056"] = <
+					text = <"*Comparison findings (en)">
+					description = <"*Narrative description about the comparison of this examination with previous similar studies. (en)">
+					comment = <"*Also use this data element to indicate if no comparison images and/or reports are available. Details about the images used for comparison can be recorded using the 'Comparison study details' CLUSTER, within Protocol. (en)">
+				>
+				["at0057"] = <
+					text = <"*Imaging quality description (en)">
+					description = <"*Narrative description about the quality of the examination. (en)">
+					comment = <"*For example: the nature of any limitations and their impact on interpretation; recommendation that the examination should be repeated; or whether an alternative method of assessment might be more appropriate. (en)">
+				>
+				["at0058"] = <
+					text = <"Differentialdiagnos">
+					description = <"Enstaka ord, fras eller kort beskrivning som representerar ett möjligt tillstånd eller en diagnos.">
+					comment = <"*This data element has multiple occurrences to allow for more than one differential diagnosis. Coding with a terminology such as SNOMED CT is preferred, where possible. This data element should be considered as mutually exclusive to \"Imaging diagnosis\", ie only either \"Imaging diagnosis\" or \"Imaging differential diagnosis\" in each instance of the archetype \"Imaging examination result.\" (en)">
+				>
+				["at0059"] = <
+					text = <"Rekommendation">
+					description = <"Förslag för ytterligare avbildning, undersökningar och/eller hänvisning och tillhörande motiv.
+
+">
+					comment = <"*This data element has 0..* occurrences to allow for more than one recommendation. Formal orders for additional imaging examination, investigation should be recorded using an INSTRUCTION archetype, such as INSTRUCTION.service_request. (en)">
+				>
+				["at0061"] = <
+					text = <"*Clinical indication (en)">
+					description = <"*Narrative description about the reason the examination was originally requested. (en)">
+					comment = <"*Also known as 'Clinical question' or 'Clinical query'. (en)">
+				>
+				["at0062"] = <
+					text = <"*Procedure summary (en)">
+					description = <"*Narrative description about the clinical procedure or other clinical considerations used to capture the study. (en)">
+					comment = <"*Use this data element to describe a summary of the clinical procedure, patient positioning, interventions such as Valsalva manoeuvre, and administration of contrast agent, radiopharmaceuticals and/or treatments as part of the imaging study. For example: '80 ml of Isovue-370 was administered intravenously using a bolus-tracking technique centered on the main pulmonary artery'. It can also be used to record an overview of any issues, complications or adverse reactions encountered.  (en)">
+				>
+				["at0063"] = <
+					text = <"*Imaging quality (en)">
+					description = <"*Assessment about the quality of the examination. (en)">
+					comment = <"*Coding of the imaging quality with a value set is recommended. For example: 'excellent, good, fair, poor, and non-diagnostic'; or 'adequate, suboptimal and inadequate'.
+ (en)">
+				>
+				["at0065"] = <
+					text = <"*Series details (en)">
+					description = <"*Details about a series included in this report. (en)">
+				>
+				["at0067"] = <
+					text = <"*Comparison series details (en)">
+					description = <"*Details about an imaging series being compared to the reported study. (en)">
+				>
+				["at0069"] = <
+					text = <"*Device (en)">
+					description = <"*Details about imaging device/s used to capture the study. (en)">
+				>
+				["at0070"] = <
+					text = <"*Study date (en)">
+					description = <"*Date/time when the imaging started. (en)">
+					comment = <"*Equivalent to ImagingStudy.started in FHIR. (en)">
+				>
+				["at0071"] = <
+					text = <"*Status timestamp (en)">
+					description = <"*The date and/or time that ‘Overall result status’ was assigned. (en)">
+				>
+				["at0072"] = <
+					text = <"*Overall result status (en)">
+					description = <"*The status of the imaging examination result as a whole. (en)">
+					comment = <"*The values have been aligned with the FHIR Diagnostic report status, with the exception of 'Entered in error' which is relevant only to a messaging-oriented paradigm. Other local codes/terms can be used via the Text 'choice'. In most use cases, only one status is applicable at any time, however this data element allows multiple occurrences for the use cases where there are a variety of types of status that need to be specified, usually within a template. Equivalent to DiagnosticReport.status in FHIR.  (en)">
+				>
+				["at0073"] = <
+					text = <"Registered">
+					description = <"*The existence of the study is registered, but no result is yet available. (en)">
+				>
+				["at0074"] = <
+					text = <"Partial">
+					description = <"*This is a partial (e.g. initial, interim or preliminary) result but data may be incomplete or unverified. (en)">
+				>
+				["at0075"] = <
+					text = <"Preliminary">
+					description = <"Verified early results are available, but not all results are final. This is a sub-category of 'Partial'.">
+				>
+				["at0076"] = <
+					text = <"Final">
+					description = <"*The result is complete and verified by an authorised person. (en)">
+				>
+				["at0077"] = <
+					text = <"Amended">
+					description = <"*Subsequent to being final, the result has been modified. (en)">
+				>
+				["at0078"] = <
+					text = <"Corrected">
+					description = <"*Subsequent to being final, the result has been modified to correct an error. This is a sub-category of 'Amended'. (en)">
+				>
+				["at0079"] = <
+					text = <"Appended">
+					description = <"*Subsequent to being final, the result has been modified by adding new content. The existing content is unchanged. This is a sub-category of 'Amended'. (en)">
+				>
+				["at0080"] = <
+					text = <"Cancelled">
+					description = <"The result is unavailable because the test was not started or not completed (also sometimes called 'aborted').">
+				>
+				["at0083"] = <
+					text = <"Distribution list">
+					description = <"*Details of additional clinicians or organisations who require a copy of the examination result. (en)">
+					comment = <"The 'Distribution list' is for information-only, and that the primary recipient of the report is the person intended to act on the information.">
+				>
+				["at0087"] = <
+					text = <"*Technique (en)">
+					description = <"*Name of the radiological procedure used to capture the study. (en)">
+					comment = <"*Coding of the 'Technique' with a terminology is permitted. Multiple occurrences allow for identification of one or more techniques. (en)">
+				>
+				["at0088"] = <
+					text = <"*Procedure (en)">
+					description = <"*Identification of the clinical procedure or management used to capture the study. (en)">
+				>
+				["at0090"] = <
+					text = <"*Unknown (en)">
+					description = <"*The status of the result is not known. (en)">
+				>
+				["at0091"] = <
+					text = <"*Modality (en)">
+					description = <"*The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study. (en)">
+					comment = <"*For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM. (en)">
+				>
+				["at0092"] = <
+					text = <"*Study instance identifier (en)">
+					description = <"*Unique identifier for the imaging study assigned by the imaging device. (en)">
+					comment = <"*Equivalent to Study Instance UID (0020,000D) in DICOM and ImagingStudy.identifier in FHIR. (en)">
+				>
+				["at0093"] = <
+					text = <"*Comparison study details (en)">
+					description = <"*Details about images from a prior study used for comparison to the reported study. (en)">
+				>
+				["at0094"] = <
+					text = <"*Study name (en)">
+					description = <"*The name of the comparison imaging examination performed. (en)">
+				>
+				["at0095"] = <
+					text = <"*Study identifier (en)">
+					description = <"*Unique identifier for the comparison imaging study. (en)">
+				>
+				["at0096"] = <
+					text = <"*Study date (en)">
+					description = <"*Date and time the comparison examination started. (en)">
+				>
+				["at0097"] = <
+					text = <"*Study end point (en)">
+					description = <"*Digital location of the comparison imaging content and metadata. (en)">
+					comment = <"*This location identifies the network service providing access (for storage, viewing, querying, or retrieval) for the study. Equivalent to ImagingStudy.endpoint in FHIR. (en)">
+				>
+				["at0098"] = <
+					text = <"*Study end point (en)">
+					description = <"*Digital location of the imaging content and metadata. (en)">
+					comment = <"*This location identifies the network service providing access (for storage, viewing, querying, or retrieval) for the study. Equivalent to ImagingStudy.endpoint in FHIR. (en)">
+				>
+				["at0099"] = <
+					text = <"*Study status (en)">
+					description = <"*The current state of the imaging study. (en)">
+					comment = <"*Equivalent to ImagingStudy.status in FHIR. (en)">
+				>
+				["at0100"] = <
+					text = <"*Registered (en)">
+					description = <"*The existence of the imaging study is registered, but there is nothing yet available. (en)">
+				>
+				["at0101"] = <
+					text = <"*Available (en)">
+					description = <"*At least one instance has been associated with this imaging study. (en)">
+				>
+				["at0102"] = <
+					text = <"*Cancelled (en)">
+					description = <"*The imaging study is unavailable because the study was not started or not completed. (en)">
+				>
+				["at0103"] = <
+					text = <"*Unknown (en)">
+					description = <"*The status is not known by the radiology source system. (en)">
+				>
+				["at0104"] = <
+					text = <"*Report identifier (en)">
+					description = <"*Unique identifier for the imaging report assigned by the radiology service. (en)">
+					comment = <"*As one instance of this archetype is used per study, this identifier can be used to connect more than one imaging study within a single combined report. Equivalent to DiagnosticReport.identifier in FHIR.  (en)">
+				>
+				["at0105"] = <
+					text = <"*Study description (en)">
+					description = <"*Radiology service-generated description or classification of the study. (en)">
+					comment = <"*Equivalent to ImagingStudy.description in FHIR and Study description (0008, 1030) in DICOM. Possible DICOM examples: MR BREAS, UNIT; NEURO^HEAD; or MR BREASTUNI UE. (en)">
+				>
+				["at0106"] = <
+					text = <"*Image details (en)">
+					description = <"*Link to full details of any imaging carried out during the study. (en)">
+					comment = <"*Typically referencing images used the DICOM enabled modalities, but this data field provides an alternative method to access the images. Equivalent to FHIR's DiagnosticReport.imagingStudy. (en)">
+				>
+				["at0107"] = <
+					text = <"*Stabilising appliance (en)">
+					description = <"*Identification of a stabilising appliance in use. (en)">
+					comment = <"*For example: braces, casts, external fixation. (en)">
+				>
+				["at0108"] = <
+					text = <"*Position (en)">
+					description = <"*Position of the individual during the imaging examination. (en)">
+					comment = <"*For example: standing or lying. (en)">
+				>
+			>
+		>
+	>
