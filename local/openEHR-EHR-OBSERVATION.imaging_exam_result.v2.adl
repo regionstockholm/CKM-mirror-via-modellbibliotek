@@ -164,7 +164,7 @@ RSNA.org: Proposed Standard Radiology Report Headings. Radiological Society of N
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"59dbfc12b411e3b9acf4f61a0eef461a">
+		["MD5-CAM-1.0.1"] = <"d8b2b7b78133b09973f0ea4e6eb54e84">
 		["build_uid"] = <"7a6046b4-804f-4b4f-bda2-661f5814f290">
 		["revision"] = <"1.1.1">
 	>
@@ -286,6 +286,18 @@ definition
 									}
 									ELEMENT[at0023] occurrences matches {0..*} matches {    -- Comment
 										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0109] occurrences matches {0..1} matches {    -- Contrast use
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0110,    -- With contrast
+													at0111]    -- Without contrast
+												}
+											}
 											DV_TEXT matches {*}
 										}
 									}
@@ -781,6 +793,18 @@ ontology
 					description = <"Position of the individual during the imaging examination.">
 					comment = <"For example: standing or lying.">
 				>
+				["at0109"] = <
+					text = <"Contrast use">
+					description = <"Information regarding the use of contrast as part of the imaging examination.">
+				>
+				["at0110"] = <
+					text = <"With contrast">
+					description = <"">
+				>
+				["at0111"] = <
+					text = <"Without contrast">
+					description = <"">
+				>
 			>
 		>
 		["nb"] = <
@@ -1099,6 +1123,18 @@ Dette dataelementet kan være overflødig hvis modaliteten er tydelig represente
 					description = <"Individets posisjon ved tidspunktet for den radiologiske undersøkelsen.">
 					comment = <"For eksempel stående eller sittende.">
 				>
+				["at0109"] = <
+					text = <"*Contrast use (en)">
+					description = <"*Information regarding the use of contrast as part of the imaging examination. (en)">
+				>
+				["at0110"] = <
+					text = <"*With contrast (en)">
+					description = <"">
+				>
+				["at0111"] = <
+					text = <"*Without contrast (en)">
+					description = <"">
+				>
 			>
 		>
 		["de"] = <
@@ -1413,6 +1449,18 @@ Dette dataelementet kan være overflødig hvis modaliteten er tydelig represente
 					text = <"Position">
 					description = <"Position/Lage der Person während der bildgebenden Untersuchung.">
 					comment = <"Beispiel: stehend oder liegend.">
+				>
+				["at0109"] = <
+					text = <"*Contrast use (en)">
+					description = <"*Information regarding the use of contrast as part of the imaging examination. (en)">
+				>
+				["at0110"] = <
+					text = <"*With contrast (en)">
+					description = <"">
+				>
+				["at0111"] = <
+					text = <"*Without contrast (en)">
+					description = <"">
 				>
 			>
 		>
@@ -1734,6 +1782,18 @@ Dette dataelementet kan være overflødig hvis modaliteten er tydelig represente
 					text = <"*Position (en)">
 					description = <"*Position of the individual during the imaging examination. (en)">
 					comment = <"*For example: standing or lying. (en)">
+				>
+				["at0109"] = <
+					text = <"*Contrast use (en)">
+					description = <"*Information regarding the use of contrast as part of the imaging examination. (en)">
+				>
+				["at0110"] = <
+					text = <"*With contrast (en)">
+					description = <"">
+				>
+				["at0111"] = <
+					text = <"*Without contrast (en)">
+					description = <"">
 				>
 			>
 		>
