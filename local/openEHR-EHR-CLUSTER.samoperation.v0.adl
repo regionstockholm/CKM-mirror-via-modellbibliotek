@@ -1,0 +1,55 @@
+archetype (adl_version=1.4; uid=f3a0cb18-1fc6-4e81-9ec3-41cc34eac4c1)
+	openEHR-EHR-CLUSTER.samoperation.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+
+description
+	original_author = <
+		["date"] = <"2024-10-21">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"5e9839a8cea35b6cd6586ab83c770d8f">
+		["build_uid"] = <"1859bb3e-ac8c-3afa-8564-162a5114ab63">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Samoperation
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Övriga specialitet
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Samoperation">
+					description = <"Operation där flera specialiteter utför kirurgiska ingrepp under samma anestesi. ">
+				>
+				["at0001"] = <
+					text = <"Övriga specialitet">
+					description = <"Specialiteter utöver huvudoperatör som utfört kirurgiskt ingrepp. ">
+				>
+			>
+		>
+	>
