@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "1.0.0",
       "build_uid" : "0d05a548-f4c0-4b2e-b85a-087b037d7bce",
-      "MD5-CAM-1.0.1" : "e151873e3d765dfcbacf36966a2e8a50",
+      "MD5-CAM-1.0.1" : "c896e6d9d4f990a345b04e7635f54ba4",
       "PARENT:MD5-CAM-1.0.1" : "2A789520F48E91960C4825733C8BA68F"
     },
     "details" : {
@@ -1542,6 +1542,15 @@
               "attributeTuples" : [ ],
               "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-operative_procedure-001.v0",
               "referenceType" : "archetypeOverlay"
+            }, {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0003.2",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-combined_surgical_procedure-001.v0",
+              "referenceType" : "archetypeOverlay"
             } ]
           } ],
           "attributeTuples" : [ ]
@@ -1735,7 +1744,23 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "0B61FC138DCD04219DC8E97AB49A636F"
       },
-      "details" : { }
+      "details" : {
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about the operative aspects of a procedure.",
+          "keywords" : [ "procedure", "surgery", "incision", "resection", "intervention", "surgical", "trauma", "repair" ],
+          "use" : "Use to record details about the operative aspects of any surgical procedure. \r\n\r\nThis archetype is designed to be nested within the 'Procedure detail' SLOT within the ACTION.procedure archetype or similar, which will identifiy the name of the procedure and information that is common to all types of procedures.\r\n\r\nOther CLUSTER archetypes can be inserted into the SLOTs to extend this generic archetype to capture further details for the identified operation - for example: CLUSTER.surgical_preparation; CLUSTER.myringoplasty and CLUSTER.closure.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.operative_procedure.v0",
     "differential" : true,
@@ -1762,6 +1787,113 @@
     },
     "adlVersion" : "1.4",
     "buildUid" : "31822ca5-96dd-4ff3-9d85-220b450db65a",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "f9fc165c-2c80-4479-96f3-117924d3fee4",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "81b0215aaed812544cde4fd97709dc0a"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.combined_surgical_procedure.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-combined_surgical_procedure-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "terminologyId" : {
+                    "value" : "local_terms"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_terms" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_terms",
+                    "code" : "1",
+                    "value" : "Övre abdominell kirurg"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "24590004 |specialistläkare inom urologi|",
+                    "value" : "Urolog"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "83685006 |specialistläkare inom obstetrik och gynekologi, med inriktning på gynekologi|",
+                    "value" : "Gynekolog"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "8724009 |specialistläkare inom plastikkirurgi|",
+                    "value" : "Plastikirurg"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "309388007 |specialistläkare inom kärlkirurgi|",
+                    "value" : "Kärlkirurg"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "22731001 |specialistläkare inom ortopedi|",
+                    "value" : "Ortoped"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "d33f8d9a-81fc-36f6-bc42-22d4f6e8ca11",
     "rmName" : "openehr",
     "rmRelease" : "1.1.0",
     "generated" : true,
