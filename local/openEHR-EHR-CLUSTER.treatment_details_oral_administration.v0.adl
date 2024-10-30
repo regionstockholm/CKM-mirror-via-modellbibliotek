@@ -1,0 +1,104 @@
+archetype (adl_version=1.4; uid=024b705a-36a0-472e-8469-9688f8ccead3)
+	openEHR-EHR-CLUSTER.treatment_details_oral_administration.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-10-30">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["build_uid"] = <"d1a8b43d-9989-3da2-8007-222076d0b308">
+		["MD5-CAM-1.0.1"] = <"32cc1ef9104e9b18a106192e9ae112c9">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- treatment_details_oral_administration
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Medication
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Strengt
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Amount
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"treatment_details_oral_administration">
+					description = <"treatment_details_oral_administration">
+				>
+				["at0001"] = <
+					text = <"Medication">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Strengt">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Amount">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Behandlingsdetaljer oral administrering">
+					description = <"*treatment_details_oral_administration (en)">
+				>
+				["at0001"] = <
+					text = <"Läkemedel">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Styrka">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Antal">
+					description = <"">
+				>
+			>
+		>
+	>
