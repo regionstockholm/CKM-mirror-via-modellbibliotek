@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "9afd1e39fd1451e1fc58baeb09132071",
+      "MD5-CAM-1.0.1" : "62797df2b6220b08b67646fe658dfa66",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "1.6.4",
+      "sem_ver" : "1.0.0-alpha.1",
       "build_uid" : "9f312473-cce0-47d6-8f9d-a53e86469b48"
     },
     "details" : {
@@ -108,7 +108,7 @@
         },
         "/items[at0005.1]" : {
           "a.id" : "shortname_presence",
-          "L10n.en" : "Have you had a body temperature over 38 degrees celsius the last week?"
+          "L10n.en" : "Have you had a fever the last week?"
         },
         "" : {
           "L10n.en" : "Fever"
@@ -120,7 +120,7 @@
         },
         "/items[at0005.1]" : {
           "a.id" : "shortname_presence",
-          "L10n.sv" : "Har du haft en kroppstemperatur över 38 grader senaste dygnet?"
+          "L10n.sv" : "Har du haft feber den senaste veckan?"
         },
         "" : {
           "L10n.sv" : "Feber"
@@ -275,6 +275,15 @@
         "nodeId" : "at0035.1",
         "attributes" : [ ],
         "attributeTuples" : [ ]
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "CLUSTER",
+        "occurrences" : "0..1",
+        "nodeId" : "at0026.1",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-followup_question-001.v0",
+        "referenceType" : "archetypeOverlay"
       } ]
     } ],
     "attributeTuples" : [ ]
@@ -293,7 +302,7 @@
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0005.1",
-          "text" : "Have you had a body temperature over 38 degrees celsius the last week?",
+          "text" : "Have you had a fever the last week?",
           "description" : ""
         },
         "at0004.1" : {
@@ -375,7 +384,7 @@
         "at0005.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0005.1",
-          "text" : "Har du haft en kroppstemperatur över 38 grader senaste dygnet?",
+          "text" : "Har du haft feber den senaste veckan?",
           "description" : ""
         },
         "at0000.1" : {
@@ -454,7 +463,182 @@
   "generated" : true,
   "templateId" : "ChemoQ-fever(Oral_administration)",
   "otherMetaData" : { },
-  "templateOverlays" : [ ],
+  "templateOverlays" : [ {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "59b2e243-aa51-40c8-bbb8-d2aa8be46972",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "5ce282e7083623cc8a3299d81a2acb82"
+      },
+      "details" : { }
+    },
+    "annotations" : {
+      "@type" : "RESOURCE_ANNOTATIONS",
+      "documentation" : {
+        "sv" : {
+          "/items[at0002.1]" : {
+            "L10n.en" : "How many days have you had a fever the last week?"
+          }
+        },
+        "en" : {
+          "" : {
+            "L10n.sv" : "Hur många dagar har du haft feber den senaste veckan?"
+          }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.followup_question.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-followup_question-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_QUANTITY",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "property",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "128" ]
+                } ]
+              } ],
+              "attributeTuples" : [ {
+                "@type" : "C_ATTRIBUTE_TUPLE",
+                "members" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "units",
+                  "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "magnitude",
+                  "children" : [ ]
+                } ],
+                "tuples" : [ {
+                  "@type" : "C_PRIMITIVE_TUPLE",
+                  "members" : [ {
+                    "@type" : "C_STRING",
+                    "rmTypeName" : "STRING",
+                    "constraint" : [ "d" ]
+                  }, {
+                    "@type" : "C_REAL",
+                    "rmTypeName" : "REAL",
+                    "constraint" : [ {
+                      "lower" : 1.0,
+                      "upper" : 7.0,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  } ]
+                } ]
+              } ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "How many days have you had a fever the last week?",
+            "description" : "Question directed to the end user."
+          }
+        },
+        "sv" : {
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Hur många dagar har du haft feber den senaste veckan?",
+            "description" : "Fråga riktad till användaren."
+          }
+        },
+        "de" : { },
+        "nb" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "3f541b86-d52d-3ca2-ae0a-dbdfc27eabaa",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  } ],
   "originalLanguage" : {
     "terminologyId" : {
       "value" : "ISO_639-1"
