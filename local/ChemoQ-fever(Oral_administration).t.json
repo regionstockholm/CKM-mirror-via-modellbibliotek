@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "3fcb3df209b06e5f22a9f56a728cae43",
+      "MD5-CAM-1.0.1" : "1f947ed4eb3923c89f875c6d1e10ccf9",
       "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
-      "sem_ver" : "1.0.1-alpha.2",
+      "sem_ver" : "1.0.0-alpha.3",
       "build_uid" : "9f312473-cce0-47d6-8f9d-a53e86469b48"
     },
     "details" : {
@@ -565,6 +565,7 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "1..1",
           "nodeId" : "at0002.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -596,6 +597,10 @@
                   "@type" : "C_ATTRIBUTE",
                   "rmAttributeName" : "magnitude",
                   "children" : [ ]
+                }, {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "precision",
+                  "children" : [ ]
                 } ],
                 "tuples" : [ {
                   "@type" : "C_PRIMITIVE_TUPLE",
@@ -609,6 +614,17 @@
                     "constraint" : [ {
                       "lower" : 1.0,
                       "upper" : 7.0,
+                      "lowerIncluded" : true,
+                      "upperIncluded" : true,
+                      "lowerUnbounded" : false,
+                      "upperUnbounded" : false
+                    } ]
+                  }, {
+                    "@type" : "C_INTEGER",
+                    "rmTypeName" : "INTEGER",
+                    "constraint" : [ {
+                      "lower" : 0,
+                      "upper" : 0,
                       "lowerIncluded" : true,
                       "upperIncluded" : true,
                       "lowerUnbounded" : false,
@@ -634,6 +650,12 @@
             "code" : "at0002.1",
             "text" : "How many days have you had a fever the last week?",
             "description" : "Question directed to the end user."
+          },
+          "d" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*d (sv)",
+            "description" : "*day (sv)",
+            "code" : "d"
           }
         },
         "sv" : {
@@ -642,10 +664,30 @@
             "code" : "at0002.1",
             "text" : "Hur många dagar har du haft feber den senaste veckan?",
             "description" : ""
+          },
+          "d" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "dag/dagar",
+            "description" : "day",
+            "code" : "d"
           }
         },
-        "de" : { },
-        "nb" : { }
+        "de" : {
+          "d" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*d (sv)",
+            "description" : "*day (sv)",
+            "code" : "d"
+          }
+        },
+        "nb" : {
+          "d" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*d (sv)",
+            "description" : "*day (sv)",
+            "code" : "d"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
