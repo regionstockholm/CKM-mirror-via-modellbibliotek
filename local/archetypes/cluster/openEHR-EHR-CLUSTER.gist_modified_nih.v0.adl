@@ -1,0 +1,148 @@
+﻿archetype (adl_version=1.4; uid=a4eb46c9-fd60-4254-a246-d2a149df5b56)
+	openEHR-EHR-CLUSTER.gist_modified_nih.v0
+
+concept
+	[at0000]	-- GIST risk assessment (Modified NIH criteria)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Kanika Kuwelker">
+		["organisation"] = <"Helse Vest IKT">
+		["email"] = <"kanika.kuwelker@helse-vest-ikt.no">
+		["date"] = <"2024-03-19">
+	>
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere risikovurdering for tilbakefall etter kirurgi for GIST i henhold til modifiserte NIH-kriterier.">
+			use = <"Brukes for å registrere risikovurdering for tilbakefall etter kirurgi for GIST i henhold til modifiserte NIH-kriterier.
+
+Arketypen er utviklet for å brukes i en ENTRY-arketype som vil gi den kliniske eller patologiske konteksten for registreringen. For eksempel: I SLOTet \"Spesifikke detaljer\" i arketypen Problem/diagnose (EVALUATION.problem_diagnosis), i en relevant patologirelatert CLUSTER-arketype som igjen nøstes i arketypen Laboratorieresultat (OBSERVATION.laboratory_test_result). Dette gir også mulighet for å registrere kroppssted.
+
+Denne arketypen inneholder kun ett dataelement for å registrere risikovurderingen. Dataelementer for å registrere parameterne \"Diameter\", \"Mitosetall\" og \"Lokasjon\" som utgjør grunnlaget for risikovurderingen, vil bli registrert ved hjelp av andre relevante arketyper.">
+			keywords = <"gastrointestinal stromal tumor, GIST, sarkom, kreft, neoplasme, onkologi, malignitet", ...>
+			misuse = <"">
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record an assessment of risk of recurrence after surgery for GIST based on the Modified NIH Criteria.">
+			use = <"Use to record an assessment of risk of recurrence after surgery for GIST based on the Modified NIH Criteria.
+
+The archetype is designed to be used in an ENTRY archetype that will provide the clinical or pathological context. For example: In the \"Specific Details\" SLOT in the EVALUATION.problem_diagnose (Problem/Diagnosis) archetype, or nested in a relevant pathology-related CLUSTER archetype which is again nested in the laboratory response archetype (OBSERVATION.laboratory_test_result). This will also allow for documentation of body site. 
+
+This archetype only contains a data element to record the risk assessment. Data elements pertaining to the parameters \"Diameter\", \"Mitotic count\", and \"Location\" that are the basis for the risk assessment will be recorded using other relevant archetypes.">
+			keywords = <"gastrointestinal stromal tumour, GIST, sarcoma, cancer, neoplasm, oncology, malignancy", ...>
+			misuse = <"">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"Joensuu H, Hohenberger P, Corless CL. Gastrointestinal stromal tumour. Lancet. 2013 Sep 14;382(9896):973-83. doi: 10.1016/S0140-6736(13)60106-3. Epub 2013 Apr 24. Review. PubMed PMID: 23623056
+
+Joensuu H. Risk stratification of patients diagnosed with gastrointestinal stromal tumor. Hum Pathol. 2008 Oct;39(10):1411-9. doi: 10.1016/j.humpath.2008.06.025. PubMed PMID: 18774375.
+
+Jones RL. Practical aspects of risk assessment in gastrointestinal stromal tumors. J Gastrointest Cancer. 2014 Sep;45(3):262-7. doi: 10.1007/s12029-014-9615-x. Review. PubMed PMID: 24802226; PubMed Central PMCID: PMC4126997.
+
+Norwegian translation: Helsedirektoratet. Nasjonalt handlingsprogram med retningslinjer for diagnostikk, behandling og oppfølging av sarkom. [revised 2022 February]. [Internet]. 2022 February. Available from: https://www.helsedirektoratet.no/retningslinjer/sarkomer-handlingsprogram">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"04E634A263C526055CF65FDD142F9DE5">
+		["build_uid"] = <"0a001e6d-6e08-493b-95df-9ffe5c5e3962">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- GIST risk assessment (Modified NIH criteria)
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Risk category
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0021,    -- Very low risk
+							at0022,    -- Low risk
+							at0023,    -- Intermediate risk
+							at0024]    -- High risk
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"GIST risk assessment (Modified NIH criteria)">
+					description = <"An assessment of the recurrence risk after surgery based on the Modified NIH Criteria for GIST (gastrointestinal stromal tumour).">
+					comment = <"NIH - National Institutes of Health.">
+				>
+				["at0004"] = <
+					text = <"Risk category">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Very low risk">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Low risk">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Intermediate risk">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"High risk">
+					description = <"">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"GIST riskovurdering (Modified NIH criteria)">
+					description = <"En vurdering av risikoen for tilbakefall etter kirurgi i henhold til modifiserte NIH-kriterier for GIST (gastrointestinal stromal tumor).">
+					comment = <"NIH - National Institutes of Health.">
+				>
+				["at0004"] = <
+					text = <"Risikokategori">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Meget lav">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Lav">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Intermediær">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Høy risiko">
+					description = <"">
+				>
+			>
+		>
+	>
