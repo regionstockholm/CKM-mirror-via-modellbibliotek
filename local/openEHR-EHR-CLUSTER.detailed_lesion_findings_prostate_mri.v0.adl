@@ -23,7 +23,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"cafe64e8f67c35a84643646faf35c14c">
+		["MD5-CAM-1.0.1"] = <"6cb2696bce22bb27f59b4d5d06793202">
 		["build_uid"] = <"d218f383-5bae-3920-9408-51dae8a0ac59">
 	>
 
@@ -48,11 +48,6 @@ definition
 			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Volume
 				value matches {
 					DV_QUANTITY matches {*}
-				}
-			}
-			ELEMENT[at0005] occurrences matches {0..1} matches {    -- PI-RADS
-				value matches {
-					DV_CODED_TEXT matches {*}
 				}
 			}
 			ELEMENT[at0006] occurrences matches {0..1} matches {    -- EPE
@@ -105,6 +100,10 @@ definition
 					DV_CODED_TEXT matches {*}
 				}
 			}
+			allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
+				include
+					archetype_id/value matches {/.*/}
+			}
 		}
 	}
 
@@ -130,10 +129,6 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Volume">
-					description = <"">
-				>
-				["at0005"] = <
-					text = <"PI-RADS">
 					description = <"">
 				>
 				["at0006"] = <
@@ -174,6 +169,10 @@ ontology
 				>
 				["at0015"] = <
 					text = <"DWI">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"CLUSTER_SLOT">
 					description = <"">
 				>
 			>
