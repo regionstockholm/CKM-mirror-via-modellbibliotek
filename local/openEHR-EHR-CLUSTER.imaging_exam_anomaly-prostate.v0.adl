@@ -111,7 +111,7 @@ Not to be used to record details related to the overall findings, context or tec
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"36c17a439cb1cae204bc91ca6f90c77c">
+		["MD5-CAM-1.0.1"] = <"9eda8a285c40f706d4297a17fed460bf">
 		["build_uid"] = <"429dcb82-2d40-4344-a99f-0f2477bd07c7">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
@@ -138,7 +138,7 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Additional details
+			allow_archetype CLUSTER[at0005.1] occurrences matches {0..*} matches {    -- Additional details
 				include
 					archetype_id/value matches {/openEHR-EHR-CLUSTER\.imaging_exam-lymph_node(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.imaging_exam-lymph_node_group(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.imaging_exam-anomaly(-[a-zA-Z0-9_]+)*\.v0/}
 			}
@@ -280,11 +280,6 @@ definition
 							>
 						>
 					>
-				}
-			}
-			ELEMENT[at0.15] occurrences matches {0..1} matches {    -- PI-RADS
-				value matches {
-					DV_CODED_TEXT matches {*}
 				}
 			}
 			ELEMENT[at0.17] occurrences matches {0..1} matches {    -- EPE
@@ -432,10 +427,6 @@ ontology
 					text = <"Volume">
 					description = <"The volume of the lesion.">
 				>
-				["at0.15"] = <
-					text = <"PI-RADS">
-					description = <"The PI-RADS value of the lesion.">
-				>
 				["at0.17"] = <
 					text = <"EPE">
 					description = <"Risk of extra-prostatic extension.">
@@ -455,6 +446,22 @@ ontology
 				["at0.21"] = <
 					text = <"Bladderneck">
 					description = <"Risk of bladderneck involvement.">
+				>
+				["at0.22"] = <
+					text = <"Main sector">
+					description = <"The sector where the largest lesion is located (e.g., from drawing).">
+				>
+				["at0.23"] = <
+					text = <"Distance bladderneck">
+					description = <"">
+				>
+				["at0.24"] = <
+					text = <"Distance external sphincter">
+					description = <"">
+				>
+				["at0.25"] = <
+					text = <"Distance rectum">
+					description = <"">
 				>
 				["at0039"] = <
 					text = <"Texture">
@@ -567,21 +574,9 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"Description about the effect of the anomaly on surrounding structures.">
 					comment = <"For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.">
 				>
-				["at0.22"] = <
-					text = <"Main sector">
-					description = <"The sector where the largest lesion is located (e.g., from drawing).">
-				>
-				["at0.23"] = <
-					text = <"Distance bladderneck">
-					description = <"">
-				>
-				["at0.24"] = <
-					text = <"Distance external sphincter">
-					description = <"">
-				>
-				["at0.25"] = <
-					text = <"Distance rectum">
-					description = <"">
+				["at0005.1"] = <
+					text = <"Additional details">
+					description = <"Additional structured details about imaging findings for the identified body structure or region, or findings of related structures.">
 				>
 			>
 		>
@@ -663,10 +658,6 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					text = <"*Volume (en)">
 					description = <"*The volume of the lesion. (en)">
 				>
-				["at0.15"] = <
-					text = <"*PI-RADS (en)">
-					description = <"*The PI-RADS value of the lesion. (en)">
-				>
 				["at0.17"] = <
 					text = <"*EPE (en)">
 					description = <"*Risk of extra-prostatic extension. (en)">
@@ -686,6 +677,22 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 				["at0.21"] = <
 					text = <"*Bladderneck (en)">
 					description = <"*Risk of bladderneck involvement. (en)">
+				>
+				["at0.22"] = <
+					text = <"*Main sector (en)">
+					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
+				>
+				["at0.23"] = <
+					text = <"*Distance bladderneck (en)">
+					description = <"">
+				>
+				["at0.24"] = <
+					text = <"*Distance external sphincter (en)">
+					description = <"">
+				>
+				["at0.25"] = <
+					text = <"*Distance rectum (en)">
+					description = <"">
 				>
 				["at0000"] = <
 					text = <"Bildediagnostisk undersøkelse - anomali">
@@ -798,21 +805,9 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"Diameter">
 					description = <"Den målte lengden av anomalien fra kant til kant gjennom sentrum, vanligvis på en tilnærmet rund eller oval anomali.">
 				>
-				["at0.22"] = <
-					text = <"*Main sector (en)">
-					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
-				>
-				["at0.23"] = <
-					text = <"*Distance bladderneck (en)">
-					description = <"">
-				>
-				["at0.24"] = <
-					text = <"*Distance external sphincter (en)">
-					description = <"">
-				>
-				["at0.25"] = <
-					text = <"*Distance rectum (en)">
-					description = <"">
+				["at0005.1"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Ytterligere strukturerte detaljer om funn eller observasjoner på bilder for det definerte organet eller kroppsdelen, eller om funn eller observasjoner hos tilhørende kroppsstrukturer.">
 				>
 			>
 		>
@@ -894,10 +889,6 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"*Volume (en)">
 					description = <"*The volume of the lesion. (en)">
 				>
-				["at0.15"] = <
-					text = <"*PI-RADS (en)">
-					description = <"*The PI-RADS value of the lesion. (en)">
-				>
 				["at0.17"] = <
 					text = <"*EPE (en)">
 					description = <"*Risk of extra-prostatic extension. (en)">
@@ -917,6 +908,22 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 				["at0.21"] = <
 					text = <"*Bladderneck (en)">
 					description = <"*Risk of bladderneck involvement. (en)">
+				>
+				["at0.22"] = <
+					text = <"*Main sector (en)">
+					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
+				>
+				["at0.23"] = <
+					text = <"*Distance bladderneck (en)">
+					description = <"">
+				>
+				["at0.24"] = <
+					text = <"*Distance external sphincter (en)">
+					description = <"">
+				>
+				["at0.25"] = <
+					text = <"*Distance rectum (en)">
+					description = <"">
 				>
 				["at0039"] = <
 					text = <"Beschaffenheit">
@@ -1029,21 +1036,9 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"*Description about the effect of the anomaly on surrounding structures.(en)">
 					comment = <"*For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.(en)">
 				>
-				["at0.22"] = <
-					text = <"*Main sector (en)">
-					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
-				>
-				["at0.23"] = <
-					text = <"*Distance bladderneck (en)">
-					description = <"">
-				>
-				["at0.24"] = <
-					text = <"*Distance external sphincter (en)">
-					description = <"">
-				>
-				["at0.25"] = <
-					text = <"*Distance rectum (en)">
-					description = <"">
+				["at0005.1"] = <
+					text = <"Zusätzliche Angaben">
+					description = <"Zusätzliche strukturierte Angaben zu bildgebenden Befunden für die identifizierte Körperstruktur oder -region oder befundbezogene Strukturen.">
 				>
 			>
 		>
