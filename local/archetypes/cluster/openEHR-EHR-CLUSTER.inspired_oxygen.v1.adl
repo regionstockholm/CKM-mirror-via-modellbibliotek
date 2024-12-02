@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=48c573e7-e5bc-4fe4-af1d-0e93f8e7aa4a)
+archetype (adl_version=1.4; uid=48c573e7-e5bc-4fe4-af1d-0e93f8e7aa4a)
 	openEHR-EHR-CLUSTER.inspired_oxygen.v1
 
 concept
-	[at0000]	-- Inspired oxygen
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -38,18 +39,22 @@ language
 			accreditation = <"Medical Doctor (Internal Medicine Specialist)">
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2009-06-08">
 		["name"] = <"Ian McNicoll">
 		["organisation"] = <"Ocean Informatics">
 		["email"] = <"ian.mcnicoll@oceaninformatics.com">
-		["date"] = <"2009-06-08">
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Tomas Alme, DIPS ASA, Norway","Nadim Anani, Karolinska Institutet, Sweden","Vebjørn Arntzen, Oslo University Hospital, Norway","Koray Atalag, University of Auckland, New Zealand","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","Marcus Baw, openGPSoC / BawMedical Ltd, United Kingdom","Ivar Berge, Oslo Universitetssykehus, Norway","Kristian Berg, Vestvågøy kommune - Fagutviklingsavdelingen, Norway","SBhusan Bhattacharyya, Sudisa Consultancy Services, India","Lars Bitsch-Larsen, Haukeland University hospital, Norway","Marja Buur, Medisch Centrum Alkmaar, Netherlands","Gregory Caulton PatientOS Inc., USA","Bjørn Christensen, Helse Bergen HF, Norway","Stig Erik Hegrestad, Helse Førde, Norway","Einar Fosse, National Centre for Integrated Care and Telemedicine, Norway","Sebastian Garde, Ocean Informatics, Germany","Mikkel Gaup Grønmo, FSE, Helse Nord, Norway (Nasjonal IKT redaktør)","Heather Grain, Llewelyn Grain Informatics, Australia","Cecilie Graver, Oslo universitetssykehus HF, Norway","Anne Harbison, CPCER, Australia","Sam Heard, Ocean Informatics, Australia","Annette Hole Sjøborg, DIPS ASA, Norway","Hilde Hollås, DIPS ASA, Norway","Omer Hotomargolu,, Turkey","Evelyn Hovenga, EJSH Consulting, Australia","Lars Ivar Mehlum, Helse Bergen HF, Norway","Sundarasan Jaganathan NHS Scotland, United Kingdom","Andrew James, University of Toronto, Canada","Tom Jarl Jakobsen, Helse Bergen, Norway","Lars Morgan Karlsen, DIPS ASA, Norway","Shinji Kobayashi, Kyoto University, Japan","Heather Leslie, Ocean Health Systems, Australia (openEHR Editor)","Marit Ludvigsen, St Olavs Hospital, Norway","Siv Marie Lien, DIPS ASA, Norway","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Bjoern Naess, DIPS ASA, Norway","Andrej Orel, Marand d.o.o., Slovenia","Anne Pauline Anderssen, Helse Nord RHF, Norway","Line Silsand, Universitetssykehuset i Nord-Norge, Norway","Ingrid Skard, Edproof, Norway","Rafa Sotoca, Spanish Ministry of Health, Spain","Roy Støle, OUS, Norway","Tesfay Teame, Folkehelseinstituttet, Norway","Rowan Thomas, St. Vincent's Hospital Melbourne, Australia","John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)","Stian Torleif Varpe, Helse Bergen, Norway","Karl Trygve Kalleberg, Oslo Universitetssykehus, Norway","Marc Twagirumukiza, Agfa HealthCare, Belgium","Gro-Hilde Ulriksen, Norwegian center for ehealthresearch, Norway">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Dokumentation der Sauerstoffmenge in der Luft, die die Person zum Zeitpunkt der Beobachtung einatmet oder die Sauerstoffmenge, die als Teil einer Behandlung verabreicht werden soll.
 einer Anordnung">
+			keywords = <"Atmung","Sauerstoff","Luft","Beatmung","Respiration","Flussrate","Therapie","O2","O₂","PaO2","FiO2">
 			use = <"Diesen Archetypen innerhalb eines INSTRUCTION-Archetyps zur Angabe einer Behandlung mit Sauerstoffs, innerhalb eines ACTION-Archetyps zur Aufzeichnung der durchgeführten Sauerstofftherapie oder innerhalb eines OBSERVATION-Archetyps wie Blutgase oder Atmung als Teil des Patientenzustands, bei dem die Kenntnis des Luftsauerstoffstatus für die Interpretation der Beobachtung entscheidend ist.
 
 Der SLOT \"Details zur Sauerstoffzufuhr\" kann verwendet werden, um zusätzliche strukturierte Informationen über die Sauerstoffzufuhr zu spezifizieren, z.B. Befeuchtung oder assistierte Beatmung. Dies ist dann relevant, wenn ein OBSERVATION-Archetyp auf der obersten Ebene gibt, wo dieser Archetyp verschachtelt ist, z.B. OBSERVATION.indirect_oximetry. In anderen Anwendungsfällen in denen die Sauerstoffzufuhr selbst das Konzept ist, z.B. bei einem Archetyp über mechanische Beatmung, ist dieser Archetyp sinnvoll, um die Sauerstoffmenge zu erfassen, die die Person empfängt.
@@ -61,12 +66,12 @@ Sofern nicht anders angegeben, wird angenommen, dass der Luftdruck dem Durck auf
 Wo nicht ausdrücklich angegeben, können die Werte O₂, FiO₂ von 0,21 und die Sauerstoffdurchflussrate von Null angenommen werden.
 
 'Eingeatmeter Sauerstoff' impliziert die Sauerstoffmenge, die verordnet oder verabreicht wurde und normalerweise in den klinischen Aufzeichnungen angegeben wird, z.B. \"der Patient ist auf 30% Sauerstoff\" und ist nicht dazu gedacht die tatsächliche \"physiologische\" Sauerstoffmenge, die der Patient erhält, zu erfassen, die je nach Verabreichungsmethode und anderen äußeren Bedingungen variiert, wie z.B. ob die Person flach atmet oder häufig die Nasensonde entfernt.">
-			keywords = <"Atmung", "Sauerstoff", "Luft", "Beatmung", "Respiration", "Flussrate", "Therapie", "O2", "O₂", "PaO2", "FiO2">
 			misuse = <"Nicht zur Darstellen von anderen eingeatmeten Gasen wie Distickstoffoxid verwenden.">
 		>
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			purpose = <"Andel administrerad eller ordinerad syrgas i inandningsluft.">
+			keywords = <"andning","oxygen","syre","syrgas","luft","respiration","flöde","flödeshastighet","syrgastillförsel","syrgasbehandling","O2","O₂","FiO2">
 			use = <"Kan användas i INSTRUCTION-arketyper för att specificera ordination av syrgas, i ACTION-arketyper för att registrera syrgasbehandling. 
 Kan även användas i OBSERVATION-arketyper (exempelvis Andning) som del av patientens tillstånd (state) när kunskap om syrgaskoncentration är viktig för att kunna tolka observationen.
 
@@ -79,20 +84,13 @@ Atmosfärstrycket antas motsvara trycket vid havsnivån, om inget annat anges.
 Om inget annat anges så antas värden på 21% O₂, FiO₂ på 0,21 och syrgasflöde på noll liter per minut antas.
 
 \"Inandad syrekoncentration\" innebär mängden syre som har ordinerats eller administrerats som normalt registreras i patientjournal t.ex. \"patienten är på 30% syre\" och är inte avsedd att fånga den faktiska \"fysiologiska\" mängden syre som patienten får, vilket kan variera beroende på administrationssätt och andra yttre förhållanden, till exempel om personen andas ytligt eller är tar ofta bort näsgrimman.">
-			keywords = <"andning", "oxygen", "syre", "syrgas", "luft", "respiration", "flöde", "flödeshastighet", "syrgastillförsel", "syrgasbehandling", "O2", "O₂", "FiO2">
 			misuse = <"Använd ej för andra gaser, exempelvis lustgas.">
-		>
-		["es-ar"] = <
-			language = <[ISO_639-1::es-ar]>
-			purpose = <"Para registrar la cantidad de oxígeno administrada al sujeto en el momento de la observación. Se asumen valores de 21% de O2, FiO2 de 0,21 y velocidad de flujo de oxígeno de cero.">
-			use = <"Puede ser usado dentro de un arquetipo ACTION para especificar oxígenoterapia o dentro de arquetipos OBSERVATION tales como Gases arteriales o Respiraciones, como parte del estado del paciente, donde el conocimiento de la concentración de oxígeno ambiental es crítica para la interpretación de la observación.">
-			keywords = <"respirando", "oxígeno", "ambiental", "FiO2">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For registrering av andel oksygen tilgjengelig i den luften pasienten innånder på observasjonstidspunktet, eller mengden oksygen som skal gis dersom registreringen er del av en forordning.">
+			keywords = <"pusting","respirasjon","luft","oksygen","O2","innpust","inspirasjon","FiO2","oksygentilførsel","ånding","O₂","PaO2">
+			copyright = <"© openEHR Foundation">
 			use = <"Brukes i en INSTRUCTION-arketype for å spesifisere en oksygenforordning, i en ACTION-arketype for å dokumentere oksygenterapi utført, eller i en OBSERVATION-arketype, som for eksempel \"Oksimetri\" eller \"Åndedrett\" som en del av pasientstatus, hvor kunnskap om eventuell oksygentilførsel er kritisk for tolking av observasjonen.
 
 SLOT'et \"Detaljer om administrasjonsmåte\" kan bli brukt til å legge til ytterligere strukturert informasjon om administrasjon av oksygen, for eksempel om det er med luftfukting eller mekanisk ventilering. Dette vil være relevant om det er en OBSERVATION-arketype på toppnivå der denne arketypen er nøstet, for eksempel OBSERVATION.indirect_oximetry. I andre brukstilfeller, der oksygentilførsel i seg selv er konseptet, for eksempel i en arketype som omhandler respiratorbehandling, vil denne arketypen være nyttig for å registrere mengden oksygen individet får tilført.
@@ -105,13 +103,20 @@ Hvis det ikke er angitt nærmere og ingen ekstra oksygentilførsel er gitt, kan 
 
 Selv om konseptnavnet i denne arketypen er \"Innåndet oksygen\" betyr det ikke at individet nødvendigvis puster inn den mengden oksygen/oksygenblanding som er ordinert eller gitt. 
  For eksempel kan det være rapportert i kliniske journaler at \"pasienten får 3 liter O₂ på nesekateter\". Den faktisk innpustede oksygenblandingen vil variere med administrasjonsmåte eller andre utenomforliggende faktorer, for eksempel om individet puster overfladisk eller til stadighet fjerner nesekateter.">
-			keywords = <"pusting", "respirasjon", "luft", "oksygen", "O2", "innpust", "inspirasjon", "FiO2", "oksygentilførsel", "ånding", "O₂", "PaO2">
 			misuse = <"Skal ikke brukes for andre innpustede gasser, som for eksempel nitrogenoksid.">
+		>
+		["es-ar"] = <
+			language = <[ISO_639-1::es-ar]>
+			purpose = <"Para registrar la cantidad de oxígeno administrada al sujeto en el momento de la observación. Se asumen valores de 21% de O2, FiO2 de 0,21 y velocidad de flujo de oxígeno de cero.">
+			keywords = <"respirando","oxígeno","ambiental","FiO2">
 			copyright = <"© openEHR Foundation">
+			use = <"Puede ser usado dentro de un arquetipo ACTION para especificar oxígenoterapia o dentro de arquetipos OBSERVATION tales como Gases arteriales o Respiraciones, como parte del estado del paciente, donde el conocimiento de la concentración de oxígeno ambiental es crítica para la interpretación de la observación.">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record the amount of oxygen available in the air the subject inspires at the time of observation, or the amount of oxygen that is to be delivered, if part of an order.">
+			keywords = <"breathing","oxygen","air","respiration","flow rate","therapy","O2","O₂","PaO2","FiO2">
+			copyright = <"© openEHR Foundation">
 			use = <"Use within an INSTRUCTION archetype to specify an order of oxygen, in an ACTION archetype to record performed oxygen therapy, or within OBSERVATION archetypes such as Blood gases or Respirations, as part of patient state, where knowledge of ambient oxygen status is critical to interpretation of the observation.
 
 The SLOT 'Oxygen delivery detail' can be used to specify additional structured information on the oxygen delivery, for example humidification or assisted ventilation. This will be relevant when there is an OBSERVATION archetype at top level, where this archetype is nested, for example OBSERVATION.pulse_oximetry. In other use cases, where the oxygen delivery itself is the concept, for example an archetype about mechanical ventilation, this archetype will be useful to record the amount of oxygen the individual is receiving.
@@ -123,13 +128,9 @@ Atmospheric pressure is assumed to equivalent to sea-level pressure, unless othe
 Where not specifically recorded values of 21% O₂, FiO₂ of 0.21 and oxygen flow rate of zero may be assumed.
 
 'Inspired oxygen' implies the amount of oxygen that was ordered or actioned, and normally reported in clinical records e.g.' the patient is on 30% Oxygen' and is not intended to capture the actual 'physiological' amount of oxygen that the patient receives, which will vary depending on the delivery method and other external conditions, such as whether the individual is breathing shallowly or is frequently removing the nasal prongs.">
-			keywords = <"breathing", "oxygen", "air", "respiration", "flow rate", "therapy", "O2", "O₂", "PaO2", "FiO2">
 			misuse = <"Do not use for other inhaled gases such as nitrous oxide.">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Tomas Alme, DIPS ASA, Norway", "Nadim Anani, Karolinska Institutet, Sweden", "Vebjørn Arntzen, Oslo University Hospital, Norway", "Koray Atalag, University of Auckland, New Zealand", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Marcus Baw, openGPSoC / BawMedical Ltd, United Kingdom", "Ivar Berge, Oslo Universitetssykehus, Norway", "Kristian Berg, Vestvågøy kommune - Fagutviklingsavdelingen, Norway", "SBhusan Bhattacharyya, Sudisa Consultancy Services, India", "Lars Bitsch-Larsen, Haukeland University hospital, Norway", "Marja Buur, Medisch Centrum Alkmaar, Netherlands", "Gregory Caulton PatientOS Inc., USA", "Bjørn Christensen, Helse Bergen HF, Norway", "Stig Erik Hegrestad, Helse Førde, Norway", "Einar Fosse, National Centre for Integrated Care and Telemedicine, Norway", "Sebastian Garde, Ocean Informatics, Germany", "Mikkel Gaup Grønmo, FSE, Helse Nord, Norway (Nasjonal IKT redaktør)", "Heather Grain, Llewelyn Grain Informatics, Australia", "Cecilie Graver, Oslo universitetssykehus HF, Norway", "Anne Harbison, CPCER, Australia", "Sam Heard, Ocean Informatics, Australia", "Annette Hole Sjøborg, DIPS ASA, Norway", "Hilde Hollås, DIPS ASA, Norway", "Omer Hotomargolu,, Turkey", "Evelyn Hovenga, EJSH Consulting, Australia", "Lars Ivar Mehlum, Helse Bergen HF, Norway", "Sundarasan Jaganathan NHS Scotland, United Kingdom", "Andrew James, University of Toronto, Canada", "Tom Jarl Jakobsen, Helse Bergen, Norway", "Lars Morgan Karlsen, DIPS ASA, Norway", "Shinji Kobayashi, Kyoto University, Japan", "Heather Leslie, Ocean Health Systems, Australia (openEHR Editor)", "Marit Ludvigsen, St Olavs Hospital, Norway", "Siv Marie Lien, DIPS ASA, Norway", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Bjoern Naess, DIPS ASA, Norway", "Andrej Orel, Marand d.o.o., Slovenia", "Anne Pauline Anderssen, Helse Nord RHF, Norway", "Line Silsand, Universitetssykehuset i Nord-Norge, Norway", "Ingrid Skard, Edproof, Norway", "Rafa Sotoca, Spanish Ministry of Health, Spain", "Roy Støle, OUS, Norway", "Tesfay Teame, Folkehelseinstituttet, Norway", "Rowan Thomas, St. Vincent's Hospital Melbourne, Australia", "John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)", "Stian Torleif Varpe, Helse Bergen, Norway", "Karl Trygve Kalleberg, Oslo Universitetssykehus, Norway", "Marc Twagirumukiza, Agfa HealthCare, Belgium", "Gro-Hilde Ulriksen, Norwegian center for ehealthresearch, Norway">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -196,7 +197,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
