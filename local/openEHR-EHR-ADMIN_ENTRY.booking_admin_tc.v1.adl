@@ -1,0 +1,469 @@
+archetype (adl_version=1.4; uid=26252839-3812-4e68-95db-4dcf25ced574)
+	openEHR-EHR-ADMIN_ENTRY.booking_admin_tc.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-11-04">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"RSK">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"ea2a383e22227f47fbcdcff0602652c5">
+		["build_uid"] = <"acbdeb12-4a7e-3ce3-b295-412f32c578c3">
+		["revision"] = <"1.0.0-alpha.1">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- Booking admin
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0041] occurrences matches {0..1} matches {    -- Healthcare plan ID
+						value matches {
+							DV_IDENTIFIER matches {*}
+						}
+					}
+					CLUSTER[at0039] occurrences matches {0..*} matches {    -- Examination
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0040] occurrences matches {0..1} matches {    -- Examination date time
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {    -- Linked examination
+								value matches {
+									DV_CODED_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0034] occurrences matches {0..1} matches {    -- Patient notification
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0015] occurrences matches {0..1} matches {    -- Date patient notified
+								value matches {
+									DV_DATE matches {*}
+								}
+							}
+							ELEMENT[at0002] occurrences matches {0..1} matches {    -- Notification type
+								value matches {
+									DV_CODED_TEXT matches {*}
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0003] occurrences matches {0..1} matches {    -- Notification letter
+								value matches {
+									DV_CODED_TEXT matches {*}
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0016] occurrences matches {0..1} matches {    -- SMS notification template
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0031] occurrences matches {0..1} matches {    -- SMS last change information
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Self check in allowed?
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Self check in code
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Patient comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Study
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {    -- Patient residence county code
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {    -- Agent
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0029] occurrences matches {0..1} matches {    -- Time priority
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {    -- Long referral arrival date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Is patients first visit?
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {    -- Is a specialist referral
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {    -- Origin of referral
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {    -- Specialist referral through date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Visit type
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {    -- Is interpreter required?
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {    -- Patient requested appointment date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {    -- Counter comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {    -- Referral arrival date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {    -- Task decision date
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0042] occurrences matches {0..1} matches {    -- Is fee free?
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {    -- Patient available on short notice?
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Booking admin">
+					description = <"Booking admin">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Notification type">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Notification letter">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Linked examination">
+					description = <"A display name for the examination linked to this booking Example : \"ECG\"">
+				>
+				["at0005"] = <
+					text = <"Self check in allowed?">
+					description = <"True if the patient is allowed to self check in (e.g. at a terminal) for this booking. If the server hasn’t computed whether self check in is allowed, this attribute is null. Self check in is allowed if the time type allows self check in, there is an associated billing unit to the booking etc. This then allows a charge to be computed automatically, without user intervention.">
+				>
+				["at0006"] = <
+					text = <"Self check in code">
+					description = <"4 digit code that the patient can use when performing self check in at the terminal. This can be null for older bookings.">
+				>
+				["at0009"] = <
+					text = <"Patient comment">
+					description = <"If the booking was made/rebooked/cancelled by the patient from a patient portal, this is the comment given by patient. This is shown per booking transaction and summarized once into whole booking summary. ">
+				>
+				["at0012"] = <
+					text = <"Study">
+					description = <"Text comment added to the booking to inform whether the visit is a part of any study or research.">
+				>
+				["at0013"] = <
+					text = <"Long referral arrival date">
+					description = <"The valid until date of referral that led to this booking. Some are valid over several years and called as longReferralArrivalDate (sv: 'långremissdatum').">
+				>
+				["at0014"] = <
+					text = <"Visit type">
+					description = <"The type of visit, e.g. a return visit vs a first visit.">
+				>
+				["at0015"] = <
+					text = <"Date patient notified">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"SMS notification template">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Is patients first visit?">
+					description = <"True if this booking is a new visit according to care guarantee.">
+				>
+				["at0018"] = <
+					text = <"Is a specialist referral">
+					description = <"True if patient has a referral from a specialist for this booking. ">
+				>
+				["at0019"] = <
+					text = <"Specialist referral through date">
+					description = <"Specialist referral \"valid until date\" for this booking.">
+				>
+				["at0020"] = <
+					text = <"Is interpreter required?">
+					description = <"True if patient requires an interpreter to facilitate communication during the visit.">
+				>
+				["at0021"] = <
+					text = <"Patient available on short notice?">
+					description = <"True if the patient can come at short notice, then they can be called if a time becomes available at short notice.">
+				>
+				["at0022"] = <
+					text = <"Counter comment">
+					description = <"Comments that must be shown in counter regarding this booking.">
+				>
+				["at0023"] = <
+					text = <"Task decision date">
+					description = <"Date when it was decided the patient needed the treatment or procedure related to this booking.">
+				>
+				["at0024"] = <
+					text = <"Referral arrival date">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Patient residence county code">
+					description = <"The county code in which booked patient resides. ">
+				>
+				["at0026"] = <
+					text = <"Origin of referral">
+					description = <"Origin from which booking was made (web, application etc)">
+				>
+				["at0027"] = <
+					text = <"Agent">
+					description = <"Original booking was made by agent (sv: 'ombud') acting on patient’s request.">
+				>
+				["at0029"] = <
+					text = <"Time priority">
+					description = <"Time priority for the waiting list entry. e.g. 6M which is translated to: today+6 month when creating a new booking from the waiting list. Example : \"6M\"">
+				>
+				["at0030"] = <
+					text = <"Patient requested appointment date">
+					description = <"If the patient is or has been on a waiting list, this is the date when staff wishes to book the patient. Example : 20200506">
+				>
+				["at0031"] = <
+					text = <"SMS last change information">
+					description = <"Information about when the SMS template was changed in the booking. This can be null if SMS template hasn’t been chosen/changed.">
+				>
+				["at0034"] = <
+					text = <"Patient notification">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Examination">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Examination date time">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Healthcare plan ID">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Is fee free?">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bokning administration">
+					description = <"Bokning administration">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Aviseringstyp">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Aviseringsbrev">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Kopplad undersökning">
+					description = <"Ett visningsnamn för undersökningen kopplad till denna bokning. Exempel: \"EKG\"">
+				>
+				["at0005"] = <
+					text = <"Självincheckning tillåten?">
+					description = <"\"True\" om patienten får självinchecka (t.ex. vid en terminal) för denna bokning. Om servern inte har fastställt om självincheckning är tillåten, är detta attribut null. Självincheckning är tillåten om tidstypen tillåter självincheckning, att det finns en associerad betalningsenhet till bokningen osv. Detta möjliggör då att en avgift kan beräknas automatiskt, utan användarens inblandning.">
+				>
+				["at0006"] = <
+					text = <"Självincheckningskod">
+					description = <"Fyrsiffrig kod som patienten kan använda vid självincheckning vid terminalen. Detta kan vara null för äldre bokningar.">
+				>
+				["at0009"] = <
+					text = <"Patient kommentar">
+					description = <"Om bokningen/ombokning/avbokning gjordes av patienten från en patientportal, är detta kommentaren som patienten gav. Detta visas per bokningstransaktion och sammanfattas en gång i hela bokningsöversikten.">
+				>
+				["at0012"] = <
+					text = <"Studie">
+					description = <"Textkommentar tillagd till bokningen för att informera om besöket är en del av någon studie eller forskning.">
+				>
+				["at0013"] = <
+					text = <"Långremissdatum">
+					description = <"Giltighetsdatum för remissen som ledde till denna bokning. Vissa är giltiga över flera år och kallas långremissdatum">
+				>
+				["at0014"] = <
+					text = <"Besökstyp">
+					description = <"Typ av besök, t ex återbesök eller nybesök">
+				>
+				["at0015"] = <
+					text = <"Datum patienten informerad">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Mall SMS-avisering">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Är patientens första besök?">
+					description = <"Sant om denna bokning är ett nytt besök enligt vårdgarantin.">
+				>
+				["at0018"] = <
+					text = <"Är en specialistremiss">
+					description = <"Sant om patienten har en remiss från en specialist för denna bokning.">
+				>
+				["at0019"] = <
+					text = <"Specialistremissen till datum">
+					description = <"Specialistremissens \"giltig till-datum\" för denna bokning.">
+				>
+				["at0020"] = <
+					text = <"Behövs tolk?">
+					description = <"Sant om patienten behöver en tolk för att underlätta kommunikationen under besöket.">
+				>
+				["at0021"] = <
+					text = <"Patienten tillgänglig med kort varsel?">
+					description = <"Sant om patienten kan komma med kort varsel; då kan de kontaktas om en tid blir tillgänglig med kort varsel.">
+				>
+				["at0022"] = <
+					text = <"Receptions kommentar">
+					description = <"Kommentarer som måste visas i receptionen angående denna bokning.">
+				>
+				["at0023"] = <
+					text = <"Beslutsdatum åtgärd">
+					description = <"Datum då det beslutades att patienten behövde behandlingen eller ingreppet relaterat till denna bokning.">
+				>
+				["at0024"] = <
+					text = <"Ankomstdatum remiss">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Patientens länskod">
+					description = <"Länet där patienten är folkbokförd">
+				>
+				["at0026"] = <
+					text = <"Remissens ursprung">
+					description = <"Källa från vilken bokningen gjordes (webb, applikation etc.)">
+				>
+				["at0027"] = <
+					text = <"Ombud">
+					description = <"Ursprunglig bokning gjordes av ett ombud som agerade på patientens begäran.">
+				>
+				["at0029"] = <
+					text = <"Tidsprioritering">
+					description = <"Tidprioritering för väntelisteposten, t.ex. 6M vilket översätts till: idag + 6 månader när en ny bokning skapas från väntelistan. Exempel: \"6M\"">
+				>
+				["at0030"] = <
+					text = <"Önskat besöksdatum för patient">
+					description = <"Om patienten är eller har varit på en väntelista, är detta datumet då personalen önskar boka patienten. Exempel: 20200506">
+				>
+				["at0031"] = <
+					text = <"SMS senast ändrad information">
+					description = <"Information om när SMS-mallen ändrades i bokningen. Detta kan vara null om ingen SMS-mall har valts eller ändrats.">
+				>
+				["at0034"] = <
+					text = <"Patientavisering">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Undersökning">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Undersökning datum/tid">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Vårdplan ID">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Avgiftsfritt?">
+					description = <"">
+				>
+			>
+		>
+	>
