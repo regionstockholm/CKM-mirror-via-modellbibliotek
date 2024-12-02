@@ -1,11 +1,20 @@
-﻿archetype (adl_version=1.4; uid=dd3c4fc0-05cf-487e-b6e2-9b22d49489b0)
+archetype (adl_version=1.4; uid=dd3c4fc0-05cf-487e-b6e2-9b22d49489b0)
 	openEHR-EHR-COMPOSITION.prescription.v0
 
 concept
-	[at0000]	-- Prescription
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Manna Vosta">
+				["organisation"] = <"Karolinska University Hospital">
+				["email"] = <"manna.vosta@regionstockholm.se">
+			>
+		>
 		["ar-sy"] = <
 			language = <[ISO_639-1::ar-sy]>
 			author = <
@@ -13,60 +22,69 @@ language
 			>
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2006-03-23">
 		["name"] = <"Sam Heard">
 		["organisation"] = <"Ocean Informatics">
 		["email"] = <"sam.heard@oceaninformatics.com">
-		["date"] = <"2006-03-23">
 	>
+	lifecycle_state = <"in_development">
 	details = <
-		["ar-sy"] = <
-			language = <[ISO_639-1::ar-sy]>
-			purpose = <"بِنية لنقل الأوامر بالأدوية إلى الصيدلية.">
-			use = <"تستخدم هذه البنية فقط في توصيل الأدوية إلى الصيدلية.">
-			keywords = <"الدواء", "وصف العلاج", "الأمر">
-			misuse = <"يستخدم نموذج فعل. وصف العلاج, لتسجيل الأوامر بالأدوية و التعليمات الخاصة بها. 
-تستخدم هذه البنية فقط في توصيل الأدوية إلى الصيدلية عبر الـ openEHR.">
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Att registrera detaljer om läkemedelsordination för överföring till apotek.">
+			keywords = <"läkemedel","förskrivning","ordination","läkemedelsordination">
+			use = <"Används för att registrera detaljer om läkemedelsordination för överföring till apotek.">
+			misuse = <"Läkemedelsbeställning som instruktion möjliggör beställning och förmedling till apotek. Denna arkteyp ska användas då läkemedelsordinationen ska skickas till apotek i openEHR.">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"A composition for transferring medication orders to the pharmacy.">
+			keywords = <"medication","prescribe","order">
 			use = <"This composition is only required for transfer of medications to the pharmacy.">
-			keywords = <"medication", "prescribe", "order">
 			misuse = <"Medication orders, as instructions, have a prescribe action that records prescription and communication to the pharmacy. This composition is only required if the medication orders are required to be transmitted within openEHR to the pharmacy.">
 		>
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			purpose = <"بِنية لنقل الأوامر بالأدوية إلى الصيدلية.">
+			keywords = <"الدواء","وصف العلاج","الأمر">
+			use = <"تستخدم هذه البنية فقط في توصيل الأدوية إلى الصيدلية.">
+			misuse = <"يستخدم نموذج فعل. وصف العلاج, لتسجيل الأوامر بالأدوية و التعليمات الخاصة بها. 
+تستخدم هذه البنية فقط في توصيل الأدوية إلى الصيدلية عبر الـ openEHR.">
+		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"F6E374B7E08DE198D867B90CCC3D4755">
-		["build_uid"] = <"a686d8f6-84c3-41cf-96f2-8ece363ae217">
+		["MD5-CAM-1.0.1"] = <"9DD189C96713C00E44CA6D7E34DECACF">
+		["build_uid"] = <"640b4720-2e85-4d93-bdbc-283dc0f901bc">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	COMPOSITION[at0000] matches {	-- Prescription
+	COMPOSITION[at0000] matches {    -- Prescription
 		category matches {
 			DV_CODED_TEXT matches {
-				defining_code matches {[openehr::433]}
+				defining_code matches {
+					[openehr::433]
+				}
 			}
 		}
 		context matches {
 			EVENT_CONTEXT matches {
 				other_context matches {
-					ITEM_TREE[at0001] matches {	-- Tree
+					ITEM_TREE[at0001] matches {    -- Tree
 						items cardinality matches {0..*; unordered} matches {
-							allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {	-- Extension
+							allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {    -- Extension
 								include
 									archetype_id/value matches {/.*/}
 							}
-							ELEMENT[at0008] occurrences matches {0..*} matches {	-- Prescription identifier
+							ELEMENT[at0008] occurrences matches {0..*} matches {    -- Prescription identifier
 								value matches {
 									DV_IDENTIFIER matches {*}
 								}
@@ -77,7 +95,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -120,6 +137,27 @@ ontology
 				["at0008"] = <
 					text = <"*Prescription identifier(en)">
 					description = <"*An identifier for the prescription as a whole.(en)">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Läkemedelsförskrivning">
+					description = <"Läkemedelsförskrivning förmedlad till apotek.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Tilläggsinformation">
+					description = <"Plats för tilläggsinformation som krävs för lokala anpassningar eller anpassning till andra referensmodeller eller formella krav.">
+					comment = <"Exempelvis lokala informationskrav eller metadata för anpassning till FHIR- eller CIMI-motsvarigheter.">
+				>
+				["at0008"] = <
+					text = <"Förskrivnings identifierare">
+					description = <"Identifierare för hela läkemedelsförskrivningen.">
 				>
 			>
 		>
