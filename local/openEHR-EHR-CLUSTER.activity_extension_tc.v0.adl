@@ -1,0 +1,240 @@
+archetype (adl_version=1.4; uid=085b7a1b-5c91-4a96-aa13-429d0905a169)
+	openEHR-EHR-CLUSTER.activity_extension_tc.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-11-08">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"bc0c537eae4ef8c77ce87807ae023326">
+		["build_uid"] = <"fe65408e-3fd1-3235-af16-3a82b900fa9b">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Activity extension
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Based on activity ID
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Date/time completed set by system
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Date/time completed set by user
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Linked document ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Linked document type ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Linked document type name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Priority value
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Status
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..*} matches {    -- Planned at
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Profession ID
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Profession singular name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {    -- Profession short name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0017] occurrences matches {0..*} matches {    -- Irregular DateTime
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Activity extension">
+					description = <"Activity extension tc">
+				>
+				["at0001"] = <
+					text = <"Based on activity ID">
+					description = <"The id of the activity that this activity was based on.">
+					comment = <"For example: \"20161020162825-1-835\".">
+				>
+				["at0002"] = <
+					text = <"Date/time completed set by system">
+					description = <"The datetime for when the activity was performed.">
+				>
+				["at0005"] = <
+					text = <"Linked document ID">
+					description = <"The ID of the linked document.">
+				>
+				["at0006"] = <
+					text = <"Linked document type ID">
+					description = <"The id of the type of the linked document.">
+				>
+				["at0007"] = <
+					text = <"Linked document type name">
+					description = <"The name of the type of the linked document.">
+				>
+				["at0008"] = <
+					text = <"Priority value">
+					description = <"The priority value of the activity.">
+				>
+				["at0011"] = <
+					text = <"Status">
+					description = <"The status of the activity.">
+				>
+				["at0012"] = <
+					text = <"Planned at">
+					description = <"At what points in time the activity is planned to be performed.">
+				>
+				["at0013"] = <
+					text = <"Date/time completed set by user">
+					description = <"The datetime set by the user for when the activity was
+performed.">
+				>
+				["at0014"] = <
+					text = <"Profession ID">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Profession singular name">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Profession short name">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Irregular DateTime">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Aktivitet extension">
+					description = <"Aktivitet extension tc.">
+				>
+				["at0001"] = <
+					text = <"Baserad på aktivitets ID">
+					description = <"ID för aktiviteten som denna aktivitet baserades på.">
+					comment = <"Till exempel: \"20161020162825-1-835\".">
+				>
+				["at0002"] = <
+					text = <"Datum/tidpunkt utförd registrerat av systemet">
+					description = <"Datum och tidpunkt när aktiviteten utfördes.">
+				>
+				["at0005"] = <
+					text = <"Länkat dokument ID">
+					description = <"ID för det länkade dokumentet.">
+				>
+				["at0006"] = <
+					text = <"Länkad dokument typ ID">
+					description = <"ID för typen av det länkade dokumentet.">
+				>
+				["at0007"] = <
+					text = <"Länkad dokument typ namn">
+					description = <"Namnet på typen av det länkade dokumentet.">
+				>
+				["at0008"] = <
+					text = <"Prioritets värde">
+					description = <"Prioritetsvärdet för aktiviteten.">
+				>
+				["at0011"] = <
+					text = <"Status">
+					description = <"Status för aktiviteten.">
+				>
+				["at0012"] = <
+					text = <"Planerad tidpunkt">
+					description = <"Vid vilka tidpunkter aktiviteten är planerad att utföras.">
+				>
+				["at0013"] = <
+					text = <"Datum/tidpunkt utförd registrerat av användaren">
+					description = <"Datum och tidpunkt registrerad av användaren för när aktiviteten utfördes.">
+				>
+				["at0014"] = <
+					text = <"Yrkes ID">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Yrkes singularnamn">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Yrke kortnamn">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Oregelbundet datumTid">
+					description = <"">
+				>
+			>
+		>
+	>
