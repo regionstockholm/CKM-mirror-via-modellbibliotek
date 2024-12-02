@@ -1,0 +1,144 @@
+archetype (adl_version=1.4; uid=ec8be213-f232-437a-99a6-83393331720a)
+	openEHR-EHR-CLUSTER.attestation_tc.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-09-16">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"ad24c5cb4fdb3161d318c5e451f1ae1b">
+		["build_uid"] = <"e77baf8c-5c0d-37ef-a5b0-1b2fd87b1132">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Attestation
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0037] occurrences matches {0..*} matches {    -- Attested
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0025] occurrences matches {0..1} matches {    -- has Deviating analysis
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {    -- Attestation created dateTime
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0032] occurrences matches {0..1} matches {    -- Responsible Attester name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {    -- is Latest Version attested
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0038] occurrences matches {0..*} matches {    -- Responsible Attester
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Attestation">
+					description = <"Composition metadata tc">
+				>
+				["at0024"] = <
+					text = <"Attestation created dateTime">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"has Deviating analysis">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"is Latest Version attested">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Responsible Attester name">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Attested">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Responsible Attester">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vidimering">
+					description = <"*Composition metadata tc (en)">
+				>
+				["at0024"] = <
+					text = <"Tidsstämpel för vidimering">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"har avvikande analysresultat">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"är senaste version vidimerad">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Vidimeringsansvarig namn">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Vidimerad">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Ansvarig vidimerare">
+					description = <"">
+				>
+			>
+		>
+	>
