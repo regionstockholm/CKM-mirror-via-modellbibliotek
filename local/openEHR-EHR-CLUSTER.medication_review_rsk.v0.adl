@@ -1,0 +1,94 @@
+archetype (adl_version=1.4; uid=b330421a-a2d4-4ce5-b35f-57a88f851e67)
+	openEHR-EHR-CLUSTER.medication_review_rsk.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-09-18">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"00c81a47e5f1d4a75e49c49bf1e52a57">
+		["build_uid"] = <"eeb20df7-859f-39c4-b75d-0438f2fef47d">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Medication review
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- ReviewDate and Time
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- ReviewDecisionByUserID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication review">
+					description = <"Medication_review_RSK">
+				>
+				["at0001"] = <
+					text = <"ReviewDate and Time">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"ReviewDecisionByUserID">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Läkemedelsgenomgång">
+					description = <"Läkemedelsgenomgång_RSK ">
+				>
+				["at0001"] = <
+					text = <"Datum och tid för läkemedelsgenomgång">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Beslut läkemedelsgenomgång användarID">
+					description = <"">
+				>
+			>
+		>
+	>
