@@ -1,0 +1,94 @@
+archetype (adl_version=1.4; uid=93459ca5-0127-4638-93d6-2b24e8da3bb9)
+	openEHR-EHR-CLUSTER.frequency_schedule_tc.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-11-13">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"5cebb1f7929ff6bf57a233e3ccf34291">
+		["build_uid"] = <"67f2ff4d-b789-3f20-840d-eaade99e3d19">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Frequency schedule
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Schedule type
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Period
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Frequency schedule">
+					description = <"Frequency schedule tc">
+				>
+				["at0001"] = <
+					text = <"Schedule type">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Period">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Frekvensschema">
+					description = <"*Frequency schedule tc (en)">
+				>
+				["at0001"] = <
+					text = <"Schematyp">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Period">
+					description = <"">
+				>
+			>
+		>
+	>
