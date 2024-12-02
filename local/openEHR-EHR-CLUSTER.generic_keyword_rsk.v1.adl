@@ -1,0 +1,297 @@
+archetype (adl_version=1.4; uid=a6e67fac-4bf7-4ceb-bf04-41c4a15571a4)
+	openEHR-EHR-CLUSTER.generic_keyword_rsk.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-09-03">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"published">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"a12b647af26a1b6476169406607f3eef">
+		["build_uid"] = <"aee7cfeb-726c-3cd6-b75e-760eef1a1f42">
+		["revision"] = <"1.0.0-alpha.2">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Keyword
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Name
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..*} matches {    -- Value
+				value matches {
+					DV_CODED_TEXT matches {*}
+					DV_TEXT matches {*}
+					DV_BOOLEAN matches {*}
+					DV_DATE_TIME matches {*}
+					DV_QUANTITY matches {*}
+					DV_COUNT matches {*}
+					DV_SCALE matches {*}
+					DV_PROPORTION matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- ScaleText
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- isAccredited
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Datatype
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..*} matches {    -- Properties
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006,    -- IsMeasurement
+							at0007,    -- IsLabAnalysis
+							at0008,    -- isICEContent
+							at0009]    -- IsShownInMeasurementandLab
+						}
+					}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Original Unit
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Level
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..*} matches {    -- Child node
+				value matches {
+					DV_EHR_URI matches {*}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {    -- Entry UID
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0017] occurrences matches {0..1} matches {    -- PairAnalysis
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0018] occurrences matches {0..1} matches {    -- pairAnalysisSamplingDateTime
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {    -- PairAnalysis
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Keyword">
+					description = <"Tc Generic keyword">
+				>
+				["at0001"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Value">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Datatype">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Properties">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"IsMeasurement">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"IsLabAnalysis">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"isICEContent">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"IsShownInMeasurementandLab">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Original Unit">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Level">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Child node">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"ScaleText">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"isAccredited">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Entry UID">
+					description = <"Needed to capture Entry level uid, as Better presenation layer does not populate it">
+				>
+				["at0017"] = <
+					text = <"PairAnalysis">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"pairAnalysisSamplingDateTime">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"PairAnalysis">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Sökord">
+					description = <"*Tc Generic keyword (en)">
+				>
+				["at0001"] = <
+					text = <"Namn">
+					description = <"Namn">
+				>
+				["at0002"] = <
+					text = <"Värde">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Datatyp">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Egenskaper">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"IsMeasurement">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"IsLabAnalysis">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"IsICEContent">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"IsShownInMeasurementandLab">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Originalenhet">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Nivå">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Underordnat sökord">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Kommentar">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Skala text">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Ackrediterad">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Entry UID">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Analyspar">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Provtagningstid för relaterad analys">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Relaterad analys">
+					description = <"">
+				>
+			>
+		>
+	>
