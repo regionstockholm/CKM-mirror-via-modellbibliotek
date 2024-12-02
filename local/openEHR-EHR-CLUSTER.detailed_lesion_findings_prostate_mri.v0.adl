@@ -23,13 +23,18 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"d475080cfe146a14a4bb98c888759bf3">
+		["MD5-CAM-1.0.1"] = <"c496e1128219c8304855a4e2a0b06b3e">
 		["build_uid"] = <"d218f383-5bae-3920-9408-51dae8a0ac59">
 	>
 
 definition
 	CLUSTER[at0000] matches {    -- Detailed lesion findings prostate MRI
 		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0021] occurrences matches {0..1} matches {    -- Indexlesion
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
 			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Volume
 				value matches {
 					DV_QUANTITY matches {*}
@@ -164,6 +169,10 @@ ontology
 				>
 				["at0020"] = <
 					text = <"ADC">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Indexlesion">
 					description = <"">
 				>
 			>
