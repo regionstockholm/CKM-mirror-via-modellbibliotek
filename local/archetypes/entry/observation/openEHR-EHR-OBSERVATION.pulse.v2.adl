@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=566c355d-9e8f-473d-a80d-90fcd8d61414)
+archetype (adl_version=1.4; uid=566c355d-9e8f-473d-a80d-90fcd8d61414)
 	openEHR-EHR-OBSERVATION.pulse.v2
 
 concept
-	[at0000]	-- Pulse/Heart beat
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -92,17 +93,22 @@ language
 			accreditation = <"MD MS PhD">
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2006-03-26">
 		["name"] = <"Sam Heard">
 		["organisation"] = <"Ocean Informatics">
 		["email"] = <"sam.heard@oceaninformatics.com">
-		["date"] = <"2006-03-26">
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Morten Aas, Diakonhjemmet Sykehus, Norway","Tomas Alme, Norway","Magnus Alvestad, Helse Bergen HF, Norway","Nadim Anani, Karolinska Institutet, Sweden","Anne Pauline Anderssen, Helse Nord RHF, Norway","Vebjørn Arntzen, Oslo universitetssykehus HF, Norway (Nasjonal IKT redaktør)","Koray Atalag, University of Auckland, New Zealand","Gustavo Bacelar-Silva, Healthcare Designs, Brazil (openEHR Editor)","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (Nasjonal IKT redaktør)","Lars Bitsch-Larsen, Haukeland University Hospital, Bergen, Norway","Diego Bosca, IBIME group, Spain","Pål Brekke, OUS Rikshospitalet, Norway","Einar Bugge, UNN HF, Fag- og forskningssenteret, Norway","Rong Chen, Cambio Healthcare Systems, Sweden","Stephen Chu, Queensland Health, Australia","Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway","Angela de Zwart, Orion Health, New Zealand","Graham Denyer, Australian Antarctic Division, Australia","Paul Donaldson, Nursing Informatics Australia, Australia","Shahla Foozonkhah, Ocean Informatics, Australia","Einar Fosse, UNN HF, Norwegian Centre for Integrated Care and Telemedicine, Norway","Sebastian Garde, Ocean Informatics, Germany","John George, HSCIC, United Kingdom","Soon Ghee Yap, Singapore General Hospital, Singapore","Heather Grain, Llewelyn Grain Informatics, Australia","Mikkel Gaup Grønmo, FSE, Helse Nord, Norway (Nasjonal IKT redaktør)","Bjørn Grøva, Diretoratet for e-helse, Norway","Atle Hansen, Universitetssykehuset Nord-Norge, Norway","Sam Heard, Ocean Informatics, Australia","Kristian Heldal, Telemark Hospital Trust, Norway","Andreas Hering, Helse Bergen HF, Haukeland universitetssjukehus, Norway","Erling Are Hole, Helse Bergen, Norway","Evelyn Hovenga, EJSH Consulting, Australia","Eugene Igras, IRIS Systems, Inc., Canada","Tom Jarl Jakobsen, Helse Bergen, Norway","Lars Karlsen, DIPS ASA, Norway","Athanasios Kleontas, Ergobyte Informatics, Greece","Shinji Kobayashi, Kyoto University, Japan","Robert Legan, NEHTA, Australia","Heather Leslie, Ocean Informatics, Australia (openEHR Editor)","Hallvard Lærum, Direktoratet for e-helse, Norway","Rohan Martin, Ambulance Victoria, Australia","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Lars Ivar Mehlum, Nasjonal IKT HF, Norway","Jeroen Meintjens, Medisch Centrum Alkmaar, Netherlands","Monica Merchat, Hospital Cardiac Electrophysiology, MS Health Informatics Student, former ICU nurse, former Anesthesia Technician, United States","Bjoern Naess, DIPS ASA, Norway","Andrej Orel, Marand d.o.o., Slovenia","Arturo Romero, SESCAM, Spain","Jussara Rotzsch, UNB, Brazil","Thomas Schopf, University Hospital of North-Norway, Norway","Nils Thomas Songstad, UNN HF, BUK, Barneavdelingen., Norway","Thor-Einar Stemland, Helse Bergen, FOU Seksjon for e-helse, Norway","Arne Løberg Sæter, DIPS ASA, Norway","Jan Inge Sørheim, Helse Bergen, Haukeland uniersitetssjukehus, Norway","Micaela Thierley, Helse Bergen/Haraldsplass sykehus, Norway","Kevin Thon, SKDE, Norway","John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Dokumentation der Frequenz und der zugehörigen Attribute einer Puls- oder Herzfrequenz.">
+			keywords = <"Frequenz","Herzfrequenz","Rhythmus","Herzschlag","Puls","Pulsfrequenz","Pulsschlag","Blutdruck","Vitalparameter","Vitalzeichen">
+			copyright = <"© openEHR Foundation">
 			use = <"Zur allgemeinen Dokumentation der vorhandenen oder nicht vorhandenen Puls- oder Herzfrequenz.
 
 In der Praxis werden die Begriffe \"Herzfrequenz\" und \"Pulsfrequenz\" oft synonym verwendet, obwohl sie an verschiedenen Körperstellen gemessen werden können. Dieser Archetyp ist für beide Begriffe vorgesehen, wobei das Element \"Körperstelle\" der Unterscheidung dient.
@@ -114,7 +120,6 @@ Messungen, wie die maximale Pulsfrequenz oder die maximale Herzfrequenz, die üb
 Bei der Entwicklung dieses Archetyps gab es einige Unstimmigkeiten zu der Darstellung der Regelmäßigkeit der Puls- oder der Herzfrequenz. Dieser Archetyp stellt die relevanten Datenpunkte separat dar: zunächst wird \"Regelmäßig\" vs. \"Unregelmäßig\" festgelegt und dann, wenn die Messung \"Unregelmäßig\" ist, können weitere Optionen von \"Normal unregelmäßig\" und \"Ungleichmäßig Unregelmäßig\" angegeben werden. In der Praxis könnten klinische Systeme den Nutzern eine Kombination der Werte aus den beiden Datenelementen \"Regelmäßig\" und \"Unregelmäßig\" anbieten - zum Beispiel \"Regelmäßig\", \"Regelmäßig unregelmäßig\" und \"Ungleichmäßig unregelmäßig\", die aus diesen beiden Datenelementen stammen. Die Daten können entgegen einander aufgezeichnet werden, mit der Annahme, dass bei der Angabe einer unregelmäßigen Herzfrequenz auch der Wert \"Unregelmäßig\" im Datenelement \"Regelmäßigkeit\" automatisch ausgewählt wird.
 
 In bestimmten Situationen ist es wichtig, sehr spezifisch zu sein, damit eine an einer peripheren Körperstelle gemessene Frequenz, wie beispielsweise der Arteria radialis, von der Herzfrequenz unterschieden werden kann. Um ein Pulsdefizit aufzuzeichnen, zeichnen Sie die Messung der mechanischen Herzfrequenz und einer peripheren Pulsfrequenz separat in diesem Archetyp auf - der Unterschied zwischen diesen Messungen ist das Pulsdefizit. Das tatsächliche Pulsdefizit wird in einem separaten OBSERVATION-Archetyp aufgezeichnet.">
-			keywords = <"Frequenz", "Herzfrequenz", "Rhythmus", "Herzschlag", "Puls", "Pulsfrequenz", "Pulsschlag", "Blutdruck", "Vitalparameter", "Vitalzeichen">
 			misuse = <"Nicht zur Dokumentation einer Herzfrequenz, errechnet aus dem RR-Intervall einer EKG-Messung - der Archetyp OBSERVATION.ecg_result soll für diesen Zweck verwendet werden.
 
 Nicht zur Dokumentation von Details einer Kardiovaskulären Untersuchung oder Bewertung verwenden. Andere spezifische CLUSTER-Archetypen werden verwendet, um Merkmale wie den Herzspitzenstoß, Herzspitzengeräusche und allgemeine Herzgeräusche oder auskultatorische Befunde aufzuzeichnen.
@@ -126,23 +131,23 @@ Nicht zur Dokumentation des fetalen Blutdrucks verwenden - der Archetyp OBSERVAT
 Nicht zur Dokumentation des Pulsdefizits verwenden - für diesen Zweck soll ein spezifischer OBSERVATION-Archetyp verwendet werden.
 
 Konzepte, wie die Zielherzfrequenz, sollen im Zusammenhang mit dessen Zielen und Trainingsbewertungen in separaten EVALUATION-Archetypen erfasst werden.">
-			copyright = <"© openEHR Foundation">
 		>
 		["ru"] = <
 			language = <[ISO_639-1::ru]>
 			purpose = <"Для записи информации о частоте  и ритме  сердцечных сокращений.">
+			keywords = <"ЧСС","ритм","сердечный ритм","частотат сердечных сокращений">
+			copyright = <"© openEHR Foundation">
 			use = <"Используется для записи измеренных характеристик, связанных с темпом и ритма сердца, в том числе простая констатация наличия сердечного ритма. Эти характеристики не регистрируются путем прямого наблюдения самого сердца, а подразумевают альтернативные источники, включая прямую аускультацию сердца или электрокардиограф, отражающий электрическую активность сердца.
 Частота и ритм сердечных сокращений  (или специализация этого архетипа - Пульс), как правило, регистрируются в качестве одного из компонентов жизненно важных признаков - включая кровяное давление, дыхание, температуру и оксиметрию. Для каждого из этих понятий существуют специальные архетипы. ">
-			keywords = <"ЧСС", "ритм", "сердечный ритм", "частотат сердечных сокращений">
 			misuse = <"Не следует использовать для записи выводов о измеряемых частоте и ритме сердечных сокращений. Такого рода заявления, как, например, пациент находится в состоянии фибрилляция предсердий или тахикардии, должны быть записаны в других специальных архетипах, относящихся к категории ОЦЕНКА.
 Не следует использовать для записи механической частоты сердечных сокращений, ритма и связанные с ними характеристик - это записывается используя специализацию этого архетипа - OBSERVATION.heart_rate-pulse.
 Не используется для записи другой информации обширной системы обследования или оценки сердечно-сосудистой системы. Другие специфические архетипы используются для записи таких характеристик, как верхушечный толчок, шумы, результаты аускультаци и т.д.
 Такие понятия, как максимальная или целевая частота сердечных сокращений, должны записываться в отдельных архетипах, предназначенных специально для осуществления оценки.">
-			copyright = <"© openEHR Foundation">
 		>
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			purpose = <"Att mäta puls eller hjärtfrekvens och beskriva relaterade egenskaper.">
+			keywords = <"frekvens","rytm","slag","puls","hjärta","vitaltecken">
 			use = <"Används för att registrera närvaro eller frånvaro av puls eller hjärtslag.
 
 Används för att registrera puls eller hjärtfrekvens samt relaterade observationer avseende deras mönster och karaktär samt för att dokumentera den kliniska tolkningen av fynd.
@@ -156,7 +161,6 @@ I vissa fall är det dock viktigt att skilja pulsmätning i en perifer artär, e
 I utvecklingen av denna arketyp har det varit en viss spänning kring presentationen av pulsens eller hjärtslagets regelbundenhet. Denna arketyp presenterar de relevanta datapunkterna separat: Först fastställda \"Regelbunden\" och \"Oregelbunden\" och sedan ytterligare alternativ om \"Oregelbunden\" väljs dvs. \"regelbundet oregelbunden\" och \"oregelbundet oregelbunden\".
 
 I praktiken skulle de kliniska systemen kunna erbjuda användarna en kombination av värdena från den \"regelbundna\" och \"oregelbundna typen\"- exempelvis \"regelbunden\", \"regelbundet oregelbunden\" och \"oregelbundet oregelbunden\" som hämtas från dessa två fält. Data kan registreras mot båda fälten med antagandet att om en av de oregelbundna typerna väljs, så är det \"oregelbundna\" värdet i dataelementet \"regelbunden\" också automatiskt markerat.">
-			keywords = <"frekvens", "rytm", "slag", "puls", "hjärta", "vitaltecken">
 			misuse = <"Ska inte användas för att registrera andningsfrekvens i samband med EKG-rapporter. Till detta ska arketypen OBSERVATION.ecg användas.
 
 Ska inte användas för att registrera andra delar av en kardiovaskulär undersökning eller värdering. Till det ska speciella CLUSTER-arketyper användas, exempelvis för att registrera egenskaper såsom hjärtspetsstöt, blåsljud och *bruits* samt auskultatoriska fynd.
@@ -173,6 +177,7 @@ Ska inte användas när hjärtfrekvens är ett behandlingsmål. Till det ändam�
 		["fi"] = <
 			language = <[ISO_639-1::fi]>
 			purpose = <"*To record details about the rate and associated attributes for a pulse or heart beat.(en)">
+			keywords = <"*rate(en)","*rhythm(en)","*beat(en)","*pulse(en)","*heart(en)","*vital(en)","*sign(en)">
 			use = <"*Use to record the presence or absence of a pulse or heart beat.
 
 In practice, the terms 'heart rate' and 'pulse rate' are often used interchangeably, although they may be measured at different body sites. This archetype allows either term to be used when the measurement site is not specified, to suit clinician preferences.
@@ -184,7 +189,6 @@ Measurements such as the maximum pulse or heart rate over an interval of time ca
 In development of this archetype, there has been some tension around representation of the regularity of the pulse or heart beat. This archetype represents the relevant data points separately: firstly establishing 'Regular' vs 'Irregular' and then, if 'Irregular', further options of 'Regularly irregular' and 'Irregularly irregular'. In practice, clinical systems could offer users a combination of the values from the 'Regular?' and 'Irregular type' - for example, 'Regular', 'Regularly irregular' and 'Irregularly irregular' drawn from these two data elements. Data could be recorded against both data elements with the assumption that if one of the irregular types are selected, then the 'Irregular' value in the 'Regular?' data element is also automatically selected.
 
 In certain situations it is important to be very specific so that a rate observed at a peripheral body site, such as the radial artery, can be differentiated from the rate of the heart. To record a pulse deficit, record the measurements of the mechanical heart rate and a peripheral pulse rate in two instances of this archetype - the difference between these measurments is the pulse deficit. The actual pulse deficit will be recorded in a separate OBSERVATION archetype.(en)">
-			keywords = <"*rate(en)", "*rhythm(en)", "*beat(en)", "*pulse(en)", "*heart(en)", "*vital(en)", "*sign(en)">
 			misuse = <"*Not to be used to record the R-R rate in the context of an Electrocardiograph report - use the OBSERVATION.ecg archetypefor this purpose.
 
 Not to be used to record other details of the full cardiovascular examination or assessment. Other specific CLUSTER archetypes will be used to record characteristics such as apex beat, murmurs and bruits, or auscultatory findings.
@@ -200,6 +204,7 @@ Concepts such as Target Heart Rate should be recorded in separate EVALUATION arc
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere detaljer om frekvens og tilhørende egenskaper for puls eller hjertefrekvens.">
+			keywords = <"frekvens","rytme","slag","puls","hjerte","pulsslag","hjerteslag","hjertefrekvens">
 			use = <"Brukes til å registrere tilstedeværelse eller fravær av puls eller hjerteslag.
 
 Brukes til å registrere en måling av pulsfrekvensen eller hjertefrekvensen, med tilhørende observasjoner rundt rytmen.
@@ -213,7 +218,6 @@ I noen situasjoner er det imidlertid viktig å skille mellom en pulsfrekvens må
 Under utviklingen av denne arketypen har det vært diskusjon rundt representasjon av regelmessighet av puls og hjerteslag. Denne arketypen representerer de relevante informasjonselementer separat; Først ved å etablere regelmessig kontra uregelmessig, og hvis uregelmessig så kan det videre beskrives hvilken form for uregelmessighet, hhv. 'Regelmessig uregelmessig' og 'Uregelmessig uregelmessig'. I praksis kan kliniske systemer tilby en kombinasjon av verdiene fra 'Regelmessig' og 'Type uregelmessighet' - for eksempel, 'Regelmessig, 'Regelmessig uregelmessig' og 'Uregelmessig uregelmessig' bli utledet fra disse to dataelementene. Data kan lagres i begge dataelementene med antakelsen om at hvis en av verdiene i 'Type uregelmessighet' er registrert, vil verdien for 'Uregelmessig' i dataelementet 'Rytme' automatisk bli valgt.
 
 Ved å bruke to separate instanser kan arketypen benyttes til å registrere målingene av hjertefrekvens og pulsfrekvens som ligger til grunn for en registrering av pulsdeficit. Selve registreringen av pulsdeficitt gjøres imidlertid i en egen OBSERVATION-arketype.">
-			keywords = <"frekvens", "rytme", "slag", "puls", "hjerte", "pulsslag", "hjerteslag", "hjertefrekvens">
 			misuse = <"Brukes ikke til å registrere R-R-frekvens i sammenheng med en EKG-rapport, til dette brukes \"OBSERVATION.ecg\"-arketypen.
 
 Skal ikke brukes til å registrere andre deler av en full kardiovaskulær undersøkelse eller vurdering. Til dette brukes spesifikke CLUSTER-arketyper for å registrere andre egenskaper som hjertespisstøt, bilyder og auskultatoriske funn.
@@ -229,6 +233,7 @@ Hjertefrekvens som et mål for behandling registreres i egne EVALUATION-arketype
 		["pt-br"] = <
 			language = <[ISO_639-1::pt-br]>
 			purpose = <"Para gravar detalhes sobre a frequência e os atributos associados ao pulso ou batimento cardíaco.">
+			keywords = <"frequência","ritmo","batimento","pulso","coração","vital","sinal">
 			use = <"Use para registrar a presença ou ausência de pulso ou batimento cardíaco.
 
 Na prática, os termos \"frequência cardíaca\" e \"frequência do pulso\" são frequentemente utilizados indistintamente, embora possam ser medidos em diferentes locais do corpo. Este arquétipo permite que qualquer termo seja usado quando o local da medição não é especificado, de acordo com as preferências clínicas.
@@ -250,7 +255,6 @@ Medições como o pulso máximo ou freqüência cardíaca durante um intervalo d
 No desenvolvimento deste arquétipo, houve alguma tensão em torno da representação da regularidade do pulso ou batimento cardíaco. Este arquétipo representa os pontos de dados relevantes separadamente: primeiro estabelecendo 'Regular' vs 'Irregular' e, em seguida, 'Irregular', outras opções de 'Regularmente irregular' e 'Irregularmente irregular'. Na prática, os sistemas clínicos poderiam oferecer aos usuários uma combinação dos valores do \"Regular?\" E 'Tipo irregular' - por exemplo, 'Regular', 'Regularmente irregular' e 'Irregularmente irregular' extraídos destes dois elementos de dados. Os dados poderiam ser registrados contra os dois elementos de dados com a suposição de que, se um dos tipos irregulares for selecionado, então o valor 'Irregular' no elemento de dados 'Regular?' também é automaticamente selecionado.
 
 Em certas situações, é importante ser muito específico para que uma frequência observada num local do corpo periférico, tal como a artéria radial, possa ser diferenciada da frequência do coração. Para registrar um déficit de pulso, registre as medidas da freqüência cardíaca mecânica e uma frequência de pulso periférico em duas instâncias deste arquétipo - a diferença entre essas medições é o déficit de pulso. O déficit de pulso real será registrado em um arquétipo OBSERVATION separado.">
-			keywords = <"frequência", "ritmo", "batimento", "pulso", "coração", "vital", "sinal">
 			misuse = <"Não deve ser utilizado para registrar a taxa R-R no contexto de um relatório de eletrocardiografia - use o arquétipo OBSERVATION.ecg para este fim.
 
 Não deve ser utilizado para registrar outros detalhes do exame ou avaliação cardiovascular completa. Outros arquétipos CLUSTER específicos serão usados para registrar características como a batida do ápice, murmúrios e sopros, ou achados na ausculta.
@@ -268,6 +272,7 @@ Conceitos como a Frequência Cardíaca-alvo devem ser registrados em arquétipos
 		["el"] = <
 			language = <[ISO_639-1::el]>
 			purpose = <"*To record details about the rate and associated attributes for a pulse or heart beat.(en)">
+			keywords = <"τιμή","ρυθμός","νικώ","σφυγμός","καρδιά","ζωτικός","σύμπτωμα">
 			use = <"*Use to record the presence or absence of a pulse or heart beat.
 
 In practice, the terms 'heart rate' and 'pulse rate' are often used interchangeably, although they may be measured at different body sites. This archetype is intended to be used for either term and the measurement site element is used to differentiate them.
@@ -279,7 +284,6 @@ Measurements such as the maximum pulse or heart rate over an interval of time ca
 In development of this archetype, there has been some tension around representation of the regularity of the pulse or heart beat. This archetype represents the relevant data points separately: firstly establishing 'Regular' vs 'Irregular' and then, if 'Irregular', further options of 'Regularly irregular' and 'Irregularly irregular'. In practice, clinical systems could offer users a combination of the values from the 'Regularity' and 'Irregular type' - for example, 'Regular', 'Regularly irregular' and 'Irregularly irregular' drawn from these two data elements. Data could be recorded against both data elements with the assumption that if one of the irregular types are selected, then the 'Irregular' value in the 'Regularity' data element is also automatically selected.
 
 In certain situations it is important to be very specific so that a rate observed at a peripheral body site, such as the radial artery, can be differentiated from the rate of the heart. To record a pulse deficit, record the measurements of the mechanical heart rate and a peripheral pulse rate in two instances of this archetype - the difference between these measurments is the pulse deficit. The actual pulse deficit will be recorded in a separate OBSERVATION archetype.(en)">
-			keywords = <"τιμή", "ρυθμός", "νικώ", "σφυγμός", "καρδιά", "ζωτικός", "σύμπτωμα">
 			misuse = <"*Not to be used to record the R-R rate in the context of an Electrocardiograph report - use the OBSERVATION.ecg archetype for this purpose.
 
 Not to be used to record other details of the full cardiovascular examination or assessment. Other specific CLUSTER archetypes will be used to record characteristics such as apex beat, murmurs and bruits, or auscultatory findings.
@@ -295,6 +299,8 @@ Concepts such as Target Heart Rate should be recorded in separate EVALUATION arc
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record details about the rate and associated attributes for a pulse or heart beat.">
+			keywords = <"rate","rhythm","beat","pulse","heart","vital","sign">
+			copyright = <"© openEHR Foundation">
 			use = <"Use to record the presence or absence of a pulse or heart beat.
 
 In practice, the terms 'heart rate' and 'pulse rate' are often used interchangeably, although they may be measured at different body sites. This archetype is intended to be used for either term and the measurement site element is used to differentiate them.
@@ -306,7 +312,6 @@ Measurements such as the maximum pulse or heart rate over an interval of time ca
 In development of this archetype, there has been some tension around representation of the regularity of the pulse or heart beat. This archetype represents the relevant data points separately: firstly establishing 'Regular' vs 'Irregular' and then, if 'Irregular', further options of 'Regularly irregular' and 'Irregularly irregular'. In practice, clinical systems could offer users a combination of the values from the 'Regularity' and 'Irregular type' - for example, 'Regular', 'Regularly irregular' and 'Irregularly irregular' drawn from these two data elements. Data could be recorded against both data elements with the assumption that if one of the irregular types are selected, then the 'Irregular' value in the 'Regularity' data element is also automatically selected.
 
 In certain situations it is important to be very specific so that a rate observed at a peripheral body site, such as the radial artery, can be differentiated from the rate of the heart. To record a pulse deficit, record the measurements of the mechanical heart rate and a peripheral pulse rate in two instances of this archetype - the difference between these measurments is the pulse deficit. The actual pulse deficit will be recorded in a separate OBSERVATION archetype.">
-			keywords = <"rate", "rhythm", "beat", "pulse", "heart", "vital", "sign">
 			misuse = <"Not to be used to record the R-R rate in the context of an Electrocardiograph report - use the OBSERVATION.ecg archetype for this purpose.
 
 Not to be used to record other details of the full cardiovascular examination or assessment. Other specific CLUSTER archetypes will be used to record characteristics such as apex beat, murmurs and bruits, or auscultatory findings.
@@ -318,23 +323,23 @@ Not to be used to record fetal heart rate - use the OBSERVATION.fetal_heart arch
 Not to be used to record the pulse deficit - use a specific OBSERVATION archetype for this purpose.
 
 Concepts such as Target Heart Rate should be recorded in separate EVALUATION archetypes related to goals and exercise assessment.">
-			copyright = <"© openEHR Foundation">
 		>
 		["ar-sy"] = <
 			language = <[ISO_639-1::ar-sy]>
 			purpose = <"لتسجيل تفاصيل حول معدل و نظم القلب.">
+			keywords = <"المعدل","معدل القلب","النظم">
+			copyright = <"© openEHR Foundation">
 			use = <"يستخدم لتسجيل الخصائص التي تم قياسها فيما يتعلق بمعدل و نظم القلب, بما في ذلك بيان بسيط حول وجود نبض و معدل ضربات القلب. و لا يتم استخدام هذه القراءات بالملاحظة المباشرة للقلب ذاته, و إنما يتنم استنباطها من مصادر بديلة تتضمن التسمع المباشر للقلب أو تخطيط كهربية القلب بما يعكس النشاط الكهربي للقلب.
 معدل و نظم القلب ( أو تخصيصهما إلى النبض) عادة ما يتم تسجيلهم على أنهم يمثلون واحدا من العلامات الحياتية – و التي تتكون من ضغط الدم, التنفس, درجة الحرارة, و قياس التأكسج. و يوجد نماذج إضافية مخصصة لكل نوع من هذه المفاهيم.">
-			keywords = <"المعدل", "معدل القلب", "النظم">
 			misuse = <"لا يستخدم لتسجيل استنتاجات حول معدل و نظم القلب الذي تم قياسهما. و ينبغي تسجيل بيانات مثل (المريض يعاني من الرجفان الأذيني) أو (يعاني من تسرع ضربات القلب) في نماذج أخرى مخصصة و متعلقة بتقييم حالة المريض.
 لا تستخدم لتسجيل معدل القلب الميكانيكي, أو النظم أو الخصائص الأخرى – و يتم تسجيل ذلك باستخدام تخصيص لهذا النموذج يسمى ملاحظة. معدل القلب – النبض.
 لا يستخدم لتسجيل تفاصيل فحص أو تقييم أكثر شمولا للجهاز القلبي الوريدي. و يمكن أن تستخدم نماذج معينة أخرى لتسجيل خصائص مثل نبض قمة القلب, النفخات, و الموجودات عند التسمع, إلى آخره.
 المفاهيم الأخرى مثل أقصى معدل للقلب, أو معدل القلب المستهدف ينبغي أن يتم تسجيلها في نماذج أخرى متعلقة بتقييم المجهود.">
-			copyright = <"© openEHR Foundation">
 		>
 		["es"] = <
 			language = <[ISO_639-1::es]>
 			purpose = <"Para registrar la frecuencia del pulso o latidos del corazón, y la descripción asociada a sus características como componente de los signos vitales">
+			keywords = <"frecuencia, ritmo, latido, pulso, corazón, signo, signos vitales", ...>
 			use = <"Utilizar para registrar la presencia o ausencia de pulso o latidos del corazón.
 
 Utilizar para registrar la frecuencia del pulso o latidos del corazón, y observaciones sobre el ritmo.
@@ -347,7 +352,6 @@ Otros eventos puntuales o intervaloes pueden ser especificados dentro de una pla
 En la práctica los términos pulso y latidos del corazón son intercambiables. Este arquetipo permite especificar el término que se desea utilizar para nombrar a la medida cuando no se especifica la localización corporal donde se realiza la medida.
 
 En algunas situaciones, es importante diferenciar la frecuencia del pulso en una arteria periférica, como la arteria radial, en contraste con los latidos del corazón medidos centralmente. Este arquetipo permite registrar datos específicos y diferenciar entre frecuencia cardiaca central, y pulso medido sobre una arteria específica.">
-			keywords = <"frecuencia, ritmo, latido, pulso, corazón, signo, signos vitales", ...>
 			misuse = <"No debe ser utilizado para el cálculo de intervalos RR para l frecuencia cardiaca en el contexto de un estudio electrocardiográfico, para eso utilizar el arquetipo OBSERVATION.ecg.
          
 No debe ser utilizado para registrar otros detalles de la examiniación o evaluación cardiovascular.
@@ -362,6 +366,7 @@ Conceptos como la frecuencia cardiaca objetivo deben ser registrados en arquetip
 		["nl"] = <
 			language = <[ISO_639-1::nl]>
 			purpose = <"Voor het vastleggen van de frequentie en andere eigenschappen van de pols of de hartslag.">
+			keywords = <"frequentie","ritme","slag","pols","hart","vitaal","teken">
 			use = <"Gebruik voor het vastleggen van de aanwezigheid of afwezigheid van een pols of hartslag.
 
 In de praktijk worden de termen hart frequentie and polsfrequentie vaak door elkaar gebruikt, hoewel ze op andere locaties op het lichaam gemeten kunnen worden. Dit archetype is bedoeld om gebruikt te worden voor beide termen en het element meetlocatie wordt gebruikt om ze te onderscheiden.
@@ -373,7 +378,6 @@ Metingen zoals de maximale pols- of hartfrequentie gedurende een interval kunnen
 Tijdens de ontwikkeling van dit archetype is er spanning geweest rond het vastleggen van de regulariteit van de pols- of hartfreqeuntie. Dit archetype legt de relevante data apart vast: ten eerste door het vastleggen van 'regulair' of 'irregulair' en vervolgens, indien 'irregulair', de extra opties 'regelmatig irregulair' en 'onregelmatig irregulair'. In d praktijk kunnen klinische systemen een combinatie tonen aan de gebruiker van de waardes van de 'regulariteit' en 'irregulair type' - bijvoorbeeld, 'regulair', 'regemlatig irregulair' en 'onregelmatig irregulair' gekozen uit deze twee data elementen. Data kan vastgelegd worden in beide elementen onder de aanname dat wanneer een van de irregulaire types gekozen wordt, dat automatisch de waarde 'irregulair' wordt gekozen in het data element 'regulariteit'.
 
 In bepaalde situaties is het belangrijk om heel specifiek te zijn zodat de frequentie, geobserveerd aan een perifeer lichaamslocatie, zoals de arteria radialis, onderscheiden kan worden van de hartfrequentie. Om een polsdeficit vast te leggen, dient de meting van de mechanische hartfrequentie en een perifere hartfrequentie in twee aparte versies van dit archetype vastgelegd te worden - het verschil tussen deze metingen is het polsdeficit. Het daadwerkelijke polsdeficit wordt in een apart OBSERVATION archetype vastgelegd.">
-			keywords = <"frequentie", "ritme", "slag", "pols", "hart", "vitaal", "teken">
 			misuse = <"Niet te gebruiken voor het vastleggen van de R-R frequentie in de context van een electrocardiogram verslag - gebruik voor dat doel het OBSERVATION.ecg archetype.
 
 Niet te gebruiken voor het vastleggen van andere details van een volledig cardiovasculair onderzoek of beoordeling. Andere specifieke CLUSTER archetypes worden gebruikt voor het vastleggen van eigenschappen als apexhartslag, geruizen en bevindingen bij auscultatie. 
@@ -389,6 +393,7 @@ Concepten zoals streef hart frequentie dienen vastgelegd te worden in een apart 
 		["es-co"] = <
 			language = <[ISO_639-1::es-co]>
 			purpose = <"Registrar la medida de la frecuencia de pulso, la frecuencia cardiaca, y la descripción de las características asociadas como uno de los componentes de las observación de signos vitales">
+			copyright = <"© openEHR Foundation">
 			use = <"*Use to record the presence or absence of a pulse rate or heart rate. 
 
 Use to record the measurement of the pulse rate, or heart rate, and observation about the associated rhythm.
@@ -409,11 +414,8 @@ In particular, this archetype is not intended to record the assessment of periph
 Not to be used to record fetal heart rate - this is recorded using the OBSERVATION.fetal_heart archetype.
 
 Concepts such as Target Heart Rate should be recorded in separate EVALUATION archetypes related to goals and exercise assessment.(en)">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Morten Aas, Diakonhjemmet Sykehus, Norway", "Tomas Alme, Norway", "Magnus Alvestad, Helse Bergen HF, Norway", "Nadim Anani, Karolinska Institutet, Sweden", "Anne Pauline Anderssen, Helse Nord RHF, Norway", "Vebjørn Arntzen, Oslo universitetssykehus HF, Norway (Nasjonal IKT redaktør)", "Koray Atalag, University of Auckland, New Zealand", "Gustavo Bacelar-Silva, Healthcare Designs, Brazil (openEHR Editor)", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (Nasjonal IKT redaktør)", "Lars Bitsch-Larsen, Haukeland University Hospital, Bergen, Norway", "Diego Bosca, IBIME group, Spain", "Pål Brekke, OUS Rikshospitalet, Norway", "Einar Bugge, UNN HF, Fag- og forskningssenteret, Norway", "Rong Chen, Cambio Healthcare Systems, Sweden", "Stephen Chu, Queensland Health, Australia", "Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway", "Angela de Zwart, Orion Health, New Zealand", "Graham Denyer, Australian Antarctic Division, Australia", "Paul Donaldson, Nursing Informatics Australia, Australia", "Shahla Foozonkhah, Ocean Informatics, Australia", "Einar Fosse, UNN HF, Norwegian Centre for Integrated Care and Telemedicine, Norway", "Sebastian Garde, Ocean Informatics, Germany", "John George, HSCIC, United Kingdom", "Soon Ghee Yap, Singapore General Hospital, Singapore", "Heather Grain, Llewelyn Grain Informatics, Australia", "Mikkel Gaup Grønmo, FSE, Helse Nord, Norway (Nasjonal IKT redaktør)", "Bjørn Grøva, Diretoratet for e-helse, Norway", "Atle Hansen, Universitetssykehuset Nord-Norge, Norway", "Sam Heard, Ocean Informatics, Australia", "Kristian Heldal, Telemark Hospital Trust, Norway", "Andreas Hering, Helse Bergen HF, Haukeland universitetssjukehus, Norway", "Erling Are Hole, Helse Bergen, Norway", "Evelyn Hovenga, EJSH Consulting, Australia", "Eugene Igras, IRIS Systems, Inc., Canada", "Tom Jarl Jakobsen, Helse Bergen, Norway", "Lars Karlsen, DIPS ASA, Norway", "Athanasios Kleontas, Ergobyte Informatics, Greece", "Shinji Kobayashi, Kyoto University, Japan", "Robert Legan, NEHTA, Australia", "Heather Leslie, Ocean Informatics, Australia (openEHR Editor)", "Hallvard Lærum, Direktoratet for e-helse, Norway", "Rohan Martin, Ambulance Victoria, Australia", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Lars Ivar Mehlum, Nasjonal IKT HF, Norway", "Jeroen Meintjens, Medisch Centrum Alkmaar, Netherlands", "Monica Merchat, Hospital Cardiac Electrophysiology, MS Health Informatics Student, former ICU nurse, former Anesthesia Technician, United States", "Bjoern Naess, DIPS ASA, Norway", "Andrej Orel, Marand d.o.o., Slovenia", "Arturo Romero, SESCAM, Spain", "Jussara Rotzsch, UNB, Brazil", "Thomas Schopf, University Hospital of North-Norway, Norway", "Nils Thomas Songstad, UNN HF, BUK, Barneavdelingen., Norway", "Thor-Einar Stemland, Helse Bergen, FOU Seksjon for e-helse, Norway", "Arne Løberg Sæter, DIPS ASA, Norway", "Jan Inge Sørheim, Helse Bergen, Haukeland uniersitetssjukehus, Norway", "Micaela Thierley, Helse Bergen/Haraldsplass sykehus, Norway", "Kevin Thon, SKDE, Norway", "John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -614,8 +616,6 @@ definition
 			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
