@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=0942a3f6-3f2d-431c-871c-84bc722f4626)
+archetype (adl_version=1.4; uid=0942a3f6-3f2d-431c-871c-84bc722f4626)
 	openEHR-EHR-COMPOSITION.request.v1
 
 concept
-	[at0000]	-- Request for service
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -45,17 +46,21 @@ language
 			accreditation = <"Code24 BV">
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2008-01-08">
 		["name"] = <"Dr Ian McNicoll">
 		["organisation"] = <"freshEHR Informatics, UK">
 		["email"] = <"ian@freshehr.com">
-		["date"] = <"2008-01-08">
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Nadim Anani, Karolinska Institutet, Sweden","Vebjørn Arntzen, Oslo University Hospital, Norway","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","Lars Bitsch-Larsen, Haukeland University hospital, Norway","Terje Bless, Helse Nord FIKS, Norway","Shahla Foozonkhah, Iran ministry of health and education, Iran","Heather Grain, Llewelyn Grain Informatics, Australia","Bjørn Grøva, Diretoratet for e-helse, Norway","Kristian Heldal, Telemark Hospital Trust, Norway","Lars Karlsen, DIPS ASA, Norway","Lars Morgan Karlsen, DIPS ASA, Norway","Shinji Kobayashi, Kyoto University, Japan","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Hallvard Lærum, Oslo Universitetssykehus HF, Norway","Rose Mari Eikås, Helse Bergen, Norway","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Bjørn Næss, DIPS ASA, Norway","Andrej Orel, Marand d.o.o., Slovenia","Anne Pauline Anderssen, Helse Nord RHF, Norway","Jussara Rotzsch, Hospital Alemão Oswaldo Cruz, Brazil","Norwegian Review Summary, Nasjonal IKT HF, Norway","Line Sæle, Nasjonal IKT HF, Norway","John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)","Jon Tysdahl, Furst medlab AS, Norway">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Um eine Beratung, eine bestimmte Dienstleistung oder die Übertragung der Versorgung von einem Gesundheitsdienstleister oder einer Organisation über den Patienten anzufordern.">
+			keywords = <"Überweisung","Anfrage","Anforderung","Auftrag","Leistung">
 			use = <"Verwendung als Grundlage für eine Anfrage für eine Beratung, eine Dienstleistung oder Übertragung der Versorgung von einem Gesundheitsdienstleister oder einer Organisation über den Patienten. Dieses Dokument enthält in der Regel Details zum Anwendungsbereich und zur Dauer der Gültigkeit der Anfrage sowie relevante klinische Informationen zum Patienten. Die Anfragen können von einer einfachen Beratungsanfrage, Einholen von Empfehlungen für weitere Maßnahmen, der Beantragung einer bestimmten Prozedur oder eines diagnostischen Tests bis hin zur vollständigen Übertragung der Versorgungs und der klinischen Verantwortung an den empfangenden Gesundheitsdienstleister variieren.
 
 Beispiele umfassen, ohne darauf beschränkt zu sein, eine Anforderung für:
@@ -68,7 +73,6 @@ Beispiele umfassen, ohne darauf beschränkt zu sein, eine Anforderung für:
 - Bereitstellung von Psychotherapie oder Ergotherapie.
 
 Anforderungen können gezielt (Identifizierung eines bestimmten Gesundheitsdienstleisters oder einer bestimmten Organisation zur Ausführung des Antrags) oder nicht zielgerichtet (Identifizierung nur der Art der gewünschten Leistung) erfolgen.">
-			keywords = <"Überweisung", "Anfrage", "Anforderung", "Auftrag", "Leistung">
 			misuse = <"Darf nicht zur Darstellung des Dokuments verwendet werden, das im Rahmen einer einzelnen klinischen Begegnung oder einer einzelnen Visite aufgezeichnet wurde. Verwenden Sie dazu COMPOSITION.encounter.
 
 Darf nicht verwendet werden, um eine Zusammenfassung der Leistungsübertragung an eine andere Organisation oder einen anderen Anbieter bereitzustellen - Verwenden Sie COMPOSITION.transfer_summary für diesen Zweck.">
@@ -76,6 +80,7 @@ Darf nicht verwendet werden, um eine Zusammenfassung der Leistungsübertragung a
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			purpose = <"Att begära rådgivning, en specifik tjänst, eller vårdöverföring mellan vårdgivare eller organisation avseende en patient.">
+			keywords = <"remiss","remittering","begäran","tjänst">
 			use = <"Används som grund för begäran om råd, tjänst eller vårdöverföring avseende en patient, mellan vårdgivare eller organisationer. Dokumentet innehåller vanligtvis detaljer om begärans omfång och giltighetstid tillsammans med relevant klinisk information. En tjänstebegäran kan vara allt från en enkel förfrågan om konsultation, en fråga om rekommenderad vidare vård, en begäran om en specifik procedur eller diagnostisk åtgärd, till en fullständig vårdöverföring mellan vårdgivare.
 Användningsområden inkluderar, men är inte begränsade till, att begära:
 
@@ -89,7 +94,6 @@ Användningsområden inkluderar, men är inte begränsade till, att begära:
 
 Begäran kan antingen vara riktad till en specifik vårdgivare eller organisation, eller peka ut vilken typ av vård som önskas.
 ">
-			keywords = <"remiss", "remittering", "begäran", "tjänst">
 			misuse = <"Ska inte användas för att dokumentera detaljer om ett vårdtillfälle eller ett besök. Använd istället arketypen Vårdtillfälle (COMPOSITION.encounter).
 
 Ska inte användas som epikris vid överflyttning av patient till annan organisation eller vårdgivare. Använd istället arketypen COMPOSITION.transfer_summary.">
@@ -97,6 +101,7 @@ Ska inte användas som epikris vid överflyttning av patient till annan organisa
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å spørre om råd, en helsetjeneste, eller ansvarsoverføring for en helsetjenestemottaker.">
+			keywords = <"forespørselsdokument","forespørsel","tilsynsforespørsel","internhenvisning","eksternhenvisning","bestilling","helsetjenester","medisinske tjenester","henvisning","rekvisisjon","forordning">
 			use = <"Brukes som basis for å spørre om råd, en tjeneste eller ansvarsoverføring for en helsetjenestemottaker. Dokumentet vil vanligvis inneholde detaljer om omfang og varighet av forespørselen, sammen med relevant klinisk informasjon. Et forespørselsdokument kan være alt fra en enkel forespørsel om en konsultasjon, forespørsel om anbefalinger om videre behandling, forespørsel om en spesifikk prosedyre eller diagnostisk undersøkelse, til en fullstendig overføring av ansvar mellom helsetjenesteyter. 
 
 Bruksområder kan omfatte, men er ikke begrenset til:
@@ -109,22 +114,15 @@ Bruksområder kan omfatte, men er ikke begrenset til:
 - for henvisning til fysio- eller ergoterapi.
 
 Forespørselsdokumentet kan ha en spesifikk mottaker (spesifikk helsetjenesteyter eller organisasjon) eller en mer uspesifikk mottaker (ønsket tjenestetype).">
-			keywords = <"forespørselsdokument", "forespørsel", "tilsynsforespørsel", "internhenvisning", "eksternhenvisning", "bestilling", "helsetjenester", "medisinske tjenester", "henvisning", "rekvisisjon", "forordning">
 			misuse = <"Brukes ikke for å registrere detaljer om en enkel interaksjon, kontakt eller omsorgshendelse mellom et individ og helsepersonell. Bruk arketypen Klinisk kontakt (COMPOSITION.encounter) for dette formålet
 
 Brukes ikke som overflyttingsnotat/epikrise til andre organisasjoner eller tjenesteytere. Bruk Overføringsdokument (COMPOSITION.transfer_summary) for dette formålet.">
 		>
-		["ar-sy"] = <
-			language = <[ISO_639-1::ar-sy]>
-			purpose = <"لتوصيل طلب إحالة أو طلب تقديم خدمة إلى من يقوم بتقديمها.">
-			use = <"">
-			keywords = <"إحالة", "طلب">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
-		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To request advice, a specified service or transfer of care from a healthcare provider or organisation about the subject of care.">
+			keywords = <"referral","request","service">
+			copyright = <"© openEHR Foundation">
 			use = <"Use as basis for a request for advice, a service or transfer of care from a healthcare provider or organisation about the subject of care. This document will typically include details about the scope and duration of validity of the request, as well as relevant clinical information about the subject. Requests can vary from a simple request for a consultation, seeking recommendation about further action, requesting a specific procedure or diagnostic test, through to full handover of care and clinical responsibility to the receiving healthcare provider.
 
 Use cases include, but are not limited to a request for:
@@ -137,15 +135,20 @@ Use cases include, but are not limited to a request for:
 - for provision of physiotherapy or occupational therapy.
 
 Requests may be targeted (identifying a specific healthcare provider or organisation to carry out the request) or untargeted (identifying only the type of care desired).">
-			keywords = <"referral", "request", "service">
 			misuse = <"Not to be used to represent the document recorded as part of a single clinical encounter or visit. Use COMPOSITION.encounter for this purpose.
 
 Not to be used to provide a transfer of care summary to another organisation or provider - use COMPOSITION.transfer_summary for this purpose.">
+		>
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			purpose = <"لتوصيل طلب إحالة أو طلب تقديم خدمة إلى من يقوم بتقديمها.">
+			keywords = <"إحالة","طلب">
 			copyright = <"© openEHR Foundation">
 		>
 		["nl"] = <
 			language = <[ISO_639-1::nl]>
 			purpose = <"Voor het vragen van advies, een specifieke dienst of overdracht van zorg aan een zorgverlener of organisatie over de onderhavige persoon cq onderwerp van zorg.">
+			keywords = <"verwijzing","verzoek","dienst">
 			use = <"Gebruik voor het vragen van advies, een specifieke dienst of overdracht van zorg aan een zorgverlener of organisatie over de onderhavige persoon cq onderwerp van zorg. Dit document zal typisch details omvatten over de scope en geldigheidsduur van het verzoek, als ook relevante klinische informatie over de betreffende persoon cq onderwerp. Verzoeken kunnen variëren van een eenvoudig verzoek voor consultatie, aanbeveling zoeken voor verdere actie, vragen om een specifieke procedure of diagnostische test, tot een volledige overdracht van zorg en klinische verantwoordelijkheid aan de ontvangende zorgaanbieder.
 
 Voorbeelden bevatten, maar zijn niet gelimiteerd tot een verzoek voor:
@@ -158,14 +161,11 @@ Voorbeelden bevatten, maar zijn niet gelimiteerd tot een verzoek voor:
 - verlenen van psychotherapie of bezigheidstherapie.
 
 Verzoeken kunnen gericht zijn (richten tot aan specifieke zorgverlener of organisatie om aan het verzoek te voldoen) of globaal geformuleerd (alleen het gewenste type zorg beschrijven).">
-			keywords = <"verwijzing", "verzoek", "dienst">
 			misuse = <"Niet te gebruiken om het vastgelegde document te presenteren als deel van een enkele klinische ontmoeting (encounter) of bezoek. Gebruik COMPOSITION.encounter voor dit doel.
 
 Niet te gebruiken om een samenvattende zorgoverdracht te leveren aan een andere organisatie of aanbeider. Gebruik COMPOSITION.transfer_summary voor dit doel.">
 		>
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Nadim Anani, Karolinska Institutet, Sweden", "Vebjørn Arntzen, Oslo University Hospital, Norway", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Lars Bitsch-Larsen, Haukeland University hospital, Norway", "Terje Bless, Helse Nord FIKS, Norway", "Shahla Foozonkhah, Iran ministry of health and education, Iran", "Heather Grain, Llewelyn Grain Informatics, Australia", "Bjørn Grøva, Diretoratet for e-helse, Norway", "Kristian Heldal, Telemark Hospital Trust, Norway", "Lars Karlsen, DIPS ASA, Norway", "Lars Morgan Karlsen, DIPS ASA, Norway", "Shinji Kobayashi, Kyoto University, Japan", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Hallvard Lærum, Oslo Universitetssykehus HF, Norway", "Rose Mari Eikås, Helse Bergen, Norway", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Bjørn Næss, DIPS ASA, Norway", "Andrej Orel, Marand d.o.o., Slovenia", "Anne Pauline Anderssen, Helse Nord RHF, Norway", "Jussara Rotzsch, Hospital Alemão Oswaldo Cruz, Brazil", "Norwegian Review Summary, Nasjonal IKT HF, Norway", "Line Sæle, Nasjonal IKT HF, Norway", "John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)", "Jon Tysdahl, Furst medlab AS, Norway">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -180,18 +180,20 @@ Niet te gebruiken om een samenvattende zorgoverdracht te leveren aan een andere 
 	>
 
 definition
-	COMPOSITION[at0000] matches {	-- Tjenesteforespørsel
+	COMPOSITION[at0000] matches {    -- Request for service
 		category matches {
 			DV_CODED_TEXT matches {
-				defining_code matches {[openehr::433]}
+				defining_code matches {
+					[openehr::433]
+				}
 			}
 		}
 		context matches {
 			EVENT_CONTEXT matches {
 				other_context matches {
-					ITEM_TREE[at0001] matches {	-- Tree
+					ITEM_TREE[at0001] matches {    -- Tree
 						items cardinality matches {0..*; unordered} matches {
-							allow_archetype CLUSTER[at0042] occurrences matches {0..*} matches {	-- Tilleggsinformasjon
+							allow_archetype CLUSTER[at0042] occurrences matches {0..*} matches {    -- Extension
 								include
 									archetype_id/value matches {/.*/}
 							}
@@ -201,8 +203,6 @@ definition
 			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
