@@ -1,0 +1,263 @@
+archetype (adl_version=1.4; uid=7d7cd3b0-7efc-47a5-9e15-33fdf53261e1)
+	openEHR-EHR-CLUSTER.document_provenance_tc.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-10-10">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"18e1b59923beb6ff9f6f3ff0f1e5ac0c">
+		["build_uid"] = <"ccb7418b-a874-3135-87a6-7792ee43a584">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Provenance
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Activity
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- Created
+							at0011,    -- Saved
+							at0012,    -- Signed
+							at0013,    -- Signed by
+							at0014,    -- Counter-signed
+							at0015,    -- Attested
+							at0017]    -- Locked
+						}
+					}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {    -- Activity timestamp
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			CLUSTER[at0005] occurrences matches {0..1} matches {    -- User
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Id
+						value matches {
+							DV_IDENTIFIER matches {*}
+						}
+					}
+					ELEMENT[at0001] occurrences matches {0..1} matches {    -- Fullname
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Username
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Professional role
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {    -- TC CareUnit
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Id
+						value matches {
+							DV_IDENTIFIER matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Provenance">
+					description = <"User_tc">
+				>
+				["at0001"] = <
+					text = <"Fullname">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Username">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Id">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Professional role">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"User">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"TC CareUnit">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Id">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Activity">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Created">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Saved">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Signed">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Signed by">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Counter-signed">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Attested">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Activity timestamp">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Locked">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ursprung">
+					description = <"*User_tc (en)">
+				>
+				["at0001"] = <
+					text = <"Fullständigt namn">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Användarnamn">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Id">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Yrkesroll">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Användare">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"TC vårdenhet">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Id">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Namn">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Aktivitet">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Skapat">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Sparad">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Signerad">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Signerat av">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Kontrasignerad">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Vidimerad">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Tidsstämpel för aktivitet">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Låst">
+					description = <"">
+				>
+			>
+		>
+	>
