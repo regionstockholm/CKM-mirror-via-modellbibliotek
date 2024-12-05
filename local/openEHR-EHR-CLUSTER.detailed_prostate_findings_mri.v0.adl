@@ -23,7 +23,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"24cc9cc9813cb08d895b7c217888aa2c">
+		["MD5-CAM-1.0.1"] = <"5a6b994f29f4157c7503ccf7ccd2351b">
 		["build_uid"] = <"18fc690b-9dd4-3651-b27a-d7f6a95d4977">
 	>
 
@@ -31,6 +31,11 @@ definition
 	CLUSTER[at0000] matches {    -- Detailed prostate findings MRI
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Volume
+				value matches {
+					DV_QUANTITY matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- PSA density
 				value matches {
 					DV_QUANTITY matches {*}
 				}
@@ -138,6 +143,10 @@ ontology
 				>
 				["at0011"] = <
 					text = <"PRECISE">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"PSA density">
 					description = <"">
 				>
 			>
