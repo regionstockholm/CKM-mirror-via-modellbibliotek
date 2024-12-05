@@ -111,7 +111,7 @@ Not to be used to record details related to the overall findings, context or tec
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9eda8a285c40f706d4297a17fed460bf">
+		["MD5-CAM-1.0.1"] = <"7a4eed58ad6f87733153148c6d5c1232">
 		["build_uid"] = <"429dcb82-2d40-4344-a99f-0f2477bd07c7">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
@@ -129,7 +129,7 @@ definition
 					}
 				}
 			}
-			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Structured body site
+			allow_archetype CLUSTER[at0003.1] occurrences matches {0..*} matches {    -- Structured body site
 				include
 					archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.anatomical_location_relative(-[a-zA-Z0-9_]+)*\.v2|openEHR-EHR-CLUSTER\.anatomical_location_circle(-[a-zA-Z0-9_]+)*\.v1/}
 			}
@@ -246,25 +246,7 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0.8] occurrences matches {0..1} matches {    -- Zone
-				value matches {
-					DV_CODED_TEXT matches {
-						defining_code matches {
-							[local::
-							at0.9,    -- Peripheral zone
-							at0.10,    -- Transition zone
-							at0.11,    -- Central zone
-							at0.12]    -- Anterior fibromuscular stroma
-						}
-					}
-				}
-			}
-			ELEMENT[at0.13] occurrences matches {0..*} matches {    -- Sector
-				value matches {
-					DV_TEXT matches {*}
-				}
-			}
-			ELEMENT[at0.22] occurrences matches {0..1} matches {    -- Main sector
+			ELEMENT[at0.27] occurrences matches {0..1} matches {    -- Indexlesion
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -287,14 +269,24 @@ definition
 					DV_CODED_TEXT matches {*}
 				}
 			}
+			ELEMENT[at0.19] occurrences matches {0..1} matches {    -- SVI left
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
 			ELEMENT[at0.18] occurrences matches {0..1} matches {    -- SVI right
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0.19] occurrences matches {0..1} matches {    -- SVI left
+			ELEMENT[at0.28] occurrences matches {0..1} matches {    -- Ingrowth height left
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_QUANTITY matches {*}
+				}
+			}
+			ELEMENT[at0.29] occurrences matches {0..1} matches {    -- Ingrowth height right
+				value matches {
+					DV_QUANTITY matches {*}
 				}
 			}
 			ELEMENT[at0.20] occurrences matches {0..1} matches {    -- External sphincter
@@ -341,6 +333,26 @@ definition
 							>
 						>
 					>
+				}
+			}
+			ELEMENT[at0.30] occurrences matches {0..1} matches {    -- T2W
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.31] occurrences matches {0..1} matches {    -- DWI
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.32] occurrences matches {0..1} matches {    -- ADC
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0.33] occurrences matches {0..1} matches {    -- DCE
+				value matches {
+					DV_CODED_TEXT matches {*}
 				}
 			}
 		}
@@ -399,30 +411,6 @@ ontology
 					text = <"5">
 					description = <"">
 				>
-				["at0.8"] = <
-					text = <"Zone">
-					description = <"AnaAnatomical zone(s) in the prostate where the lesion is located.">
-				>
-				["at0.9"] = <
-					text = <"Peripheral zone">
-					description = <"">
-				>
-				["at0.10"] = <
-					text = <"Transition zone">
-					description = <"">
-				>
-				["at0.11"] = <
-					text = <"Central zone">
-					description = <"">
-				>
-				["at0.12"] = <
-					text = <"Anterior fibromuscular stroma">
-					description = <"">
-				>
-				["at0.13"] = <
-					text = <"Sector">
-					description = <"The sector or sectors of the prostate where the lesion is located.">
-				>
 				["at0.14"] = <
 					text = <"Volume">
 					description = <"The volume of the lesion.">
@@ -447,10 +435,6 @@ ontology
 					text = <"Bladderneck">
 					description = <"Risk of bladderneck involvement.">
 				>
-				["at0.22"] = <
-					text = <"Main sector">
-					description = <"The sector where the largest lesion is located (e.g., from drawing).">
-				>
 				["at0.23"] = <
 					text = <"Distance bladderneck">
 					description = <"">
@@ -462,6 +446,10 @@ ontology
 				["at0.25"] = <
 					text = <"Distance rectum">
 					description = <"">
+				>
+				["at0005.1"] = <
+					text = <"Additional details">
+					description = <"Additional structured details about imaging findings for the identified body structure or region, or findings of related structures.">
 				>
 				["at0039"] = <
 					text = <"Texture">
@@ -574,9 +562,38 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"Description about the effect of the anomaly on surrounding structures.">
 					comment = <"For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.">
 				>
-				["at0005.1"] = <
-					text = <"Additional details">
-					description = <"Additional structured details about imaging findings for the identified body structure or region, or findings of related structures.">
+				["at0003.1"] = <
+					text = <"Structured body site">
+					description = <"Structured details about the area of the body under examination.">
+					comment = <"For example: details about a relative anatomical location, such as '2cm distal to the appendix'. If the body site has been fully identified in the 'Body structure' or 'Body site' data elements, then this SLOT becomes redundant.">
+				>
+				["at0.27"] = <
+					text = <"Indexlesion">
+					description = <"">
+				>
+				["at0.28"] = <
+					text = <"Ingrowth height left">
+					description = <"">
+				>
+				["at0.29"] = <
+					text = <"Ingrowth height right">
+					description = <"">
+				>
+				["at0.30"] = <
+					text = <"T2W">
+					description = <"">
+				>
+				["at0.31"] = <
+					text = <"DWI">
+					description = <"">
+				>
+				["at0.32"] = <
+					text = <"ADC">
+					description = <"">
+				>
+				["at0.33"] = <
+					text = <"DCE">
+					description = <"">
 				>
 			>
 		>
@@ -630,30 +647,6 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					text = <"*5 (en)">
 					description = <"">
 				>
-				["at0.8"] = <
-					text = <"*Zone (en)">
-					description = <"*AnaAnatomical zone(s) in the prostate where the lesion is located. (en)">
-				>
-				["at0.9"] = <
-					text = <"*Peripheral zone (en)">
-					description = <"">
-				>
-				["at0.10"] = <
-					text = <"*Transition zone (en)">
-					description = <"">
-				>
-				["at0.11"] = <
-					text = <"*Central zone (en)">
-					description = <"">
-				>
-				["at0.12"] = <
-					text = <"*Anterior fibromuscular stroma (en)">
-					description = <"">
-				>
-				["at0.13"] = <
-					text = <"*Sector (en)">
-					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
-				>
 				["at0.14"] = <
 					text = <"*Volume (en)">
 					description = <"*The volume of the lesion. (en)">
@@ -678,10 +671,6 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					text = <"*Bladderneck (en)">
 					description = <"*Risk of bladderneck involvement. (en)">
 				>
-				["at0.22"] = <
-					text = <"*Main sector (en)">
-					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
-				>
 				["at0.23"] = <
 					text = <"*Distance bladderneck (en)">
 					description = <"">
@@ -693,6 +682,10 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 				["at0.25"] = <
 					text = <"*Distance rectum (en)">
 					description = <"">
+				>
+				["at0005.1"] = <
+					text = <"Ytterligere detaljer">
+					description = <"Ytterligere strukturerte detaljer om funn eller observasjoner på bilder for det definerte organet eller kroppsdelen, eller om funn eller observasjoner hos tilhørende kroppsstrukturer.">
 				>
 				["at0000"] = <
 					text = <"Bildediagnostisk undersøkelse - anomali">
@@ -805,9 +798,38 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"Diameter">
 					description = <"Den målte lengden av anomalien fra kant til kant gjennom sentrum, vanligvis på en tilnærmet rund eller oval anomali.">
 				>
-				["at0005.1"] = <
-					text = <"Ytterligere detaljer">
-					description = <"Ytterligere strukturerte detaljer om funn eller observasjoner på bilder for det definerte organet eller kroppsdelen, eller om funn eller observasjoner hos tilhørende kroppsstrukturer.">
+				["at0003.1"] = <
+					text = <"Strukturert anatomisk lokalisasjon">
+					description = <"Strukturerte detaljer om organ eller kroppsdel.">
+					comment = <"For eksempel detaljert om en relativ anatomisk lokalisasjon, som \"2 cm distalt for appendix\". Dersom den nøyaktige eller relative anatomiske lokalisasjonen er fullt ut angitt i elementet \"Kroppsstruktur\" er det ikke nødvendig å bruke \"Strukturert anatomisk lokalisasjon\".">
+				>
+				["at0.27"] = <
+					text = <"*Indexlesion (en)">
+					description = <"">
+				>
+				["at0.28"] = <
+					text = <"*Ingrowth height left (en)">
+					description = <"">
+				>
+				["at0.29"] = <
+					text = <"*Ingrowth height right (en)">
+					description = <"">
+				>
+				["at0.30"] = <
+					text = <"*T2W (en)">
+					description = <"">
+				>
+				["at0.31"] = <
+					text = <"*DWI (en)">
+					description = <"">
+				>
+				["at0.32"] = <
+					text = <"*ADC (en)">
+					description = <"">
+				>
+				["at0.33"] = <
+					text = <"*DCE (en)">
+					description = <"">
 				>
 			>
 		>
@@ -861,30 +883,6 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"*5 (en)">
 					description = <"">
 				>
-				["at0.8"] = <
-					text = <"*Zone (en)">
-					description = <"*AnaAnatomical zone(s) in the prostate where the lesion is located. (en)">
-				>
-				["at0.9"] = <
-					text = <"*Peripheral zone (en)">
-					description = <"">
-				>
-				["at0.10"] = <
-					text = <"*Transition zone (en)">
-					description = <"">
-				>
-				["at0.11"] = <
-					text = <"*Central zone (en)">
-					description = <"">
-				>
-				["at0.12"] = <
-					text = <"*Anterior fibromuscular stroma (en)">
-					description = <"">
-				>
-				["at0.13"] = <
-					text = <"*Sector (en)">
-					description = <"*The sector or sectors of the prostate where the lesion is located. (en)">
-				>
 				["at0.14"] = <
 					text = <"*Volume (en)">
 					description = <"*The volume of the lesion. (en)">
@@ -909,10 +907,6 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 					text = <"*Bladderneck (en)">
 					description = <"*Risk of bladderneck involvement. (en)">
 				>
-				["at0.22"] = <
-					text = <"*Main sector (en)">
-					description = <"*The sector where the largest lesion is located (e.g., from drawing). (en)">
-				>
 				["at0.23"] = <
 					text = <"*Distance bladderneck (en)">
 					description = <"">
@@ -924,6 +918,10 @@ Hvis det ikke er noen klar orientering av anomalien, for eksempel lengde vs bred
 				["at0.25"] = <
 					text = <"*Distance rectum (en)">
 					description = <"">
+				>
+				["at0005.1"] = <
+					text = <"Zusätzliche Angaben">
+					description = <"Zusätzliche strukturierte Angaben zu bildgebenden Befunden für die identifizierte Körperstruktur oder -region oder befundbezogene Strukturen.">
 				>
 				["at0039"] = <
 					text = <"Beschaffenheit">
@@ -1036,9 +1034,38 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 					description = <"*Description about the effect of the anomaly on surrounding structures.(en)">
 					comment = <"*For example: presence of an echo shadow behind the anomaly or that it is distorting adjacent structures.(en)">
 				>
-				["at0005.1"] = <
-					text = <"Zusätzliche Angaben">
-					description = <"Zusätzliche strukturierte Angaben zu bildgebenden Befunden für die identifizierte Körperstruktur oder -region oder befundbezogene Strukturen.">
+				["at0003.1"] = <
+					text = <"Körperstelle strukturiert">
+					description = <"Strukturierte Angaben zum untersuchten Körperbereich.">
+					comment = <"Zum Beispiel: Angaben zu einer relativen anatomischen Lokalisation, wie z. B. „2 cm distal zum Blinddarm“. Wenn die Körperstelle in den Datenelementen „Körperstruktur“ oder „Körperstelle“ vollständig identifiziert wurde, wird dieser SLOT überflüssig.">
+				>
+				["at0.27"] = <
+					text = <"*Indexlesion (en)">
+					description = <"">
+				>
+				["at0.28"] = <
+					text = <"*Ingrowth height left (en)">
+					description = <"">
+				>
+				["at0.29"] = <
+					text = <"*Ingrowth height right (en)">
+					description = <"">
+				>
+				["at0.30"] = <
+					text = <"*T2W (en)">
+					description = <"">
+				>
+				["at0.31"] = <
+					text = <"*DWI (en)">
+					description = <"">
+				>
+				["at0.32"] = <
+					text = <"*ADC (en)">
+					description = <"">
+				>
+				["at0.33"] = <
+					text = <"*DCE (en)">
+					description = <"">
 				>
 			>
 		>
@@ -1048,10 +1075,6 @@ If there is no clear orientation of the anomaly, for example length vs width vs 
 			items = <
 				["at0.1"] = <[SNOMED-CT(2024-05-01)::41216001]>
 				["at0.2"] = <[SNOMED-CT(2024-06-01)::300532006]>
-				["at0.9"] = <[SNOMED-CT(2024-06-01)::279706003]>
-				["at0.10"] = <[SNOMED-CT(2024-06-01)::399384005]>
-				["at0.11"] = <[SNOMED-CT(2024-06-01)::279708002]>
-				["at0.12"] = <[SNOMED-CT(2024-06-01)::717025007]>
 			>
 		>
 	>
