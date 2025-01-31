@@ -1,0 +1,203 @@
+archetype (adl_version=1.4; uid=4e14b5df-d4e7-41a4-9e1c-44bf879bc0ea)
+	openEHR-EHR-CLUSTER.microscopy_findings_karol.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"17/06/2009">
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"David Rowed, Ocean Informatics, Australia","Heather Leslie, Ocean Informatics, Australia","Cathy Richardson, NEHTA, Australia","David McKillop, NEHTA, Australia","Koray Atalag, University of Auckland, New Zealand","Matt Cordell, NEHTA, Australia">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record detailed findings about breast cancer found on microscopic examination.">
+			keywords = <"breast","histopathology","cancer","laboratory","lab","pathology","histology","malignancy">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+			use = <"To record detailed findings about microscopic examination of tissue related to breast cancer. 
+Use as a component archetype in the context of a suite of archetypes that make up a histopathology report ie OBSERVATION.lab_test.histopathology.">
+			misuse = <"Not designed to be used within any other archetype other than OBSERVATION.lab_test.histopathology.">
+		>
+	>
+	other_details = <
+		["references"] = <"Royal College of Pathologists of Australasia. Breast Cancer Structured Reporting Protocol (1st Edition 2010). [Internet]. 2010;[cited 2010 Mar 21 ]
+Available from: http://www.rcpa.edu.au//static/File/Asset%20library/public%20documents/Publications/StructuredReporting/BREAST%20CANCER%20STRUCTURED%20REPORTING%20PROTOCOL.pdf
+
+The Royal College of Pathologists, NHS Cancer Screening Programmes. Pathology Reporting of Breast Disease [Internet]. 2005 Jan ;[cited 2009 Jul 26] 
+Available from: http://www.rcpath.org/resources/pdf/PathologyReportingOfBreastDisease-CORRECTED-lowres.pdf
+
+British Columbia Cancer Agency. Synoptic Report Form for Breast Cancer [Internet]. 2005 Dec 13;[cited 2009 Jul 26 ] Available from: http://www.bccancer.bc.ca/HPI/CancerManagementGuidelines/Breast/Management/SynopticReportForm1of6/default.htm
+">
+		["MD5-CAM-1.0.1"] = <"01584568ce8de0ca28220df579fac939">
+		["build_uid"] = <"48454e1f-bc4a-3fc8-9650-3746abb2f851">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Microscopy findings summary
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0225] occurrences matches {0..1} matches {    -- Focality
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0226] occurrences matches {0..1} matches {    -- Comment on focality
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0210] occurrences matches {0..1} matches {    -- Number of identified invasive tumours
+				value matches {
+					DV_COUNT matches {*}
+					DV_CODED_TEXT matches {*}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0246] occurrences matches {0..1} matches {    -- Number of invasive tumours not assessable
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0227] occurrences matches {0..1} matches {    -- Comment on number of invasive tumours
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0218] occurrences matches {0..1} matches {    -- Size of largest invasive tumour
+				value matches {
+					DV_QUANTITY matches {*}
+				}
+			}
+			ELEMENT[at0243] occurrences matches {0..1} matches {    -- Number of detached CIS
+				value matches {
+					DV_COUNT matches {*}
+					DV_CODED_TEXT matches {*}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0244] occurrences matches {0..1} matches {    -- Comment on number of detached CIS
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0196] occurrences matches {0..1} matches {    -- Extent
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0207] occurrences matches {0..1} matches {    -- Assessable
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0194] occurrences matches {0..1} matches {    -- Total lesion extent
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0198] occurrences matches {0..1} matches {    -- Total lesion extent comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0248] occurrences matches {0..*} matches {    -- Surgical resection margins
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0209] occurrences matches {0..*} matches {    -- Additional details
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0245] occurrences matches {0..1} matches {    -- Comment on summary
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Microscopy findings summary">
+					description = <"Microscopic anatomic pathology findings related to breast cancer.">
+				>
+				["at0194"] = <
+					text = <"Total lesion extent">
+					description = <"">
+				>
+				["at0196"] = <
+					text = <"Extent">
+					description = <"">
+				>
+				["at0198"] = <
+					text = <"Total lesion extent comment">
+					description = <"">
+				>
+				["at0207"] = <
+					text = <"Assessable">
+					description = <"">
+				>
+				["at0209"] = <
+					text = <"Additional details">
+					description = <"">
+				>
+				["at0210"] = <
+					text = <"Number of identified invasive tumours">
+					description = <"">
+				>
+				["at0218"] = <
+					text = <"Size of largest invasive tumour">
+					description = <"">
+				>
+				["at0225"] = <
+					text = <"Focality">
+					description = <"">
+				>
+				["at0226"] = <
+					text = <"Comment on focality">
+					description = <"">
+				>
+				["at0227"] = <
+					text = <"Comment on number of invasive tumours">
+					description = <"">
+				>
+				["at0243"] = <
+					text = <"Number of detached CIS">
+					description = <"">
+				>
+				["at0244"] = <
+					text = <"Comment on number of detached CIS">
+					description = <"">
+				>
+				["at0245"] = <
+					text = <"Comment on summary">
+					description = <"">
+				>
+				["at0246"] = <
+					text = <"Number of invasive tumours not assessable">
+					description = <"">
+				>
+				["at0248"] = <
+					text = <"Surgical resection margins">
+					description = <"">
+				>
+			>
+		>
+	>
