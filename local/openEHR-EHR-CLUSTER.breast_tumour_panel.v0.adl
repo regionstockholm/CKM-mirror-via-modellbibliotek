@@ -1,0 +1,385 @@
+archetype (adl_version=1.4; uid=62a147ec-f949-4657-8c08-1263b2279a03)
+	openEHR-EHR-CLUSTER.breast_tumour_panel.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2024-03-03">
+		["name"] = <"Marlene Pérez Colman">
+		["organisation"] = <"Digital Health and Care Wales">
+		["email"] = <"marlene.perezcolman@wales.nhs.uk">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"cf5d5d96b798f495632ca8cfe4673413">
+		["build_uid"] = <"8506684f-e02f-3065-a41d-f77b647d67da">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Breast tumour panel
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0027] occurrences matches {0..1} matches {    -- Oestrogen receptor (ER)
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Oestrogen receptor status
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Oestrogen receptor
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"%">
+										magnitude = <|0.0..100.0|>
+										precision = <|0|>
+									>
+								>
+							>
+							DV_INTERVAL<DV_QUANTITY> matches {
+								lower matches {
+									C_DV_QUANTITY <
+										property = <[openehr::380]>
+										list = <
+											["1"] = <
+												units = <"%">
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {    -- Biopsy analysed
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {    -- Date of biopsy
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {    -- Comment on oestrogen receptor
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0028] occurrences matches {0..1} matches {    -- Progesterone receptor (PR)
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0015] occurrences matches {0..1} matches {    -- Progesterone receptor status
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {    -- Progesterone receptor
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"%">
+										magnitude = <|0.0..100.0|>
+										precision = <|0|>
+									>
+								>
+							>
+							DV_INTERVAL<DV_QUANTITY> matches {
+								lower matches {
+									C_DV_QUANTITY <
+										property = <[openehr::380]>
+										list = <
+											["1"] = <
+												units = <"%">
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {    -- Biopsy analysed
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {    -- Date of biopsy
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {    -- Comment on progesterone receptor
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0029] occurrences matches {0..1} matches {    -- HER-2
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0035] occurrences matches {0..1} matches {    -- IHC not applicable
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_BOOLEAN matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- HER2 neu receptor IHC
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0032] occurrences matches {0..1} matches {    -- Biopsy analysed for IHC
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {    -- Date of biopsy
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {    -- ISH not applicable
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_BOOLEAN matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {    -- HER 2 receptor ISH
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0033] occurrences matches {0..1} matches {    -- Biopsy analysed for ISH
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0038] occurrences matches {0..1} matches {    -- Date of biopsy
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {    -- HER 2/CEP 17 ratio (ISH)
+						value matches {
+							DV_PROPORTION matches {*}
+						}
+					}
+					ELEMENT[at0039] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0030] occurrences matches {0..1} matches {    -- Ki 67
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {    -- Ki 67 global
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::380]>
+								list = <
+									["1"] = <
+										units = <"%">
+										magnitude = <|0.0..100.0|>
+										precision = <|0|>
+									>
+								>
+							>
+							DV_INTERVAL<DV_QUANTITY> matches {
+								lower matches {
+									C_DV_QUANTITY <
+										property = <[openehr::380]>
+										list = <
+											["1"] = <
+												units = <"%">
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					ELEMENT[at0040] occurrences matches {0..1} matches {    -- Ki 67 status
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {    -- Biopsy analysed
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0041] occurrences matches {0..1} matches {    -- Date of biopsy
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {    -- Comment on Ki 67
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Result interpretation
+				value matches {
+					DV_CODED_TEXT matches {*}
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Breast tumour panel">
+					description = <"breast immunohistochemistry">
+				>
+				["at0010"] = <
+					text = <"Oestrogen receptor status">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"HER2 neu receptor IHC">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Result interpretation">
+					description = <"">
+					comment = <"eg: Luminal A, luminal B, Her 2, triple negative">
+				>
+				["at0015"] = <
+					text = <"Progesterone receptor status">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Ki 67 global">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Oestrogen receptor">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Progesterone receptor">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"HER 2 receptor ISH">
+					description = <"">
+					comment = <"eg Low, medium, high, not assessable">
+				>
+				["at0020"] = <
+					text = <"Biopsy analysed">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Biopsy analysed">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Date of biopsy">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Date of biopsy">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Comment on oestrogen receptor">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Comment on progesterone receptor">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Biopsy analysed">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Oestrogen receptor (ER)">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Progesterone receptor (PR)">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"HER-2">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Ki 67">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Comment on Ki 67">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Biopsy analysed for IHC">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Biopsy analysed for ISH">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"ISH not applicable">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"IHC not applicable">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"HER 2/CEP 17 ratio (ISH)">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Date of biopsy">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Date of biopsy">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Ki 67 status">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Date of biopsy">
+					description = <"">
+				>
+			>
+		>
+	>
