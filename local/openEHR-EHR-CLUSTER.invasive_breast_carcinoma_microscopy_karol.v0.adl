@@ -1,0 +1,427 @@
+archetype (adl_version=1.4; uid=73764aa8-50c3-40dc-a3cb-d16df7d06bf6)
+	openEHR-EHR-CLUSTER.invasive_breast_carcinoma_microscopy_karol.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"17/06/2009">
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"David Rowed, Ocean Informatics, Australia","Heather Leslie, Ocean Informatics, Australia","Cathy Richardson, NEHTA, Australia","David McKillop, NEHTA, Australia","Koray Atalag, University of Auckland, New Zealand","Matt Cordell, NEHTA, Australia">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record detailed findings about breast cancer found on microscopic examination.">
+			keywords = <"breast","histopathology","cancer","laboratory","lab","pathology","histology","malignancy">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+			use = <"To record detailed findings about microscopic examination of tissue related to breast cancer. 
+Use as a component archetype in the context of a suite of archetypes that make up a histopathology report ie OBSERVATION.lab_test.histopathology.">
+			misuse = <"Not designed to be used within any other archetype other than OBSERVATION.lab_test.histopathology.">
+		>
+	>
+	other_details = <
+		["references"] = <"Royal College of Pathologists of Australasia. Breast Cancer Structured Reporting Protocol (1st Edition 2010). [Internet]. 2010;[cited 2010 Mar 21 ]
+Available from: http://www.rcpa.edu.au//static/File/Asset%20library/public%20documents/Publications/StructuredReporting/BREAST%20CANCER%20STRUCTURED%20REPORTING%20PROTOCOL.pdf
+
+The Royal College of Pathologists, NHS Cancer Screening Programmes. Pathology Reporting of Breast Disease [Internet]. 2005 Jan ;[cited 2009 Jul 26] 
+Available from: http://www.rcpath.org/resources/pdf/PathologyReportingOfBreastDisease-CORRECTED-lowres.pdf
+
+British Columbia Cancer Agency. Synoptic Report Form for Breast Cancer [Internet]. 2005 Dec 13;[cited 2009 Jul 26 ] Available from: http://www.bccancer.bc.ca/HPI/CancerManagementGuidelines/Breast/Management/SynopticReportForm1of6/default.htm
+">
+		["MD5-CAM-1.0.1"] = <"c82abf100220674dd094d88910af3fba">
+		["build_uid"] = <"48454e1f-bc4a-3fc8-9650-3746abb2f851">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Invasive breast carcinoma microscopy
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0199] occurrences matches {0..1} matches {    -- Morphology
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0222] occurrences matches {0..1} matches {    -- Comment of morphological type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0229] occurrences matches {0..1} matches {    -- Radically removed
+				value matches {
+					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0232] occurrences matches {0..*} matches {    -- Location
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0219] occurrences matches {0..*} matches {    -- Dimensions
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0242] occurrences matches {0..*} matches {    -- Margins
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0233] occurrences matches {0..1} matches {    -- Comment on tumour size
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0201] occurrences matches {0..2} matches {    -- Vascular invasion
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0208] occurrences matches {0..1} matches {    -- Present
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0205] occurrences matches {0..2} matches {    -- Structure invaded
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0212,    -- Lymphatic vessels
+									at0213,    -- Venous
+									at0241]    -- Lymphovascular
+								}
+							}
+						}
+					}
+					ELEMENT[at0206] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0214] occurrences matches {0..1} matches {    -- Invasion outside breast parenchyma
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0215] occurrences matches {0..1} matches {    -- Skin
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0216] occurrences matches {0..1} matches {    -- Chest wall
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0223] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0221] occurrences matches {0..1} matches {    -- Mitosis count
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Mitosis count
+						value matches {
+							C_DV_QUANTITY <
+								
+								list = <
+									["1"] = <
+										units = <"1">
+										magnitude = <|>=0.0|>
+									>
+									["2"] = <
+										units = <"[HPF]">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0220] occurrences matches {0..1} matches {    -- HPF field diametre
+						value matches {
+							DV_QUANTITY matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0020] occurrences matches {0..1} matches {    -- Nottingham Grade
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0175] occurrences matches {0..1} matches {    -- Mitotic frequency score
+						value matches {
+							1|[local::at0176],
+							2|[local::at0177],
+							3|[local::at0178]
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {    -- Nuclear score
+						value matches {
+							1|[local::at0050],
+							2|[local::at0051],
+							3|[local::at0052]
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Tubular formation score
+						value matches {
+							1|[local::at0044],
+							2|[local::at0045],
+							3|[local::at0046]
+						}
+					}
+					ELEMENT[at0217] occurrences matches {0..1} matches {    -- Score
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {    -- Histologic grade
+						value matches {
+							1|[local::at0047],
+							2|[local::at0048],
+							3|[local::at0049]
+						}
+					}
+					ELEMENT[at0237] occurrences matches {0..1} matches {    -- Not assessable
+						value matches {
+							DV_CODED_TEXT matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0238] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0235] occurrences matches {0..1} matches {    -- Tumour infiltrating lymphocytes (TILs)
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0236] occurrences matches {0..1} matches {    -- Comment on TILs
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0234] occurrences matches {0..*} matches {    -- Adjacent carcinoma in situ details
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0239] occurrences matches {0..*} matches {    -- Tumour receptor panel
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0228] occurrences matches {0..1} matches {    -- Description of finding
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0209] occurrences matches {0..*} matches {    -- Additional details
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Invasive breast carcinoma microscopy">
+					description = <"Microscopic anatomic pathology findings related to breast cancer.">
+				>
+				["at0014"] = <
+					text = <"Mitosis count">
+					description = <"Mitotic frequency is calculated from the number of mitoses per 10 high-power fields.">
+				>
+				["at0016"] = <
+					text = <"Nuclear score">
+					description = <"Nuclear score.">
+				>
+				["at0017"] = <
+					text = <"Tubular formation score">
+					description = <"Tubular formation score, representing the extent of tubular formation within invasive carcinoma cells.">
+				>
+				["at0018"] = <
+					text = <"Histologic grade">
+					description = <"Bloom and Richardson Grade of breast cancer, derived from the total score of its components: Mitotic frequency score, Nuclear score and Tubular formation score;">
+				>
+				["at0020"] = <
+					text = <"Nottingham Grade">
+					description = <"Bloom and Richardson Histology Grade ( with modification by Elston and Ellis) is composed of three  components which are combined to produce a calculated Histology Grade.">
+				>
+				["at0044"] = <
+					text = <"Tubular formation score 1">
+					description = <"> 75% of invasive carcinoma forming tubular or glandular structures.">
+				>
+				["at0045"] = <
+					text = <"Tubular formation score 2">
+					description = <"1075% of invasive carcinoma forming tubular or glandular structures.">
+				>
+				["at0046"] = <
+					text = <"Tubular formation score 3">
+					description = <"< 10% of invasive carcinoma forming tubular or glandular structures.">
+				>
+				["at0047"] = <
+					text = <"Grade 1">
+					description = <"Total score of 35.">
+				>
+				["at0048"] = <
+					text = <"Grade 2">
+					description = <"Total score of 6 or 7.">
+				>
+				["at0049"] = <
+					text = <"Grade 3">
+					description = <"Total score of 8 or 9.">
+				>
+				["at0050"] = <
+					text = <"Score 1">
+					description = <"Size equivalent to 1.5–2 red blood cell diameters or normal duct epithelial nuclei; Diffuse chromatin; Inconspicuous nucleoli.">
+				>
+				["at0051"] = <
+					text = <"Score 2">
+					description = <"Size equivalent to 2–2.5 red blood cell diameters; Coarse chromatin; Infrequent nucleoli and mitoses.">
+				>
+				["at0052"] = <
+					text = <"Score 3">
+					description = <"Size > 2.5 red blood cell diameters; Pleomorphic vesicular nuclei; One or more prominent nucleoli; Frequent mitotic figures commonly present.">
+				>
+				["at0175"] = <
+					text = <"Mitotic frequency score">
+					description = <"Mitotic frequency score calculated from the mitosis count and the microscopy field diameter via a lookup table.">
+				>
+				["at0176"] = <
+					text = <"Score 1">
+					description = <"Low mitotic frequency.">
+				>
+				["at0177"] = <
+					text = <"Score 2">
+					description = <"Intermediate mitotic frequency.">
+				>
+				["at0178"] = <
+					text = <"Score 3">
+					description = <"High mitotic frequency.">
+				>
+				["at0199"] = <
+					text = <"Morphology">
+					description = <"">
+				>
+				["at0201"] = <
+					text = <"Vascular invasion">
+					description = <"">
+				>
+				["at0205"] = <
+					text = <"Structure invaded">
+					description = <"">
+				>
+				["at0206"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0208"] = <
+					text = <"Present">
+					description = <"">
+				>
+				["at0209"] = <
+					text = <"Additional details">
+					description = <"">
+				>
+				["at0212"] = <
+					text = <"Lymphatic vessels">
+					description = <"">
+				>
+				["at0213"] = <
+					text = <"Venous">
+					description = <"">
+				>
+				["at0214"] = <
+					text = <"Invasion outside breast parenchyma">
+					description = <"">
+				>
+				["at0215"] = <
+					text = <"Skin">
+					description = <"">
+				>
+				["at0216"] = <
+					text = <"Chest wall">
+					description = <"">
+				>
+				["at0217"] = <
+					text = <"Score">
+					description = <"">
+				>
+				["at0219"] = <
+					text = <"Dimensions">
+					description = <"">
+				>
+				["at0220"] = <
+					text = <"HPF field diametre">
+					description = <"">
+				>
+				["at0221"] = <
+					text = <"Mitosis count">
+					description = <"">
+				>
+				["at0222"] = <
+					text = <"Comment of morphological type">
+					description = <"">
+				>
+				["at0223"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0228"] = <
+					text = <"Description of finding">
+					description = <"">
+				>
+				["at0229"] = <
+					text = <"Radically removed">
+					description = <"">
+				>
+				["at0232"] = <
+					text = <"Location">
+					description = <"">
+				>
+				["at0233"] = <
+					text = <"Comment on tumour size">
+					description = <"">
+				>
+				["at0234"] = <
+					text = <"Adjacent carcinoma in situ details">
+					description = <"">
+				>
+				["at0235"] = <
+					text = <"Tumour infiltrating lymphocytes (TILs)">
+					description = <"">
+				>
+				["at0236"] = <
+					text = <"Comment on TILs">
+					description = <"">
+				>
+				["at0237"] = <
+					text = <"Not assessable">
+					description = <"">
+				>
+				["at0238"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0239"] = <
+					text = <"Tumour receptor panel">
+					description = <"">
+				>
+				["at0241"] = <
+					text = <"Lymphovascular">
+					description = <"">
+				>
+				["at0242"] = <
+					text = <"Margins">
+					description = <"">
+				>
+			>
+		>
+	>
