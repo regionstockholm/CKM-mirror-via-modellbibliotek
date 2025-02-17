@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.0.1",
-      "build_uid" : "16b34409-3614-4a4f-a03d-0bed8cb6bd6d",
-      "MD5-CAM-1.0.1" : "9e14ca7a438d069724b272f09bdf6444",
+      "sem_ver" : "0.0.2",
+      "build_uid" : "83820094-e511-480d-bf0a-d69560cf31ef",
+      "MD5-CAM-1.0.1" : "0aa08d6bd3fdbcf4831037099a000f40",
       "PARENT:MD5-CAM-1.0.1" : "93D7156AD670461B54017CE2CB55ECAF"
     },
     "details" : {
@@ -127,7 +127,30 @@
       "children" : [ {
         "@type" : "C_COMPLEX_OBJECT",
         "rmTypeName" : "EVENT_CONTEXT",
-        "attributes" : [ ],
+        "attributes" : [ {
+          "@type" : "C_ATTRIBUTE",
+          "rmAttributeName" : "other_context",
+          "children" : [ {
+            "@type" : "C_COMPLEX_OBJECT",
+            "rmTypeName" : "ITEM_TREE",
+            "nodeId" : "at0003",
+            "attributes" : [ {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "items",
+              "children" : [ {
+                "@type" : "C_ARCHETYPE_ROOT",
+                "rmTypeName" : "CLUSTER",
+                "occurrences" : "0..1",
+                "nodeId" : "at0004.2",
+                "attributes" : [ ],
+                "attributeTuples" : [ ],
+                "archetypeRef" : "Care unit v2",
+                "referenceType" : "templateId"
+              } ]
+            } ],
+            "attributeTuples" : [ ]
+          } ]
+        } ],
         "attributeTuples" : [ ]
       } ]
     }, {
@@ -238,7 +261,39 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "96D44993F7047B68B9DB273DF73D0786"
       },
-      "details" : { }
+      "details" : {
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere verdier for prostatasymptomkomponentene og dets summerte verdi for I-PSS og symptomenes innvirkning på livskvaliteten.",
+          "keywords" : [ "I-PSS", "prostata", "ipss", "bph", "prostatahyperplasi", "vannlatningsbesvær", "benign", "prostataobstruksjon" ],
+          "use" : "Brukes for å registrere verdier for prostatasymptomkomponentene og dets summerte verdi for I-PSS og symptomenes innvirkning på livskvaliteten.",
+          "misuse" : "Brukes ikke for å registrere prostatarelatert symptomer - bruk CLUSTER.symptom_sign til dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the results for each component parameter and their total sum for the IPSS.",
+          "keywords" : [ "I-PSS", "IPSS", "prostate", "BPH" ],
+          "use" : "Use to record the results for each component parameter and their total sum for the IPSS.",
+          "misuse" : "Do not use to record prostate-related symptoms - use the CLUSTER.symptom_sign for this purpose.",
+          "copyright" : "© Clinical Models UK, openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.ipss.v1",
     "differential" : true,
