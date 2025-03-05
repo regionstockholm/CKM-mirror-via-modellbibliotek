@@ -1,0 +1,115 @@
+archetype (adl_version=1.4; uid=6a83418a-782b-46f7-b7fb-0fbe2c1ef51c)
+	openEHR-EHR-OBSERVATION.testarchetype.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Oscar Karlsson">
+		["organisation"] = <"Karolinska University Hospital ">
+		["email"] = <"Oscar.karlsson@regionstockholm.se">
+		["date"] = <"2025-03-05">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"480a27fbb3f141b115e6cd2d872a63e8">
+		["build_uid"] = <"e2709592-993f-32c2-a541-472148e07b39">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- TESTarchetype
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- TEST
+										value matches {
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008]
+										}
+									}
+									CLUSTER[at0012] occurrences matches {0..1} matches {*}    -- CLUSTER
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0004] matches {*}    -- Item tree
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0009] matches {*}    -- Item tree
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"TESTarchetype">
+					description = <"TESTarchetype">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"TEST">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"TESTSE">
+					description = <"TEDT">
+				>
+				["at0007"] = <
+					text = <"RDYGV">
+					description = <"HJHB">
+				>
+				["at0008"] = <
+					text = <"JKJ">
+					description = <"kjbkjn">
+				>
+				["at0009"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0012"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+			>
+		>
+	>
