@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.1",
+      "sem_ver" : "2.0.0-alpha.1",
       "build_uid" : "720c1da4-1e36-45b6-a498-a0011229fc0a",
-      "MD5-CAM-1.0.1" : "2d77c72a4c4af7c881f07de9125c3538",
+      "MD5-CAM-1.0.1" : "367d664195a4b82f67e9323edd03c297",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -237,15 +237,6 @@
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "OBSERVATION",
         "occurrences" : "0..1",
-        "nodeId" : "at0.15",
-        "attributes" : [ ],
-        "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-body_segment_circumference-003.v1",
-        "referenceType" : "archetypeOverlay"
-      }, {
-        "@type" : "C_ARCHETYPE_ROOT",
-        "rmTypeName" : "OBSERVATION",
-        "occurrences" : "0..1",
         "nodeId" : "at0.8",
         "attributes" : [ ],
         "attributeTuples" : [ ],
@@ -259,6 +250,15 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-health_risk-001.v1",
+        "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "OBSERVATION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.17",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-body_segment_circumference-001.v1",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -1361,7 +1361,7 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "dddb45e6-7800-4301-942a-1cf92c99f18e",
+    "uid" : "4d14b9fd-394d-450d-856a-21d508b2f919",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
       "originalAuthor" : { },
@@ -1378,7 +1378,7 @@
     "differential" : true,
     "archetypeId" : {
       "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-OBSERVATION.ovl-body_segment_circumference-003.v1"
+      "value" : "openEHR-EHR-OBSERVATION.ovl-body_segment_circumference-001.v1"
     },
     "definition" : {
       "@type" : "C_COMPLEX_OBJECT",
@@ -1418,18 +1418,6 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_CODED_TEXT",
-                          "defaultValue" : {
-                            "defining_code" : {
-                              "terminology_id" : {
-                                "value" : "NCDHCArrangementOfFetus",
-                                "@type" : "TERMINOLOGY_ID"
-                              },
-                              "code_string" : "73161006",
-                              "@type" : "CODE_PHRASE"
-                            },
-                            "value" : "Transverse lie",
-                            "@type" : "DV_CODED_TEXT"
-                          },
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
                             "rmAttributeName" : "defining_code",
@@ -1438,10 +1426,19 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "1..1",
                               "terminologyId" : {
-                                "value" : "NCDHCArrangementOfFetus"
+                                "value" : "local_terms"
                               },
-                              "constraint" : [ "ac0.2" ],
-                              "selectedTerminologies" : [ "NCDHCArrangementOfFetus" ]
+                              "constraint" : [ ],
+                              "selectedTerminologies" : [ "local_terms" ],
+                              "includedExternalTerminologyCodes" : [ {
+                                "terminologyId" : "local_terms",
+                                "code" : "53120007",
+                                "value" : "Upper limb structure (body structure)"
+                              }, {
+                                "terminologyId" : "local_terms",
+                                "code" : "61685007",
+                                "value" : "Lower limb structure (body structure)"
+                              } ]
                             } ]
                           } ],
                           "attributeTuples" : [ ]
@@ -1504,20 +1501,9 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "nb" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Kroppsmåling - omkrets (3)",
-            "description" : "Måling av distansen rundt en bestemt kroppsdel, vanligvis identifisert i forhold til punkter på kroppsoverflaten."
-          }
-        }
+        "nb" : { }
       },
-      "termBindings" : {
-        "NCDHCArrangementOfFetus" : {
-          "ac0.2" : "terminology://fhir.hl7.org/ValueSet/$expand?url=https://healthterminologies.gov.au/fhir/ValueSet/ncdhc-arrangement-of-fetus-1"
-        }
-      },
+      "termBindings" : { },
       "terminologyExtracts" : { },
       "valueSets" : {
         "ac0.1" : {
@@ -1533,6 +1519,11 @@
         "ac0.4" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.4",
+          "members" : [ ]
+        },
+        "ac0.5" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.5",
           "members" : [ ]
         }
       }
