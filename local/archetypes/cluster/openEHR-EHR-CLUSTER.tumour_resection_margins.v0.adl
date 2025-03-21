@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=1ed870b1-760e-4441-886f-7a6d98d2dfab)
+archetype (adl_version=1.4; uid=1ed870b1-760e-4441-886f-7a6d98d2dfab)
 	openEHR-EHR-CLUSTER.tumour_resection_margins.v0
 
 concept
-	[at0000]	-- Surgical resection margins
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -21,40 +22,38 @@ language
 			>
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2009-05-17">
 		["name"] = <"Dr Ian McNicoll">
 		["organisation"] = <"Ocean Informatics">
 		["email"] = <"ian.mcnicoll@oceaninformatics.com">
-		["date"] = <"2009-05-17">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Sabine Leh, Helse Bergen HF, Norway","John Tore Valand, Helse Bergen HF, Norway","Silje Ljosland Bakke, Nasjonal IKT HF, Norway","Therese Högberg Mårder, Linköpings University, Sweden">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Details zum operativen Resektionsrand bei einem malignen Tumor. Der Archetyp kann verwendet werden, um das Tumorvorkommen am Resektionsrand zu beschreiben, sowie Angaben zur Länge der Tumorausbreitung anzugeben. Sollte kein Tumorvorkommen am Resektionsrand nachweisbar sein, kann der Abstand vom Resektionsrand zum Tumor erhoben werden.">
+			keywords = <"Malignität","Rand/Ränder","Tumor(e)","Krebs","Resektion","Histopathologie","Biopsie(n)">
 			use = <"Wird hauptsächlich innerhalb eines histopathologischen Archetypen verwendet.">
-			keywords = <"Malignität", "Rand/Ränder", "Tumor(e)", "Krebs", "Resektion", "Histopathologie", "Biopsie(n)">
-			misuse = <"">
-		>
-		["en"] = <
-			language = <[ISO_639-1::en]>
-			purpose = <"Details of surgical resection margin involvement of malignant tumours. May be used to describe scenarios where tumour is present at the resection margin, detailing the length of tumour involvement, or where tumour is absent from the margin, to indicate the distance of tumour from that margin.">
-			use = <"Normally used within a histopathology archetype.">
-			keywords = <"malignancy", "margins", "tumour", "cancer", "resection", "histopathology", "biopsy">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 		["ar-sy"] = <
 			language = <[ISO_639-1::ar-sy]>
 			purpose = <"تفاصيل حول اكتناف حواف القطع الجراحي بالورم الخبيث. قد يستخدم لوصف سيناريوهات حيث يوجد فيها الورم موجودا عند حافة/هامش القطع, تفاصيل حول طول اكتناف الورم, أو حيث يكون الورم غائبا من الحافة/الهامش, للإشارة إلى المسافة بين الورم و الحافة/الهامش.">
-			use = <"يستخدم عادة في نموذج الهيستوباثولجيا">
-			keywords = <"الخباثة", "الحواف/الهوامش", "الورم", "السرطان", "القطع", "الهيستوباثولوجيا", "الخزعة">
-			misuse = <"">
+			keywords = <"الخباثة","الحواف/الهوامش","الورم","السرطان","القطع","الهيستوباثولوجيا","الخزعة">
 			copyright = <"© openEHR Foundation">
+			use = <"يستخدم عادة في نموذج الهيستوباثولجيا">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Details of surgical resection margin involvement of malignant tumours. May be used to describe scenarios where tumour is present at the resection margin, detailing the length of tumour involvement, or where tumour is absent from the margin, to indicate the distance of tumour from that margin.">
+			keywords = <"malignancy","margins","tumour","cancer","resection","histopathology","biopsy">
+			copyright = <"© openEHR Foundation">
+			use = <"Normally used within a histopathology archetype.">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Sabine Leh, Helse Bergen HF, Norway", "John Tore Valand, Helse Bergen HF, Norway", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway", "Therese Högberg Mårder, Linköpings University, Sweden">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -62,13 +61,13 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7323F700EC9DD50E535E654F4D7D7D30">
+		["MD5-CAM-1.0.1"] = <"79821f35135244e429b53e3be56e151d">
 		["build_uid"] = <"ce6a67fd-d831-4730-8db6-c5663597405e">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- Tumour - Surgical resection margins
+	CLUSTER[at0000] matches {    -- Surgical resection margins
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Margin name
 				value matches {
@@ -92,6 +91,7 @@ definition
 					}
 				}
 			}
+			ELEMENT[at0022] occurrences matches {0..1} matches {*}    -- Radically removed
 			CLUSTER[at0006] occurrences matches {0..*} matches {    -- Tumour present
 				items cardinality matches {1..*; unordered} matches {
 					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Maximum linear involvement
@@ -143,7 +143,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -211,6 +210,10 @@ ontology
 					description = <"Name of the tumour for which the 'Distance from resection margin' applies.">
 					comment = <"For example: 'Invasive tumour' or 'Cancer in situ'.">
 				>
+				["at0022"] = <
+					text = <"Radically removed">
+					description = <"">
+				>
 			>
 		>
 		["ar-sy"] = <
@@ -277,6 +280,10 @@ ontology
 					description = <"*Name of the tumour for which the 'Distance from resection margin' applies. (en)">
 					comment = <"*For example: 'Invasive tumour' or 'Cancer in situ'. (en)">
 				>
+				["at0022"] = <
+					text = <"*Radically removed (en)">
+					description = <"">
+				>
 			>
 		>
 		["de"] = <
@@ -342,6 +349,10 @@ ontology
 					text = <"Tumorbezeichnung">
 					description = <"Bezeichnung des Tumors, für den der \"Abstand vom Resektionsrand\" gilt.">
 					comment = <"Beispiel: \"Invasiver Tumor\" oder \"In-Situ-Karzinom\".">
+				>
+				["at0022"] = <
+					text = <"*Radically removed (en)">
+					description = <"">
 				>
 			>
 		>
