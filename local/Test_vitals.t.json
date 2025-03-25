@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.1.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "95a321380038dda9fb60bedf45e5f93d",
+      "MD5-CAM-1.0.1" : "86989085e5ab878d519333eb15f639ef",
       "PARENT:MD5-CAM-1.0.1" : "8F3156560D39B12C8362DF26A4C575BD"
     },
     "details" : {
@@ -199,7 +199,30 @@
       "children" : [ {
         "@type" : "C_COMPLEX_OBJECT",
         "rmTypeName" : "EVENT_CONTEXT",
-        "attributes" : [ ],
+        "attributes" : [ {
+          "@type" : "C_ATTRIBUTE",
+          "rmAttributeName" : "other_context",
+          "children" : [ {
+            "@type" : "C_COMPLEX_OBJECT",
+            "rmTypeName" : "ITEM_TREE",
+            "nodeId" : "at0001",
+            "attributes" : [ {
+              "@type" : "C_ATTRIBUTE",
+              "rmAttributeName" : "items",
+              "children" : [ {
+                "@type" : "C_ARCHETYPE_ROOT",
+                "rmTypeName" : "CLUSTER",
+                "occurrences" : "0..1",
+                "nodeId" : "at0002.1",
+                "attributes" : [ ],
+                "attributeTuples" : [ ],
+                "archetypeRef" : "Care unit v1",
+                "referenceType" : "templateId"
+              } ]
+            } ],
+            "attributeTuples" : [ ]
+          } ]
+        } ],
         "attributeTuples" : [ ]
       } ]
     }, {
@@ -403,7 +426,245 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "170F2F8FCE46E22662FC61919622AE21"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Dient der Dokumentation des systemischen arteriellen Blutdrucks einer Person.",
+          "keywords" : [ "Beobachtungen", "Messungen", "Vitalparameter", "Mittlerer arterieller Druck", "Pulsdruck", "systolisch", "diastolisch", "RR", "Riva-Rocci", "NIBP" ],
+          "use" : "Alle Blutdruckmessungen werden unter Zuhilfenahme dieses Archetypen dokumentiert, unabhängig davon, welche Methode oder Körperstelle zur Messung benutzt wurden. Der Archetyp dient der Dokumentation des Blutdrucks in alle klinischen Szenarien - z.B. durch eine Blutdruckmaschine zuhause; eine Notfallmessung durch Palpation und ein Sphygmomanometer; Messungen beim Hausarzt oder im Rahmen von Belastungstests; sowie einer Serie von Messungen durch eine Maschine auf der Intensivstation.\r\nDer Archetyp beinhaltet ein umfassendes Status-Modell, das die Interpretation der Messung unterstützt, indem Position, Anstrengung, Einflussfaktoren, Neigungswinkel angegeben werden können.\r\nBenannte Ereignisse wurden auf den 24-stündigen Durchschnitt beschränkt, jedoch können Templates jederzeit das standardmäßig vorhandene Ereignis ('any event') weiter einschränken, um spezifischen Anforderungen gerecht zu werden, wie z.B. der Messung zu bestimmten Zeitpunkten, oder über eine Anzahl von Intervallen (+/- mathematische Funktionen).",
+          "misuse" : "Nicht benutzen zur Dokumentation des intravenösen Drucks.\r\nNicht benutzen zur Dokumentation des arteriellen Blutdrucks, welcher KEIN Surrogat für den arteriellen Druck in der systemischen Zirkluation ist, z.B. die spezifische Messung des rechten pulmonaren Arteriendrucks.\r\nIn diesem Fall sollte der OBSERVATION.intravascular_pressure Archetyp bzw. dessen Spezialisierungen verwendet werden.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи системного артериального давления крови человека.",
+          "keywords" : [ "обследование", "измерение", "артериальное давление", "диастолическое", "систолическое" ],
+          "use" : "Используется для записи всех представлений измерения системного артериального  кровяного давления, независимо от используемого метода или расположения тела пациента. Архетип предназначен для записи измерений давления во всех клинических сценариях - например, самостоятельное измерение давления крови домашним автоматическим манометром, в чрезвычайной  ситуации использование  пальпации пульсовой волны и сфигмоманометр; измерений в ходе клинических консультаций или в ходе осуществления стресс-тестирования, а также серии измерений, выполненных аппаратом в реанимации.\r\nПоддерживает интерпретацию измерений путем определения позиции пациента, физические упражнения, осложняющих факторов и угла наклона стола в научных исследованиях.\r\nПредполаагется интервал между измерениями 24 часа, однако может быть дополнено событиями (по умолчанию \"любое событие\") для удовлетворения специфических требований для измерения кровяного давления, такие как записи в отношении кровяного давления конкретные моменты времени, или в диапазоне интервалов.",
+          "misuse" : "Не следует использовать для внутривенного давления.\r\nНе следует использовать для измерения артериального давления, которое не является суррогатом артериального давления в системном кровотоке, например, конкретные измерения давления в легочной артерии.\r\nИспользовать OBSERVATION.intravascular_pressure и смежных специальностей в обоих этих ситуациях.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att mäta en individs systemiska arteriella blodtryck.",
+          "keywords" : [ "observationer", "mätning", "blodtryck", "vitaltecken", "medelartärtryck", "pulstryck", "systoliskt", "diastoliskt", "RR", "NIBP" ],
+          "use" : "Används för att mäta alla systemiskt arteriella blodtryck, oavsett vilka metoder som använts och var på kroppen mätningen gjordes. Arketypen är avsedd för blodtrycksmätningar i alla vårdscenarion exemelvis för egna mätningar i hemmet med blodtrycksmätare, för akutbedömningar av det systoliska blodtrycket med hjälp av palpation och en blodtrycksmätare, för mätningar gjorda vid vårdkonsultationer eller stresstest, för seriemätningar med blodtrycksmaskiner på Intensivvårdsavdelningar.\r\nDet finns en omfattande tillståndsmodell som stödjer tolkningen av mätningar genom identifiering av patientens ställning, ansträngning, påverkande faktorer och vinkel på tippbräda vid undersökning. Namngivna händelser har begränsats till ett genomsnitt under en 24-timmarsperiod, men mallar kan ytterligare avgränsa standardinställningen i \"Ospecificerad händelse\" för att möta specifika krav på blodtrycksmätningar, exempelvis mätningar av blodtryck vid specifika tidpunkter eller i ett tidsintervall med matematiska funktioner.\r\n",
+          "misuse" : "Ska inte användas för intravenöst tryck.\r\n\r\nSka inte användas för mätning av arteriellt blodtryck som INTE är ett surrogat för artärtryck i systemcirkulationen eller för specifika mätningar som exempelvis höger lungartärtryck.\r\n\r\nAnvänd i dessa fall istället OBSERVATION.intravascular_pressure och relaterade specialiseringsarketyper.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "Yksilön verenpaineen kirjaamista varten.",
+          "keywords" : [ "havainnot, mittaus, verenpaine, vitaalit, keskimääräinen valtimopaine, pulssipaine, systolinen, diastolinen, RR, NIBP" ],
+          "use" : "Käytetään kirjattaessa kaikki systeemisen valtimoverenpaineen mittauksen esitystavat riippumatta siitä, mitä menetelmää tai kehon sijaintia käytetään sen tallentamiseen.\r\n\r\nArkkityypin tarkoituksena on kerätä verenpainemittauksia kaikissa kliinisissä skenaarioissa - esimerkiksi:\r\n- itsemittaus kotona; \r\n- systolisen hätäarviointi palpaatiosta ja sfygmomanometristä; \r\n- kliinisen konsultaation tai stressitestissä tehdyt mittaustulokset; ja\r\n- tehohoidossa tehdyt koneelliset mittaustulokset   \r\n\r\nTietomallissa on rikas tilamalli, joka tukee mittausten tulkintaa tunnistamalla potilaan asentoa, liikuntaa, sekoittavia tekijöitä ja tutkittavan kulmaa tutkimuksen aikana.\r\n\r\nNimettyjen tapahtumien määrä on rajoitettu 24 tunnin aikaiseen keskiarvoon, mutta templaateilla voidaan edelleen rajoittaa oletusarvoista \"mitä tahansa tapahtumaa\", joka vastaa erityisiä vaatimuksia verenpainemittauksille, kuten verenpaineen tallentaminen tiettyihin ajankohtiin tai tietyin väliajoin (+/- matemaattiset funktiot).",
+          "misuse" : "Ei saa käyttää valtimoverenpaineen mittauksen kirjaamiseen, joka ei ole systeemisen verenkierron verenpaineen korvike, esim. Oikean keuhkovaltimon paineen erityinen mittaus. Käytä tässä tilanteessa OBSERVATION.intrcularcular_pressure arkkityyppiä.\r\nEi saa käyttää laskimonsisäisen paineen mittaamiseen. Käytä tässä tilanteessa OBSERVATION.intravascular_pressure -arkkityyppiin sopivia spesiliaatioita.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ko" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ko"
+          },
+          "purpose" : "개인의 체동맥혈압 기록",
+          "keywords" : [ "*관찰(ko)", "*측정(ko)", "*혈압(ko)", "*생체징후(ko)", "*평균 동맥 혈압(ko)", "*맥압(ko)", "*수축기의(ko)", "*이완기의(ko)", "*호흡수(ko)", "*비침습적 혈압(ko)" ],
+          "use" : "전신 동맥혈압측정의 모든 표현들을 저장하는데 사용, 어떤 방법 또는 신체부위와 관계없이 기록하는데 사용된다. 이 archetype은 모든 임상 시나리오에서 동맥혈압을 획득하기 위한 것이다 - 예를 들어, 가정 혈압기기를 이용한 자가 측정; 타진과 혈압계를 이용한 수축기의 응급평가; 임상 의뢰 또는 운동부하검사에서의 측정; 그리고 중환자실에서 기계에 의한 일련의 측정.\r\n\r\n여기에는 환자 자세, 운동, 혼란 변수 그리고 연구에서 틸트테이블의 각도를 통한 측정의 해석을 지원하는 풍부한 상태 모델(state model)이 있음.\r\n\r\n명명된 events는 24시간 동안의 평균에 제한되어 있지만 templates는 특정 시각 또는 기간(+/- 수학 함수)에 대한 혈압의 기록과 같은 혈압 측정을 위한 특정한 요구사항을 제공하기 위해서 default 'any event'에 추가적인 constrain을 할 수 있음.",
+          "misuse" : "정맥혈압 측정을 위해서 사용되지 않음.\r\n\r\n예를 들어 우폐동맥압과 같은 특별한 측정과 같이 체순환에서의 동맥압을 대신하지 않는 동맥혈압의 측정을 위해 사용되지 않음.\r\n\r\n위의 2가지 상황에서는 OBSERVATION.intravascular_pressure와 관련된 specialisations를 사용해야 함.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para registrar a pressão arterial sistêmica de um indivíduo.",
+          "keywords" : [ "observações", "medidas", "PA", "pressão sanguínea", "sinais vitais", "Pressão arterial média", "Pressão de Pulso", "sistólica", "diástólica" ],
+          "use" : "Usado para registrar todas as representações da medida da pressão areterial sistêmica, não importando qual método ou localização corporal usada para registrá-la. O objetivo do arquétipo é capturar a pressão sanguínea em todos os cenários clínicos - por exemplo, auto-medida com um aparelho de pressão caseiro; um avaliação de emergência da pressão sistólica usando palpação e esfigmomanômetro; medidas realizadas em consultas clínicas ou durante testes de esforço; e uma série de medidas feitas por uma máquina em uma Unidade de Terapia Intensiva.\r\nExiste um modelo rico que apoia a interpretação de medidas através da identificação da posição do paciente, nível exercício, gatores confundidores e ângulo de uma mesa de inclinação em uma pesquisa.\r\nEventos nomeados têm sido limitados em médica a um período de 24 horas, entretanto templates podem, posteriormente, restringir o padrão predeterminado 'qualquer evento' para atender a requisitos específicos registro de medida de pressão sanguínea em pontos no tempo específicos, ou em faixas de intervalos (+/-funções matemáticas).",
+          "misuse" : "Não deve ser usada para registrar pressão intravenosa.\r\nNão deve ser usada para medida da pressão arterial que NÃO é um substituto da pressão arterial na circulação sistêmica, por exemplo, medida específica da pressão da artéria Pulmonar direita.\r\nEm ambas situações use OBSERVATION.intravascular_pressure e especializações relacionadas.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل ضغط الدم الشرياني النظامي للشخص",
+          "keywords" : [ "الملاحظات", "القياس", "ضغط الدم", "العلامات الحياتية", "متوسط الضغط الشرياني", "الضغط عند النبض", "الانقباضي", "الانبساطي", "معدل التنفس", "قياس ضغط الدم غير الباضع" ],
+          "use" : "يستخدم لتسجيل جميع طرق عرض ضغط الدم الشرايني النظامي, بغض النظر عن الطريقة أو الموضع من الجسم المستخدم في التسجيل.\r\n\r\nيستخدم هذا النموذج لالتقاط قياسات ضغط الدم في جميع السيناريوهات السريرية - مثلا, قياس ضغط الدم بواسطة الشخص لنفسه باستخدام آلة القياس المنزلية, تقييم الضغط الانقباضي في حالة الطوارئ باستخدام المجس و مقياس الضغط الزئبقي, القياسات التي تم أخذها في الاستشارات السريرية أو في أثناء اختبار الضغط البدني, و سلسلة من القياسات التي تتم باستخدام آلات العناية المركزة.\r\n\r\nيستخدم هذا النموذج الغني في تسجيل حالات القياس من خلال تفسيره في ضوء وضع المريض عند القياس, المجهود البدني, العوامل المربكة, و زاوية انحناء الطاولة المستخدمة عند القياس.\r\n\r\nتم تحديد بعض الوقائع إلى المتوسط خلال 24 ساعة, إلا أن القوالب تستطيع تقييد الاختيار التلقائي (إحدى الوقائع) لمتطلبات معينة حول قياسات ضغط الدم مثل تسجيل ضغط الدم في نقاط زمنية معينة أو خلال مدى من الفواصل الزمنية - زائد أو ناقص دوال حسابية",
+          "misuse" : "لا يستخدم لتسجيل الضغط داخل الوريد.\r\nلا يستخدم لقياس ضغط الدم الشرياني الذي لا يحل بديلا عن ضغط الدم الشرياني في الدورة الجهازية مثل قياسات معينة لضغط الشريان الرئوي الأيمن.\r\nاستخدم نموذج ملاحظة. الضغط داخل الأوعية الدموية , و التخصيصات المتعلقة في كل من هذين الموقفين.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the systemic arterial blood pressure of an individual.",
+          "keywords" : [ "observations", "measurement", "bp", "vital signs", "mean arterial pressure", "pulse pressure", "systolic", "diastolic", "RR", "NIBP" ],
+          "use" : "Use to record all representations of systemic arterial blood pressure measurement, no matter which method or body location is used to record it. \r\n\r\nThe archetype is intended to capture blood pressure measurements in all clinical scenarios - for example:\r\n- self-measurement with a home blood pressure machine; \r\n- an emergency assessment of systolic using palpation and a sphygmomanometer; \r\n- measurements taken in clinical consultations or during exercise stress testing; and \r\n- a series of measurements made by a machine in Intensive Care.   \r\n\r\nThere is a rich state model that supports interpretation of measurements through identifying patient position, exercise, confounding factors and angle of a tilt table in research. \r\n\r\nNamed events have been limited to average over a 24 hour period, however templates can further constrain the default 'any event' to cater for specific requirements for blood pressure measurements such as recording Blood Pressure against specific points in time, or over a range of intervals (+/- mathematical functions).",
+          "misuse" : "Not to be used to record the measurement of arterial blood pressure which is NOT a surrogate for arterial pressure in the systemic circulation eg specific measurement of right pulmonary artery pressure. Use OBSERVATION.intravascular_pressure in this situation.  \r\n\r\nNot to be used to record measurements of intravenous pressure. Use the appropriate specialisations of OBSERVATION.intravascular_pressure in this situation.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "旨在记录一个人的体循环血压（systemic blood pressure，全身血压，系统血压）。此测量结果原始型记录的是收缩压和舒张压，所采取的记录方式适合于视为代表全身体循环血压的结果。",
+          "keywords" : [ "观察", "观测", "观察指标", "观测指标", "观察结果", "观测结果", "观察项目", "观测项目", "检测", "测量", "测定", "检测指标", "测量指标", "测定指标", "检测结果", "测量结果", "测定结果", "检测项目", "测量项目", "测定项目", "血压", "blood pressure", "bp", "生命体征", "体征", "平均动脉压", "脉压", "脉搏压", "收缩压", "舒张压", "收缩期", "舒张期", "RR", "无创性测压法", "non-invasive blood pressure", "NIBP" ],
+          "use" : "用于记录体循环血压测量结果的所有表达形式，无论其用于记录结果的究竟是什么方法或身体位置。本原始型旨在采集所有临床场景下的血压测量结果；例如，采用家用血压测量仪进行的自助检测、采用触诊方法和血压计进行的收缩压紧急评估、临床会诊或运动负荷试验过程中进行的测量以及重症监护过程中利用仪器所完成的一系列测量。\r\n这是一个丰富的状态模型，支持通过确定患者体位、运动情况、干扰因素以及研究工作所采用的倾斜工作台的角度，来解释测量结果。\r\n具名事件（named events）仅限于24小时期间的均值；不过，可以利用模板来进一步约束默认的“any event”（任何事件），以满足关于血压测量的具体需要，诸如按具体的时间点（时刻）来记录血压，或者是记录为变化范围（+/-数学函数）。",
+          "misuse" : "并不用于静脉内血压。\r\n并不用于并非代表体循环动脉压的动脉血压的测量，如右肺动脉压的专用测量指标。\r\n在上述这两种情况下，请采用血管内压力观察指标原始型（OBSERVATION.intravascular_pressure）及相关的特化形式。",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Registro de la presión arterial de un paciente.",
+          "keywords" : [ "observaciones", "medidas", "pa", "pas", "pad", "signos vitales", "presión arterial", "presión del pulso", "sistólica", "diastólica" ],
+          "use" : "Registro de la presión arterial independientemente del método y localización de la zona de la medida, para cualquier escenario clínico.",
+          "misuse" : "No se debe usar para presión intravenosa.\r\n\r\nNo se debe usar para presión arterial que no sea sistémica, por ejemplo presión de la arteria pulmonar derecha.\r\n\r\nEn estos casos utilizar el arquetipo OBSERVATION.intravascular_pressure.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Registrar la presión arterial sistémica de un individuo",
+          "keywords" : [ "observaciones(sp)", "mediciones(sp)", "presión arterial(sp)", "signos vitales(sp)", "presión arterial media(sp)", "presión pulso(sp)", "sistólica(sp)", "diastólica(sp)", "RR(en)", "Presión Arterial No Invasiva(sp)", "PANI(sp)" ],
+          "use" : "Usar para registrar todas las representaciones de la presión arterial sistémica, sin importar que método o localización del cuerpo se use para el registro. El arquetipo se usa para capturar la medida de la presión arterial en todos los escenarios clínicos - por ejemplo: automedición con un tensiómetro de uso domiciliario; la evaluación en situación de emergencia, de la sistólica usando palpación y un esfingomanómetro; medidas tomadas durante la consulta clínica o durante la prueba de esfuerzo (ergometría); y la serie de medidas automáticas hechas en la Unidad de Cuidados Intensivos.\r\nExiste un variado modelo de situaciones que soporta la interpretación de mediciones a través de la interpretación de la posición del paciente, ejercicio, factores confluentes y el ángulo de inclinación de la camilla en situaciones de investigación.\r\nLos eventos se han limitado a promediarse sobre un intervalo de 24 horas, sin embargo plantillas pueden acotar la medida por defecto 'cualquier evento' para ajustarse a requerimientos específicos de medida de la presión arterial como el Registro de la Tensión Arterial durante momentos específicos de tiempo, o sobre un rango de intervalos (+/- funciones matemáticas)\r\n\r\n ",
+          "misuse" : "No debe usarse para la presión intravenosa\r\nNo debe usarse para la medida de la presión arterial que NO deriva de la presión arterial de la circulación sistémica ej: la medida específica de la presión de la arteria Pulmonar (presión capilar)\r\nUsen Observación.presión_intravascular y especializaciones relacionadas para estas dos situaciones en particular.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For registrering av et individs systemiske arterielle blodtrykk.",
+          "keywords" : [ "BT", "NIBP", "pulstrykk", "pulsamplitude", "MAP", "IBP", "IBPM", "ABP", "ambulatorisk", "24t", "BP", "ikke-invasivt", "invasivt", "NIBPS", "NIBPD", "NIBPM", "middelarterietrykk", "SAP", "DAP", "PP", "systolisk", "diastolisk", "blodtrykk" ],
+          "use" : "Brukes til å registrere alle typer av systemisk arteriell blodtrykksmåling, uansett hvilken metode eller kroppsplassering som anvendes. Arketypen er ment for registrering av blodtrykksmåling i alle kliniske scenarier - for eksempel selvmåling med blodtrykksapparat hjemme, akutt måling av det systoliske blodtrykket ved radialispalpasjon og et sfygmomanometer, målinger tatt i kliniske konsultasjoner eller under trening/stresstesting, eller en serie med invasive eller noninvasive målinger i en intensivavdeling.\r\n\r\nArketypen understøtter registrering av målinger tatt under de fleste forhold med hensyn til individets stilling (liggende/sittende/stående osv.), under trening inklusiv kompliserende faktorer som for eksempel vinkelen på leiet i forbindelse med forskning.\r\n\r\nSpesifiserte hendelser er begrenset til gjennomsnittstrykket gjennom en periode på 24 timer, men i templates kan man ved hjelp av \"uspesifisert hendelse\" oppfylle spesifikke krav til blodtrykksmåling, som registrering av blodtrykk på bestemte tidspunkter, serier av målinger, eller over en periode (med eller uten matematiske funksjoner som minimum eller maksimum).",
+          "misuse" : "Anvendes ikke til sentralvenøst trykk. \r\n\r\nAnvendes ikke til måling av arterielle blodtrykk som ikke representerer et systemisk arterielt trykk f.eks spesifikk måling av pulmonalt arterietrykk.\r\n\r\nBruk OBSERVATION.intravascular_pressure og relaterte spesialiseringer i disse situasjonene.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ja" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ja"
+          },
+          "purpose" : "個人の全身における動脈血圧を記録するためのもの。",
+          "keywords" : [ "観察", "測定", "血圧", "バイタルサイン", "平均動脈圧", "脈圧", "収縮期", "拡張期", "RR間隔", "非観血血圧" ],
+          "use" : "測定方法や身体部位を問わず、すべての血圧についての表現を記録するために使用される。このアーキタイプはすべての臨床シナリオを網羅することを目指している。たとえば、家庭用の血圧計で自己測定した血圧や、集中治療において機械的に計測された一連の血圧などである。\r\n患者の体位や運動負荷、交絡因子やティルト台の角度など識別することにより、研究にて計測状態の解釈を手助けする豊富なステートモデルもある。\r\n24時間平均血圧だけが特定のイベントとして名前がつけられているが、テンプレートではデフォルトの「任意のイベント」にさらなる制約を加えることで、特定の時間や間隔を指定したり（数学的機能を追加したり、削除して）、血圧を記録するように、血圧測定に対する特定の要求を行ったイベントを指定することができる。",
+          "misuse" : "静脈内圧の測定には使用されない\r\nたとえば、右肺動脈の計測といった特定の動脈圧の計測を全身を循環している動脈圧の代用として用いるようなことはしてはいけない。\r\nこのような場合には、関連した特殊化であるOBSERVATION.intravascular_pressureを利用すること。",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fa" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fa"
+          },
+          "purpose" : "ثبت نمودن فشار خون وریدی کل یک فرد",
+          "keywords" : [ "مشاهدات", "اندازه گیری", "فشار خون", "علایم حیاتی", "میانگین فشار وریدی", "فشار نبض", "سیستولیک", "دیاستولیک", "تنفسهای سریع", "فشار خون غیر تهاجمی" ],
+          "use" : "برای ثبت هر چیز نشاندهنده اندازه گیری فشاره خون وریدی کل، جدا از ابنکه برای ثبت آن از چه شیوه ای یا کدام بخش از بدن استفاده شده باشد، بکار می رود. این الگوساز برای گردآوری اندازه گیری فشار خون در همه سناریوهای بالینی طراحی شده است، مانند اندازه گیری توسط خود فرد بوسیله دستگاه فشار خون خانگی، ارزیابی اورژانسی سیستولیک با لمس نبض و یک \"فشارسنج خون\"، اندازه گیریهای انجام گرفته در مشاوره بالینی یا حین تست ورزشی، و یا یک رشته از اندازه گیریهای دستگاه مراقبت های ویژه.\r\nمدل حالت توانمندی وجود دارد که تفسیر اندازه گیری ها را از طریق شناسایی موقعیت بیمار، ورزش، فاکتورهای مبهم و تست تخت شیبدار، پشتیبانی می کند.\r\nرویدادهای نام گذاری شده بگونه ای محدود شده اند که روی یک دوره 24 ساعته میانگین گیری کنند هر چند که الگو ها می توانند پیش فرض -هر گونه  رویداد- را برای فراهم کردن خواسته های خاص از اندازه گیری فشار خون، با محدودیتهایی نظیر ثبت فشار خون سر وقت یا روی رنجی از فاصله های زمانی (با عمل جمع یا منها)، بیشتر محدود کنند \r\n",
+          "misuse" : "برای فشار داخل وریدی استفاده نشود.\r\nبرای اندازه گیری فشار خون وریدی نباید استفاده شود که جایگزینی برای فشار وریدی در گردش خون کلی نیست، بعنوان مثال اندازه گیری خاص فشار وریدی ریه راست.\r\n\r\n و تخصص های مربوطه برای موارد بالا بکار رود\"OBSERVATION.intravascular_pressure\"\r\n \r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Het registreren van de systemische arteriële bloeddruk van een individu.",
+          "keywords" : [ "observaties", "meting", "blddr", "vitale functies", "gemiddelde arteriële druk", "polsdruk", "systolisch", "diastolisch", "RR", "NIBP", "tensie" ],
+          "use" : "Wordt gebruikt om alle weergaven van de systemische bloeddruk te registreren, ongeacht welke methode of welke lichaamslocatie is gebruikt om de meting te doen. \r\n\r\nHet archetype is bedoeld om bloeddruk metingen in alle klinische scenario's vast te leggen - bijvoorbeeld:\r\n- zelf-meting met een thuis bloeddrukmeter; \r\n- een nood beoordeling van de systolische bloeddruk met behulp van palpatie en een drukmanchet; \r\n- metingen tijdens consulten, overleg of tijdens inspannings stress testen, en \r\n- een reeks van metingen die door een apparaat zijn gedaan in de intensieve zorg.\r\n\r\nEr is een uitgebreid status model dat interpretatie van metingen ondersteunt, door patiënt positie, inspanning, beïnvloedende factoren en de hoek/het aantal graden waarin de onderzoekstafel staat, te specificeren.\r\n\r\nGenoemde gebeurtenissen zijn gelimiteerd tot een gemiddelde over een periode van 24 uur, maar templates kunnen de standaard 'iedere gebeurtenis' verder vernauwen om specifieke eisen voor de bloeddrukmeting, zoals registreren van de bloeddruk op een specifiek tijdsmoment, of over een reeks van intervallen (+/- statistisch gebruik) te faciliteren.\r\n",
+          "misuse" : "Niet te gebruiken voor de meting van de arteriële bloeddruk welke geen surrogaat is voor de arteriële druk in de systemische circulatie, bv de specifieke meting van de rechter arterie pulmonalis druk.\r\nGebruik OBSERVATION.intravascular_pressure in deze situatie.\r\n\r\nNiet te gebruiken voor intraveneuze druk. Gebruik een van de OBSERVATION.intravascular_pressure specialisaties in deze situatie.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.blood_pressure.v2",
     "differential" : true,
@@ -736,7 +997,178 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "367B17CB3B1709A6BDF8A32723647224"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Dokumentation der Frequenz und der zugehörigen Attribute einer Puls- oder Herzfrequenz.",
+          "keywords" : [ "Frequenz", "Herzfrequenz", "Rhythmus", "Herzschlag", "Puls", "Pulsfrequenz", "Pulsschlag", "Blutdruck", "Vitalparameter", "Vitalzeichen" ],
+          "use" : "Zur allgemeinen Dokumentation der vorhandenen oder nicht vorhandenen Puls- oder Herzfrequenz.\r\n\r\nIn der Praxis werden die Begriffe \"Herzfrequenz\" und \"Pulsfrequenz\" oft synonym verwendet, obwohl sie an verschiedenen Körperstellen gemessen werden können. Dieser Archetyp ist für beide Begriffe vorgesehen, wobei das Element \"Körperstelle\" der Unterscheidung dient.\r\n\r\nZur Dokumentation der Puls- oder Herzfrequenz und dessen Eigenschaften, sowie der klinischen Interpretationen der Messergebnisse.\r\n\r\nMessungen, wie die maximale Pulsfrequenz oder die maximale Herzfrequenz, die über eine gewisse Zeit gemessen werden, können im Feature \"Event\" mit der Bezeichnung \"Maximum\" dokumentiert werden. Andere zeitpunkt- oder intervallbezogene Ereignisse können innerhalb des Templates oder zur Laufzeit angegeben werden.\r\n\r\nBei der Entwicklung dieses Archetyps gab es einige Unstimmigkeiten zu der Darstellung der Regelmäßigkeit der Puls- oder der Herzfrequenz. Dieser Archetyp stellt die relevanten Datenpunkte separat dar: zunächst wird \"Regelmäßig\" vs. \"Unregelmäßig\" festgelegt und dann, wenn die Messung \"Unregelmäßig\" ist, können weitere Optionen von \"Normal unregelmäßig\" und \"Ungleichmäßig Unregelmäßig\" angegeben werden. In der Praxis könnten klinische Systeme den Nutzern eine Kombination der Werte aus den beiden Datenelementen \"Regelmäßig\" und \"Unregelmäßig\" anbieten - zum Beispiel \"Regelmäßig\", \"Regelmäßig unregelmäßig\" und \"Ungleichmäßig unregelmäßig\", die aus diesen beiden Datenelementen stammen. Die Daten können entgegen einander aufgezeichnet werden, mit der Annahme, dass bei der Angabe einer unregelmäßigen Herzfrequenz auch der Wert \"Unregelmäßig\" im Datenelement \"Regelmäßigkeit\" automatisch ausgewählt wird.\r\n\r\nIn bestimmten Situationen ist es wichtig, sehr spezifisch zu sein, damit eine an einer peripheren Körperstelle gemessene Frequenz, wie beispielsweise der Arteria radialis, von der Herzfrequenz unterschieden werden kann. Um ein Pulsdefizit aufzuzeichnen, zeichnen Sie die Messung der mechanischen Herzfrequenz und einer peripheren Pulsfrequenz separat in diesem Archetyp auf - der Unterschied zwischen diesen Messungen ist das Pulsdefizit. Das tatsächliche Pulsdefizit wird in einem separaten OBSERVATION-Archetyp aufgezeichnet.",
+          "misuse" : "Nicht zur Dokumentation einer Herzfrequenz, errechnet aus dem RR-Intervall einer EKG-Messung - der Archetyp OBSERVATION.ecg_result soll für diesen Zweck verwendet werden.\r\n\r\nNicht zur Dokumentation von Details einer Kardiovaskulären Untersuchung oder Bewertung verwenden. Andere spezifische CLUSTER-Archetypen werden verwendet, um Merkmale wie den Herzspitzenstoß, Herzspitzengeräusche und allgemeine Herzgeräusche oder auskultatorische Befunde aufzuzeichnen.\r\n\r\nInsbesondere ist dieser Archetyp nicht dazu gedacht, die Beurteilung einer peripheren Gefäßerkrankung aufzuzeichnen, die eine Dokumentation des Vorhandenseins und der Stärke jeder peripheren Pulsfrequenz erfordert. Ein spezifischer CLUSTER-Archetyp wird verwendet, um die allgemeinen Ergebnisse der Untersuchung von peripheren Pulsfrequenzen zu erfassen.\r\n\r\nNicht zur Dokumentation des fetalen Blutdrucks verwenden - der Archetyp OBSERVATION.fetal_heart soll für diesen Zweck verwendet werden.\r\n\r\nNicht zur Dokumentation des Pulsdefizits verwenden - für diesen Zweck soll ein spezifischer OBSERVATION-Archetyp verwendet werden.\r\n\r\nKonzepte, wie die Zielherzfrequenz, sollen im Zusammenhang mit dessen Zielen und Trainingsbewertungen in separaten EVALUATION-Archetypen erfasst werden.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи информации о частоте  и ритме  сердцечных сокращений.",
+          "keywords" : [ "ЧСС", "ритм", "сердечный ритм", "частотат сердечных сокращений" ],
+          "use" : "Используется для записи измеренных характеристик, связанных с темпом и ритма сердца, в том числе простая констатация наличия сердечного ритма. Эти характеристики не регистрируются путем прямого наблюдения самого сердца, а подразумевают альтернативные источники, включая прямую аускультацию сердца или электрокардиограф, отражающий электрическую активность сердца.\r\nЧастота и ритм сердечных сокращений  (или специализация этого архетипа - Пульс), как правило, регистрируются в качестве одного из компонентов жизненно важных признаков - включая кровяное давление, дыхание, температуру и оксиметрию. Для каждого из этих понятий существуют специальные архетипы. ",
+          "misuse" : "Не следует использовать для записи выводов о измеряемых частоте и ритме сердечных сокращений. Такого рода заявления, как, например, пациент находится в состоянии фибрилляция предсердий или тахикардии, должны быть записаны в других специальных архетипах, относящихся к категории ОЦЕНКА.\r\nНе следует использовать для записи механической частоты сердечных сокращений, ритма и связанные с ними характеристик - это записывается используя специализацию этого архетипа - OBSERVATION.heart_rate-pulse.\r\nНе используется для записи другой информации обширной системы обследования или оценки сердечно-сосудистой системы. Другие специфические архетипы используются для записи таких характеристик, как верхушечный толчок, шумы, результаты аускультаци и т.д.\r\nТакие понятия, как максимальная или целевая частота сердечных сокращений, должны записываться в отдельных архетипах, предназначенных специально для осуществления оценки.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att mäta puls eller hjärtfrekvens och beskriva relaterade egenskaper.",
+          "keywords" : [ "frekvens", "rytm", "slag", "puls", "hjärta", "vitaltecken" ],
+          "use" : "Används för att registrera närvaro eller frånvaro av puls eller hjärtslag.\r\n\r\nAnvänds för att registrera puls eller hjärtfrekvens samt relaterade observationer avseende deras mönster och karaktär samt för att dokumentera den kliniska tolkningen av fynd.\r\n\r\nI praktiken används termerna puls och hjärtfrekvens ofta i samma betydelse. För att tillgodose klinikers skiftande preferenser tillåter den här arketypen användning av båda termerna i de fall mätplatsen är ospecificerad.\r\n\r\nMätningar såsom maxpuls eller hjärtfrekvens i ett tidsintervall kan registreras i en \"Maximum\"-händelse. Andra enstaka händelser eller intervallhändelser kan specificeras i en mall, eller genereras automatiskt av vissa IT-system.\r\n\r\nI vissa fall är det dock viktigt att skilja pulsmätning i en perifer artär, exempelvis ett radialt kärl, från mätning av den centrala hjärtfrekvensen. Den här arketypen tillåter ytterst specifika data och gör åtskillnad mellan central hjärtfrekvens och puls som mäts i en specifik artär. För att registrera pulsdeficit, registrera mätningar av den mekaniska hjärtfrekvensen och en perifer pulsfrekvens i två fält i denna arketyp. Skillnaden mellan dessa mätvärden är pulsdeficiten. Den aktuella pulsdeficiten kommer att registreras i en separat OBSERVATION arketyp.\r\n\r\nI utvecklingen av denna arketyp har det varit en viss spänning kring presentationen av pulsens eller hjärtslagets regelbundenhet. Denna arketyp presenterar de relevanta datapunkterna separat: Först fastställda \"Regelbunden\" och \"Oregelbunden\" och sedan ytterligare alternativ om \"Oregelbunden\" väljs dvs. \"regelbundet oregelbunden\" och \"oregelbundet oregelbunden\".\r\n\r\nI praktiken skulle de kliniska systemen kunna erbjuda användarna en kombination av värdena från den \"regelbundna\" och \"oregelbundna typen\"- exempelvis \"regelbunden\", \"regelbundet oregelbunden\" och \"oregelbundet oregelbunden\" som hämtas från dessa två fält. Data kan registreras mot båda fälten med antagandet att om en av de oregelbundna typerna väljs, så är det \"oregelbundna\" värdet i dataelementet \"regelbunden\" också automatiskt markerat.",
+          "misuse" : "Ska inte användas för att registrera andningsfrekvens i samband med EKG-rapporter. Till detta ska arketypen OBSERVATION.ecg användas.\r\n\r\nSka inte användas för att registrera andra delar av en kardiovaskulär undersökning eller värdering. Till det ska speciella CLUSTER-arketyper användas, exempelvis för att registrera egenskaper såsom hjärtspetsstöt, blåsljud och *bruits* samt auskultatoriska fynd.\r\n\r\nSka i synnerhet inte användas för att registrera värdering av perifera vaskulära sjukdomar. Dessa kräver att närvaron av och styrkan hos varje perifer puls dokumenteras. Till detta ska en speciell CLUSTER-arketyp användas.\r\n\r\nSka inte användas för att registrera hjärtfrekvensen hos foster. Till detta ska arketypen OBSERVATION.fetal_heart användas.\r\n\r\nSka inte användas för att registrera pulsdeficit. Till detta ska en särskild OBSERVATION-arketyp användas.\r\n\r\nSka inte användas när hjärtfrekvens är ett behandlingsmål. Till det ändamålet ska EVALUATION-arketyper som är till för mål och värdering av träning användas.\r\n",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "*To record details about the rate and associated attributes for a pulse or heart beat.(en)",
+          "keywords" : [ "*rate(en)", "*rhythm(en)", "*beat(en)", "*pulse(en)", "*heart(en)", "*vital(en)", "*sign(en)" ],
+          "use" : "*Use to record the presence or absence of a pulse or heart beat.\r\n\r\nIn practice, the terms 'heart rate' and 'pulse rate' are often used interchangeably, although they may be measured at different body sites. This archetype allows either term to be used when the measurement site is not specified, to suit clinician preferences.\r\n\r\nUse to record the measurement of the pulse rate, or heart rate, observations about the associated pattern and character, and clinical interpretation of the findings.\r\n\r\nMeasurements such as the maximum pulse or heart rate over an interval of time can be recorded using 'Maximum' event. Others point-in-time or interval events may be specified within a template or at run-time.\r\n\r\nIn development of this archetype, there has been some tension around representation of the regularity of the pulse or heart beat. This archetype represents the relevant data points separately: firstly establishing 'Regular' vs 'Irregular' and then, if 'Irregular', further options of 'Regularly irregular' and 'Irregularly irregular'. In practice, clinical systems could offer users a combination of the values from the 'Regular?' and 'Irregular type' - for example, 'Regular', 'Regularly irregular' and 'Irregularly irregular' drawn from these two data elements. Data could be recorded against both data elements with the assumption that if one of the irregular types are selected, then the 'Irregular' value in the 'Regular?' data element is also automatically selected.\r\n\r\nIn certain situations it is important to be very specific so that a rate observed at a peripheral body site, such as the radial artery, can be differentiated from the rate of the heart. To record a pulse deficit, record the measurements of the mechanical heart rate and a peripheral pulse rate in two instances of this archetype - the difference between these measurments is the pulse deficit. The actual pulse deficit will be recorded in a separate OBSERVATION archetype.(en)",
+          "misuse" : "*Not to be used to record the R-R rate in the context of an Electrocardiograph report - use the OBSERVATION.ecg archetypefor this purpose.\r\n\r\nNot to be used to record other details of the full cardiovascular examination or assessment. Other specific CLUSTER archetypes will be used to record characteristics such as apex beat, murmurs and bruits, or auscultatory findings.\r\n\r\nIn particular, this archetype is not intended to record the assessment of peripheral vascular disease, which requires documentation of the presence and strength of each peripheral pulse.  A specific CLUSTER archetype will be used to record the general findings on examination of peripheral pulses.  \r\n\r\nNot to be used to record fetal heart rate - use the OBSERVATION.fetal_heart archetype for this purpose.\r\n\r\nNot to be used to record the pulse deficit - use a specific OBSERVATION archetype for this purpose.\r\n\r\nConcepts such as Target Heart Rate should be recorded in separate EVALUATION archetypes related to goals and exercise assessment.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om frekvens og tilhørende egenskaper for puls eller hjertefrekvens.",
+          "keywords" : [ "frekvens", "rytme", "slag", "puls", "hjerte", "pulsslag", "hjerteslag", "hjertefrekvens" ],
+          "use" : "Brukes til å registrere tilstedeværelse eller fravær av puls eller hjerteslag.\r\n\r\nBrukes til å registrere en måling av pulsfrekvensen eller hjertefrekvensen, med tilhørende observasjoner rundt rytmen.\r\n\r\nMålinger som makspuls over et tidsintervall kan registreres ved å bruke en intervallhendelse med en \"maksimum\"-funksjon. Andre tidspunkts- eller intervallhendelser kan spesifiseres i en template eller i applikasjonen.\r\n\r\nI praksis brukes begrepene hjertefrekvens og pulsfrekvens mye om hverandre. Denne arketypen tillater uspesifikke registreringer når målestedet ikke er oppgitt, for å best mulig kunne tilpasses klinikernes preferanser.\r\n\r\nI noen situasjoner er det imidlertid viktig å skille mellom en pulsfrekvens målt ved en perifer arterie som f.eks. arteria radialis, og den sentralt målte hjertefrekvensen. Denne arketypen tillater svært spesifikke data, inkludert en strukturert differensiering mellom sentral hjertefrekvens og perifer pulsfrekvens.\r\n\r\nUnder utviklingen av denne arketypen har det vært diskusjon rundt representasjon av regelmessighet av puls og hjerteslag. Denne arketypen representerer de relevante informasjonselementer separat; Først ved å etablere regelmessig kontra uregelmessig, og hvis uregelmessig så kan det videre beskrives hvilken form for uregelmessighet, hhv. 'Regelmessig uregelmessig' og 'Uregelmessig uregelmessig'. I praksis kan kliniske systemer tilby en kombinasjon av verdiene fra 'Regelmessig' og 'Type uregelmessighet' - for eksempel, 'Regelmessig, 'Regelmessig uregelmessig' og 'Uregelmessig uregelmessig' bli utledet fra disse to dataelementene. Data kan lagres i begge dataelementene med antakelsen om at hvis en av verdiene i 'Type uregelmessighet' er registrert, vil verdien for 'Uregelmessig' i dataelementet 'Rytme' automatisk bli valgt.\r\n\r\nVed å bruke to separate instanser kan arketypen benyttes til å registrere målingene av hjertefrekvens og pulsfrekvens som ligger til grunn for en registrering av pulsdeficit. Selve registreringen av pulsdeficitt gjøres imidlertid i en egen OBSERVATION-arketype.",
+          "misuse" : "Brukes ikke til å registrere R-R-frekvens i sammenheng med en EKG-rapport, til dette brukes \"OBSERVATION.ecg\"-arketypen.\r\n\r\nSkal ikke brukes til å registrere andre deler av en full kardiovaskulær undersøkelse eller vurdering. Til dette brukes spesifikke CLUSTER-arketyper for å registrere andre egenskaper som hjertespisstøt, bilyder og auskultatoriske funn.\r\n\r\nArketypen er ikke ment til å registrere vurderingen av perifer karsykdom der det er nødvendig å dokumentere tilstedeværelsen og styrken av hver enkelt perifere puls. Til dette brukes en spesifikk CLUSTER-arketype.\r\n\r\nSkal ikke brukes til å registrere hjertefrekvensen til et foster, dette gjøres ved hjelp av arketypen \"OBSERVATION.fetal_heart\".\r\n\r\nSkal ikke brukes til å registrere pulsdeficit - bruk en spesifik OBSERVATION arketype til dette formålet.\r\n\r\nHjertefrekvens som et mål for behandling registreres i egne EVALUATION-arketyper relatert til mål og vurdering av trening.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para gravar detalhes sobre a frequência e os atributos associados ao pulso ou batimento cardíaco.",
+          "keywords" : [ "frequência", "ritmo", "batimento", "pulso", "coração", "vital", "sinal" ],
+          "use" : "Use para registrar a presença ou ausência de pulso ou batimento cardíaco.\r\n\r\nNa prática, os termos \"frequência cardíaca\" e \"frequência do pulso\" são frequentemente utilizados indistintamente, embora possam ser medidos em diferentes locais do corpo. Este arquétipo permite que qualquer termo seja usado quando o local da medição não é especificado, de acordo com as preferências clínicas.\r\n\r\nUse para registrar a medida da freqüência do pulso, ou freqüência cardíaca, observações sobre o padrão e caráter associados e interpretação clínica dos achados.\r\n\r\nMedições como o pulso máximo ou freqüência cardíaca durante um intervalo de tempo podem ser gravadas usando o evento \"Máximo\". Outros eventos pontuais ou intervalados podem ser especificados dentro de um modelo ou em tempo de execução.\r\n\r\nNo desenvolvimento deste arquétipo, houve alguma tensão em torno da representação da regularidade do pulso ou batimento cardíaco. Este arquétipo representa os pontos de dados relevantes separadamente: primeiro estabelecendo 'Regular' vs 'Irregular' e, em seguida, 'Irregular', outras opções de 'Regularmente irregular' e 'Irregularmente irregular'. Na prática, os sistemas clínicos poderiam oferecer aos usuários uma combinação dos valores do \"Regular?\" E 'Tipo irregular' - por exemplo, 'Regular', 'Regularmente irregular' e 'Irregularmente irregular' extraídos destes dois elementos de dados. Os dados poderiam ser registrados contra os dois elementos de dados com a suposição de que, se um dos tipos irregulares for selecionado, então o valor 'Irregular' no elemento de dados 'Regular?' também é automaticamente selecionado.\r\n\r\nUse para registrar a presença ou ausência de pulso ou batimento cardíaco.\r\n\r\nNa prática, os termos \"frequência cardíaca\" e \"frequência de pulso\" são frequentemente utilizados indistintamente, embora possam ser medidos em diferentes locais do corpo. Este arquétipo permite que qualquer termo seja usado quando o local da medição não é especificado, de acordo com as preferências clínicas.\r\n\r\nUse para registrar a medida da freqüência do pulso, ou freqüência cardíaca, observações sobre o padrão e caráter associados e interpretação clínica dos achados.\r\n\r\nMedições como o pulso máximo ou freqüência cardíaca durante um intervalo de tempo podem ser gravadas usando o evento \"Máximo\". Outros eventos pontuais ou intervalados podem ser especificados dentro de um modelo ou em tempo de execução.\r\n\r\nNo desenvolvimento deste arquétipo, houve alguma tensão em torno da representação da regularidade do pulso ou batimento cardíaco. Este arquétipo representa os pontos de dados relevantes separadamente: primeiro estabelecendo 'Regular' vs 'Irregular' e, em seguida, 'Irregular', outras opções de 'Regularmente irregular' e 'Irregularmente irregular'. Na prática, os sistemas clínicos poderiam oferecer aos usuários uma combinação dos valores do \"Regular?\" E 'Tipo irregular' - por exemplo, 'Regular', 'Regularmente irregular' e 'Irregularmente irregular' extraídos destes dois elementos de dados. Os dados poderiam ser registrados contra os dois elementos de dados com a suposição de que, se um dos tipos irregulares for selecionado, então o valor 'Irregular' no elemento de dados 'Regular?' também é automaticamente selecionado.\r\n\r\nEm certas situações, é importante ser muito específico para que uma frequência observada num local do corpo periférico, tal como a artéria radial, possa ser diferenciada da frequência do coração. Para registrar um déficit de pulso, registre as medidas da freqüência cardíaca mecânica e uma frequência de pulso periférico em duas instâncias deste arquétipo - a diferença entre essas medições é o déficit de pulso. O déficit de pulso real será registrado em um arquétipo OBSERVATION separado.",
+          "misuse" : "Não deve ser utilizado para registrar a taxa R-R no contexto de um relatório de eletrocardiografia - use o arquétipo OBSERVATION.ecg para este fim.\r\n\r\nNão deve ser utilizado para registrar outros detalhes do exame ou avaliação cardiovascular completa. Outros arquétipos CLUSTER específicos serão usados para registrar características como a batida do ápice, murmúrios e sopros, ou achados na ausculta.\r\n\r\nEm particular, este arquétipo não pretende registar a avaliação da doença vascular periférica, que requer documentação da presença e da força de cada pulso periférico. Um arquétipo CLUSTER específico será usado para registrar os achados gerais no exame de pulsos periféricos.\r\n\r\nNão deve ser usado para registrar a freqüência cardíaca fetal - use o arquétipo OBSERVATION.fetal_heart para esta finalidade.\r\n\r\nNão deve ser usado para registrar o déficit de pulso - use um arquétipo OBSERVATION específico para este fim.\r\n\r\nConceitos como a Frequência Cardíaca-alvo devem ser registrados em arquétipos de EVALUATION separados relacionados com as metas e a avaliação do exercício.\r\n\r\n",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about the rate and associated attributes for a pulse or heart beat.",
+          "keywords" : [ "rate", "rhythm", "beat", "pulse", "heart", "vital", "sign" ],
+          "use" : "Use to record the presence or absence of a pulse or heart beat.\r\n\r\nIn practice, the terms 'heart rate' and 'pulse rate' are often used interchangeably, although they may be measured at different body sites. This archetype is intended to be used for either term and the measurement site element is used to differentiate them.\r\n\r\nUse to record the measurement of the pulse rate, or heart rate, observations about the associated pattern and character, and clinical interpretation of the findings.\r\n\r\nMeasurements such as the maximum pulse or heart rate over an interval of time can be recorded using 'Maximum' event. Others point-in-time or interval events may be specified within a template or at run-time.\r\n\r\nIn development of this archetype, there has been some tension around representation of the regularity of the pulse or heart beat. This archetype represents the relevant data points separately: firstly establishing 'Regular' vs 'Irregular' and then, if 'Irregular', further options of 'Regularly irregular' and 'Irregularly irregular'. In practice, clinical systems could offer users a combination of the values from the 'Regularity' and 'Irregular type' - for example, 'Regular', 'Regularly irregular' and 'Irregularly irregular' drawn from these two data elements. Data could be recorded against both data elements with the assumption that if one of the irregular types are selected, then the 'Irregular' value in the 'Regularity' data element is also automatically selected.\r\n\r\nIn certain situations it is important to be very specific so that a rate observed at a peripheral body site, such as the radial artery, can be differentiated from the rate of the heart. To record a pulse deficit, record the measurements of the mechanical heart rate and a peripheral pulse rate in two instances of this archetype - the difference between these measurments is the pulse deficit. The actual pulse deficit will be recorded in a separate OBSERVATION archetype.",
+          "misuse" : "Not to be used to record the R-R rate in the context of an Electrocardiograph report - use the OBSERVATION.ecg archetype for this purpose.\r\n\r\nNot to be used to record other details of the full cardiovascular examination or assessment. Other specific CLUSTER archetypes will be used to record characteristics such as apex beat, murmurs and bruits, or auscultatory findings.\r\n\r\nIn particular, this archetype is not intended to record the assessment of peripheral vascular disease, which requires documentation of the presence and strength of each peripheral pulse. A specific CLUSTER archetype will be used to record the general findings on examination of peripheral pulses. \r\n\r\nNot to be used to record fetal heart rate - use the OBSERVATION.fetal_heart archetype for this purpose.\r\n\r\nNot to be used to record the pulse deficit - use a specific OBSERVATION archetype for this purpose.\r\n\r\nConcepts such as Target Heart Rate should be recorded in separate EVALUATION archetypes related to goals and exercise assessment.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل تفاصيل حول معدل و نظم القلب.",
+          "keywords" : [ "المعدل", "معدل القلب", "النظم" ],
+          "use" : "يستخدم لتسجيل الخصائص التي تم قياسها فيما يتعلق بمعدل و نظم القلب, بما في ذلك بيان بسيط حول وجود نبض و معدل ضربات القلب. و لا يتم استخدام هذه القراءات بالملاحظة المباشرة للقلب ذاته, و إنما يتنم استنباطها من مصادر بديلة تتضمن التسمع المباشر للقلب أو تخطيط كهربية القلب بما يعكس النشاط الكهربي للقلب.\r\nمعدل و نظم القلب ( أو تخصيصهما إلى النبض) عادة ما يتم تسجيلهم على أنهم يمثلون واحدا من العلامات الحياتية – و التي تتكون من ضغط الدم, التنفس, درجة الحرارة, و قياس التأكسج. و يوجد نماذج إضافية مخصصة لكل نوع من هذه المفاهيم.",
+          "misuse" : "لا يستخدم لتسجيل استنتاجات حول معدل و نظم القلب الذي تم قياسهما. و ينبغي تسجيل بيانات مثل (المريض يعاني من الرجفان الأذيني) أو (يعاني من تسرع ضربات القلب) في نماذج أخرى مخصصة و متعلقة بتقييم حالة المريض.\r\nلا تستخدم لتسجيل معدل القلب الميكانيكي, أو النظم أو الخصائص الأخرى – و يتم تسجيل ذلك باستخدام تخصيص لهذا النموذج يسمى ملاحظة. معدل القلب – النبض.\r\nلا يستخدم لتسجيل تفاصيل فحص أو تقييم أكثر شمولا للجهاز القلبي الوريدي. و يمكن أن تستخدم نماذج معينة أخرى لتسجيل خصائص مثل نبض قمة القلب, النفخات, و الموجودات عند التسمع, إلى آخره.\r\nالمفاهيم الأخرى مثل أقصى معدل للقلب, أو معدل القلب المستهدف ينبغي أن يتم تسجيلها في نماذج أخرى متعلقة بتقييم المجهود.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Para registrar la frecuencia del pulso o latidos del corazón, y la descripción asociada a sus características como componente de los signos vitales",
+          "keywords" : [ "frecuencia, ritmo, latido, pulso, corazón, signo, signos vitales" ],
+          "use" : "Utilizar para registrar la presencia o ausencia de pulso o latidos del corazón.\r\n\r\nUtilizar para registrar la frecuencia del pulso o latidos del corazón, y observaciones sobre el ritmo.\r\n\r\nUtilizar para registrar la descripción de las características asociadas al pulso o latidos del corazón, comunmente registradas por parte de los signos vitales.\r\n\r\nMedidas como el pulso o latidos máximos en un intervalo de tiempo puede ser registrado en un evento de intervalo asociado a la función 'máximo'.\r\nOtros eventos puntuales o intervaloes pueden ser especificados dentro de una plantilla o en tiempo de ejecución.\r\n\r\nEn la práctica los términos pulso y latidos del corazón son intercambiables. Este arquetipo permite especificar el término que se desea utilizar para nombrar a la medida cuando no se especifica la localización corporal donde se realiza la medida.\r\n\r\nEn algunas situaciones, es importante diferenciar la frecuencia del pulso en una arteria periférica, como la arteria radial, en contraste con los latidos del corazón medidos centralmente. Este arquetipo permite registrar datos específicos y diferenciar entre frecuencia cardiaca central, y pulso medido sobre una arteria específica.",
+          "misuse" : "No debe ser utilizado para el cálculo de intervalos RR para l frecuencia cardiaca en el contexto de un estudio electrocardiográfico, para eso utilizar el arquetipo OBSERVATION.ecg.\r\n         \r\nNo debe ser utilizado para registrar otros detalles de la examiniación o evaluación cardiovascular.\r\nPara registrar características como latido apexiano, solplos, murmullos y hallazgos específicos, pueden utilizarse otros arquetipos CLUSTER.\r\n\r\nEste arquetipo no fue diseñado para el registro de la evaluación de enfermedad vascular periférica, la cual requiere documentación sobre la presencia e intensidad de cada pulso periférico. Un CLUSTER específico debe utilizarse para registrar hallazgos generales en la examinación de pulsos periféricos.\r\n\r\nNo debe ser utilizado para registrar la frecuencia cardiaca fetal, esto se registra en el arquetipo OBSERVATION.fetal_heart.\r\n\r\nConceptos como la frecuencia cardiaca objetivo deben ser registrados en arquetipos EVALUATION relacionados a objetivos sobre signos vitales y ejercicio.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Voor het vastleggen van de frequentie en andere eigenschappen van de pols of de hartslag.",
+          "keywords" : [ "frequentie", "ritme", "slag", "pols", "hart", "vitaal", "teken" ],
+          "use" : "Gebruik voor het vastleggen van de aanwezigheid of afwezigheid van een pols of hartslag.\r\n\r\nIn de praktijk worden de termen hart frequentie and polsfrequentie vaak door elkaar gebruikt, hoewel ze op andere locaties op het lichaam gemeten kunnen worden. Dit archetype is bedoeld om gebruikt te worden voor beide termen en het element meetlocatie wordt gebruikt om ze te onderscheiden.\r\n\r\nGebruik voor het vastleggen van een meting van de polsfrequentie of de hartfrequentie, observaties over het bijbehorende patroon, karakter en de klinische interpretatie van de bevindingen.\r\n\r\nMetingen zoals de maximale pols- of hartfrequentie gedurende een interval kunnen worden vastgelegd met behulp van 'maximum' gebeurtenis. Andere momenten of interval gebeurtenissen kunnen gespecificieerd worden in een template of terwijl de applicatie loopt.\r\n\r\nTijdens de ontwikkeling van dit archetype is er spanning geweest rond het vastleggen van de regulariteit van de pols- of hartfreqeuntie. Dit archetype legt de relevante data apart vast: ten eerste door het vastleggen van 'regulair' of 'irregulair' en vervolgens, indien 'irregulair', de extra opties 'regelmatig irregulair' en 'onregelmatig irregulair'. In d praktijk kunnen klinische systemen een combinatie tonen aan de gebruiker van de waardes van de 'regulariteit' en 'irregulair type' - bijvoorbeeld, 'regulair', 'regemlatig irregulair' en 'onregelmatig irregulair' gekozen uit deze twee data elementen. Data kan vastgelegd worden in beide elementen onder de aanname dat wanneer een van de irregulaire types gekozen wordt, dat automatisch de waarde 'irregulair' wordt gekozen in het data element 'regulariteit'.\r\n\r\nIn bepaalde situaties is het belangrijk om heel specifiek te zijn zodat de frequentie, geobserveerd aan een perifeer lichaamslocatie, zoals de arteria radialis, onderscheiden kan worden van de hartfrequentie. Om een polsdeficit vast te leggen, dient de meting van de mechanische hartfrequentie en een perifere hartfrequentie in twee aparte versies van dit archetype vastgelegd te worden - het verschil tussen deze metingen is het polsdeficit. Het daadwerkelijke polsdeficit wordt in een apart OBSERVATION archetype vastgelegd.",
+          "misuse" : "Niet te gebruiken voor het vastleggen van de R-R frequentie in de context van een electrocardiogram verslag - gebruik voor dat doel het OBSERVATION.ecg archetype.\r\n\r\nNiet te gebruiken voor het vastleggen van andere details van een volledig cardiovasculair onderzoek of beoordeling. Andere specifieke CLUSTER archetypes worden gebruikt voor het vastleggen van eigenschappen als apexhartslag, geruizen en bevindingen bij auscultatie. \r\n\r\nIn het bijzonder, is dit archetype niet bedoeld voor het vastleggen van een beoordeling van perifere vaculaire ziekte, die verslaglegging vereisen van de aanwezigheid of kracht van elke individuele perifere pols. Een specifiek CLUSTER archetype wordt gebruikt voor het vastleggen van bevindingen bij onderzoek van de perifere hartslag.\r\n\r\nNiet te gebruiken voor het vastleggen van foetale hartfrequentie - gebruik voor dat doel het OBSERVATION.fetal_heart archetype.\r\n\r\nNiet te gebruiken voor het vastleggen van het polsdeficit - gebruik voor dat doel een specifiek OBSERVATION archetype.\r\n\r\nConcepten zoals streef hart frequentie dienen vastgelegd te worden in een apart EVALUATION archetype gerelateerd aan doelen en inspannings beoordeling.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-co" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-co"
+          },
+          "purpose" : "Registrar la medida de la frecuencia de pulso, la frecuencia cardiaca, y la descripción de las características asociadas como uno de los componentes de las observación de signos vitales",
+          "keywords" : [ ],
+          "use" : "*Use to record the presence or absence of a pulse rate or heart rate. \r\n\r\nUse to record the measurement of the pulse rate, or heart rate, and observation about the associated rhythm.\r\n\r\nUse to record a simple description of characteristics that are associated with the pulse or heart beat, that might be commonly recorded as part of a vital signs obervation.\r\n\r\nMeasurements such as the maximum pulse or heart rate over an interval of time can be recorded using \"Maximum' event. Others point-in-time or interval events may be specified within a template or at run-time.\r\n\r\nIn practice, the terms heart rate and pulse rate are often used interchangeably. This archetype allows either term to be used when the measurement site is not specified, to suit clincian preferences.\r\n\r\nIn certain situations, however, it is important to differentiate between a pulse rate observed at a peripheral artery, such as the radial artery, in contrast to the centrally observed heart rate. This archetype allows the data to be very specific and differentiate between central heart rate and the pulse rate recorded at a specified artery.(en)",
+          "misuse" : "*Not to be used to record the R-R rate in the context of an Electrocardiograph report - this is to be recorded using the OBSERVATION.ecg archetype.\r\n\r\nNot to be used to record other details of the full cardiovascular examination or assessment. Other specific CLUSTER archetypes will be used to record characteristics such as apex beat, murmurs and bruits, auscultatory findings,\r\n\r\nIn particular, this archetype is not intended to record the assessment of peripheral vascular disease, which requires documentation of the presence and strength of each peripheral pulse.  A specific CLUSTER archetype will be used to record the general findings on examiantion of peripheral pulses.  \r\n\r\nNot to be used to record fetal heart rate - this is recorded using the OBSERVATION.fetal_heart archetype.\r\n\r\nConcepts such as Target Heart Rate should be recorded in separate EVALUATION archetypes related to goals and exercise assessment.(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.pulse.v2",
     "differential" : true,
@@ -1002,7 +1434,227 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "203F097307CFAB8871029D0E03720068"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der gemessenen Temperatur einer Person - als Surrogat für die Temperatur des gesamten Körpers.",
+          "keywords" : [ "Temperatur", "Körper", "Ganzes", "Fieber", "Hypothermie", "Hyperthermie" ],
+          "use" : "Zur Darstellung der gesamten Körpertemperatur einer Person oder eines Körpers.\r\n\r\nWenn benötigt, können zusätzliche Cluster-Archetypen eingefügt werden, um zusätzliche Statusdaten bereitzustellen - darunter Details zu Umgebungsbedingungen und Belastungsdetails.\r\n\r\nBitte beachten: Die Stelle und Methode der Messung muss ggf. dem Endverbraucher angezeigt werden, um eine präzise Interpretation der gemessenen Temperatur zu ermöglichen.",
+          "misuse" : "Dieser Archetyp soll nicht für die Darstellung der Temperaturmessung eines anderen Objekts verwendet werden.\r\n\r\nDieser Archetyp darf nicht verwendet werden, um die Temperatur eines Körperteils isoliert darzustellen, z. B. die Temperatur an der Fußsohle im Rahmen des Managements von chronischem Diabetes.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи измеряемой температуры человека - в качестве суррогата температуры всего тела.",
+          "keywords" : [ "температура", "лихорадка", "жар", "гипертермия", "гипотермия" ],
+          "use" : "Используется для записи температуры тела пациента или органа.\r\nДополнительные кластеры могут быть включены для получения дополнительной информации о состоянии - в том числе условия внешней среды, фаза менструального цикла и другие детали, где это уместно.\r\nОбратите внимание: запись о месте и методе измерения  может потребоваться  для облегчения точной интерпретации регистрируемой температуры.",
+          "misuse" : "Этот архетип не следует использовать для записи температуры любого другого объекта.\r\nЭтот архетип не следует использовать для записи температуры части тела, например, отдельного измерения температуры ступни в лечении больных с диабетической стопой.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att mäta en individs kroppstemperatur som är ett surrogat för kroppens kärntemperatur.",
+          "keywords" : [ "temperatur", "kropp", "kärna", "feber", "hypotermi", "hypertermi" ],
+          "use" : "Används för att mäta en individs kroppstemperatur som är ett surrogat för individens kärntemperatur.\r\nYtterligare kluster kan läggas till för ytterligare tillståndsdata såsom miljöförhållanden och detaljer från ansträngningstest där det är lämpligt.\r\n\r\nObservera: Platsen och mätmetoden kan behöva visas för slutanvändaren för att underlätta korrekt tolkning av den uppmätta temperaturen. \r\n",
+          "misuse" : "Ska inte användas för att mäta temperaturen av något annat föremål.\r\n\r\nSka inte användas för att mäta temperaturen av en isolerad kroppsdel, exempelvis temperaturen av fotsulan som en del i kronisk diabetesskötsel.\r\n",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "Henkilön lämpötilan mittaamista varten. ",
+          "keywords" : [ "lämpötila, kuume, hypotermia, hypertermia" ],
+          "use" : "Yksilön lämpötilan kirjaamista varten.\r\n\r\nLisäklustereita voidaan sisällyttää lisätietojen tallentamista varten, mukaan lukien ympäristöolosuhteet ja yksityiskohtaiset rasitustiedot.\r\n\r\nHuomio: Mittauspaikka ja mittaustapa voi olla hyödyllistä näyttää käyttäjälle lämpötilan tarkan tulkinnan helpottamiseksi.",
+          "misuse" : "Tätä arkkityyppiä ei käytetä kuvaamaan minkään muun kohteen kuin potilaan lämpötilaa.\r\n\r\nTätä arkkityyppiä ei käytetä kehon osan lämpötilan tallentamiseen erillään, esim. jalan pohjan lämpötila osana kroonista diabeteksen hoitoa.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Registrar a temperatura aferida de uma pessoa - substituto para temperatura corporal central.",
+          "keywords" : [ "temperatura", "corpo", "central", "febre", "hipotermia", "hipertermia" ],
+          "use" : "Usado para registrar a temperatura corporal de uma pessoa, o qual é um substituto para a temperatura corporal central.\r\nClusters adicionais podem ser incluídos para fornecer dados adicionais - incluindo as condições ambientais e detalhes de esforço, quando apropriado.\r\n\r\nObservação: O local e método de gravação podem precisar ser exibidos ao usuário final para facilitar a interpretação exata da temperatura registrada.",
+          "misuse" : "Esse arquétipo não pode ser usado para registrar a temperatura de qualquer outro objeto.\r\nEsse arquétipo não pode ser usado para registrar a temperatura de uma parte do corpo isoladamente, por exemplo, temperatura da sola do pé, como parte do controle de diabetes crônica.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل درجة الحرارة التي تم قياسها للشخص - كبديل عن درجة حرارة الجسم كله",
+          "keywords" : [ "الحرارة", "الجسم", "اللُّب", "الحمى", "انخفاض الحرارة", "فرط الحرارة" ],
+          "use" : "يستخدم لتسجيل حرارة جميع الجسم للشخص أو الجثة.\r\nيمكن تضمين عناقيد أخرى للإمداد بالمزيد من تفاصيل الحالة - بما في ذلك العوامل البيئية, تفاصيل الدورة الشهرية, تفاصيل المجهود, حيثما تطلب الأمر.\r\nالرجاء ملاحظة: قد يكون من الواجب عرض هذا الموقع و طريقة التسجيل للمستخدِم النهائي لتسهيل التفسير الدقيق للحرارة التي يتم تسجيلها.",
+          "misuse" : "هذا النموذج لا يستخدم لتسجيل حرارة أي شيئ آخر.\r\nهذا النموذج لا يستخدم لتسجيل الحرارة لجزء معزول من الجسم, مثلا حرارة أخمص القدم كجزء من التدبير العلاجي لمرض السكري المزمن.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the measured temperature of a person - as a surrogate for the core body temperature.",
+          "keywords" : [ "temperature", "body", "core", "fever", "hypothermia", "hyperthermia" ],
+          "use" : "Used for recording the measurement of an individual's body temperature, which is a surrogate for the core body temperature of the individual.\r\n\r\nAdditional clusters can be included to provide additional state data - including environmental conditions and exertion details, where appropriate.\r\n\r\nPlease Note: The site and method of recording may need to be displayed to the end user to facilitate accurate interpretation of the temperature recorded.",
+          "misuse" : "This archetype is not to be used to record the temperature of any other object.\r\n\r\nThis archetype is not to be used to record the temperature of a part of the body in isolation e.g. temperature of the sole of the foot as a part of chronic diabetes management.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "it" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "it"
+          },
+          "purpose" : "Registrare la temperatura misurata di una persona - come surrogato della temperatura del corpo centrale.",
+          "keywords" : [ "temperatura, corpo, tronco, febbre, ipotermia, ipertermia" ],
+          "use" : "\r\nUtilizzato per registrare la misurazione della temperatura corporea di un individuo, che è un indicatore della temperatura corporea interna dell'individuo.\r\n\r\nPossono essere inclusi ulteriori cluster per fornire dati aggiuntivi sullo stato - comprese le condizioni ambientali e i dettagli dello stato di fatica, se del caso.\r\n\r\nNota: il sito e il metodo di registrazione potrebbero dover essere visualizzati all'utente finale per facilitare l'interpretazione accurata della temperatura registrata.",
+          "misuse" : "Questo archetipo non deve essere usato per registrare la temperatura di alcun altro oggetto.\r\n\r\nQuesto archetipo non deve essere usato per registrare la temperatura di una parte del corpo in isolamento, ad esempio la temperatura della pianta del piede come parte della gestione del diabete cronico",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Registrar la temperatura medida de una persona - como un derivado de la temperatura corporal",
+          "keywords" : [ "temperatura", "cuerpo", "central", "fiebre", "hipotermia", "hipertermia" ],
+          "use" : "Usar para registrar la temperatura corporal de una persona o cuerpo.\r\nClusters adicionales pueden incluirse para proveer datos adicionales de estado - incluyendo condiciones ambientales, detalles del ciclo menstrual y de ejercicio físico, cuando se considera apropiado.\r\nTener en cuenta: El sitio y el método del registro quizás sea necesario mostrarlo al usuario final, para la adecuada interpretación del registro de temperatura.",
+          "misuse" : "Este arquetipo no debe usarse para registrar la temperatura de cualquier otro objeto.\r\nEste arquetipo no debe usarse para registrar la temperatura de una parte del cuerpo aislado por ej: la temperatura de la planta del pie como parte del manejo de la diabetes crónica.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "Brukes til å registrere et individs målte kroppstemperatur, som uttrykk for kjernetemperaturen.",
+          "keywords" : [ "temperatur", "kropp", "kjerne", "feber", "hypotermi", "hypertermi", "temperaturmåling", "overoppheting", "nedkjøling", "heteslag" ],
+          "use" : "Brukes til å dokumentere et individs kjernetemperatur. Det kan legges til CLUSTERE for å tilføre tillegsinformasjon, inkludert miljømessige forhold (eksponering), detaljer om menstruasjonssyklus og informasjon om fysisk anstrengelse, der hvor dette er relevant. NB: Målemetode og -sted vil ofte måtte vises til sluttbruker for at de dokumenterte temperaturverdiene skal kunne tolkes korrekt.",
+          "misuse" : "Arketypen skal ikke brukes til å registrere andre objekters eller en isolert kroppsdels temperatur.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Registrar la temperatura medida de una persona - como un derivado de la temperatura corporal",
+          "keywords" : [ "temperatura", "cuerpo", "central", "fiebre", "hipotermia", "hipertermia" ],
+          "use" : "Usar para registrar la temperatura corporal de una persona o cuerpo.\r\nClusters adicionales pueden incluirse para proveer datos adicionales de estado - incluyendo condiciones ambientales, detalles del ciclo menstrual y de ejercicio físico, cuando se considera apropiado.\r\nTener en cuenta: El sitio y el método del registro quizás sea necesario mostrarlo al usuario final, para la adecuada interpretación del registro de temperatura.",
+          "misuse" : "Este arquetipo no debe usarse para registrar la temperatura de cualquier otro objeto.\r\nEste arquetipo no debe usarse para registrar la temperatura de una parte del cuerpo aislado por ej: la temperatura de la planta del pie como parte del manejo de la diabetes crónica.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ja" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ja"
+          },
+          "purpose" : "全身の温度の代用として計測された人の体温を記録する。",
+          "keywords" : [ "*temperature(en)", "*body(en)", "*core(en)", "*fever(en)", "*hypothermia(en)", "*hyperthermia(en)" ],
+          "use" : "人や体の全体の温度を記録するために用いられる。\r\nさらに状態データを表すために、追加のクラスタを内包することもできる。たとえば、環境条件や、月経周期の詳細、労作についての詳細を必要に応じて内包する。\r\n注意：計測された温度を正確に解釈するためにエンドユーザーに記録方法や部位を示す必要があるかもしれません。",
+          "misuse" : "このアーキタイプは、人体以外の温度を計測するためには用いられない。\r\nこのアーキタイプは、身体において独立した一部の温度を記録するためには用いられない。たとえば、糖尿病の慢性期管理の一貫として、測定の温度を計測すること。",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fa" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fa"
+          },
+          "purpose" : "برای ثبت اندازه گیری دمای بدن یک فرد بکار می رود- به عنوان جایگزینی برای دمای کل بدن",
+          "keywords" : [ "دما", "بدن", "مرکز", "تب", "کاهش دمای بدن", "افزایش دمای بدن" ],
+          "use" : "برای ثبت دمای کل بدن فرد یا بدن استفاده می شود . خوشه‌های اضافی، برای در بر گرفتن داده‌های حالت بیشتر، شامل شرایط محیطی ، جزییات عادت ماهیانه و جزییات جنب و جوش فرد، هر جا که مناسب باشند، می‌توانند گنجانده شوند.\r\nلطفا توجه داشته باشید که برای تسهیل در تفسیر صحیح دما ثبت شده، توسط کاربر نهایی ممکن است که نمایش محل و روش ثبت لازم باشد",
+          "misuse" : "این الگو ساز جهت ثبت دما اشیا دیگر بکار نمی رود .\r\nاین الگو ساز جهت ثبت دمای بخشهایی از بدن -\r\nبه عنوان مثال دمای کف پا به عنوان بخشی از پایش دیابت مزمن- بصورت جداگانه استفاده نمی شود\r\n   ",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Voor het vastleggen van de gemeten temperatuur van een persoon - als surrogaat van de kerntemperatuur van het lichaam.",
+          "keywords" : [ "temperatuur", "lichaam", "kern", "koorts", "hypothermie", "hyperthermie" ],
+          "use" : "Gebruikt voor het vastleggen van de meting van de lichaamstemperatuur van een individu, wat een surrogaat is van de kerntemperatuur van het lichaam van een individu.\r\n\r\nWaar gepast kunnen extra clusters toegevoegd worden voor het ondersteunen van extra data over de toestand - inclusief omgevingsfactoren en inspannings details.\r\n\r\nNota bene: de plaats en methode van de meting dienen mogelijk weer gegeven te worden aan de eindgebruiker om precieze interpretatie van de vastgelegde temperatuur mogelijk te maken.",
+          "misuse" : "Dit archetype dient niet gebruikt te worden voor het vastleggen van de temperatuur van een (ander) object.\r\n\r\nDit archetype dient niet gebruikt te worden voor het vastleggen van de temperatuur van een specifiek lichaamsdeel, bijvoorbeeld de temperatuur van de voetzool zoals bij chronische diabeteszorg.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.body_temperature.v2",
     "differential" : true,
@@ -1285,7 +1937,212 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "C75BA8F0FF1D8D127E0E9469D06C9128"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der Körpergröße in einer gestreckten Position, von Scheitel bis Sohle. Dies kann sowohl genau als auch ungefähr erfolgen, und entweder in einer stehenden oder liegenden Position.",
+          "keywords" : [ "Schrumpfung", "erhöhen, ansteigen", "verringern", "Größenverlust", "Größe", "Länge", "Wachstum" ],
+          "use" : "Wird verwendet um die tatsächliche Körpergröße/-länge eines Individuums zu repräsentieren. Eine Aussage über die physische Unvollständigkeit des Körpers kann in den \"Einflussfaktoren\" des Protokoll-Elements dargestellt werden. Dies ist der übliche Archetyp zur Darstellung einer typischen Messung von Körpergröße/-länge, unabhängig von der klinischen Situation.\r\n\r\nDer Archetyp kann auch verwendet werden, um eine geschätzte Größe oder Körperlänge darzustellen, wenn es nicht möglich ist, eine genaue Messung durchzuführen, z.B. das Messen bei einem unkooperativen Kind. Dies wird im Archetyp nicht explizit modelliert, da das openEHR-Referenzmodell Annäherungen für jeden Quantitätsdatentyp zulässt, indem das Attribut Magnitude_status auf den Wert '~' gesetzt wird. Bei der Implementierung könnte beispielsweise eine Anwendungsbenutzeroberfläche es Klinikern ermöglichen, ein entsprechend gekennzeichnetes Kontrollkästchen neben dem Feld \"Größe/Länge\" zu aktivieren, um anzuzeigen, dass die aufgezeichnete Größe eher eine Annäherung als ein tatsächlicher Wert ist.\r\n\r\nIm Allgemeinen werden Längenmessungen für Kinder bis zwei Jahren empfohlen, sowie für Individuen, die nicht stehen können; Größenmessungen für alle anderen. \r\n\r\nVerwenden Sie das Ereignis \"Geburt\", wenn Sie die erste Länge eines Kindes kurz nach der Geburt \"Geburtslänge\" darstellen.\r\n\r\nDer Archetyp wird auch benutzt, um eine Wachstum oder Verlust der Körpergröße/-länge darzustellen. Dies kann z.B. in einem Template modelliert werden, indem \"Beliebiges Ereignis\" auf ein Intervall eingeschränkt wird, mit der zugehörigen mathematischen Funktion \"Erhöhen\" oder \"Verringern\".",
+          "misuse" : "Nicht zur Darstellung einer angepassten Körpergröße, einer Berechnung der vollen Körpergröße einer Person, bei der beispielsweise Teile oder alle unteren Gliedmaßen fehlen oder Kontrakturen vorliegen. Eine berechnete Körpergröße kann auf Messungen anderer Körperteile und einem Algorithmus basieren. Verwenden Sie zu diesem Zweck bestimmte Archetypen.\r\n\r\nNicht zur Darstellung der Wachstumsgeschwindigkeit verwenden.\r\n\r\nNicht zur Darstellung der Länge eines Objekts oder eines bestimmten Körperteils.\r\n\r\n\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи длины тела человека от макушки до пяток - как фактических, так и приближенных, стоя или лежа.\r\n",
+          "keywords" : [ "сжатие", "Увеличение", "снижение", "высота потери", "Высота", "Длина", "рост" ],
+          "use" : "Для записи фактической длины тела индивида в любой момент времени. В случае необходимости физическая неполнота тела может быть записана в протоколе - элемент \"Смешанные факторы. Это обычный образец, который будет использоваться для типичного измерения  длины тела, независимо от клинических условий.\r\nМожет также использоваться для записи приблизителной длины тела в клиническом сценарии, где не возможно измерить точную высоту или длину - например, у ребенка. Это обстоятельство явно не указывается в архетипе, так как модель openEHR позволяет использовать атрибут приближения для любого типа количественных данных. Например, в интерфейсе приложения пользователь может позволить врачам, выбрать надлежащим образом маркированных флажок рядом с полем данных Рост чтобы показать, что записано приблизительное значение, а не фактический.\r\nИзмерения длины тела рекомендуется для детей младше 2 лет и лицам, которые не могут стоять, рост стоя, для всех остальных.\r\nВ идеале, рост измеряется стоя на двух ногах с весом распределяется равномерно, пятки вместе, и обе ягодицы и пятки в контакте с вертикальной поверхностью, длина тела измеряется в вытянутом положении лежа таз находится на плоскости, ноги вытянуты и ноги согнуты .\r\nИспользуется для записи роста (ребёнка) и потери высоты. В случае необходимости, подобное применение настоящее время может быть смоделировано путем ограничения \"any event\", до интервала, с соответствующей математической функцией увеличения или уменьшения в шаблоне.\r\n",
+          "misuse" : "Не следует использовать для записи длины тела новорожденного - использовать специализацию этого архетипа - см. OBSERVATION.height-birth.\r\nНе следует использовать для записи скорректированной длины тела, например, расчет предполажительного роста человека с контрактурами конечностей, на основании  измерения других частей телаи / или алгоритмов - используйте OBSERVATION.height-adjusted.\r\nНе следует использовать для записи скорости роста.\r\nНе использовать для записи длины объекта или определенной части тела.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att dokumentera en individs kroppslängd från hjässa till fotsula - uppmätt eller uppskattad, samt i stående eller liggande ställning.",
+          "keywords" : [ "krympning", "ökning", "minskning", "längd", "kroppslängd", "tillväxt" ],
+          "use" : "Används vid de flesta mätningar av kroppslängd, oberoende av den kliniska situationen.\r\n\r\nAnvänds för att dokumentera en individs uppmätta kroppslängd vid någon tidpunkt. Information rörande kroppens fysiska ofullständighet kan vid behov registreras i fältet \"Möjliga felkällor och påverkande faktorer\". \r\n\r\nAnvänds även för att dokumentera uppskattad kroppslängd i kliniska situationer där det inte är möjligt att mäta exakt kroppslängd, exempelvis vid mätning av ett icke samarbetsvilligt barn. Detta har inte modellerats explicit i arketypen eftersom OpenEHRs referensmodell tillåter uppskattningar för vilken datatyp för kvantitet som helst. En uppskattning anges genom att attributet Magnitude_status sätts till '~'. I praktisk tillämpning kan systemets användargränssnitt exempelvis ha en kryssruta intill fältet för kroppslängd för att indikera att den registrerade kroppslängden är uppskattad och inte faktisk. \r\n\r\nAnvänds för att dokumentera tillväxt och längdminskning. Detta kan modelleras genom att \"Tidsobestämd händelse\" begränsas till ett intervall i en template med tillhörande matematisk funktion för ökning eller minskning.",
+          "misuse" : "Ska inte användas för att dokumentera justerad kroppslängd, exempelvis en beräkning av uppskattad kroppslängd för en person med extremitetkontrakturer baserat på andra kroppsdelsmätningar eller på en algoritm, använd då istället arketypen OBSERVATION.height-adjusted.\r\n\r\nSka inte användas för att dokumentera tillväxthastighet.\r\n\r\nSka inte användas för att dokumentera längd av ett objekt eller en viss kroppsdel.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "*To record the length of the body from crown of head to sole of foot of an individual - both actual and approximate, and either in a standing or recumbent position.(en)",
+          "keywords" : [ "*shrinkage(en)", "*increase(en)", "*decrease(en)", "*height loss(en)", "*height(en)", "*length(en)", "*growth(en)" ],
+          "use" : "*To be used for recording the actual height or body length of an individual at any point in time.  A statement identifying the physical incompleteness of the body can be recorded in the 'Confounding factors' protocol element, if required.  This is the usual archetype to be used for a typical measurement of height or body length, independent of the clinical setting.\r\n\r\nCan also be used for recording an approximation of height or body length measurement in a clinical scenario where it is not possible to measure an accurate height or length - for example, measuring an uncooperative child.  This is not modelled explicitly in the archetype as the openEHR Reference model allows approximations  for any Quantity data type by setting the attribute Magnitude_status to the value '~'.  At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Height data field to indicate that the recorded height is an approximation, rather than actual.\r\n\r\nIn general, length measurements are recommended for children under 2 years of age and individuals who cannot stand; height measurements for all others.\r\n\r\nIdeally, height is measured standing on both feet with weight distributed evenly, heels together and both buttocks and heels in contact with a vertical back board; body length is measured in a fully extended, supine position with the pelvis flat, legs extended and feet flexed. \r\n\r\nUse to record growth or loss of height.  This can currently be modelled by constraining the 'any event' to an interval event within a template, with the associated mathematical function of increase or decrease, as appropriate.(en)",
+          "misuse" : "*Not to be used to record the adjusted height or body length eg a calculation of the estimated full height of a person with limb contractures, based on other body part measurements and/or an algorithm - use OBSERVATION.height-adjusted.\r\n\r\nNot to be used to record growth velocity.\r\n\r\nNot to be used to record the length of an object or specific body part.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para registar o comprimento do corpo de um indivíduo, medindo da coroa da cabeça a sola do pé.\r\nA medida pode ser tanto real como aproximada, quer seja com a posição do indivíduo de pé ou em decúbito dorsal.",
+          "keywords" : [ "encolhimento", "crescimento", "diminuição", "diminuição da altura", "altura", "comprimento", "crescimento" ],
+          "use" : "Usada para gravar a altura real ou comprimento do corpo de um indivíduo a qualquer momento.\r\nA indicação da imperfeição física do corpo pode ser gravado no elemento 'protocolo fatores de confusão', se necessário.\r\nEste é o arquétipo de uso habitual para a medição típica de altura ou comprimento do corpo, independente da situação clínica. \r\nTambém pode ser usado para a gravação de uma altura aproximada ou de medição do comprimento do corpo em um cenário clínico no qual não é possível medir uma altura ou comprimento exato - por exemplo, a medição de uma criança que não coopera. Isso não é modelada explicitamente no arquétipo como o modelo de referência openEHR permite que o atributo de aproximação para qualquer tipo de dados quantitativos. Na execução, por exemplo, uma interface de usuário do aplicativo pode permitir que os clínicos para selecionar uma caixa de seleção devidamente setados junto ao campo de dados de altura para indicar que a altura registrada é uma aproximação, ao invés de reais. \r\nEm geral, as medidas de comprimento são recomendados para crianças menores de dois anos de idade e indivíduos que não podem ficar, as medições de altura para todos os outros. \r\nIdealmente, a altura é medida em pé sobre dois pés com peso distribuído uniformemente, os calcanhares unidos e as duas nádegas e calcanhares em contato com uma placa vertical para trás; comprimento do corpo é medido em uma posição totalmente estendida, supino com a pelve plana, pernas estendidas e os pés flexionados. \r\nUse para registar um crescimento e perda de altura. Isso pode ser modelado por restringir a 'qualquer evento' a um intervalo em um modelo associado com a função matemática de aumentar ou diminuir, conforme o caso.",
+          "misuse" : "Não deve ser utilizado para gravar o primeiro comprimento de um bebê, logo após o nascimento. Para isso é designado o \"comprimento de nascimento\" - use a especialização desse arquétipo - ver OBSERVATION.height-birth.\r\nNão deve ser utilizado para registrar a altura ajustada ou comprimento do corpo por exemplo, um cálculo da altura estimada completo de uma pessoa com contraturas dos membros, com base em medições outro corpo e / ou um algoritmo - use OBSERVATION.height-adjusted.\r\nNão deve ser usado para registrar a velocidade de crescimento.\r\nNão deve ser utilizado para gravar o tamanho de um objeto ou parte específica do corpo.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل طول الجسم من تاج الرأس إلى أخمص القدم للفرد - يشتمل على كل من القياس التقديري و الحقيقي, سواء أكان الفرد واقفا أو مستلقيا.",
+          "keywords" : [ "الانكماش", "الزيادة", "النقص", "فقد الارتفاع", "الطول", "الارتفاع", "النمو" ],
+          "use" : "يستخدم لتسجيل الارتفاع أو الطول الحقيقي لجسم الفرد عند أي نقطة من الزمن. و هو بيان لتعريف عدم الاكتمال الجسدي للجسم, و يمكن تسجيله في عنصر العوامل المربكة, إذا لزم. \r\nهذا هو النموذج المعتاد ليستخدم في القياس النمطي لارتفاع أو طول الجسم, مستقلا عن الإطار السريري.\r\n\r\nيمكن استخدامه أيضا في تسجيل قياس تقريبي لارتفاع أو طول الجسم في سيناريو سريري لا يمكن فيه قياس الطول أو الارتفاع بشكل حقيقي – مثلا, قياس طفل غير متعاون. \r\n\r\nو ليس هذا متمثلا بشكل صريح في هذا النموذج حيث إن النموذج المرجعي للـ open EHR  \r\nيسمح بوجود صفة التقريب لأي نوع بيانات كمي.\r\n\r\nو عند التنفيذ, مثلا, الشاشة الإلكترونية تسمح للأطباء السريريين أن يختاروا زرا بجوار قياس الطول ليشير إلى أنه قياس تقريبي, و ليس حقيقيا.\r\nو بشكل عام, فإن قياسات الطول يستحسن استخدامها للأطفال أقل من عامين و للأفراد الذين لا يستطيعون الوقوف, أما قياسات الارتفاع فيمكن استخدامها لباقي الحالات.\r\n\r\nو الوضع المثالي لقياس الارتفاع يكون بالوقوف على القدمين مع توزيع الوزن بشكل متساوٍ, و وضع الكعبين متجاورين, و كلا الأليتين متلامستين مع لوح ظهري عمودي, و يتم قياس طول الجسم في وضع مستلقٍٍ متمدد بشكل تام مع استواء الحوض, و الأرجل ممتدة و الأقدام مرتخية.\r\n\r\nيستخدم لقياس النمو و النقص في الطول. و يمكن حاليا وضعه في نموذج (إحدى الوقائع) بتقييده ليمثل فاصلا في إحدى القوالب مع دالة حسابية مصاحبة لحساب الزيادة أو النقص متى كان ذلك مناسبا.",
+          "misuse" : "لا يستخدم لتسجيل أول قياس لطول المولود بعد الولادة بفترة قصيرة, و الذي يشار إليه بالطول عند الولادة - و استخدم بدلا من ذلك النموذج المخصص بعنوان ملاحظة. الطول عند الولادة.\r\nلا يستخدم لتسجيل الطول أو الارتفاع المُصَحَّح مثل الطول الكلي التقديري للفرد الذي يعاني من تقلصات الأطراف, بناء على قياسات أجزاء أخرى من الجسم و / أو لوغاريتم - استخدم بدلا من ذلك نموذج ملاحظة . الطول المصحح. \r\nلا يستخدم لقياس سرعة النمو.\r\nلا يستخدم لتسجيل طول شيئ ما أو جزء معين من الجسم.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the length of the body from crown of head to sole of foot of an individual - either measured or approximated, and either in a standing or recumbent position.",
+          "keywords" : [ "shrinkage", "increase", "decrease", "height loss", "height", "length", "growth" ],
+          "use" : "To be used for recording the measured height or body length of an individual at any point in time.  A statement identifying the physical incompleteness of the body can be recorded in the 'Confounding factors' protocol element, if required.  This is the usual archetype to be used for a typical measurement of height or body length, independent of the clinical setting.\r\n\r\nCan also be used for recording an approximation of height or body length measurement in a clinical scenario where it is not possible to measure an accurate height or length - for example, measuring an uncooperative child.  This is not modelled explicitly in the archetype as the openEHR Reference model allows approximations  for any Quantity data type by setting the attribute Magnitude_status to the value '~'.  At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Height data field to indicate that the recorded height is an approximation, rather than actual.\r\n\r\nIn general, length measurements are recommended for children under 2 years of age and individuals who cannot stand; height measurements for all others.\r\n\r\nWhen recording the first length of an infant shortly after birth, \"birth length\", use the event \"Birth\".\r\n\r\nUse to record growth or loss of height.  This can currently be modelled by constraining the 'any event' to an interval event within a template, with the associated mathematical function of increase or decrease, as appropriate.",
+          "misuse" : "Not to be used to record an adjusted height, a calculation of the full height of a person who for example are missing parts or all of the lower limbs, or has contractures. A calculated body weight may be based on measurements of other body parts and an algorithm. Use specific archetypes for this purpose.\r\n\r\nNot to be used to record growth velocity.\r\n\r\nNot to be used to record the length of an object or specific body part.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fr" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fr"
+          },
+          "purpose" : "*To record the length of the body from crown of head to sole of foot of an individual - either measured or approximated, and either in a standing or recumbent position.(en)",
+          "keywords" : [ "rétrécissement", "augmenter", "diminution", "perte de hauteur", "la taille", "longueur", "croissance" ],
+          "use" : "*To be used for recording the measured height or body length of an individual at any point in time.  A statement identifying the physical incompleteness of the body can be recorded in the 'Confounding factors' protocol element, if required.  This is the usual archetype to be used for a typical measurement of height or body length, independent of the clinical setting.\r\n\r\nCan also be used for recording an approximation of height or body length measurement in a clinical scenario where it is not possible to measure an accurate height or length - for example, measuring an uncooperative child.  This is not modelled explicitly in the archetype as the openEHR Reference model allows approximations  for any Quantity data type by setting the attribute Magnitude_status to the value '~'.  At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Height data field to indicate that the recorded height is an approximation, rather than actual.\r\n\r\nIn general, length measurements are recommended for children under 2 years of age and individuals who cannot stand; height measurements for all others.\r\n\r\nWhen recording the first length of an infant shortly after birth, \"birth length\", use the event \"Birth\".\r\n\r\nUse to record growth or loss of height.  This can currently be modelled by constraining the 'any event' to an interval event within a template, with the associated mathematical function of increase or decrease, as appropriate.(en)",
+          "misuse" : "*Not to be used to record an adjusted height, a calculation of the full height of a person who for example are missing parts or all of the lower limbs, or has contractures. A calculated body weight may be based on measurements of other body parts and an algorithm. Use specific archetypes for this purpose.\r\n\r\nNot to be used to record growth velocity.\r\n\r\nNot to be used to record the length of an object or specific body part.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "旨在用于记录个人身体从头顶至脚底的长度，同时适合于实测值和近似值以及直立位或卧位（平卧位）。",
+          "keywords" : [ "缩短", "变矮", "增加", "增长", "增高", "减低", "降低", "减短", "高度损失", "身高降低", "身高丢失", "身高", "身长", "高度", "个子", "生长", "成长" ],
+          "use" : "用于记录个人在任何时间点（时刻）的实际身高/身长。必要时，可在方案元素“干扰因素”（Confounding factors）之中记录表明身体残缺情况的陈述。这是适用于记录典型的身高/身长测量结果的常规原始型，与临床场合无关。\r\n亦可用于记录在不可能测量准确身高/身长的临床场景下关于身高/身长的近似值。例如，孩子不配合测量。当前原始型并未对这种情况加以明确建模，因为openEHR参考模型（Reference model）允许关于任何数量型（Quantity）数据类型的近似值（Approximation）属性。比如，在实施时，应用程序用户界面可以允许临床医生选择身高数据栏旁边带有合适标签的复选框，以便表示当前所记录的身高仅为近似值，而不是实测值。\r\n一般而言，对于不到2岁的儿童以及无法站立的患者，推荐进行身长测量，而对于其他受检对象，则进行身高测量。\r\n理想情况下，测量身高时，受检对象应采取直立位，即体重均匀分布于两脚，脚跟并拢且臀部和脚跟均与背后的垂直背板接触；测量身长时，受检对象应采取卧位（平卧位），即身体完全伸展的卧位（平卧位），且骨盆平展，双腿伸展，脚部屈曲。\r\n用于记录身高的增长或减低。当前，可以通过适当采用关联有关于增高或降低的数学函数的模板，将“任何事件”（any event）限制到特定的时间区间，从而对此加以建模。",
+          "misuse" : "并非旨在用于记录婴儿出生之后不久的首次身长测量结果；后者被称为“出生身长”（birth length）；对此，请采用当前原始型的特化形式 - 参见出生身高原始型OBSERVATION.height-birth。\r\n并非旨在用于记录经过调整的身高/身长；例如，利用其他身体部分测量结果和/或某种算法，来计算存在肢体挛缩的受检对象的完整身高的估计值；对此，请采用调整型身高原始型OBSERVATION.height-adjusted。\r\n并非旨在用于记录身高增长速度或者说生长速度。\r\n并非旨在用于记录某种物体或特定身体组成部分的长度。",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Para registrar la longitud corporal desde la coronilla de la cabeza hasta la planta de los pies, en el momento actual y tanto en posición parada como recostada.",
+          "keywords" : [ "contracción", "aumentar", "disminuir", "pérdida de altura", "altura", "longitud corporal", "crecimiento", "talla", "estatura" ],
+          "use" : "Usar para registrar la altura o longitud corporal actuales en cualquier momento. En caso de amputaciones u otra causa de incompletitud corporal puede ser registrado en \"Factores de confusión\", si es requerido. Este es el arquetipo usual para ser usado en una medición típica de altura o longitud corporal, independientemente del contexto clínico.\r\n\r\nTambién puede ser usado para registrar una aproximación de la altura o longitud corporal en un contexto clínico donde no es posible realizar una medición exacta (Ej. en el caso de un niño que no coopera). Esto no es modelado explícitamente en el arquetipo como el modelo de referencia de openEHR permite el atributo de aproximación para cualquier tipo  de dato de Cantidad. En la implementación, por ejemplo, la interfaz con el usuario de una aplicación de software podría permitir a los médicos tildar un cuadro de opción adyacente al campo de datos de Altura, para indicar que el dato registrado es una aproximación, antes que el valor medido exacto.\r\n\r\nEn general, la medición de la longitud corporal se recomienda para niños menores a los 2 años y para individuos que no pueden permanecer de pie; medir altura para todos los demás casos.\r\n\r\nIdealmente, la altura es medida de pie sobre ambos pies con el peso distribuido equitativamente entre ambos, con los talones juntos y ambos glúteos y talones en contacto con una tabla posterior vertical y recta; la longitud corporal se mide en posición recostada completamente extendida, con la pelvis plana, las piernas extendidas y los pies flexionados.\r\n\r\nUsar para registrar el crecimiento o la pérdida de altura. Esto puede ser habitualmente modelado restringiendo \"cualquier evento\" a un intervalo en la plantilla, con una función matemática que incrementa o decrementa, según sea apropiado.",
+          "misuse" : "No usar para registrar la primer talla de un infante en un momento cercano a su nacimiento, usualmente denominado como \\\"altura al nacer\\\". Para este uso utilizar la especialización de este arquetipo (ver OBSERVATION.height-birth.)\r\n\r\nNo usar para registrar la altura o la longitud corporal ajustados (Ej. el calculo de la altura total estimada de una persona con contracturas de miembros, basado en las mediciones realizadas en otras partes del cuerpo y/o un algoritmo) Usar para esta situación: OBSERVATION.height-adjusted.\r\n\r\nNo usar para registrar velocidad de crecimiento.\r\n\r\nNo usar para registrar la longitud de un objeto o de una parte del cuerpo específica.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "Brukes til registrering av et individs høyde/lengde fra isse til fotsåle - både målt, estimert og justert, enten stående, tilbakelent eller liggende.",
+          "keywords" : [ "høydetap", "høyde", "lengde", "vekst", "høydevekst", "lengdevekst", "kroppshøyde", "kroppslengde" ],
+          "use" : "Brukes til registrering av høyden eller lengden til et individ ved et gitt tidspunkt. En kommentar som identifiserer eventuelle fysiske mangler kan ved behov registreres i dataelementet \"Supplerende opplysninger\". Dette er standardarketypen som skal brukes for en vanlig måling av høyde eller lengde, uavhengig av klinisk miljø.\r\n\r\nKan også brukes for registrering av estimert høyde eller lengde i en klinisk situasjon hvor det ikke er mulig å måle en nøyaktig høyde eller lengde - for eksempel måling av et ikke-samarbeidsvillig barn. Dette er ikke eksplisitt modellert inn i arketypen idet openEHR referansemodellen tillater estimater for datatypen kvantitet (magnitude_status settes til \"~\"). Ved implementasjon kan det for eksempel settes kryss i en boks ved siden av datafeltet for høyde/lengde for å indikere at den registrerte høyden/lengden er et estimat.\r\n\r\nGenerelt sett er det anbefalt å måle lengde for barn under 2 år og individer som ikke kan stå, og høyde for alle andre.\r\n\r\nVed registrering av den første lengden til et spedbarn kort tid etter fødselen, \"fødselslengde '- bruk hendelsen \"Fødsel\".\r\n\r\nBrukes til å registrere vekst eller tap av høyde. Dette kan modelleres ved å begrense \"Uspesifisert hendelse\" til en tidsintervallhendelse i en templat, og legge til en matematisk funksjon for økning eller minking, ettersom hva som passer.",
+          "misuse" : "Brukes ikke til å registrere justert høyde eller lengde, det vil si en beregning av den fulle høyden av en person som for eksempel mangler hele eller deler av underekstremitetene eller har kontrakturer. En justert høyde/lengde kan være basert på målinger av andre kroppsdeler samt en algoritme. Bruk spesfikke arketyper laget for dette formålet.\r\n\r\nBrukes ikke til å registrere veksthastighet.\r\n\r\nBrukes ikke til å registrere lengden av et ikke-kroppslig objekt eller en bestemt del av kroppen.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fa" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fa"
+          },
+          "purpose" : "برای ثبت طول بدن از نوک سر تا کف پای فرد- بطور واقعی و تقریبی و در حالتهای ایستاده یا خوابیده ",
+          "keywords" : [ "انقباض", "افزایش", "کاهش", "افت قد", "قد", "طول", "رشد" ],
+          "use" : "برای ثبت قد یا طول واقعی یک فرد در هر نقطه از زمان بکار برده می شود.عبارتی  که نواقص فیزیکی بدن را مشخص می کند  می تواند درصورت نیاز در بخش پروتکل \" فاکتورهای جانبی \"ثبت شود. ازاین الگو ساز می توان در اندازه گیری های معمول قد یا طول بدن مستقل از وضع بالینی استفاده نمود. \r\nاز این الگو ساز همچنین می توان برای ثبت تقریبی اندازه گیری قد یا طول بدن در سناریوهای بالینی استفاده نمود که امکان اندازه گیری دقیق قد یا طول وجود ندارد، به عنوان مثال اندازه گیری قد یا طول کودکی که همکاری نمی کند. این مورد بطور واضح در الگوساز مدل بندی نشده است ولی مدل مرجع \"اوپن ئی اچ ار\" ویژگی تقریب را برای هر نوع داده کمی اجازه می دهد. در پیاده سازی، برای مثال، یک واسط کاربری نرم افزار می تواند به کاربران اجازه دهد تا با انتخاب گزینه ای [چک باکس] درکنار محل مربوط به قد و با نشانه گذاری مناسب نشان دهند که قد ثبت شده اندازه ای است تقریبی و نه  واقعی.\r\nبطور عمومی اندازه گیری طول بدن برای کودکان زبر 2 سال و بزرگسالانی که نمی توانند بایستند  و انداز گیری قد برای سایر افراد توصیه می شود.\r\nبطور ایده آل قد بصورت ایستاده بر هر دو پا، پاشنه ها کنار هم ، باسن و پاشنه ها در راستای خط عمودی پشت  با توزیع وزن مساوی اندازه گیری می شود، طول بدن در حالت کاملا کشیده و طاقباز با لگن صاف، ساق های کشیده و پاهای جمع شده از مچ اندازه گیری می شود.\r\nاین الگوساز برای ثبت رشد و افت قد استفاده می شود. در حال حاضر با مشروط کردن \"هر رویداد\" به دوره زمانی در نظر گرفته شده در الگو با عملگرهای ریاضی مرتبط با افزایش یا کاهش بصورت مناسب مدل بندی می شود\r\n \r\n",
+          "misuse" : "برای ثبت اولین اندازه گیری نوزاد بلافاصله بعد ازتولد به عنوان \"طول نوزاد هنگام تولد\" استفاده نمی شود، در این موارد از حالت تخصصی الگوساز استفاده شود. ببینید\r\nOBSERVATION.height-birth\r\nبرای ثبت قد یا طول بدن معادل (تطبیق یافته)، مانند محاسبه تخمینی کل قد یک فرد با اندام منقبض، بر اساس اندازه گیری های بخشهایی از بدن و یا یک الگوریتم دیگر استفاده نشود. در این موارد از \r\nOBSERVATION.height-adjusted\r\nاستفاده کنید.\r\nبرای ثبت رشد قد استفاده نکنید\r\nبرای ثبت طول یک شی یا بخشهایی از بدن استفاده نکنید\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Registreren van de lengte van het lichaam van hoofdkruin tot voetzool van een individu - zowel werkelijke als geschatte lengte en zowel in staande als liggende positie.",
+          "keywords" : [ "krimp", "groeien", "verlies", "lengte", "hoogte" ],
+          "use" : "Te gebruiken voor de registratie van de werkelijke lengte/hoogte van een individu op elk moment in de tijd. Een verklaring over fysieke onvolledigheid van het lichaam kan worden opgenomen in het protocol element ‘ beïnvloedende factoren’, indien nodig. Dit is het gebruikelijke archetype voor een typische meting van de hoogte of lengte, onafhankelijk van de klinische setting. \r\nKan ook worden gebruikt voor het opnemen van een schatting van de lengte/hoogte meting in een klinisch scenario, waarin het niet mogelijk is om een nauwkeurige lengte te meten - bijvoorbeeld het meten van een onwillig kind. \r\nDit is niet expliciet gemodelleerd in het archetype, omdat het openEHR Referentie model een schatting in ieder kwantitatief data type toestaat. Bij de uitvoering, bijvoorbeeld, zou een applicatie gebruikersinterface, een adequaat geëtiketteerd selectievakje kunnen aanbieden aan clinici, naast de gegevens over het gewicht, waarin door selecteren aangegeven kan worden dat het opgenomen gewicht een schatting is, in plaats van het werkelijke gewicht.\r\n\r\nIn het engelse taaldomein wordt er verschil gemaakt tussen hoogte (height) en lengte (length), waarbij hoogte staande gemeten wordt en lengte liggend.\r\nIn dat geval zijn lengte metingen aanbevolen voor kinderen onder de leeftijd van 2 jaar en personen die niet kunnen staan; hoogte metingen voor alle anderen. \r\nIdealiter wordt de hoogte(NL: lengte) gemeten, staand op beide voeten met het gewicht gelijkmatig verdeeld, hielen tegen elkaar en beide billen en hakken in contact met een verticale achterkant; lichaamslengte wordt gemeten in een volledig uitgespreide rugligging met het bekken plat, benen gestrekt en voeten gebogen. \r\nWordt gebruikt voor het registreren van groei en verlies van lengte. Dit kan, in voorkomend geval, momenteel worden gemodelleerd, door het beperken van een 'any event', tot een interval in een template met bijbehorende rekenkundige functie van de groei of krimp.",
+          "misuse" : "Niet te gebruiken ter registratie van de eerste lengte van een kind, spoedig na de geboorte, welke gekenmerkd wordt als de geboortelengte - gebruik hiervoor de specialisatie van dit archetype - zie OBSERVATION.height-birth.(OBSERVATION.lengte-geboorte).",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.height.v2",
     "differential" : true,
@@ -1584,7 +2441,228 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "B7CBE264803846DAA95A01EEF598BA3B"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung des Gewichtes eines Individuums, sowohl exakt als auch geschätzt.",
+          "keywords" : [ "Gewicht", "Zunahme", "Verlust", "erhöhen, ansteigen", "verringern", "Masse", "schätzen", "tatsächlich" ],
+          "use" : "Zur Darstellung des tatsächlichen Körpergewichts, auch wenn das Individuum einen Körperteil (angeboren oder später amputiert) vermisst. Sofern benötigt, kann dies im Datenelement \"Einflussfaktoren\" dargestellt werden. Dies ist der Archetyp, der gewöhnlicherweise für eine typische Gewichtsmessung benutzt werden sollte, z.B. bei Selbstmessung durch das Individuum zu Hause, durch einen Kliniker im Krankenhaus, oder einen Fitness-Trainer in einem Fitness-Center.\r\n\r\nDer Archetyp kann auch benutzt werden, um eine Schätzung des Körpergewichts zu dokumentieren, wenn es nicht möglich ist, das Gewicht genau zu bestimmen - z.B. bei der Messung des Gewichts eines nicht kooperativen Kindes, oder bei einem ungeborenen Fötus (hier ist das 'Subjekt der Daten' der Fötus und die Dokumentation erfolgt in der Akte der Mutter). Dass es sich um eine Schätzung handelt wird in diesem Archetyp nicht explizit modelliert, da das openEHR-Referenzmodell dies direkt für 'Quantity'-Datentypen unterstützt. In einer konkreten klinischen Anwendung könnte die Benutzerschnittstelle es dem Kliniker z.B. über eine Checkbox ermöglichen, zu dokumentieren, dass es sich um eine Schätzung handelt.\r\n\r\nZur Darstellung der Gewichtsänderung, d.h. entweder Gewichtsverlust oder Gewichtszunahme. Dies kann derzeit modelliert werden, indem \"Beliebiges Ereignis\" auf ein Intervall mit der zugehörigen mathematischen Funktion \"Erhöhen\" oder \"Verringern\" beschränkt wird.",
+          "misuse" : "Nicht zur Darstellung eines berechneten Körpergewichts verwenden, z. B. zur Schätzung des Körpergewichts einer Person mit einem oder mehreren fehlenden Gliedmaßen. Ein berechnetes Körpergewicht kann auf einem Teil oder dem gesamten gemessenen Körpergewicht, anderen Körpermaßen und einem Algorithmus basieren. Verwenden Sie zu diesem Zweck andere OBSERVATION-Archetypen.\r\n\r\nNicht zur Darstellung eines Objekts oder eines Teils des Körpers.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи массы тела человека: фактической или приблизительной.",
+          "keywords" : [ "вес", "масса тела", "прибавка", "потеря", "увеличение", "уменьшение", "оценка", "актуально" ],
+          "use" : "Использовать для записи фактического измерения массы тела, включая случаи отсутсвия части(-ей) тела, врожденное или после хирургического удаления. Отметка о физической неполноте тела может быть зарегистрирована в элементе данных \"стохастическая погрешность\", если требуется. Это - обычный архетип, используемый для типичного измерения веса, например самоизмеренного человеком дома, измерение клинициста в клинике/больнице, или фитнес-инструктором в гимнастическом зале. \r\n\r\nМожет также использоваться для записи примерного измерения массы тела в клиническом сценарии, где не возможно взвешивание - например, сопротивляющийся ребёнок, или для оценики веса внутриутробного плода (где 'предметом данных' является плод, и регистрация происходит в пределах записи о состоянии здоровья матери). Это не оформлено явно в архетипе, поскольку модель openEHR позволяет атрибут «приблизительно» для любого типа данных «количество». При работе, например, прикладной пользовательский интерфейс позволяет клиницистам выбирать соответствующую отметку, смежную с полем данных «вес», чтобы указать, что зарегистрированный вес - приблизительный, а не фактический. \r\n\r\nИспользовать для записи изменения веса, то есть, потери веса или увеличения веса.\r\nЭто может в настоящее время моделироваться, привязывая 'каждый случай' к интервалу со связанной математической функцией увеличения или уменьшения, соответственно.",
+          "misuse" : "Не использовать для записи первого веса младенца после рождение, которое обозначено как 'вес при рождении' - использовать специализацию этого архетипа OBSERVATION.body_weight-birth. \r\nНе использовать для записи массы тела человека с протезами / приспособлениями для вычисление полной массы тела человека с ампутацией, основанной на других измерениях и алгоритме  - использовать архетип OBSERVATION.body_weight-adjusted.\r\nНе использовать, чтобы сделать запись веса части тела или объекта.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera en individs kroppsvikt, både den faktiska och den uppskattade.",
+          "keywords" : [ "vikt", "uppgång", "förlust", "ökning", "minskning", "massa", "uppskattning", "faktisk" ],
+          "use" : "Används för att registrera den faktiska kroppsvikten, även när individen saknar en kroppsdel av medfödda orsaker eller efter kirurgiskt avlägsnande. En redogörelse av kroppens fysiska ofullständighet kan vid behov registreras i fältet \"Möjliga felkällor\". Det här är den vanliga arketypen som ska användas för en typisk vägning, exempelvis när individen väger sig själv hemma, vägs av en kliniker på en klinik eller ett sjukhus, eller vägs av en instruktör på ett gym.\r\n\r\nAnvänds även för att registrera en uppskattning av kroppsvikten i ett kliniskt scenario där det inte är möjligt att mäta exakt kroppsvikt, exempelvis vid vägning av ett icke samarbetsvilligt barn eller vid uppskattning av ett ofött fosters vikt (där objektet för mätningen är fostret och registreringen sker i moderns patientjournal). Detta modelleras inte explicit i arketypen eftersom openEHRs referensmodell tillåter approximationer för alla mängder genom att attributet Magnitud_status sätts till värdet \"~\". \r\nExempelvis kan det i applikationens användargränssnitt finnas en kryssruta intill vikt-fältet som klinikern kan markera för att indikera att den registrerade vikten är en uppskattning och inte en faktisk vikt.\r\n\r\nAnvänds för att registrera viktförändring, dvs. antingen viktförlust eller viktuppgång. Detta kan modelleras genom att begränsa \"Ospecificerad händelse\" till ett intervall med tillhörande matematisk funktion av uppgång eller förlust.\r\n",
+          "misuse" : "Ska inte användas för att registrera den justerade kroppsvikten, exempelvis en beräkning av hela kroppsvikten för en individ med benamputation, baserat på andra kroppsdelsvägningar och användning av en algoritm. Använd då istället OBSERVATION.body_weight-adjusted.\r\n\r\nSka inte användas för att registrera vikten av ett objekt eller en kroppsdel. \r\n",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "Yksilön painon kirjaamista varten - sekä mitatun että arvioidun.",
+          "keywords" : [ "paino, massa, kasvu, arvio" ],
+          "use" : "Käytetään todellisen painon mittaamiseen, myös silloin, kun yksilöstä puuttuu kehonosa synnynnäisen syyn tai kirurgisen poiston jälkeen. Huomautus, joka identifioi kehon fyysisen epätäydellisyyden, voidaan tallentaa tarvittaessa \"Sekoittavat tekijätr\" -dataelementtiin. Tämä on tavanomainen arkkityyppi, jota käytetään tyypilliseen painon mittaamiseen, esimerkiksi yksilön itsensä mittaamana kotona tai kliinikon mittaus klinikalla / sairaalassa.\r\n\r\nVoidaan käyttää myös kehon painonmittauksen arvioimiseen kliinisessä skenaariossa, jossa ei ole mahdollista mitata tarkasti painoa - esimerkiksi yhteistyökyvyttömän lapsen painon mittaaminen tai arvioimalla syntymättömän sikiön painoa (sikiön painon tallennus tapahtuu äidin terveystietoihin). Tätä ei mallinneta nimenomaisesti arkkityypissä, koska openEHR-referenssimalli mahdollistaa likiarvot minkä tahansa määrällisen datatyypin määrittämiseksi määrittelemällä attribuutin Magnitude_status arvoon '~'. Sovelluksen käyttöliittymä voisi antaa lääkäreille mahdollisuuden valita asianmukaisesti merkitty valintaruutu Paino-datakentän viereen osoittaakseen, että tallennettu paino on likiarvio eikä todellinen.\r\n\r\nKäytetään painonmuutoksen tallentamiseen eli painonpudotukseen tai painonnousuun. Tätä voidaan nykyisin mallinnuttaa rajoittamalla \"mikä tahansa tapahtuma\" väliajoin, johon liittyy matemaattinen funktion lisäys tai pieneneminen.",
+          "misuse" : "Ei saa käyttää säädetyn painotiedon tallentamiseen, esim. laskemalla raajan amputointia suorittavan henkilön koko kehon paino muiden kehon osien mittausten ja algoritmin perusteella - käytä OBSERVATION.body_weight-adjusted tähän tarkoitukseen.\r\n\r\nEi saa käyttää ruumiinosan painon tallentamiseen.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para registrar o peso corporal de um indivíduo - tanto real como aproximado.\r\n",
+          "keywords" : [ "peso", "ganho", "perda", "aumentar", "diminuir", "massa", "estimativa", "real" ],
+          "use" : "Usado para gravar a medição real de peso corporal, inclusive quando o indivíduo tem faltando uma parte do corpo devido a uma causa congênita ou após a remoção cirúrgica. A indicação da imperfeição física do corpo pode ser registrada no elemento 'fatores de erro', se necessário.\r\nEste é o arquétipo para ser utilizado para uma medição típica de peso, por exemplo, auto-medido pelo indivíduo em casa, uma medida médico em uma clínica / hospital, ou um instrutor de fitness em um ginásio. \r\n\r\nTambém pode ser usado para a gravar uma aproximação da medição do peso corporal em um cenário clínico no qual não é possível medir com precisão o peso do corpo - por exemplo, pesar uma criança inquieta, ou estimar o peso de um feto (quando 'sujeito' é um feto e a gravação ocorre no registro da saúde da mãe). Isso não é modelado explicitamente no arquétipo como o modelo de referência da openEHR permite que o atributo de aproximação para qualquer tipo de dados quantitativos. Na execução, por exemplo, uma interface de usuário do aplicativo pode permitir que os clínicos para selecionar uma caixa de seleção devidamente setados junto ao campo de dados de peso, indicando que o peso verificado é uma aproximação, ao invés de reais. \r\n\r\nUsada para gravar a mudança de peso, ou seja, qualquer perda ou ganho de peso. Pode ser modelado por restringir a 'qualquer evento' a um intervalo associado com funções matemáticas de aumentar ou diminuir, conforme o caso.\r\n",
+          "misuse" : "Não deve ser utilizado para gravar o primeiro peso de um bebê logo após o nascimento, que é designado como o seu 'peso' - use a especialização de seu nascimento arquétipo OBSERVATION.body_weight-birth.\r\nNão deve ser usado para registrar o peso do corpo ajustado por exemplo, um cálculo do peso de corpo inteiro de uma pessoa com amputação de membros, com base em medições de outro corpo e um algoritmo -OBSERVATION.body_weight-adjusted.\r\n\r\nNão deve ser usado para registrar o peso de um objeto ou parte do corpo.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل وزن الجسم للشخص - بما في ذلك الوزن الحقيقي و المُقَدَّر",
+          "keywords" : [ "الوزن", "الزيادة/الكسب", "الفاقد", "الزيادة", "النقصان", "الكتلة", "التقدير", "الحقيقي" ],
+          "use" : "يستخدم لتسجيل القياس الحقيقي لوزن الجسم, بما في ذلك ما إذا كان الشخص قد فقد جزءا من جسمه لسبب خَلقي وراثي, أو بعد استئصال جراحي.\r\nبيان يقوم بتعريف مدى عدم الاكتمال البدني, و يمكن تسجيله تحت عنصر البيانات (العوامل المربكة), حسب الحاجة.\r\nو هذا هو النموذج المعتاد الذي يستخدم للتسجيل النمطي للوزن, مثلا إذا قاسه الشخص لنفسه في المنزل, أو إذا قام الطبيب السريري بالقياس في العيادة/المستشفى, أو المُدرِّب البدني في القاعة الرياضية.\r\n\r\nيمكن أيضا أن يستخدم لتسجيل تقدير قياس وزن الجسم في سيناريو سريري حيث لا يمكن قياس وزن الجسم بشكل دقيق - مثلا, قياس وزن طفل غير متعاون, أو تقدير وزن جنين قبل الولادة - حيث يكون الهدف هو قياس وزن الجنين في حين يتم تسجيل ذلك في السجل الطبي للأم\r\n\r\nو لا يتم وضع هذا في نموذج صريح حيث يسمح النموذج المرجعي لـ\r\nopenEHR\r\nلصفة التقريب لأي نوع كمي من البيانات. \r\nو عند تشغيل هذا النموذج, مثلا شاشة لبرنامج كمبيوتر فإنها تسمح للطبيب السريري أن يختار زراّ مناسبا ملاصقا لبيانات الوزن تشير إلى أن هذا القياس هو تقدير و ليس حقيقيا.",
+          "misuse" : "لا يستخدم لتسجيل القياس الأول لوزن حديث الولادة بمجرد ولادته و الذي يسمى بالوزن عند الولادة/ الوضع - و استخدم بدلا من ذلك تخصيص النموذج الذي يسمى ملاحظة.وزن الجسم - الولادة/ الوضع.\r\n\r\nلا يستخدم لتسجيل وزن الجسم المُصحَّح مثل قياس الوزن الكلي للجسم لشخص يعاني من بتر في أحد الأطراف, بناءا على قياسات أخرى من الجسم باستخدام خُوارزمية - استخدم بدلا من ذلك نموذج ملاحظة.وزن الجسم المُصحَّح.\r\n\r\nلا يستخدم لتسجيل وزن شيئ أو جزء من أجزاء الجسم.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the body weight of an individual - both actual and approximate.",
+          "keywords" : [ "weight", "gain", "loss", "increase", "decrease", "mass", "estimate", "actual" ],
+          "use" : "To be used for recording the actual measurement of body weight, including when the individual is missing a body part due to a congenital cause or after surgical removal.   A statement identifying the physical incompleteness of the body can be recorded in the 'Confounding factors' data element, if required. This is the usual archetype to be used for a typical measurement of weight, for example self-measured by the individual at home, a clinician measurement in a clinic/hospital, or a fitness instructor in a gymnasium.  \r\n\r\nCan also be used for recording an approximation of body weight measurement in a clinical scenario where it is not possible to measure accurately body weight - for example, weighing an uncooperative child, or estimating the weight of an unborn fetus (where the 'subject of data' is the Fetus and recording occurs within the mother's health record).  This is not modelled explicitly in the archetype as the openEHR Reference model allows approximations  for any Quantity data type by setting the attribute Magnitude_status to the value '~'.  At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Weight data field to indicate that the recorded weight is an approximation, rather than actual.\r\n\r\nTo be used for recording weight change, that is, either weight loss or weight gain.  This can currently be modelled by constraining the 'any event' to an interval with associated mathematical function of increase or decrease, as appropriate.",
+          "misuse" : "Not to be used to record a calculated body weight, such as an estimation of the body weight of a person with one or more limbs missing. A calculated body weight may be based on, some or all of, the measured body weight, other body measurements and an algorithm. Use other OBSERVATION archetypes for this purpose.\r\n\r\nNot to be used to record the weight of a body part or other object.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fr" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fr"
+          },
+          "purpose" : "Mesure du poids corporel d'un individu - à la fois réel et approximatif.",
+          "keywords" : [ "poids", "gain", "perte", "augmenter", "diminution", "Masse", "estimation", "réel" ],
+          "use" : "*To be used for recording the actual measurement of body weight, including when the individual is missing a body part due to a congenital cause or after surgical removal.   A statement identifying the physical incompleteness of the body can be recorded in the 'Confounding factors' data element, if required. This is the usual archetype to be used for a typical measurement of weight, for example self-measured by the individual at home, a clinician measurement in a clinic/hospital, or a fitness instructor in a gymnasium.  \r\n\r\nCan also be used for recording an approximation of body weight measurement in a clinical scenario where it is not possible to measure accurately body weight - for example, weighing an uncooperative child, or estimating the weight of an unborn fetus (where the 'subject of data' is the Fetus and recording occurs within the mother's health record).  This is not modelled explicitly in the archetype as the openEHR Reference model allows approximations  for any Quantity data type by setting the attribute Magnitude_status to the value '~'.  At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Weight data field to indicate that the recorded weight is an approximation, rather than actual.\r\n\r\nTo be used for recording weight change, that is, either weight loss or weight gain.  This can currently be modelled by constraining the 'any event' to an interval with associated mathematical function of increase or decrease, as appropriate.(en)",
+          "misuse" : "*Not to be used to record a calculated body weight, such as an estimation of the body weight of a person with one or more limbs missing. A calculated body weight may be based on, some or all of, the measured body weight, other body measurements and an algorithm. Use other OBSERVATION archetypes for this purpose.\r\n\r\nNot to be used to record the weight of a body part or other object.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "记录个人的身体重量（体重），实际重量和近似重量。",
+          "keywords" : [ "体重", "身体重量", "增加", "减轻", "增大", "减小", "长胖", "消瘦", "质量", "估计", "估计值", "实际值" ],
+          "use" : "用于记录体重的实际测量值，包括当个人因为先天原因或在手术切除之后损失某个身体组成部分的时候。如果需要的话，可以在“干扰因素（Confounding factors）”数据元之中记录用于表明身体残缺情况的说明。这是旨在用于常规体重测量的普通原始型，如个人在家中自行测量，临床医生在门诊/医院里进行的测量，或者健身教练在健身房进行的测量。\r\n\r\n*Can also be used for recording an approximation of body weight measurement in a clinical scenario where it is not possible to measure accurately body weight - for example, weighing an uncooperative child, or estimating the weight of an unborn fetus (where the 'subject of data' is the Fetus and recording occurs within the mother's health record). This is not modelled explicitly in the archetype as the openEHR Reference model allows approximations for any Quantity data type by setting the attribute Magnitude_status to the value '~'. At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Weight data field to indicate that the recorded weight is an approximation, rather than actual.(en)\r\n\r\n用于记录体重变化，即体重增加或减轻。当前，可以通过在合适情况下，采用关联的关于增加或减轻的数学函数，将“任何事件”限制到特定区间。",
+          "misuse" : "并非旨在用于记录经过调整的身体重量，如基于其他身体组成部分测量结果和特定算法，对截肢患者完整体重的计算。此时，请采用调整型身体重量观察的原始型，即OBSERVATION.body_weight-adjusted。\r\n并非旨在用于记录某种对象或身体组成部分的重量。",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Registro del peso corporal de un individuo ya sea exacto o aproximado.",
+          "keywords" : [ "peso", "ganancia", "pérdida", "incremento", "decremento", "masa", "estimado", "real" ],
+          "use" : "Se usará para el registro de la medición real del peso del cuerpo, incluso cuando falte una parte del cuerpo debido a una anomalía congénita o después de una extirpación quirúrgica. Este hecho se registra de forma complementaria en un campo asignado ex-profeso. También se puede utilizar para el registro del peso aproximado en un escenario clínico en el que no es posible medir con precisión el peso corporal - por ejemplo, el peso de un niño no coopera, o la estimación del peso de un feto (donde el sujeto de los datos es el feto y la grabación se produce dentro de registros de salud de la madre). En la aplicación, por ejemplo, una interfaz de usuario podría permitir a los médicos seleccionar una casilla de verificación debidamente etiquetada junto al campo \"peso\" para indicar que el peso registrado es una aproximación.\r\n\r\nSe usará para reflejar el cambio de registro de peso, es decir, aumento o pérdida de peso. Esto se puede modelar mediante la limitación de \"cualquier evento\" a un intervalo asociado a una función matemática de incremento o decremento, según corresponda.",
+          "misuse" : "No debe ser usado para grabar el primer registro de peso de un recién nacido (\"el peso al nacer\") que cuenta con su propio arquetipo.\r\nNo debe ser usado para registrar el peso corporal ajustado mediante algoritmos.\r\nNo debe ser usado para registrar el peso de un objeto o parte del cuerpo.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "Brukes til registrering av et individs kroppsvekt - både målt og estimert.",
+          "keywords" : [ "Vekt", "fedme", "anoreksi", "kroppsmasse", "obesitas", "overvekt", "avmagring", "undervekt", "vektøkning", "vekttap", "kakexi", "underernæring" ],
+          "use" : "Brukes til registrering av den faktiske måling av kroppsvekt, også når kroppsdel(er) mangler på grunn av en medfødt defekt eller etter kirurgisk/traumatisk fjerning. En kommentar som identifiserer eventuelt manglende kroppsdeler kan registreres i feltet \"Konfunderende faktorer\". Dette er standardarketypen som skal brukes for en vanlig måling av vekt, for eksempel selvmålt i hjemmet, på en klinikk/sykehus, på legekontor, helsestasjon eller skolehelsetjenesten, eller av en treningsinstruktør på et treningssenter.\r\n\r\nKan også brukes for registrering av estimert kroppsvekt, i en klinisk situasjon hvor det ikke er mulig å måle nøyaktig kroppsvekt - for eksempel veiing av et ikke-samarbeidsvillig barn, eller estimere vekten av et foster (hvor subjektet er fosteret og registreringen skjer i mors journal). Dette er ikke modellert eksplisitt inn i arketypen idet openEHR referansemodellen tillater estimater for datatypen kvantitet (magnitude_status settes til \"~\"). Ved implementasjon kan det for eksempel settes kryss i en boks ved siden av datafeltet for vekt for å indikere at den registrerte vekten er et estimat. \r\n\r\nSkal arketypen brukes til å påvise vekttap eller vektøkning, kan dette skje ved å sette begrensninger i \"Uspesifisert hendelse\" til et intervall med tilhørende matematisk funksjon.\r\n\r\nVed registrering av den første vekten av et spedbarn kort tid etter fødselen, \"fødselsvekt\"- bruk hendelsen \"Fødsel\".",
+          "misuse" : "Skal ikke brukes til å registrere justert kroppsvekt, det vil si en utregning av den fullstendige kroppsvekten av en person som mangler et eller flere lemmer, basert på måling av andre kroppsdeler og en algoritme. Bruk arketypen OBSERVATION.body_weight-adjusted til dette formålet.\r\n\r\nSkal ikke brukes til å registrere vekten av et ikke-kroppslig objekt eller en kroppsdel.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ja" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ja"
+          },
+          "purpose" : "個人の体重を記録するため。実測値あるいはおおよその値として。",
+          "keywords" : [ "重量", "増量", "減量", "増加", "現象", "質量", "推定値", "実測値" ],
+          "use" : "身体の一部を先天的な理由あるいは外科的に切除していることにより欠損している場合を含めて、実測した体重を記録するために使われる。必要であれば身体の一部を物理的に欠損している状態は、「交絡因子」(confounding factor)データエレメントに指定される。これは一般的な体重測定のために使われるアーキタイプであり、たとえば個人の家庭で自己測定された体重や、クリニックや病院で臨床スタッフにより計測されたものあるいは、ジムでフィットネスインストラクタにより測定されたものである。\r\n\r\nまた、正確な体重測定が不可能であると臨床上想定される場面において、体重を概算して記録するときにも利用される。たとえば、非協力的な子供の体重測定や、未出産の胎児の体重を見積もるような場合である。（胎児体重を見積もる場合、「データの対象」(subject of data)は「胎児」(Fetus)であり、母親の健康を記録するときに同時に記録される。）このアーキタイプでは、openEHRの参照モデルが量(Quantity)を表すデータ型に概算であることを示す属性を明示するようにはモデリングされていない。実装する場合には、たとえばアプリケーションのユーザーインターフェースが臨床スタッフに実測したデータでは無く概算であると言うことを明示的に記録できるようなチェックボックスを用意して、体重データフィールドに記録するようにしておくこともできる。\r\n\r\n体重変化、つまり体重が増加しているか減少しているかを記録するために利用することもできる。これについては、現在では「任意のイベント」(any event)による制約を適切な間隔で制約して、数学的に足したり引いたりすることができるようにモデリングされている。",
+          "misuse" : "新生児が生まれた直後に最初にはかる体重、つまり新生児の「生下時体重」(birth weith)を記録するためには設計されていない。生下時体重の記録にはこのアーキタイプを特殊化したOBSERVATION.body_weight-birthアーキタイプを利用すること。\r\n調整された体重、たとえば四肢を切断した人の全体重を身体の他の部位を計測して、一定のアルゴリズムに基づいて計算するような場合にも用いられない。その場合には、OBSERVATION.body_weight-adjustedを用いること。\r\nそのほかの物体や体の一部の重さを記録するためにも用いられない。",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fa" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fa"
+          },
+          "purpose" : "برای ثبت وزن بدن فرد ، بطور واقعی یا تقریبی ، بکار می رود",
+          "keywords" : [ "وزن", "زیاد کردن وزن", "کم کردن وزن", "افزایش", "کاهش", "توده", "تخمین", "واقعی" ],
+          "use" : "برای ثبت اندازه گیری واقعی وزن بکار می رود، و شامل زمانی که فرد مادرزادی عضوی را ندارد یا بعد از جراحی عضوی را ازدست می دهد، نیز می‌‌شود. عبارتی که نواقص فیزیکی بدن را مشخص می کند در بخش داده های \"فاکتورهای جانبی\" درصورت نیاز ثبت می شود.این الگوساز بطور معمولی برای اندازه گیری واقعی وزن استفاده می شود برای مثال اندازه گیری وزن توسط خود فرد در منزل ، اندازه گیری بالینی در مطب یا بیمارستان یا مربی ورزشی در باشگاه\r\nهمچنین از این الگو ساز می توان در اندازه گیری تقریبی وزن بدن در یک سناریوی بالینی، که اندازه گیری واقعی عملی نیست، استفاده نمود برای مثال اندازه گیری وزن کودکی که همکاری نمی کند یا تخمین وزن جنین بدنیا نیامده (که آنجا \"موضوع داده\" جنین است و اطلاعات در پرونده بهداشتی مادر ثبت می‌شوند). این مورد بطور واضح در الگوساز مدل بندی نشده است ولی مدل مرجع \"اوپن ئی اچ ار\" ویژگی تقریب را برای هر نوع داده کمی اجازه می دهد. در پیاده سازی، برای مثال، یک واسط کاربری نرم افزار می تواند به کاربران اجازه دهد تا با انتخاب گزینه ای [چک باکس] درکنار محل مربوط به وزن با نشانه گذاری مناسب نشان دهند که قد ثبت شده اندازه ای است تقریبی و نه  واقعی\r\n     این الگوساز برای تغییرات وزن ، کاهش یا افزایش آن، استفاده می شود. این الگوساز می‌تواند در حال حاضر با مشروط کردن \"هر رویداد\" به دوره زمانی در نظر گرفته شده در الگو، با عملگرهای ریاضی مرتبط با افزایش یا کاهش، بصورت مناسب مدل بندی شود\r\n \r\n",
+          "misuse" : "برای ثبت اولین اندازه گیری وزن نوزاد بلافاصله بعد ازتولد به عنوان \"وزن نوزاد هنگام تولد\" استفاده نمی شود، در این موارد پیاده سازی اختصاصی از این الگوساز استفاده شود. ببینید\r\nOBSERVATION.weight-birth\r\nبرای ثبت  وزن معادل (تطبیق یافته)، مانند محاسبه کل وزن یک فرد قطع عضوی، بر اساس اندازه گیری های بخشهایی از بدن و یا یک الگوریتم دیگر استفاده نشود. در این موارد از \r\nOBSERVATION.weight-adjusted\r\nاستفاده کنید.\r\nبرای ثبت وزن یک شی یا بخشهایی از بدن استفاده نکنید\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Om het lichaamsgewicht van een persoon te registreren - zowel exact als geschat gewicht.",
+          "keywords" : [ "gewicht", "stijging", "verlies", "toename", "daling", "massa", "schatting", "werkelijk", "afname" ],
+          "use" : "Registreren van een actuele meting van het lichaamsgewicht, ook als deze persoon een lichaamsdeel mist, door een geboorteafwijking of na een chirurgische ingreep. Een verklaring over de fysieke inclompleetheid van het lichaam, kan zo nodig opgeslagen worden in het data element 'beïnvloedende factoren'. Dit is het gebruikelijke archetype voor gewichtmetingen, bij voorbeeld thuis gemeten door de persoon zelf, een klinische meting in een kliniek/ziekenhuis, of door een fitness instructeur in een sportschool.\r\n\r\nKan ook gebruikt worden om een geschat lichaamsgewicht te registreren in een klinische setting als het niet mogelijk is om het exacte lichaamsgewicht te meten - bijvoorbeeld, het wegen van een tegenwerkend kind, of een schatting van het gewicht van een ongeboren kind (waar het onderwerp van de gegevens de foetus is en de opslag in het patiënten dossier van de moeder plaatsvindt). Dit is niet expliciet gemodelleerd in het archetype, omdat het openEHR Referentie model een schatting in ieder kwantitatief data type toestaat. Bij de uitvoering, bijvoorbeeld, zou een applicatie gebruikersinterface, clinici een adequaat geëtiketteerd selectievakje kunnen aanbieden, naast de gegevens over het gewicht, waarin door selecteren aangegeven kan worden dat het opgenomen gewicht een schatting is, in plaats van het werkelijke gewicht.\r\n\r\nDient te worden gebruikt om gewichtsverandering op te slaan, zowel gewichtsverlies als gewichtstoename. Dit kan gemodelleerd worden door 'any event' - elke gebeurtenis - in voorkomende gevallen, te beperken tot een interval met met bijbehorende rekenkundige functie van stijging of daling.",
+          "misuse" : "Dient niet te worden gebruikt voor het registreren van het eerste gewicht van een kind, na geboorte, welke wordt aangewezen als geboortegewicht. Gebruik hiervoor de specialisatie van dit archetype, OBSERVATION.body_weight-birth (OBSERVATION.lichaamsgewicht-geboorte.\r\nDient niet te worden gebruikt voor het registreren van het aangepaste lichaamsgewicht, bijvoorbeeld een berekening van het volledige lichaamsgewicht van een persoon met een amputatie van ledematen, gebaseerd op metingen van lichaamsdelen en een algoritme - gebruik hiervoor OBSERVATION.body_weight-adjusted. (OBSERVATION.lichaamsgewicht-aangepast).\r\nDient niet te worden gebruikt voor het vastleggen van het gewicht van een object of lichaamsdeel.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.body_weight.v2",
     "differential" : true,
@@ -1896,7 +2974,181 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "02D54A1F08B1D0D12BDEB8DFD499D214"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Dokumentation der Sauerstoffsättigung im Blut unter Benutzung eines Pulsoxymeters.",
+          "keywords" : [ "Sauerstoff", "Behandlung mit Sauerstoff", "Pulsoxymeter", "Pulsoxymetrie" ],
+          "use" : "Zur Darstellung des Blutsauerstoffs und damit zusammenhängender Messungen, die durch Pulsoxymetrie oder Puls-CO-Oximetrie gemessen werden.\r\n\r\nWellenformen sollten hier aufgezeichnet werden, wenn sie zur Dokumentation der Qualität der Blutgasmessung verwendet werden.",
+          "misuse" : "Nicht zur Darstellung von andere nicht-invasive Blutgasmessungen wie transkutane CO₂, laterale endtidalen CO₂ oder nicht-invasive zerebraler Oxymetrie verwendet.\r\n\r\nNicht zur Darstellung von Plethysmographie zu verwenden. Verwenden Sie einen anderen geeigneten Archetyp für diesen Zweck.\r\n\r\nNicht zur Darstellung einer anderen Art von Messung verwenden, wie z.B. der Pulsfrequenz, wenn das Aufzeichnungsgerät dies ebenfalls ermöglicht. Dies sollte in einem separaten Archetyp aufgezeichnet werden, der für diese spezielle Messung geeignet ist, um eine konsistente Abfrage zu ermöglichen. In diesem Beispiel sollte die Pulsfrequenz im Archetyp OBSERVATION.pulse aufgezeichnet werden.\r\n\r\nNicht zur Darstellung von Messungen der peripheren Blutgase zu verwenden, die einen direkten Kontakt mit Blut beinhalten. Zum Beispiel sollte PaO₂, PaCO₂ unter Verwendung des Archetyps OBSERVATION.laboratory_test_result aufgezeichnet werden.\r\n\r\nNicht zur Darstellung invasiver Blutgasmessungen verwenden. Zum Beispiel arterielle (SaO₂), venöse (SvO₂) Sauerstoffsättigung oder Sauerstoffgehalt (CaOC), die normalerweise durch invasive Methoden wie Laborblutgase oder Gefäßkathetergeräte bestimmt werden. Diese sollten auch innerhalb des Archetyps OBSERVATION.laboratory_test_resultate erfasst werden.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи результатов непрямых,в настоящее время неинвазивных, измерений газового состава крови, таких как SpO2 (насыщение кислородом периферической крови) и pTCO2 (насыщение углекислым газом), полученных методами пульсовой оксиметрии, чрескожной оксиметрии или другими методами.\r\n\r\nВполне вероятно, что этот архетип будет использоваться, в основном, для записи оценок оксигенации, однако в него могут быть включены или добавлены со временем измерения и других газов.",
+          "keywords" : [ "парциальное давление", "насыщение", "карбоксигемоглобин", "метгемоглобин", "чрескожный", "пульс", "оксиметр", "оксиметрия", "концентрация", "неинвазивный", "жизненный", "кислород", "углекислый газ", "О2", "СО2", "оксигенация" ],
+          "use" : "Используется для записи результатов непрямых,в настоящее время неинвазивных, измерений газового состава крови. Новые непрямые измерения газов крови должны добавляться к этому архетипу.\r\n\r\nЕсли записывающее устройство также обеспечивает другой тип измерения,например, такой как частота пульса, то это должно быть записано в отдельный архетип, соответствующий данному измерению, например, OBSERVATION.heart_rate, для обеспечения последовательных запросов.\r\n\r\nЦель состоит в том, чтобы последовательно моделировать клиническое понятие, а не моделировать вывод данных с устройства. Устройства становятся все более многофункциональными и обеспечивают дублирование измерений, которые, возможно, придется записывать с помощью ряда отдельных архетипов.\r\n\r\nОсциллограммы должны быть зарегистрированы здесь, когда используются для документирования качества измерений газов крови. В отличие от этого, если они используется для первичной диагностики, например, сердечного выброса, плетизмограммы должны быть записаны в ключевом клиническом архетипе - OBSERVATION.heart_rate-pulse.",
+          "misuse" : "Любые измерения газов крови, который включает прямой контакт с кровью, а также измерения PaO2 (парциальное давление кислорода), PaCO2 (парциальное давление углекислого газа) не должны записываться с помощью этого архетипа - для таких измерений используется архетип OBSERVATION.lab_test-blood_gases. Новые прямые измерения газов крови должны быть добавлены к архетипу OBSERVATION.lab_test-blood_gases.v1.\r\n\r\nНЕ использовать для записи прямого измерения газов крови. Например, насыщение кислородом артериальной (SaO2) или венозной (SvO2) крови, или содержание кислорода (CAOC), которые обычно определяются инвазивными методами, например, специальными лабораториями газов крови или с помощью сосудистых катетеров. Такие измерения должны быть записаны в архетип OBSERVATION.lab_test-blood_gases.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Mätning av syremättnad i blodet och relaterade mätningar, uppmätta med pulsoximetri eller CO-oximetri.",
+          "keywords" : [ "syre", "syresättning", "syremättnad", "SpO2", "spMet", "spCO", "spOC", "karboxihemoglobin", "methemoglobin", "puls", "oximeter", "oximetri", "koncentration", "partiell", "tryck", "icke-invasiv", "vital", "O2", "CO2", "koldioxid", "SaO₂", "SaO2" ],
+          "use" : "Använd för att dokumentera av mätning av syremättnad i blodet och relaterade mätningar, uppmätta med pulsoximetri eller CO-oximetri.\r\n\r\nVågformer bör registreras (i fältet vågform) om de används för att dokumentera kvaliteten av mätningen.",
+          "misuse" : "Ska inte användas för andra icke-invasiva blodgasmätningar, exempelvis transkutan CO₂, lateral endtidal CO₂ eller icke-invasiv cerebral oximetri.\r\n\r\nSka inte användas för pletysmografi. Använd en annan lämplig arketyp för det ändamålet.\r\n\r\nSka inte användas för att registrera andra typer av mätningar, exempelvis pulsfrekvens, även om mätenheten tillhandahåller också den informationen. Används istället existerande specifika arketyper, så att mer konsekventa sökningar kan göras. För exemplet puls registrerar du pulsfrekvensen i arketypen OBSERVATION.pulse istället.\r\n\r\n\r\nAnvänds inte för perifera blodgasmätningar som innebär direktkontakt med blod. PaO2, PaCO2 bör till exempel registreras med hjälp av OBSERVATION.laboratory_test_result arketypen istället.\r\n\r\nAnvänds inte för invasiv blodgasmätning. Exempelvis arteriell (SaO₂), venös (SvO₂) syremättnad, eller syreinnehåll (CaOC) som vanligtvis fastställs genom invasiva metoder såsom laboratorieblodgaser eller kärlkateter-kopplad utrustning. Dessa bör registreras med arketypen OBSERVATION.laboratory_test_result istället.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "*To record blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry.(en)",
+          "keywords" : [ "*oxygen(en)", "*oxygenation(en)", "*saturation(en)", "*SpO2(en)", "*spMet(en)", "*spCO(en)", "*spOC(en)", "*carboxyhaemoglobin(en)", "*methaemoglobin(en)", "*pulse(en)", "*oximeter(en)", "*oximetry(en)", "*concentration(en)", "*partial(en)", "*pressure(en)", "*non-invasive(en)", "*vital(en)", "*O2(en)", "*SaO₂(en)", "*SaO2(en)", "*sat(en)", "*sats(en)", "*hypoxaemia(en)" ],
+          "use" : "*Use to record blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry.\r\n\r\nWaveforms should be recorded here when used to document quality of the blood gas measurement.(en)",
+          "misuse" : "*Not used for other non-invasive blood gas measurements such as transcutaneous CO₂, lateral end-tidal CO₂ or non-invasive cerebral oximetry.\r\n\r\nNot to be used for recording plethysmography. Use another appropriate archetype for this purpose.\r\n\r\nNot to be used for recording another type of measurement, such as pulse rate, where the recording device also provides this. This should be recorded in a separate archetype, appropriate for that particular measurement to allow consistent querying. In this example, record the pulse rate in the OBSERVATION.pulse archetype.\r\n\r\nNot to be used to record any peripheral blood gas measurement that involves direct contact with blood. For example, PaO₂, PaCO₂ should be recorded using the OBSERVATION.laboratory_test_result archetype.\r\n\r\nNot to be used to record invasive blood gas measurement. For example, arterial (SaO₂), venous (SvO₂) oxygen saturation or Oxygen content (CaOC) which are usually determined by invasive methods such as laboratory blood gases or vascular catheter devices. These should also be recorded within the OBSERVATION.laboratory_test_result archetype.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Para registrar la medición indirecta y habitualmente no invasiva de los gases en sangre tales como SpO2 y PtCO2, por medio de un oxímetro de pulso (o saturómetro de pulso), oximetría transcutánea u otros métodos.\r\n\r\nEs probable que este arquetipo será usado usado primariamente para registrar estimaciones de oxigenación, pero otras mediciones de gases pueden ser incluidas o agregadas en el futuro.",
+          "keywords" : [ "oxígeno", "oxigenación", "saturación", "SpO2", "ptcCO2", "ptcO2", "spMet", "spCO", "spOC", "carboxi-hemoglobina", "meta-hemoglobina", "transcutáneo", "pulso", "oxímetro", "oximetría", "saturómetro", "concentración", "parcial", "presión", "no invasivo", "vital", "O2", "CO2", "anhídrido carbónico", "dióxido de carbono" ],
+          "use" : "Usado para registrar la medición indirecta de gases en sangre, comúnmente por técnicas no invasivas. Nuevas mediciones indirectas de gases en sangres deberían ser incorporadas a este arquetipo.\r\n\r\nCuando el dispositivo de registro también provea otro tipo de medida, tal como la frecuencia del pulso, esto debe ser registrado en un arquetipo separado, adecuado para esa medida en particular. Ej. el arquetipo OBSERVATION.heart_rate-pulse, para permitir una consulta consistente.\r\n\r\nEl objetivo es modelar consistentemente un concepto clínico, más que la salida del modelo del dispositivo; los dispositivos son cada vez más multi-funcionales y proporcionan mediciones redundantes, que pueden requerir el registro por medio de arquetipos discretos.\r\n\r\nLas formas de onda deben ser registradas aquí cuando se utiliza para documentar la calidad de la medición de gases en sangre. Por el contrario, si se utiliza primariamente con fines diagnósticos (Ej. del gasto cardíaco), debe registrarse en el arquetipo OBSERVATION.heart_rate-pulse.",
+          "misuse" : "Cualquier medición de gases en sangre que involucra contacto directo con la sangre y la medición de la PaO2, PaCO2 no deberían ser registradas usando este arquetipo. Usar el arquetipo OBSERVATION.lab_test-blood_gases.v1. Mediciones directas de gases arteriales nuevas, deberían ser agregadas a OBSERVATION.lab_test-blood_gases.v1.\r\n\r\nNo usar para registrar medidas directas de gases en sangre. Ej. SaO2 (saturación arterial), SvO2 (saturación venosa) o CaO2 (contenido de Oxígeno), usualmente determinados por métodos invasivos. Ej. laboratorio de gases en sangre o dispositivos catheter vascular. Estos deberían ser registrados en el arquetipo OBSERVATION.lab_test-blood_gases.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere blodoksygen og beslektede målinger, målt ved pulsoksymetri eller puls-CO-oksymetri.",
+          "keywords" : [ "oksygen", "oksygenering", "saturasjon", "SpO2", "spMet", "spCO", "spCaO", "karbonmonoksid hemoglobin", "methemoglobin", "puls", "oksimetri", "oksimeter", "konsentrasjon", "partial", "trykk", "non-invasiv", "vital", "O2", "CO2", "karbondioksid", "oksimetri", "oksymetri", "metning", "oksygenmetning", "SaO2", "SaO₂", "hypoksemi" ],
+          "use" : "Brukes til å registrere blodoksygen og beslektede målinger, målt ved pulsoksymetri eller puls-CO-oksymetri.\r\n\r\nBølgeformer bør registreres her, når det benyttes til å dokumentere kvalitet på blodgassmåling.\r\n",
+          "misuse" : "Brukes ikke til å registrere andre non-invasive blodgassmålinger, som transkutan CO₂, sidestrøms endetidal CO₂ eller noninasiv cerebral oksymetri.\r\n\r\nBrukes ikke til å registrere pletysmografi. Bruk en annen passende arketype for dette formålet.\r\n\r\nBrukes ikke til å registrer andre typer målinger som for eksempel puls, der måleutstyret også angir disse. Dette dette registreres i en egen arketype som er passende for den aktuelle målingen, for å muliggjøre konsekvent spørring. I dette eksempelet registreres puls i OBSERVATION.pulse-arketypen. \r\n\r\nBrukes ikke til å registrere perifere blodgassmålinger som involverer direkte kontakt med blod. For eksempel bør PaO₂, PaCO₂ registreres i OBSERVATION.laboratory_test_result arketypen.\r\n\r\nBrukes ikke til å registrere invasiv blodgassmåling, for eksempel arteriell (SaO₂) eller venøs (SvO₂) oksygenmetning eller oksygeninnhold (CaOC) som vanligvis måles ved hjelp av invasive metoder. Bruk OBSERVATION.laboratory_test_result til dette formålet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para gravar medidas de oxigênio sanguíneo, medidas por oximetria de pulso ou por carbo-oximetria de pulso.\r\n",
+          "keywords" : [ "Oxigênio", "Oxigenação", "Saturação", "SpO2", "spMet(", "spCO", "spOC", "Carboxyhaemoglobina", "Methaemoglobina", "Pulso", "Oxímetro", "Oximetria", "Concentração", "Parcial", "Pressão", "Não invasivo", "Vital", "O2", "SaO₂", "SaO2", "sat", "sats", "Hipoxemia" ],
+          "use" : "Para gravar medidas de oxigênio sanguíneo, medidas por oximetria de pulso ou por carbo-oximetria de pulso.\r\nA forma das ondas podem ser usadas para documentar a qualidade das medidas de gases sanguíneos",
+          "misuse" : "Não deve ser usado para outras medidas não invasivas de gases sanguíneos, tais como CO₂ transcutâneo, CO₂ inalado ou oximetria cerebral não invasiva.\r\nNão dever ser usado para avaliar alterações de volume. Usar outro arquétipo apropriado para este fim.\r\nNão deve ser usado para obter outros tipos de medida, tais como medida de pulso uma vez que o processo de medida também oferce isso. Deveria ser obtido em um arquétipo separado, apropriado para esta medida particular para obter dados consistentes. No exemplo obtenha o pulso no aquétipo de observação de pulso.\r\nNão deve ser usado para qualquer medida de gases de sangue periférico que envolva contato direto com sangue, por exemplo PaO₂, PaCO₂, poderiam ser obtidos usando o arquétipo de observações de resultados de teste de laboratório.\r\nNão deve ser usado para obter medidas de gases sanguíneos invasivos. Por exemplo, saturação de oxigênio arterial (SaO₂), Venoso (SvO₂) ou conteúdo de oxigênio (CaOC) que geralmente são determinados por métodos invasivos, como gasometria de laboratório ou cateter vascular. Estes também devem ser registrados no arquétipo OBSERVATION.laboratory_test_result.\r\n",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل قياسات غازات الدم غير المباشرة, بطريقة غير باضِعة, مثل تشبع الدم الطرفي بالأكسجين, و الضغط الجزئي للأكسجين في الدم الطرفي, عن طريق قياس تأكسج الدم عند النبض, أو قياس تأكسج الدم بطريق الجلد أو طرق أخرى.\r\n\r\nعادة ما يستخدم هذا النموذج لتسجيل تقديرات التأكسج, و لكن قياسات الغازات الأخرى قد يتم تضمينها أو تضاف مع الوقت.",
+          "keywords" : [ "الأكسجين", "التأكسج", "تشبع الدم الطرفي بالأكسجين", "الضغط الجزئي لثاني أكسيد الكربون في الدم الطرفي", "الضغط الجزئي لثاني أكسيد الكربون في الدم الطرفي", "تشبع الميثوكسيهيموغلوبين في الدم الطرفي", "تشبع الكاربوكسي هيموغلوبين في الدم الطرفي", "المحتوى الأكسجيني في الدم الطرفي", "التشبع", "كربوكسي هيموغلوبين", "الميتهيموغلوبين", "عن طريق الجلد", "النبض", "مقياس التأكسج", "قياس التأكسج", "التركيز", "جزئي", "الضغط", "غير باضع", "حيوي - حياتي", "الأكسجين", "ثاني أكسيد الكربون" ],
+          "use" : "يستخدم لتسجيل القياسات غير المباشرة لغازات الدم, باستخدام الطرق غير الباضعة. ينبغي أن يتم إضافة القياسات الجديدة لغازات الدم إلى هذا النموذج.\r\n\r\nكما تضيف الجهيزة المستخدمة طريقة أخرى للقياس, مثل سرعة النبض, و لكن ينبغي تسجيل ذلك في نموذج منفرد, يتناسب مع العلامة التي يتم قياسها, مثل: نموذج ملاحظة. القلب - معدل النبض, للسماح بالاستعلام عن البيانات بشكل متجانس.\r\n\r\nيهدف ذلك إلى وضع نموذج لمفهوم سريري, أكثر من كونه وضعا لنموذج نتاج (مُخرَج) جهيزة, حيث إن الجهائز عادة ما تكون متعددة الوظائف و تقوم بقياسات متراكبة قد تحتاج أن يتم تسجيلها في عدد من النماذج المنفردة.\r\n\r\nينبغي تسجيل التموجات في هذا النموذج عند استخدامها لتوثيق جودة قراءة غاز الدم. و على العكس, إذا استخدمت لأغراض تشخيصية أولية, مثل النتاج (المخرج) القلبي, و الـ \r\nplesmythography \r\nفينبغي تسجيلها باستخدام النموذج الجوهري: ملاحظة. القلب - معدل النبض.",
+          "misuse" : "لا ينبغي أن يستخدم هذا النموذج في قياس غازات الدم التي تتضمن تماس مباشر مع الدم, و قياس ضغط الأكسجين في الدم الشرياني, و ضغط ثاني أكسيد الكربون في الدم \r\nالشرياني, و ينبغي استخدام نموذج ملاحظة. الاختبار المعملي - غازات الدم, لذلك.\r\n\r\nينبغي إضافة القياسات المباشرة لغازات الدم لنموذج ملاحظة. الاختبار المعملي. غازات الدم.\r\n\r\nلا ينبغي أن يستخدم لقياس قياسات غازات الدم المباشرة, مثل تشبع الدم شرياني بالأكسجين و تشبع الدم الوريدي بالأكسجين, أو المحتوى الأكسجيني, التي يتم تحديدها باستخدام الطرق الباضعة, مثل استخدام الأجهزة المعملية لقياس غازات الدم أو القثطار الوريدي \r\nو ينبغي تسجيل هذه القياسات باستخدام نموذج ملاحظة. الاختبار المعملي. غازات الدم.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry.",
+          "keywords" : [ "oxygen", "oxygenation", "saturation", "SpO2", "spMet", "spCO", "spOC", "carboxyhaemoglobin", "methaemoglobin", "pulse", "oximeter", "oximetry", "concentration", "partial", "pressure", "non-invasive", "vital", "O2", "SaO₂", "SaO2", "sat", "sats", "hypoxaemia" ],
+          "use" : "Use to record blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry.\r\n\r\nWaveforms should be recorded here when used to document quality of the blood gas measurement.",
+          "misuse" : "Not used for other non-invasive blood gas measurements such as transcutaneous CO₂, lateral end-tidal CO₂ or non-invasive cerebral oximetry.\r\n\r\nNot to be used for recording plethysmography. Use another appropriate archetype for this purpose.\r\n\r\nNot to be used for recording another type of measurement, such as pulse rate, where the recording device also provides this. This should be recorded in a separate archetype, appropriate for that particular measurement to allow consistent querying. In this example, record the pulse rate in the OBSERVATION.pulse archetype.\r\n\r\nNot to be used to record any peripheral blood gas measurement that involves direct contact with blood. For example, PaO₂, PaCO₂ should be recorded using the OBSERVATION.laboratory_test_result archetype.\r\n\r\nNot to be used to record invasive blood gas measurement. For example, arterial (SaO₂), venous (SvO₂) oxygen saturation or Oxygen content (CaOC) which are usually determined by invasive methods such as laboratory blood gases or vascular catheter devices. These should also be recorded within the OBSERVATION.laboratory_test_result archetype.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fa" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fa"
+          },
+          "purpose" : "برای ثبت اندازه گیری گاز خون بطور غیر مستقیم ،در حال حاضر غیر تهاجمی و غیر مستقیم بکار می رود، نظیر ....و ... از طریق اندازه گیری اکسیژن نبضی ، اندازه گیری اکسیژن زیر پوستی یا سایر روشها \r\nاین احتمال بالاست که از این الگو ساز بطور اولیه در ثبت برآوردهای تولید اکسیژن استفاده شوداما سایر اندازه گیری های گاز ممکن است در طول زمان اضافه شود  .   ",
+          "keywords" : [ "اکسیژن", "تولید اکسیژن", "اشباع", "اشباع اکسیژن خون", "SpO2", "ptcCO2", "ptcO2", "spMet", "spCO", "spOC", "ترکیب مونو اکسید کربن و هموگلوبین در گلبولهای قرمز", "پروتیین حمل کننده اکسیژن در هموگلوبین", "زیر پوستی", "وسیله اندازه گیری اکسیژن خون", "روش اندازه گیری اکسیژن خون", "غلظت", "جزیی", "فشار", "غیر تهاجمی", "حیاتی", "O2", "CO2", "کربن دی اکسید" ],
+          "use" : "برای ثبت اندازه گیری غیر مستقیم گاز خون، که در حال حاضر با تکنیک های غیر تهاجمی انجام می شود، بکار می رود. داده های جدید اندازه گیری های غیر مستقیم گاز خون بایستی به این الگوساز افزوده شوند\r\n\r\nاز انجایی که وسایل ثبت انواع دیگری از اندازه گیری مانند میزان نبض را فراهم می کنند، بایستی در یک الگوساز جداگانه، مناسب با آن اندازه گیری مانند\r\nOBSERVATION.heart_rate-pulse\r\nبرای اجازه دادن به پرسجوی مشروط، ثبت شوند\r\n \r\nهدف همواره مدل کردن یک مفهوم بالینی به جای مدل کردن خروجی یک وسیله است\r\nوسایل چند کاره بوده و پیوسته قابلیت های آنها در حال افزایش است و اندازه گیری ها همپوشانی دارند که ممکن است نیاز شوند تا با بکارگیری یک تعداد از الگوساز های گسسته ثبت شوند\r\n\r\nشکل موج ها هنگامی که برای مستند کردن کیفیت اندازه گیری گاز خون استفاده می شوند بایستی در اینجا ثبت شوند. و در مقابل اگر برای اهداف تشخیصی اولیه مانند برونده قلبی بکار روند، \"پلسمیتوگرافی\" باید در الگوساز بالینی کلیدی مرتبط\r\nOBSERVATION.heart_rate-pulse\r\nثبت شود\r\n    ",
+          "misuse" : "هر گونه اندازه گیری گاز خون که شامل تماس مستقیم با خون و اندازه گیری .... و .... نباید با استفاده از این الگو ساز ثبت شود . ازالگو ساز ..... استفاده کنید . اندازه گیری جدید فشار خو.ن باید به ... اضافه شود\r\nنباید در ثبت اندازه گیری فشار گاز خون مستقیم استفاده شود به عنوان مثال .... ، .... اشباع اکسیژن یا محتوای اکسیژن .... که معمولا با روشهای غیر تهاجمی تعیین می شود.به عنوان مثال گازههای خونی آزمایشگاهی یا وسایل کاتتر عروقی . این موارد باید در الگو ساز ... ثبت شوند ",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "*To record blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry.(en)",
+          "keywords" : [ "*oxygen(en)", "*oxygenation(en)", "*saturation(en)", "*SpO2(en)", "*spMet(en)", "*spCO(en)", "*spOC(en)", "*carboxyhaemoglobin(en)", "*methaemoglobin(en)", "*pulse(en)", "*oximeter(en)", "*oximetry(en)", "*concentration(en)", "*partial(en)", "*pressure(en)", "*non-invasive(en)", "*vital(en)", "*O2(en)", "*SaO₂(en)", "*SaO2(en)", "*sat(en)", "*sats(en)", "*hypoxaemia(en)" ],
+          "use" : "*Use to record blood oxygen and related measurements, measured by pulse oximetry or pulse CO-oximetry.\r\n\r\nWaveforms should be recorded here when used to document quality of the blood gas measurement.(en)",
+          "misuse" : "*Not used for other non-invasive blood gas measurements such as transcutaneous CO₂, lateral end-tidal CO₂ or non-invasive cerebral oximetry.\r\n\r\nNot to be used for recording plethysmography. Use another appropriate archetype for this purpose.\r\n\r\nNot to be used for recording another type of measurement, such as pulse rate, where the recording device also provides this. This should be recorded in a separate archetype, appropriate for that particular measurement to allow consistent querying. In this example, record the pulse rate in the OBSERVATION.pulse archetype.\r\n\r\nNot to be used to record any peripheral blood gas measurement that involves direct contact with blood. For example, PaO₂, PaCO₂ should be recorded using the OBSERVATION.laboratory_test_result archetype.\r\n\r\nNot to be used to record invasive blood gas measurement. For example, arterial (SaO₂), venous (SvO₂) oxygen saturation or Oxygen content (CaOC) which are usually determined by invasive methods such as laboratory blood gases or vascular catheter devices. These should also be recorded within the OBSERVATION.laboratory_test_result archetype.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.pulse_oximetry.v1",
     "differential" : true,
