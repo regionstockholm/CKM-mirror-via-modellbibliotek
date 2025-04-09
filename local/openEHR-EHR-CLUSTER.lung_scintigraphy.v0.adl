@@ -1,0 +1,110 @@
+archetype (adl_version=1.4; uid=2b4fb402-9a31-4a94-bd96-4da4c756ac9d)
+	openEHR-EHR-CLUSTER.lung_scintigraphy.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["name"] = <"Oscar Karlsson">
+		["organisation"] = <"Karolinska University Hospital ">
+		["email"] = <"Oscar.karlsson@regionstockholm.se">
+		["date"] = <"2025-04-09">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"ef55447751b245e06c22c8535ab4d91f">
+		["build_uid"] = <"c8d22c98-f1a7-371c-9ef4-1c455310a009">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Lung scintigraphy
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Right lung
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::507]>
+						list = <
+							["1"] = <
+								units = <"%">
+								magnitude = <|0.0..100.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Left lung
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::507]>
+						list = <
+							["1"] = <
+								units = <"%">
+								magnitude = <|0.0..100.0|>
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lung scintigraphy">
+					description = <"Lung scintigraphy">
+				>
+				["at0001"] = <
+					text = <"Right lung">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Left lung">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Lung scintigraphy (en)">
+					description = <"*Lung scintigraphy (en)">
+				>
+				["at0001"] = <
+					text = <"*Right lung (en)">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"*Left lung (en)">
+					description = <"">
+				>
+			>
+		>
+	>
