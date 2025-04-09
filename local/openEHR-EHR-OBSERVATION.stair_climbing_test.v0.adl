@@ -1,0 +1,214 @@
+archetype (adl_version=1.4; uid=d641fe53-5f56-4fe9-86fd-6af0e5d3536f)
+	openEHR-EHR-OBSERVATION.stair_climbing_test.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["name"] = <"Oscar Karlsson">
+		["organisation"] = <"Karolinska University Hospital ">
+		["email"] = <"Oscar.karlsson@regionstockholm.se">
+		["date"] = <"2025-04-09">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"05b077420d8c5c1d3d18098b632c64d9">
+		["build_uid"] = <"329484cb-8f6e-3758-8320-8f518cf50c4a">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Stair climbing test
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Result
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005,    -- Passed
+													at0006,    -- *Ej godkänt (sv)
+													at0007]    -- *Ej genomfört (sv)
+												}
+											}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Distance
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"m">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Reason for failing the test
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- Reson not performed
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Saturation
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::507]>
+												list = <
+													["1"] = <
+														units = <"%">
+													>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Stair climbing test">
+					description = <"Stair climbing test">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Result">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Passed">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"*Ej godkänt (sv)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*Ej genomfört (sv)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Distance">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Reason for failing the test">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Reson not performed">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Saturation">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Trapptest">
+					description = <"*Stair climbing test (en)">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Resultat">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Godkänt">
+					description = <"Klarar att gå 22 meter i trappa">
+				>
+				["at0006"] = <
+					text = <"Ej godkänt">
+					description = <"Klarar inte att gå 22 meter i trappa">
+				>
+				["at0007"] = <
+					text = <"Ej genomfört">
+					description = <"Trapptestet genomfördes ej">
+				>
+				["at0008"] = <
+					text = <"Avstånd">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"*Reason for failing the test (en)">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"*Reson not performed (en)">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"*Saturation (en)">
+					description = <"">
+				>
+			>
+		>
+	>
