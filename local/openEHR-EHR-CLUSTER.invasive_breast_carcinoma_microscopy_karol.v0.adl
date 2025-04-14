@@ -6,6 +6,13 @@ concept
 
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
 
 description
 	original_author = <
@@ -17,6 +24,10 @@ description
 	lifecycle_state = <"Initial">
 	other_contributors = <"David Rowed, Ocean Informatics, Australia","Heather Leslie, Ocean Informatics, Australia","Cathy Richardson, NEHTA, Australia","David McKillop, NEHTA, Australia","Koray Atalag, University of Auckland, New Zealand","Matt Cordell, NEHTA, Australia">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record detailed findings about breast cancer found on microscopic examination.">
@@ -36,7 +47,7 @@ Available from: http://www.rcpath.org/resources/pdf/PathologyReportingOfBreastDi
 
 British Columbia Cancer Agency. Synoptic Report Form for Breast Cancer [Internet]. 2005 Dec 13;[cited 2009 Jul 26 ] Available from: http://www.bccancer.bc.ca/HPI/CancerManagementGuidelines/Breast/Management/SynopticReportForm1of6/default.htm
 ">
-		["MD5-CAM-1.0.1"] = <"c82abf100220674dd094d88910af3fba">
+		["MD5-CAM-1.0.1"] = <"1b03c660dafd3d15af90d68d3f13b632">
 		["build_uid"] = <"48454e1f-bc4a-3fc8-9650-3746abb2f851">
 	>
 
@@ -53,23 +64,13 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0229] occurrences matches {0..1} matches {    -- Radically removed
-				value matches {
-					DV_TEXT matches {*}
-					DV_CODED_TEXT matches {*}
-				}
-			}
 			allow_archetype CLUSTER[at0232] occurrences matches {0..*} matches {    -- Location
 				include
-					archetype_id/value matches {/.*/}
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location_circle\.v1/}
 			}
 			allow_archetype CLUSTER[at0219] occurrences matches {0..*} matches {    -- Dimensions
 				include
-					archetype_id/value matches {/.*/}
-			}
-			allow_archetype CLUSTER[at0242] occurrences matches {0..*} matches {    -- Margins
-				include
-					archetype_id/value matches {/.*/}
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.specimen_measurements\.v1/}
 			}
 			ELEMENT[at0233] occurrences matches {0..1} matches {    -- Comment on tumour size
 				value matches {
@@ -78,7 +79,7 @@ definition
 			}
 			CLUSTER[at0201] occurrences matches {0..2} matches {    -- Vascular invasion
 				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0208] occurrences matches {0..1} matches {    -- Present
+					ELEMENT[at0208] occurrences matches {0..1} matches {    -- Presence
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -123,45 +124,45 @@ definition
 					}
 				}
 			}
-			CLUSTER[at0221] occurrences matches {0..1} matches {    -- Mitosis count
-				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Mitosis count
-						value matches {
-							C_DV_QUANTITY <
-								
-								list = <
-									["1"] = <
-										units = <"1">
-										magnitude = <|>=0.0|>
-									>
-									["2"] = <
-										units = <"[HPF]">
-									>
-								>
-							>
-						}
-					}
-					ELEMENT[at0220] occurrences matches {0..1} matches {    -- HPF field diametre
-						value matches {
-							DV_QUANTITY matches {*}
-						}
-					}
-				}
-			}
 			CLUSTER[at0020] occurrences matches {0..1} matches {    -- Nottingham Grade
 				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0175] occurrences matches {0..1} matches {    -- Mitotic frequency score
-						value matches {
-							1|[local::at0176],
-							2|[local::at0177],
-							3|[local::at0178]
-						}
-					}
 					ELEMENT[at0016] occurrences matches {0..1} matches {    -- Nuclear score
 						value matches {
 							1|[local::at0050],
 							2|[local::at0051],
 							3|[local::at0052]
+						}
+					}
+					CLUSTER[at0221] occurrences matches {0..1} matches {    -- Mitosis count
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0014] occurrences matches {0..1} matches {    -- Mitosis count
+								value matches {
+									C_DV_QUANTITY <
+										
+										list = <
+											["1"] = <
+												units = <"1">
+												magnitude = <|>=0.0|>
+											>
+											["2"] = <
+												units = <"[HPF]">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0220] occurrences matches {0..1} matches {    -- HPF field diametre
+								value matches {
+									DV_QUANTITY matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0175] occurrences matches {0..1} matches {    -- Mitotic frequency score
+						value matches {
+							1|[local::at0176],
+							2|[local::at0177],
+							3|[local::at0178]
 						}
 					}
 					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Tubular formation score
@@ -196,6 +197,10 @@ definition
 					}
 				}
 			}
+			allow_archetype CLUSTER[at0239] occurrences matches {0..*} matches {    -- Tumour receptor panel
+				include
+					archetype_id/value matches {/.*/}
+			}
 			ELEMENT[at0235] occurrences matches {0..1} matches {    -- Tumour infiltrating lymphocytes (TILs)
 				value matches {
 					DV_CODED_TEXT matches {*}
@@ -206,11 +211,17 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
+			ELEMENT[at0229] occurrences matches {0..1} matches {    -- Radically removed
+				value matches {
+					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {*}
+				}
+			}
 			allow_archetype CLUSTER[at0234] occurrences matches {0..*} matches {    -- Adjacent carcinoma in situ details
 				include
 					archetype_id/value matches {/.*/}
 			}
-			allow_archetype CLUSTER[at0239] occurrences matches {0..*} matches {    -- Tumour receptor panel
+			allow_archetype CLUSTER[at0242] occurrences matches {0..*} matches {    -- Margins
 				include
 					archetype_id/value matches {/.*/}
 			}
@@ -323,7 +334,7 @@ ontology
 					description = <"">
 				>
 				["at0208"] = <
-					text = <"Present">
+					text = <"Presence">
 					description = <"">
 				>
 				["at0209"] = <
@@ -420,6 +431,202 @@ ontology
 				>
 				["at0242"] = <
 					text = <"Margins">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Invasiv bröstcancer mikroskopi">
+					description = <"*Microscopic anatomic pathology findings related to breast cancer. (en)">
+				>
+				["at0014"] = <
+					text = <"*Mitosis count (en)">
+					description = <"*Mitotic frequency is calculated from the number of mitoses per 10 high-power fields. (en)">
+				>
+				["at0016"] = <
+					text = <"*Nuclear score (en)">
+					description = <"*Nuclear score. (en)">
+				>
+				["at0017"] = <
+					text = <"*Tubular formation score (en)">
+					description = <"*Tubular formation score, representing the extent of tubular formation within invasive carcinoma cells. (en)">
+				>
+				["at0018"] = <
+					text = <"*Histologic grade (en)">
+					description = <"*Bloom and Richardson Grade of breast cancer, derived from the total score of its components: Mitotic frequency score, Nuclear score and Tubular formation score; (en)">
+				>
+				["at0020"] = <
+					text = <"*Nottingham Grade (en)">
+					description = <"*Bloom and Richardson Histology Grade ( with modification by Elston and Ellis) is composed of three  components which are combined to produce a calculated Histology Grade. (en)">
+				>
+				["at0044"] = <
+					text = <"*Tubular formation score 1 (en)">
+					description = <"*> 75% of invasive carcinoma forming tubular or glandular structures. (en)">
+				>
+				["at0045"] = <
+					text = <"*Tubular formation score 2 (en)">
+					description = <"*1075% of invasive carcinoma forming tubular or glandular structures. (en)">
+				>
+				["at0046"] = <
+					text = <"*Tubular formation score 3 (en)">
+					description = <"*< 10% of invasive carcinoma forming tubular or glandular structures. (en)">
+				>
+				["at0047"] = <
+					text = <"*Grade 1 (en)">
+					description = <"*Total score of 35. (en)">
+				>
+				["at0048"] = <
+					text = <"*Grade 2 (en)">
+					description = <"*Total score of 6 or 7. (en)">
+				>
+				["at0049"] = <
+					text = <"*Grade 3 (en)">
+					description = <"*Total score of 8 or 9. (en)">
+				>
+				["at0050"] = <
+					text = <"*Score 1 (en)">
+					description = <"*Size equivalent to 1.5–2 red blood cell diameters or normal duct epithelial nuclei; Diffuse chromatin; Inconspicuous nucleoli. (en)">
+				>
+				["at0051"] = <
+					text = <"*Score 2 (en)">
+					description = <"*Size equivalent to 2–2.5 red blood cell diameters; Coarse chromatin; Infrequent nucleoli and mitoses. (en)">
+				>
+				["at0052"] = <
+					text = <"*Score 3 (en)">
+					description = <"*Size > 2.5 red blood cell diameters; Pleomorphic vesicular nuclei; One or more prominent nucleoli; Frequent mitotic figures commonly present. (en)">
+				>
+				["at0175"] = <
+					text = <"*Mitotic frequency score (en)">
+					description = <"*Mitotic frequency score calculated from the mitosis count and the microscopy field diameter via a lookup table. (en)">
+				>
+				["at0176"] = <
+					text = <"*Score 1 (en)">
+					description = <"*Low mitotic frequency. (en)">
+				>
+				["at0177"] = <
+					text = <"*Score 2 (en)">
+					description = <"*Intermediate mitotic frequency. (en)">
+				>
+				["at0178"] = <
+					text = <"*Score 3 (en)">
+					description = <"*High mitotic frequency. (en)">
+				>
+				["at0199"] = <
+					text = <"Morfologisk typ">
+					description = <"">
+				>
+				["at0201"] = <
+					text = <"Kärlinvasion">
+					description = <"">
+				>
+				["at0205"] = <
+					text = <"Vävnad som invaderats">
+					description = <"">
+				>
+				["at0206"] = <
+					text = <"Kommentar till kärlinvasion">
+					description = <"">
+				>
+				["at0208"] = <
+					text = <"Förekomst">
+					description = <"">
+				>
+				["at0209"] = <
+					text = <"*Additional details (en)">
+					description = <"">
+				>
+				["at0212"] = <
+					text = <"*Lymphatic vessels (en)">
+					description = <"">
+				>
+				["at0213"] = <
+					text = <"*Venous (en)">
+					description = <"">
+				>
+				["at0214"] = <
+					text = <"*Invasion outside breast parenchyma (en)">
+					description = <"">
+				>
+				["at0215"] = <
+					text = <"*Skin (en)">
+					description = <"">
+				>
+				["at0216"] = <
+					text = <"*Chest wall (en)">
+					description = <"">
+				>
+				["at0217"] = <
+					text = <"*Score (en)">
+					description = <"">
+				>
+				["at0219"] = <
+					text = <"Tumörstorlek">
+					description = <"">
+				>
+				["at0220"] = <
+					text = <"*HPF field diametre (en)">
+					description = <"">
+				>
+				["at0221"] = <
+					text = <"*Mitosis count (en)">
+					description = <"">
+				>
+				["at0222"] = <
+					text = <"Kommentar till morfologisk typ">
+					description = <"">
+				>
+				["at0223"] = <
+					text = <"*Comment (en)">
+					description = <"">
+				>
+				["at0228"] = <
+					text = <"*Description of finding (en)">
+					description = <"">
+				>
+				["at0229"] = <
+					text = <"Radikalt borttagen">
+					description = <"">
+				>
+				["at0232"] = <
+					text = <"Lokalisation">
+					description = <"">
+				>
+				["at0233"] = <
+					text = <"Kommentar till tumörstorlek">
+					description = <"">
+				>
+				["at0234"] = <
+					text = <"*Adjacent carcinoma in situ details (en)">
+					description = <"">
+				>
+				["at0235"] = <
+					text = <"*Tumour infiltrating lymphocytes (TILs) (en)">
+					description = <"">
+				>
+				["at0236"] = <
+					text = <"*Comment on TILs (en)">
+					description = <"">
+				>
+				["at0237"] = <
+					text = <"*Not assessable (en)">
+					description = <"">
+				>
+				["at0238"] = <
+					text = <"*Comment (en)">
+					description = <"">
+				>
+				["at0239"] = <
+					text = <"*Tumour receptor panel (en)">
+					description = <"">
+				>
+				["at0241"] = <
+					text = <"*Lymphovascular (en)">
+					description = <"">
+				>
+				["at0242"] = <
+					text = <"Marginaler">
 					description = <"">
 				>
 			>
