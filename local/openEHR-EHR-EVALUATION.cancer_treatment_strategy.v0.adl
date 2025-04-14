@@ -1,0 +1,185 @@
+archetype (adl_version=1.4; uid=2aab857b-270d-4603-a785-ae56342c237d)
+	openEHR-EHR-EVALUATION.cancer_treatment_strategy.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Oscar Karlsson">
+		["organisation"] = <"Karolinska University Hospital ">
+		["email"] = <"Oscar.karlsson@regionstockholm.se">
+		["date"] = <"2025-04-14">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"b978c95ac0c4e6d2ec215c36e0638a5d">
+		["build_uid"] = <"4437a8ec-b39c-3201-808e-b16d87afbc0f">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- TEST cancer treatment strategy
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Study
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0016] occurrences matches {0..1} matches {    -- Activ tumor treatment
+						items cardinality matches {1..*; unordered} matches {
+							CLUSTER[at0007] occurrences matches {0..1} matches {    -- Main tretment
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Intent
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Modality
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..*} matches {    -- Details
+										value matches {
+											DV_TEXT matches {*}
+											DV_CODED_TEXT matches {*}
+											DV_QUANTITY matches {*}
+											DV_COUNT matches {*}
+										}
+									}
+								}
+							}
+							CLUSTER[at0011] occurrences matches {0..1} matches {    -- Additional tretment
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Intent
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Modality
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- Relation to main tretment
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Details
+										value matches {
+											DV_TEXT matches {*}
+											DV_CODED_TEXT matches {*}
+											DV_QUANTITY matches {*}
+											DV_COUNT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0017] occurrences matches {0..1} matches {    -- No active tumor treatment
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0018] occurrences matches {0..1} matches {    -- Managment action
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0020] occurrences matches {0..1} matches {    -- Reson
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"TEST cancer treatment strategy">
+					description = <"TEST cancer treatment strategy">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Study">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Main tretment">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Intent">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Modality">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Details">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Additional tretment">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Intent">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Modality">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Relation to main tretment">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Details">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Activ tumor treatment">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"No active tumor treatment">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Managment action">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Reson">
+					description = <"">
+				>
+			>
+		>
+	>
