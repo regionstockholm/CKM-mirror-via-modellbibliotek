@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.8-alpha.1",
-      "build_uid" : "39d0bf88-73e9-45bb-af3c-de7bec386047",
-      "MD5-CAM-1.0.1" : "42bfdff81bae27905b99d695347a4824",
+      "sem_ver" : "1.0.9-alpha.1",
+      "build_uid" : "1382f74c-6fa3-4d86-9667-e6923d2f68f7",
+      "MD5-CAM-1.0.1" : "dd5b22ee278677fa9d2a3c9420ac7c64",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -159,6 +159,15 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-INSTRUCTION.ovl-service_request-001.v1",
+        "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "ACTION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.4",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-ACTION.ovl-informed_consent-001.v0",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -1335,16 +1344,7 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0034.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DATE_TIME",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -2757,7 +2757,67 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "ed3ba5f4d704ead82cec16b9b2985802"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Um Details über die Verarbeitung einer Probe aufzuzeichnen, das von einer Person zur weiteren Analyse, Konservierung oder Lagerung gesammelt wurde oder damit in Verbindung steht.",
+          "keywords" : [ "Probe", "Labor", "Probe", "Histopathologie", "Histologie", "Pathologie", "Zytologie", "Filtration", "Zentrifugation", "Fleckenbildung", "Fixierung", "Dehydrierung", "Einbettung", "schneiden", "Voranalytik", "FFPE", "Einfrieren", "DNA", "Extraktion", "PCR, Histochemie", "Immunhistochemie", "FISCH", "Inkubation", "Scannen", "WSI", "Homogenisierung" ],
+          "use" : "Zur Aufzeichnung von Details über die Verarbeitung oder Vorbereitung einer Probe zur Analyse, Konservierung oder Lagerung, einschließlich spezifischer Prozesse wie Fixierung, Ausstrich, Paraffineinbettung, Zentrifugierung, Waschen, Schneiden, Ansäuern, Inkubation und Färbung.\r\n\r\nDie Begriffe „Vorbereitung“ und „Verarbeitung“ werden manchmal synonym verwendet und beschreiben manchmal bestimmte Schritte, die an der Probe zwischen der Entnahme und der Analyse durchgeführt werden. Dieser Archetyp soll zur Beschreibung aller durchgeführten relevanten Schritte verwendet werden, der Einfachheit halber wird der Begriff „Verarbeitung“ jedoch für beide verwendet.\r\n\r\nDer Archetyp wurde so konzipiert, dass er in den Archetyp CLUSTER.specimen eingebettet werden kann und die Details zu einem einzelnen Prozessschritt ODER einem mehrstufigen Prozess aufzeichnet. Wenn es nur einen Prozess oder Schritt gibt, verwenden Sie die Datenelemente auf Root-Ebene. Bei einem mehrstufigen Prozess kann jeder einzelne Schritt durch eine separate Instanz des internen Clusters „Prozessaktivität“ dargestellt werden, der für jeden Prozessschritt eine Instanz desselben CLUSTER.specimen_processing enthält.",
+          "misuse" : "Darf nicht zur Darstellung des Probentransports verwendet werden – Verwenden Sie für diesen Zweck CLUSTER.transportation.\r\nDarf nicht zur Darstellung der Probenlagerung verwendet werden – Verwenden Sie zu diesem Zweck EVALUATION.specimen_summary.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om behandling av et prøvemateriale, tatt fra eller relatert til et individ, for videre analyse, konservering eller lagring.",
+          "keywords" : [ "laboratorie", "histologi", "patologi", "cytologi", "filtrering", "filtrasjon", "sentrifugering", "farging", "fiksering", "fixering", "dehydrering", "støping", "snitting", "preanalytisk", "FFPE", "frysing", "DNA", "RNA", "ekstraksjon", "PCR", "immunhistokjemi", "FISH", "inkubering", "skanning", "scanning", "WSI", "homogenisering", "materiale", "prøve", "blod", "væske" ],
+          "use" : "For å registrere detaljer om behandling eller preparering av et prøvemateriale for å gjøre det egnet for videre analyse, konservering eller lagring. Dette inkludert spesifikke prosesser som fiksering, utstryk, parafininnstøping, sentrifugering, vasking, snitting, surgjøring, inkubasjon og farging.\r\n\r\nUttrykkene \"preparering\" og \"behandling\" brukes av og til om hverandre og av og til for å beskrive spesifikke trinn som utføres på prøvematerialet mellom innsamling og analyse. Denne arketype er ment å brukes for å beskrive alle relevante trinn som utføres, men for enkelhetens skyld brukes uttrykket \"behandling\" for å dekke begge deler.\r\n\r\nDenne arketypen er laget for å nøstes inn i CLUSTER.specimen (Prøvemateriale) arketypen og for å registrere detaljer om enten en enkelt behandlingsaktivitet eller alle individuelle trinn i en flertrinns behandlingsprosess. Hvis det kun er et prosesseringstrinn, holder det å bruke dataelementene på rotnivået. Hvis det derimot er en flertrinnsprosess, kan hvert enkelt trinn representeres ved å bruke en separat instans av denne arketypen, CLUSTER.specimen_processing (Provebehandling), i SLOTet \"Behandlingsaktivitet\".",
+          "misuse" : "Skal ikke brukes til prøvetransport - bruk CLUSTER.transportation (Transport av et objekt) til dette.\r\nSkal ikke brukes til dokumentasjon av lagring av et prøvemateriale - bruk EVALUATION.specimen_summary (Prøvematerialesammendrag) til dette.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about the processing of a specimen collected from, or related to, an individual for further analysis, preservation or storage.",
+          "keywords" : [ "specimen", "laboratory", "sample", "histopathology", "histology", "pathology", "cytology", "filtration", "centrifugation", "staining", "fixation", "dehydration", "embedding", "slicing", "pre-analytics", "FFPE", "freezing", "DNA", "extraction", "PCR, histochemistry", "immunohistochemistry", "FISH", "incubation", "scanning", "WSI", "homogenization" ],
+          "use" : "To record details about the processing or preparation of a specimen for analysis, preservation or storage, including specific processes such as fixation, smearing, paraffin embedding, centrifuging, washing, sectioning, acidification, incubation and staining.\r\n\r\nThe terms 'preparation' and 'processing' are sometimes used interchangeably and sometimes to describe specific steps performed on the specimen between collection and analysis. This archetype is intended to be used to describe all the relevant steps performed, but for simplicity uses the term 'processing' to cover both.\r\n\r\nThe archetype has been designed to be nested within the CLUSTER.specimen archetype and to record the details about a single process step OR a multistep process. If there is only one process or step, then use the data elements at root level. If there is a multistep process, each separate step can be represented using a separate instance of the 'Process activity' internal cluster which contains one instance of this same CLUSTER.specimen_processing for each process step.",
+          "misuse" : "Not to be used to represent specimen transportation - use CLUSTER.transportation for this purpose. \r\nNot to be used to represent specimen storage - use EVALUATION.specimen_summary for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.specimen_processing.v1",
     "differential" : true,
@@ -2769,7 +2829,62 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "CLUSTER",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0094.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0089.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0074.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0097.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..0",
+          "nodeId" : "at0086.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0095.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
@@ -2778,7 +2893,15 @@
       "termDefinitions" : {
         "en" : { },
         "de" : { },
-        "nb" : { }
+        "nb" : { },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Tidpunkt i formalin",
+            "description" : "*Details about the processing or preparation of a specimen. (en)"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -2822,6 +2945,112 @@
         "name" : "Liv Laugen",
         "organisation" : "​Oslo University Hospital, Norway, Oslo universitetssykehus",
         "email" : "liv.laugen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "df2c3101-c68f-4e51-b0fb-ed5a60097239",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "cf7e4e7466c178a053be760e9eaf9cf4"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-ACTION.informed_consent.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-ACTION.ovl-informed_consent-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "ACTION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "ru" : { },
+        "de" : { },
+        "nb" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "3be1588a-c4f0-4ef3-8bd3-0a3e7a0c7585",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Aurelie Tomczak, Natalia Strauch",
+        "organisation" : "Institute of Pathology, University Hospital Heidelberg, Germany, Medizinische Hochschule Hannover",
+        "email" : "au.tomczak@yahoo.com, Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ru"
+      },
+      "author" : {
+        "name" : "Art Latyp; Латыпов Артур Шамилевич",
+        "organisation" : "RusBITech РусБИТех"
+      },
+      "accreditation" : "hmm",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Kanika Kuwelker",
+        "organisation" : "Helse Vest IKT",
+        "email" : "kanika.kuwelker@helse-vest-ikt.no"
       },
       "otherDetails" : { }
     } ]
