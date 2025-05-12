@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "41.0.0",
+      "sem_ver" : "42.0.0",
       "build_uid" : "ecb4a83e-b9cb-4f8e-9485-8c1777a58d38",
-      "MD5-CAM-1.0.1" : "50a264ba2b9a6e50451082292cd54e32",
+      "MD5-CAM-1.0.1" : "55d1bb16de663702f534f11b77b45b19",
       "PARENT:MD5-CAM-1.0.1" : "B188E352541BD14DD32ABCCE228EEA7C"
     },
     "details" : {
@@ -10144,9 +10144,48 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
                       "nodeId" : "at0055.1",
-                      "attributes" : [ ],
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_CODED_TEXT",
+                          "occurrences" : "1..1",
+                          "defaultValue" : {
+                            "defining_code" : {
+                              "terminology_id" : {
+                                "value" : "Snomed CT",
+                                "@type" : "TERMINOLOGY_ID"
+                              },
+                              "code_string" : "12738006",
+                              "@type" : "CODE_PHRASE"
+                            },
+                            "value" : "Hjärna",
+                            "@type" : "DV_CODED_TEXT"
+                          },
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "TERMINOLOGY_CODE",
+                              "occurrences" : "0..1",
+                              "terminologyId" : {
+                                "value" : "Snomed CT"
+                              },
+                              "constraint" : [ ],
+                              "selectedTerminologies" : [ "Snomed CT" ],
+                              "includedExternalTerminologyCodes" : [ {
+                                "terminologyId" : "Snomed CT",
+                                "code" : "12738006",
+                                "value" : "Hjärna"
+                              } ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
                       "attributeTuples" : [ ]
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
@@ -10212,6 +10251,7 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
                       "nodeId" : "at0008.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
@@ -10306,10 +10346,10 @@
                       "@type" : "C_ARCHETYPE_ROOT",
                       "rmTypeName" : "CLUSTER",
                       "occurrences" : "0..1",
-                      "nodeId" : "at0044.1",
+                      "nodeId" : "at0044.2",
                       "attributes" : [ ],
                       "attributeTuples" : [ ],
-                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-imaging_exam-002.v1",
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-amount-001.v0",
                       "referenceType" : "archetypeOverlay"
                     } ]
                   } ],
@@ -10700,218 +10740,6 @@
         "name" : "Vebjørn Arntzen, Liv Laugen",
         "organisation" : "​Oslo University Hospital, Norway",
         "email" : "varntzen@ous-hf.no, liv.laugen@ous-hf.no"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "0e2dcf0d-8a4f-4eed-80a6-e15b294a1ac8",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "DD19B53EA9A429417A10AB0F1AA8FE56"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Darstellung der Befunde einer radiologischen Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation.",
-          "keywords" : [ "Befund, Ergebnis, Bildgebung, Körper, Organ, System, Struktur, Region, Beobachtung, Diagnostik, Radiologie, Bild" ],
-          "use" : "Zur Erfassung der Befunde einer radiologischen Untersuchung einer bestimmten Körperstruktur oder -region und ihrer Interpretation.\r\n\r\nDer vorgesehene Anwendungsbereich für die Archetypenfamilie CLUSTER.imaging_exam ist die Erfassung aller detaillierten Befunde einer radiologischen Untersuchung. Die Familie der spezialisierten Archetypen ist von diesem generischen übergeordneten Archetyp CLUSTER.imaging_exam abgeleitet, der als universelles Muster für die Aufzeichnung aller Befunde in einer bestimmten Körperstruktur oder -region und unter Verwendung einer beliebigen Modalität konzipiert ist.\r\n\r\nDieser Archetyp und die mit ihm verbundenen Spezialisierungen sind so konzipiert, dass sie in den SLOT „Bildgebende Untersuchung einer Körperstruktur“ in OBSERVATION.imaging_exam_result oder in den SLOT „Zusätzliche Details“ in anderen relevanten Archetypen von CLUSTER.imaging_exam verschachtelt werden, können aber auch in anderen ENTRY- oder CLUSTER-Archetypen verwendet werden, sofern dies klinisch sinnvoll ist. Wenn dieser Archetyp oder seine Spezialisierungen um weitere Ebenen detaillierter Befunde erweitert werden müssen, können zusätzliche Instanzen des Archetyps CLUSTER.imaging_exam oder seiner Spezialisierungen im SLOT „Additional details“ verschachtelt werden.\r\n\r\nJede struktur- oder regionenspezifische Ausprägung dieses übergeordneten Archetyps soll alle erwarteten und relevanten Befunde umfassen. Zum Beispiel unterstützt CLUSTER.imaging_exam-ovary die Aufzeichnung aller Befunde, die bei der Berichterstattung über die Bildgebung des Eierstocks mit einer beliebigen radiologischen Modalität zu erwarten sind, einschließlich der Größe des Eierstocks, der Größe des größten Follikels sowie des Durchmessers und der Beschreibung bestimmter Follikel. In ähnlicher Weise enthält CLUSTER.imaging_exam-lymph_node_group Datenelemente, die zur Erfassung spezifischer Befunde einer Lymphknotengruppe erforderlich sind, einschließlich ihrer genauen oder relativen Lage im Körper und der Anzahl der Lymphknoten in der Gruppe. \r\n\r\nWenn für eine Körperregion oder -struktur keine entsprechende Spezialisierung verfügbar ist, kann dieser generische Archetyp zur Erfassung aller relevanten Befunde, einschließlich der Identifizierung der Struktur oder Region, verwendet werden.",
-          "misuse" : "Nicht zur Darstellung von Befunden verwenden, die außerhalb der identifizierten Körperstruktur oder -region beobachtet wurden. Verwenden Sie zu diesem Zweck eine separate Instanz eines oder mehrerer Archetypen aus der Familie CLUSTER.imaging_exam.\r\n\r\nDarf nicht verwendet werden, um Details in Bezug auf die Gesamtbefunde, den Kontext oder technische Details in Bezug auf ein vollständiges Testergebnis einer bildgebenden Untersuchung darzustellen. Verwenden Sie zu diesem Zweck das OBSERVATION.imaging_exam_result. Zum Beispiel Kommentare zur Studienqualität, zu Differenzialdiagnosen und zum Gesamteindruck.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For å registrere funn og tolkning av radiologisk undersøkelse av et definert organ eller en kroppsdel.",
-          "keywords" : [ "funn", "observasjon", "bildediagnostikk", "kropp", "organ", "kroppsstruktur", "diagnostisk", "radiologi", "bilde" ],
-          "use" : "Bruk for å registrere funn og tolkning av radiologisk undersøkelse av et definert organ eller en kroppsdel.\r\n\r\nDet tiltenkte formålet med hele gruppen av arketyper innen CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur) er å kunne registrere alle detaljerte funn og observasjoner ved radiologiske undersøkelser. Gruppen av spesialiserte arketyper er avledet fra denne generiske forelder-arketypen, CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur), og har et generelt mønster for å registrere ethvert funn i ethvert organ eller kroppsdel og ved bruk av enhver modalitet.\r\n\r\nDenne arketypen og dens tilhørende gruppe av spesialiseringer er utformet for å nøstes i SLOT'et \"Strukturerte funn\" i OBSERVATION.imaging_exam_result (Bildediagnostisk svar), eller i SLOT'et \"Ytterligere detaljer\" i en annen relevant CLUSTER.imaging_exam - arketype (Bildediagnostisk undersøkelse - XYZ, der \"XYZ\" er nærmere angitt organ). Men den kan også brukes i enhver annen ENTRY- eller CLUSTER-arketype der det er klinisk passende. Hvis denne arketypen, eller en spesialisering av denne, må utvides med flere nivåer med detaljerte funn eller observasjoner, kan flere forekomster av arketypen eller dens spesialiseringer nøstes i SLOT'et \"Ytterligere detaljer\".\r\n\r\nHver organ- eller regionspesifikk spesialisering av denne overordnede arketypen er ment å inkludere alle rimelig forventede og relevante funn. For eksempel vil CLUSTER.imaging_exam-overy (Bildediagnostisk undersøkelse - eggstokk) dekke registrering av alle funn eller observasjoner som man forventer å finne ved radiologisk undersøkelse av eggstokk, uavhengig av modalitet. Dette inkluderer størrelse av eggstokk, dimensjonen av den største follikkelen og diameter og beskrivelse av spesifikke follikler. På samme måte vil CLUSTER.imaging_exam-lymph_node_group (Bildediagnostisk undersøkelse - lymfeknutegruppe) inneholde dataelementer som er nødvendig for å registrere spesifikke funn av en lymfeknutegruppe, inkludert den nøyaktige eller relative plassering i kroppen og antall lymfeknuter i gruppen.\r\n\r\nDersom en passende spesialisering ikke er tilgjengelig for et organ eller kroppsdel, kan denne generiske arketypen brukes for å registrere alle relevante funn, inkludert identifikasjon av organ eller kroppsdel.",
-          "misuse" : "Skal ikke brukes til å registrere funn som er gjort utenom det definerte organet eller den definerte kroppsdelen. Bruk en egen instans av en eller flere arketyper innen gruppen av CLUSTER.imaging_exam - arketyper (Undersøkelsesfunn) for dette formålet.\r\n\r\nSkal ikke brukes til å registrere overordnede undersøkelsesfunn, kontekst eller tekniske detaljer relatert til bildeundersøkelsen. Bruk arketypen OBSERVATION.imaging_exam_result (Bildediagnostisk svar) for å registrere for eksempel kommentar om undersøkelseskvalitet, differensialdiagnose og overordnet konklusjon.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record the findings on radiological examination of a specified body structure or region, and their interpretation.",
-          "keywords" : [ "finding, imaging, body, system, structure, region, observation, diagnostic, radiology, image" ],
-          "use" : "Use to record the findings on radiological examination of a specified body structure or region, and their interpretation.\r\n\r\nThe intended scope for the CLUSTER.imaging_exam family of archetypes to be used to record all detailed findings on radiological examination. The family of specialised archetypes are derived from this generic parent archetype, CLUSTER.imaging_exam, designed as a universal pattern for recording any findings in any specified body structure or region and using any modality.\r\n\r\nThis archetype and its related family of specialisations are designed to be nested within the 'Structured imaging findings' SLOT in the OBSERVATION.imaging_exam_result or within the 'Additional details' SLOT in other relevant CLUSTER.imaging_exam archetypes, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate. If this archetype or its specialisations need to be extended with further levels of detailed findings, additional instances of the CLUSTER.imaging_exam or its specialisations can be nested in the 'Additional details' SLOT.\r\n\r\nEach structure- or region-specific specialisation of this parent archetype is intended to be inclusive of all reasonably anticipated and relevant findings. For example, the CLUSTER.imaging_exam-ovary will support recording of all findings that would be expected in reporting on imaging of the ovary using any radiological modality, including the size of the ovary, largest follicle size and the diameter and description of specific follicles. Similarly, CLUSTER.imaging_exam-lymph_node_group will contain data elements required to record specific findings of a lymph node group, including its precise or relative location in the body and the number of lymph nodes in the group. \r\n\r\nIf an appropriate specialisation is not available for a body structure or region, this generic archetype can be used to record all relevant findings, including identification of the structure or region.",
-          "misuse" : "Not to be used to record findings observed outside the identified body structure or region. Use a separate instance of one or more archetypes from the CLUSTER.imaging_exam family for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.imaging_exam.v1",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-imaging_exam-002.v1"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0001.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "occurrences" : "1..1",
-              "defaultValue" : {
-                "defining_code" : {
-                  "terminology_id" : {
-                    "value" : "local_terms",
-                    "@type" : "TERMINOLOGY_ID"
-                  },
-                  "code_string" : "12738006",
-                  "@type" : "CODE_PHRASE"
-                },
-                "value" : "Hjärna",
-                "@type" : "DV_CODED_TEXT"
-              },
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "0..1",
-                  "terminologyId" : {
-                    "value" : "local_terms"
-                  },
-                  "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms" ],
-                  "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms",
-                    "code" : "12738006",
-                    "value" : "Hjärna"
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0002.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0006.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0007.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Antal metastaser i hjärna",
-            "description" : "Narrative description of the imaging findings observed during this examination."
-          }
-        },
-        "nb" : { },
-        "de" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "3677e97d-c5d0-483c-a291-474e45b3b4eb",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Natalia Strauch, Darin Leonhardt",
-        "organisation" : "Medizinische Hochschule Hannover, PLRI für medizinische Informatik/ Medizinische Hochschule",
-        "email" : "Strauch.Natalia@mh-hannover.de, leonhardt.darin@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Vebjørn Arntzen",
-        "organisation" : "Oslo University Hospital",
-        "email" : "varntzen@ous-hf.no"
       },
       "otherDetails" : { }
     } ]
@@ -17644,7 +17472,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "5c67b725e56f3da3f120bdd37b011545"
+        "PARENT:MD5-CAM-1.0.1" : "dee04a628c485ca358c5fdc72853915a"
       },
       "details" : {
         "sv" : {
@@ -30461,6 +30289,81 @@
       },
       "otherDetails" : { }
     } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "9819a7b8-fd47-4177-af8b-60e2a59fba30",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "149ec4c6192939c3c80637ee34d0c333"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.amount.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-amount-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Antal metastaser i hjärna",
+            "description" : ""
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "7467d03c-6a3f-35b3-b530-1c6324152971",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
   } ],
   "originalLanguage" : {
     "terminologyId" : {
