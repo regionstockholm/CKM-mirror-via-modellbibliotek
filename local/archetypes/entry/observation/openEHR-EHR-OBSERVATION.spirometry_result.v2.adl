@@ -22,6 +22,14 @@ language
 				["email"] = <"vesa.peltola@tieto.com">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Oscar Karlsson">
+				["organisation"] = <"Karolinska Universitetssjukhuset">
+				["email"] = <"oscar.karlsson@regionstockholm.se">
+			>
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			author = <
@@ -97,6 +105,34 @@ Not to be used to record details about incentive spirometry. Use specific archet
 Not to be used to record the results of blood gas tests. Use the OBSERVATION.laboratory_test_result for this purpose.
 
 Not to be used to record measurements about pulse oximetry. Use the OBSERVATION.pulse_oximetry for this purpose. (en)">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Att registrera resultaten från en mätning av andningsfunktion utfört med spirometer eller PFM(Peak Flow Meter)-mätare.">
+			use = <"Används för att registrera resultaten från en mätning av andningsfunktion utfört med spirometer eller PFM (Peak flow-mätare).
+
+Denna arketyp är avsedd att användas för att dokumentera resultat från:
+- elektroniska eller mekaniska mätinstrument. Använd elementet \"Typ av mätning\" i Protokoll för att dokumentera hur resultatet mättes;
+- orala, nasala eller trakeostomi-tester. Använd elementet \"Metod\" i Protokoll för att dokumentera vilken typ av andningsutrustning som användes vid testet. Till exempel: munstycke eller ansiktsmask. Mätningar med olika \"Metod\" måste dokumenteras med separata instanser av arketypen.
+- inspiratoriska och exspiratoriska tester. Namnet på varje test anger om det avser ett inspiratoriskt eller exspiratoriskt resultat.
+
+Om spirometritestet utförs i samband med administrering av bronkdilaterare eller provokationssubstanser kan detta dokumenteras med hjälp av elementet \"Provokation/reversibilitet\". Detaljer om vad som administrerats bör dokumenteras med en instans av arketypen ACTION.medication i samma COMPOSITION.
+
+Om ytterligare information om kroppstemperatur, omgivningstryck eller luftfuktighet krävs kan detta dokumenteras med hjälp av kompletterande arketyper. Kroppstemperatur kan dokumenteras med en instans av arketypen OBSERVATION.body_temperature i samma COMPOSITION. Omgivningstryck eller luftfuktighet kan dokumenteras med arketypen CLUSTER.environmental_conditions nästlad i slot \"Miljöförhållanden\".
+
+\"Any event\" kan klonas och begränsas för att stödja representation av:
+- Flera mätningar och deras medelvärde – klona \"Any event\" så många gånger som behövs, samt lägg till en ytterligare \"Any event\" där \"types\" sätts till \"Interval\" med attributet \"Mean\" valt;
+
+- Resultat före och efter bronkiella provokationstester eller användning av bronkdilaterare – klona \"Any event\" och döp om till \"Baslinje\" eller \"Utgångsvärden\" respektive \"Efter provokation/bronkdilaterare\", och koppla vid behov till en tidsförskjutning från referenspunkt.">
+			keywords = <"andning", "respiratorisk", "pulmonell", "spirometri", "maximalt flöde", "lunga", "bronkiell", "luftväg", "pef", "pefr">
+			misuse = <"Ska inte användas för att registrera resultat från andra typer av lungfunktionstester, till exempel pletysmografi eller diffusionskapacitetstester. Använd specifika arketyper för dessa ändamål.
+
+Ska inte användas för att registrera uppgifter om incentiv spirometri. Använd specifika arketyper för dessa ändamål.
+
+Ska inte användas för att registrera resultat från blodgastester. Använd OBSERVATION.laboratory_test_result för detta ändamål.
+
+Ska inte användas för att registrera mätvärden från pulsoximetri. Använd OBSERVATION.pulse_oximetry för detta ändamål.
+">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
@@ -177,7 +213,7 @@ Not to be used to record measurements about pulse oximetry. Use the OBSERVATION.
 			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Dag Aarhus, Vestre Viken HF, Norway", "Håvard Andreassen Sæverud, Oslo universitetssykehus, Norway", "Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Astrid Askeland, Dips AS, Norway", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Hanne Marte Bårholm, Helse Vest IKT, Norway (openEHR Editor)", "Derek Corrigan, Royal College of Surgeons in Ireland, Ireland", "Manuela Domingo, hospital general universitario dr. balmis, Spain", "Ola Drange Røksund, Helse Bergen, Norway", "Kåre Flø, DIPS ASA, Norway", "Heather Grain, Llewelyn Grain Informatics, Australia", "Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (openEHR Editor)", "Merete Havn Torland, Helse Vest IKT, Norway", "Sam Heard, Ocean Informatics, Australia", "Evelyn Hovenga, EJSH Consulting, Australia", "Tiago Jacinto, CINTESIS - FMUP, Portugal", "Lars Morgan Karlsen, DIPS ASA, Norway", "Agathe Krekvik Govertsen, Helse Bergen, Norway", "Kanika Kuwelker, Helse Vest IKT, Norway (openEHR Editor)", "Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)", "Valeria Lecca, Sardegna Ricerche, Italia", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Anne M Gromsrud, DIPS AS, Norway", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom", "Svenne Naumann, Finnmarkssykehuset, Norway", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Bjørn Næss, DIPS ASA, Norway", "Andrej Orel, Marand d.o.o., Slovenia", "Ana Pereira, CINTESIS, CUF-Porto, Portugal", "Francisco Sanchez Laguna, Ministry of Health, Spain", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "Nina Særvold, Helse Bergen, Norway", "Nyree Taylor, Ocean Health Systems, Australia", "Anders Thurin, VGR, Sweden", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)", "Ina Wille, Helse-Vest RHF, Norway">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
@@ -194,10 +230,10 @@ Sheshadri A, Keus L, Blanco D, Lei X, Kellner C, Shannon VR, Balachandran DD, Ji
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7C30237E2A5AD7DAEC81DB4EB35BDB77">
-		["build_uid"] = <"c92d5ec3-921f-4162-8bc8-4ba4ff57b49a">
+		["MD5-CAM-1.0.1"] = <"4256FE0757BAA86774BEB3E82131AE74">
+		["build_uid"] = <"88cbe061-4570-4e8a-adff-63aa07559b08">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
-		["revision"] = <"2.0.1">
+		["revision"] = <"2.0.2-alpha">
 	>
 
 definition
@@ -2218,6 +2254,329 @@ ontology
 				["at0209"] = <
 					text = <"Umweltbedingungen">
 					description = <"Details zu den Umgebungsbedingungen zum Zeitpunkt der Spirometrieaufzeichnung.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Spirometriresultat">
+					description = <"Resultaten från en mätning av andningsfunktion utfört med spirometer eller PFM (Peak flow-mätare).">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Ospecificerad händelse">
+					description = <"Ospecificerad standardhändelse vid en tidpunkt eller inom ett tidsintervall som explicit kan definieras i en mall eller genereras automatiskt av vissa IT-system.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"*Predicted result(en)">
+					description = <"*Predicted flow rate.(en)">
+				>
+				["at0013"] = <
+					text = <"*Forced expiratory time (FET)(en)">
+					description = <"*The time taken to complete a forced expiration.(en)">
+				>
+				["at0018"] = <
+					text = <"*Predicted result(en)">
+					description = <"*Predicted ratio.(en)">
+				>
+				["at0029"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0030"] = <
+					text = <"*Device(en)">
+					description = <"*Details of the device used to measure spirometry.(en)">
+				>
+				["at0031"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0044"] = <
+					text = <"Kvot uppmätt/förväntat">
+					description = <"Kvoten mellan det uppmätta värdet och det förväntade värdet.">
+				>
+				["at0052"] = <
+					text = <"Volym">
+					description = <"Testresultat representerat som uppmätt volym eller beräknad kapacitet.">
+					comment = <"Varje enskilt testresultat registreras med en separat instans av detta cluster.">
+				>
+				["at0053"] = <
+					text = <"Resultat">
+					description = <"Uppmätt volym.">
+				>
+				["at0054"] = <
+					text = <"Förväntat resultat">
+					description = <"Förväntad volym.">
+				>
+				["at0055"] = <
+					text = <"*Ratio(en)">
+					description = <"*A calculated test result expressed as a ratio.(en)">
+				>
+				["at0056"] = <
+					text = <"*Result(en)">
+					description = <"*Calculated ratio.(en)">
+				>
+				["at0057"] = <
+					text = <"*Flow rate(en)">
+					description = <"*Test result represented as a measured flow rate.(en)">
+				>
+				["at0058"] = <
+					text = <"*Result(en)">
+					description = <"*Measured flow rate.(en)">
+				>
+				["at0064"] = <
+					text = <"SVC">
+					description = <"Långsam vitalkapacitet (SVC) är den totala volym luft som kan blåsas ut efter en maximal inandning, men vid en långsam, kontrollerad utandning.
+Kallas också för vitalkapacitet vid utandning (EVC). Lika med IRV + TV + ERV.">
+				>
+				["at0065"] = <
+					text = <"FVC">
+					description = <"Forcerad vitalkapacitet (FVC) är den totala volymen luft som en person kan andas ut med kraft efter en maximal inandning.">
+				>
+				["at0067"] = <
+					text = <"FEV1">
+					description = <"Forcerad utandningsvolym under 1 sekund (FEV1) är den volym luft som har utandats under den första sekunden vid utförande av ett FVC test.
+">
+				>
+				["at0068"] = <
+					text = <"*FEV3(en)">
+					description = <"*Forced expiratory volume at 3 seconds (FEV3) is the volume of air that has been exhaled during the first three seconds of forced exhalation, during the performance of FVC.(en)">
+				>
+				["at0069"] = <
+					text = <"*FEV6(en)">
+					description = <"*Forced expiratory volume at 6 seconds (FEV6) is the volume of air that has been exhaled during the first six seconds of forced exhalation, during the performance of FVC.(en)">
+				>
+				["at0070"] = <
+					text = <"*FEV0.75(en)">
+					description = <"*Forced expiratory volume at 0.75 seconds (FEV0.75) is the volume of air that has been exhaled during the first three quarters of a second of forced exhalation, during the performance of FVC.(en)">
+				>
+				["at0072"] = <
+					text = <"*FEF25-75%(en)">
+					description = <"*Forced expiratory flow 25-75 % (FEF25-75%) is the mean forced expiratory flow of air measured during the expiration of 25-75 % of the volume of the forced vital capacity (FVC).(en)">
+				>
+				["at0073"] = <
+					text = <"*FEF25-50%(en)">
+					description = <"*Forced expiratory flow 25-50 % (FEF25-50%) is the mean forced expiratory flow of air measured during the expiration of 25-50 % of the volume of the forced vital capacity (FVC).(en)">
+				>
+				["at0074"] = <
+					text = <"*FIF25-75%(en)">
+					description = <"*Forced inspiratory flow 25-75 % (FIF25-75%) is the mean forced inspiratory flow of air measured during the inspiration of 25-75 % of the volume of the forced inspiratory vital capacity (FIVC).(en)">
+				>
+				["at0075"] = <
+					text = <"*FIF25-50%(en)">
+					description = <"*Forced inspiratory flow 25-50 % (FIF25-50%) is the mean forced inspiratory flow of air measured during the inspiration of 25-50 % of the volume of the forced inspiratory vital capacity (FIVC).(en)">
+				>
+				["at0076"] = <
+					text = <"*IC(en)">
+					description = <"*Inspiratory capacity (IC) is the maximal volume of air that can be inhaled after exhalation of normal tidal volume. Equal to TV + IRV.(en)">
+				>
+				["at0077"] = <
+					text = <"*ERV(en)">
+					description = <"*Expiratory reserve volume (ERV) is the maximal volume of air that can be forcibly exhaled after exhalation of normal tidal volume.(en)">
+				>
+				["at0078"] = <
+					text = <"*IRV(en)">
+					description = <"*Inspiratory reserve volume (IRV) is the maximal volume of air that can be forcibly inhaled after a inhalation of normal tidal volume.(en)">
+				>
+				["at0080"] = <
+					text = <"*FEV1/SVC ratio(en)">
+					description = <"*The ratio of 'Forced expiratory volume in 1 second (FEV1)' to 'Slow vital capacity (SVC)'.(en)">
+				>
+				["at0081"] = <
+					text = <"Kvot FEV1/FVC">
+					description = <"Kvoten mellan forcerad utandningsvolym under 1 sekund (FEV1) och forcerad vitalkapacitet (FVC). Kallas även FEV1%FVC eller FEV1%F.">
+				>
+				["at0082"] = <
+					text = <"*TV(en)">
+					description = <"*Tidal volume (TV) is the normal volume of air that can be inhaled or exhaled during one respiratory cycle when no extra effort is applied. Also known as Vᴛ.(en)">
+				>
+				["at0098"] = <
+					text = <"*Confounding factors(en)">
+					description = <"*Record any issues or factors that may impact on the spirometry test.(en)">
+				>
+				["at0101"] = <
+					text = <"*Comment(en)">
+					description = <"*Additional narrative about the test results and intepretation not captured in other fields.(en)">
+				>
+				["at0115"] = <
+					text = <"*Position(en)">
+					description = <"*The body position of the individual at the time of measurement.(en)">
+				>
+				["at0116"] = <
+					text = <"*Standing(en)">
+					description = <"*Standing at the time of measurement.(en)">
+				>
+				["at0117"] = <
+					text = <"*Sitting(en)">
+					description = <"*Sitting (for example on a bed or chair) at the time of measurement.(en)">
+				>
+				["at0118"] = <
+					text = <"*Reclining(en)">
+					description = <"*Reclining at the time of measurement.(en)">
+				>
+				["at0119"] = <
+					text = <"*Lying(en)">
+					description = <"*Lying flat at the time of measurement.(en)">
+				>
+				["at0122"] = <
+					text = <"*Measured/predicted ratio(en)">
+					description = <"*The ratio of measured to predicted test results.(en)">
+				>
+				["at0130"] = <
+					text = <"*Clinical interpretation(en)">
+					description = <"*Overall clinical interpretation about all of the measurements and calculated ratios.(en)">
+				>
+				["at0131"] = <
+					text = <"*Multimedia representation(en)">
+					description = <"*Digital representation of the test results.(en)">
+				>
+				["at0132"] = <
+					text = <"*Extension(en)">
+					description = <"*Additional information required to capture local content or to align with other reference models/formalisms.(en)">
+				>
+				["at0145"] = <
+					text = <"*FEV0.5(en)">
+					description = <"*Forced expiratory volume at 0.5 seconds (FEV0.5) is the volume of air that has been exhaled during the first half second of forced exhalation, during the performance of FVC.(en)">
+				>
+				["at0146"] = <
+					text = <"*FEV2(en)">
+					description = <"*Forced expiratory volume at 2 seconds (FEV2) is the volume of air that has been exhaled during the first two seconds of forced exhalation, during the performance of FVC.(en)">
+				>
+				["at0152"] = <
+					text = <"*PEFR(en)">
+					description = <"*Peak expiratory flow rate (PEFR) is the peak flow rate during a forced vital capacity (FVC) maneuver. Also known as forced expiratory flow at maximum effort (FEFmax).(en)">
+				>
+				["at0156"] = <
+					text = <"*Pressure(en)">
+					description = <"*Test result represented as a measured pressure.(en)">
+				>
+				["at0165"] = <
+					text = <"*Result(en)">
+					description = <"*Measured pressure.(en)">
+				>
+				["at0166"] = <
+					text = <"*Predicted result(en)">
+					description = <"*Predicted pressure.(en)">
+				>
+				["at0167"] = <
+					text = <"*Measured/predicted ratio(en)">
+					description = <"*The ratio of measured to predicted test results.(en)">
+				>
+				["at0170"] = <
+					text = <"*MEP(en)">
+					description = <"*Maximal expiratory pressure (MEP) is the maximal expiratory pressure during a forced vital capacity (FVC) maneuver.(en)">
+				>
+				["at0171"] = <
+					text = <"*FIV1(en)">
+					description = <"*Forced inspiratory volume at 1 second (FIV1) is the volume of air that has been inhaled during the first second of forced inhalation, during the performance of FIVC.(en)">
+				>
+				["at0172"] = <
+					text = <"*FIVC(en)">
+					description = <"*Forced inspiratory vital capacity (FIVC) is the maximal volume of air that can be forcibly inhaled from a position of full expiration.(en)">
+				>
+				["at0174"] = <
+					text = <"*IVC(en)">
+					description = <"*Inspiratory vital capacity (IVC) is the maximal volume of air that can be slowly inhaled from a position of full expiration. Equal to ERV + TV + IRV.(en)">
+				>
+				["at0176"] = <
+					text = <"*MVV(en)">
+					description = <"*Maximum voluntary ventilation (MVV) is the maximum volume of air the individual can breathe during a period of time specified by an interval event.(en)">
+				>
+				["at0177"] = <
+					text = <"*FEF25%(en)">
+					description = <"*Forced expiratory flow 25 % (FEF25%) is the maximal instantaneous expiratory flow when 25 % of the of the volume of the forced vital capacity (FVC) has been expired. Also known as maximal voluntary flow 75% (MEF75%).(en)">
+				>
+				["at0178"] = <
+					text = <"*FEF50%(en)">
+					description = <"*Forced expiratory flow 50 % (FEF50%) is the maximal instantaneous expiratory flow when 50 % of the of the volume of the forced vital capacity (FVC) has been expired. Also known as maximal voluntary flow 50 % (MEF50%).(en)">
+				>
+				["at0179"] = <
+					text = <"*FEF75%(en)">
+					description = <"*Forced expiratory flow 75 % (FEF75%) is the maximal instantaneous expiratory flow when 75 % of the of the volume of the forced vital capacity (FVC) has been expired. Also known as maximal voluntary flow 25 % (MEF25%).(en)">
+				>
+				["at0181"] = <
+					text = <"*MIP(en)">
+					description = <"*Maximal inspiratory pressure (MIP) is the maximal inspiratory pressure during a forced inspiratory vital capacity (FIVC) maneuver.(en)">
+				>
+				["at0182"] = <
+					text = <"*SNIP(en)">
+					description = <"*Sniff nasal inspiratory pressure (SNIP) is the maximal inspiratory pressure in one occluded nostril during a maximal sniff performed from relaxed end-expiration through the other patent nostril.(en)">
+				>
+				["at0185"] = <
+					text = <"*Predicted results source(en)">
+					description = <"*The knowledge base used for the predicted results.(en)">
+				>
+				["at0186"] = <
+					text = <"*FIF25%(en)">
+					description = <"*Forced inspiratory flow 25 % (FIF25%) is the maximal instantaneous inspiratory flow when 25 % of the of the volume of the forced inspiratory vital capacity (FIVC) has been inspired. Also known as maximum inspiratory flow 75% (MIF75%).(en)">
+				>
+				["at0187"] = <
+					text = <"*FIF50%(en)">
+					description = <"*Forced inspiratory flow 50 % (FIF50%) is the maximal instantaneous inspiratory flow when 50 % of the of the volume of the forced inspiratory vital capacity (FIVC) has been inspired. Also known as maximum inspiratory flow 50% (MIF50%).(en)">
+				>
+				["at0188"] = <
+					text = <"*FIF75%(en)">
+					description = <"*Forced inspiratory flow 75 % (FIF75%) is the maximal instantaneous inspiratory flow when 75 % of the of the volume of the forced inspiratory vital capacity (FIVC) has been inspired. Also known as maximum inspiratory flow 25% (MIF25%).(en)">
+				>
+				["at0189"] = <
+					text = <"*FEV1/FEV6 ratio(en)">
+					description = <"*The ratio of 'Forced expiratory volume in 1 second (FEV1)' to 'Forced expiratory volume in 6 seconds (FEV6)'.(en)">
+				>
+				["at0190"] = <
+					text = <"*FEV1/IVC ratio(en)">
+					description = <"*The ratio of 'Forced expiratory volume in 1 second (FEV1)' to 'Inspired vital capacity (IVC)'.(en)">
+				>
+				["at0191"] = <
+					text = <"*Level of exertion(en)">
+					description = <"*Details about physical activity undertaken at the time of spirometry recording.(en)">
+				>
+				["at0192"] = <
+					text = <"*Challenge/reversibility(en)">
+					description = <"*Statement about whether the spirometry test was performed as a reversibility test or a bronchial challenge test.(en)">
+				>
+				["at0193"] = <
+					text = <"*None(en)">
+					description = <"*The spirometry test was performed neither as a reversibility test nor a bronchial challenge test.(en)">
+				>
+				["at0194"] = <
+					text = <"*Bronchial challenge test(en)">
+					description = <"*The spirometry test was performed as a bronchial challenge test.(en)">
+				>
+				["at0195"] = <
+					text = <"*Reversibility test(en)">
+					description = <"*The spirometry test was performed as a reversibility test.(en)">
+				>
+				["at0196"] = <
+					text = <"*Type of measurement(en)">
+					description = <"*Type of measurement of spirometry.(en)">
+				>
+				["at0197"] = <
+					text = <"*Mechanical(en)">
+					description = <"*Measurement using a purely mechanical device.(en)">
+				>
+				["at0198"] = <
+					text = <"*Electronic(en)">
+					description = <"*Measurement using an electronic device.(en)">
+				>
+				["at0199"] = <
+					text = <"*Method(en)">
+					description = <"*Method used to perform the test.(en)">
+				>
+				["at0205"] = <
+					text = <"*PIFR(en)">
+					description = <"*Peak inspiratory flow rate (PIFR) is the peak flow rate during a forced inspiratory vital capacity (FIVC) maneuver.(en)">
+				>
+				["at0209"] = <
+					text = <"*Environmental conditions(en)">
+					description = <"*Details about environmental conditions undertaken at the time of spirometry recording.(en)">
 				>
 			>
 		>
