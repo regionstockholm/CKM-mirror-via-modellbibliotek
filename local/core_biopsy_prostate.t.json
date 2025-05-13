@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.29-alpha.1",
-      "build_uid" : "0a413a5c-f93c-4c26-ae84-2c01668eefba",
-      "MD5-CAM-1.0.1" : "cf36205b97866183d6bfd9b35f94bdf6",
+      "sem_ver" : "1.0.30-alpha.1",
+      "build_uid" : "a23fb10a-e791-4759-b403-cdab2e998a6f",
+      "MD5-CAM-1.0.1" : "b41237fb13b5f5203c60dfa405e01c1f",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -177,6 +177,15 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-SECTION.ovl-adhoc-001.v1",
+        "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "EVALUATION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.8",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-problem_diagnosis-001.v1",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -12807,7 +12816,7 @@
         "children" : [ {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "EVALUATION",
-          "occurrences" : "0..2",
+          "occurrences" : "0..*",
           "nodeId" : "at0.2",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -12816,7 +12825,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "EVALUATION",
-          "occurrences" : "0..2",
+          "occurrences" : "0..*",
           "nodeId" : "at0.7",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -12825,7 +12834,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "EVALUATION",
-          "occurrences" : "0..2",
+          "occurrences" : "0..*",
           "nodeId" : "at0.4",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -12834,7 +12843,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "EVALUATION",
-          "occurrences" : "0..6",
+          "occurrences" : "0..*",
           "nodeId" : "at0.9",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -13019,7 +13028,51 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "b48a2361213e8a5cb7e2b5c859349756"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.",
+          "keywords" : [ "behandling, behandlingslinje, behandlingssyklus, behandlingsforløp, behandlingsplan, behandlingsprotokoll, terapi, utfall, behandlingseffekt," ],
+          "use" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.\r\n\r\nEksempler på bruk inkluderer, men er ikke begrenset til:\r\n\r\n-Et strålebehandlingsforløp som er gjennomført som en del av en kreftprotokoll.\r\n-Et administrert behandlingsforløp med medisinsk terapi.\r\n-Et kirurgisk inngrep som er blitt utført.\r\n-Behandlingssesjoner med kognitiv atferdsterapi i brukt i behandling av depresjon.",
+          "misuse" : "Brukes ikke til å registrere alle detaljer om hver intervensjonshendelse eller aktivitet. Bruk en passende ACTION-archetype til dette formålet, for eksempel ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.",
+          "keywords" : [ "treatment line, treatment cycle, treatment course, treatment plan, treatment protocol, therapy, outcome, final result, treatment effect" ],
+          "use" : "Use to record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.\r\n\r\nExamples of use include, but are not limited to:\r\n- A course of radiotherapy carried out as part of a cancer protocol.\r\n- A course of medical treatment that has been administered.\r\n- A surgical procedure that has been performed.\r\n- Cognitive behavioural therapy sessions used in the treatment of depression.",
+          "misuse" : "Not to be used to record all details of each intervention event or activity. Use an appropriate ACTION archetype for this purpose, for example ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.intervention_summary.v0",
     "differential" : true,
@@ -13111,22 +13164,31 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0032.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0004.1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
                 "rmAttributeName" : "value",
                 "children" : [ {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_DATE_TIME",
+                      "rmTypeName" : "DATE_TIME",
+                      "patternedConstraint" : "yyyy-XX-XXTXX:XX:XX",
+                      "constraint" : [ ]
+                    } ]
+                  } ],
                   "attributeTuples" : [ ]
                 } ]
               } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "nodeId" : "at0004.1",
-              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -13188,16 +13250,7 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0010.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -13326,7 +13379,51 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "b48a2361213e8a5cb7e2b5c859349756"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.",
+          "keywords" : [ "behandling, behandlingslinje, behandlingssyklus, behandlingsforløp, behandlingsplan, behandlingsprotokoll, terapi, utfall, behandlingseffekt," ],
+          "use" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.\r\n\r\nEksempler på bruk inkluderer, men er ikke begrenset til:\r\n\r\n-Et strålebehandlingsforløp som er gjennomført som en del av en kreftprotokoll.\r\n-Et administrert behandlingsforløp med medisinsk terapi.\r\n-Et kirurgisk inngrep som er blitt utført.\r\n-Behandlingssesjoner med kognitiv atferdsterapi i brukt i behandling av depresjon.",
+          "misuse" : "Brukes ikke til å registrere alle detaljer om hver intervensjonshendelse eller aktivitet. Bruk en passende ACTION-archetype til dette formålet, for eksempel ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.",
+          "keywords" : [ "treatment line, treatment cycle, treatment course, treatment plan, treatment protocol, therapy, outcome, final result, treatment effect" ],
+          "use" : "Use to record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.\r\n\r\nExamples of use include, but are not limited to:\r\n- A course of radiotherapy carried out as part of a cancer protocol.\r\n- A course of medical treatment that has been administered.\r\n- A surgical procedure that has been performed.\r\n- Cognitive behavioural therapy sessions used in the treatment of depression.",
+          "misuse" : "Not to be used to record all details of each intervention event or activity. Use an appropriate ACTION archetype for this purpose, for example ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.intervention_summary.v0",
     "differential" : true,
@@ -13418,32 +13515,14 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0032.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0004.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -13505,16 +13584,7 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0010.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -13649,7 +13719,51 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "b48a2361213e8a5cb7e2b5c859349756"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.",
+          "keywords" : [ "behandling, behandlingslinje, behandlingssyklus, behandlingsforløp, behandlingsplan, behandlingsprotokoll, terapi, utfall, behandlingseffekt," ],
+          "use" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.\r\n\r\nEksempler på bruk inkluderer, men er ikke begrenset til:\r\n\r\n-Et strålebehandlingsforløp som er gjennomført som en del av en kreftprotokoll.\r\n-Et administrert behandlingsforløp med medisinsk terapi.\r\n-Et kirurgisk inngrep som er blitt utført.\r\n-Behandlingssesjoner med kognitiv atferdsterapi i brukt i behandling av depresjon.",
+          "misuse" : "Brukes ikke til å registrere alle detaljer om hver intervensjonshendelse eller aktivitet. Bruk en passende ACTION-archetype til dette formålet, for eksempel ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.",
+          "keywords" : [ "treatment line, treatment cycle, treatment course, treatment plan, treatment protocol, therapy, outcome, final result, treatment effect" ],
+          "use" : "Use to record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.\r\n\r\nExamples of use include, but are not limited to:\r\n- A course of radiotherapy carried out as part of a cancer protocol.\r\n- A course of medical treatment that has been administered.\r\n- A surgical procedure that has been performed.\r\n- Cognitive behavioural therapy sessions used in the treatment of depression.",
+          "misuse" : "Not to be used to record all details of each intervention event or activity. Use an appropriate ACTION archetype for this purpose, for example ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.intervention_summary.v0",
     "differential" : true,
@@ -13741,32 +13855,14 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0032.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0004.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -13828,16 +13924,7 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0010.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -13972,7 +14059,51 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "b48a2361213e8a5cb7e2b5c859349756"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.",
+          "keywords" : [ "behandling, behandlingslinje, behandlingssyklus, behandlingsforløp, behandlingsplan, behandlingsprotokoll, terapi, utfall, behandlingseffekt," ],
+          "use" : "For å registrere et sammendrag av en enkelt terapeutisk intervensjon, eller en serie av intervensjoner, som har blitt gjennomført.\r\n\r\nEksempler på bruk inkluderer, men er ikke begrenset til:\r\n\r\n-Et strålebehandlingsforløp som er gjennomført som en del av en kreftprotokoll.\r\n-Et administrert behandlingsforløp med medisinsk terapi.\r\n-Et kirurgisk inngrep som er blitt utført.\r\n-Behandlingssesjoner med kognitiv atferdsterapi i brukt i behandling av depresjon.",
+          "misuse" : "Brukes ikke til å registrere alle detaljer om hver intervensjonshendelse eller aktivitet. Bruk en passende ACTION-archetype til dette formålet, for eksempel ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.",
+          "keywords" : [ "treatment line, treatment cycle, treatment course, treatment plan, treatment protocol, therapy, outcome, final result, treatment effect" ],
+          "use" : "Use to record a summary about a single therapeutic intervention, or series of interventions, that has been carried out.\r\n\r\nExamples of use include, but are not limited to:\r\n- A course of radiotherapy carried out as part of a cancer protocol.\r\n- A course of medical treatment that has been administered.\r\n- A surgical procedure that has been performed.\r\n- Cognitive behavioural therapy sessions used in the treatment of depression.",
+          "misuse" : "Not to be used to record all details of each intervention event or activity. Use an appropriate ACTION archetype for this purpose, for example ACTION.procedure.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.intervention_summary.v0",
     "differential" : true,
@@ -14064,32 +14195,14 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0032.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0004.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -14151,16 +14264,7 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0010.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DATE_TIME",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
+              "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -14295,7 +14399,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "2b50fb81303748a62d974b9d733adf44"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.amount.v0",
     "differential" : true,
@@ -14353,6 +14483,784 @@
         "codeString" : "sv"
       },
       "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "e2606cbc-bb32-4026-9fdf-46f406b6333a",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "F3BA1A6809F466FF10AB50CC86EC78C5"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-EVALUATION.ovl-problem_diagnosis-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "EVALUATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0002.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "occurrences" : "1..1",
+                  "defaultValue" : {
+                    "defining_code" : {
+                      "code_string" : "399068003",
+                      "@type" : "CODE_PHRASE"
+                    },
+                    "value" : "Prostatacancer",
+                    "@type" : "DV_CODED_TEXT"
+                  },
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0079.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0009.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0012.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "ARCHETYPE_SLOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..*",
+              "nodeId" : "at0039.1",
+              "includes" : [ {
+                "@type" : "ASSERTION",
+                "stringExpression" : "archetype_id/value matches {/openEHR-EHR-CLUSTER\\.anatomical_location(-[a-zA-Z0-9_]+)*\\.v1|openEHR-EHR-CLUSTER\\.anatomical_location_circle\\.v1|openEHR-EHR-CLUSTER\\.anatomical_location_relative(-[a-zA-Z0-9_]+)*\\.v2/}",
+                "expression" : {
+                  "@type" : "BINARY_OPERATOR",
+                  "type" : "BOOLEAN",
+                  "operator" : "matches",
+                  "leftOperand" : {
+                    "@type" : "MODEL_REFERENCE",
+                    "type" : "STRING",
+                    "precedenceOverriden" : false,
+                    "referenceType" : "Attribute",
+                    "path" : "archetype_id/value"
+                  },
+                  "rightOperand" : {
+                    "@type" : "CONSTRAINT",
+                    "type" : "STRING",
+                    "precedenceOverriden" : false,
+                    "referenceType" : "Constraint",
+                    "item" : {
+                      "@type" : "C_STRING",
+                      "constraint" : [ "/openEHR-EHR-CLUSTER\\.anatomical_location(-[a-zA-Z0-9_]+)*\\.v1|openEHR-EHR-CLUSTER\\.anatomical_location_circle\\.v1|openEHR-EHR-CLUSTER\\.anatomical_location_relative(-[a-zA-Z0-9_]+)*\\.v2/" ]
+                    }
+                  },
+                  "precedenceOverriden" : false
+                },
+                "variables" : [ ]
+              } ],
+              "excludes" : [ ],
+              "closed" : false
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0078.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0077.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE_TIME",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0003.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE_TIME",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0005.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "1..1",
+                      "terminologyId" : {
+                        "value" : "local"
+                      },
+                      "constraint" : [ "ac0.1" ],
+                      "selectedTerminologies" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_TEXT",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "ARCHETYPE_SLOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..*",
+              "nodeId" : "at0043.1",
+              "includes" : [ {
+                "@type" : "ASSERTION",
+                "stringExpression" : "archetype_id/value matches {/.*/}",
+                "expression" : {
+                  "@type" : "BINARY_OPERATOR",
+                  "type" : "BOOLEAN",
+                  "operator" : "matches",
+                  "leftOperand" : {
+                    "@type" : "MODEL_REFERENCE",
+                    "type" : "STRING",
+                    "precedenceOverriden" : false,
+                    "referenceType" : "Attribute",
+                    "path" : "archetype_id/value"
+                  },
+                  "rightOperand" : {
+                    "@type" : "CONSTRAINT",
+                    "type" : "STRING",
+                    "precedenceOverriden" : false,
+                    "referenceType" : "Constraint",
+                    "item" : {
+                      "@type" : "C_STRING",
+                      "constraint" : [ "/.*/" ]
+                    }
+                  },
+                  "precedenceOverriden" : false
+                },
+                "variables" : [ ]
+              } ],
+              "excludes" : [ ],
+              "closed" : false
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0072.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0030.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DATE_TIME",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "ARCHETYPE_SLOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..*",
+              "nodeId" : "at0046.1",
+              "includes" : [ {
+                "@type" : "ASSERTION",
+                "stringExpression" : "archetype_id/value matches {/openEHR-EHR-CLUSTER\\.problem_qualifier(-[a-zA-Z0-9_]+)*\\.v2/}",
+                "expression" : {
+                  "@type" : "BINARY_OPERATOR",
+                  "type" : "BOOLEAN",
+                  "operator" : "matches",
+                  "leftOperand" : {
+                    "@type" : "MODEL_REFERENCE",
+                    "type" : "STRING",
+                    "precedenceOverriden" : false,
+                    "referenceType" : "Attribute",
+                    "path" : "archetype_id/value"
+                  },
+                  "rightOperand" : {
+                    "@type" : "CONSTRAINT",
+                    "type" : "STRING",
+                    "precedenceOverriden" : false,
+                    "referenceType" : "Constraint",
+                    "item" : {
+                      "@type" : "C_STRING",
+                      "constraint" : [ "/openEHR-EHR-CLUSTER\\.problem_qualifier(-[a-zA-Z0-9_]+)*\\.v2/" ]
+                    }
+                  },
+                  "precedenceOverriden" : false
+                },
+                "variables" : [ ]
+              } ],
+              "excludes" : [ ],
+              "closed" : false
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
+              "nodeId" : "at0073.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "1..1",
+                      "terminologyId" : {
+                        "value" : "local"
+                      },
+                      "constraint" : [ "ac0.2" ],
+                      "selectedTerminologies" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_TEXT",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0069.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "es" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "es-ar" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "en" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "ar-sy" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "pt-br" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "nb" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Diagnos innan provtagning",
+            "description" : "Detaljer av ett enskilt identifierat hälsotillstånd, skada, funktionshinder eller något annat problem som påverkar individens fysiska, psykiska och eller sociala välbefinnande.",
+            "comment" : "Det är inte lätt att i praktiken uppnå en tydlig avgränsning mellan ett problem och en diagnos. Vid tillämpning av klinisk dokumentation med denna arketyp betraktas problem och diagnos som ett kontinuum, med plats för fler detaljer och stödjande bevis som vanligtvis ger tyngd till etiketten ”diagnos”."
+          },
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "at0069.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0069.1",
+            "text" : "Kommentar om tidigare provresultat",
+            "description" : "En extra beskrivning av problemet eller diagnosen som inte tagits upp i andra fält."
+          }
+        },
+        "ko" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "fi" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "it" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "nl" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "zh" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "ca" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "zh-cn" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0047", "at0048", "at0049" ]
+        },
+        "ac0.2" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.2",
+          "members" : [ "at0074", "at0075", "at0076" ]
+        }
+      }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "5084c995-e34b-4832-aa41-b43ca3fe7fdf",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Aljoscha Kindermann, Jasmin Buck, Sebastian Garde, Natalia Strauch, Alina Rehberg",
+        "organisation" : "Universityhospital of Heidelberg, University of Heidelberg, Central Queensland University, Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de, rehberg.alina@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Kirsi Poikela",
+        "organisation" : "Tieto Sweden AB",
+        "email" : "ext.kirsi.poikela@tieto.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fi"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ko"
+      },
+      "author" : {
+        "name" : "Seung-Jong Yu",
+        "organisation" : "InfoClinic Co.,Ltd.",
+        "email" : "seungjong.yu@gmail.com"
+      },
+      "accreditation" : "M.D.",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima, Gabriela Alves, Maria Angela Scatena, Marivan Abrahäo",
+        "organisation" : "Core Consulting",
+        "email" : "contato@coreconsulting.com.br"
+      },
+      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "it"
+      },
+      "author" : {
+        "name" : "Cecilia Mascia",
+        "organisation" : "CRS4 - Center for advanced studies, research and development in Sardinia, Pula (Cagliari), Italy",
+        "email" : "cecilia.mascia@crs4.it"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "zh-cn"
+      },
+      "author" : {
+        "name" : "Lin Zhang",
+        "organisation" : "Freelancer",
+        "email" : "linforest@163.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es"
+      },
+      "author" : {
+        "name" : "Pablo Pazos, Julio de Sosa",
+        "organisation" : "CaboLabs, Servei Català de la Salut",
+        "email" : "juliodesosa@catsalut.cat"
+      },
+      "accreditation" : "Computer Engineer",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "zh"
+      },
+      "author" : {
+        "name" : "Yexuan Cheng",
+        "organisation" : "浙江大学",
+        "email" : "3160100913@zju.edu.cn"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Alan March",
+        "organisation" : "Hospital Universitario Austral, Buenos Aires, Argentina",
+        "email" : "alandmarch@gmail.com"
+      },
+      "accreditation" : "-",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Silje Ljosland Bakke, John Tore Valand, Liv Laugen, Vebjørn Arntzen",
+        "organisation" : "Helse Bergen HF, ​Oslo University Hospital, Norway",
+        "email" : "liv.laugen@ous-hf.no, varntzen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Joost Holslag",
+        "organisation" : "Nedap",
+        "email" : "joost.holslag@nedap.com"
+      },
+      "accreditation" : "MD",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ca"
+      },
+      "author" : {
+        "name" : "Elisa Asensio",
+        "email" : "easensiob@clinic.cat"
+      },
       "otherDetails" : { }
     } ]
   } ],
