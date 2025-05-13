@@ -1,0 +1,155 @@
+archetype (adl_version=1.4; uid=21ec838a-8d97-4efd-af7d-b612a63e152b)
+	openEHR-EHR-CLUSTER.prostate_core_biopsy_finding_summary.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2025-05-13">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"cba6a715fc65f0c6fad25ad946b5fd5d">
+		["build_uid"] = <"c501c210-7e0c-32d0-b650-033d76fcc375">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- prostate_core_biopsy_finding_summary
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {    -- Global Gleason grade
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Global Gleason grade
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Global Gleason grade not assessable
+						value matches {
+							DV_TEXT matches {*}
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Reason Global Gleason grade not assessable
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Percentage Global Gleason pattern 4
+						value matches {
+							DV_QUANTITY matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Presence of cribiform Gleason grade 4
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Greatest lenght of tissue involved by carcinoma
+				value matches {
+					DV_QUANTITY matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"prostate_core_biopsy_finding_summary">
+					description = <"prostate_core_biopsy_finding_summary">
+				>
+				["at0001"] = <
+					text = <"Global Gleason grade">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Global Gleason grade">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Global Gleason grade not assessable">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Reason Global Gleason grade not assessable">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Percentage Global Gleason pattern 4">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Presence of cribiform Gleason grade 4">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Greatest lenght of tissue involved by carcinoma">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Sammanställning biopsifynd prostata">
+					description = <"*prostate_core_biopsy_finding_summary (en)">
+				>
+				["at0001"] = <
+					text = <"Global Gleason grad">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Global Gleason grad">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Global Gleason grad inte bedömbar">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Anledning global Gleason grad inte bedömbar">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Procent global Gleason grad 4">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Förekomst av kribiform Gleason grad 4">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Största enskilda cancerlängd">
+					description = <"">
+				>
+			>
+		>
+	>
