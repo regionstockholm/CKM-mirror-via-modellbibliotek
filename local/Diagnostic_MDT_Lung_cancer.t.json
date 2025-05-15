@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "46.0.0",
+      "sem_ver" : "47.0.0",
       "build_uid" : "ecb4a83e-b9cb-4f8e-9485-8c1777a58d38",
-      "MD5-CAM-1.0.1" : "8ee1456e7d425a70caa8a714d13cfc89",
+      "MD5-CAM-1.0.1" : "70b3570f1e941172c80bc30899640496",
       "PARENT:MD5-CAM-1.0.1" : "B188E352541BD14DD32ABCCE228EEA7C"
     },
     "details" : {
@@ -2342,6 +2342,34 @@
                       "attributeTuples" : [ ],
                       "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-imaging_exam_anomaly-001.v0",
                       "referenceType" : "archetypeOverlay"
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              }, {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "state",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0047",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0048.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0108.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
                     } ]
                   } ],
                   "attributeTuples" : [ ]
@@ -9509,14 +9537,29 @@
                         "rmAttributeName" : "value",
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_TEXT",
+                          "rmTypeName" : "DV_CODED_TEXT",
+                          "occurrences" : "1..1",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "value",
+                            "rmAttributeName" : "defining_code",
                             "children" : [ {
-                              "@type" : "C_STRING",
-                              "rmTypeName" : "STRING",
-                              "constraint" : [ "Histopatologi", "Cytologi" ]
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "TERMINOLOGY_CODE",
+                              "occurrences" : "0..1",
+                              "terminologyId" : {
+                                "value" : "local_terms_2"
+                              },
+                              "constraint" : [ ],
+                              "selectedTerminologies" : [ "local_terms_2" ],
+                              "includedExternalTerminologyCodes" : [ {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "1",
+                                "value" : "Histopatologi"
+                              }, {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "2",
+                                "value" : "Cytologi"
+                              } ]
                             } ]
                           } ],
                           "attributeTuples" : [ ]
@@ -9894,6 +9937,12 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.1",
             "description" : ""
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "PAD resultat",
+            "description" : "Resultatet av en undersökning, inklusive fynd och laboratoriets tolkning, utförd på provmaterial från en individ eller relaterad till individen. Exempel på provmaterial relaterat till individen kan vara fostervattenprov där provet tas från mammans kropp men provet avser fostret."
           }
         },
         "pt-br" : {
@@ -10759,7 +10808,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Bilddiagnostiskt resultat (2)",
+            "text" : "Kompletterande MR hjärna",
             "description" : "*The result of an imaging examination performed on an individual, using radiological techniques. (en)"
           },
           "ac0.1" : {
@@ -10773,6 +10822,27 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
             "description" : ""
+          },
+          "at0070.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0070.1",
+            "text" : "Datum",
+            "description" : "*Date/time when the imaging started. (en)",
+            "comment" : "*Equivalent to ImagingStudy.started in FHIR. (en)"
+          },
+          "at0055.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0055.1",
+            "text" : "Anatomiskt målområde",
+            "description" : "*Description of the simple body site or region targetted for imaging. (en)",
+            "comment" : "*If the body site is specified within the text or code for 'Study name', then this field may be redundant. Coding of 'Target body site' with a terminology, such as SNOMED CT, is desirable. Equivalent to ImagingStudy.series.bodySite in FHIR. (en)"
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Typ av undersökning",
+            "description" : "*The name of the imaging examination performed. (en)",
+            "comment" : "*For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR. (en)"
           }
         }
       },
@@ -12787,47 +12857,12 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0001.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "occurrences" : "1..1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "0..1",
-                  "terminologyId" : {
-                    "value" : "local_terms"
-                  },
-                  "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms" ],
-                  "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms",
-                    "code" : "0001",
-                    "value" : "Lever"
-                  }, {
-                    "terminologyId" : "local_terms",
-                    "code" : "0002",
-                    "value" : "Skelett"
-                  }, {
-                    "terminologyId" : "local_terms",
-                    "code" : "0030",
-                    "value" : "Annat"
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
           "nodeId" : "at0065.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -12915,6 +12950,7 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
           "nodeId" : "at0023.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
@@ -13050,6 +13086,13 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
             "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Lokalisation",
+            "description" : "Identifiering av enskilt fysiskt ställe på eller i människokroppen.",
+            "comment" : "*This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf 'Body site name' is already identified in an archetype in which this Anatomical location archetype has been nested, then this data element may be redundant. However, it might be reasonable to duplicate 'Body site name' in this archetype to support semantic querying using this archetype, instead of the archetype in which it has been nested. (en)"
           }
         },
         "fr" : {
@@ -14735,7 +14778,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Rubrik (3)",
+            "text" : "PAD",
             "description" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext."
           }
         },
@@ -31124,7 +31167,30 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0001.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_COUNT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "magnitude",
+                "children" : [ {
+                  "@type" : "C_INTEGER",
+                  "rmTypeName" : "INTEGER",
+                  "constraint" : [ {
+                    "lower" : 0,
+                    "lowerIncluded" : true,
+                    "upperIncluded" : false,
+                    "upperUnbounded" : true,
+                    "lowerUnbounded" : false
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -31149,7 +31215,14 @@
             "description" : ""
           }
         },
-        "sv" : { }
+        "sv" : {
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Antal metastaser i hjärna",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
