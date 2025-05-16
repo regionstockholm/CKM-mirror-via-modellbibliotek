@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.0.14-alpha.1",
-      "build_uid" : "559b4475-fc96-4b71-8015-d0086aaf324f",
-      "MD5-CAM-1.0.1" : "f1b46afa398fb8deaef05089113ac266",
+      "sem_ver" : "0.0.15-alpha.1",
+      "build_uid" : "7816dd25-7a71-42e5-827f-e724c2f2e979",
+      "MD5-CAM-1.0.1" : "f400830bfe61066905bacd2e522a3e8c",
       "PARENT:MD5-CAM-1.0.1" : "75d86f804119b8e9cf9752fa294b489e"
     },
     "details" : {
@@ -1377,6 +1377,12 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.1",
             "description" : ""
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Anatomisk patologiundersökning makro",
+            "description" : "*Findings and interpretation of an anatomical pathology examination performed on tissues and body fluids. (en)"
           }
         }
       },
@@ -6767,9 +6773,55 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "09773813F3B1F5A49A4B19BE98AEF5DA"
+        "PARENT:MD5-CAM-1.0.1" : "dd5595efadaf326dd59f79c9ace2bb5f"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere målinger som representerer de fysiske egenskapene til en anatomisk struktur eller et objekt som er en del av, funnet i eller stammer fra et individ.",
+          "keywords" : [ "prøve, materiale, laboratorie, patologi, volum, størrelse, lengde, bredde, tykkelse, vekt, masse, diameter, dimensjon, areal, fremmedlegeme" ],
+          "use" : "Brukes for å registrere målinger som representerer de fysiske egenskapene til en hel anatomisk struktur eller objekt, enten det er plassert inne i kroppen, på kroppsoverflaten, eller fjernet som et prøvemateriale. Eksempler inkluderer, men er ikke begrenset til, et helt indre organ, en svulst, et sår, et svelget fremmedlegeme eller en biopsiprøve.\r\n\r\nDenne arketypen er designet for å være nøstet inn i SLOT i CLUSTER.specimen (Prøvemateriale), CLUSTER.imaging_exam (Bildediagnostisk undersøkelser), CLUSTER.imaging_exam_anomaly og CLUSTER.exam (Funn ved fysisk undersøkelse) eller andre klinisk relevante arketyper.\r\n\r\nEksempel:\r\n- en 8,0 x 10,2 x 6,5 mm tumorprøve fra tarmen;\r\n- en hudbiopsi med en diameter på 4 mm og en tykkelse på 4 mm;\r\n- 7 ml blod i et vakuumrør.\r\n\r\nI spesifikke brukertilfeller kan det være at kun noen få av elementene er nødvendige.\r\n\r\nStørrelsen på en prøve kan registreres i to eller flere lineære mål (dimensjoner), f.eks. lengde, bredde og dybde (høyde). Hvis det ikke er mulig å bestemme orienteringen til prøven, kan hver dimensjon registreres ved å gjenta dataelementet 'Lengde' eller 'Diameter'.",
+          "misuse" : "Skal ikke brukes for å registrere en måling av en spesifikk del av en anatomisk struktur eller objekt, for eksempel tykkelsen på den interventrikulære veggen i hjertet. Bruk en spesifikk arketype fra Imaging examination-familien for dette formålet, som CLUSTER.imaging_exam-heart.\r\n\r\nSkal ikke brukes til å registrere målinger av kroppsdeler eller kroppssegmenter. Bruk spesifikke arketyper for måling av kroppssegmenter til dette formålet.\r\n\r\nSkal ikke brukes for å registrere relative målinger, som målingen av omkretsen på to punkter – det første ved det bredeste punktet på et \"vannmelonformet\" objekt og det andre 5 cm fra objektets toppunkt. Bruk en arketype for relative dimensjoner for dette formålet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the measurements that represent the physical properties of an anatomical structure or object that is part of, found in or originates from an individual.",
+          "keywords" : [ "specimen, laboratory, sample, pathology, size, area, weight, mass, volume, dimension, length, width, diameter, thickness, foreign object" ],
+          "use" : "Use to record measurements representing the physical properties of a whole anatomical structure or object, whether located inside the body, on the body surface, or removed as a specimen. Examples include but are not limited to a whole internal organ, a tumour, a wound, a swallowed foreign body, or an excised biopsy specimen.\r\n\r\nThis archetype is designed to be nested within a SLOT in CLUSTER.specimen, CLUSTER.imaging_exam, CLUSTER.imaging_exam_anomaly, and CLUSTER.exam, or other clinically relevant archetypes.\r\n\r\nFor example:\r\n- An 8.0 × 10.2 × 6.5 mm tumor specimen from the intestine;\r\n- A 4 mm diameter, 4 mm thick skin biopsy;\r\n- 7 ml of blood in a vacuum tube.\r\n\r\nIn specific use cases, only a subset of the available elements may be required.\r\n\r\nThe size of a an anatomical structure/object may be recorded using two or more linear measurements (dimensions), such as length, width, and depth (height). If the orientation of the anatomical structure/object cannot be determined, each dimension may be recorded using the 'Length' or 'Diameter' data element multiple times.",
+          "misuse" : "Not to be used to record a measurement of a specific part of an anatomical structure or object, such as the thickness of the interventricular wall of the heart. Use a specific archetype from the Imaging examination family of archetypes for this purpose, such as CLUSTER.imaging_exam-heart.\r\n\r\nNot to be used to record measurements for body segments. Use the body segment family of archetypes for this purpose.\r\n\r\nNot to be used to record relative measurements such as the measurement of circumference at two points - the first being at the broadest point of a 'watermelon-shaped' object and another 5 cm from the apex of the object. Use a an archetype for relative dimensions for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.physical_properties.v0",
     "differential" : true,
@@ -12560,7 +12612,8 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "nb" : { }
+        "nb" : { },
+        "sv" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -12592,6 +12645,16 @@
         "email" : "varntzen@ous-hf.no, liv.laugen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
       },
       "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
@@ -12604,9 +12667,55 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "09773813F3B1F5A49A4B19BE98AEF5DA"
+        "PARENT:MD5-CAM-1.0.1" : "dd5595efadaf326dd59f79c9ace2bb5f"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere målinger som representerer de fysiske egenskapene til en anatomisk struktur eller et objekt som er en del av, funnet i eller stammer fra et individ.",
+          "keywords" : [ "prøve, materiale, laboratorie, patologi, volum, størrelse, lengde, bredde, tykkelse, vekt, masse, diameter, dimensjon, areal, fremmedlegeme" ],
+          "use" : "Brukes for å registrere målinger som representerer de fysiske egenskapene til en hel anatomisk struktur eller objekt, enten det er plassert inne i kroppen, på kroppsoverflaten, eller fjernet som et prøvemateriale. Eksempler inkluderer, men er ikke begrenset til, et helt indre organ, en svulst, et sår, et svelget fremmedlegeme eller en biopsiprøve.\r\n\r\nDenne arketypen er designet for å være nøstet inn i SLOT i CLUSTER.specimen (Prøvemateriale), CLUSTER.imaging_exam (Bildediagnostisk undersøkelser), CLUSTER.imaging_exam_anomaly og CLUSTER.exam (Funn ved fysisk undersøkelse) eller andre klinisk relevante arketyper.\r\n\r\nEksempel:\r\n- en 8,0 x 10,2 x 6,5 mm tumorprøve fra tarmen;\r\n- en hudbiopsi med en diameter på 4 mm og en tykkelse på 4 mm;\r\n- 7 ml blod i et vakuumrør.\r\n\r\nI spesifikke brukertilfeller kan det være at kun noen få av elementene er nødvendige.\r\n\r\nStørrelsen på en prøve kan registreres i to eller flere lineære mål (dimensjoner), f.eks. lengde, bredde og dybde (høyde). Hvis det ikke er mulig å bestemme orienteringen til prøven, kan hver dimensjon registreres ved å gjenta dataelementet 'Lengde' eller 'Diameter'.",
+          "misuse" : "Skal ikke brukes for å registrere en måling av en spesifikk del av en anatomisk struktur eller objekt, for eksempel tykkelsen på den interventrikulære veggen i hjertet. Bruk en spesifikk arketype fra Imaging examination-familien for dette formålet, som CLUSTER.imaging_exam-heart.\r\n\r\nSkal ikke brukes til å registrere målinger av kroppsdeler eller kroppssegmenter. Bruk spesifikke arketyper for måling av kroppssegmenter til dette formålet.\r\n\r\nSkal ikke brukes for å registrere relative målinger, som målingen av omkretsen på to punkter – det første ved det bredeste punktet på et \"vannmelonformet\" objekt og det andre 5 cm fra objektets toppunkt. Bruk en arketype for relative dimensjoner for dette formålet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the measurements that represent the physical properties of an anatomical structure or object that is part of, found in or originates from an individual.",
+          "keywords" : [ "specimen, laboratory, sample, pathology, size, area, weight, mass, volume, dimension, length, width, diameter, thickness, foreign object" ],
+          "use" : "Use to record measurements representing the physical properties of a whole anatomical structure or object, whether located inside the body, on the body surface, or removed as a specimen. Examples include but are not limited to a whole internal organ, a tumour, a wound, a swallowed foreign body, or an excised biopsy specimen.\r\n\r\nThis archetype is designed to be nested within a SLOT in CLUSTER.specimen, CLUSTER.imaging_exam, CLUSTER.imaging_exam_anomaly, and CLUSTER.exam, or other clinically relevant archetypes.\r\n\r\nFor example:\r\n- An 8.0 × 10.2 × 6.5 mm tumor specimen from the intestine;\r\n- A 4 mm diameter, 4 mm thick skin biopsy;\r\n- 7 ml of blood in a vacuum tube.\r\n\r\nIn specific use cases, only a subset of the available elements may be required.\r\n\r\nThe size of a an anatomical structure/object may be recorded using two or more linear measurements (dimensions), such as length, width, and depth (height). If the orientation of the anatomical structure/object cannot be determined, each dimension may be recorded using the 'Length' or 'Diameter' data element multiple times.",
+          "misuse" : "Not to be used to record a measurement of a specific part of an anatomical structure or object, such as the thickness of the interventricular wall of the heart. Use a specific archetype from the Imaging examination family of archetypes for this purpose, such as CLUSTER.imaging_exam-heart.\r\n\r\nNot to be used to record measurements for body segments. Use the body segment family of archetypes for this purpose.\r\n\r\nNot to be used to record relative measurements such as the measurement of circumference at two points - the first being at the broadest point of a 'watermelon-shaped' object and another 5 cm from the apex of the object. Use a an archetype for relative dimensions for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.physical_properties.v0",
     "differential" : true,
@@ -18397,7 +18506,8 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "nb" : { }
+        "nb" : { },
+        "sv" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -18429,6 +18539,16 @@
         "email" : "varntzen@ous-hf.no, liv.laugen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
       },
       "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
@@ -18441,9 +18561,55 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "09773813F3B1F5A49A4B19BE98AEF5DA"
+        "PARENT:MD5-CAM-1.0.1" : "dd5595efadaf326dd59f79c9ace2bb5f"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere målinger som representerer de fysiske egenskapene til en anatomisk struktur eller et objekt som er en del av, funnet i eller stammer fra et individ.",
+          "keywords" : [ "prøve, materiale, laboratorie, patologi, volum, størrelse, lengde, bredde, tykkelse, vekt, masse, diameter, dimensjon, areal, fremmedlegeme" ],
+          "use" : "Brukes for å registrere målinger som representerer de fysiske egenskapene til en hel anatomisk struktur eller objekt, enten det er plassert inne i kroppen, på kroppsoverflaten, eller fjernet som et prøvemateriale. Eksempler inkluderer, men er ikke begrenset til, et helt indre organ, en svulst, et sår, et svelget fremmedlegeme eller en biopsiprøve.\r\n\r\nDenne arketypen er designet for å være nøstet inn i SLOT i CLUSTER.specimen (Prøvemateriale), CLUSTER.imaging_exam (Bildediagnostisk undersøkelser), CLUSTER.imaging_exam_anomaly og CLUSTER.exam (Funn ved fysisk undersøkelse) eller andre klinisk relevante arketyper.\r\n\r\nEksempel:\r\n- en 8,0 x 10,2 x 6,5 mm tumorprøve fra tarmen;\r\n- en hudbiopsi med en diameter på 4 mm og en tykkelse på 4 mm;\r\n- 7 ml blod i et vakuumrør.\r\n\r\nI spesifikke brukertilfeller kan det være at kun noen få av elementene er nødvendige.\r\n\r\nStørrelsen på en prøve kan registreres i to eller flere lineære mål (dimensjoner), f.eks. lengde, bredde og dybde (høyde). Hvis det ikke er mulig å bestemme orienteringen til prøven, kan hver dimensjon registreres ved å gjenta dataelementet 'Lengde' eller 'Diameter'.",
+          "misuse" : "Skal ikke brukes for å registrere en måling av en spesifikk del av en anatomisk struktur eller objekt, for eksempel tykkelsen på den interventrikulære veggen i hjertet. Bruk en spesifikk arketype fra Imaging examination-familien for dette formålet, som CLUSTER.imaging_exam-heart.\r\n\r\nSkal ikke brukes til å registrere målinger av kroppsdeler eller kroppssegmenter. Bruk spesifikke arketyper for måling av kroppssegmenter til dette formålet.\r\n\r\nSkal ikke brukes for å registrere relative målinger, som målingen av omkretsen på to punkter – det første ved det bredeste punktet på et \"vannmelonformet\" objekt og det andre 5 cm fra objektets toppunkt. Bruk en arketype for relative dimensjoner for dette formålet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the measurements that represent the physical properties of an anatomical structure or object that is part of, found in or originates from an individual.",
+          "keywords" : [ "specimen, laboratory, sample, pathology, size, area, weight, mass, volume, dimension, length, width, diameter, thickness, foreign object" ],
+          "use" : "Use to record measurements representing the physical properties of a whole anatomical structure or object, whether located inside the body, on the body surface, or removed as a specimen. Examples include but are not limited to a whole internal organ, a tumour, a wound, a swallowed foreign body, or an excised biopsy specimen.\r\n\r\nThis archetype is designed to be nested within a SLOT in CLUSTER.specimen, CLUSTER.imaging_exam, CLUSTER.imaging_exam_anomaly, and CLUSTER.exam, or other clinically relevant archetypes.\r\n\r\nFor example:\r\n- An 8.0 × 10.2 × 6.5 mm tumor specimen from the intestine;\r\n- A 4 mm diameter, 4 mm thick skin biopsy;\r\n- 7 ml of blood in a vacuum tube.\r\n\r\nIn specific use cases, only a subset of the available elements may be required.\r\n\r\nThe size of a an anatomical structure/object may be recorded using two or more linear measurements (dimensions), such as length, width, and depth (height). If the orientation of the anatomical structure/object cannot be determined, each dimension may be recorded using the 'Length' or 'Diameter' data element multiple times.",
+          "misuse" : "Not to be used to record a measurement of a specific part of an anatomical structure or object, such as the thickness of the interventricular wall of the heart. Use a specific archetype from the Imaging examination family of archetypes for this purpose, such as CLUSTER.imaging_exam-heart.\r\n\r\nNot to be used to record measurements for body segments. Use the body segment family of archetypes for this purpose.\r\n\r\nNot to be used to record relative measurements such as the measurement of circumference at two points - the first being at the broadest point of a 'watermelon-shaped' object and another 5 cm from the apex of the object. Use a an archetype for relative dimensions for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.physical_properties.v0",
     "differential" : true,
@@ -24234,7 +24400,8 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "nb" : { }
+        "nb" : { },
+        "sv" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -24266,6 +24433,16 @@
         "email" : "varntzen@ous-hf.no, liv.laugen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
       },
       "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
@@ -24280,7 +24457,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "5DFD0809E7CD46EA0712A590C68F545B"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung von Informationen zur einer Organisation, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden.",
+          "keywords" : [ "Organisation, Anbieter, Versorger, Betreuer, Netzwerk, Verbund, Gruppe" ],
+          "use" : "Der Archetyp wird verwendet, um Informationen zur einer Organisation darzustellen, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden, oft ad hoc oder wenn die Verwendung von einem formellen demografischen Register oder einem Index nicht angemessen oder nicht möglich ist.\r\nBeispiele beinhalten:\r\n- der Inhaber einer Patientenverfügung unter Verwendung des SLOT „Inhaber der Kopie“ innerhalb des Archetyps EVALUATION.advance_care_directive oder\r\n- Name und Kontaktdaten einer Organisation, die die Betreuung einer Person in ihrem zu Hause übernimmt.\r\n\r\nDieser Archetyp wurde entwickelt, um Angaben zu offiziell anerkannten Einrichtungen, wie einem eingetragenen Unternehmen, einem Krankenhaus und seinen anerkannten „Unterorganisationen“, wie einer operativ getrennten oder spezialisierten Satellitenklinik oder einem häuslichen Pflegedienst, zu enthalten. Es kann auch verwendet werden, um Kontaktinformationen über informellere Netzwerke oder Gruppen darzustellen, wie z. B. eine lokale Selbsthilfegruppe.\r\n\r\nDieser Archetyp könnte auch als Proxy für formale demografische Daten verwendet werden, wenn ein Template mit Domänenexperten überprüft wird – beispielsweise bei einer Bewertung, bei der die Prüfer erwarten würden, dass die Details zu der Organisation oben auf dem Bewertungsformular angezeigt werden.",
+          "misuse" : "Der Archetyp darf nicht verwendet werden, um ein offizielles Register oder einen Index darzustellen, zu ersetzen oder zu führen. Verwenden Sie zu diesem Zweck einen formellen Gesundheitsanbieter-Index (Health Provider Index) oder Archetypen, die auf dem openEHR Demographic Information Model basieren.\r\n\r\nDer Archetyp darf nicht verwendet werden, um den Pflegeort und ähnliche Datenelemente darzustellen, die formal in der Patientenakte unter Verwendung der Reference Model-Attribute dargestellt werden sollten.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera information om en organisation på det sätt som det behöver representeras i en journalanteckning.\r\n",
+          "keywords" : [ "organisation, leverantör, vårdgivare, vårdenhet, enhet, avdelning, nätverk, grupp" ],
+          "use" : "Används för att registrera information om en organisation som behöver representeras i journalen. Används exempelvis ad hoc eller i de fall då formella demografiska register eller kataloger inte kan användas istället. \r\nExempel inkluderar:\r\n- namn och kontaktuppgifter för en organisation som har en fysisk kopia av patientens önskemål om vård i händelse av att patienten inte längre kan kommunicera\r\n- namn och kontaktuppgifter för hemtjänst- eller hemsjukvårdsorganisation för en individ\r\n\r\nDenna arketyp har utformats för att dokumentera information om formellt erkända enheter, såsom ett registrerat företag, ett sjukhus och dess erkända \"underorganisationer\", såsom en separat eller specialiserad satellitklinik eller hemsjukvård. Den kan också användas för att dokumentera kontaktinformation om mer informella nätverk eller grupper, till exempel en lokal stödgrupp.\r\n\r\nDen här arketypen kan också användas som en proxy för formell demografisk data när man granskar en mall med domänexperter - exempelvis där granskare förväntar sig att se en organisations information i ett formulär.",
+          "misuse" : "*Not to be used to represent, replace or maintain an official register or index. Use a formal Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the location of care and similar data elements that should be represented formally in the health record using the Reference Model attributes. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om en organisasjon, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet.",
+          "keywords" : [ "organisasjon, leverandør, omsorgsperson, nettverk, gruppe" ],
+          "use" : "Brukes for å registrere detaljer om en organisasjon, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet, ofte ad hoc eller i de tilfeller når det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.\r\n\r\nFor eksempel:\r\n- kopiinnhaver av av et fremtidig behandlingsvalg ved å bruke \"Kopiholder\"-SLOTet i arketypen \"EVALUATION.advance_care_directive\" (Fremtidig behandlingsvalg).\r\n- navn og kontaktdetaljer for en organisasjon som yter hjemmehjelp til en enkeltperson.\r\n\r\nDenne arketypen er utformet for å registrere detaljer om formelt anerkjente enheter, for eksempel en registrert virksomhet, et sykehus og dets \"underorganisasjoner\", en operativt separat eller spesialisert satellittklinikk eller hjemmetjeneste. Den kan også brukes til å registrere kontaktinformasjon om mer uformelle nettverk eller grupper, for eksempel en lokal støttegruppe.\r\n\r\nDenne arketypen kan også brukes som en midlertidig erstatning for formelle demografiske data når man gjennomgår et templat med domeneeksperter - for eksempel en vurdering der man i templatet forventer å se detaljer om en organisasjon i et vurderingsskjema.",
+          "misuse" : "Brukes ikke til å representere, erstatte eller vedlikeholde formelle demografiske opplysninger. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.\r\n\r\nBrukes ikke for å representere behandlingssted eller lignende dataelementer, som skal representeres formelt i pasientjournalen. Bruk attributter fra Referansemodellen for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about an organisation as they are known or understood in the course of clinical documentation.",
+          "keywords" : [ "organisation, organization, provider, carer, network, group" ],
+          "use" : "Use to record details of an organisation as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype; or\r\n- the name and contact details of an organisation providing home care to an individual.\r\n\r\nThis archetype has been designed to carry details of formally recognised entities, such as a registered business, a hospital and its recognised 'sub-organisations', such as an operationally separate or specialised satellite clinic or home care service. It may also be used to carry contact information about more informal networks or groups, such as a local community support group.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see an organisations' details on an assessment form.",
+          "misuse" : "Not to be used to represent, replace or maintain an official register or index. Use a formal Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the location of care and similar data elements that should be represented formally in the health record using the Reference Model attributes.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.organisation.v1",
     "differential" : true,
@@ -24389,7 +24628,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "5DFD0809E7CD46EA0712A590C68F545B"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung von Informationen zur einer Organisation, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden.",
+          "keywords" : [ "Organisation, Anbieter, Versorger, Betreuer, Netzwerk, Verbund, Gruppe" ],
+          "use" : "Der Archetyp wird verwendet, um Informationen zur einer Organisation darzustellen, wie sie bekannt sind oder im Rahmen der klinischen Dokumentation verstanden werden, oft ad hoc oder wenn die Verwendung von einem formellen demografischen Register oder einem Index nicht angemessen oder nicht möglich ist.\r\nBeispiele beinhalten:\r\n- der Inhaber einer Patientenverfügung unter Verwendung des SLOT „Inhaber der Kopie“ innerhalb des Archetyps EVALUATION.advance_care_directive oder\r\n- Name und Kontaktdaten einer Organisation, die die Betreuung einer Person in ihrem zu Hause übernimmt.\r\n\r\nDieser Archetyp wurde entwickelt, um Angaben zu offiziell anerkannten Einrichtungen, wie einem eingetragenen Unternehmen, einem Krankenhaus und seinen anerkannten „Unterorganisationen“, wie einer operativ getrennten oder spezialisierten Satellitenklinik oder einem häuslichen Pflegedienst, zu enthalten. Es kann auch verwendet werden, um Kontaktinformationen über informellere Netzwerke oder Gruppen darzustellen, wie z. B. eine lokale Selbsthilfegruppe.\r\n\r\nDieser Archetyp könnte auch als Proxy für formale demografische Daten verwendet werden, wenn ein Template mit Domänenexperten überprüft wird – beispielsweise bei einer Bewertung, bei der die Prüfer erwarten würden, dass die Details zu der Organisation oben auf dem Bewertungsformular angezeigt werden.",
+          "misuse" : "Der Archetyp darf nicht verwendet werden, um ein offizielles Register oder einen Index darzustellen, zu ersetzen oder zu führen. Verwenden Sie zu diesem Zweck einen formellen Gesundheitsanbieter-Index (Health Provider Index) oder Archetypen, die auf dem openEHR Demographic Information Model basieren.\r\n\r\nDer Archetyp darf nicht verwendet werden, um den Pflegeort und ähnliche Datenelemente darzustellen, die formal in der Patientenakte unter Verwendung der Reference Model-Attribute dargestellt werden sollten.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera information om en organisation på det sätt som det behöver representeras i en journalanteckning.\r\n",
+          "keywords" : [ "organisation, leverantör, vårdgivare, vårdenhet, enhet, avdelning, nätverk, grupp" ],
+          "use" : "Används för att registrera information om en organisation som behöver representeras i journalen. Används exempelvis ad hoc eller i de fall då formella demografiska register eller kataloger inte kan användas istället. \r\nExempel inkluderar:\r\n- namn och kontaktuppgifter för en organisation som har en fysisk kopia av patientens önskemål om vård i händelse av att patienten inte längre kan kommunicera\r\n- namn och kontaktuppgifter för hemtjänst- eller hemsjukvårdsorganisation för en individ\r\n\r\nDenna arketyp har utformats för att dokumentera information om formellt erkända enheter, såsom ett registrerat företag, ett sjukhus och dess erkända \"underorganisationer\", såsom en separat eller specialiserad satellitklinik eller hemsjukvård. Den kan också användas för att dokumentera kontaktinformation om mer informella nätverk eller grupper, till exempel en lokal stödgrupp.\r\n\r\nDen här arketypen kan också användas som en proxy för formell demografisk data när man granskar en mall med domänexperter - exempelvis där granskare förväntar sig att se en organisations information i ett formulär.",
+          "misuse" : "*Not to be used to represent, replace or maintain an official register or index. Use a formal Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the location of care and similar data elements that should be represented formally in the health record using the Reference Model attributes. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om en organisasjon, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet.",
+          "keywords" : [ "organisasjon, leverandør, omsorgsperson, nettverk, gruppe" ],
+          "use" : "Brukes for å registrere detaljer om en organisasjon, som man har informasjon om eller har forstått, i det kliniske dokumentasjonsarbeidet, ofte ad hoc eller i de tilfeller når det ikke er ønskelig eller mulig å bruke et formelt demografisk register eller indeks.\r\n\r\nFor eksempel:\r\n- kopiinnhaver av av et fremtidig behandlingsvalg ved å bruke \"Kopiholder\"-SLOTet i arketypen \"EVALUATION.advance_care_directive\" (Fremtidig behandlingsvalg).\r\n- navn og kontaktdetaljer for en organisasjon som yter hjemmehjelp til en enkeltperson.\r\n\r\nDenne arketypen er utformet for å registrere detaljer om formelt anerkjente enheter, for eksempel en registrert virksomhet, et sykehus og dets \"underorganisasjoner\", en operativt separat eller spesialisert satellittklinikk eller hjemmetjeneste. Den kan også brukes til å registrere kontaktinformasjon om mer uformelle nettverk eller grupper, for eksempel en lokal støttegruppe.\r\n\r\nDenne arketypen kan også brukes som en midlertidig erstatning for formelle demografiske data når man gjennomgår et templat med domeneeksperter - for eksempel en vurdering der man i templatet forventer å se detaljer om en organisasjon i et vurderingsskjema.",
+          "misuse" : "Brukes ikke til å representere, erstatte eller vedlikeholde formelle demografiske opplysninger. Bruk et formelt pasientregister, helsepersonellregister eller arketyper basert på openEHR demografisk informasjonsmodell til dette formålet.\r\n\r\nBrukes ikke for å representere behandlingssted eller lignende dataelementer, som skal representeres formelt i pasientjournalen. Bruk attributter fra Referansemodellen for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about an organisation as they are known or understood in the course of clinical documentation.",
+          "keywords" : [ "organisation, organization, provider, carer, network, group" ],
+          "use" : "Use to record details of an organisation as they are known or understood in the course of clinical documentation, often ad hoc or when it is not appropriate or possible to use a formal demographic register or index. Examples include:\r\n- the copyholder of an advanced care record, using the 'Copyholder' SLOT within the EVALUATION.advance_care_directive archetype; or\r\n- the name and contact details of an organisation providing home care to an individual.\r\n\r\nThis archetype has been designed to carry details of formally recognised entities, such as a registered business, a hospital and its recognised 'sub-organisations', such as an operationally separate or specialised satellite clinic or home care service. It may also be used to carry contact information about more informal networks or groups, such as a local community support group.\r\n\r\nThis archetype could also be used as a proxy for formal demographic data when reviewing a template with domain experts - for example, an assessment where reviewers would expect to see an organisations' details on an assessment form.",
+          "misuse" : "Not to be used to represent, replace or maintain an official register or index. Use a formal Health Provider Index for this purpose, or archetypes based on the openEHR Demographic Information Model.\r\n\r\nNot to be used to represent the location of care and similar data elements that should be represented formally in the health record using the Reference Model attributes.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.organisation.v1",
     "differential" : true,
