@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.32-alpha.1",
-      "build_uid" : "98db8eff-1560-4576-88c5-3bdb180e09e5",
-      "MD5-CAM-1.0.1" : "71c57d9307a3e9147807d13ca9cd4751",
+      "sem_ver" : "1.0.33-alpha.1",
+      "build_uid" : "4484efa4-e53e-44c5-b2af-80fffa1d7622",
+      "MD5-CAM-1.0.1" : "9e549c8e7ccabd27cdcb497dc95866de",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -2389,7 +2389,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "0..*",
           "nodeId" : "at0013.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -5432,7 +5432,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Biopsi",
+            "text" : "Biopsi systematisk",
             "description" : "Ett fysiskt prov/provmaterial taget från, eller relaterat till, en individ i syfte att utföra en bedömning, undersökning eller analys.",
             "comment" : "Exempelvis vävnad eller kroppsvätska."
           }
@@ -6587,7 +6587,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Biopsi",
+            "text" : "Biopsi från palpationsfynd",
             "description" : "Ett fysiskt prov/provmaterial taget från, eller relaterat till, en individ i syfte att utföra en bedömning, undersökning eller analys.",
             "comment" : "Exempelvis vävnad eller kroppsvätska."
           }
@@ -6992,6 +6992,15 @@
           "attributes" : [ ],
           "attributeTuples" : [ ],
           "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-amount-001.v0",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0003.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-anatomical_location-005.v1",
           "referenceType" : "archetypeOverlay"
         } ]
       } ],
@@ -7887,6 +7896,12 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
             "description" : ""
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Palpationsfyndslokalisation",
+            "description" : "Ett fysiskt ställe på eller i människokroppen."
           }
         },
         "fr" : {
@@ -9058,8 +9073,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Prostatasektorer",
+            "text" : "Biopsilokalisation",
             "description" : "Ett fysiskt ställe på eller i människokroppen."
+          },
+          "at0065.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0065.1",
+            "text" : "Sektor",
+            "description" : "Ytterligare detalj angiven som ett specifikt område eller en punkt på eller i det identifierade kroppsstället.",
+            "comment" : "*Use to increase precision of identification of the body site, if required. For example, the upper right quadrant or McBurney's point on the abdominal wall or interphalangeal joint of the great toe. If the 'Body site name' data element uses pre-coordinated terms that include the specific site, then this data element is redundant.\r\nIn most situations this will be a single specific site. This data element has multiple occurrences to support less common use cases which need to identify a single anatomical location involving two or more adjacent and continuous specific sites. For example, to describe the specific site of a single tumour extending across the 2nd, 3rd and 4th ribs. (en)"
           }
         },
         "fr" : {
@@ -12139,6 +12161,12 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0065.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0002.1",
           "attributes" : [ {
@@ -12406,6 +12434,19 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.3",
             "description" : ""
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Biopsilokalisation",
+            "description" : "Ett fysiskt ställe på eller i människokroppen."
+          },
+          "at0065.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0065.1",
+            "text" : "Sektor",
+            "description" : "Ytterligare detalj angiven som ett specifikt område eller en punkt på eller i det identifierade kroppsstället.",
+            "comment" : "*Use to increase precision of identification of the body site, if required. For example, the upper right quadrant or McBurney's point on the abdominal wall or interphalangeal joint of the great toe. If the 'Body site name' data element uses pre-coordinated terms that include the specific site, then this data element is redundant.\r\nIn most situations this will be a single specific site. This data element has multiple occurrences to support less common use cases which need to identify a single anatomical location involving two or more adjacent and continuous specific sites. For example, to describe the specific site of a single tumour extending across the 2nd, 3rd and 4th ribs. (en)"
           }
         },
         "fr" : {
@@ -12744,6 +12785,12 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0065.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0002.1",
           "attributes" : [ {
@@ -13011,6 +13058,19 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.3",
             "description" : ""
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Biopsilokalisation",
+            "description" : "Ett fysiskt ställe på eller i människokroppen."
+          },
+          "at0065.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0065.1",
+            "text" : "Sektor",
+            "description" : "Ytterligare detalj angiven som ett specifikt område eller en punkt på eller i det identifierade kroppsstället.",
+            "comment" : "*Use to increase precision of identification of the body site, if required. For example, the upper right quadrant or McBurney's point on the abdominal wall or interphalangeal joint of the great toe. If the 'Body site name' data element uses pre-coordinated terms that include the specific site, then this data element is redundant.\r\nIn most situations this will be a single specific site. This data element has multiple occurrences to support less common use cases which need to identify a single anatomical location involving two or more adjacent and continuous specific sites. For example, to describe the specific site of a single tumour extending across the 2nd, 3rd and 4th ribs. (en)"
           }
         },
         "fr" : {
@@ -15500,6 +15560,505 @@
         "email" : "yampeku@veratech.es"
       },
       "accreditation" : "Native speaker. First Certificate in English",
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "1af2704c-c2c4-4201-b389-05dd8241600c",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "430B520EC4563F96465173ED840F7A4A"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-anatomical_location-005.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0065.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.1" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0064.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.2" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0055.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.3" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0023.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "ar-sy" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        },
+        "sl" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        },
+        "en" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        },
+        "nb" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        },
+        "pt-br" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        },
+        "nl" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Lesionslokalisation",
+            "description" : "Ett fysiskt ställe på eller i människokroppen."
+          },
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Huvudsektor",
+            "description" : "Identifiering av enskilt fysiskt ställe på eller i människokroppen.",
+            "comment" : "*This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf 'Body site name' is already identified in an archetype in which this Anatomical location archetype has been nested, then this data element may be redundant. However, it might be reasonable to duplicate 'Body site name' in this archetype to support semantic querying using this archetype, instead of the archetype in which it has been nested. (en)"
+          },
+          "at0065.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0065.1",
+            "text" : "Sektor",
+            "description" : "Ytterligare detalj angiven som ett specifikt område eller en punkt på eller i det identifierade kroppsstället.",
+            "comment" : "*Use to increase precision of identification of the body site, if required. For example, the upper right quadrant or McBurney's point on the abdominal wall or interphalangeal joint of the great toe. If the 'Body site name' data element uses pre-coordinated terms that include the specific site, then this data element is redundant.\r\nIn most situations this will be a single specific site. This data element has multiple occurrences to support less common use cases which need to identify a single anatomical location involving two or more adjacent and continuous specific sites. For example, to describe the specific site of a single tumour extending across the 2nd, 3rd and 4th ribs. (en)"
+          }
+        },
+        "fr" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          },
+          "ac0.3" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.3",
+            "description" : ""
+          }
+        }
+      },
+      "termBindings" : {
+        "SNOMED-CT" : {
+          "at0002.1" : "term:SNOMED-CT::272741003"
+        }
+      },
+      "terminologyExtracts" : { },
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0003", "at0004" ]
+        },
+        "ac0.2" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.2",
+          "members" : [ "at0067", "at0068", "at0069", "at0070", "at0071", "at0072", "at0073", "at0074", "at0080", "at0081", "at0075", "at0076", "at0082", "at0077", "at0078", "at0079" ]
+        },
+        "ac0.3" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.3",
+          "members" : [ "at0062", "at0056", "at0057", "at0058", "at0059", "at0060", "at0063" ]
+        }
+      }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "a35e9727-a67b-469f-ab59-a7216d21f7df",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Sarah Ballout, Darin Leonhardt",
+        "organisation" : "PLRI für medizinische Informatik/ Medizinische Hochschule",
+        "email" : "ballout.sarah@mh-hannover.de, leonhardt.darin@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Åsa Skagerhult, Linda Aulin, Romi Shweta Pathak, Henna Haapa Hybinette, sofia Lång Janstad, Sajjad Saffari Miandoab",
+        "organisation" : "Region Östergötland, Region Stockholm, Karolinska universitetssjukhuset, Karolinska University Hospital",
+        "email" : "asa.skagerhult@regionostergotland.se, linda.aulin@sll.se, romi.pathak@regionstockholm.se, henna.haapa-hybinette@regionstockholm.se, sofia.lang-janstad@regionstockholm.se, sajjad.saffari-miandoab@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen, Vebjørn Arntzen",
+        "organisation" : "Haukeland University Hospital of Bergen, Norway, Oslo University Hospital",
+        "email" : "varntzen@ous-hf.no"
+      },
+      "accreditation" : "MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Osmeire Chamelette Sanzovo",
+        "organisation" : "Hospital Sírio Libanês - SP",
+        "email" : "osmeire.acsanzovo@hsl.org.br"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sl"
+      },
+      "author" : {
+        "name" : "Biljana Princic"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fr"
+      },
+      "author" : {
+        "name" : "Vanessa Pereira",
+        "organisation" : "Luxembourg Institute of Health (LIH)",
+        "email" : "vanessapereira@protonmail.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Michiel Klitsie",
+        "organisation" : "Nedap Healthcare",
+        "email" : "michiel.klitsie@nedap.com"
+      },
       "otherDetails" : { }
     } ]
   } ],
