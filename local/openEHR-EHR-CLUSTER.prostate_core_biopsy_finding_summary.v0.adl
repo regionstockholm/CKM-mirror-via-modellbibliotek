@@ -34,26 +34,26 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"cf2fd96491e542b557d2e1c7a21c86f2">
+		["MD5-CAM-1.0.1"] = <"78c14ed386b19580e280dc235522d8c4">
 		["build_uid"] = <"c501c210-7e0c-32d0-b650-033d76fcc375">
 	>
 
 definition
 	CLUSTER[at0000] matches {    -- prostate_core_biopsy_finding_summary
 		items cardinality matches {1..*; unordered} matches {
-			CLUSTER[at0001] occurrences matches {0..1} matches {    -- Global Gleason grade
+			CLUSTER[at0001] occurrences matches {0..1} matches {    -- Global Gleason score
 				items cardinality matches {1..*; unordered} matches {
-					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Global Gleason grade
+					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Global Gleason score
 						include
 							archetype_id/value matches {/.*/}
 					}
-					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Global Gleason grade not assessable
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Global Gleason score not assessable
 						value matches {
 							DV_TEXT matches {*}
 							DV_CODED_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Reason Global Gleason grade not assessable
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Reason Global Gleason score not assessable
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -61,11 +61,6 @@ definition
 					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Percentage Global Gleason pattern 4
 						value matches {
 							DV_QUANTITY matches {*}
-						}
-					}
-					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Presence of cribiform Gleason grade 4
-						value matches {
-							DV_BOOLEAN matches {*}
 						}
 					}
 				}
@@ -116,27 +111,23 @@ ontology
 					description = <"prostate_core_biopsy_finding_summary">
 				>
 				["at0001"] = <
-					text = <"Global Gleason grade">
+					text = <"Global Gleason score">
 					description = <"">
 				>
 				["at0002"] = <
-					text = <"Global Gleason grade">
+					text = <"Global Gleason score">
 					description = <"">
 				>
 				["at0003"] = <
-					text = <"Global Gleason grade not assessable">
+					text = <"Global Gleason score not assessable">
 					description = <"">
 				>
 				["at0004"] = <
-					text = <"Reason Global Gleason grade not assessable">
+					text = <"Reason Global Gleason score not assessable">
 					description = <"">
 				>
 				["at0005"] = <
 					text = <"Percentage Global Gleason pattern 4">
-					description = <"">
-				>
-				["at0006"] = <
-					text = <"Presence of cribiform Gleason grade 4">
 					description = <"">
 				>
 				["at0007"] = <
@@ -176,11 +167,11 @@ ontology
 					description = <"*prostate_core_biopsy_finding_summary (en)">
 				>
 				["at0001"] = <
-					text = <"Global Gleason grad">
+					text = <"Global Gleason gradering">
 					description = <"">
 				>
 				["at0002"] = <
-					text = <"Global Gleason grad">
+					text = <"Global Gleason gradering">
 					description = <"">
 				>
 				["at0003"] = <
@@ -193,10 +184,6 @@ ontology
 				>
 				["at0005"] = <
 					text = <"Procent global Gleason grad 4">
-					description = <"">
-				>
-				["at0006"] = <
-					text = <"Förekomst av kribiform Gleason grad 4">
 					description = <"">
 				>
 				["at0007"] = <
