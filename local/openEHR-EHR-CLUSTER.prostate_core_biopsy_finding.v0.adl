@@ -34,19 +34,35 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"53b62493062edbe7d8be3c5fdc07ec1b">
+		["MD5-CAM-1.0.1"] = <"98fb0ea37c90fccd456d764a35ccb54c">
 		["build_uid"] = <"37f059a8-c401-32a5-a372-5234ef3c4874">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- prostate_core_biopsy_finding
+	CLUSTER[at0000] matches {    -- Assessment of core biopsy
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Histological tumor type
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Finding
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Comment on histological tumor type
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Comment on finding
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {    -- Assessment of biopsy not possible
+				value matches {
+					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0025] occurrences matches {0..1} matches {    -- Reason assessment of biopsy not possible, structured
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {    -- Reason assessment of biopsy not possible
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -146,7 +162,7 @@ definition
 					}
 				}
 			}
-			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Over all komment on prostate core biopsy finding
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Over all comment on biopsy assessment
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -159,15 +175,15 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"prostate_core_biopsy_finding">
+					text = <"Assessment of core biopsy">
 					description = <"prostate_core_biopsy_finding">
 				>
 				["at0001"] = <
-					text = <"Histological tumor type">
+					text = <"Finding">
 					description = <"">
 				>
 				["at0002"] = <
-					text = <"Over all komment on prostate core biopsy finding">
+					text = <"Over all comment on biopsy assessment">
 					description = <"">
 				>
 				["at0003"] = <
@@ -215,7 +231,7 @@ ontology
 					description = <"">
 				>
 				["at0014"] = <
-					text = <"Comment on histological tumor type">
+					text = <"Comment on finding">
 					description = <"">
 				>
 				["at0015"] = <
@@ -254,20 +270,32 @@ ontology
 					text = <"Comment on vascular invasion">
 					description = <"">
 				>
+				["at0024"] = <
+					text = <"Assessment of biopsy not possible">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Reason assessment of biopsy not possible, structured">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Reason assessment of biopsy not possible">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"Biopsifynd prostata">
+					text = <"*Assessment of core biopsy (en)">
 					description = <"*prostate_core_biopsy_finding (en)">
 				>
 				["at0001"] = <
-					text = <"Histologisk tumörtyp">
+					text = <"Fynd">
 					description = <"">
 				>
 				["at0002"] = <
-					text = <"Övergripande kommentar biopsifynd">
+					text = <"Övergripande kommentar om bedömning av biopsi">
 					description = <"">
 				>
 				["at0003"] = <
@@ -315,7 +343,7 @@ ontology
 					description = <"">
 				>
 				["at0014"] = <
-					text = <"Kommentar om histologisk tumörtyp">
+					text = <"Kommentar om fynd">
 					description = <"">
 				>
 				["at0015"] = <
@@ -352,6 +380,18 @@ ontology
 				>
 				["at0023"] = <
 					text = <"Kommentar om kärlinvasion">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Bedömning av biopsi inte möjlig">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Anledning till bedömning av biopsi inte möjlig, strukturerad">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Anledning till bedömning av biopsi inte möjlig">
 					description = <"">
 				>
 			>
