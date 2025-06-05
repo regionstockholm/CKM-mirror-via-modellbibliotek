@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.40-alpha.1",
-      "build_uid" : "cbf4a313-3567-4a38-88d4-8c1d236dcd20",
-      "MD5-CAM-1.0.1" : "0e697756d74b36d91928e225785676d8",
+      "sem_ver" : "1.0.41-alpha.1",
+      "build_uid" : "e5bead65-cb10-4d7d-9c22-f0e39f821090",
+      "MD5-CAM-1.0.1" : "0186c44fd6084ad42022a203491d7988",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -1249,9 +1249,6 @@
           "/items[at0071]" : {
             "fhir_mapping" : "*Specimen.collection.collector(en)"
           },
-          "/items[at0070]" : {
-            "fhir_mapping" : "*Specimen.collection.collector(en)"
-          },
           "/items[at0013]" : {
             "fhir_mapping" : "*Specimen.collection.sourceSite(en)"
           },
@@ -1269,13 +1266,13 @@
           },
           "/items[at0007.1]" : {
             "fhir_mapping" : "*Specimen.collection.method(en)"
+          },
+          "/items[at0070.1]" : {
+            "fhir_mapping" : "*Specimen.collection.collector(en)"
           }
         },
         "en" : {
           "/items[at0071]" : {
-            "fhir_mapping" : "Specimen.collection.collector"
-          },
-          "/items[at0070]" : {
             "fhir_mapping" : "Specimen.collection.collector"
           },
           "/items[at0013]" : {
@@ -1301,15 +1298,15 @@
           },
           "/items[at0045.1]" : {
             "fhir_mapping" : "Specimen.note"
+          },
+          "/items[at0070.1]" : {
+            "fhir_mapping" : "Specimen.collection.collector"
           }
         },
         "pt-br" : { },
         "nb" : { },
         "de" : {
           "/items[at0071]" : {
-            "fhir_mapping" : "Specimen.collection.collector"
-          },
-          "/items[at0070]" : {
             "fhir_mapping" : "Specimen.collection.collector"
           },
           "/items[at0013]" : {
@@ -1335,6 +1332,9 @@
           },
           "/items[at0045.1]" : {
             "fhir_mapping" : "Specimen.note"
+          },
+          "/items[at0070.1]" : {
+            "fhir_mapping" : "Specimen.collection.collector"
           }
         },
         "sv" : {
@@ -1601,6 +1601,26 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0070.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "1..1",
           "nodeId" : "at0080.1",
           "attributes" : [ {
@@ -1855,6 +1875,13 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
             "description" : ""
+          },
+          "at0070.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0070.1",
+            "text" : "Provtagare",
+            "description" : "Identifierare för den person eller organisation som ansvarar för provtagningen.",
+            "comment" : "Detta dataelement är avsett att användas när provmaterialet redan har samlats in och den faktiska provtagaren är känd."
           }
         }
       },
@@ -10434,6 +10461,7 @@
                     "children" : [ {
                       "@type" : "C_TERMINOLOGY_CODE",
                       "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
                       "terminologyId" : {
                         "value" : "local_terms"
                       },
@@ -11227,6 +11255,7 @@
                     "children" : [ {
                       "@type" : "C_TERMINOLOGY_CODE",
                       "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
                       "terminologyId" : {
                         "value" : "local_terms"
                       },
