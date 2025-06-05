@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.37-alpha.1",
-      "build_uid" : "e9fed6a3-6b05-42b5-b078-1037a2feeb55",
-      "MD5-CAM-1.0.1" : "8e55c688e1ba6ee36d309b8d38fbbf3c",
+      "sem_ver" : "1.0.38-alpha.1",
+      "build_uid" : "196fb2dc-00d0-4b5f-9e00-e05f8f892b38",
+      "MD5-CAM-1.0.1" : "2f8e659abe831948be8450586e76a933",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -628,7 +628,7 @@
                 }, {
                   "@type" : "C_ARCHETYPE_ROOT",
                   "rmTypeName" : "CLUSTER",
-                  "occurrences" : "0..1",
+                  "occurrences" : "1..1",
                   "nodeId" : "at0132.1",
                   "attributes" : [ ],
                   "attributeTuples" : [ ],
@@ -1036,7 +1036,7 @@
         "children" : [ {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "1..1",
           "nodeId" : "at0002.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -1731,7 +1731,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "1..1",
           "nodeId" : "at0068.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -2208,6 +2208,7 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "1..1",
           "nodeId" : "at0001.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -2479,7 +2480,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..*",
+          "occurrences" : "1..1",
           "nodeId" : "at0013.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -2788,6 +2789,7 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
           "nodeId" : "at0094.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
@@ -2808,8 +2810,18 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "1..1",
           "nodeId" : "at0096.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -2822,7 +2834,47 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0091.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "defaultValue" : {
+                "defining_code" : {
+                  "terminology_id" : {
+                    "value" : "Snomed-CT",
+                    "@type" : "TERMINOLOGY_ID"
+                  },
+                  "code_string" : "431510009",
+                  "@type" : "CODE_PHRASE"
+                },
+                "value" : "Formalin",
+                "@type" : "DV_CODED_TEXT"
+              },
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "Snomed-CT"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "Snomed-CT" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "Snomed-CT",
+                    "code" : "431510009",
+                    "value" : "Formalin"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -2868,6 +2920,13 @@
             "code" : "at0096.1",
             "text" : "Tidpunkt provmaterial lagt i formalin",
             "description" : "*The date and time when the process activity started. (en)"
+          },
+          "at0091.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0091.1",
+            "text" : "Tillsats",
+            "description" : "*Identification of a substance used in the processing. (en)",
+            "comment" : "*For example: formalin for fixation, embryo culture media or buffer solution. This data element has multiple occurrences to allow more than one additive to be recorded. (en)"
           }
         }
       },
@@ -5788,7 +5847,7 @@
         "children" : [ {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "1..1",
           "nodeId" : "at0002.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -5797,7 +5856,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "1..*",
           "nodeId" : "at0002.3",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -6896,6 +6955,32 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
+          "nodeId" : "at0035.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0036.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "defaultValue" : {
+                "value" : "Lesion från MR",
+                "@type" : "DV_TEXT"
+              },
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
           "nodeId" : "at0037.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -7077,7 +7162,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "1..1",
           "nodeId" : "at0005.2",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -7168,6 +7253,13 @@
             "text" : "MR-identifierad lesion",
             "description" : "*An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)",
             "comment" : "*For example: a cyst or mass; a thrombosis; a polyp; a calculus or a foreign body. (en)"
+          },
+          "at0036.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0036.1",
+            "text" : "Typ",
+            "description" : "*The type of anomaly. (en)",
+            "comment" : "*Coding of the anomaly with an external terminology is preferred, where possible. For example, a cyst or nodule. (en)"
           }
         }
       },
@@ -8886,6 +8978,53 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "defaultValue" : {
+                "defining_code" : {
+                  "terminology_id" : {
+                    "value" : "Snomed-CT",
+                    "@type" : "TERMINOLOGY_ID"
+                  },
+                  "code_string" : "41216001",
+                  "@type" : "CODE_PHRASE"
+                },
+                "value" : "Prostata",
+                "@type" : "DV_CODED_TEXT"
+              },
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "Snomed-CT"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "Snomed-CT" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "Snomed-CT",
+                    "code" : "41216001",
+                    "value" : "Prostata"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "1..*",
           "nodeId" : "at0065.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
@@ -11165,6 +11304,12 @@
           "nodeId" : "at0001.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0002.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
         } ]
       } ],
       "attributeTuples" : [ ]
@@ -11174,7 +11319,20 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "sv" : { }
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Lesionsnummer",
+            "description" : "*Amount (en)"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Lesionsnummer",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -15822,7 +15980,39 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0001.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_terms"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_terms" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_terms",
+                    "code" : "1Av",
+                    "value" : "1Av"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "1Ad",
+                    "value" : "1Ad"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
