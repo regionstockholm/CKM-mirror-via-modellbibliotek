@@ -1,0 +1,73 @@
+archetype (adl_version=1.4; uid=36f5b636-8f1f-485b-a119-9844efdded13)
+	openEHR-EHR-EVALUATION.demo_behandlingsstrategi.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+
+description
+	original_author = <
+		["name"] = <"Oscar Karlsson">
+		["organisation"] = <"Karolinska University Hospital ">
+		["email"] = <"Oscar.karlsson@regionstockholm.se">
+		["date"] = <"2025-06-12">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"25b7ab34c5ec719ee1ea2c205d5d0ac4">
+		["build_uid"] = <"d811affb-2c60-37e1-a13a-30934753a786">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Demo behandlingsstrategi
+		data matches {
+			ITEM_TREE[at0003] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Typ av behandling
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0001] matches {*}    -- Item tree
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Demo behandlingsstrategi">
+					description = <"Demo behandlingsstrategi">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Typ av behandling">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+			>
+		>
+	>
