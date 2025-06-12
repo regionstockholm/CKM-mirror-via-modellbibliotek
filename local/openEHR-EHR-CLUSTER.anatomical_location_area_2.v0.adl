@@ -23,7 +23,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"e7b0d6610e7b73419e7187e663b6a149">
+		["MD5-CAM-1.0.1"] = <"311c5b8b7dba9e1b2d711644d46a13cf">
 		["build_uid"] = <"0ac0cce7-51b1-309b-8032-82bd5b26476f">
 	>
 
@@ -31,6 +31,11 @@ definition
 	CLUSTER[at0000] matches {    -- Areal anatomical location 2
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0003] matches {    -- Body site name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Laterality
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -45,6 +50,15 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Multimedia representation
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.media_file\.v1/}
+			}
 		}
 	}
 
@@ -58,15 +72,32 @@ ontology
 				>
 				["at0001"] = <
 					text = <"Area">
-					description = <"">
+					description = <"Some sort of areal subdivision of a body structure, e.g., sector, section, segment, half, third, quadrant, portion, region, lobe, part, zone. ">
 				>
 				["at0002"] = <
 					text = <"Main area">
-					description = <"">
+					description = <"Main areal subdivision where a particular phenomena is located, e.g., a lesion, metastasis. ">
 				>
 				["at0003"] = <
 					text = <"Body site name">
-					description = <"">
+					description = <"Identification of a single physical site either on, or within, the human body.">
+					comment = <"This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail. This data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available. If 'Body site name' is already identified in an archetype in which this Anatomical location archetype has been nested, then this data element may be redundant. However, it might be reasonable to duplicate 'Body site name' in this archetype to support semantic querying using this archetype, instead of the archetype in which it has been nested.">
+				>
+				["at0004"] = <
+					text = <"Laterality">
+					description = <"The side of the body on which the identified body site is located.">
+					comment = <"This data element should be coded with a terminology, e.g., SNOMED CT 
+Left side of the body: 7771000 | Left
+Right side of the body: 24028007 | Right">
+				>
+				["at0005"] = <
+					text = <"Description">
+					description = <"Narrative description that can be used to further refine and support the 'Body site name'.">
+					comment = <"For example: adjacent to the vermilion border; a tattoo covers the bottom half of this area.">
+				>
+				["at0008"] = <
+					text = <"Multimedia representation">
+					description = <"Image or other media used to support identification of the body site.">
 				>
 			>
 		>
