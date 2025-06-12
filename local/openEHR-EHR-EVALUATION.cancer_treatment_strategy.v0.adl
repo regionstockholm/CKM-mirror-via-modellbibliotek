@@ -37,7 +37,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"3031d245c81ca3aeb9229b6ad93a2f91">
+		["MD5-CAM-1.0.1"] = <"698da8a675d97c5aa49c06b89a1660d6">
 		["build_uid"] = <"4437a8ec-b39c-3201-808e-b16d87afbc0f">
 	>
 
@@ -60,17 +60,54 @@ definition
 											DV_CODED_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Treatment type
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Type of  treatment
 										value matches {
 											DV_CODED_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0010] occurrences matches {0..*} matches {    -- Details
+									ELEMENT[at0021] occurrences matches {0..1} matches {    -- Surgery details
 										value matches {
 											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {    -- Type of radiotherapy
+										value matches {
 											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {    -- Total dose
+										value matches {
 											DV_QUANTITY matches {*}
-											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Fractions
+										value matches {
+											DV_QUANTITY matches {*}
+										}
+									}
+									ELEMENT[at0025] occurrences matches {0..1} matches {    -- Type of medical oncology treatment
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {    -- Substance
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {    -- Cycles
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {    -- Regimen
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {    -- Type of chemotherapy
+										value matches {
+											DV_TEXT matches {*}
 										}
 									}
 								}
@@ -92,12 +129,49 @@ definition
 											DV_CODED_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0015] occurrences matches {0..*} matches {    -- Details
+									ELEMENT[at0031] occurrences matches {0..1} matches {    -- Surgery details
 										value matches {
 											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {    -- Type of radiotherapy
+										value matches {
 											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {    -- Total dose
+										value matches {
 											DV_QUANTITY matches {*}
-											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {    -- Fractions
+										value matches {
+											DV_QUANTITY matches {*}
+										}
+									}
+									ELEMENT[at0035] occurrences matches {0..1} matches {    -- Type of medical oncology treatment
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0036] occurrences matches {0..1} matches {    -- Substance
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0037] occurrences matches {0..1} matches {    -- Cycles
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {    -- Regimen
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0039] occurrences matches {0..1} matches {    -- Type of chemotherapy
+										value matches {
+											DV_TEXT matches {*}
 										}
 									}
 								}
@@ -150,12 +224,8 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					description = <"The treatment intent of the main treatment. ">
 				>
 				["at0009"] = <
-					text = <"Treatment type">
+					text = <"Type of  treatment">
 					description = <"Type of main treatment (e.g., surgery, radiotherapy, medical oncology treatment).">
-				>
-				["at0010"] = <
-					text = <"Details">
-					description = <"Data element for recording details about each treatment modality. Can be duplicated in the template if needed. (May be used to record information such as fractionated dosage, total dose, type of medical oncology treatment, and regimen.)">
 				>
 				["at0011"] = <
 					text = <"Additional tretment">
@@ -173,10 +243,6 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					text = <"Relation to main tretment">
 					description = <"Description of when the additional treatment is given in relation to the main treatment. (Neoadjuvant, adjuvant, perioperative)">
 				>
-				["at0015"] = <
-					text = <"Details">
-					description = <"Data element for recording details about each treatment modality. Can be duplicated in the template if needed. (May be used to record information such as fractionated dosage, total dose, type of medical oncology treatment, and regimen.)">
-				>
 				["at0016"] = <
 					text = <"Activ tumor treatment">
 					description = <"">
@@ -192,6 +258,78 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 				["at0020"] = <
 					text = <"Reson">
 					description = <"Reason why no active cancer treatment is given. (e.g. Active monitoring, High performance status (ECOG), Significant comorbidities, Advanced stage cancer, Death before treatment)">
+				>
+				["at0021"] = <
+					text = <"Surgery details">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Type of radiotherapy">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Total dose">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Fractions">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Type of medical oncology treatment">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Substance">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Cycles">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Regimen">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Type of chemotherapy">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Surgery details">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Type of radiotherapy">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Total dose">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Fractions">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Type of medical oncology treatment">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Substance">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Cycles">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Regimen">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Type of chemotherapy">
+					description = <"">
 				>
 			>
 		>
@@ -223,10 +361,6 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					text = <"Typ av behandling">
 					description = <"*Type of main treatment (e.g., surgery, radiotherapy, medical oncology treatment). (en)">
 				>
-				["at0010"] = <
-					text = <"Detaljer">
-					description = <"*Data element for recording details about each treatment modality. Can be duplicated in the template if needed. (May be used to record information such as fractionated dosage, total dose, type of medical oncology treatment, and regimen.) (en)">
-				>
 				["at0011"] = <
 					text = <"Tilläggsbehandling">
 					description = <"*Additional or adjunctive treatment is given in addition to the main treatment, with the aim of improving overall outcomes. It may be administered before (neoadjuvant), after (adjuvant), or both before and after (perioperativ) the main treatment. (en)">
@@ -243,10 +377,6 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					text = <"Relation till huvudbehandling">
 					description = <"*Description of when the additional treatment is given in relation to the main treatment. (Neoadjuvant, adjuvant, perioperative) (en)">
 				>
-				["at0015"] = <
-					text = <"Detaljer">
-					description = <"*Data element for recording details about each treatment modality. Can be duplicated in the template if needed. (May be used to record information such as fractionated dosage, total dose, type of medical oncology treatment, and regimen.) (en)">
-				>
 				["at0016"] = <
 					text = <"Aktiv tumörbehandling">
 					description = <"">
@@ -262,6 +392,78 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 				["at0020"] = <
 					text = <"Orsak">
 					description = <"*Reason why no active cancer treatment is given. (e.g. Active monitoring, High performance status (ECOG), Significant comorbidities, Advanced stage cancer, Death before treatment) (en)">
+				>
+				["at0021"] = <
+					text = <"Detaljer kirurgi">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Typ av radioterapi">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Totaldos">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Fraktionsdos">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Typ av medicinsk onkologisk behandling">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Substans">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Cykler">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Regim">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Typ av kemoradioterapi">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Detaljer kirurgi">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Typ av radioterapi">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Totaldos">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Fraktionsdos">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Typ av medicinsk onkologisk behandling">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Substans">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Cykler">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Regim">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Typ av kemoradioterapi">
+					description = <"">
 				>
 			>
 		>
