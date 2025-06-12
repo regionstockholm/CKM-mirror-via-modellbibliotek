@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.1.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "44df385b-a5aa-4f34-92ef-a0586fb37d6d",
-      "MD5-CAM-1.0.1" : "4b6b5cb9b8380f13625d6deea4af6f95",
+      "MD5-CAM-1.0.1" : "95393d1714b557c7d12f558a680c9910",
       "PARENT:MD5-CAM-1.0.1" : "B90C9995DE7CA7BCA27AAC9A42E00280"
     },
     "details" : {
@@ -278,7 +278,128 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "6D34CF0B5CC4E97B39CD3254BCDAD43E"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Schaffung von Rahmenbedingungen für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.",
+          "keywords" : [ "Screening, Fragebogen, Beschwerde, Symptom, Störung, Problem, Unwohlsein, Anzeichen" ],
+          "use" : "Verwendung als Rahmenbedingung für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.\r\n\r\nHäufige Anwendungsfälle umfassen, sind aber nicht beschränkt auf:\r\n- Systematische Befragung in jeder Beratung, zum Beispiel:\r\n--- Haben Sie Kopfschmerzen? Ja, Nein, Unbekannt.\r\n--- Hatten Sie in den letzten vier Wochen Schwindel? Ja, Nein, Unbekannt.\r\n- Spezifische Befragung im Zusammenhang mit der Krankheitsüberwachung.\r\n\r\nDie Semantik dieses Archetyps ist absichtlich locker, und die Abfrage dieses Archetyps wäre normalerweise nur im Kontext jedes spezifischen Templates nützlich oder sicher. In einem Template würde normalerweise jedes Datenelement in die spezifisch gestellte Frage umbenannt. Wo Wertesätze für allgemeine Anwendungsfälle vorgeschlagen wurden, können diese für die lokale Verwendung angepasst werden, indem die „Text“-Auswahl verwendet wird, um jedem spezifischen Anwendungsfall zu entsprechen.\r\n\r\nÜber die EVENT-Struktur aus dem Referenzmodell kann festgelegt werden, ob sich die Fragen auf einen Zeitpunkt oder einen Zeitraum beziehen. Verwenden Sie eine separate Instanz dieses Archetyps, um zwischen einer Befragung zu unterscheiden, die Informationen über ein Symptom enthält, das zu einem beliebigen Zeitpunkt in der Vergangenheit eingetreten war, und Informationen über ein Symptom, das innerhalb eines bestimmten Zeitintervalls vorhanden war - zum Beispiel den Unterschied zwischen \"Ist Ihnen jetzt schwindelig?\" im Vergleich zu \"Hatten Sie in den letzten 4 Wochen Schwindel?\".\r\n\r\nDie Quelle der Informationen in einer Fragebogenantwort kann in verschiedenen Kontexten variieren, kann jedoch mithilfe des Elements „Information provider“ im Referenzmodell spezifisch identifiziert werden.\r\n\r\nDieser Archetyp wurde entwickelt, um als Screening-Tool oder zur Darstellung einfacher Daten im Fragebogenformat zur Verwendung in Situationen wie einem Krankheitsregister verwendet zu werden. Wenn der Screening-Fragebogen das Vorhandensein eines Symptoms oder Anzeichens identifiziert, wird empfohlen, dass das klinische System die spezifischen Details über das Symptom unter Verwendung des Archetyps CLUSTER.symptom_sign, der im SLOT für die Zusätzliche Angaben eingefügt wird, darstellt und beibehält.",
+          "misuse" : "Darf nicht verwendet werden, um Details über das Vorhandensein oder Fehlen eines Symptoms außerhalb eines Screening-Kontexts darzustellen. Verwenden Sie zu diesem Zweck CLUSTER.symptom_sign oder CLUSTER.exclusion_symptom_sign.\r\n\r\nDarf nicht verwendet werden, um Details zu einer einfachen Auswahlliste darzustellen, in der eine Frage entweder als \"vorhanden\" oder \"unbestimmt\" aufgezeichnet werden kann. Verwenden Sie dazu OBSERVATION.selection_list.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.",
+          "keywords" : [ "screening, formulär, frågeformulär, självrapporteringsskala, symptom, besvär, problem, tecken" ],
+          "use" : "Använd som ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.\r\n\r\nVanliga användningsfall inkluderar, men är inte begränsade till:\r\n- Systematisk utredning vid konsultationer, exempelvis:\r\n--- Har du huvudvärk? Ja, nej, okänt.\r\n--- Har du haft yrsel under de senaste fyra veckorna? Ja, nej, okänt.\r\n- Specifika frågor relaterade till övervakning/uppföljning av sjukdom.\r\n\r\nSemantiken för denna arketyp är avsiktligt generell, sökfrågor baserade på denna arketyp är normalt bara säker och meningsfull inom ramen för varje specifik mall (template). I en mall döps vanligtvis varje dataelement om till den specifika fråga som ställdes. Svarsalternativ har föreslagits för vanliga användningsfall, men kan anpassas för lokal användning genom att använda \"text\"-valet för att matcha varje specifikt användningsfall.\r\n\r\nEVENT-strukturen från openEHRs referensmodell kan användas för att specificera om frågorna avser en tidpunkt eller en tidsperiod. Använd separata instanser av denna arketyp för att skilja mellan ett frågeformulär som gäller information om ett symptom som har funnits någon gång tidigare och information om ett symptom inom ett specifikt angivet tidsintervall - till exempel skillnaden mellan \"Är du yr nu?\" jämfört med \"Har du haft yrsel någon gång under de senaste 4 veckorna?\r\n\r\nKällan till informationen i ett enkätsvar kan variera i olika sammanhang men kan specifikt identifieras med hjälp av elementet 'provider' i referensmodellens ENTRY-klass.\r\n\r\nDenna arketyp har utformats för att användas som ett screeningverktyg eller för att registrera enkla data i frågeformulärformat för användning i register etc. Om screeningsfrågeformuläret identifierar närvaron av ett symptom eller tecken, rekommenderas att det kliniska systemet även registrerar och behåller de specifika detaljerna om symtomet eller tecknet med hjälp av arketypen CLUSTER.symptom_sign inkapslad i avsedd SLOT för \"ytterligare detaljer\" i denna arketyp.",
+          "misuse" : "Får inte användas för att registrera detaljer om närvaron eller frånvaron av ett symptom, utanför ett screeningsammanhang. Använd CLUSTER.symptom_sign eller CLUSTER.exclusion_symptom_sign inkapslade i andra lämpligare arketyper för dessa ändamål.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
+          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
+          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\r\n\r\nCommon use cases include, but are not limited to:\r\n- Systematic inquiry in any consultation, for example:\r\n--- Do you have headaches? Yes, No, Unknown.\r\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\r\n- Specific questioning related to disease surveillance.\r\n\r\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\r\n\r\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\r\n\r\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\r\n\r\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
+          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\r\n\r\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.",
+          "keywords" : [ "intervjuskjema, kartleggingskjema, spørreskjema, lidelse, plage, problem, ubehag, symptom, sykdomstegn, lyte, skavank" ],
+          "use" : "Brukes for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.\r\n\r\nVanlige bruksområder inkluderer, men er ikke begrenset til:\r\n- Systematiske spørsmål ved konsultasjoner, for eksempel:\r\n--- Har du hodepine? Ja, Nei, Usikker.\r\n--- Har du vært plaget med svimmelhet de siste fire ukene? Ja, Nei, Usikker.\r\n- Spesifikke spørsmål relatert til overvåkning av sykdommer.\r\n\r\nSemantikken til denne arketypen er med vilje løst definert, og spørringer etter data i denne arketypen vil normalt bare være hensiktsmessig eller sikkert i konteksten av det spesifikke templatet. I et templat vil hvert dataelement vanligvis døpes om til det (spesifikke) spørsmålet man ønsker svar på. Flere steder er det foreslått verdisett som passer til de vanligste bruksområder, men det er allikevel mulig å tilpasse/endre verdisett for lokal bruk ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN for å harmonere verdisettet til hvert enkelt brukstilfelle.\r\n\r\nEVENT-strukturen fra arketypens referansemodell kan brukes for å spesifisere om spørsmålene relateres til et tidspunkt eller til et tidsintervall.\r\nBruk egne instanser av denne arketypen for å skille mellom spørsmål om prosedyrer som er gjennomførte på et hvilket som helst tidspunkt og spørsmål om prosedyrer som er gjennomført i et tidsintervall. For eksempel; \"Har du hodepine?\" sammenlignet med \"Har du vært plaget med svimmelhet de siste fire ukene?\".\r\n\r\nKilden til informasjonen i et spørreskjema kan variere i ulike kontekster, men kan identifiseres spesifikt ved å benytte \"Information provider\" elementet i openEHR referansemodellen.\r\n\r\nDenne arketypen er laget for å bli brukt i et spørreskjema eller for å registrere enkle strukturerte data til for eksempel et sykdomsregister. Dersom det i spørreskjemaet identifiseres at et symptom eller sykdomstegn er tilstede, anbefales det at spesifikke detaljer om symptomet registreres og lagres i pasientjournalen i arketypen CLUSTER.symptom_sign (Symptom/Sykdomstegn) i SLOTet \"Ytterligere detaljer\" i denne arketypen.",
+          "misuse" : "Brukes ikke for å registrere detaljer om tilstedeværelse eller fravær av et symptom utenfor konteksten av kartleggingen. Bruk arketypen CLUSTER.symptom_sign (Symptom/sykdomstegn) eller CLUSTER.exclusion_symptom_sign (Eksklusjon av et symptom) for dette formålet.\r\n\r\nBrukes ikke for å registrere detaljer om en enkel utvalgsliste der et spørsmål kan registreres som enten \"Tilstede\" eller \"Ubestemt\". Bruk arketypen OBSERVATION.selection_list for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To create a framework for recording answers to pre-defined screening questions about symptoms or signs.",
+          "keywords" : [ "screening, questionnaire, complaint, symptom, disturbance, problem, discomfort, sign" ],
+          "use" : "Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\r\n\r\nCommon use cases include, but are not limited to:\r\n- Systematic inquiry in any consultation, for example:\r\n--- Do you have headaches? Yes, No, Unknown.\r\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\r\n- Specific questioning related to disease surveillance.\r\n\r\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.\r\n\r\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\r\n\r\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\r\n\r\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype.",
+          "misuse" : "Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\r\n\r\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "it" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "it"
+          },
+          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
+          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
+          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\r\n\r\nCommon use cases include, but are not limited to:\r\n- Systematic inquiry in any consultation, for example:\r\n--- Do you have headaches? Yes, No, Unknown.\r\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\r\n- Specific questioning related to disease surveillance.\r\n\r\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\r\n\r\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\r\n\r\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\r\n\r\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
+          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\r\n\r\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fr" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fr"
+          },
+          "purpose" : "Créer un cadre pour l'enregistrement des réponses à des questions de dépistage prédéfinies sur les symptômes ou les signes.",
+          "keywords" : [ "dépistage", "questionnaire", "plainte", "symptôme", "perturbation", "problème", "gêne", "signe" ],
+          "use" : "A utiliser pour créer un cadre permettant d'enregistrer les réponses à des questions de dépistage prédéfinies concernant des symptômes ou des signes.\r\n\r\nLes cas d'utilisation courants incluent, mais ne sont pas limités à :\r\n- Enquête systématique dans le cadre d'une consultation, par exemple :\r\n--- Avez-vous des maux de tête ? Oui, Non, Inconnu.\r\n--- Avez-vous eu des vertiges au cours des quatre dernières semaines ? Oui, Non, Inconnu.\r\n- Questionnement spécifique lié à la surveillance des maladies.\r\n\r\nLa sémantique de cet archétype est volontairement floue, et l'interrogation de cet archétype ne serait normalement utile ou sûre que dans le contexte de chaque modèle spécifique. Dans un modèle, chaque élément de données est généralement renommé en fonction de la question spécifique posée. Lorsque des ensembles de valeurs ont été proposés pour des cas d'utilisation courants, ils peuvent être adaptés à un usage local en utilisant les types de données DV_TEXT ou DV_BOOLEAN pour correspondre à chaque cas d'utilisation spécifique.\r\n\r\nLa structure EVENT du modèle de référence peut être utilisée pour spécifier si les questions se rapportent à un moment donné ou à une période de temps. Utilisez une instance distincte de cet archétype pour faire la distinction entre un questionnaire enregistrant des informations sur un symptôme qui a été présent à tout moment dans le passé et des informations sur un symptôme dans un intervalle de temps spécifié - par exemple la différence entre « Avez-vous des vertiges en ce moment ? » et « Avez-vous eu des vertiges au cours des 4 dernières semaines ?\r\n\r\nLa source des informations contenues dans une réponse à un questionnaire peut varier dans différents contextes, mais peut être spécifiquement identifiée à l'aide de l'élément « Fournisseur d'informations » du modèle de référence.\r\n\r\nCet archétype a été conçu pour être utilisé comme outil de dépistage ou pour enregistrer des données simples sous forme de questionnaire en vue d'une utilisation dans des situations telles qu'un registre des maladies. Si le questionnaire de dépistage identifie la présence d'un symptôme ou d'un signe, il est recommandé que le système clinique enregistre et conserve les détails spécifiques du symptôme ou du signe en utilisant l'archétype CLUSTER.symptom_sign imbriqué dans le SLOT Additional details de cet archétype.",
+          "misuse" : "Ne pas utiliser pour enregistrer des détails sur la présence ou l'absence d'un symptôme, en dehors d'un contexte de dépistage. Utiliser CLUSTER.symptom_sign ou CLUSTER.exclusion_symptom_sign à cette fin.\r\n\r\nNe pas utiliser pour enregistrer des détails sur une simple liste de sélection où une question peut être enregistrée comme « présente » ou « indéterminée ». Utiliser OBSERVATION.selection_list à cette fin.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "旨在建立统一的框架，用于记录针对预先定义的关于症状或体征的筛查问题的答案。",
+          "keywords" : [ "筛查", "问卷", "调查问卷", "主诉", "症状", "表现", "起始", "发作", "障碍", "失调", "紊乱", "问题", "不适", "体征" ],
+          "use" : "旨在建立统一的框架，用于记录针对预先定义的关于症状或体征的筛查问题的答案。\r\n\r\n常见的用例包括但不仅限于：\r\n- 任何就诊过程中系统性的询问，例如：\r\n--- 您头痛吗？是、否、未知。\r\n--- 您在过去 4 周内是否出现过头晕？是、否、未知。\r\n- 与疾病监测（disease surveillance）相关的具体询问。\r\n\r\n本原始型故意保持着宽松的语义/含义，因而，通常只有在每个具体/特定模板的上下文背景下，针对本原始型的查询才会有用或安全。在具体的模板当中，通常会将每个数据元重命名为所提出的具体/特定问题。如果已经提出了针对常见用例的取值集合，则可以利用数据类型为文本型 DV_TEXT 或布尔型 DV_BOOLEAN 的选项来匹配每个具体/特定的用例，使得能够对此类的取值集合加以改编，以适合本地的使用。\r\n\r\n参考模型之中的事件结构 EVENT 可用于明确规定这些相应的问题是否与特定的时间点/时刻或时段相关。建议利用本原始型的单独/不同实例来区分记录过去任何时间出现的特定症状信息的调查问卷与指定时段/时间间隔内特定症状的相关信息 - 例如，“你现在头晕吗？”与“过去 4 周内你有没有出现过头晕？”\r\n\r\n在不同的上下文背景下，调查问卷答复之中信息的来源可能会有所不同，但可以利用参考模型之中的信息提供方数据元“'Information provider”元素来加以具体的标识。\r\n\r\n本原始型旨在作为筛查工具或者用于记录简单的问卷格式数据，以便将其用于疾病登记之类的情况。如果筛查问卷标识确定了症状或体征的存在情况，则建议临床系统利用嵌套在本原始型的其它详情槽位“Additional details”之中的群簇型症状体征原始型 CLUSTER.symptom_sign 来记录并持久保留关于相应症状或体征的具体详情。",
+          "misuse" : "除了筛查的上下文背景之外，并非旨在用于记录关于症状存在情况/存在与否的详情。应当采用群簇型症状体征原始型 CLUSTER.symptom_sign 或群簇型除外症状体征原始型 CLUSTER.exclusion_symptom_sign 来实现此类的目的。\r\n\r\n并非旨在用于记录关于简单的选项列表的详情：其中，可能会将问题的答案选项记录为 “存在” 或 “不确定”。对于此类的目的，应当采用观察型选项列表原始型 OBSERVATION.selection_list。",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.symptom_sign_screening.v1",
     "differential" : true,
@@ -290,25 +411,347 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "OBSERVATION",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "HISTORY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "events",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "EVENT",
+              "nodeId" : "at0002",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "nodeId" : "at0034.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0028.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_CODED_TEXT",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "TERMINOLOGY_CODE",
+                              "occurrences" : "1..1",
+                              "terminologyId" : {
+                                "value" : "local"
+                              },
+                              "constraint" : [ "ac0.1" ],
+                              "selectedTerminologies" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_TEXT",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_BOOLEAN",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0029.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_DATE_TIME",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_TEXT",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_DURATION",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "CLUSTER",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0022.1",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "items",
+                        "children" : [ {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "nodeId" : "at0004.1",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..0",
+                          "nodeId" : "at0005.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_CODED_TEXT",
+                              "attributes" : [ {
+                                "@type" : "C_ATTRIBUTE",
+                                "rmAttributeName" : "defining_code",
+                                "children" : [ {
+                                  "@type" : "C_TERMINOLOGY_CODE",
+                                  "rmTypeName" : "TERMINOLOGY_CODE",
+                                  "occurrences" : "1..1",
+                                  "terminologyId" : {
+                                    "value" : "local"
+                                  },
+                                  "constraint" : [ "ac0.2" ],
+                                  "selectedTerminologies" : [ ]
+                                } ]
+                              } ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_TEXT",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_BOOLEAN",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        }, {
+                          "@type" : "C_COMPLEX_OBJECT",
+                          "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..0",
+                          "nodeId" : "at0037.1",
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "value",
+                            "children" : [ {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DURATION",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_DATE_TIME",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            }, {
+                              "@type" : "C_COMPLEX_OBJECT",
+                              "rmTypeName" : "DV_TEXT",
+                              "attributes" : [ ],
+                              "attributeTuples" : [ ]
+                            } ]
+                          } ],
+                          "attributeTuples" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "en" : { },
-        "fi" : { },
-        "nb" : { },
-        "de" : { },
-        "it" : { },
-        "sv" : { },
-        "fr" : { },
-        "zh-cn" : { }
+        "en" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "fi" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "nb" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "de" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "it" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "sv" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "fr" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        },
+        "zh-cn" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
-      "valueSets" : { }
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0031", "at0032", "at0033", "at0040" ]
+        },
+        "ac0.2" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.2",
+          "members" : [ "at0023", "at0024", "at0027", "at0041" ]
+        }
+      }
     },
     "adlVersion" : "1.4",
     "buildUid" : "192195d0-2800-43ef-a743-aeed5c0546aa",
