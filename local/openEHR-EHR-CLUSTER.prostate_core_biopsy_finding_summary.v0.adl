@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"703aebcd4fddec6b28ddfb51178f7f44">
+		["MD5-CAM-1.0.1"] = <"a050474c2c7ce271ed77a24f1fb53e17">
 		["build_uid"] = <"c501c210-7e0c-32d0-b650-033d76fcc375">
 	>
 
@@ -99,6 +99,10 @@ definition
 					DV_QUANTITY matches {*}
 				}
 			}
+			allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Reference
+				include
+					archetype_id/value matches {/.*/}
+			}
 		}
 	}
 
@@ -158,6 +162,10 @@ ontology
 					text = <"Totalt number of cores">
 					description = <"">
 				>
+				["at0014"] = <
+					text = <"Reference">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -212,6 +220,10 @@ ontology
 				>
 				["at0013"] = <
 					text = <"Totalt antal biopsier">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Referens">
 					description = <"">
 				>
 			>
