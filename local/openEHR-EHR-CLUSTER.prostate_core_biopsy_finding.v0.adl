@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"be29c6b36521d4f89f25486a817d7551">
+		["MD5-CAM-1.0.1"] = <"41a39ba47b2c5f84492985ba6043a07f">
 		["build_uid"] = <"37f059a8-c401-32a5-a372-5234ef3c4874">
 	>
 
@@ -66,7 +66,7 @@ definition
 					DV_QUANTITY matches {*}
 				}
 			}
-			CLUSTER[at0008] occurrences matches {0..1} matches {    -- Gleason score
+			CLUSTER[at0008] occurrences matches {0..1} matches {    -- Gleason grading
 				items cardinality matches {1..*; unordered} matches {
 					allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {    -- Gleason score
 						include
@@ -165,11 +165,12 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Assessment of core biopsy">
-					description = <"prostate_core_biopsy_finding">
+					description = <"An assessment of a single core biopsy from the prostate. ">
 				>
 				["at0001"] = <
 					text = <"Finding">
-					description = <"">
+					description = <"A list of findings made in the assessed biopsy. ">
+					comment = <"Findings can be histological tumour types, other diagnoses, benign findings, etc. ">
 				>
 				["at0002"] = <
 					text = <"Over all comment on biopsy assessment">
@@ -185,31 +186,31 @@ ontology
 				>
 				["at0005"] = <
 					text = <"Percentage Gleason pattern 4">
-					description = <"">
+					description = <"The percentage of Gleason grade 4 for the assessed biopsy. ">
 				>
 				["at0006"] = <
 					text = <"Presence of cribiform Gleason pattern 4">
-					description = <"">
+					description = <"The fact that cribiform Gleason pattern 4 is present in the assessed biopsy. ">
 				>
 				["at0007"] = <
 					text = <"Gleason score">
-					description = <"">
+					description = <"The Gleason score for the assessed biopsy. ">
 				>
 				["at0008"] = <
-					text = <"Gleason score">
-					description = <"">
+					text = <"Gleason grading">
+					description = <"Cluster for Global Gleason grading. ">
 				>
 				["at0009"] = <
 					text = <"Gleason score not assessable">
-					description = <"">
+					description = <"The fact that it was not possible to assess the Gleason score for the assessed biopsy. ">
 				>
 				["at0010"] = <
 					text = <"Reason gleason score not assessable">
-					description = <"">
+					description = <"The reason why it is not possible to assess the Gleason score for the assessed biopsy. ">
 				>
 				["at0011"] = <
 					text = <"Perineural invasion">
-					description = <"">
+					description = <"Cluster for describing the presence of perineural invasion in the assessed biopsy. ">
 				>
 				["at0012"] = <
 					text = <"Presence of perineural invasion">
@@ -221,7 +222,7 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Extraprostatic extension">
-					description = <"">
+					description = <"Cluster for describing the presence of extraprostatic extension in the assessed biopsy. ">
 				>
 				["at0016"] = <
 					text = <"Presence of extraprostatic extension">
@@ -233,11 +234,11 @@ ontology
 				>
 				["at0018"] = <
 					text = <"Seminal vesicle / Ejaculatory duct invasion">
-					description = <"">
+					description = <"Cluster for describing the presence of invasion of the seminal vesicle or the ejaculatory duct in the assessed biopsy. ">
 				>
 				["at0019"] = <
 					text = <"Vascular invasion">
-					description = <"">
+					description = <"Cluster for describing the presence of vascular invasion in the assessed biopsy. ">
 				>
 				["at0020"] = <
 					text = <"Presence of seminal vesicle / Ejaculatory duct invasion">
@@ -257,11 +258,12 @@ ontology
 				>
 				["at0025"] = <
 					text = <"Reason assessment of biopsy not possible, structured">
-					description = <"">
+					description = <"The reason why it is not possible to make an assessment of the given biopsy, in structured form. ">
 				>
 				["at0026"] = <
 					text = <"Reason assessment of biopsy not possible">
-					description = <"">
+					description = <"The reason why it is not possible to make an assessment of the given biopsy, as text. ">
+					comment = <"This field is to be used if there are reasons that cannot be coded with a terminology. ">
 				>
 			>
 		>
@@ -269,11 +271,12 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Bedömning av prostatabiopsi">
-					description = <"*prostate_core_biopsy_finding (en)">
+					description = <"*An assessment of a single core biopsy from the prostate.  (en)">
 				>
 				["at0001"] = <
 					text = <"Fynd">
-					description = <"">
+					description = <"*A list of findings made in the assessed biopsy.  (en)">
+					comment = <"*Findings can be histological tumour types, other diagnoses, benign findings, etc.  (en)">
 				>
 				["at0002"] = <
 					text = <"Övergripande kommentar om bedömning av biopsi">
@@ -289,31 +292,31 @@ ontology
 				>
 				["at0005"] = <
 					text = <"Procent Gleason grad 4">
-					description = <"">
+					description = <"*The percentage of Gleason grade 4 for the assessed biopsy.  (en)">
 				>
 				["at0006"] = <
 					text = <"Förekomst av kribiform Gleason grad 4">
-					description = <"">
+					description = <"*The fact that cribiform Gleason pattern 4 is present in the assessed biopsy.  (en)">
 				>
 				["at0007"] = <
 					text = <"Gleasongradering">
-					description = <"">
+					description = <"*The Gleason score for the assessed biopsy.  (en)">
 				>
 				["at0008"] = <
-					text = <"Gleasongradering">
-					description = <"">
+					text = <"*Gleason grading (en)">
+					description = <"*Cluster for Global Gleason grading.  (en)">
 				>
 				["at0009"] = <
 					text = <"Gleasongrad inte bedömbar">
-					description = <"">
+					description = <"*The fact that it was not possible to assess the Gleason score for the assessed biopsy.  (en)">
 				>
 				["at0010"] = <
 					text = <"Anledning till Gleasongrad inte bedömbar">
-					description = <"">
+					description = <"*The reason why it is not possible to assess the Gleason score for the assessed biopsy.  (en)">
 				>
 				["at0011"] = <
 					text = <"Perineural tumörväxt">
-					description = <"">
+					description = <"*Cluster for describing the presence of perineural invasion in the assessed biopsy.  (en)">
 				>
 				["at0012"] = <
 					text = <"Förekomst av perineural tumörväxt">
@@ -325,7 +328,7 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Extraprostatisk spridning">
-					description = <"">
+					description = <"*Cluster for describing the presence of extraprostatic extension in the assessed biopsy.  (en)">
 				>
 				["at0016"] = <
 					text = <"Förekomst av extraprostatisk spridning">
@@ -337,11 +340,11 @@ ontology
 				>
 				["at0018"] = <
 					text = <"Tumörväxt i vesikula seminalis / ductus ejaculatorius">
-					description = <"">
+					description = <"*Cluster for describing the presence of invasion of the seminal vesicle or the ejaculatory duct in the assessed biopsy.  (en)">
 				>
 				["at0019"] = <
 					text = <"Kärlinvasion">
-					description = <"">
+					description = <"*Cluster for describing the presence of vascular invasion in the assessed biopsy.  (en)">
 				>
 				["at0020"] = <
 					text = <"Förekomst av tumörväxt i vesikula seminalis / ductus ejaculatorius">
@@ -361,11 +364,12 @@ ontology
 				>
 				["at0025"] = <
 					text = <"Anledning till bedömning av biopsi inte möjlig, strukturerad">
-					description = <"">
+					description = <"*The reason why it is not possible to make an assessment of the given biopsy, in structured form.  (en)">
 				>
 				["at0026"] = <
 					text = <"Anledning till bedömning av biopsi inte möjlig">
-					description = <"">
+					description = <"*The reason why it is not possible to make an assessment of the given biopsy, as text.  (en)">
+					comment = <"*This field is to be used if there are reasons that cannot be coded with a terminology.  (en)">
 				>
 			>
 		>
