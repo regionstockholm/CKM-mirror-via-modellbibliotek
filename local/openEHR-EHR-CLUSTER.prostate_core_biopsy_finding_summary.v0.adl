@@ -34,14 +34,14 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"b462e64ddb4b7cf1506b4e29dc3dced3">
+		["MD5-CAM-1.0.1"] = <"2644bbd531826f9d9915b2ef2efd9822">
 		["build_uid"] = <"c501c210-7e0c-32d0-b650-033d76fcc375">
 	>
 
 definition
 	CLUSTER[at0000] matches {    -- Summary of prostate biopsy assessments
 		items cardinality matches {1..*; unordered} matches {
-			CLUSTER[at0001] occurrences matches {0..1} matches {    -- Global Gleason score
+			CLUSTER[at0001] occurrences matches {0..1} matches {    -- Global Gleason grading
 				items cardinality matches {1..*; unordered} matches {
 					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Global Gleason score
 						include
@@ -80,21 +80,21 @@ definition
 					DV_QUANTITY matches {*}
 				}
 			}
-			CLUSTER[at0010] occurrences matches {0..*} matches {    -- Number of positive cores per finding type
+			CLUSTER[at0010] occurrences matches {0..*} matches {    -- Number of positive biopsies per finding type
 				items cardinality matches {1..*; unordered} matches {
 					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Finding type
 						value matches {
 							DV_CODED_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Number of positive cores
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Number of positive biopsies
 						value matches {
 							DV_QUANTITY matches {*}
 						}
 					}
 				}
 			}
-			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Totalt number of cores
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Totalt number of biopsies
 				value matches {
 					DV_QUANTITY matches {*}
 				}
@@ -112,59 +112,61 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Summary of prostate biopsy assessments">
-					description = <"prostate_core_biopsy_finding_summary">
+					description = <"A summary assessment of either all biopsies taken from a lesion, or all systematic biopsies in a case. ">
 				>
 				["at0001"] = <
-					text = <"Global Gleason score">
-					description = <"">
+					text = <"Global Gleason grading">
+					description = <"Cluster for Global Gleason grading">
 				>
 				["at0002"] = <
 					text = <"Global Gleason score">
-					description = <"">
+					description = <"The Gleason score for all biopsies that belong to the phenomena that the archetype references.  ">
 				>
 				["at0003"] = <
 					text = <"Global Gleason score not assessable">
-					description = <"">
+					description = <"The fact that it was not possible to assess the Gleason score for the phenomena that the archetype references.  ">
 				>
 				["at0004"] = <
 					text = <"Reason Global Gleason score not assessable">
-					description = <"">
+					description = <"The reason why it is not possible to assess the Gleason score for the phenomena that the archetype references.  ">
 				>
 				["at0005"] = <
 					text = <"Percentage Global Gleason pattern 4">
-					description = <"">
+					description = <"The percentage of Gleason grade 4 for the phenomena that the archetype references.  ">
 				>
 				["at0007"] = <
 					text = <"Greatest lenght of tissue involved by carcinoma">
-					description = <"">
+					description = <"The greatest single lenght of tissue involved by carcinoma for the phenomena that the archetype references.  ">
 				>
 				["at0008"] = <
 					text = <"Total cancer lenght">
-					description = <"">
+					description = <"The total lenght of cancer in the phenomena that the archetype references.  ">
 				>
 				["at0009"] = <
 					text = <"Total biopsy lenght">
-					description = <"">
+					description = <"The total lenght of the biopsies taken from the phenomena that the archetype references.  ">
 				>
 				["at0010"] = <
-					text = <"Number of positive cores per finding type">
-					description = <"">
+					text = <"Number of positive biopsies per finding type">
+					description = <"The number of biopsies that are positive for a certain type of finding in the phenomena that the archetype references.  ">
 				>
 				["at0011"] = <
 					text = <"Finding type">
-					description = <"">
+					description = <"The type of finding. ">
+					comment = <"Coding of the finding type with a terminology is preferred, where possible.">
 				>
 				["at0012"] = <
-					text = <"Number of positive cores">
-					description = <"">
+					text = <"Number of positive biopsies">
+					description = <"The number of biopsies that are positive for the given finding type. ">
 				>
 				["at0013"] = <
-					text = <"Totalt number of cores">
-					description = <"">
+					text = <"Totalt number of biopsies">
+					description = <"The total number of biopsies that belong to the phenomena that the archetype references.  ">
 				>
 				["at0014"] = <
 					text = <"Reference">
-					description = <"">
+					description = <"A reference to the phenomena that the archetype references.  ">
+					comment = <"If the biopsies in the summary are taken from a lesion the lesion in question should be referenced here. If the biopsies in the summary are systematic this slot is not  used. ">
 				>
 			>
 		>
@@ -172,59 +174,61 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Sammanställd bedömning prostatabiopsier">
-					description = <"*prostate_core_biopsy_finding_summary (en)">
+					description = <"*A summary assessment of either all biopsies taken from a lesion, or all systematic biopsies in a case.  (en)">
 				>
 				["at0001"] = <
-					text = <"Global Gleason gradering">
-					description = <"">
+					text = <"Global gleason gradering">
+					description = <"*Cluster for Global Gleason grading (en)">
 				>
 				["at0002"] = <
 					text = <"Global Gleason gradering">
-					description = <"">
+					description = <"*The Gleason score for all biopsies that belong to the phenomena that the archetype references.   (en)">
 				>
 				["at0003"] = <
 					text = <"Global Gleason grad inte bedömbar">
-					description = <"">
+					description = <"*The fact that it was not possible to assess the Gleason score for the phenomena that the archetype references.   (en)">
 				>
 				["at0004"] = <
 					text = <"Anledning global Gleason grad inte bedömbar">
-					description = <"">
+					description = <"*The reason why it is not possible to assess the Gleason score for the phenomena that the archetype references.   (en)">
 				>
 				["at0005"] = <
 					text = <"Procent global Gleason grad 4">
-					description = <"">
+					description = <"*The percentage of Gleason grade 4 for the phenomena that the archetype references.   (en)">
 				>
 				["at0007"] = <
 					text = <"Största enskilda cancerlängd">
-					description = <"">
+					description = <"*The greatest single lenght of tissue involved by carcinoma for the phenomena that the archetype references.   (en)">
 				>
 				["at0008"] = <
 					text = <"Total cancerlängd">
-					description = <"">
+					description = <"*The total lenght of cancer in the phenomena that the archetype references.   (en)">
 				>
 				["at0009"] = <
 					text = <"Total biopsilängd">
-					description = <"">
+					description = <"*The total lenght of the biopsies taken from the phenomena that the archetype references.   (en)">
 				>
 				["at0010"] = <
 					text = <"Antal positiva biopsier per fyndtyp">
-					description = <"">
+					description = <"*The number of biopsies that are positive for a certain type of finding in the phenomena that the archetype references.   (en)">
 				>
 				["at0011"] = <
 					text = <"Fyndtyp">
-					description = <"">
+					description = <"*The type of finding.  (en)">
+					comment = <"*Coding of the finding type with a terminology is preferred, where possible. (en)">
 				>
 				["at0012"] = <
 					text = <"Antal positiva biopsier">
-					description = <"">
+					description = <"*The number of biopsies that are positive for the given finding type.  (en)">
 				>
 				["at0013"] = <
 					text = <"Totalt antal biopsier">
-					description = <"">
+					description = <"*The total number of biopsies that belong to the phenomena that the archetype references.   (en)">
 				>
 				["at0014"] = <
 					text = <"Referens">
-					description = <"">
+					description = <"*A reference to the phenomena that the archetype references.   (en)">
+					comment = <"*If the biopsies in the summary are taken from a lesion the lesion in question should be referenced here. If the biopsies in the summary are systematic this slot is not  used.  (en)">
 				>
 			>
 		>
