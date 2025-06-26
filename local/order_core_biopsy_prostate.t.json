@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.53-alpha.1",
-      "build_uid" : "5d29572a-39eb-4c13-a050-623538e63b9d",
-      "MD5-CAM-1.0.1" : "0bc558779c18e5ee023e990fb4d19e6c",
+      "sem_ver" : "1.0.54-alpha.1",
+      "build_uid" : "08ab9d52-cc3e-4c54-b38a-5913e17c8805",
+      "MD5-CAM-1.0.1" : "3f6fe05b3669c766b16371eb0c4c2eb2",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -810,6 +810,26 @@
             "code" : "at0000.1",
             "text" : "Request for histopathology analysis of core needle biopsy from prostate",
             "description" : "Request for a health-related service or activity to be delivered by a clinician, organisation or agency."
+          },
+          "at0152.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0152",
+            "text" : "Clinical indication",
+            "description" : "The symptom, sign or diagnosis that necessitates the requested service.",
+            "comment" : "\n"
+          },
+          "at0068.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0068",
+            "text" : "Urgency",
+            "description" : "Urgency of the request for service."
+          },
+          "at0040.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0040",
+            "text" : "Service due",
+            "description" : "The date/time or description about timing for provision of the requested service/s.",
+            "comment" : "This data element allows for recording of the timing for the service/s, either as a date and time, an interval of date and time, or a text descriptor. \n\n"
           }
         },
         "nb" : { },
@@ -1100,7 +1120,8 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
             "text" : "Specimen information",
-            "description" : "A generic cluster heading for contextual renaming within a template."
+            "description" : "A generic cluster heading for contextual renaming within a template.",
+            "comment" : "Cluster for information about the specimens included in the order. "
           }
         },
         "de" : { },
@@ -1612,6 +1633,9 @@
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_IDENTIFIER",
+              "defaultValue" : {
+                "@type" : "DV_IDENTIFIER"
+              },
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
@@ -1810,7 +1834,29 @@
             "code" : "at0000.1",
             "text" : "Information common for all biopsies",
             "description" : "A physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
-            "comment" : "For example: Tissue or body fluid."
+            "comment" : "Cluster for information that is common for all biopsies that are included in the order. "
+          },
+          "at0070.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0070",
+            "text" : "Specimen collector identifier",
+            "description" : "Identifier of the person or organisation responsible for collecting the specimen.",
+            "comment" : "In this template: Identifier of the person responsible for collecting the specimen. ",
+            "fhir_mapping" : "Specimen.collection.collector"
+          },
+          "at0007.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0007",
+            "text" : "Collection method",
+            "description" : "The method of collection used.",
+            "fhir_mapping" : "Specimen.collection.method"
+          },
+          "at0087.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0087",
+            "text" : "Source site",
+            "description" : "Identification of the body site or other location from where the specimen is collected.",
+            "comment" : "In this template: Always set to \"Prostate\". "
           }
         },
         "pt-br" : {
@@ -2575,7 +2621,7 @@
             "code" : "at0000.1",
             "text" : "Biopsy from MR-identified lesion",
             "description" : "A physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
-            "comment" : "For example: Tissue or body fluid."
+            "comment" : "In this template: A single biopsy taken with MR guidance. "
           }
         },
         "pt-br" : {
@@ -2861,7 +2907,16 @@
           "rmTypeName" : "ELEMENT",
           "occurrences" : "1..1",
           "nodeId" : "at0096.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -2943,7 +2998,22 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
             "text" : "Specimen in formalin time",
-            "description" : "Details about the processing or preparation of a specimen."
+            "description" : "Details about the processing or preparation of a specimen.",
+            "comment" : "In this template: Cluster for the time when the specimens included in the order have been put in formalin. "
+          },
+          "at0091.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0091",
+            "text" : "Additive",
+            "description" : "Identification of a substance used in the processing.",
+            "comment" : "In this template: Always set to \"formalin\". "
+          },
+          "at0096.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0096",
+            "text" : "Start date/time",
+            "description" : "The date and time when the process activity started.",
+            "comment" : "In this template: The time when the specimens included in the order have been put in formalin. "
           }
         },
         "de" : { },
@@ -5216,7 +5286,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "33ebde34716587b1231ee0910177a621"
+        "PARENT:MD5-CAM-1.0.1" : "27e43816d83241ec603ab05c307ac219"
       },
       "details" : {
         "sv" : {
@@ -5395,7 +5465,8 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
             "text" : "Biopsies from MR-identified lesion",
-            "description" : "A generic cluster heading for contextual renaming within a template."
+            "description" : "A generic cluster heading for contextual renaming within a template.",
+            "comment" : "In this template: Cluster heading to group information about lesions identified with magnetic resonance examination and biopsies taken with MR guidance. "
           }
         },
         "de" : {
@@ -5558,7 +5629,8 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
             "text" : "Biopsies from palpation finding",
-            "description" : "A generic cluster heading for contextual renaming within a template."
+            "description" : "A generic cluster heading for contextual renaming within a template.",
+            "comment" : "In this template: Cluster heading to group information about palpation findings and biopsies taken to represent thoose findings. "
           }
         },
         "de" : {
@@ -6701,7 +6773,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "0..*",
           "nodeId" : "at0003.2",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -6733,7 +6805,14 @@
             "code" : "at0000.1",
             "text" : "MR-identified lesion",
             "description" : "An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.",
-            "comment" : "For example: a cyst or mass; a thrombosis; a polyp; a calculus or a foreign body."
+            "comment" : "In this template: Cluster for information about lesions identified with magnetic resonance examination. The cluster is repeated for each lesion. "
+          },
+          "at0036.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0036",
+            "text" : "Type",
+            "description" : "The type of anomaly.",
+            "comment" : "In this template: Always set to \"MR-identified lesion\". "
           }
         },
         "nb" : {
@@ -7220,6 +7299,13 @@
             "code" : "at0000.1",
             "text" : "Palpation finding",
             "description" : "Findings observed during the physical examination of a body system or anatomical structure."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Finding number",
+            "description" : "Identification of the examined body system or anatomical structure.",
+            "comment" : "Coding of the system or structure examined with a terminology is preferred, where possible."
           }
         },
         "nb" : { },
@@ -7699,6 +7785,13 @@
             "text" : "(Synthesized)",
             "code" : "ac0.7",
             "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001",
+            "text" : "Body site name",
+            "description" : "Identification of a single physical site either on, or within, the human body.",
+            "comment" : "In this template: Identification of the part of the prostate where the palpation finding is located. "
           }
         },
         "nb" : {
@@ -13131,7 +13224,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "fb5efe31e60383b2bac1c5fa9eae0bd8"
+        "PARENT:MD5-CAM-1.0.1" : "deb47d8647ad4f63f27d319291c42d83"
       },
       "details" : {
         "sv" : {
@@ -13271,7 +13364,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "205709049453f3c374b1ccad42eaba6f"
+        "PARENT:MD5-CAM-1.0.1" : "fac2c0d4764b3deb92c10736b4df412c"
       },
       "details" : {
         "sv" : {
@@ -13734,29 +13827,29 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Lokalisation",
+            "text" : "Areal anatomical location",
             "description" : ""
           },
           "at0001.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.1",
-            "text" : "Lokalisation",
+            "text" : "Area",
             "description" : "Some sort of areal subdivision of a body structure, e.g., sector, section, segment, half, third, quadrant, portion, region, lobe, part, zone. ",
-            "comment" : "If the Areal anatomical location-archetype is nested in the 'Alternative Structure' SLOT within the Anatomical location-archetype and the 'Specific site'-field in the Anatomical location-archetype has been set, then this field may be redundant. \n\nCoding of 'Area' with a terminology, such as SNOMED CT, is desirable.\n\n"
+            "comment" : "In this template: Location of the lesion using the 24 sector subdivision of the prostate. \n"
           },
           "at0002.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0002.1",
-            "text" : "Lokalisation - huvudsektor",
+            "text" : "Main area",
             "description" : "The areal subdivision of a body structure where the largest/main part of a particular phenomena is located, e.g., a lesion or metastasis.",
-            "comment" : "Coding of 'Main area' with a terminology, such as SNOMED CT, is desirable."
+            "comment" : "In this template: Location of the main part of the lesion using the 24 sector subdivision of the prostate. "
           }
         },
         "sv" : {
           "at0002.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0002.1",
-            "text" : "Lokalisation - huvudsektor",
+            "text" : "Huvudsaklig lokalisation",
             "description" : "*The areal subdivision of a body structure where the largest/main part of a particular phenomena is located, e.g., a lesion or metastasis. (en)",
             "comment" : "*Coding of 'Main area' with a terminology, such as SNOMED CT, is desirable. (en)"
           },
