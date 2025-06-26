@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.52-alpha.1",
-      "build_uid" : "3aa4824e-9beb-4234-a14a-6836f3b60b44",
-      "MD5-CAM-1.0.1" : "1387b2e9b8da918d756ffe51a3483d50",
+      "sem_ver" : "1.0.53-alpha.1",
+      "build_uid" : "5d29572a-39eb-4c13-a050-623538e63b9d",
+      "MD5-CAM-1.0.1" : "0bc558779c18e5ee023e990fb4d19e6c",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -2573,7 +2573,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Biopsy",
+            "text" : "Biopsy from MR-identified lesion",
             "description" : "A physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
             "comment" : "For example: Tissue or body fluid."
           }
@@ -4082,6 +4082,21 @@
             "text" : "(Synthesized)",
             "code" : "ac0.1",
             "description" : ""
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "PSA",
+            "description" : "The result of a laboratory test for a single analyte value."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "PSA",
+            "description" : "The value of the analyte result.",
+            "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
         "nb" : {
@@ -5016,7 +5031,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Biopsy",
+            "text" : "Biopsy - systematic",
             "description" : "A physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
             "comment" : "For example: Tissue or body fluid."
           }
@@ -6181,7 +6196,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Biopsy",
+            "text" : "Biopsy from palpation finding",
             "description" : "A physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
             "comment" : "For example: Tissue or body fluid."
           }
@@ -8860,7 +8875,14 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "en" : { },
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Treatments",
+            "description" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+          }
+        },
         "ru" : { },
         "es-ar" : { },
         "sl" : { },
@@ -9321,6 +9343,12 @@
             "text" : "(Synthesized)",
             "code" : "ac0.1",
             "description" : ""
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Radiation therapy",
+            "description" : "A summary about a single therapeutic activity, or series of activities, intended to prevent, diagnose, treat, or manage health conditions, support mental or physical well-being, or address social and environmental factors that influence health outcomes."
           }
         },
         "nb" : {
@@ -9695,7 +9723,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Intervention summary (2)",
+            "text" : "Hormonal therapy - previous",
             "description" : "A summary about a single therapeutic activity, or series of activities, intended to prevent, diagnose, treat, or manage health conditions, support mental or physical well-being, or address social and environmental factors that influence health outcomes."
           },
           "ac0.1" : {
@@ -10078,7 +10106,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Intervention summary (3)",
+            "text" : "Hormonal therapy - current",
             "description" : "A summary about a single therapeutic activity, or series of activities, intended to prevent, diagnose, treat, or manage health conditions, support mental or physical well-being, or address social and environmental factors that influence health outcomes."
           },
           "ac0.1" : {
@@ -10477,7 +10505,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Intervention summary (4)",
+            "text" : "Other treatments",
             "description" : "A summary about a single therapeutic activity, or series of activities, intended to prevent, diagnose, treat, or manage health conditions, support mental or physical well-being, or address social and environmental factors that influence health outcomes."
           },
           "ac0.1" : {
@@ -13302,6 +13330,7 @@
                 "children" : [ {
                   "@type" : "C_TERMINOLOGY_CODE",
                   "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
                   "terminologyId" : {
                     "value" : "local_terms"
                   },
