@@ -37,189 +37,176 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"ba0768ed869f79727845713ffbf5b3ff">
+		["MD5-CAM-1.0.1"] = <"717021e8b954fa460297648d7060b6c9">
 		["build_uid"] = <"4437a8ec-b39c-3201-808e-b16d87afbc0f">
 	>
 
 definition
-	EVALUATION[at0000] matches {    -- Cancer treatment strategy
+	EVALUATION[at0000] matches {    -- Further management – cancer MDT
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
-					CLUSTER[at0044] occurrences matches {0..1} matches {    -- CLUSTER
+					CLUSTER[at0044] occurrences matches {0..1} matches {    -- Recommended treatment strategy
 						items cardinality matches {1..*; unordered} matches {
-							CLUSTER[at0016] occurrences matches {0..1} matches {    -- Activ tumor treatment
+							CLUSTER[at0048] occurrences matches {0..*} matches {    -- Treatment option
 								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0049] occurrences matches {0..1} matches {    -- Ordinal number for option
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
 									ELEMENT[at0002] occurrences matches {0..1} matches {    -- Study
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									CLUSTER[at0042] occurrences matches {0..1} matches {    -- Active tumor treatment
+									CLUSTER[at0007] occurrences matches {0..1} matches {    -- Main tretment
 										items cardinality matches {1..*; unordered} matches {
-											CLUSTER[at0048] occurrences matches {0..*} matches {    -- CLUSTER
-												items cardinality matches {1..*; unordered} matches {
-													ELEMENT[at0049] occurrences matches {0..1} matches {    -- DV_COUNT
-														value matches {
-															DV_COUNT matches {*}
-														}
-													}
-													CLUSTER[at0007] occurrences matches {0..1} matches {    -- Main tretment
-														items cardinality matches {1..*; unordered} matches {
-															ELEMENT[at0008] occurrences matches {0..1} matches {    -- Intent
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0009] occurrences matches {0..1} matches {    -- Type of  treatment
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0021] occurrences matches {0..1} matches {    -- Surgery details
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0022] occurrences matches {0..1} matches {    -- Type of radiotherapy
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0023] occurrences matches {0..1} matches {    -- Total dose
-																value matches {
-																	DV_QUANTITY matches {*}
-																}
-															}
-															ELEMENT[at0024] occurrences matches {0..1} matches {    -- Fractions
-																value matches {
-																	DV_QUANTITY matches {*}
-																}
-															}
-															ELEMENT[at0025] occurrences matches {0..1} matches {    -- Type of medical oncology treatment
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0026] occurrences matches {0..1} matches {    -- Substance
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0027] occurrences matches {0..1} matches {    -- Cycles
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0028] occurrences matches {0..1} matches {    -- Regimen
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0029] occurrences matches {0..1} matches {    -- Type of chemotherapy
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-														}
-													}
-													CLUSTER[at0011] occurrences matches {0..1} matches {    -- Additional tretment
-														items cardinality matches {1..*; unordered} matches {
-															ELEMENT[at0012] occurrences matches {0..1} matches {    -- Intent
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0013] occurrences matches {0..1} matches {    -- Treatment type
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0014] occurrences matches {0..1} matches {    -- Relation to main tretment
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0031] occurrences matches {0..1} matches {    -- Surgery details
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0032] occurrences matches {0..1} matches {    -- Type of radiotherapy
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0033] occurrences matches {0..1} matches {    -- Total dose
-																value matches {
-																	DV_QUANTITY matches {*}
-																}
-															}
-															ELEMENT[at0034] occurrences matches {0..1} matches {    -- Fractions
-																value matches {
-																	DV_QUANTITY matches {*}
-																}
-															}
-															ELEMENT[at0035] occurrences matches {0..1} matches {    -- Type of medical oncology treatment
-																value matches {
-																	DV_CODED_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0036] occurrences matches {0..1} matches {    -- Substance
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0037] occurrences matches {0..1} matches {    -- Cycles
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0038] occurrences matches {0..1} matches {    -- Regimen
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-															ELEMENT[at0039] occurrences matches {0..1} matches {    -- Type of chemotherapy
-																value matches {
-																	DV_TEXT matches {*}
-																}
-															}
-														}
-													}
-													ELEMENT[at0050] occurrences matches {0..1} matches {    -- DV_TEXT
-														value matches {
-															DV_TEXT matches {*}
-														}
-													}
+											ELEMENT[at0008] occurrences matches {0..1} matches {    -- Intent
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {    -- Type of  treatment
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0021] occurrences matches {0..1} matches {    -- Surgery details
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0022] occurrences matches {0..1} matches {    -- Type of radiotherapy
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0023] occurrences matches {0..1} matches {    -- Total dose
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {    -- Fractions
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0025] occurrences matches {0..1} matches {    -- Type of medical oncology treatment
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {    -- Substance
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {    -- Cycles
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Regimen
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0029] occurrences matches {0..1} matches {    -- Type of chemotherapy
+												value matches {
+													DV_TEXT matches {*}
 												}
 											}
 										}
 									}
-									CLUSTER[at0017] occurrences matches {0..1} matches {    -- No active tumor treatment
+									CLUSTER[at0011] occurrences matches {0..1} matches {    -- Additional tretment
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0018] occurrences matches {0..1} matches {    -- Managment action
+											ELEMENT[at0012] occurrences matches {0..1} matches {    -- Intent
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {    -- Treatment type
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {    -- Relation to main tretment
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0031] occurrences matches {0..1} matches {    -- Surgery details
 												value matches {
 													DV_TEXT matches {*}
 												}
 											}
-											ELEMENT[at0020] occurrences matches {0..1} matches {    -- Reson
+											ELEMENT[at0032] occurrences matches {0..1} matches {    -- Type of radiotherapy
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Total dose
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0034] occurrences matches {0..1} matches {    -- Fractions
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0035] occurrences matches {0..1} matches {    -- Type of medical oncology treatment
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0036] occurrences matches {0..1} matches {    -- Substance
 												value matches {
 													DV_TEXT matches {*}
 												}
 											}
-											ELEMENT[at0040] occurrences matches {0..1} matches {    -- Comment
+											ELEMENT[at0037] occurrences matches {0..1} matches {    -- Cycles
 												value matches {
 													DV_TEXT matches {*}
 												}
 											}
+											ELEMENT[at0038] occurrences matches {0..1} matches {    -- Regimen
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0039] occurrences matches {0..1} matches {    -- Type of chemotherapy
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0050] occurrences matches {0..1} matches {    -- Reason for treatment option
+										value matches {
+											DV_TEXT matches {*}
 										}
 									}
 								}
 							}
-							CLUSTER[at0043] occurrences matches {0..1} matches {    -- CLUSTER
+							CLUSTER[at0051] occurrences matches {0..1} matches {    -- Best supportive care
 								items cardinality matches {1..*; unordered} matches {
-									ELEMENT[at0046] occurrences matches {0..1} matches {    -- DV_TEXT
+									ELEMENT[at0052] occurrences matches {0..1} matches {    -- Reason for choosing best supportive care
+										value matches {
+											DV_CODED_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0053] occurrences matches {0..1} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							CLUSTER[at0043] occurrences matches {0..1} matches {    -- Further diagnostic investigation
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0046] occurrences matches {0..1} matches {    -- Description
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -241,7 +228,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Cancer treatment strategy">
+					text = <"Further management – cancer MDT">
 					description = <"TEST cancer treatment strategy
 Archetype for recording the treatment recommendation agreed upon during a multidisciplinary cancer conference.">
 				>
@@ -282,22 +269,6 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					text = <"Relation to main tretment">
 					description = <"Description of when the additional treatment is given in relation to the main treatment. (Neoadjuvant, adjuvant, perioperative)">
 				>
-				["at0016"] = <
-					text = <"Activ tumor treatment">
-					description = <"">
-				>
-				["at0017"] = <
-					text = <"No active tumor treatment">
-					description = <"">
-				>
-				["at0018"] = <
-					text = <"Managment action">
-					description = <"Action that is not actively tumour-treating (e.g., Best supportive care, patient discharged and referred to another institution, continued investigation).">
-				>
-				["at0020"] = <
-					text = <"Reson">
-					description = <"Reason why no active cancer treatment is given. (e.g. Active monitoring, High performance status (ECOG), Significant comorbidities, Advanced stage cancer, Death before treatment)">
-				>
 				["at0021"] = <
 					text = <"Surgery details">
 					description = <"">
@@ -370,20 +341,12 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					text = <"Type of chemotherapy">
 					description = <"">
 				>
-				["at0040"] = <
-					text = <"Comment">
-					description = <"">
-				>
-				["at0042"] = <
-					text = <"Active tumor treatment">
-					description = <"">
-				>
 				["at0043"] = <
-					text = <"CLUSTER">
+					text = <"Further diagnostic investigation">
 					description = <"">
 				>
 				["at0044"] = <
-					text = <"CLUSTER">
+					text = <"Recommended treatment strategy">
 					description = <"">
 				>
 				["at0045"] = <
@@ -391,19 +354,31 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					description = <"@ internal @">
 				>
 				["at0046"] = <
-					text = <"DV_TEXT">
+					text = <"Description">
 					description = <"">
 				>
 				["at0048"] = <
-					text = <"CLUSTER">
+					text = <"Treatment option">
 					description = <"">
 				>
 				["at0049"] = <
-					text = <"DV_COUNT">
+					text = <"Ordinal number for option">
 					description = <"">
 				>
 				["at0050"] = <
-					text = <"DV_TEXT">
+					text = <"Reason for treatment option">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Best supportive care">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Reason for choosing best supportive care">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"Comment">
 					description = <"">
 				>
 			>
@@ -411,7 +386,7 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"Behandlingsstrategi cancer">
+					text = <"*Further management – cancer MDT (en)">
 					description = <"*TEST cancer treatment strategy
 Archetype for recording the treatment recommendation agreed upon during a multidisciplinary cancer conference. (en)">
 				>
@@ -452,22 +427,6 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					text = <"Relation till huvudbehandling">
 					description = <"*Description of when the additional treatment is given in relation to the main treatment. (Neoadjuvant, adjuvant, perioperative) (en)">
 				>
-				["at0016"] = <
-					text = <"Behandlingsstrategi">
-					description = <"">
-				>
-				["at0017"] = <
-					text = <"Ingen aktiv tumörbehandling">
-					description = <"">
-				>
-				["at0018"] = <
-					text = <"Åtgärd">
-					description = <"*Action that is not actively tumour-treating (e.g., Best supportive care, patient discharged and referred to another institution, continued investigation). (en)">
-				>
-				["at0020"] = <
-					text = <"Orsak">
-					description = <"*Reason why no active cancer treatment is given. (e.g. Active monitoring, High performance status (ECOG), Significant comorbidities, Advanced stage cancer, Death before treatment) (en)">
-				>
 				["at0021"] = <
 					text = <"Detaljer kirurgi">
 					description = <"">
@@ -540,20 +499,12 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					text = <"Typ av kemoradioterapi">
 					description = <"">
 				>
-				["at0040"] = <
-					text = <"Kommentar">
-					description = <"">
-				>
-				["at0042"] = <
-					text = <"Aktiv tumörbehandling">
-					description = <"">
-				>
 				["at0043"] = <
-					text = <"Fortsatt utredning">
+					text = <"*Further diagnostic investigation (en)">
 					description = <"">
 				>
 				["at0044"] = <
-					text = <"Handlingsstrategi">
+					text = <"*Recommended treatment strategy (en)">
 					description = <"">
 				>
 				["at0045"] = <
@@ -561,19 +512,31 @@ with the goal of removing the cancer from the body or eradicating all cancer cel
 					description = <"@ internal @">
 				>
 				["at0046"] = <
-					text = <"Beskrivning fortsatt utredning">
+					text = <"*Description (en)">
 					description = <"">
 				>
 				["at0048"] = <
-					text = <"Förslag">
+					text = <"*Treatment option (en)">
 					description = <"">
 				>
 				["at0049"] = <
-					text = <"Ordningstal för förslag">
+					text = <"*Ordinal number for option (en)">
 					description = <"">
 				>
 				["at0050"] = <
-					text = <"Motivering till behandlingsförslag">
+					text = <"*Reason for treatment option (en)">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"*Best supportive care (en)">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"*Reason for choosing best supportive care (en)">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"*Comment (en)">
 					description = <"">
 				>
 			>
