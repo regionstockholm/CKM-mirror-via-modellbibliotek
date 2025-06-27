@@ -6,6 +6,13 @@ concept
 
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
 
 description
 	original_author = <
@@ -13,6 +20,10 @@ description
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 		>
@@ -23,19 +34,19 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"cde2cc096231c790cb9ebd2c31ce451d">
+		["MD5-CAM-1.0.1"] = <"5c59bf0cc3967bd890ec8964739fd3ba">
 		["build_uid"] = <"0ac0cce7-51b1-309b-8032-82bd5b26476f">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- anatomical_location_space
+	CLUSTER[at0000] matches {    -- Spatial anatomical location
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Area
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Space
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Main area
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Main space
 				value matches {
 					DV_TEXT matches {*}
 				}
@@ -57,21 +68,21 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"anatomical_location_space">
+					text = <"Spatial anatomical location">
 					description = <"">
 				>
 				["at0001"] = <
-					text = <"Area">
-					description = <"Some sort of areal subdivision of a body structure, e.g., sector, section, segment, half, third, quadrant, portion, region, lobe, part, zone. ">
-					comment = <"If the Areal anatomical location-archetype is nested in the 'Alternative Structure' SLOT within the Anatomical location-archetype and the 'Specific site'-field in the Anatomical location-archetype has been set, then this field may be redundant. 
+					text = <"Space">
+					description = <"Some sort of spatial subdivision of a body structure, e.g., sector, section, segment, half, third, quadrant, portion, region, lobe, part, zone, layer.">
+					comment = <"If the Spatial anatomical location-archetype is nested in the 'Alternative Structure' SLOT within the Anatomical location-archetype and the 'Specific site'-field in the Anatomical location-archetype has been set, then this field may be redundant. 
 
 Coding of 'Area' with a terminology, such as SNOMED CT, is desirable.
 
 ">
 				>
 				["at0002"] = <
-					text = <"Main area">
-					description = <"The areal subdivision of a body structure where the largest/main part of a particular phenomena is located, e.g., a lesion or metastasis.">
+					text = <"Main space">
+					description = <"The space of a body structure where the largest/main part of a particular phenomena is located, e.g., a lesion or metastasis.">
 					comment = <"Coding of 'Main area' with a terminology, such as SNOMED CT, is desirable.">
 				>
 				["at0005"] = <
@@ -81,6 +92,34 @@ Coding of 'Area' with a terminology, such as SNOMED CT, is desirable.
 				["at0008"] = <
 					text = <"Multimedia representation">
 					description = <"Image or other media used to support identification of the body site.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Spatial anatomisk lokalisation">
+					description = <"">
+				>
+				["at0001"] = <
+					text = <"Rymd">
+					description = <"Någon form av rumslig indelning av en kroppsstruktur, t.ex. sektor, sektion, segment, hälft, tredjedel, kvadrant, del, region, lob, del, zon, lager.">
+					comment = <"Om arketypen Spatial anatomical location är nästlad i SLOT:en ”Alternative Structure” inom Anatomical location-arketypen och fältet ”Specific site” i Anatomical location-arketypen har angetts, kan detta fält vara överflödigt.
+
+Kodning av ”Rum” med en terminologi, t.ex. SNOMED CT, är önskvärd.">
+				>
+				["at0002"] = <
+					text = <"Huvudrymd">
+					description = <"Den rymden i en kroppsstruktur där den största delen (huvuddelen) av en viss företeelse finns, t.ex. en lesion eller metastas.">
+					comment = <"Kodning av ”Huvudrum” med en terminologi, t.ex. Snomed CT, är önskvärd.">
+				>
+				["at0005"] = <
+					text = <"Beskrivning">
+					description = <"Beskrivning som kan användas för att ytterligare förfina och stödja strukturerade data om den spatiala anatomiska lokalisationen. ">
+				>
+				["at0008"] = <
+					text = <"Multimediarepresentation">
+					description = <"Bild eller annan media som används för att stödja identifieringen av kroppsstället.">
 				>
 			>
 		>
