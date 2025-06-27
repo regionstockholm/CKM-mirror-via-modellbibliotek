@@ -34,16 +34,22 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9c284ef8f5774d6fa9488595874f7aca">
+		["MD5-CAM-1.0.1"] = <"90112b0c0f41b364a0998fbc9d43c047">
 		["build_uid"] = <"2d3bebb2-b356-3ac9-ad4f-35fe333777d5">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- Detailed lesion findings prostate mri
+	CLUSTER[at0000] matches {    -- Detailed lesion findings prostate MRI
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Index lesion
 				value matches {
-					DV_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016,    -- true
+							at0017]    -- false
+						}
+					}
 				}
 			}
 			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Extra-prostatic extension  (EPE)
@@ -85,17 +91,27 @@ definition
 					>
 				}
 			}
-			ELEMENT[at0006] occurrences matches {0..1} matches {    -- External urethral sphincter invasion
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- External urethral sphincter invasion (EUSI)
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Bladderneck invasion
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Bladderneck invasion (BI)
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Distance external sphincter
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Rectum invasion (RI)
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {    -- Anal sphincter invasion (ASI)
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Distance external urethral sphincter
 				value matches {
 					C_DV_QUANTITY <
 						property = <[openehr::122]>
@@ -154,7 +170,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Detailed lesion findings prostate mri">
+					text = <"Detailed lesion findings prostate MRI">
 					description = <"detailed_lesion_findings_prostate_mri2">
 				>
 				["at0001"] = <
@@ -178,15 +194,15 @@ ontology
 					description = <"">
 				>
 				["at0006"] = <
-					text = <"External urethral sphincter invasion">
+					text = <"External urethral sphincter invasion (EUSI)">
 					description = <"">
 				>
 				["at0007"] = <
-					text = <"Bladderneck invasion">
+					text = <"Bladderneck invasion (BI)">
 					description = <"">
 				>
 				["at0008"] = <
-					text = <"Distance external sphincter">
+					text = <"Distance external urethral sphincter">
 					description = <"">
 				>
 				["at0009"] = <
@@ -211,6 +227,22 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Index lesion">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"true">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"false">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Rectum invasion (RI)">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Anal sphincter invasion (ASI)">
 					description = <"">
 				>
 			>
@@ -246,7 +278,7 @@ ontology
 					description = <"">
 				>
 				["at0007"] = <
-					text = <"Blåshalsinvasion (BHI)">
+					text = <"Blåshalsinvasion (BI)">
 					description = <"">
 				>
 				["at0008"] = <
@@ -275,6 +307,22 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Indexlesion">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"sann">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"falsk">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Rektuminvasion (RI)">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Analsfinkterinvasion (ASI)">
 					description = <"">
 				>
 			>
