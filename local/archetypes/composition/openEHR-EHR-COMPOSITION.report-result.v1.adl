@@ -1,4 +1,4 @@
-﻿archetype (adl_version=1.4; uid=91731d1b-67b4-4b14-9d45-255315828bfe)
+archetype (adl_version=1.4; uid=91731d1b-67b4-4b14-9d45-255315828bfe)
 	openEHR-EHR-COMPOSITION.report-result.v1
 specialise
 	openEHR-EHR-COMPOSITION.report.v1
@@ -14,6 +14,14 @@ language
 				["name"] = <"Antje Wulff/Sarah Ballout">
 				["organisation"] = <"Peter L. Reichertz Institute for Medical Informatics of TU BS and Hannover Medical School">
 				["email"] = <"antje.wulff@plri.de/ballout.sarah@mh-hannover.de">
+			>
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Jörgen Kuylenstierna">
+				["organisation"] = <"eWeave AB">
+				["email"] = <"jorgen.kuylenstierna@solvikshalsan.se">
 			>
 		>
 		["es-ar"] = <
@@ -91,6 +99,25 @@ Um die Wiederverwendung dieses Archetyps zu maximieren, wurde die Komponente Sec
 
 
 Nicht für Test- oder Bewertungsergebnisse zu verwenden, die im Rahmen einer Beratungsnotiz aufgezeichnet werden, z.B. Glasgow Koma-Skala im Rahmen einer Notfallberatung - verwenden Sie dazu den Archetyp OBSERVATION.glasgow_coma_scale als eine Komponente innerhalb des COMPOSITION.encouter.">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Generellt byggd behållare där arketypen bär information om resultatet av ett test eller en bedömning.">
+			use = <"Skall användas som en generellt byggd behållare där arketypen bär information om resultatet av ett fristående test eller bedömning, eller en grupp relaterade resultat.
+
+Det förväntas att varje COMPOSITION.report-result-arketyp kommer att innehålla minst en OBSERVATION-arketyp som kommer att innehålla själva testresultaten, men beroende på testets eller bedömningens komplexitet kan även andra arketyper behöva inkluderas för att generera det fullständiga kliniska sammanhanget.
+
+Vanliga användningsfall är: 
+- ett eller flera provrelaterade patologi-/laboratorietestresultat 
+- ett eller flera tidsrelaterade resultat från en bildundersökning.
+- ett EKG-resultat
+- tolkning av ett audiogram 
+
+Sektions komponenten har medvetet satts till obegränsat antal ggr för att maximera återanvändningen av denna arketyp.">
+			keywords = <"rapport", "test", "resultat", "diagnostik">
+			misuse = <"Ska inte användas för rapporter som inte är relaterade till ett resultat för ett prov eller bedömning. Använd då istället COMPOSITION.report eller andra lämpliga och ändamålsenliga COMPOSITIONS.
+
+Får inte användas för resultat av tester eller bedömningar som är kopplade till en del av ett konsultations svar, till exempel Glasgow coma-skala i samband med en akut konsultation. Använd då istället arketypen OBSERVATION.glasgow_coma_scale som en del i COMPOSITION.encouter ,för detta ändamål.">
 		>
 		["es-ar"] = <
 			language = <[ISO_639-1::es-ar]>
@@ -208,7 +235,7 @@ Not to be used for test or assessment results that are recorded as part of a con
 			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway", "Koray Atalag, University of Auckland, New Zealand", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Sistine Barretto-Daniels, Ocean Informatics, Australia", "Lars Bitsch-Larsen, Haukeland University hospital, Norway", "Einar Fosse, National Centre for Integrated Care and Telemedicine, Norway", "Heath Frankel, Ocean Informatics, Australia", "Heather Grain, Llewelyn Grain Informatics, Australia", "Sam Heard, Ocean Informatics, Australia", "Lars Karlsen, DIPS ASA, Norway", "Lars Morgan Karlsen, DIPS ASA, Norway", "Shinji Kobayashi, Kyoto University, Japan", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Hugh Leslie, Ocean Informatics, Australia", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Bjoern Naess, DIPS ASA, Norway", "Andrej Orel, Marand d.o.o., Slovenia">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
@@ -217,9 +244,9 @@ Not to be used for test or assessment results that are recorded as part of a con
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"2A64B8463AA11FF22EA7977CDF0E9959">
-		["build_uid"] = <"337cfbb1-2078-4f74-a475-ab94da9959cc">
-		["revision"] = <"1.0.4">
+		["MD5-CAM-1.0.1"] = <"5AD01B8D07128E92D62AD353367999EB">
+		["build_uid"] = <"2daf3215-3384-4434-97c2-a954f6778924">
+		["revision"] = <"1.0.5-alpha">
 	>
 
 definition
@@ -488,6 +515,35 @@ ontology
 					text = <"*Extension(en)">
 					description = <"로컬 컨텍스트를 획득하는데 필요하거나 다른 참조 모델/표현과 조정에 필요한 추가 정보">
 					comment = <"예: 로컬 정보 요구사항 또는 FHIR나 CIMI의 동등한 것들과 조정하는 추가 메타데이터">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Rapport">
+					description = <"Dokument för att kommunicera information till andra, vanligtvis som svar på en begäran från en annan part.">
+				>
+				["at0000.1"] = <
+					text = <"Resultat rapport">
+					description = <"Dokument för att kommunicera information till andra om resultatet av ett test eller bedömning.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Rapport ID">
+					description = <"Identifieringsinformation om rapporten.">
+				>
+				["at0005"] = <
+					text = <"Status">
+					description = <"Status för hela rapporten. Observera att detta inte är status för någon av delmängderna i rapporten.">
+				>
+				["at0006"] = <
+					text = <"Utvidgning">
+					description = <"Ytterligare information som krävs för att fånga ett lokalt sammanhang eller för att anpassa sig till andra referensmodeller/formalismer.">
+					comment = <"Exempelvis lokala informationskrav eller ytterligare metadata för att anpassas till FHIR- eller CIMI-motsvarigheter.">
 				>
 			>
 		>
