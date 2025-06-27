@@ -1,4 +1,4 @@
-﻿archetype (adl_version=1.4; uid=ba15da73-273a-4dbd-92f4-bfde28d1872c)
+archetype (adl_version=1.4; uid=ba15da73-273a-4dbd-92f4-bfde28d1872c)
 	openEHR-EHR-CLUSTER.imaging_exam.v1
 
 concept
@@ -9,9 +9,17 @@ language
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			author = <
-				["name"] = <"Natalia Strauch">
-				["organisation"] = <"Medizinische Hochschule Hannover">
-				["email"] = <"Strauch.Natalia@mh-hannover.de">
+				["name"] = <"Natalia Strauch, Darin Leonhardt">
+				["organisation"] = <"Medizinische Hochschule Hannover, PLRI für medizinische Informatik/ Medizinische Hochschule">
+				["email"] = <"Strauch.Natalia@mh-hannover.de, leonhardt.darin@mh-hannover.de">
+			>
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Claudia Ehrentraut">
+				["organisation"] = <"Karolinska University Hospital">
+				["email"] = <"claudia.ehrentraut@regionstockholm.se">
 			>
 		>
 		["nb"] = <
@@ -34,19 +42,38 @@ description
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Darstellung der Befunde einer radiologischen Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation.">
-			use = <"*Use to record the findings on radiological examination of a specified body structure or region, and their interpretation.
+			use = <"Zur Erfassung der Befunde einer radiologischen Untersuchung einer bestimmten Körperstruktur oder -region und ihrer Interpretation.
 
-The intended scope for the CLUSTER.imaging_exam family of archetypes to be used to record all detailed findings on radiological examination. The family of specialised archetypes are derived from this generic parent archetype, CLUSTER.imaging_exam, designed as a universal pattern for recording any findings in any specified body structure or region and using any modality.
+Der vorgesehene Anwendungsbereich für die Archetypenfamilie CLUSTER.imaging_exam ist die Erfassung aller detaillierten Befunde einer radiologischen Untersuchung. Die Familie der spezialisierten Archetypen ist von diesem generischen übergeordneten Archetyp CLUSTER.imaging_exam abgeleitet, der als universelles Muster für die Aufzeichnung aller Befunde in einer bestimmten Körperstruktur oder -region und unter Verwendung einer beliebigen Modalität konzipiert ist.
 
-This archetype and its related family of specialisations are designed to be nested within the 'Structured imaging findings' SLOT in the OBSERVATION.imaging_exam_result or within the 'Additional details' SLOT in other relevant CLUSTER.imaging_exam archetypes, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate. If this archetype or its specialisations need to be extended with further levels of detailed findings, additional instances of the CLUSTER.imaging_exam or its specialisations can be nested in the 'Additional details' SLOT.
+Dieser Archetyp und die mit ihm verbundenen Spezialisierungen sind so konzipiert, dass sie in den SLOT „Bildgebende Untersuchung einer Körperstruktur“ in OBSERVATION.imaging_exam_result oder in den SLOT „Zusätzliche Details“ in anderen relevanten Archetypen von CLUSTER.imaging_exam verschachtelt werden, können aber auch in anderen ENTRY- oder CLUSTER-Archetypen verwendet werden, sofern dies klinisch sinnvoll ist. Wenn dieser Archetyp oder seine Spezialisierungen um weitere Ebenen detaillierter Befunde erweitert werden müssen, können zusätzliche Instanzen des Archetyps CLUSTER.imaging_exam oder seiner Spezialisierungen im SLOT „Additional details“ verschachtelt werden.
 
-Each structure- or region-specific specialisation of this parent archetype is intended to be inclusive of all reasonably anticipated and relevant findings. For example, the CLUSTER.imaging_exam-ovary will support recording of all findings that would be expected in reporting on imaging of the ovary using any radiological modality, including the size of the ovary, largest follicle size and the diameter and description of specific follicles. Similarly, CLUSTER.imaging_exam-lymph_node_group will contain data elements required to record specific findings of a lymph node group, including its precise or relative location in the body and the number of lymph nodes in the group. 
+Jede struktur- oder regionenspezifische Ausprägung dieses übergeordneten Archetyps soll alle erwarteten und relevanten Befunde umfassen. Zum Beispiel unterstützt CLUSTER.imaging_exam-ovary die Aufzeichnung aller Befunde, die bei der Berichterstattung über die Bildgebung des Eierstocks mit einer beliebigen radiologischen Modalität zu erwarten sind, einschließlich der Größe des Eierstocks, der Größe des größten Follikels sowie des Durchmessers und der Beschreibung bestimmter Follikel. In ähnlicher Weise enthält CLUSTER.imaging_exam-lymph_node_group Datenelemente, die zur Erfassung spezifischer Befunde einer Lymphknotengruppe erforderlich sind, einschließlich ihrer genauen oder relativen Lage im Körper und der Anzahl der Lymphknoten in der Gruppe. 
 
-If an appropriate specialisation is not available for a body structure or region, this generic archetype can be used to record all relevant findings, including identification of the structure or region. (en)">
+Wenn für eine Körperregion oder -struktur keine entsprechende Spezialisierung verfügbar ist, kann dieser generische Archetyp zur Erfassung aller relevanten Befunde, einschließlich der Identifizierung der Struktur oder Region, verwendet werden.">
 			keywords = <"Befund, Ergebnis, Bildgebung, Körper, Organ, System, Struktur, Region, Beobachtung, Diagnostik, Radiologie, Bild", ...>
 			misuse = <"Nicht zur Darstellung von Befunden verwenden, die außerhalb der identifizierten Körperstruktur oder -region beobachtet wurden. Verwenden Sie zu diesem Zweck eine separate Instanz eines oder mehrerer Archetypen aus der Familie CLUSTER.imaging_exam.
 
 Darf nicht verwendet werden, um Details in Bezug auf die Gesamtbefunde, den Kontext oder technische Details in Bezug auf ein vollständiges Testergebnis einer bildgebenden Untersuchung darzustellen. Verwenden Sie zu diesem Zweck das OBSERVATION.imaging_exam_result. Zum Beispiel Kommentare zur Studienqualität, zu Differenzialdiagnosen und zum Gesamteindruck.">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Att registrera fynden vid en radiologisk undersökning av en specificerad kroppsstruktur eller -region och tolkningen av dessa.
+
+">
+			use = <"Används för att registrera fynden vid en radiologisk undersökning av en specificerad kroppsstruktur eller -region och tolkningen av dessa.
+
+Den avsedda omfattningen för arketypfamiljen CLUSTER.imaging_exam är att den ska användas för att registrera alla detaljerade fynd vid en radiologisk undersökning. Familjen av specialiserade arketyper är härledd från den generiska och överordnade arketyp CLUSTER.imaging_exam som är utformad som ett universellt mönster för att registrera samtliga fynd i en specificerad kroppsstruktur eller -region och under användning av någon modalitet.
+
+Denna arketyp och dess relaterade familj av specialiseringar är utformade för att nästlas i SLOT:en ”Strukturerade bilddiagnostiska fynd” i OBSERVATION.imaging_exam_result eller i SLOT:en ”Ytterligare detaljer” i andra relevanta CLUSTER.imaging_exam-arketyper, men kan också användas inom andra ENTRY- eller CLUSTER-arketyper, där det är kliniskt lämpligt. Om denna arketyp eller dess specialiseringar behöver utökas med ytterligare nivåer av detaljerade fynd, kan ytterligare instanser av CLUSTER.imaging_exam eller dess specialiseringar nästlas i SLOT:en ”Ytterligare detaljer”.
+
+Varje struktur- eller regionspecifik specialisering av denna överordnade arketyp är avsedd att omfatta alla förväntade och relevanta fynd. Exempelvis kommer CLUSTER.imaging_exam-ovary att stödja registrering av alla fynd som kan förväntas vid rapportering om avbildning av äggstocken med hjälp av någon radiologisk modalitet, inklusive äggstockens storlek, största follikelstorlek samt diameter och beskrivning av specifika folliklar. På samma sätt kommer CLUSTER.imaging_exam-lymph_node_group att innehålla fält som krävs för att registrera specifika fynd för en lymfkörtelgrupp, inklusive dess exakta eller relativa placering i kroppen och antalet lymfkörtlar i gruppen.
+
+Om en lämplig specialisering inte finns tillgänglig för en kroppsstruktur eller -region kan denna generiska arketyp användas för att registrera alla relevanta fynd, inklusive identifiering av strukturen eller regionen.">
+			keywords = <"fynd, avbildning, bilddiagnostik, bildtagning, kropp, system, struktur, region, observation, diagnostik, radiologi, bild", ...>
+			misuse = <"Ska inte användas för att registrera fynd som har observerats utanför den identifierade kroppsstrukturen eller -regionen. Använd en separat instans av en eller flera arketyper från CLUSTER.imaging_exam-familjen för detta ändamål.
+
+Ska inte användas för att registrera detaljer som relaterar till de övergripande fynden, sammanhanget eller tekniska detaljer gällande ett fullständigt bilddiagnostiskt undersökningsresultat. Använd OBSERVATION.imaging_exam_result för detta ändamål. Till exempel kommentarer om undersökningens kvalitet, differentialdiagnoser och helhetsintryck.">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
@@ -84,7 +111,7 @@ Not to be used to record details related to the overall findings, context or tec
 			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Andreas Abildgaard, OUS, Norway", "Marit Alice Venheim, Helse Vest IKT, Norway (Nasjonal IKT redaktør)", "Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India", "Randi Brendberg, Helse Nord RHF, Norway", "Gunn Elin Blakkisrud, DIPS ASA, Norway", "Peter Fedorcsak, University of Oslo, Norway (openEHR Editor)", "Kåre Flø, DIPS ASA, Norway", "Evelyn Hovenga, EJSH Consulting, Australia", "Kija Indrearne, Helse Bergen, Norway", "Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (Nasjonal IKT redaktør)", "Aud Jorunn Mjelstad, Helse Bergen, Norway", "Anjali Kulkarni, Karkinos, India", "Kanika Kuwelker, Helse Vest IKT, Norway (Nasjonal IKT redaktør)", "Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Svenne Naumann, Finnmarkssykehuset, Norway", "Mikael Nyström, Cambio Healthcare Systems AB, Sweden", "Bjørn Næss, DIPS ASA, Norway", "Natalia Strauch, Medizinische Hochschule Hannover, Germany", "Norwegian Review Summary, Norwegian Public Hospitals, Norway", "John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
@@ -92,9 +119,9 @@ Not to be used to record details related to the overall findings, context or tec
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"C7771A8FC401E050446E16FFF42F3BC3">
-		["build_uid"] = <"e090a712-a4a9-4358-ab8a-de5eb58c37ec">
-		["revision"] = <"1.1.2">
+		["MD5-CAM-1.0.1"] = <"7615FF8AB3862E3B730F4B9BBC1A9EE1">
+		["build_uid"] = <"fe33cc69-2a09-48de-91f3-e55306b5cef6">
+		["revision"] = <"1.1.4-alpha">
 	>
 
 definition
@@ -228,7 +255,7 @@ ontology
 				["at0001"] = <
 					text = <"Körperstruktur">
 					description = <"Identifizierung der untersuchten Körperstruktur oder Region.">
-					comment = <"*For example: 'Liver', 'Right ankle' or 'Lymph node group'. Coding of the body structure with an appropriate terminology, such as SNOMED CT, is recommended. If the body structure has been fully identified in this 'Body structure' element, then the 'Body site' data element and 'Structured body site' SLOT become redundant. (en)">
+					comment = <"Zum Beispiel: „Leber“, „Rechter Knöchel“ oder „Lymphknotengruppe“. Es wird empfohlen, die Körperstruktur mit einer geeigneten Terminologie, wie SNOMED CT, zu kodieren. Wenn die Körperstruktur in diesem Element „Körperstruktur“ vollständig identifiziert wurde, dann werden das Datenelement „Körperstelle“ und der SLOT „Strukturierte Körperstelle“ überflüssig.">
 				>
 				["at0002"] = <
 					text = <"Körperstelle">
@@ -256,6 +283,47 @@ ontology
 				["at0007"] = <
 					text = <"Kommentar">
 					description = <"Zusätzlicher Text über die bildgebenden Befunde der Körperstruktur, der in anderen Bereichen nicht erfasst wurde.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bilddiagnostisk undersökning av en kroppsstruktur">
+					description = <"Fynden vid en radiologisk undersökning av en specificerad kroppsstruktur eller -region">
+				>
+				["at0001"] = <
+					text = <"Kroppsstruktur">
+					description = <"Namn på den kroppsstruktur eller -region som har undersökts.">
+					comment = <"Till exempel: ”Lever”, ”Höger fotled” eller ”Lymfkörtelgrupp”. Kodning av kroppsstrukturen med en lämplig terminologi, t.ex. SNOMED CT, rekommenderas. Om kroppsstrukturen har identifierats fullständigt i detta ”Kroppsstruktur”-fält blir fältet ”Kroppsställe\" och SLOT:en \"Strukturerat kroppsställe\" överflödiga.">
+				>
+				["at0002"] = <
+					text = <"Kroppsställe">
+					description = <"Namn på det område av kroppen som undersöks.
+">
+					comment = <"Till exempel: en lymfkörtelgrupp (kroppsstruktur) som finns i ”höger axill”. Kodning av ”Kroppsställe” med en terminologi, t.ex. SNOMED CT, är önskvärd. Om kroppsstället har identifierats fullständigt i fältet ”Kroppsstruktur” blir detta fält överflödigt.">
+				>
+				["at0003"] = <
+					text = <"Strukturerat kroppsställe">
+					description = <"Strukturerade detaljer om det område av kroppen som undersöks.">
+					comment = <"Till exempel: detaljer om en relativ anatomisk lokalisation, såsom ”2 cm distalt om blindtarmen”. Om kroppsstället har identifierats fullständigt i fältet \"Kroppsstruktur\" eller \"Kroppsställe\" blir denna SLOT överflödig.">
+				>
+				["at0004"] = <
+					text = <"Bilddiagnostiskt fynd">
+					description = <"Beskrivning av de bilddiagnostiska fynd som har observerats under denna undersökning.">
+				>
+				["at0005"] = <
+					text = <"Ytterligare detaljer">
+					description = <"Ytterligare strukturerade detaljer om bilddiagnostiska fynd för den identifierade kroppsstrukturen eller -regionen, eller fynd av relaterade strukturer.">
+				>
+				["at0006"] = <
+					text = <"Slutsats">
+					description = <"Enstaka ord, fras eller kort beskrivning som representerar den kliniska innebörden och betydelsen av alla bilddiagnostiska fynd för den identifierade kroppsstrukturen.">
+					comment = <"Kallas även \"Bedömning\". Till exempel: ”Ingen avvikelse upptäckt” eller ”Fri vätska närvarande”. Kodning av ”Slutsats” med en terminologi är tillåten, om det är användbart. Flera förekomster möjliggör mer än en kodad slutsats. En beskrivning kan omfatta en jämförelse med tidigare undersökningar av den identifierade kroppsstrukturen, om så är lämpligt.">
+				>
+				["at0007"] = <
+					text = <"Kommentar">
+					description = <"Ytterligare beskrivning av de bilddiagnostiska fynden gällande kroppsstrukturen, som inte fångas upp i andra fält.">
 				>
 			>
 		>
