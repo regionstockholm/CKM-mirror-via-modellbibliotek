@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.2",
-      "build_uid" : "542a8ef8-672f-41db-9c56-231802434e2e",
-      "MD5-CAM-1.0.1" : "04715cca6c55ae2efe8a81a8c3102f8e",
+      "sem_ver" : "1.0.0-alpha.3",
+      "build_uid" : "7ce0b3ff-5349-47d4-a8b8-96aa958e10a7",
+      "MD5-CAM-1.0.1" : "05e96e97e50aa0f7626dafd6adcf84e4",
       "PARENT:MD5-CAM-1.0.1" : "5AD01B8D07128E92D62AD353367999EB"
     },
     "details" : {
@@ -220,6 +220,15 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-imaging_exam_result-001.v1",
+        "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "OBSERVATION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.0.4",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-laboratory_test_result-001.v1",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -426,6 +435,12 @@
           "code" : "at0000.1.1",
           "text" : "RadiologyExaminationResultProstate",
           "description" : "Asiakirja tiedon välittämiseksi muille, vastauksena yleensä toisen osapuolen pyyntöön."
+        },
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000",
+          "text" : "Raportti",
+          "description" : "Asiakirja tiedon välittämiseksi muille, vastauksena yleensä toisen osapuolen pyyntöön."
         }
       },
       "it" : {
@@ -458,6 +473,12 @@
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0000.1.1",
           "text" : "RadiologyExaminationResultProstate",
+          "description" : "Documento per comunicare informazioni ad altri, comunemente in risposta ad una richiesta di un altro soggetto."
+        },
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000",
+          "text" : "Rapporto",
           "description" : "Documento per comunicare informazioni ad altri, comunemente in risposta ad una richiesta di un altro soggetto."
         }
       },
@@ -492,6 +513,12 @@
           "code" : "at0000.1.1",
           "text" : "RadiologyExaminationResultProstate",
           "description" : "Document om informatie met anderen te communiceren, vaak op verzoek van een andere partij."
+        },
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000",
+          "text" : "Rapportage",
+          "description" : "Document om informatie met anderen te communiceren, vaak op verzoek van een andere partij."
         }
       },
       "zh" : {
@@ -525,6 +552,12 @@
           "code" : "at0000.1.1",
           "text" : "RadiologyExaminationResultProstate",
           "description" : "用于交流信息的文件，通常是为了响应某一方的请求"
+        },
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000",
+          "text" : "报告",
+          "description" : "用于交流信息的文件，通常是为了响应某一方的请求"
         }
       }
     },
@@ -552,7 +585,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "C8DA0FF4E117F0A108A6A34EF496C93B"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.",
+          "keywords" : [ "Bild, Radiologie, Modalität, Röntgen, CT, Ultraschall, MRI, Diagnostik, Scan, Röntgenbild, X-Ray, Bildgebung, biomagnetisch, Densitometrie, Tomographie, Radiographie, magnetisch, Resonanz, Mammographie, Nuklear, Medizin, Positron, PET, Angiographie, Fluoroskopie" ],
+          "use" : "Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.\r\n\r\nDieser Archetyp wurde entwickelt, mit dem Fokus auf die Befundung und Interpretation einer einzelnen bildgebenden Untersuchung (entspricht einer einzelnen DICOM-Studie). Verweise auf DICOM-bezogene Attribute sind enthalten, aber der Schwerpunkt liegt auf der Darstellung eines klinischen Berichts zu einer bildgebenden Untersuchung und nicht auf der Darstellung von DICOM-bezogenen Attributen, die in einem Radiologieinformationssystem (RIS) erwartet werden könnten. Spezifische Angaben über die DICOM-Serie können mithilfe von Archetyp CLUSTER.imaging_series dargestellt werden, der im SLOT „Seriendetails“ verschachtelt ist.\r\n\r\nDetaillierte Befunde, die während einer bildgebenden Untersuchung beobachtet wurden und auf eine bestimmte Körperstruktur oder -region abzielen, können dargestellt werden, indem der Archetyp CLUSTER.imaging_exam und/oder seine Gruppe spezialisierter Archetypen innerhalb des SLOTs „Strukturierte bildgebende Befunde“ in diesem Archetyp verschachtelt werden. Es ist beabsichtigt, dass im Laufe der Zeit die spezifischen Informationen in jeder Spezialisierung erweitert werden, um Befunde mit allen bildgebenden Modalitäten einzubeziehen.\r\n\r\nWird eine bildgebende Untersuchung im Rahmen einer komplexeren Aktivität durchgeführt, wie z. B. eines interventionellen chirurgischen Eingriffs, sollte der bildgebende Befund mit diesem Archetyp erfasst werden.\r\nStrukturierte Angaben über den chirurgischen Eingriff und verabreichte Medikamente oder Kontrastmittel sollten unter Verwendung der ACTION.procedure- bzw. ACTION.medication-Archetypen dargestellt werden. In dieser Situation wird empfohlen, alle verwandten Archetypen innerhalb derselben Templates zu repräsentieren.\r\n\r\nDieses Ergebnis wird dem anfordernden Kliniker normalerweise als eine Komponente im Kontext eines auf COMPOSITION-basierenden Gesamtberichts berichtet.",
+          "misuse" : "Nicht zur Darstellung von Ergebnissen von körperlichen Untersuchung verwenden. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.exam und/oder seine Gruppe spezialisierter Archetypen.\r\n\r\nDarf nicht verwendet werden, um die Funktionalität oder Spezifikationen eines radiologischen Informations- oder Quellsystems zu replizieren.\r\n\r\nDarf nicht verwendet werden, um strukturierte Angaben zu einem durchgeführten Verfahren darzustellen. Verwenden Sie für diesen Zweck die spezifischen prozedurbezogenen Archetypen, wie z. B. den Archetyp ACTION.procedure.\r\n\r\nNicht zur Darstellung von strukturierten Anaben über Medikamente, die während des radiologischen Untersuchung verabreicht werden. Verwenden Sie für diesen Zweck spezifische medikamentenbezogene Archetypen, wie z. B. den Archetyp ACTION.medication.\r\n\r\nDarf nicht verwendet werden, um Fotos oder Videos in der Gesundheitsakte darzustellen. Verwenden Sie zu diesem Zweck den Archetyp CLUSTER.media_file.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att, med hjälp av radiologiska tekniker, registrera fynden vid bilddiagnostisk undersökning av en specificerad kroppsstruktur eller region och tolka dessa.",
+          "keywords" : [ "bild, radiologi, modalitet, röntgen, CT, ultraljud, MR, MRT, diagnostisk, skanning, bilddiagnostik, biomagnetisk, densitometri, tomografi, radiografi, magnetisk, resonans, mammografi, nukleär, medicin, positron, PET, angiografi, fluoroskopi" ],
+          "use" : "Används för att registrera fynden vid en bilddiagnostisk undersökning av en specificerad kroppsstruktur eller -region och tolka dem med hjälp av radiologiska tekniker.\r\n\r\nDenna arketyp är utformad för att fokusera på rapportering av resultat och tolkning i samband med en enda bilddiagnostisk undersökning (motsvarande en enda DICOM-studie). Referenser till DICOM-relaterade attribut ingår, men fokus ligger på att representera ett kliniskt utlåtande från en bilddiagnostisk undersökning och inte på att representera DICOM-relaterade attribut som kan förväntas i ett radiologiskt informationssystem. Specifika detaljer om DICOM-serien kan registreras med hjälp av CLUSTER.imaging_series som är nästlad i SLOT:en ”Series details”.\r\n\r\nDetaljerade fynd som observeras under en bilddiagnostisk undersökning och som är inriktade på en viss struktur eller region kan registreras genom att nästla CLUSTER.imaging_exam eller dess familj av specialiserade arketyper i SLOT:en ”Structured imaging findings”. Avsikten är att de specifika detaljerna i varje specialisering med tiden ska växa till att omfatta fynd under användning av alla bildmodaliteter.\r\n\r\nOm en bilddiagnostisk undersökning utförs som en del av en mer komplex aktivitet, t.ex. en kirurgisk operation som utförs under bilddiagnostisk vägledning, ska de bilddiagnostiska fynden registreras med hjälp av denna arketyp. \r\nStrukturerade detaljer om det kirurgiska ingreppet och de läkemedel eller kontrastmedel som administrerats ska registreras med hjälp av arketyperna ACTION.procedure eller ACTION.medication. I denna situation rekommenderas att alla relaterade arketyper rapporteras inom samma template.\r\n\r\nResultatet kommer vanligtvis att rapporteras tillbaka till den remitterande läkaren som en komponent inom ramen för en övergripande COMPOSITION-baserad utlåtande.",
+          "misuse" : "Ska inte användas för att registrera fynd vid fysisk undersökning. Använd CLUSTER.exam eller dess familj av specialiserade arketyper för detta ändamål.\r\n\r\nSka inte användas för att replikera funktionaliteten eller specifikationerna av ett radiologiskt informations- eller källsystem.\r\n\r\nSka inte användas för att registrera strukturerade detaljer om en åtgärd som har genomförts. Använd de specifika åtgärdsrelaterade arketyperna, t.ex. arketypen ACTION.procedure, för detta ändamål.\r\n\r\nSka inte användas för att registrera strukturerade detaljer om läkemedel som administreras under bildtagningstestet. Använd specifika läkemedelsrelaterade arketyper, t.ex. arketypen ACTION.medication, för detta ändamål.\r\n\r\nSka inte användas för att registrera fotografier eller videor i patientjournalen. Använd arketypen CLUSTER.media_file för detta ändamål.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.",
+          "keywords" : [ "bilde", "radiologi", "modalitet", "røntgen", "CT", "ultralyd", "MR", "diagnostisk", "biomagnetisk", "densitometri", "tomografi", "radiografi", "nukleær", "positron", "PET", "fluoroskopi", "bildeveiledet", "gjennomlysning", "nukleærmedisinsk", "angiografi" ],
+          "use" : "Brukes for å registrere funn på og tolkning av bilder som er gjort ved radiologiske metoder på spesifikke strukturer eller regioner i kroppen.\r\n\r\nDenne arketypen har blitt laget med fokus på svarrapportering av funn og tolkning en enkelt bildediagnostisk undersøkelse (tilsvarende en enkelt \"DICOM Study\"). Referanser til DICOM-relaterte attributter er inkludert, men fokuset er på representasjonen av en klinisk rapport fra en bildeundersøkelse og ikke på å representere DICOM-relaterte attributter som kan forventes i et radiologiinformasjonssystem (RIS/PACS). Spesifikke detaljer om DICOM-serien kan registreres ved å nøste arketypen CLUSTER.imaging_study_details i SLOT'et \"Detaljer om undersøkelsesserier\".\r\n\r\nDetaljerte funn som er gjort ved en bildediagnostisk undersøkelse som er rettet mot en spesifikk struktur eller region i kroppen, kan registreres ved å nøste CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur) eller en av de spesialiserte CLUSTER.imaging_exam arketypene i SLOT'et \"Strukturerte funn\" i denne arketypen. Det er tenkt at det over tid vil det bli utviklet slike spesialiseringer som hver for seg omhandler funn fra alle modaliteter.\r\n\r\nHvis den bildediagnostiske undersøkelsen er en del av en mer kompleks prosedyre, som en kirurgisk operasjon som utføres under bildeveiledning, skal de radiologiske funn og observasjoner bli registrert i denne arketypen. Strukturerte detaljer om den kirurgiske prosedyren og administrasjon av medikasjon eller kontrast bør registreres i henholdsvis ACTION.procedure (Prosedyre) og/eller ACTION.medication (Legemiddelhåndtering). I dette tilfelle anbefales det at alle relaterte arketyper, som detaljer om prosedyren eller administrasjon av medikasjon/kontrast bør samles i det samme templatet.\r\n\r\nSvaret på bildediagnostikken vil normalt sett bli rapportert tilbake til den bestillende kliniker som en komponent innenfor rammen av en samlet COMPOSITION-basert rapport.",
+          "misuse" : "Skal ikke brukes til funn ved fysiske undersøkelser. Bruk CLUSTER.exam (Undersøkelsesfunn) eller dennes gruppe av spesialiserte arketyper for dette formålet.\r\n\r\nSkal ikke brukes til å replikere funksjonaliteten til et radiologi informasjonssystem (RIS/PACS) eller kildesystem.\r\n\r\nSkal ikke brukes til å registrere strukturerte detaljer om en klinisk prosedyre som er gjennomført. Bruk da de spesifikke arketypene for prosedyre-relatert innhold, for eksempel ACTION.procedure (Prosedyre).\r\n\r\nBrukes ikke til å registrere informasjon om legemidlene som administreres under en bildediagnostisk undersøkelse. Bruk da de spesifikke legemiddelrelaterte arketypene, for eksempel ACTION.medication (Legemiddelhåndtering).\r\n\r\nSkal ikke brukes til å lagre fotografier eller video i den elektroniske journalen. Bruk arketypen CLUSTER.media_file (Mediafil) for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.",
+          "keywords" : [ "image, radiology, modality, xray, CT, ultrasound, MRI, diagnostic, scan, x-ray, imaging, biomagnetic, densitometry, tomography, radiography, magnetic, resonance, mammography, nuclear, medicine, positron, PET, angiography, fluoroscopy" ],
+          "use" : "Use to record the findings on imaging examination of a specified body structure or region and their interpretation, using radiological techniques.\r\n\r\nThis archetype has been designed to focus on the reporting of findings and interpretation associated with a single imaging examination (equivalent to a single DICOM study). References to DICOM-related attributes are included but the focus is on the representation of a clinical report from an imaging examination and not on representing DICOM-related attributes that might be expected within a radiology information system. Specific details about the DICOM series can be recorded using the CLUSTER.imaging_series nested within the 'Series details' SLOT.\r\n\r\nDetailed findings observed during an imaging examination and targeting a specified structure or region can be recorded by nesting the CLUSTER.imaging_exam and/or its family of specialised archetypes within the 'Structured imaging findings' SLOT in this archetype. It is intended that over time the specific detail in each specialisation will grow to include findings using all imaging modalities.\r\n\r\nIf an imaging examination is carried out as part of a more complex activity, such as a surgical operation carried out under imaging guidance, the imaging findings should be recorded using this archetype. \r\nStructured details about the surgical procedure and medications or contrast administered should be recorded using the ACTION.procedure and/or ACTION.medication archetypes, respectively. In this situation, it is recommended that all related archetypes should be reported within the same template.\r\n\r\nThis result will normally be reported back to the requesting clinician as one component within the context of an overall COMPOSITION-based report.",
+          "misuse" : "Not to be used to record findings on physical examination. Use the CLUSTER.exam and/or its family of specialised archetypes for this purpose.\r\n\r\nNot to be used to replicate the functionality or specifications of a radiology information or source system.\r\n\r\nNot to be used to record structured details about any procedure undertaken. Use the specific procedure-related archetypes, such as ACTION.procedure archetype for this purpose.\r\n\r\nNot to be used to record structured details about medications administered during the imaging test. Use specific medication-related archetypes, such as the ACTION.medication archetype for this purpose.\r\n\r\nNot to be used to record photographs or videos  within the health record. Use the CLUSTER.media_file archetype for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.imaging_exam_result.v1",
     "differential" : true,
@@ -603,6 +698,29 @@
                 } ]
               } ],
               "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      }, {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "protocol",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0025",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0041.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-mri_technique_details_-001.v0",
+              "referenceType" : "archetypeOverlay"
             } ]
           } ],
           "attributeTuples" : [ ]
@@ -694,7 +812,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "7615FF8AB3862E3B730F4B9BBC1A9EE1"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung der Befunde einer radiologischen Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation.",
+          "keywords" : [ "Befund, Ergebnis, Bildgebung, Körper, Organ, System, Struktur, Region, Beobachtung, Diagnostik, Radiologie, Bild" ],
+          "use" : "Zur Erfassung der Befunde einer radiologischen Untersuchung einer bestimmten Körperstruktur oder -region und ihrer Interpretation.\r\n\r\nDer vorgesehene Anwendungsbereich für die Archetypenfamilie CLUSTER.imaging_exam ist die Erfassung aller detaillierten Befunde einer radiologischen Untersuchung. Die Familie der spezialisierten Archetypen ist von diesem generischen übergeordneten Archetyp CLUSTER.imaging_exam abgeleitet, der als universelles Muster für die Aufzeichnung aller Befunde in einer bestimmten Körperstruktur oder -region und unter Verwendung einer beliebigen Modalität konzipiert ist.\r\n\r\nDieser Archetyp und die mit ihm verbundenen Spezialisierungen sind so konzipiert, dass sie in den SLOT „Bildgebende Untersuchung einer Körperstruktur“ in OBSERVATION.imaging_exam_result oder in den SLOT „Zusätzliche Details“ in anderen relevanten Archetypen von CLUSTER.imaging_exam verschachtelt werden, können aber auch in anderen ENTRY- oder CLUSTER-Archetypen verwendet werden, sofern dies klinisch sinnvoll ist. Wenn dieser Archetyp oder seine Spezialisierungen um weitere Ebenen detaillierter Befunde erweitert werden müssen, können zusätzliche Instanzen des Archetyps CLUSTER.imaging_exam oder seiner Spezialisierungen im SLOT „Additional details“ verschachtelt werden.\r\n\r\nJede struktur- oder regionenspezifische Ausprägung dieses übergeordneten Archetyps soll alle erwarteten und relevanten Befunde umfassen. Zum Beispiel unterstützt CLUSTER.imaging_exam-ovary die Aufzeichnung aller Befunde, die bei der Berichterstattung über die Bildgebung des Eierstocks mit einer beliebigen radiologischen Modalität zu erwarten sind, einschließlich der Größe des Eierstocks, der Größe des größten Follikels sowie des Durchmessers und der Beschreibung bestimmter Follikel. In ähnlicher Weise enthält CLUSTER.imaging_exam-lymph_node_group Datenelemente, die zur Erfassung spezifischer Befunde einer Lymphknotengruppe erforderlich sind, einschließlich ihrer genauen oder relativen Lage im Körper und der Anzahl der Lymphknoten in der Gruppe. \r\n\r\nWenn für eine Körperregion oder -struktur keine entsprechende Spezialisierung verfügbar ist, kann dieser generische Archetyp zur Erfassung aller relevanten Befunde, einschließlich der Identifizierung der Struktur oder Region, verwendet werden.",
+          "misuse" : "Nicht zur Darstellung von Befunden verwenden, die außerhalb der identifizierten Körperstruktur oder -region beobachtet wurden. Verwenden Sie zu diesem Zweck eine separate Instanz eines oder mehrerer Archetypen aus der Familie CLUSTER.imaging_exam.\r\n\r\nDarf nicht verwendet werden, um Details in Bezug auf die Gesamtbefunde, den Kontext oder technische Details in Bezug auf ein vollständiges Testergebnis einer bildgebenden Untersuchung darzustellen. Verwenden Sie zu diesem Zweck das OBSERVATION.imaging_exam_result. Zum Beispiel Kommentare zur Studienqualität, zu Differenzialdiagnosen und zum Gesamteindruck.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera fynden vid en radiologisk undersökning av en specificerad kroppsstruktur eller -region och tolkningen av dessa.\r\n\r\n",
+          "keywords" : [ "fynd, avbildning, bilddiagnostik, bildtagning, kropp, system, struktur, region, observation, diagnostik, radiologi, bild" ],
+          "use" : "Används för att registrera fynden vid en radiologisk undersökning av en specificerad kroppsstruktur eller -region och tolkningen av dessa.\r\n\r\nDen avsedda omfattningen för arketypfamiljen CLUSTER.imaging_exam är att den ska användas för att registrera alla detaljerade fynd vid en radiologisk undersökning. Familjen av specialiserade arketyper är härledd från den generiska och överordnade arketyp CLUSTER.imaging_exam som är utformad som ett universellt mönster för att registrera samtliga fynd i en specificerad kroppsstruktur eller -region och under användning av någon modalitet.\r\n\r\nDenna arketyp och dess relaterade familj av specialiseringar är utformade för att nästlas i SLOT:en ”Strukturerade bilddiagnostiska fynd” i OBSERVATION.imaging_exam_result eller i SLOT:en ”Ytterligare detaljer” i andra relevanta CLUSTER.imaging_exam-arketyper, men kan också användas inom andra ENTRY- eller CLUSTER-arketyper, där det är kliniskt lämpligt. Om denna arketyp eller dess specialiseringar behöver utökas med ytterligare nivåer av detaljerade fynd, kan ytterligare instanser av CLUSTER.imaging_exam eller dess specialiseringar nästlas i SLOT:en ”Ytterligare detaljer”.\r\n\r\nVarje struktur- eller regionspecifik specialisering av denna överordnade arketyp är avsedd att omfatta alla förväntade och relevanta fynd. Exempelvis kommer CLUSTER.imaging_exam-ovary att stödja registrering av alla fynd som kan förväntas vid rapportering om avbildning av äggstocken med hjälp av någon radiologisk modalitet, inklusive äggstockens storlek, största follikelstorlek samt diameter och beskrivning av specifika folliklar. På samma sätt kommer CLUSTER.imaging_exam-lymph_node_group att innehålla fält som krävs för att registrera specifika fynd för en lymfkörtelgrupp, inklusive dess exakta eller relativa placering i kroppen och antalet lymfkörtlar i gruppen.\r\n\r\nOm en lämplig specialisering inte finns tillgänglig för en kroppsstruktur eller -region kan denna generiska arketyp användas för att registrera alla relevanta fynd, inklusive identifiering av strukturen eller regionen.",
+          "misuse" : "Ska inte användas för att registrera fynd som har observerats utanför den identifierade kroppsstrukturen eller -regionen. Använd en separat instans av en eller flera arketyper från CLUSTER.imaging_exam-familjen för detta ändamål.\r\n\r\nSka inte användas för att registrera detaljer som relaterar till de övergripande fynden, sammanhanget eller tekniska detaljer gällande ett fullständigt bilddiagnostiskt undersökningsresultat. Använd OBSERVATION.imaging_exam_result för detta ändamål. Till exempel kommentarer om undersökningens kvalitet, differentialdiagnoser och helhetsintryck.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere funn og tolkning av radiologisk undersøkelse av et definert organ eller en kroppsdel.",
+          "keywords" : [ "funn", "observasjon", "bildediagnostikk", "kropp", "organ", "kroppsstruktur", "diagnostisk", "radiologi", "bilde" ],
+          "use" : "Bruk for å registrere funn og tolkning av radiologisk undersøkelse av et definert organ eller en kroppsdel.\r\n\r\nDet tiltenkte formålet med hele gruppen av arketyper innen CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur) er å kunne registrere alle detaljerte funn og observasjoner ved radiologiske undersøkelser. Gruppen av spesialiserte arketyper er avledet fra denne generiske forelder-arketypen, CLUSTER.imaging_exam (Bildediagnostisk undersøkelse - kroppsstruktur), og har et generelt mønster for å registrere ethvert funn i ethvert organ eller kroppsdel og ved bruk av enhver modalitet.\r\n\r\nDenne arketypen og dens tilhørende gruppe av spesialiseringer er utformet for å nøstes i SLOT'et \"Strukturerte funn\" i OBSERVATION.imaging_exam_result (Bildediagnostisk svar), eller i SLOT'et \"Ytterligere detaljer\" i en annen relevant CLUSTER.imaging_exam - arketype (Bildediagnostisk undersøkelse - XYZ, der \"XYZ\" er nærmere angitt organ). Men den kan også brukes i enhver annen ENTRY- eller CLUSTER-arketype der det er klinisk passende. Hvis denne arketypen, eller en spesialisering av denne, må utvides med flere nivåer med detaljerte funn eller observasjoner, kan flere forekomster av arketypen eller dens spesialiseringer nøstes i SLOT'et \"Ytterligere detaljer\".\r\n\r\nHver organ- eller regionspesifikk spesialisering av denne overordnede arketypen er ment å inkludere alle rimelig forventede og relevante funn. For eksempel vil CLUSTER.imaging_exam-overy (Bildediagnostisk undersøkelse - eggstokk) dekke registrering av alle funn eller observasjoner som man forventer å finne ved radiologisk undersøkelse av eggstokk, uavhengig av modalitet. Dette inkluderer størrelse av eggstokk, dimensjonen av den største follikkelen og diameter og beskrivelse av spesifikke follikler. På samme måte vil CLUSTER.imaging_exam-lymph_node_group (Bildediagnostisk undersøkelse - lymfeknutegruppe) inneholde dataelementer som er nødvendig for å registrere spesifikke funn av en lymfeknutegruppe, inkludert den nøyaktige eller relative plassering i kroppen og antall lymfeknuter i gruppen.\r\n\r\nDersom en passende spesialisering ikke er tilgjengelig for et organ eller kroppsdel, kan denne generiske arketypen brukes for å registrere alle relevante funn, inkludert identifikasjon av organ eller kroppsdel.",
+          "misuse" : "Skal ikke brukes til å registrere funn som er gjort utenom det definerte organet eller den definerte kroppsdelen. Bruk en egen instans av en eller flere arketyper innen gruppen av CLUSTER.imaging_exam - arketyper (Undersøkelsesfunn) for dette formålet.\r\n\r\nSkal ikke brukes til å registrere overordnede undersøkelsesfunn, kontekst eller tekniske detaljer relatert til bildeundersøkelsen. Bruk arketypen OBSERVATION.imaging_exam_result (Bildediagnostisk svar) for å registrere for eksempel kommentar om undersøkelseskvalitet, differensialdiagnose og overordnet konklusjon.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the findings on radiological examination of a specified body structure or region, and their interpretation.",
+          "keywords" : [ "finding, imaging, body, system, structure, region, observation, diagnostic, radiology, image" ],
+          "use" : "Use to record the findings on radiological examination of a specified body structure or region, and their interpretation.\r\n\r\nThe intended scope for the CLUSTER.imaging_exam family of archetypes to be used to record all detailed findings on radiological examination. The family of specialised archetypes are derived from this generic parent archetype, CLUSTER.imaging_exam, designed as a universal pattern for recording any findings in any specified body structure or region and using any modality.\r\n\r\nThis archetype and its related family of specialisations are designed to be nested within the 'Structured imaging findings' SLOT in the OBSERVATION.imaging_exam_result or within the 'Additional details' SLOT in other relevant CLUSTER.imaging_exam archetypes, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate. If this archetype or its specialisations need to be extended with further levels of detailed findings, additional instances of the CLUSTER.imaging_exam or its specialisations can be nested in the 'Additional details' SLOT.\r\n\r\nEach structure- or region-specific specialisation of this parent archetype is intended to be inclusive of all reasonably anticipated and relevant findings. For example, the CLUSTER.imaging_exam-ovary will support recording of all findings that would be expected in reporting on imaging of the ovary using any radiological modality, including the size of the ovary, largest follicle size and the diameter and description of specific follicles. Similarly, CLUSTER.imaging_exam-lymph_node_group will contain data elements required to record specific findings of a lymph node group, including its precise or relative location in the body and the number of lymph nodes in the group. \r\n\r\nIf an appropriate specialisation is not available for a body structure or region, this generic archetype can be used to record all relevant findings, including identification of the structure or region.",
+          "misuse" : "Not to be used to record findings observed outside the identified body structure or region. Use a separate instance of one or more archetypes from the CLUSTER.imaging_exam family for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.imaging_exam.v1",
     "differential" : true,
@@ -706,7 +886,81 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "CLUSTER",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-physical_dimensions_swe-001.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.2",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-psa_density-001.v0",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.3",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-detailed_prostate_findings_mri-001.v0",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.4",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-imaging_exam_anomaly-swe-001.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.5",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-imaging_exam_anomaly-swe-002.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.6",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-occurrences_observed_finding-001.v0",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
@@ -774,6 +1028,1723 @@
         "name" : "Vebjørn Arntzen",
         "organisation" : "Oslo University Hospital",
         "email" : "varntzen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "25b839f3-8411-426c-9df4-5a987920b6fb",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "327D3F45DFFC985F5050803F4B41BE1F"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.physical_dimensions_swe.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-physical_dimensions_swe-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "nb" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "c80fc032-3c32-475c-b919-9dbab8a60755",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Oscar Karlsson, Claudia Ehrentraut",
+        "organisation" : "Karolinska University Hospital",
+        "email" : "oscar.karlsson@regionstockholm.se, claudia.ehrentraut@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Vebjørn Arntzen, Liv Laugen, Kanika Kuwelker",
+        "organisation" : "Oslo University Hospital, Norway, Helse Vest IKT, ​Oslo University Hospital, Norway",
+        "email" : "varntzen@ous-hf.no, liv.laugen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "ef08d1de-adb9-404b-91cb-a17bb1be7d08",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "846e04b7ca144f6a72ba904f5a3044ab"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.psa_density.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-psa_density-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "1efbf1cb-3c21-3eb7-b400-18b6ebd27682",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "4fc07463-7f10-4500-8fc2-f6c60b58de36",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "b3854d5d9745c264c2f54ad253e6b791"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.detailed_prostate_findings_mri.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-detailed_prostate_findings_mri-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "7d6b1fe8-6538-369a-bda0-59a42dea233c",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "0fe4f530-d985-4c5b-827d-c18a0d338f8a",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "e83e1f5a4758076abb180b01b79bda0d"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.imaging_exam_anomaly-swe.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-imaging_exam_anomaly-swe-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0052.0.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-physical_dimensions_swe-002.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0003.0.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-anatomical_location_space-001.v0",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0003.0.2",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-anatomical_location_space-002.v0",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.0.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-pi_rads_2_1-001.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.0.2",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-detailed_lesion_findings_prostate_mri-001.v0",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000.1",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "Imaging examination of an anomaly - lesion",
+            "description" : "An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.",
+            "comment" : "For example: a cyst or mass; a thrombosis; a polyp; a calculus or a foreign body."
+          }
+        },
+        "nb" : { },
+        "de" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "f3db6bae-0448-4bb0-8775-acc95ebf9bf6",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Oscar Karlsson",
+        "organisation" : "Karolinska Universitetssjukhuset",
+        "email" : "oscar.karlsson@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Peter Fedorcsak, Vebjørn Arntzen",
+        "organisation" : "University of Oslo, Oslo University Hospital",
+        "email" : "peterfe@uio.no, varntzen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "ecb700c6-8058-4b10-ba68-c6cbd30e64e6",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "e83e1f5a4758076abb180b01b79bda0d"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.imaging_exam_anomaly-swe.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-imaging_exam_anomaly-swe-002.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000.1",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "Imaging examination of an anomaly - other findings",
+            "description" : "An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.",
+            "comment" : "For example: a cyst or mass; a thrombosis; a polyp; a calculus or a foreign body."
+          }
+        },
+        "nb" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "Bildediagnostisk undersøkelse - anomali (2)",
+            "description" : "Et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.",
+            "comment" : "For eksempel en cyste eller oppfylning, en trombe, en polypp, en nyrestein eller et fremmedlegeme."
+          }
+        },
+        "de" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "Bildgebende Untersuchung einer Anomalie (2)",
+            "description" : "*An incidental or ambiguous finding of an anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)",
+            "comment" : "Zum Beispiel: eine Zyste oder Masse, eine Thrombose, ein Polyp, ein Zahnstein oder ein Fremdkörper."
+          }
+        },
+        "sv" : {
+          "at0000.1.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1.1",
+            "text" : "Bilddiagnostisk undersökning av en förändring (2)",
+            "description" : "Ett slumpmässigt eller tvetydigt fynd av en förändring vid radiologisk undersökning som avviker från vad som förväntas eller är normalt inom en identifierad kroppsstruktur eller -region",
+            "comment" : "Till exempel: en cysta eller massa; en trombos; en polyp; en sten eller en främmande kropp"
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "f3db6bae-0448-4bb0-8775-acc95ebf9bf6",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Oscar Karlsson",
+        "organisation" : "Karolinska Universitetssjukhuset",
+        "email" : "oscar.karlsson@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Peter Fedorcsak, Vebjørn Arntzen",
+        "organisation" : "University of Oslo, Oslo University Hospital",
+        "email" : "peterfe@uio.no, varntzen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "9ad2b84c-b5b7-423a-a19b-bee725cb7731",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "1abb4cc25e7b56ba9849b2d8715c5e07"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.occurrences_observed_finding.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-occurrences_observed_finding-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "3727bc04-c6cf-3021-ba37-2c73056c2cc0",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "806d4327-1cec-452a-8100-f1e890454d9c",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "327D3F45DFFC985F5050803F4B41BE1F"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.physical_dimensions_swe.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-physical_dimensions_swe-002.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "nb" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "c80fc032-3c32-475c-b919-9dbab8a60755",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Oscar Karlsson, Claudia Ehrentraut",
+        "organisation" : "Karolinska University Hospital",
+        "email" : "oscar.karlsson@regionstockholm.se, claudia.ehrentraut@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Vebjørn Arntzen, Liv Laugen, Kanika Kuwelker",
+        "organisation" : "Oslo University Hospital, Norway, Helse Vest IKT, ​Oslo University Hospital, Norway",
+        "email" : "varntzen@ous-hf.no, liv.laugen@ous-hf.no, kanika.kuwelker@helse-vest-ikt.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "24d1fdb6-a39e-415a-8f0b-5e61f1b6bf38",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "5c59bf0cc3967bd890ec8964739fd3ba"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.anatomical_location_space.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-anatomical_location_space-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0002.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Spatial anatomical location - sector",
+            "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Sector",
+            "description" : "Some sort of spatial subdivision of a body structure, e.g., sector, section, segment, half, third, quadrant, portion, region, lobe, part, zone, layer.",
+            "comment" : "If the Spatial anatomical location-archetype is nested in the 'Alternative Structure' SLOT within the Anatomical location-archetype and the 'Specific site'-field in the Anatomical location-archetype has been set, then this field may be redundant. \n\nCoding of 'Area' with a terminology, such as SNOMED CT, is desirable.\n\n"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Main sector",
+            "description" : "The space of a body structure where the largest/main part of a particular phenomena is located, e.g., a lesion or metastasis.",
+            "comment" : "Coding of 'Main area' with a terminology, such as SNOMED CT, is desirable."
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Spatial anatomisk lokalisation - sektor",
+            "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Sektor",
+            "description" : "Någon form av rumslig indelning av en kroppsstruktur, t.ex. sektor, sektion, segment, hälft, tredjedel, kvadrant, del, region, lob, del, zon, lager.",
+            "comment" : "Om arketypen Spatial anatomical location är nästlad i SLOT:en ”Alternative Structure” inom Anatomical location-arketypen och fältet ”Specific site” i Anatomical location-arketypen har angetts, kan detta fält vara överflödigt.\n\nKodning av ”Rum” med en terminologi, t.ex. SNOMED CT, är önskvärd."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Huvudsektor",
+            "description" : "Den rymden i en kroppsstruktur där den största delen (huvuddelen) av en viss företeelse finns, t.ex. en lesion eller metastas.",
+            "comment" : "Kodning av ”Huvudrum” med en terminologi, t.ex. Snomed CT, är önskvärd."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "0ac0cce7-51b1-309b-8032-82bd5b26476f",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "c6683025-9e8d-48d5-9fa0-d4311443afc9",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "5c59bf0cc3967bd890ec8964739fd3ba"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.anatomical_location_space.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-anatomical_location_space-002.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0002.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Spatial anatomical location  - zone",
+            "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Zone",
+            "description" : "Some sort of spatial subdivision of a body structure, e.g., sector, section, segment, half, third, quadrant, portion, region, lobe, part, zone, layer.",
+            "comment" : "If the Spatial anatomical location-archetype is nested in the 'Alternative Structure' SLOT within the Anatomical location-archetype and the 'Specific site'-field in the Anatomical location-archetype has been set, then this field may be redundant. \n\nCoding of 'Area' with a terminology, such as SNOMED CT, is desirable.\n\n"
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Main zone",
+            "description" : "The space of a body structure where the largest/main part of a particular phenomena is located, e.g., a lesion or metastasis.",
+            "comment" : "Coding of 'Main area' with a terminology, such as SNOMED CT, is desirable."
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Spatial anatomisk lokalisation - zon",
+            "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Zon",
+            "description" : "Någon form av rumslig indelning av en kroppsstruktur, t.ex. sektor, sektion, segment, hälft, tredjedel, kvadrant, del, region, lob, del, zon, lager.",
+            "comment" : "Om arketypen Spatial anatomical location är nästlad i SLOT:en ”Alternative Structure” inom Anatomical location-arketypen och fältet ”Specific site” i Anatomical location-arketypen har angetts, kan detta fält vara överflödigt.\n\nKodning av ”Rum” med en terminologi, t.ex. SNOMED CT, är önskvärd."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Huvudzon",
+            "description" : "Den rymden i en kroppsstruktur där den största delen (huvuddelen) av en viss företeelse finns, t.ex. en lesion eller metastas.",
+            "comment" : "Kodning av ”Huvudrum” med en terminologi, t.ex. Snomed CT, är önskvärd."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "0ac0cce7-51b1-309b-8032-82bd5b26476f",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "180ca247-ad15-4185-86a5-39bda3a754f2",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "cc6ab75f12ccca592a6242ccffac2f92"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.pi_rads_2_1.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-pi_rads_2_1-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "nb" : { },
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "7697efcf-e12a-48aa-a199-e54db66af860",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "June Marie Knappskog, June Marie Nepstad Knappskog",
+        "organisation" : "Helse Nord IKT AS, Norway (Nasjonal IKT redaktør), Helse Nord IKT AS, Norway (openEHR Editor)",
+        "email" : "june.marie.nepstad.knappskog@hnikt.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "789075a9-dba0-4658-9a07-e09905344646",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "3422b4370b260417b1784d106fe5cc52"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.detailed_lesion_findings_prostate_mri.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-detailed_lesion_findings_prostate_mri-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "2d3bebb2-b356-3ac9-ad4f-35fe333777d5",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "7229aaa9-86a1-4f81-8ed6-69e85fe070af",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "19019312eb11d8b00fe32bb22299b2f1"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.mri_technique_details_.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-mri_technique_details_-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "19d8d90c-1fbe-35db-abd3-6b595e759269",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "30acb85c-c6bb-41f5-bb7f-d53853466573",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "AB458098681E9505986ADFCEC7FEC742"
+      },
+      "details" : { }
+    },
+    "annotations" : {
+      "@type" : "RESOURCE_ANNOTATIONS",
+      "documentation" : {
+        "ar-sy" : {
+          "/data[at0001]/events[at0002]/data[at0003]/items[at0100]" : {
+            "fhir_mapping" : "*DiagnosticReport.requestDetail.clinicalNotes(en)"
+          },
+          "/data[at0001]/events[at0002]/data[at0003]/items[at0057]" : {
+            "fhir_mapping" : "*DiagnosticReport.conclusion(en)"
+          },
+          "/data[at0001]/events[at0002]/data[at0003]/items[at0118]" : {
+            "fhir_mapping" : "*DiagnosticReport.presentedForm(en)"
+          }
+        },
+        "en" : { },
+        "nb" : { },
+        "zh-cn" : {
+          "/data[at0001]/events[at0002]/data[at0003]/items[at0100]" : {
+            "fhir_mapping" : "*DiagnosticReport.requestDetail.clinicalNotes(en)"
+          },
+          "/data[at0001]/events[at0002]/data[at0003]/items[at0057]" : {
+            "fhir_mapping" : "*DiagnosticReport.conclusion(en)"
+          },
+          "/data[at0001]/events[at0002]/data[at0003]/items[at0118]" : {
+            "fhir_mapping" : "*DiagnosticReport.presentedForm(en)"
+          }
+        },
+        "de" : { },
+        "it" : { },
+        "nl" : { },
+        "sv" : { },
+        "pt-br" : { },
+        "es" : { },
+        "ca" : { }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-OBSERVATION.ovl-laboratory_test_result-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "OBSERVATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "HISTORY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "events",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "EVENT",
+              "nodeId" : "at0002",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_ARCHETYPE_ROOT",
+                      "rmTypeName" : "CLUSTER",
+                      "occurrences" : "0..1",
+                      "nodeId" : "at0097.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ],
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-laboratory_test_analyte-001.v1",
+                      "referenceType" : "archetypeOverlay"
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "ar-sy" : { },
+        "en" : { },
+        "nb" : { },
+        "zh-cn" : { },
+        "de" : { },
+        "it" : { },
+        "nl" : { },
+        "sv" : { },
+        "pt-br" : { },
+        "es" : { },
+        "ca" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "0dbb47f7-fb53-4622-9a90-7b91c3778c3b",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Sarah Ballout",
+        "organisation" : "MHH-Hannover",
+        "email" : "ballout.sarah@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Linda Aulin, Åsa Skagerhult, Linda Aulin Lundeqvist",
+        "organisation" : "Region Stockholm, Region Östergötland, Karolinska University Hospital, Region Stockholm",
+        "email" : "linda.aulin@sll.se, linda.aulin@regionstockholm.se, asa.skagerhult@regionostergotland.se, linda.aulin-lundeqvist@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Vebjørn Arntzen/Silje Ljosland Bakke/Liv Laugen",
+        "organisation" : "Oslo universitetssykehus HF/Nasjonal IKT HF/Oslo universitetssykehus, Norway"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Vladimir Pizzo",
+        "organisation" : "Clínica Parente Pizzo",
+        "email" : "vrppizzo@gmail.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "it"
+      },
+      "author" : {
+        "name" : "Alessandro Sulis/Francesca Frexia/Cecilia Mascia",
+        "organisation" : "CRS4 - Center for advanced studies, research and development in Sardinia, Pula (Cagliari), Italy",
+        "email" : "alessandro.sulis@crs4.it/francesca.frexia@crs4.it/cecilia.mascia@crs4.it"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "zh-cn"
+      },
+      "author" : {
+        "name" : "Lin Zhang",
+        "organisation" : "N/A",
+        "email" : "linforest@163.com"
+      },
+      "accreditation" : "N/A",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Joost Holslag",
+        "organisation" : "Nedap",
+        "email" : "joost.holslag@nedap.com"
+      },
+      "accreditation" : "MD",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es"
+      },
+      "author" : {
+        "name" : "Julio de Sosa",
+        "organisation" : "Servei Català de la Salut",
+        "email" : "juliodesosa@catsalut.cat"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ca"
+      },
+      "author" : {
+        "name" : "Julio de Sosa",
+        "organisation" : "Servei Català de la Salut",
+        "email" : "juliodesosa@catsalut.cat"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "185958f7-33cc-4ec3-8b90-c0021b9a5ebe",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "81F6C7D9E6F6BD129786FA973FD930FF"
+      },
+      "details" : { }
+    },
+    "annotations" : {
+      "@type" : "RESOURCE_ANNOTATIONS",
+      "documentation" : {
+        "en" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "NTE.3",
+            "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "OBX.19",
+            "fhir_mapping" : "Observation.issued"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        },
+        "nb" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "NTE.3",
+            "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "OBX.19",
+            "fhir_mapping" : "Observation.issued"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        },
+        "pt-br" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "*OBX-3.1;3.2(en)",
+            "fhir_mapping" : "*Observation.code(en)"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "*OBX.2,OBX.5,OBX.6(en)",
+            "fhir_mapping" : "*Observation.value[x](en)"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "*NTE.3(en)",
+            "fhir_mapping" : "*Observation.comments(en)"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "*OBX-22 and/or OBX-19(en)",
+            "fhir_mapping" : "*Observation.issued(en)"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "*OBX-11-observation result status(en)",
+            "fhir_mapping" : "*status(en)"
+          }
+        },
+        "de" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "NTE.3",
+            "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "OBX.19",
+            "fhir_mapping" : "Observation.issued"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        },
+        "nl" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "NTE.3",
+            "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "OBX.19",
+            "fhir_mapping" : "Observation.issued"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        },
+        "sv" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        },
+        "es" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "NTE.3",
+            "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "OBX.19",
+            "fhir_mapping" : "Observation.issued"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        },
+        "ca" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "NTE.3",
+            "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "OBX.19",
+            "fhir_mapping" : "Observation.issued"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        },
+        "zh-cn" : {
+          "/items[at0024]" : {
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "/items[at0001]" : {
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "/items[at0003]" : {
+            "hl7v2_mapping" : "NTE.3",
+            "fhir_mapping" : "Observation.note"
+          },
+          "/items[at0006]" : {
+            "hl7v2_mapping" : "OBX.19",
+            "fhir_mapping" : "Observation.issued"
+          },
+          "/items[at0005]" : {
+            "hl7v2_mapping" : "OBX.11",
+            "fhir_mapping" : "Observation.status"
+          }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-laboratory_test_analyte-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "nb" : { },
+        "pt-br" : { },
+        "de" : { },
+        "nl" : { },
+        "sv" : { },
+        "es" : { },
+        "ca" : { },
+        "zh-cn" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "bf1e8f0a-5e64-4c2e-9eba-9e1cd9016746",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Michael Lieser, Antje Wulff, Natalia Strauch",
+        "organisation" : "Department of Infectious Diseases, Heidelberg University Hospital, Medizinische Hochschule Hannover",
+        "email" : "michael.lieser@med.uni-heidelberg.de, wulff.antje@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Linda Aulin, Linda Aulin Lundeqvist",
+        "organisation" : "Region Stockholm, Karolinska University Hospital, Karolinska University Hospital, Region Stockholm",
+        "email" : "linda.aulin@sll.se, linda.aulin-lundeqvist@regionstockholm.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Silje Ljosland Bakke, Liv Laugen",
+        "organisation" : "Nasjonal IKT HF, ​Oslo University Hospital, Norway",
+        "email" : "liv.laugen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima, Débora Farage, Fernanda Maia, Laíse Figueiredo, Marivan Abrahão",
+        "organisation" : "Core Consulting",
+        "email" : "contato@coreconsulting.com.br"
+      },
+      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "zh-cn"
+      },
+      "author" : {
+        "name" : "Lin Zhang",
+        "organisation" : "Freelancer",
+        "email" : "linforest@163.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Joost Holslag",
+        "organisation" : "Nedap",
+        "email" : "joost.holslag@nedap.com"
+      },
+      "accreditation" : "MD",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es"
+      },
+      "author" : {
+        "name" : "Julio de Sosa",
+        "organisation" : "Servei Català de la Salut",
+        "email" : "juliodesosa@catsalut.cat"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ca"
+      },
+      "author" : {
+        "name" : "Julio de Sosa",
+        "organisation" : "Servei Català de la Salut",
+        "email" : "juliodesosa@catsalut.cat"
       },
       "otherDetails" : { }
     } ]
