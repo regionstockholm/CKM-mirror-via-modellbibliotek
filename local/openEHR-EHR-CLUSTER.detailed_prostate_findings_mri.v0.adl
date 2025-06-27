@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"60b8f260af8e35d281cd8a3ed3102904">
+		["MD5-CAM-1.0.1"] = <"b3854d5d9745c264c2f54ad253e6b791">
 		["build_uid"] = <"7d6b1fe8-6538-369a-bda0-59a42dea233c">
 	>
 
@@ -55,7 +55,13 @@ definition
 			}
 			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Median lobe presence
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007,    -- Present
+							at0008]    -- Absent
+						}
+					}
 				}
 			}
 			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Median lobe depth
@@ -84,7 +90,13 @@ definition
 			}
 			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Posterior bulge presence
 				value matches {
-					DV_CODED_TEXT matches {*}
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009,    -- Present
+							at0010]    -- Absent
+						}
+					}
 				}
 			}
 			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Posterior bulge length
@@ -134,6 +146,22 @@ ontology
 					text = <"Median lobe height">
 					description = <"">
 				>
+				["at0007"] = <
+					text = <"Present">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Absent">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Present">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Absent">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -164,6 +192,22 @@ ontology
 				>
 				["at0006"] = <
 					text = <"Tertius lobens höjd">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Föreligger">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Saknas">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Föreligger">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Saknas">
 					description = <"">
 				>
 			>
