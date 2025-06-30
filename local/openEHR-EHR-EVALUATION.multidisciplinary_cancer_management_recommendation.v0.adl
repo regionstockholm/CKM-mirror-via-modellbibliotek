@@ -37,7 +37,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"2e337baad4be873247f6a7e3939db732">
+		["MD5-CAM-1.0.1"] = <"ff9fdcdb48dd766e75655bc7e4a2a7d1">
 		["build_uid"] = <"ab71b0cd-5709-3491-98fc-13bdb59b55f5">
 	>
 
@@ -50,7 +50,7 @@ definition
 						items cardinality matches {1..*; unordered} matches {
 							CLUSTER[at0004] occurrences matches {0..1} matches {    -- Treatment option
 								items cardinality matches {1..*; unordered} matches {
-									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Clinical trail
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Clinical study
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -90,25 +90,20 @@ definition
 													DV_CODED_TEXT matches {*}
 												}
 											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Relation to main tretament
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
 											allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {    -- Additional details
 												include
 													archetype_id/value matches {/.*/}
 											}
 										}
 									}
-									CLUSTER[at0019] occurrences matches {0..1} matches {    -- Best supportive care
-										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0022] occurrences matches {0..1} matches {    -- Best supportive care
-												value matches {
-													DV_BOOLEAN matches {*}
-												}
-											}
-											ELEMENT[at0020] occurrences matches {0..1} matches {    -- Reason for coosing best suportive care
-												value matches {
-													DV_CODED_TEXT matches {*}
-												}
-											}
-										}
+									allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Additional treatment
+										include
+											archetype_id/value matches {/.*/}
 									}
 									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Comment
 										value matches {
@@ -147,7 +142,7 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"multidisciplinary cancer management recommendation">
-					description = <"multidisciplinary cancer management recommendation">
+					description = <"The recommendation provided by a multidisciplinary team regarding the management of a cancer patient.">
 				>
 				["at0001"] = <
 					text = <"Item tree">
@@ -155,31 +150,31 @@ ontology
 				>
 				["at0002"] = <
 					text = <"Recommended treatment strategy">
-					description = <"">
+					description = <"Information about the recommended treatment strategy.">
 				>
 				["at0003"] = <
 					text = <"Futher investigation">
-					description = <"">
+					description = <"Details about any further investigation recommended.">
 				>
 				["at0004"] = <
 					text = <"Treatment option">
-					description = <"">
+					description = <"Details about a specific alternative for treatment.">
 				>
 				["at0005"] = <
-					text = <"Clinical trail">
-					description = <"">
+					text = <"Clinical study">
+					description = <"Information about a study in which the patient may potentially participate">
 				>
 				["at0006"] = <
 					text = <"Option number">
-					description = <"">
+					description = <"Sequence number assigned to distinguish a specific treatment option.">
 				>
 				["at0007"] = <
 					text = <"Main treatment">
-					description = <"">
+					description = <"Main treatment is the intervention aimed at completely removing or eliminating the cancer from the body. It can be any type of treatment (e.g., surgery, radiation therapy, or chemotherapy), with surgery often being the most common. When multiple treatments are given, the main treatment is the central one. Additional treatments can be given to improve the effects of the main treatment, such as neoadjuvant therapy, which is administered before the main treatment.">
 				>
 				["at0008"] = <
 					text = <"Additional treatment">
-					description = <"">
+					description = <"Therapies given in addition to the main treatment, aimed at improving the effects of the main treatment. Additional treatment can be given before, after, or both before and after the main treatment.">
 				>
 				["at0009"] = <
 					text = <"Comment">
@@ -187,11 +182,11 @@ ontology
 				>
 				["at0010"] = <
 					text = <"Intent">
-					description = <"">
+					description = <"The intent of the recommended main treatment.">
 				>
 				["at0011"] = <
 					text = <"Type of treatment">
-					description = <"">
+					description = <"Type of main tretament recommended. ">
 				>
 				["at0014"] = <
 					text = <"Additional details">
@@ -199,26 +194,14 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Intent">
-					description = <"">
+					description = <"The intent of the recommended additional treatment.">
 				>
 				["at0016"] = <
 					text = <"Type of treatment">
-					description = <"">
+					description = <"Type of additional tretament recommended. ">
 				>
 				["at0017"] = <
 					text = <"Additional details">
-					description = <"">
-				>
-				["at0019"] = <
-					text = <"Best supportive care">
-					description = <"">
-				>
-				["at0020"] = <
-					text = <"Reason for coosing best suportive care">
-					description = <"">
-				>
-				["at0022"] = <
-					text = <"Best supportive care">
 					description = <"">
 				>
 				["at0024"] = <
@@ -231,6 +214,14 @@ ontology
 				>
 				["at0027"] = <
 					text = <"Follow up">
+					description = <"A narrative description of the planned follow-up for the patient.">
+				>
+				["at0028"] = <
+					text = <"Relation to main tretament">
+					description = <"Describes the timing of the additional treatment in relation to the main treatment (e.g., before, after, or both).">
+				>
+				["at0029"] = <
+					text = <"Additional treatment">
 					description = <"">
 				>
 			>
@@ -238,40 +229,40 @@ ontology
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"*multidisciplinary cancer management recommendation (en)">
-					description = <"*multidisciplinary cancer management recommendation (en)">
+					text = <"multidisciplinär rekommendation för handläggning av cancer">
+					description = <"*The recommendation provided by a multidisciplinary team regarding the management of a cancer patient. (en)">
 				>
 				["at0001"] = <
 					text = <"Item tree">
 					description = <"@ internal @">
 				>
 				["at0002"] = <
-					text = <"*Recommended treatment strategy (en)">
-					description = <"">
+					text = <"Rekommenderad behandlingsstrategi">
+					description = <"*Information about the recommended treatment strategy. (en)">
 				>
 				["at0003"] = <
 					text = <"*Futher investigation (en)">
-					description = <"">
+					description = <"*Details about any further investigation recommended. (en)">
 				>
 				["at0004"] = <
-					text = <"*Treatment option (en)">
-					description = <"">
+					text = <"Behandlingsalternativ">
+					description = <"*Details about a specific alternative for treatment. (en)">
 				>
 				["at0005"] = <
-					text = <"*Clinical trail (en)">
-					description = <"">
+					text = <"Klinisk studie">
+					description = <"*Information about a study in which the patient may potentially participate (en)">
 				>
 				["at0006"] = <
 					text = <"*Option number (en)">
-					description = <"">
+					description = <"*Sequence number assigned to distinguish a specific treatment option. (en)">
 				>
 				["at0007"] = <
 					text = <"*Main treatment (en)">
-					description = <"">
+					description = <"*Main treatment is the intervention aimed at completely removing or eliminating the cancer from the body. It can be any type of treatment (e.g., surgery, radiation therapy, or chemotherapy), with surgery often being the most common. When multiple treatments are given, the main treatment is the central one. Additional treatments can be given to improve the effects of the main treatment, such as neoadjuvant therapy, which is administered before the main treatment. (en)">
 				>
 				["at0008"] = <
 					text = <"*Additional treatment (en)">
-					description = <"">
+					description = <"*Therapies given in addition to the main treatment, aimed at improving the effects of the main treatment. Additional treatment can be given before, after, or both before and after the main treatment. (en)">
 				>
 				["at0009"] = <
 					text = <"*Comment (en)">
@@ -279,11 +270,11 @@ ontology
 				>
 				["at0010"] = <
 					text = <"*Intent (en)">
-					description = <"">
+					description = <"*The intent of the recommended main treatment. (en)">
 				>
 				["at0011"] = <
 					text = <"*Type of treatment (en)">
-					description = <"">
+					description = <"*Type of main tretament recommended.  (en)">
 				>
 				["at0014"] = <
 					text = <"*Additional details (en)">
@@ -291,26 +282,14 @@ ontology
 				>
 				["at0015"] = <
 					text = <"*Intent (en)">
-					description = <"">
+					description = <"*The intent of the recommended additional treatment. (en)">
 				>
 				["at0016"] = <
 					text = <"*Type of treatment (en)">
-					description = <"">
+					description = <"*Type of additional tretament recommended.  (en)">
 				>
 				["at0017"] = <
 					text = <"*Additional details (en)">
-					description = <"">
-				>
-				["at0019"] = <
-					text = <"*Best supportive care (en)">
-					description = <"">
-				>
-				["at0020"] = <
-					text = <"*Reason for coosing best suportive care (en)">
-					description = <"">
-				>
-				["at0022"] = <
-					text = <"*Best supportive care (en)">
 					description = <"">
 				>
 				["at0024"] = <
@@ -323,6 +302,14 @@ ontology
 				>
 				["at0027"] = <
 					text = <"*Follow up (en)">
+					description = <"*A narrative description of the planned follow-up for the patient. (en)">
+				>
+				["at0028"] = <
+					text = <"*Relation to main tretament (en)">
+					description = <"*Describes the timing of the additional treatment in relation to the main treatment (e.g., before, after, or both). (en)">
+				>
+				["at0029"] = <
+					text = <"*Additional treatment (en)">
 					description = <"">
 				>
 			>
