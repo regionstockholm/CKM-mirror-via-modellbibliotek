@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.19",
+      "sem_ver" : "1.0.0-alpha.20",
       "build_uid" : "2886572f-957e-487e-b57a-164e20dc43d5",
-      "MD5-CAM-1.0.1" : "fb51983397b2e06afd43cc5711b52422",
+      "MD5-CAM-1.0.1" : "f4c236796c11589d5010fad8b0d812ea",
       "PARENT:MD5-CAM-1.0.1" : "5F1FF554C835566C2BC9A3116B3DAB95"
     },
     "details" : {
@@ -2204,7 +2204,6 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
                       "nodeId" : "at0091.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
@@ -2213,7 +2212,45 @@
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_CODED_TEXT",
                           "occurrences" : "1..1",
-                          "attributes" : [ ],
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "TERMINOLOGY_CODE",
+                              "occurrences" : "0..1",
+                              "terminologyId" : {
+                                "value" : "local_terms_2"
+                              },
+                              "constraint" : [ ],
+                              "selectedTerminologies" : [ "local_terms_2" ],
+                              "includedExternalTerminologyCodes" : [ {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "1",
+                                "value" : "PET-CT"
+                              }, {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "2",
+                                "value" : "Skelettscintografi"
+                              }, {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "3",
+                                "value" : "CT"
+                              }, {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "4",
+                                "value" : "MR"
+                              }, {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "5",
+                                "value" : "Ultraljud"
+                              }, {
+                                "terminologyId" : "local_terms_2",
+                                "code" : "6",
+                                "value" : "Slätröntgen"
+                              } ]
+                            } ]
+                          } ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
@@ -2708,6 +2745,13 @@
             "text" : "Typ av undersökning",
             "description" : "*The name of the imaging examination performed. (en)",
             "comment" : "*For example: 'CT abdomen'; 'Doppler ultrasound of renal artery' or 'Plain chest xray'. Coding with a terminology is strongly recommended, preferably a term specifying both modality and anatomical location, where possible. Examples of candidate terminologies are the LOINC Imaging Document Codes, RadLex Playbook or SNOMED-CT. Equivalent to DiagnosticReport.code in FHIR. (en)"
+          },
+          "at0091.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0091.1",
+            "text" : "Undersökningsmodalitet",
+            "description" : "*The type of imaging device, process or method that originally acquired or produced the data used to create the images in the study. (en)",
+            "comment" : "*For example: 'XRay', 'CT scan', 'ultrasound', 'MRI', 'bone densitometry', 'tomography', 'mammography', 'nuclear medicine', 'PET', 'angiography', and 'fluoroscopy'. This data element may be redundant if the modality is clearly represented in the 'Study name'. Alternatively it may also be possible to autopopulate the 'Modality' from a coded 'Study name'. Coding of the 'Modality' with a value set is recommended, such as the DICOM CID 29 Acquisition Modality value set. Equivalent to ImagingStudy.modality in FHIR and Modality (0008, 0060) in DICOM. (en)"
           }
         }
       },
@@ -12173,7 +12217,7 @@
           "at0001.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001.1",
-            "text" : "Lokalisation",
+            "text" : "Anatomisk lokalisation för provtagning",
             "description" : "Identifiering av enskilt fysiskt ställe på eller i människokroppen.",
             "comment" : "*This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf 'Body site name' is already identified in an archetype in which this Anatomical location archetype has been nested, then this data element may be redundant. However, it might be reasonable to duplicate 'Body site name' in this archetype to support semantic querying using this archetype, instead of the archetype in which it has been nested. (en)"
           },
