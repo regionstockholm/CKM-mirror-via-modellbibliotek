@@ -57,12 +57,12 @@ Bei bestimmten Tumorarten, wie Hodgkin-Lymphomen und anderen Non-Hodgkin-Lymphom
 			purpose = <"Att registrera den kliniska klassificeringen och stadieindelningen av maligniteter enligt TNM-systemet.">
 			use = <"Används för att registrera den kliniska klassificeringen, betecknad som TNM eller cTNM, samt stadieindelningen av maligniteter.
 
-Denna arketyp är utformad för att nästlas inuti en ENTRY-arketype som tillhandahåller den kliniskt kontexten och aktuell tumörtyp för TNM-registreringen – till exempel: SLOT:en 'Specifika detaljer' i arketypen EVALUATION.problem_diagnosis.
+Denna arketyp är utformad för att nästlas inuti en ENTRY-arketyp, vilken tillhandahåller den kliniskt kontexten och aktuell tumörtyp för TNM-registreringen – till exempel: SLOT:en 'Specifika detaljer' i arketypen EVALUATION.problem_diagnosis.
 
-Varje cancerform har en unik uppsättning TNM-klassificeringsvärden. Det förväntas att denna arketyp begränsas för att återspegla de specifika kraven för varje tumörtyp och version av TNM-klassifikationen, antingen genom en arketyp-specialisering eller i templaten.
+Varje cancerform har en unik uppsättning TNM-klassificeringsvärden. Arketyp bör begränsas för att återspegla de specifika kraven för varje tumörtyp och version av TNM-klassifikationen, antingen genom en arketyp-specialisering eller i templaten.
 
-För vissa tumörtyper, såsom Hodgkins och andra icke-Hodgkin-lymfom, används ett annat system för att ange sjukdomsutbredning och prognos. I dessa fall definieras endast stadieindelningen.">
-			keywords = <"TNM, cancer, tumör, cTNM, tumörgradering, stadieindelning, malignitet, klassificering, stadium, neoplasi", ...>
+För vissa tumörtyper, såsom Hodgkins och andra non-Hodgkin-lymfom, används ett annat system för att ange sjukdomsutbredning och prognos. I dessa fall definieras endast stadieindelningen.">
+			keywords = <"TNM, cancer, tumör, cTNM, tumörgradering, stadieindelning, malignitet, klassificering, stadium, tumörsjukdom, neoplastisk sjukdom", ...>
 			misuse = <"Ska inte användas för att registrera patologisk TNM-klassificering – använd i stället arketypen CLUSTER.tnm-pathological för det ändamålet.">
 		>
 		["nb"] = <
@@ -108,7 +108,7 @@ TNM Classification Help (Manual for Cancer Staging); [cited 2019 10 04].  Availa
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"38C766381E143256C6B9DBAE83971C98">
+		["MD5-CAM-1.0.1"] = <"2B01CD274416700A9FD829361593AB32">
 		["build_uid"] = <"93bdbdbe-8da1-4ce7-b09a-f560dd743795">
 		["revision"] = <"1.0.1-alpha">
 	>
@@ -716,16 +716,19 @@ ontology
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"*TNM clinical classification(en)">
-					description = <"*A framework for the clinical classification and stage grouping of malignancies using the TNM system.(en)">
+					text = <"Klinisk TNM-klassificering">
+					description = <"Ett ramverk för klinisk klassificering och stadieindelning av maligniteter med hjälp av TNM-systemet.">
+					comment = <"Betecknas TNM eller cTNM.">
 				>
 				["at0001"] = <
-					text = <"*Anatomical site(en)">
-					description = <"*The anatomical site where the assessed tumour is situated.(en)">
+					text = <"Anatomisk lokalisation">
+					description = <"Den anatomiska lokalisation där den bedömda tumören sitter.">
+					comment = <"Använd värdet från TNM-varianten för respektive cancertyp, till exempel magsäck eller tunntarm.">
 				>
 				["at0002"] = <
-					text = <"*Anatomical subsite(en)">
-					description = <"*The anatomical subsite where the assessed tumour is situated.(en)">
+					text = <"Anatomiskt delområde">
+					description = <"Det anatomiska delområde där den bedömda tumören sitter.">
+					comment = <"Använd värdet från TNM-varianten för respektive cancertyp. Till exempel: cardia, fundus ventriculi, corpus ventriculi, antrum pyloricum och magsäckens pylorusdel (magsäck); eller duodenum, jejunum eller ileum (tunntarm)">
 				>
 				["at0003"] = <
 					text = <"Primärtumör (T)">
@@ -743,112 +746,123 @@ ontology
 					comment = <"Kodlista lämplig för tumörtyp och anatomisk lokalisation bör användas. Till exempel: \"M1\"; \"cM1a\"; \"M1\"; eller \"cM0\". Representeras som \"M\" eller \"cM\" i \"TNM-klassificeringen\".">
 				>
 				["at0006"] = <
-					text = <"*Histopathological grade (G)(en)">
-					description = <"*Histopathological grading of the tumour.(en)">
+					text = <"Histopatologisk grad (G)">
+					description = <"Histopatologisk gradering av tumören.">
+					comment = <"Histopatologisk bedömning före behandling kan fastställas utifrån en enskild biopsi innan kirurgisk resektion. Kodning med en G-kod som är lämplig för den identifierade tumörtypen och anatomiska lokalisationen bör användas. Till exempel: \"G2\", \"GX\" eller \"låg grad\" för klassificering av skelett- och mjukdelssarkom. Representeras som \"G\" inom \"TNM-bedömningen\".">
 				>
 				["at0007"] = <
-					text = <"*Residual tumour (R)(en)">
-					description = <"*Assessment of the presence of residual tumour after treatment.(en)">
+					text = <"Residualtumör">
+					description = <"Bedömning av förekomst av resttumör efter behandling.">
+					comment = <"Till exempel: \"R2 (makroskopisk resttumör)\". Representeras som \"R\" inom \"TNM-bedömningen\".">
 				>
 				["at0008"] = <
-					text = <"*RX(en)">
-					description = <"*Presence of residual tumour cannot be assessed.(en)">
+					text = <"RX">
+					description = <"Förekomst av resttumör kan ej bedömas.">
 				>
 				["at0009"] = <
-					text = <"*R0(en)">
-					description = <"*No residual tumour.(en)">
+					text = <"R0">
+					description = <"Ingen resttumör.">
 				>
 				["at0010"] = <
-					text = <"*R1(en)">
-					description = <"*Microscopic residual tumour.(en)">
+					text = <"R1">
+					description = <"Mikroskopisk resttumör.">
 				>
 				["at0011"] = <
-					text = <"*R2(en)">
-					description = <"*Macroscopic residual tumour.(en)">
+					text = <"R2">
+					description = <"Makroskopisk resttumör.">
 				>
 				["at0012"] = <
-					text = <"*Lymphatic invasion (L)(en)">
-					description = <"*Assessment of invasion into the lymphatic system.(en)">
+					text = <"Tumörinväxt i lymfsystemet (L)">
+					description = <"Bedömning av tumörinväxt i lymfsystemet.">
+					comment = <"Till exempel: \"L0 (ingen lymfkärlsinväxt)\". Representeras som \"L\" inom \"TNM-bedömningen\".">
 				>
 				["at0013"] = <
-					text = <"*LX(en)">
-					description = <"*Lymphatic invasion cannot be assessed.(en)">
+					text = <"LX">
+					description = <"Tumörinväxt i lymfsystemet kan ej bedömas.">
 				>
 				["at0014"] = <
-					text = <"*L0(en)">
-					description = <"*No lymphatic invasion.(en)">
+					text = <"L0">
+					description = <"Ingen tumörinväxt i lymfsystemet.">
 				>
 				["at0015"] = <
-					text = <"*L1(en)">
-					description = <"*Lymphatic invasion.(en)">
+					text = <"L1">
+					description = <"Tumörinväxt i lymfsystemet.">
 				>
 				["at0016"] = <
-					text = <"*Venous invasion (V)(en)">
-					description = <"*Assessment of invasion into the venous system.(en)">
+					text = <"Tumörinväxt i venöst kärl (V)">
+					description = <"Bedömning av tumörinväxt i venösa systemet.">
+					comment = <"Till exempel: \"V1 (mikroskopisk veninvasion)\". Representeras som \"V\" inom \"TNM-bedömningen\".">
 				>
 				["at0017"] = <
-					text = <"*VX(en)">
-					description = <"*Venous invasion cannot be assessed.(en)">
+					text = <"VX">
+					description = <"Tumörinväxt i venösa systemet kan ej bedömas.">
 				>
 				["at0018"] = <
-					text = <"*V0(en)">
-					description = <"*No venous invasion.(en)">
+					text = <"V0">
+					description = <"Ingen tumörinväxt i venösa systemet.">
 				>
 				["at0019"] = <
-					text = <"*V1(en)">
-					description = <"*Microscopic venous invasion.(en)">
+					text = <"V1">
+					description = <"Mikroskopisk tumörinväxt i venösa systemet.">
 				>
 				["at0020"] = <
-					text = <"*V2(en)">
-					description = <"*Macroscopic venous invasion.(en)">
+					text = <"V2">
+					description = <"Makroskopisk tumörinväxt i venösa systemet.">
 				>
 				["at0021"] = <
-					text = <"*Perineural invasion (Pn)(en)">
-					description = <"*Assessment of invasion into the space surrounding nerves.(en)">
+					text = <"Perineural spridning (Pn)">
+					description = <"Bedömning av tumörspridning till omgivande nerverna.">
+					comment = <"Till exempel: \"Pn0 (ingen perineural invasion)\". Representeras som \"Pn\" inom \"TNM-bedömningen\".">
 				>
 				["at0022"] = <
-					text = <"*PnX(en)">
-					description = <"*Perineural invasion cannot be assessed.(en)">
+					text = <"PnX">
+					description = <"Perineural spridning kan ej bedömas.">
 				>
 				["at0023"] = <
-					text = <"*Pn0(en)">
-					description = <"*No perineural invasion.(en)">
+					text = <"Pn0">
+					description = <"Ingen perineural spridning.">
 				>
 				["at0024"] = <
-					text = <"*Pn1(en)">
-					description = <"*Perineural invasion.(en)">
+					text = <"Pn1">
+					description = <"Perineural spridning.">
 				>
 				["at0025"] = <
-					text = <"*Multiple primary tumours (m)(en)">
-					description = <"*Presence of multiple simultaneous primary tumours at a single site.(en)">
+					text = <"Multipla primärtumörer (m)">
+					description = <"Förekomst av flera samtidiga primärtumörer vid en och samma anatomiska lokalisation.">
+					comment = <"Representeras av suffixet, antingen som \"(m)\" eller genom att antalet primärtumörer läggs till i T-koden inom parentes. Till exempel: \"T2(m)\" eller \"cT2(4)\".">
 				>
 				["at0026"] = <
-					text = <"*Multimodality therapy (y)(en)">
-					description = <"*Record as True if assessment is performed during or following initial multimodal therapy.(en)">
+					text = <"Multimodal behandling (y)">
+					description = <"Ange som sant (True) om bedömning utförs under eller efter initial multimodal behandling.">
+					comment = <"Representeras av prefixet 'y' som läggs till i 'TNM-bedömningen'. Till exempel: \"yT2N1M0\".">
 				>
 				["at0027"] = <
-					text = <"*Recurrent (r)(en)">
-					description = <"*Record as True if assessment is performed for a recurring cancer after a disease-free interval.(en)">
+					text = <"Recidiverande (r)">
+					description = <"Ange som sant (True) om bedömning utförs för en återkommande cancer efter en sjukdomsfri period.">
+					comment = <"Representeras av prefixet 'r' som läggs till i 'TNM-bedömningen'. Till exempel: \"rT2N1M0\".">
 				>
 				["at0028"] = <
-					text = <"*Autopsy (a)(en)">
-					description = <"*Record as True if assessment is performed at postmortem examination.(en)">
+					text = <"Obduktion (a)">
+					description = <"Ange som sant (True) om bedömning utförs vid obduktion.">
+					comment = <"Representeras av prefixet 'a' som läggs till i 'TNM-bedömningen'. Till exempel: \"aT3N2M1\".">
 				>
 				["at0029"] = <
-					text = <"*Carcinoma in situ (is)(en)">
-					description = <"*Record as True if presence of carcinoma in situ associated with the primary tumour.(en)">
+					text = <"Carcinoma in situ (is)">
+					description = <"Ange som sant (True) om förekomst av cancer in situ är kopplad till primärtumören.">
+					comment = <"Representeras av prefixet 'is' som läggs till i 'TNM-bedömningen'.">
 				>
 				["at0030"] = <
-					text = <"*TNM assessment(en)">
-					description = <"*Concatenation of 'T', 'N' and 'M' assessments plus any optional assessments of 'G', 'R', 'L', 'V', prefixes and/or suffixes, as applicable.(en)">
+					text = <"TNM-bedömning">
+					description = <"Sammanställning av bedömningarna för 'T', 'N' och 'M' samt eventuella tilläggsbedömningar för 'G', 'R', 'L', 'V', prefix och/eller suffix, där det är tillämpligt.">
 				>
 				["at0031"] = <
-					text = <"*Stage grouping(en)">
-					description = <"*The categorisation of the anatomical stage of the tumour, usually based on TNM assessment.(en)">
+					text = <"Stadieindelning">
+					description = <"Kategorisering av tumörens anatomiska stadie, vanligtvis baserat på TNM.">
+					comment = <"Till exempel kategoriseras cancer in situ som stadium 0; och tumörer med fjärrmetastaser kategoriseras som stadium IV.">
 				>
 				["at0032"] = <
-					text = <"*TNM Edition(en)">
-					description = <"*The edition of the TNM classification system used for the assessment.(en)">
+					text = <"TNM-version">
+					description = <"Den version av TNM-klassifikationssystemet som används för bedömningen.">
 				>
 			>
 		>
