@@ -1,0 +1,93 @@
+archetype (adl_version=1.4; uid=7e617713-85d3-47e6-a7fe-9e0573a2a694)
+	openEHR-EHR-CLUSTER.occurrences_observed_finding.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2025-06-16">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"1abb4cc25e7b56ba9849b2d8715c5e07">
+		["build_uid"] = <"3727bc04-c6cf-3021-ba37-2c73056c2cc0">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Number of occurrences of an observed finding
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Finding name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] matches {    -- Number of occurrences
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Number of occurrences of an observed finding">
+					description = <"">
+				>
+				["at0001"] = <
+					text = <"Finding name">
+					description = <"The name of the finding that was observed during an examination.">
+					comment = <"Coding of \"Finding name\" with an appropriate terminology, such as SNOMED CT, is recommended. ">
+				>
+				["at0002"] = <
+					text = <"Number of occurrences">
+					description = <"Number of occurrences of the finding that was observed during an examination of a specified body structure or region, e.g., number of metastases of the brain or number of lesions in the prostate observed during imaging examination.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Antal förekomster av ett observerat fynd">
+					description = <"">
+				>
+				["at0001"] = <
+					text = <"Namn på fynd">
+					description = <"Namn på det fynd som observerades under en undersökning.">
+					comment = <"*Coding of \"Finding name\" with an appropriate terminology, such as SNOMED CT, is recommended.  (en)">
+				>
+				["at0002"] = <
+					text = <"Antal förekomster">
+					description = <"Antal förekomster av det fynd som observerades under en undersökning av en specificerad kroppsstruktur eller region, t.ex. antal metastaser i hjärnan eller antal lesioner i prostatan som observerades under en bilddiagnostisk undersökning.">
+				>
+			>
+		>
+	>
