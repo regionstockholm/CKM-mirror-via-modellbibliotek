@@ -37,7 +37,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"7d689e8f610f6530a03783a293501b22">
+		["MD5-CAM-1.0.1"] = <"d4c662412a25563ef0fa68ee9294af44">
 		["build_uid"] = <"ab71b0cd-5709-3491-98fc-13bdb59b55f5">
 	>
 
@@ -75,6 +75,21 @@ definition
 													DV_CODED_TEXT matches {*}
 												}
 											}
+											ELEMENT[at0030] occurrences matches {0..1} matches {    -- Fractionated dose
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0032] occurrences matches {0..1} matches {    -- Total dose
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Type of chemoradiotherapy
+												value matches {
+													DV_CODED_TEXT matches {*}
+												}
+											}
 											allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional details
 												include
 													archetype_id/value matches {/.*/}
@@ -91,6 +106,11 @@ definition
 											ELEMENT[at0016] occurrences matches {0..1} matches {    -- Type of treatment
 												value matches {
 													DV_CODED_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0031] occurrences matches {0..1} matches {    -- Number of cycles
+												value matches {
+													DV_COUNT matches {*}
 												}
 											}
 											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Relation to main tretament
@@ -230,6 +250,22 @@ ontology
 					text = <"Additional treatment">
 					description = <"">
 				>
+				["at0030"] = <
+					text = <"Fractionated dose">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Number of cycles">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Total dose">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Type of chemoradiotherapy">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -318,6 +354,22 @@ ontology
 				["at0029"] = <
 					text = <"Övrig information">
 					description = <"Ytterligare detaljer om det specifika behandlingsalternativet. ">
+				>
+				["at0030"] = <
+					text = <"Fraktionsdos">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Antal kurer">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Totaldos">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Typ av kemoradioterapi">
+					description = <"">
 				>
 			>
 		>
