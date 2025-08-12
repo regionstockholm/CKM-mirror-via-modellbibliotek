@@ -2,7 +2,8 @@ archetype (adl_version=1.4; uid=9d136b1b-c8af-44f0-b5ac-b561e937ccd6)
 	openEHR-EHR-OBSERVATION.ipss.v1
 
 concept
-	[at0000]	-- International prostate symptom score (IPSS)
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -25,39 +26,40 @@ language
 			accreditation = <"Nasjonal IKT HF">
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2015-05-31">
 		["name"] = <"Navin Ramachandran">
 		["organisation"] = <"UCLH">
 		["email"] = <"navinramachandran@nhs.net">
-		["date"] = <"2015-05-31">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","SB Bhattacharyya, Sudisa Consultancy Services, India","Heather Grain, Llewelyn Grain Informatics, Australia","Mikkel Johan Gaup Grønmo, Forvaltningssenter EPJ, Helse-Nord, Norway (openEHR Editor)","Evelyn Hovenga, EJSH Consulting, Australia","Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Navin Ramachandran, NHS, United Kingdom","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)">
 	details = <
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			purpose = <"Att registrera resultaten för varje komponentparameter och deras totala summa för IPSS.">
+			keywords = <"I-PSS","IPSS","prostata","BPH">
 			use = <"Används för att registrera resultaten för varje komponentparameter och deras totala summa för IPSS.">
-			keywords = <"I-PSS", "IPSS", "prostata", "BPH">
 			misuse = <"Ska inte användas för att registrera symtom relaterade till prostata - använd istället CLUSTER.symptom_sign för detta ändamål.">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere verdier for prostatasymptomkomponentene og dets summerte verdi for I-PSS og symptomenes innvirkning på livskvaliteten.">
+			keywords = <"I-PSS","prostata","ipss","bph","prostatahyperplasi","vannlatningsbesvær","benign","prostataobstruksjon">
 			use = <"Brukes for å registrere verdier for prostatasymptomkomponentene og dets summerte verdi for I-PSS og symptomenes innvirkning på livskvaliteten.">
-			keywords = <"I-PSS", "prostata", "ipss", "bph", "prostatahyperplasi", "vannlatningsbesvær", "benign", "prostataobstruksjon">
 			misuse = <"Brukes ikke for å registrere prostatarelatert symptomer - bruk CLUSTER.symptom_sign til dette formålet.">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record the results for each component parameter and their total sum for the IPSS.">
-			use = <"Use to record the results for each component parameter and their total sum for the IPSS.">
-			keywords = <"I-PSS", "IPSS", "prostate", "BPH">
-			misuse = <"Do not use to record prostate-related symptoms - use the CLUSTER.symptom_sign for this purpose.">
+			keywords = <"I-PSS","IPSS","prostate","BPH">
 			copyright = <"© Clinical Models UK, openEHR Foundation">
+			use = <"Use to record the results for each component parameter and their total sum for the IPSS.">
+			misuse = <"Do not use to record prostate-related symptoms - use the CLUSTER.symptom_sign for this purpose.">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "SB Bhattacharyya, Sudisa Consultancy Services, India", "Heather Grain, Llewelyn Grain Informatics, Australia", "Mikkel Johan Gaup Grønmo, Forvaltningssenter EPJ, Helse-Nord, Norway (openEHR Editor)", "Evelyn Hovenga, EJSH Consulting, Australia", "Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Navin Ramachandran, NHS, United Kingdom", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)", "Marit Alice Venheim, Helse Vest IKT, Norway (openEHR Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -70,7 +72,7 @@ Porta Medica [Internet] Vannlatningsproblemer - spørreskjema; 2004 Jan 12 [cite
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"A835957C49A1D095D981A9B8C66F8194">
+		["MD5-CAM-1.0.1"] = <"284a98b60abf3e5b55ce8344dca32624">
 		["build_uid"] = <"be8e0247-c24e-4184-b3f2-1a524e7ddb51">
 		["ip_acknowledgements"] = <"Public domain">
 		["revision"] = <"1.0.2-alpha">
@@ -81,7 +83,7 @@ definition
 		data matches {
 			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any point in time event
 						data matches {
 							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
@@ -191,7 +193,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
