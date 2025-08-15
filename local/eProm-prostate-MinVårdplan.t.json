@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "2.0.0",
+      "sem_ver" : "3.0.0",
       "build_uid" : "20463f23-aa01-429d-89a5-711ec0c49140",
-      "MD5-CAM-1.0.1" : "ff25962b3a943acd76b8babc296bbae0",
+      "MD5-CAM-1.0.1" : "5d818c1bc731ca0da541c357bd0a1f70",
       "PARENT:MD5-CAM-1.0.1" : "31B910AC33C3730A7ED2140B580F216C"
     },
     "details" : {
@@ -118,10 +118,10 @@
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "CLUSTER",
         "occurrences" : "0..1",
-        "nodeId" : "at0002.5",
+        "nodeId" : "at0002.9",
         "attributes" : [ ],
         "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-005.v0",
+        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-009.v0",
         "referenceType" : "archetypeOverlay"
       }, {
         "@type" : "C_ARCHETYPE_ROOT",
@@ -149,15 +149,6 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-008.v0",
-        "referenceType" : "archetypeOverlay"
-      }, {
-        "@type" : "C_ARCHETYPE_ROOT",
-        "rmTypeName" : "CLUSTER",
-        "occurrences" : "0..*",
-        "nodeId" : "at0002.9",
-        "attributes" : [ ],
-        "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-symptom_sign-001.v2",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -318,12 +309,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -425,19 +410,32 @@
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "at0004.1" : {
+          "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
+            "code" : "at0000.1",
             "text" : "Fatigue",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
+            "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           }
         },
         "fi" : { },
         "nb" : { },
         "de" : { },
         "it" : { },
-        "sv" : { }
+        "sv" : {
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Trötthet",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Trötthet",
+            "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -666,12 +664,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -769,7 +761,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (2)",
+            "text" : "Sleep",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -778,13 +770,6 @@
             "text" : "Sleep",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Sleep",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           }
         },
         "fi" : {
@@ -823,8 +808,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (2)",
+            "text" : "Sömn",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Sömn",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -1060,12 +1052,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -1163,7 +1149,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (3)",
+            "text" : "Depression",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -1172,13 +1158,6 @@
             "text" : "Depression",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Depression",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           }
         },
         "fi" : {
@@ -1217,8 +1196,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (3)",
+            "text" : "Nedstämdhet/depression",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Nedstämdhet/depression",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -1449,12 +1435,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -1552,7 +1532,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (4)",
+            "text" : "Physical activity",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -1561,13 +1541,6 @@
             "text" : "Physical activity",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Physical activity",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           }
         },
         "fi" : {
@@ -1606,8 +1579,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (4)",
+            "text" : "Fysisk aktivitet",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Fysisk aktivitet",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -1826,400 +1806,6 @@
     "differential" : true,
     "archetypeId" : {
       "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-005.v0"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0005.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "1..1",
-                  "terminologyId" : {
-                    "value" : "local_terms_careplan"
-                  },
-                  "constraint" : [ ],
-                  "selectedTerminologies" : [ "local_terms_careplan" ],
-                  "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "local_terms_careplan",
-                    "code" : "1",
-                    "value" : "No problem"
-                  }, {
-                    "terminologyId" : "local_terms_careplan",
-                    "code" : "2",
-                    "value" : "Small problem"
-                  }, {
-                    "terminologyId" : "local_terms_careplan",
-                    "code" : "3",
-                    "value" : "Troublesome problem"
-                  }, {
-                    "terminologyId" : "local_terms_careplan",
-                    "code" : "4",
-                    "value" : "Very troublesome problem"
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0037.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DURATION",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DATE_TIME",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0035.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (5)",
-            "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
-          },
-          "at0005.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0005.1",
-            "text" : "Family/relationships",
-            "description" : "Is there a history of the specific symptom or sign having been present?",
-            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Family/relationships",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
-          }
-        },
-        "fi" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Oire / tuntemus ryhmitys (5)",
-            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
-          }
-        },
-        "nb" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Spesifikt symptom/sykdomstegn (5)",
-            "description" : "Detaljer om et spesifikt symptom eller sykdomstegn, eller gruppe av symptomer eller sykdomstegn som er innenfor kartleggingsformålet."
-          }
-        },
-        "de" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Spezifisches Symptom/Anzeichen (5)",
-            "description" : "Details zu einem bestimmten Symptom oder Anzeichen oder zu einer bestimmten Gruppe von Symptomen oder Anzeichen, die für das Screening relevant sind."
-          }
-        },
-        "it" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Sintomo/segno specifico (5)",
-            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
-          }
-        },
-        "sv" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (5)",
-            "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
-          }
-        }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : {
-        "ac0.1" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.1",
-          "members" : [ "at0023", "at0024", "at0027" ]
-        },
-        "ac0.2" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.2",
-          "members" : [ "at0023", "at0024", "at0027" ]
-        },
-        "ac0.3" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.3",
-          "members" : [ "at0023", "at0024", "at0027" ]
-        },
-        "ac0.5" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.5",
-          "members" : [ "at0023", "at0024", "at0027" ]
-        },
-        "ac0.6" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.6",
-          "members" : [ ]
-        },
-        "ac0.7" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.7",
-          "members" : [ ]
-        }
-      }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "ae1b950a-03e9-422c-8987-eefeaf3a4d05",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Sarah Ballout, Natalia Strauch",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "ballout.sarah@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "fi"
-      },
-      "author" : { },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : {
-        "name" : "Emma Malm, Erik Sundvall",
-        "organisation" : "Karolinska University Hospital, Region Stockholm, Karolinska University Hospital, Region Stockholm + Linköping University, Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University",
-        "email" : "emma.malm@cambio.se, erik.sundvall@regionstockholm.se"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Marit Alice Venheim, Silje Ljosland Bakke, John Tore Valand",
-        "organisation" : "Helse Vest IKT AS, Helse Bergen",
-        "email" : "marit.alice.venheim@helse-vest-ikt.no, silje.ljosland.bakke@helse-vest-ikt.no, john.tore.valand@helse-vest-ikt.no"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "it"
-      },
-      "author" : { },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "c1364209-fc93-4fcf-9cfe-392df2d38a38",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Schaffung von Rahmenbedingungen für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.",
-          "keywords" : [ "Screening, Fragebogen, Beschwerde, Symptom, Störung, Problem, Unwohlsein, Anzeichen" ],
-          "use" : "Verwendung als Rahmenbedingung für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.\n\nHäufige Anwendungsfälle umfassen, sind aber nicht beschränkt auf:\n- Systematische Befragung in jeder Beratung, zum Beispiel:\n--- Haben Sie Kopfschmerzen? Ja, Nein, Unbekannt.\n--- Hatten Sie in den letzten vier Wochen Schwindel? Ja, Nein, Unbekannt.\n- Spezifische Befragung im Zusammenhang mit der Krankheitsüberwachung.\n\nDie Semantik dieses Archetyps ist absichtlich locker, und die Abfrage dieses Archetyps wäre normalerweise nur im Kontext jedes spezifischen Templates nützlich oder sicher. In einem Template würde normalerweise jedes Datenelement in die spezifisch gestellte Frage umbenannt. Wo Wertesätze für allgemeine Anwendungsfälle vorgeschlagen wurden, können diese für die lokale Verwendung angepasst werden, indem die „Text“-Auswahl verwendet wird, um jedem spezifischen Anwendungsfall zu entsprechen.\n\nÜber die EVENT-Struktur aus dem Referenzmodell kann festgelegt werden, ob sich die Fragen auf einen Zeitpunkt oder einen Zeitraum beziehen. Verwenden Sie eine separate Instanz dieses Archetyps, um zwischen einer Befragung zu unterscheiden, die Informationen über ein Symptom enthält, das zu einem beliebigen Zeitpunkt in der Vergangenheit eingetreten war, und Informationen über ein Symptom, das innerhalb eines bestimmten Zeitintervalls vorhanden war - zum Beispiel den Unterschied zwischen \"Ist Ihnen jetzt schwindelig?\" im Vergleich zu \"Hatten Sie in den letzten 4 Wochen Schwindel?\".\n\nDie Quelle der Informationen in einer Fragebogenantwort kann in verschiedenen Kontexten variieren, kann jedoch mithilfe des Elements „Information provider“ im Referenzmodell spezifisch identifiziert werden.\n\nDieser Archetyp wurde entwickelt, um als Screening-Tool oder zur Darstellung einfacher Daten im Fragebogenformat zur Verwendung in Situationen wie einem Krankheitsregister verwendet zu werden. Wenn der Screening-Fragebogen das Vorhandensein eines Symptoms oder Anzeichens identifiziert, wird empfohlen, dass das klinische System die spezifischen Details über das Symptom unter Verwendung des Archetyps CLUSTER.symptom_sign, der im SLOT für die Zusätzliche Angaben eingefügt wird, darstellt und beibehält.",
-          "misuse" : "Darf nicht verwendet werden, um Details über das Vorhandensein oder Fehlen eines Symptoms außerhalb eines Screening-Kontexts darzustellen. Verwenden Sie zu diesem Zweck CLUSTER.symptom_sign oder CLUSTER.exclusion_symptom_sign.\n\nDarf nicht verwendet werden, um Details zu einer einfachen Auswahlliste darzustellen, in der eine Frage entweder als \"vorhanden\" oder \"unbestimmt\" aufgezeichnet werden kann. Verwenden Sie dazu OBSERVATION.selection_list.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "purpose" : "Ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.",
-          "keywords" : [ "screening, formulär, frågeformulär, självrapporteringsskala, symptom, besvär, problem, tecken" ],
-          "use" : "Använd som ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.\n\nVanliga användningsfall inkluderar, men är inte begränsade till:\n- Systematisk utredning vid konsultationer, exempelvis:\n--- Har du huvudvärk? Ja, nej, okänt.\n--- Har du haft yrsel under de senaste fyra veckorna? Ja, nej, okänt.\n- Specifika frågor relaterade till övervakning/uppföljning av sjukdom.\n\nSemantiken för denna arketyp är avsiktligt generell, sökfrågor baserade på denna arketyp är normalt bara säker och meningsfull inom ramen för varje specifik mall (template). I en mall döps vanligtvis varje dataelement om till den specifika fråga som ställdes. Svarsalternativ har föreslagits för vanliga användningsfall, men kan anpassas för lokal användning genom att använda \"text\"-valet för att matcha varje specifikt användningsfall.\n\nEVENT-strukturen från openEHRs referensmodell kan användas för att specificera om frågorna avser en tidpunkt eller en tidsperiod. Använd separata instanser av denna arketyp för att skilja mellan ett frågeformulär som gäller information om ett symptom som har funnits någon gång tidigare och information om ett symptom inom ett specifikt angivet tidsintervall - till exempel skillnaden mellan \"Är du yr nu?\" jämfört med \"Har du haft yrsel någon gång under de senaste 4 veckorna?\n\nKällan till informationen i ett enkätsvar kan variera i olika sammanhang men kan specifikt identifieras med hjälp av elementet 'provider' i referensmodellens ENTRY-klass.\n\nDenna arketyp har utformats för att användas som ett screeningverktyg eller för att registrera enkla data i frågeformulärformat för användning i register etc. Om screeningsfrågeformuläret identifierar närvaron av ett symptom eller tecken, rekommenderas att det kliniska systemet även registrerar och behåller de specifika detaljerna om symtomet eller tecknet med hjälp av arketypen CLUSTER.symptom_sign inkapslad i avsedd SLOT för \"ytterligare detaljer\" i denna arketyp.",
-          "misuse" : "Får inte användas för att registrera detaljer om närvaron eller frånvaron av ett symptom, utanför ett screeningsammanhang. Använd CLUSTER.symptom_sign eller CLUSTER.exclusion_symptom_sign inkapslade i andra lämpligare arketyper för dessa ändamål.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "fi" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "fi"
-          },
-          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
-          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
-          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\n\nCommon use cases include, but are not limited to:\n- Systematic inquiry in any consultation, for example:\n--- Do you have headaches? Yes, No, Unknown.\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\n- Specific questioning related to disease surveillance.\n\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\n\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\n\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\n\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
-          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\n\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.",
-          "keywords" : [ "intervjuskjema, kartleggingskjema, spørreskjema, lidelse, plage, problem, ubehag, symptom, sykdomstegn, lyte, skavank" ],
-          "use" : "Brukes for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.\n\nVanlige bruksområder inkluderer, men er ikke begrenset til:\n- Systematiske spørsmål ved konsultasjoner, for eksempel:\n--- Har du hodepine? Ja, Nei, Usikker.\n--- Har du vært plaget med svimmelhet de siste fire ukene? Ja, Nei, Usikker.\n- Spesifikke spørsmål relatert til overvåkning av sykdommer.\n\nSemantikken til denne arketypen er med vilje løst definert, og spørringer etter data i denne arketypen vil normalt bare være hensiktsmessig eller sikkert i konteksten av det spesifikke templatet. I et templat vil hvert dataelement vanligvis døpes om til det (spesifikke) spørsmålet man ønsker svar på. Flere steder er det foreslått verdisett som passer til de vanligste bruksområder, men det er allikevel mulig å tilpasse/endre verdisett for lokal bruk ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN for å harmonere verdisettet til hvert enkelt brukstilfelle.\n\nEVENT-strukturen fra arketypens referansemodell kan brukes for å spesifisere om spørsmålene relateres til et tidspunkt eller til et tidsintervall.\nBruk egne instanser av denne arketypen for å skille mellom spørsmål om prosedyrer som er gjennomførte på et hvilket som helst tidspunkt og spørsmål om prosedyrer som er gjennomført i et tidsintervall. For eksempel; \"Har du hodepine?\" sammenlignet med \"Har du vært plaget med svimmelhet de siste fire ukene?\".\n\nKilden til informasjonen i et spørreskjema kan variere i ulike kontekster, men kan identifiseres spesifikt ved å benytte \"Information provider\" elementet i openEHR referansemodellen.\n\nDenne arketypen er laget for å bli brukt i et spørreskjema eller for å registrere enkle strukturerte data til for eksempel et sykdomsregister. Dersom det i spørreskjemaet identifiseres at et symptom eller sykdomstegn er tilstede, anbefales det at spesifikke detaljer om symptomet registreres og lagres i pasientjournalen i arketypen CLUSTER.symptom_sign (Symptom/Sykdomstegn) i SLOTet \"Ytterligere detaljer\" i denne arketypen.",
-          "misuse" : "Brukes ikke for å registrere detaljer om tilstedeværelse eller fravær av et symptom utenfor konteksten av kartleggingen. Bruk arketypen CLUSTER.symptom_sign (Symptom/sykdomstegn) eller CLUSTER.exclusion_symptom_sign (Eksklusjon av et symptom) for dette formålet.\n\nBrukes ikke for å registrere detaljer om en enkel utvalgsliste der et spørsmål kan registreres som enten \"Tilstede\" eller \"Ubestemt\". Bruk arketypen OBSERVATION.selection_list for dette formålet.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To create a framework for recording answers to pre-defined screening questions about symptoms or signs.",
-          "keywords" : [ "screening, questionnaire, complaint, symptom, disturbance, problem, discomfort, sign" ],
-          "use" : "Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\n\nCommon use cases include, but are not limited to:\n- Systematic inquiry in any consultation, for example:\n--- Do you have headaches? Yes, No, Unknown.\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\n- Specific questioning related to disease surveillance.\n\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.\n\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\n\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\n\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype.",
-          "misuse" : "Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\n\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "it" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "it"
-          },
-          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
-          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
-          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\n\nCommon use cases include, but are not limited to:\n- Systematic inquiry in any consultation, for example:\n--- Do you have headaches? Yes, No, Unknown.\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\n- Specific questioning related to disease surveillance.\n\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\n\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\n\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\n\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
-          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\n\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.specific_symptom_sign_question.v0",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
       "value" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-006.v0"
     },
     "definition" : {
@@ -2232,12 +1818,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -2335,7 +1915,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (6)",
+            "text" : "Existential reflections",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -2344,13 +1924,6 @@
             "text" : "Existential reflections (reflections about life and death)",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Existential reflections",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           }
         },
         "fi" : {
@@ -2389,8 +1962,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (6)",
+            "text" : "Existensiella funderingar",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Existensiella funderingar (funderingar om livet och döden)",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -2626,12 +2206,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -2729,7 +2303,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (7)",
+            "text" : "Economy",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -2738,13 +2312,6 @@
             "text" : "Economy",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Economy",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           }
         },
         "fi" : {
@@ -2783,8 +2350,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (7)",
+            "text" : "Ekonomi",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Ekonomi",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -3020,12 +2594,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -3123,7 +2691,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (8)",
+            "text" : "Work",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -3132,13 +2700,6 @@
             "text" : "Work",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Work",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           }
         },
         "fi" : {
@@ -3177,8 +2738,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (8)",
+            "text" : "Arbete/sysselsättning",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Arbete/sysselsättning",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -3294,7 +2862,7 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "f8c2aba6-82de-46cf-9f4c-9b2bc70daf86",
+    "uid" : "c1364209-fc93-4fcf-9cfe-392df2d38a38",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
       "originalAuthor" : { },
@@ -3303,7 +2871,8 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "BE1FF729C2FD4185A0A51FDE33A48A52"
+        "PARENT:MD5-CAM-1.0.1" : "4c720a97f7a5ef41c8d630bc69d2720b",
+        "ip_acknowledgements" : "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org."
       },
       "details" : {
         "de" : {
@@ -3314,11 +2883,10 @@
             },
             "codeString" : "de"
           },
-          "purpose" : "Zur Darstellung von Details über eine einzelne Episode eines berichteten Symptoms oder Krankheitsanzeichens einschließlich des Kontexts. Details zu früheren Episoden sollen, wenn angemessen, nicht aufgeführt werden.",
-          "keywords" : [ "Beschwerde", "Symptom", "Störung", "Problem", "vorlegende Beschwerde", "vorlegendes Symptom", "Zeichen", "Anzeichen", "Krankheitsanzeichen" ],
-          "use" : "Zu Verwenden, um Details über eine einzelne Episode eines Symptoms oder eines berichteten Krankheitsanzeichens einer Person zu dokumentieren, wie es von der Person, dem Elternteil, dem Betreuer oder einer anderen Partei berichtet wurde. Es kann von einem Arzt als Teil einer Krankengeschichte dokumentiert werden, oder wie es dem Arzt berichtet wurde/wie er es beobachtet hat, oder als Teil eines selbst aufgezeichneten klinischen Fragebogens oder einer persönlichen Gesundheitsakte. Eine vollständige Kranken- oder Patientengeschichet kann mehrere Episoden eines identifizierten Symptoms/Krankheitsanzeichens, mit variierendem Detaillierungsgrad, sowie mehrere Symptome/Krankheitsanzeichen beinhalten.\r\n\r\nDieser Archetyp wurde entwickelt, um das positive Vorhandensein des Symptoms oder Krankheitsanzeichens als Teil der Anamneseerhebung mit OBSERVATION.story oder in Verbindung mit einer positiven Reaktion auf OBSERVATION.symptom_sign_screening darzustellen.\r\n\r\nIm reinsten Sinne sind Symptome subjektive Beobachtungen einer körperlichen oder geistigen Störung und Krankheitsanzeichen sind objektive Beobachtungen dieser Störung, wie sie von einer Person erlebt und dem Dokumentierenden von derselben Person oder einer anderen Partei berichtet werden. Aus dieser Logik folgt, dass zwei Archetypen benötigt werden, um die Krankengeschichte aufzuzeichnen - einen für berichtete Symptome und einen weiteren für berichtete Krankheitsanzeichen. Für die Praxis ist dies ungeeignet, da es die Eingabe klinischer Daten in eines der beiden Modelle erfordert, was den Modellierern und denen, die die Daten eingeben, erheblichen Mehraufwand verursacht. Darüber hinaus gibt es oft Überschneidungen von klinischen Konzepten - z.B. ist vorangegangenes Erbrechen oder sind Blutungen als Symptom oder berichtetes Krankheitsanzeichen zu kategorisieren? Als Antwort darauf wurde dieser Archetyp speziell entwickelt, um ein einziges Informationsmodell zu erproben, das es ermöglicht, das gesamte Spektrum von klar identifizierbaren Symptomen bis hin zu berichteten Krankheitsanzeichen bei der Dokumentation einer Krankengeschichte zu erfassen.\r\n\r\nDieser Archetyp wurde als generisches Muster für alle Symptome und Krankheitsanzeichen entwickelt. Der Slot \"Spezifische Details\" kann verwendet werden, um den Archetyp um zusätzliche, spezifische Datenelemente für komplexere Symptome oder Krankheitsanzeichen zu erweitern. \r\n\r\nDieser Archetyp wurde speziell für die Verwendung im Slot \"Strukturiertes Detail\" innerhalb des Archetyps OBSERVATION.story entwickelt, kann aber auch in anderen OBSERVATION- oder CLUSTER-Archetypen und in den Slots \"Assoziierte Symptome/Krankheitsanzeichen\" oder \"Vorangegangene Episoden\" in anderen Instanzen dieses CLUSTER.symptom_sign Archetyps verwendet werden.",
-          "misuse" : "Den Archetyp nicht verwenden, um Antworten auf Screening-Fragebögen über das Vorhandensein oder Nichtvorhandensein bestimmter Symptome abzufragen – verwenden Sie für diesen Zweck den Archetyp OBSERVATION.symptom_sign_screening. Dieser CLUSTER.symptom_sign kann jedoch im SLOT „Screening-Details“ im Archetyp OBSERVATION.symptom_sign_screening verschachtelt werden, wenn es notwendig ist, den Fragebogen zu erweitern, indem Details zu Symptomen oder Anzeichen aufgezeichnet werden.\r\n\r\nDen Archetyp nicht verwenden, um darzustellen, dass ein Symptom oder Anzeichen explizit als nicht vorhanden gemeldet wurde – verwenden Sie CLUSTER.exclusion_symptom_sign mit Bedacht für bestimmte Zwecke, bei denen der Overhead der Aufzeichnung auf diese Weise die zusätzliche Komplexität rechtfertigt.\r\n\r\nNicht zur Erfassung objektiver Befunde im Rahmen einer körperlichen Untersuchung verwenden - verwenden Sie zu diesem Zweck OBSERVATION.exam und mit Untersuchung verwandte CLUSTER-Archetypen.\r\n\r\nNicht für Diagnosen und Probleme, die Teil einer bestehenden Problemliste sind, verwenden - verwenden Sie EVALUATION.problem_diagnosis.\r\n\r\nNicht zur Darstellung einer formalen und wiederholbaren Schweregradskala wie VAS oder NRS verwenden. Verwenden Sie zu diesem Zweck geeignete OBSERVATION-Archetypen.",
-          "copyright" : "© openEHR Foundation",
+          "purpose" : "Schaffung von Rahmenbedingungen für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.",
+          "keywords" : [ "Screening, Fragebogen, Beschwerde, Symptom, Störung, Problem, Unwohlsein, Anzeichen" ],
+          "use" : "Verwendung als Rahmenbedingung für die Darstellung von Antworten auf vordefinierte Screening-Fragen zu Symptomen oder Anzeichen.\n\nHäufige Anwendungsfälle umfassen, sind aber nicht beschränkt auf:\n- Systematische Befragung in jeder Beratung, zum Beispiel:\n--- Haben Sie Kopfschmerzen? Ja, Nein, Unbekannt.\n--- Hatten Sie in den letzten vier Wochen Schwindel? Ja, Nein, Unbekannt.\n- Spezifische Befragung im Zusammenhang mit der Krankheitsüberwachung.\n\nDie Semantik dieses Archetyps ist absichtlich locker, und die Abfrage dieses Archetyps wäre normalerweise nur im Kontext jedes spezifischen Templates nützlich oder sicher. In einem Template würde normalerweise jedes Datenelement in die spezifisch gestellte Frage umbenannt. Wo Wertesätze für allgemeine Anwendungsfälle vorgeschlagen wurden, können diese für die lokale Verwendung angepasst werden, indem die „Text“-Auswahl verwendet wird, um jedem spezifischen Anwendungsfall zu entsprechen.\n\nÜber die EVENT-Struktur aus dem Referenzmodell kann festgelegt werden, ob sich die Fragen auf einen Zeitpunkt oder einen Zeitraum beziehen. Verwenden Sie eine separate Instanz dieses Archetyps, um zwischen einer Befragung zu unterscheiden, die Informationen über ein Symptom enthält, das zu einem beliebigen Zeitpunkt in der Vergangenheit eingetreten war, und Informationen über ein Symptom, das innerhalb eines bestimmten Zeitintervalls vorhanden war - zum Beispiel den Unterschied zwischen \"Ist Ihnen jetzt schwindelig?\" im Vergleich zu \"Hatten Sie in den letzten 4 Wochen Schwindel?\".\n\nDie Quelle der Informationen in einer Fragebogenantwort kann in verschiedenen Kontexten variieren, kann jedoch mithilfe des Elements „Information provider“ im Referenzmodell spezifisch identifiziert werden.\n\nDieser Archetyp wurde entwickelt, um als Screening-Tool oder zur Darstellung einfacher Daten im Fragebogenformat zur Verwendung in Situationen wie einem Krankheitsregister verwendet zu werden. Wenn der Screening-Fragebogen das Vorhandensein eines Symptoms oder Anzeichens identifiziert, wird empfohlen, dass das klinische System die spezifischen Details über das Symptom unter Verwendung des Archetyps CLUSTER.symptom_sign, der im SLOT für die Zusätzliche Angaben eingefügt wird, darstellt und beibehält.",
+          "misuse" : "Darf nicht verwendet werden, um Details über das Vorhandensein oder Fehlen eines Symptoms außerhalb eines Screening-Kontexts darzustellen. Verwenden Sie zu diesem Zweck CLUSTER.symptom_sign oder CLUSTER.exclusion_symptom_sign.\n\nDarf nicht verwendet werden, um Details zu einer einfachen Auswahlliste darzustellen, in der eine Frage entweder als \"vorhanden\" oder \"unbestimmt\" aufgezeichnet werden kann. Verwenden Sie dazu OBSERVATION.selection_list.",
           "originalResourceUri" : { },
           "otherDetails" : { }
         },
@@ -3330,10 +2898,10 @@
             },
             "codeString" : "sv"
           },
-          "purpose" : "För att registrera detaljer om en enskild episod av ett rapporterat symptom eller tecken inklusive dess sammanhang, men inte detaljer om tidigare episoder, om så är lämpligt",
-          "keywords" : [ "klagomål", "symptom", "störning", "besvär", "problem", "obehag", "framföra besvär", "framföra symtom", "tecken" ],
-          "use" : "Används för att registrera detaljer om en enskild episod av ett symptom eller rapporterat tecken hos en individ, som det rapporterats av individen, föräldern, vårdgivaren eller annan part. Det kan registreras av en läkare som en del av en journal dokumentation som rapporterats till dem, observerad av läkaren eller självregistrerad som en del av ett kliniskt frågeformulär eller personlig journal. En fullständig klinisk historia eller patientberättelse kan innehålla varierande nivå av detaljer om flera episoder av ett identifierat symptom eller rapporterat tecken, såväl som flera symtom/tecken.\r\n\r\nDen här arketypen har utformats för att registrera förekomsten av symtomet eller tecknet som en del av historiken med OBSERVATION.story, eller i samband med ett positivt svar vid användningen av OBSERVATION.symptom_sign_screening.\r\n\r\nI sin renaste mening är symtom subjektiva observationer av en fysisk eller psykisk störning och tecken är objektiva observationer av detsamma, som upplevs av en individ och rapporteras till vårdgivaren för samma individ eller annan part. Av denna logik följer att vi kommer att behöva två arketyper för att registrera den kliniska historiken - en för rapporterade symtom och en annan för rapporterade tecken. I verkligheten är detta opraktiskt eftersom det kommer att kräva inmatning av kliniska data i någon av dessa modeller, vilket lägger till betydande omkostnader för modellerare och de som matar in data. Dessutom finns det ofta en överlappning i mellan olika kliniska begrepp. Är till exempel, tidigare kräkningar eller blödningar att kategoriseras som ett symptom eller rapporterat tecken? Som svar på detta, har denna arketyp utformats specifikt för att tillhandahålla en enda informationsmodell som möjliggör registrering av ett sammanhängande flöde mellan tydligt identifierbara symtom och rapporterade tecken.\r\n\r\nDenna arketyp är avsedd för att kunna användas som en generisk modell för alla symtom och rapporterade tecken.'Specific details' SLOT kan användas för att utöka arketypen till att inkludera ytterligare, specifika dataelement för mer komplexa symtom eller tecken.\r\n\r\nDenna arketyp har utformats specifikt för att användas i \"Structured detail\" SLOT inom arketypen OBSERVATION.story, men kan också användas inom andra OBSERVATION eller CLUSTER arketyper och i \"Associated symptom/tecken\" eller \"Previous episode\" SLOT, såväl som även nom andra instanser av denna CLUSTER.symptom_sign-arketyp.\r\n",
-          "misuse" : "Får inte användas för att registrera svar från screening frågeformulär om närvaro eller frånvaro av specifika symptom.Använd då istället arketypen OBSERVATION.symptom_sign_screening för detta ändamål. Emellertid kan den här CLUSTER.symptom_sign-arketypen vara inkapslad i \"Screening details\" SLOT i arketypen OBSERVATION.symptom_sign_screening om det är nödvändigt att utöka frågeformuläret genom att registrera detaljer om symptom eller tecken.\r\n\r\nSka inte användas för att registrera ett specifikt symptom eller tecken som inte är närvarande. Använd istället arketypen CLUSTER.exclusion_symptom_sign på ett noggrant sätt för att motivera det övergripande syftet för denna registrering och därmed den ökade komplexitet.\r\n\r\nFår inte användas för att registrera objektiva fynd som en del av en fysisk undersökning , Använd istället arketypen OBSERVATION.exam och relaterade undersökningar i CLUSTER-arketyper för detta ändamål.\r\n\r\nSka inte användas för diagnoser och problem som ingår i en kvarstående problemlista. Använd istället arketypen EVALUATION.problem_diagnosis.\r\n\r\nSka inte användas för att registrera en accepterad och repeterbar svårighetsskala som VAS eller NRS. Använd lämpliga OBSERVATIONSarketyper för detta ändamål.",
+          "purpose" : "Ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.",
+          "keywords" : [ "screening, formulär, frågeformulär, självrapporteringsskala, symptom, besvär, problem, tecken" ],
+          "use" : "Använd som ett ramverk för att registrera svar på fördefinierade screeningfrågor om symtom eller tecken.\n\nVanliga användningsfall inkluderar, men är inte begränsade till:\n- Systematisk utredning vid konsultationer, exempelvis:\n--- Har du huvudvärk? Ja, nej, okänt.\n--- Har du haft yrsel under de senaste fyra veckorna? Ja, nej, okänt.\n- Specifika frågor relaterade till övervakning/uppföljning av sjukdom.\n\nSemantiken för denna arketyp är avsiktligt generell, sökfrågor baserade på denna arketyp är normalt bara säker och meningsfull inom ramen för varje specifik mall (template). I en mall döps vanligtvis varje dataelement om till den specifika fråga som ställdes. Svarsalternativ har föreslagits för vanliga användningsfall, men kan anpassas för lokal användning genom att använda \"text\"-valet för att matcha varje specifikt användningsfall.\n\nEVENT-strukturen från openEHRs referensmodell kan användas för att specificera om frågorna avser en tidpunkt eller en tidsperiod. Använd separata instanser av denna arketyp för att skilja mellan ett frågeformulär som gäller information om ett symptom som har funnits någon gång tidigare och information om ett symptom inom ett specifikt angivet tidsintervall - till exempel skillnaden mellan \"Är du yr nu?\" jämfört med \"Har du haft yrsel någon gång under de senaste 4 veckorna?\n\nKällan till informationen i ett enkätsvar kan variera i olika sammanhang men kan specifikt identifieras med hjälp av elementet 'provider' i referensmodellens ENTRY-klass.\n\nDenna arketyp har utformats för att användas som ett screeningverktyg eller för att registrera enkla data i frågeformulärformat för användning i register etc. Om screeningsfrågeformuläret identifierar närvaron av ett symptom eller tecken, rekommenderas att det kliniska systemet även registrerar och behåller de specifika detaljerna om symtomet eller tecknet med hjälp av arketypen CLUSTER.symptom_sign inkapslad i avsedd SLOT för \"ytterligare detaljer\" i denna arketyp.",
+          "misuse" : "Får inte användas för att registrera detaljer om närvaron eller frånvaron av ett symptom, utanför ett screeningsammanhang. Använd CLUSTER.symptom_sign eller CLUSTER.exclusion_symptom_sign inkapslade i andra lämpligare arketyper för dessa ändamål.",
           "originalResourceUri" : { },
           "otherDetails" : { }
         },
@@ -3345,10 +2913,10 @@
             },
             "codeString" : "fi"
           },
-          "purpose" : "*To record details about a single episode of a reported symptom or sign including context, but not details, of previous episodes if appropriate.(en)",
-          "keywords" : [ "*complaint(en)", "*symptom(en)", "*disturbance(en)", "*problem(en)", "*discomfort(en)", "*presenting complaint(en)", "*presenting symptom(en)", "*sign(en)" ],
-          "use" : "*Use to record details about a single episode of a symptom or reported sign in an individual, as reported by the individual, parent, care-giver or other party. It may be recorded by a clinician as part of a clinical history record as reported to them, observed by the clinician or self-recorded as part of a clinical questionnaire or personal health record. A complete clinical history or patient story may include varying level of details about multiple episodes of an identified symptom or reported sign, as well as multiple symptoms/signs.\r\n\r\nThis archetype has been designed to record the positive presence of the symptom or sign as part of history taking using OBSERVATION.story, or in conjunction with a positive response to OBSERVATION.symptom_sign_screening.\r\n\r\nIn the purest sense, symptoms are subjective observations of a physical or mental disturbance and signs are objective observations of the same, as experienced by an individual and reported to the history taker by the same individual or another party. From this logic it follows that we will need two archetypes to record clinical history - one for reported symptoms and another for reported signs. In reality this is impractical as it will require clinical data entry into either one of these models which adds signficant overheads to modellers and those entering data. In addition, there is often overlap in clinical concepts - for example, is previous vomiting or bleeding to be categorised as a symptom or reported sign? In response, this archetype has been specifically designed to provide a single information model that allows for recording of the entire continuum between clearly identifiable symptoms and reported signs.\r\n\r\nThis archetype has been intended to be used as a generic pattern for all symptoms and reported signs. The 'Specific details' SLOT can be used to extend the archetype to include additional, specific data elements for more complex symptoms or signs. \r\n\r\nThis archetype has been specifically designed to be used in the 'Structured detail' SLOT within the OBSERVATION.story archetype, but can also be used within other OBSERVATION or CLUSTER archetypes and in the 'Associated symptom/sign' or 'Previous episode' SLOT within other instances of this CLUSTER.symptom_sign archetype. (en)",
-          "misuse" : "*Not to be used to record screening questionnaire responses about the presence or absence of specific symptoms - use the OBSERVATION.symptom_sign_screening archetype for this purpose. However, this CLUSTER.symptom_sign archetype may be nested within the 'Screening details' SLOT in the OBSERVATION.symptom_sign_screening archetype if it is necessary to extend the questionnaire by recording details about symptom or sign.\r\n\r\nNot to be used to record that a symptom or sign was explicitly reported as not present - use CLUSTER.exclusion_symptom_sign carefully for specific purposes where the overheads of recording in this way warrant the additional complexity.\r\n\r\nNot to be used for recording objective findings as part of a physical examination - use OBSERVATION.exam and related examination CLUSTER archetypes for this purpose.\r\n\r\nNot to be used for diagnoses and problems that form part of a persisting Problem List - use EVALUATION.problem_diagnosis.\r\n\r\nNot to be used to record a formal and repeatable severity scale such as VAS or NRS. Use appropriate OBSERVATION archetypes for this purpose. (en)",
+          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
+          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
+          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\n\nCommon use cases include, but are not limited to:\n- Systematic inquiry in any consultation, for example:\n--- Do you have headaches? Yes, No, Unknown.\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\n- Specific questioning related to disease surveillance.\n\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\n\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\n\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\n\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
+          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\n\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
           "originalResourceUri" : { },
           "otherDetails" : { }
         },
@@ -3360,26 +2928,10 @@
             },
             "codeString" : "nb"
           },
-          "purpose" : "For å registrere detaljer om en enkeltepisode av et rapportert symptom eller sykdomstegn. Dette kan omfatte kontekst, men ikke detaljer, om tidligere episoder av symptomet/sykdomstegnet.",
-          "keywords" : [ "lidelse", "plage", "problem", "ubehag", "symptom", "sykdomstegn", "lyte", "skavank" ],
-          "use" : "\t\r\nFor å registrere detaljer om en enkeltepisode av et rapportert symptom eller sykdomstegn hos et individ, som redegjort av personen selv, foreldre, omsorgsperson eller andre parter. Registrering kan skje i forbindelse med opptak av anamnese, eller som en selvregistrering som en del av et klinisk spørreskjema eller personlig journal. En fullstendig klinisk anamnese eller pasientanamnese kan inneholde beskrivelser med ulikt detaljnivå om flere episoder knyttet til samme symptom eller sykdomstegn, og vil også kunne inneholde flere ulike symptomer eller sykdomstegn.\r\n\r\nDenne arketypen er laget for å registrere positiv tilstedeværelse av et symptom eller sykdomstegn som en del av anamneseopptak ved å bruke OBSERVATION.story-arketypen, eller i sammenheng med et positivt svar i arketypen OBSERVATION.symptom_sign_screening.\r\n\r\nI egentlig forstand er symptomer subjektive opplevelser av en fysisk eller mental forstyrrelse mens sykdomstegn er objektive observasjoner av det samme, som er erfart av et individ og rapportert til en kliniker av individet eller av andre. Fra denne logikken følger at det burde være to arketyper til å registrere klinisk anamnese; en for rapporterte symptomer og en for rapporterte sykdomstegn. I virkeligheten er dette upraktisk og vil kreve registrering av kliniske data i enten den ene eller den andre av disse modellene. I praksis vil dette øke kompleksitet og tidsbruk knyttet til modellering og registrering av data. I tillegg overlapper ofte de kliniske konseptene, for eksempel: Vil tidligere oppkast eller blødning kategoriseres som et symptom eller som et rapportert sykdomstegn?\r\nSom svar på dette er arketypen laget for å tillate registrering av hele kontinuumet mellom tydelig definerte symptomer og rapporterte sykdomstegn.\r\n\r\nArketypen er designet for å gi et generisk rammeverk for alle symptomer og rapporterte sykdomstegn. SLOTet \"Spesifikke detaljer\" kan brukes for å utvide arketypen med ytterligere spesifikke dataelementer for komplekse symptomer eller sykdomstegn.\r\n\r\nArketypen skal settes inn i \"Detaljer\"-SLOTet i OBSERVATION.story-arketypen men kan også brukes i en hvilken som helst OBSERVATION eller CLUSTER-arketype. Arketypen kan også gjenbrukes i andre instanser av CLUSTER.symptom_sign-arketypen i SLOTene \"Assosierte symptomer\" eller \"Tidligere detaljer\".",
-          "misuse" : "Brukes ikke for å registrere spørreskjema-spørsmål om tilstedeværelsen eller fraværet av spesifikke symptomer eller sykdomstegn. Bruk OBSERVATION.symptom_sign_screening til dette formålet. Imidlertid kan denne CLUSTER.symptom_sign arketypen brukes i SLOTet \"Ytterligere detaljer\" i OBSERVATION.symptom_sign_screening dersom man ønsker å utvide spørreskjemaet med detaljer om et symptom eller sykdomstegn.\r\n\r\nBrukes ikke til eksplisitt registrering av at et symptom eller sykdomstegn ikke er tilstede. Bruk CLUSTER.exclusion_symptom_sign varsomt da det øker tidsbruk ved registrering og tilfører økt kompleksitet.\r\n\r\nBrukes ikke til registrering av objektive funn som en del av en fysisk undersøkelse. Bruk OBSERVATION.exam og relaterte CLUSTER.exam-arketyper for dette formålet.\r\n\r\nBrukes ikke til registrering av problemer og diagnoser som en del av en persistent problemliste, til dette brukes EVALUATION.problem_diagnosis.\r\n\r\nBrukes ikke til å registrere en formell og repeterbar alvorlighetsgradering som VAS eller NRS. Bruk passende OBSERVATION-arketyper til dette formålet.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "pt-br" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "pt-br"
-          },
-          "purpose" : "Registrar detalhes sobre um episódio único de um sinal ou sintoma relatado incluindo contexto, mas não detalhes, de episódios prévios se apropriado.",
-          "keywords" : [ "queixa", "sintoma", "distúrbio", "problema", "desconforto", "queixa atual", "sintoma atual", "sinal" ],
-          "use" : "*Use to record details about a single episode of a symptom or reported sign in an individual, as reported by the individual, parent, care-giver or other party. It may be recorded by a clinician as part of a clinical history record as reported to them, observed by the clinician or self-recorded as part of a clinical questionnaire or personal health record. A complete clinical history or patient story may include varying level of details about multiple episodes of an identified symptom or reported sign, as well as multiple symptoms/signs.\r\n\r\nThis archetype has been designed to record the positive presence of the symptom or sign as part of history taking using OBSERVATION.story, or in conjunction with a positive response to OBSERVATION.symptom_sign_screening.\r\n\r\nIn the purest sense, symptoms are subjective observations of a physical or mental disturbance and signs are objective observations of the same, as experienced by an individual and reported to the history taker by the same individual or another party. From this logic it follows that we will need two archetypes to record clinical history - one for reported symptoms and another for reported signs. In reality this is impractical as it will require clinical data entry into either one of these models which adds signficant overheads to modellers and those entering data. In addition, there is often overlap in clinical concepts - for example, is previous vomiting or bleeding to be categorised as a symptom or reported sign? In response, this archetype has been specifically designed to provide a single information model that allows for recording of the entire continuum between clearly identifiable symptoms and reported signs.\r\n\r\nThis archetype has been intended to be used as a generic pattern for all symptoms and reported signs. The 'Specific details' SLOT can be used to extend the archetype to include additional, specific data elements for more complex symptoms or signs. \r\n\r\nThis archetype has been specifically designed to be used in the 'Structured detail' SLOT within the OBSERVATION.story archetype, but can also be used within other OBSERVATION or CLUSTER archetypes and in the 'Associated symptom/sign' or 'Previous episode' SLOT within other instances of this CLUSTER.symptom_sign archetype. (en)",
-          "misuse" : "*Not to be used to record screening questionnaire responses about the presence or absence of specific symptoms - use the OBSERVATION.symptom_sign_screening archetype for this purpose. However, this CLUSTER.symptom_sign archetype may be nested within the 'Screening details' SLOT in the OBSERVATION.symptom_sign_screening archetype if it is necessary to extend the questionnaire by recording details about symptom or sign.\r\n\r\nNot to be used to record that a symptom or sign was explicitly reported as not present - use CLUSTER.exclusion_symptom_sign carefully for specific purposes where the overheads of recording in this way warrant the additional complexity.\r\n\r\nNot to be used for recording objective findings as part of a physical examination - use OBSERVATION.exam and related examination CLUSTER archetypes for this purpose.\r\n\r\nNot to be used for diagnoses and problems that form part of a persisting Problem List - use EVALUATION.problem_diagnosis.\r\n\r\nNot to be used to record a formal and repeatable severity scale such as VAS or NRS. Use appropriate OBSERVATION archetypes for this purpose. (en)",
+          "purpose" : "For å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.",
+          "keywords" : [ "intervjuskjema, kartleggingskjema, spørreskjema, lidelse, plage, problem, ubehag, symptom, sykdomstegn, lyte, skavank" ],
+          "use" : "Brukes for å lage et rammeverk for registrering av svar på forhåndsdefinerte spørsmål om symptomer eller sykdomstegn.\n\nVanlige bruksområder inkluderer, men er ikke begrenset til:\n- Systematiske spørsmål ved konsultasjoner, for eksempel:\n--- Har du hodepine? Ja, Nei, Usikker.\n--- Har du vært plaget med svimmelhet de siste fire ukene? Ja, Nei, Usikker.\n- Spesifikke spørsmål relatert til overvåkning av sykdommer.\n\nSemantikken til denne arketypen er med vilje løst definert, og spørringer etter data i denne arketypen vil normalt bare være hensiktsmessig eller sikkert i konteksten av det spesifikke templatet. I et templat vil hvert dataelement vanligvis døpes om til det (spesifikke) spørsmålet man ønsker svar på. Flere steder er det foreslått verdisett som passer til de vanligste bruksområder, men det er allikevel mulig å tilpasse/endre verdisett for lokal bruk ved å benytte de alternative datatypene DV_TEXT eller DV_BOOLEAN for å harmonere verdisettet til hvert enkelt brukstilfelle.\n\nEVENT-strukturen fra arketypens referansemodell kan brukes for å spesifisere om spørsmålene relateres til et tidspunkt eller til et tidsintervall.\nBruk egne instanser av denne arketypen for å skille mellom spørsmål om prosedyrer som er gjennomførte på et hvilket som helst tidspunkt og spørsmål om prosedyrer som er gjennomført i et tidsintervall. For eksempel; \"Har du hodepine?\" sammenlignet med \"Har du vært plaget med svimmelhet de siste fire ukene?\".\n\nKilden til informasjonen i et spørreskjema kan variere i ulike kontekster, men kan identifiseres spesifikt ved å benytte \"Information provider\" elementet i openEHR referansemodellen.\n\nDenne arketypen er laget for å bli brukt i et spørreskjema eller for å registrere enkle strukturerte data til for eksempel et sykdomsregister. Dersom det i spørreskjemaet identifiseres at et symptom eller sykdomstegn er tilstede, anbefales det at spesifikke detaljer om symptomet registreres og lagres i pasientjournalen i arketypen CLUSTER.symptom_sign (Symptom/Sykdomstegn) i SLOTet \"Ytterligere detaljer\" i denne arketypen.",
+          "misuse" : "Brukes ikke for å registrere detaljer om tilstedeværelse eller fravær av et symptom utenfor konteksten av kartleggingen. Bruk arketypen CLUSTER.symptom_sign (Symptom/sykdomstegn) eller CLUSTER.exclusion_symptom_sign (Eksklusjon av et symptom) for dette formålet.\n\nBrukes ikke for å registrere detaljer om en enkel utvalgsliste der et spørsmål kan registreres som enten \"Tilstede\" eller \"Ubestemt\". Bruk arketypen OBSERVATION.selection_list for dette formålet.",
           "originalResourceUri" : { },
           "otherDetails" : { }
         },
@@ -3391,52 +2943,35 @@
             },
             "codeString" : "en"
           },
-          "purpose" : "To record details about a single episode of a reported symptom or sign including context, but not details, of previous episodes if appropriate.",
-          "keywords" : [ "complaint", "symptom", "disturbance", "problem", "discomfort", "presenting complaint", "presenting symptom", "sign" ],
-          "use" : "Use to record details about a single episode of a symptom or reported sign in an individual, as reported by the individual, parent, care-giver or other party. It may be recorded by a clinician as part of a clinical history record as reported to them, observed by the clinician or self-recorded as part of a clinical questionnaire or personal health record. A complete clinical history or patient story may include varying level of details about multiple episodes of an identified symptom or reported sign, as well as multiple symptoms/signs.\r\n\r\nThis archetype has been designed to record the positive presence of the symptom or sign as part of history taking using OBSERVATION.story, or in conjunction with a positive response to OBSERVATION.symptom_sign_screening.\r\n\r\nIn the purest sense, symptoms are subjective observations of a physical or mental disturbance and signs are objective observations of the same, as experienced by an individual and reported to the history taker by the same individual or another party. From this logic it follows that we will need two archetypes to record clinical history - one for reported symptoms and another for reported signs. In reality this is impractical as it will require clinical data entry into either one of these models which adds signficant overheads to modellers and those entering data. In addition, there is often overlap in clinical concepts - for example, is previous vomiting or bleeding to be categorised as a symptom or reported sign? In response, this archetype has been specifically designed to provide a single information model that allows for recording of the entire continuum between clearly identifiable symptoms and reported signs.\r\n\r\nThis archetype has been intended to be used as a generic pattern for all symptoms and reported signs. The 'Specific details' SLOT can be used to extend the archetype to include additional, specific data elements for more complex symptoms or signs. \r\n\r\nThis archetype has been specifically designed to be used in the 'Structured detail' SLOT within the OBSERVATION.story archetype, but can also be used within other OBSERVATION or CLUSTER archetypes and in the 'Associated symptom/sign' or 'Previous episode' SLOT within other instances of this CLUSTER.symptom_sign archetype.",
-          "misuse" : "Not to be used to record screening questionnaire responses about the presence or absence of specific symptoms - use the OBSERVATION.symptom_sign_screening archetype for this purpose. However, this CLUSTER.symptom_sign archetype may be nested within the 'Screening details' SLOT in the OBSERVATION.symptom_sign_screening archetype if it is necessary to extend the questionnaire by recording details about symptom or sign.\r\n\r\nNot to be used to record that a symptom or sign was explicitly reported as not present - use CLUSTER.exclusion_symptom_sign carefully for specific purposes where the overheads of recording in this way warrant the additional complexity.\r\n\r\nNot to be used for recording objective findings as part of a physical examination - use OBSERVATION.exam and related examination CLUSTER archetypes for this purpose.\r\n\r\nNot to be used for diagnoses and problems that form part of a persisting Problem List - use EVALUATION.problem_diagnosis.\r\n\r\nNot to be used to record a formal and repeatable severity scale such as VAS or NRS. Use appropriate OBSERVATION archetypes for this purpose.",
-          "copyright" : "© openEHR Foundation",
+          "purpose" : "To create a framework for recording answers to pre-defined screening questions about symptoms or signs.",
+          "keywords" : [ "screening, questionnaire, complaint, symptom, disturbance, problem, discomfort, sign" ],
+          "use" : "Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\n\nCommon use cases include, but are not limited to:\n- Systematic inquiry in any consultation, for example:\n--- Do you have headaches? Yes, No, Unknown.\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\n- Specific questioning related to disease surveillance.\n\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case.\n\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\n\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\n\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype.",
+          "misuse" : "Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\n\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose.",
           "originalResourceUri" : { },
           "otherDetails" : { }
         },
-        "ar-sy" : {
+        "it" : {
           "@type" : "RESOURCE_DESCRIPTION_ITEM",
           "language" : {
             "terminologyId" : {
               "value" : "ISO_639-1"
             },
-            "codeString" : "ar-sy"
+            "codeString" : "it"
           },
-          "purpose" : "*To record detail about a symptom - either self-recorded by an individual or recorded on the behalf of a patient by a clinician. A complete patient history may include varying level of details about a variety of symptoms.(en)",
-          "keywords" : [ ],
-          "use" : "*Use to record details about a single episode of a symptom or reported sign in an individual, as reported by the individual, parent, care-giver or other party. It may be recorded by a clinician as part of a clinical history record as reported to them, observed by the clinician or self-recorded as part of a clinical questionnaire or personal health record. A complete clinical history or patient story may include varying level of details about multiple episodes of an identified symptom or reported sign, as well as multiple symptoms/signs.\r\n\r\nThis archetype has been designed to record the positive presence of the symptom or sign as part of history taking using OBSERVATION.story, or in conjunction with a positive response to OBSERVATION.symptom_sign_screening.\r\n\r\nIn the purest sense, symptoms are subjective observations of a physical or mental disturbance and signs are objective observations of the same, as experienced by an individual and reported to the history taker by the same individual or another party. From this logic it follows that we will need two archetypes to record clinical history - one for reported symptoms and another for reported signs. In reality this is impractical as it will require clinical data entry into either one of these models which adds signficant overheads to modellers and those entering data. In addition, there is often overlap in clinical concepts - for example, is previous vomiting or bleeding to be categorised as a symptom or reported sign? In response, this archetype has been specifically designed to provide a single information model that allows for recording of the entire continuum between clearly identifiable symptoms and reported signs.\r\n\r\nThis archetype has been intended to be used as a generic pattern for all symptoms and reported signs. The 'Specific details' SLOT can be used to extend the archetype to include additional, specific data elements for more complex symptoms or signs. \r\n\r\nThis archetype has been specifically designed to be used in the 'Structured detail' SLOT within the OBSERVATION.story archetype, but can also be used within other OBSERVATION or CLUSTER archetypes and in the 'Associated symptom/sign' or 'Previous episode' SLOT within other instances of this CLUSTER.symptom_sign archetype. (en)",
-          "misuse" : "*Not to be used to record screening questionnaire responses about the presence or absence of specific symptoms - use the OBSERVATION.symptom_sign_screening archetype for this purpose. However, this CLUSTER.symptom_sign archetype may be nested within the 'Screening details' SLOT in the OBSERVATION.symptom_sign_screening archetype if it is necessary to extend the questionnaire by recording details about symptom or sign.\r\n\r\nNot to be used to record that a symptom or sign was explicitly reported as not present - use CLUSTER.exclusion_symptom_sign carefully for specific purposes where the overheads of recording in this way warrant the additional complexity.\r\n\r\nNot to be used for recording objective findings as part of a physical examination - use OBSERVATION.exam and related examination CLUSTER archetypes for this purpose.\r\n\r\nNot to be used for diagnoses and problems that form part of a persisting Problem List - use EVALUATION.problem_diagnosis.\r\n\r\nNot to be used to record a formal and repeatable severity scale such as VAS or NRS. Use appropriate OBSERVATION archetypes for this purpose. (en)",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nl" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nl"
-          },
-          "purpose" : "*To record details about a single episode of a reported symptom or sign including context, but not details, of previous episodes if appropriate.(en)",
-          "keywords" : [ ],
-          "use" : "*Use to record details about a single episode of a symptom or reported sign in an individual, as reported by the individual, parent, care-giver or other party. It may be recorded by a clinician as part of a clinical history record as reported to them, observed by the clinician or self-recorded as part of a clinical questionnaire or personal health record. A complete clinical history or patient story may include varying level of details about multiple episodes of an identified symptom or reported sign, as well as multiple symptoms/signs.\r\n\r\nThis archetype has been designed to record the positive presence of the symptom or sign as part of history taking using OBSERVATION.story, or in conjunction with a positive response to OBSERVATION.symptom_sign_screening.\r\n\r\nIn the purest sense, symptoms are subjective observations of a physical or mental disturbance and signs are objective observations of the same, as experienced by an individual and reported to the history taker by the same individual or another party. From this logic it follows that we will need two archetypes to record clinical history - one for reported symptoms and another for reported signs. In reality this is impractical as it will require clinical data entry into either one of these models which adds signficant overheads to modellers and those entering data. In addition, there is often overlap in clinical concepts - for example, is previous vomiting or bleeding to be categorised as a symptom or reported sign? In response, this archetype has been specifically designed to provide a single information model that allows for recording of the entire continuum between clearly identifiable symptoms and reported signs.\r\n\r\nThis archetype has been intended to be used as a generic pattern for all symptoms and reported signs. The 'Specific details' SLOT can be used to extend the archetype to include additional, specific data elements for more complex symptoms or signs. \r\n\r\nThis archetype has been specifically designed to be used in the 'Structured detail' SLOT within the OBSERVATION.story archetype, but can also be used within other OBSERVATION or CLUSTER archetypes and in the 'Associated symptom/sign' or 'Previous episode' SLOT within other instances of this CLUSTER.symptom_sign archetype. (en)",
-          "misuse" : "*Not to be used to record screening questionnaire responses about the presence or absence of specific symptoms - use the OBSERVATION.symptom_sign_screening archetype for this purpose. However, this CLUSTER.symptom_sign archetype may be nested within the 'Screening details' SLOT in the OBSERVATION.symptom_sign_screening archetype if it is necessary to extend the questionnaire by recording details about symptom or sign.\r\n\r\nNot to be used to record that a symptom or sign was explicitly reported as not present - use CLUSTER.exclusion_symptom_sign carefully for specific purposes where the overheads of recording in this way warrant the additional complexity.\r\n\r\nNot to be used for recording objective findings as part of a physical examination - use OBSERVATION.exam and related examination CLUSTER archetypes for this purpose.\r\n\r\nNot to be used for diagnoses and problems that form part of a persisting Problem List - use EVALUATION.problem_diagnosis.\r\n\r\nNot to be used to record a formal and repeatable severity scale such as VAS or NRS. Use appropriate OBSERVATION archetypes for this purpose. (en)",
+          "purpose" : "*To create a framework for recording answers about symptoms or signs, to the questions of a pre-defined screening questionnaire. (en)",
+          "keywords" : [ "*screening, questionnaire, emotions, pain numbness vertigo (en)" ],
+          "use" : "*Use to create a framework for recording answers to pre-defined screening questions about symptoms or signs.\n\nCommon use cases include, but are not limited to:\n- Systematic inquiry in any consultation, for example:\n--- Do you have headaches? Yes, No, Unknown.\n--- Have you had dizziness in the past four weeks? Yes, No, Unknown.\n- Specific questioning related to disease surveillance.\n\nThe semantics of this archetype are intentionally loose, and querying this archetype would normally only be useful or safe within the context of each specific template. In a template, each data element would usually be renamed to the specific question asked. Where value sets have been proposed for common use cases, these can be adapted for local use by using the 'text' choice to match each specific use case.\n\nThe EVENT structure from the reference model can be used to specify whether the questions relate to point in time or over a period of time. Use a separate instance of this archetype to distinguish between a questionnaire recording information about a symptom that has been present at any time in the past and information about a symptom within a specified time interval - for example the difference between \"\"Are you dizzy now?\" compared to \"Have you had any dizziness in the past 4 weeks?\n\nThe source of the information in a questionnaire response may vary in different contexts but can be specifically identified using the 'Information provider' element in the Reference Model.\n\nThis archetype has been designed to be used as a screening tool or to record simple questionnaire-format data for use in situations such as a disease registry. If the screening questionnaire identifies the presence of a symptom or sign, it is recommended that clinical system record and persist the specific details about the symptom or sign using the CLUSTER.symptom_sign archetype nested within the Additional details SLOT in this archetype. (en)",
+          "misuse" : "*Not to be used to record details about the presence or absence of a symptom, outside of a screening context. Use CLUSTER.symptom_sign or CLUSTER.exclusion_symptom_sign for these purposes.\n\nNot to be used to record details about a simple selection list where a question may be recorded as either \"present\" or \"indeterminate\". Use OBSERVATION.selection_list for this purpose. (en)",
           "originalResourceUri" : { },
           "otherDetails" : { }
         }
       }
     },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.symptom_sign.v2",
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.specific_symptom_sign_question.v0",
     "differential" : true,
     "archetypeId" : {
       "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-symptom_sign-001.v2"
+      "value" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-009.v0"
     },
     "definition" : {
       "@type" : "C_COMPLEX_OBJECT",
@@ -3448,22 +2983,7 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0151.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0002.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0175.1",
+          "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
             "rmAttributeName" : "value",
@@ -3475,12 +2995,30 @@
                 "rmAttributeName" : "defining_code",
                 "children" : [ {
                   "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "CODE_PHRASE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
                   "occurrences" : "1..1",
                   "terminologyId" : {
-                    "value" : "local"
+                    "value" : "local_terms_careplan"
                   },
-                  "constraint" : [ "at0176", "at0178", "at0177" ]
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_terms_careplan" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_terms_careplan",
+                    "code" : "1",
+                    "value" : "No problem"
+                  }, {
+                    "terminologyId" : "local_terms_careplan",
+                    "code" : "2",
+                    "value" : "Small problem"
+                  }, {
+                    "terminologyId" : "local_terms_careplan",
+                    "code" : "3",
+                    "value" : "Troublesome problem"
+                  }, {
+                    "terminologyId" : "local_terms_careplan",
+                    "code" : "4",
+                    "value" : "Very troublesome problem"
+                  } ]
                 } ]
               } ],
               "attributeTuples" : [ ]
@@ -3491,39 +3029,21 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
-          "nodeId" : "at0186.1",
+          "nodeId" : "at0037.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
             "rmAttributeName" : "value",
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "CODE_PHRASE",
-                  "occurrences" : "1..1",
-                  "terminologyId" : {
-                    "value" : "local"
-                  },
-                  "constraint" : [ "at0187", "at0188" ]
-                } ]
-              } ],
+              "rmTypeName" : "DV_DURATION",
+              "attributes" : [ ],
               "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0152.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_DATE_TIME",
               "attributes" : [ ],
@@ -3533,123 +3053,6 @@
               "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
               "attributes" : [ ],
               "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0164.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DURATION",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0200.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0028.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DURATION",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_DURATION",
-                  "rmTypeName" : "DURATION",
-                  "occurrences" : "1..1",
-                  "constraint" : [ {
-                    "lower" : "PT0S",
-                    "lowerIncluded" : true,
-                    "upperIncluded" : false,
-                    "upperUnbounded" : true,
-                    "lowerUnbounded" : false
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_INTERVAL<DV_DURATION>",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "lower",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DURATION",
-                  "attributes" : [ {
-                    "@type" : "C_ATTRIBUTE",
-                    "rmAttributeName" : "value",
-                    "children" : [ {
-                      "@type" : "C_DURATION",
-                      "rmTypeName" : "DURATION",
-                      "occurrences" : "1..1",
-                      "constraint" : [ {
-                        "lower" : "PT0S",
-                        "lowerIncluded" : true,
-                        "upperIncluded" : false,
-                        "upperUnbounded" : true,
-                        "lowerUnbounded" : false
-                      } ]
-                    } ]
-                  } ],
-                  "attributeTuples" : [ ]
-                } ]
-              }, {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "upper",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_DURATION",
-                  "attributes" : [ {
-                    "@type" : "C_ATTRIBUTE",
-                    "rmAttributeName" : "value",
-                    "children" : [ {
-                      "@type" : "C_DURATION",
-                      "rmTypeName" : "DURATION",
-                      "occurrences" : "1..1",
-                      "constraint" : [ {
-                        "lower" : "PT0S",
-                        "lowerIncluded" : true,
-                        "upperIncluded" : false,
-                        "upperUnbounded" : true,
-                        "lowerUnbounded" : false
-                      } ]
-                    } ]
-                  } ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_TEXT",
@@ -3662,263 +3065,7 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
-          "nodeId" : "at0021.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "CODE_PHRASE",
-                  "occurrences" : "1..1",
-                  "terminologyId" : {
-                    "value" : "local"
-                  },
-                  "constraint" : [ "at0023", "at0024", "at0025" ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0189.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0180.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "CODE_PHRASE",
-                  "occurrences" : "1..1",
-                  "terminologyId" : {
-                    "value" : "local"
-                  },
-                  "constraint" : [ "at0183", "at0182", "at0181", "at0184" ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0003.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..0",
-          "nodeId" : "at0018.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0019.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0017.1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "value",
-                "children" : [ {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_CODED_TEXT",
-                  "attributes" : [ {
-                    "@type" : "C_ATTRIBUTE",
-                    "rmAttributeName" : "defining_code",
-                    "children" : [ {
-                      "@type" : "C_TERMINOLOGY_CODE",
-                      "rmTypeName" : "CODE_PHRASE",
-                      "occurrences" : "1..1",
-                      "terminologyId" : {
-                        "value" : "local"
-                      },
-                      "constraint" : [ "at0159", "at0156", "at0158" ]
-                    } ]
-                  } ],
-                  "attributeTuples" : [ ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0056.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..0",
-          "nodeId" : "at0165.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0170.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0171.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0185.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..0",
-          "nodeId" : "at0190.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "items",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0193.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0195.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            }, {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
-              "nodeId" : "at0196.1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0155.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0037.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0161.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0057.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0031.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_COUNT",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "magnitude",
-                "children" : [ {
-                  "@type" : "C_INTEGER",
-                  "rmTypeName" : "Integer",
-                  "occurrences" : "1..1",
-                  "constraint" : [ {
-                    "lower" : 0,
-                    "lowerIncluded" : true,
-                    "upperIncluded" : false,
-                    "upperUnbounded" : true,
-                    "lowerUnbounded" : false
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0163.1",
+          "nodeId" : "at0035.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
         } ]
@@ -3929,27 +3076,106 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "ar-sy" : { },
-        "en" : { },
-        "de" : { },
-        "nb" : { },
-        "fi" : { },
-        "sv" : { },
-        "pt-br" : { },
-        "nl" : { }
-      },
-      "termBindings" : {
-        "SNOMED-CT" : {
-          "at0152.1" : "term:SNOMED-CT::405795006",
-          "at0028.1" : "term:SNOMED-CT::162434008",
-          "at0021.1" : "term:SNOMED-CT::405162009"
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Family/relationships",
+            "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Family/relationships",
+            "description" : "Is there a history of the specific symptom or sign having been present?",
+            "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
+          }
+        },
+        "fi" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Oire / tuntemus ryhmitys (9)",
+            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Spesifikt symptom/sykdomstegn (9)",
+            "description" : "Detaljer om et spesifikt symptom eller sykdomstegn, eller gruppe av symptomer eller sykdomstegn som er innenfor kartleggingsformålet."
+          }
+        },
+        "de" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Spezifisches Symptom/Anzeichen (9)",
+            "description" : "Details zu einem bestimmten Symptom oder Anzeichen oder zu einer bestimmten Gruppe von Symptomen oder Anzeichen, die für das Screening relevant sind."
+          }
+        },
+        "it" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Sintomo/segno specifico (9)",
+            "description" : "*Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose. (en)"
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Familj/relationer",
+            "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Familj/relationer",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
+          }
         }
       },
+      "termBindings" : { },
       "terminologyExtracts" : { },
-      "valueSets" : { }
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.2" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.2",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.3" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.3",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.5" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.5",
+          "members" : [ "at0023", "at0024", "at0027" ]
+        },
+        "ac0.6" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.6",
+          "members" : [ ]
+        },
+        "ac0.7" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.7",
+          "members" : [ ]
+        }
+      }
     },
     "adlVersion" : "1.4",
-    "buildUid" : "7b321c2c-f295-477d-84ce-6744e5353245",
+    "buildUid" : "ae1b950a-03e9-422c-8987-eefeaf3a4d05",
     "rmName" : "openehr",
     "rmRelease" : "1.1.0",
     "generated" : true,
@@ -3969,9 +3195,9 @@
         "codeString" : "de"
       },
       "author" : {
-        "name" : "Sebastian Garde, Kim Sommer, Natalia Strauch, Alina Rehberg",
-        "organisation" : "University of Heidelberg, Central Queensland University, Medizinische Hochschule Hannover",
-        "email" : "Strauch.Natalia@mh-hannover.de, rehberg.alina@mh-hannover.de"
+        "name" : "Sarah Ballout, Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "ballout.sarah@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
       },
       "otherDetails" : { }
     }, {
@@ -3982,11 +3208,7 @@
         },
         "codeString" : "fi"
       },
-      "author" : {
-        "name" : "Kalle Vuorinen",
-        "organisation" : "Tieto Healthcare & Welfare Oy",
-        "email" : "kalle.vuorinen@tieto.com"
-      },
+      "author" : { },
       "otherDetails" : { }
     }, {
       "@type" : "TRANSLATION_DETAILS",
@@ -3997,9 +3219,9 @@
         "codeString" : "sv"
       },
       "author" : {
-        "name" : "Kirsi Poikela; Erik Sundvall, Jörgen Kuylenstierna",
-        "organisation" : "Tieto Sweden AB; Karolinska Institutet, Karolinska University Hospital, Region Stockholm + Linköping University, Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University, eWeave AB",
-        "email" : "ext.kirsi.poikela@tieto.com, erik.sundvall@regionstockholm.se, jorgen.kuylenstierna@solvikshalsan.se"
+        "name" : "Emma Malm, Erik Sundvall",
+        "organisation" : "Karolinska University Hospital, Region Stockholm, Karolinska University Hospital, Region Stockholm + Linköping University, Karolinska Institutet + Karolinska University Hospital, Region Stockholm + Linköping University",
+        "email" : "emma.malm@cambio.se, erik.sundvall@regionstockholm.se"
       },
       "otherDetails" : { }
     }, {
@@ -4011,24 +3233,9 @@
         "codeString" : "nb"
       },
       "author" : {
-        "name" : "Lars Bitsch-Larsen, Silje Ljosland Bakke",
-        "organisation" : "Haukeland University Hospital of Bergen, Norway, Helse Vest IKT AS",
-        "email" : "lbla@helse-bergen.no, silje.ljosland.bakke@helse-vest-ikt.no"
-      },
-      "accreditation" : "MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.",
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "pt-br"
-      },
-      "author" : {
-        "name" : "Vladimir Pizzo",
-        "organisation" : "Hospital Sirio Libanes - Brazil",
-        "email" : "vladimir.pizzo@hsl.org.br"
+        "name" : "Marit Alice Venheim, Silje Ljosland Bakke, John Tore Valand",
+        "organisation" : "Helse Vest IKT AS, Helse Bergen",
+        "email" : "marit.alice.venheim@helse-vest-ikt.no, silje.ljosland.bakke@helse-vest-ikt.no, john.tore.valand@helse-vest-ikt.no"
       },
       "otherDetails" : { }
     }, {
@@ -4037,26 +3244,9 @@
         "terminologyId" : {
           "value" : "ISO_639-1"
         },
-        "codeString" : "ar-sy"
+        "codeString" : "it"
       },
-      "author" : {
-        "name" : "Mona Saleh"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nl"
-      },
-      "author" : {
-        "name" : "Joost Holslag",
-        "organisation" : "Nedap",
-        "email" : "joost.holslag@nedap.com"
-      },
-      "accreditation" : "MD",
+      "author" : { },
       "otherDetails" : { }
     } ]
   } ],
