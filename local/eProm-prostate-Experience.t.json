@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "2.0.0",
+      "sem_ver" : "3.0.0",
       "build_uid" : "0d957eb8-6bce-4a37-beee-5c4a7a0b7672",
-      "MD5-CAM-1.0.1" : "dbeedbed72824389f54d4f434b831b00",
+      "MD5-CAM-1.0.1" : "45f9cd4dd26312ead840ccb3cb59fbcf",
       "PARENT:MD5-CAM-1.0.1" : "31B910AC33C3730A7ED2140B580F216C"
     },
     "details" : {
@@ -91,24 +91,6 @@
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "CLUSTER",
         "occurrences" : "0..1",
-        "nodeId" : "at0002.1",
-        "attributes" : [ ],
-        "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-001.v0",
-        "referenceType" : "archetypeOverlay"
-      }, {
-        "@type" : "C_ARCHETYPE_ROOT",
-        "rmTypeName" : "CLUSTER",
-        "occurrences" : "0..1",
-        "nodeId" : "at0002.2",
-        "attributes" : [ ],
-        "attributeTuples" : [ ],
-        "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-002.v0",
-        "referenceType" : "archetypeOverlay"
-      }, {
-        "@type" : "C_ARCHETYPE_ROOT",
-        "rmTypeName" : "CLUSTER",
-        "occurrences" : "0..1",
         "nodeId" : "at0002.3",
         "attributes" : [ ],
         "attributeTuples" : [ ],
@@ -138,7 +120,14 @@
           "description" : "Eine generische Clusterüberschrift zur kontextuellen Umbenennung innerhalb eines Templates."
         }
       },
-      "sv" : { }
+      "sv" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "Här frågor som handlar om din upplevelse av sjukvården",
+          "description" : "En generell rubrik för CLUSTER arketyper som kan byta namn utifrån sammanhang inom ett template."
+        }
+      }
     },
     "termBindings" : { },
     "terminologyExtracts" : { },
@@ -273,12 +262,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -380,19 +363,32 @@
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "at0004.1" : {
+          "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
+            "code" : "at0000.1",
             "text" : "Involvement in care",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
+            "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           }
         },
         "fi" : { },
         "nb" : { },
         "de" : { },
         "it" : { },
-        "sv" : { }
+        "sv" : {
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Känner du dig delaktig i beslut om din vård och  behandling, så mycket som du önskar?",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Delaktighet",
+            "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -626,12 +622,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -712,7 +702,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (2)",
+            "text" : "Contact nurse",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -721,13 +711,6 @@
             "text" : "Do you have a contact nurse?",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Contact nurse",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           },
           "ac0.2" : {
             "@type" : "ARCHETYPE_TERM",
@@ -796,7 +779,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (2)",
+            "text" : "Kontaktsjuksköterska",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
           },
           "ac0.2" : {
@@ -804,6 +787,13 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
             "description" : ""
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Har du en kontaktsjuksköterska?",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -1004,7 +994,14 @@
           }
         },
         "de" : { },
-        "sv" : { }
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Under din aktuella sjukdom eller behandling, hur mycket information har du fått om:",
+            "description" : "En generell rubrik för CLUSTER arketyper som kan byta namn utifrån sammanhang inom ett template."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -1173,12 +1170,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -1280,19 +1271,32 @@
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
           },
-          "at0004.1" : {
+          "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
+            "code" : "at0000.1",
             "text" : "Side effects",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
+            "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           }
         },
         "fi" : { },
         "nb" : { },
         "de" : { },
         "it" : { },
-        "sv" : { }
+        "sv" : {
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Eventuella biverkningar av din behandling?",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
+          },
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Biverkningar",
+            "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -1521,12 +1525,6 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0004.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
           "nodeId" : "at0005.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -1624,7 +1622,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specific symptom/sign question (2)",
+            "text" : "Impact on sex life",
             "description" : "Details about a specific symptom or sign or grouping of symptoms or signs relatevant for the screening purpose."
           },
           "at0005.1" : {
@@ -1633,13 +1631,6 @@
             "text" : "Impact of the treatment on sex life?",
             "description" : "Is there a history of the specific symptom or sign having been present?",
             "comment" : "In a template, the data element would usually be renamed to the specific question asked. The proposed value set can be adapted for local use by using the DV_TEXT or the DV_BOOLEAN datatypes choice to match each specific use case."
-          },
-          "at0004.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0004.1",
-            "text" : "Impact on sex life",
-            "description" : "Identification of a specific symptom or sign or grouping of symptoms or signs, by name.",
-            "comment" : "Coding of the 'Symptom/sign name' with a terminology is preferred, where possible."
           }
         },
         "fi" : {
@@ -1678,8 +1669,15 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Specifika symptom/tecken (2)",
+            "text" : "Inverkan på sexlivet",
             "description" : "Detaljer om ett specifikt symptom eller tecken eller gruppering av symtom eller tecken som är relevanta för screeningändamålet."
+          },
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Inverkan av behandlingen på sexlivet?",
+            "description" : "Har symptomet eller tecknet förekommit?",
+            "comment" : "I en mall skulle dataelementet vanligtvis döpas om till den specifika fråga som ställdes till användaren. De föreslagna svarsalternativen kan anpassas för lokal användning genom att välja DV_TEXT eller DV_BOOLEAN datatyper för att matcha varje specifikt användningsfall."
           }
         }
       },
@@ -1857,7 +1855,29 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "CLUSTER",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0002.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-001.v0",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0002.2",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specific_symptom_sign_question-002.v0",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
@@ -1880,7 +1900,14 @@
             "description" : "Eine generische Clusterüberschrift zur kontextuellen Umbenennung innerhalb eines Templates."
           }
         },
-        "sv" : { }
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Frågor om information/delaktighet",
+            "description" : "En generell rubrik för CLUSTER arketyper som kan byta namn utifrån sammanhang inom ett template."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
