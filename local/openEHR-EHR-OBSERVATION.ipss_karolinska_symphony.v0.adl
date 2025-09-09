@@ -1,5 +1,5 @@
 archetype (adl_version=1.4; uid=9d136b1b-c8af-44f0-b5ac-b561e937ccd6)
-	openEHR-EHR-OBSERVATION.ipss_karolinska_symphony.v0
+	openEHR-EHR-OBSERVATION.ipss.v1
 
 concept
 	[at0000]
@@ -10,11 +10,10 @@ language
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			author = <
-				["name"] = <"Sajjad Saffari Miandoab, Axel Möller, Manna Vosta">
+				["name"] = <"Emma Malm, Manna Vosta">
 				["organisation"] = <"Karolinska University Hospital">
-				["email"] = <"sajjad.saffari-miandoab@regionstockholm.se, axel.moller@regionstockholm.se, manna.vosta@regionstockholm.se">
+				["email"] = <"emma.malm@cambio.se, manna.vosta@regionstockholm.se">
 			>
-			accreditation = <"Sajjad Saffari Miandoab, Axel Möller">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
@@ -40,9 +39,9 @@ description
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			purpose = <"Att registrera resultaten för varje komponentparameter och deras totala summa för IPSS.">
-			keywords = <"I-PSS","IPSS","prostata","BPH">
+			keywords = <"I-PSS","IPSS","prostata","BPH","symtomskattningsskala","prostatahyperplasi">
 			use = <"Används för att registrera resultaten för varje komponentparameter och deras totala summa för IPSS.">
-			misuse = <"Ska inte användas för att registrera symtom relaterade till prostata - använd istället CLUSTER.symptom_sign för detta ändamål.">
+			misuse = <"Ska inte användas för att registrera prostata-relaterade symtom. Använd i stället CLUSTER.symptom_sign för detta ändamål.">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
@@ -72,14 +71,14 @@ Porta Medica [Internet] Vannlatningsproblemer - spørreskjema; 2004 Jan 12 [cite
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"99807d5a6d07d51981142adcacec4775">
-		["build_uid"] = <"be8e0247-c24e-4184-b3f2-1a524e7ddb51">
+		["MD5-CAM-1.0.1"] = <"c9e431b75e6315402fce92c0d8dbf54a">
+		["build_uid"] = <"398a436d-9c5a-4a01-bd90-66dfcdfc1806">
 		["ip_acknowledgements"] = <"Public domain">
 		["revision"] = <"1.0.2-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {    -- IPSS Karolinska Symphony
+	OBSERVATION[at0000] matches {    -- International prostate symptom score (IPSS)
 		data matches {
 			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
@@ -199,7 +198,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"IPSS Karolinska Symphony">
+					text = <"International prostate symptom score (IPSS)">
 					description = <"An assessment score used to screen for, diagnose, and track symptoms of benign prostatic hyperplasia (BPH).">
 				>
 				["at0001"] = <
@@ -341,7 +340,7 @@ ontology
 		["nb"] = <
 			items = <
 				["at0000"] = <
-					text = <"*IPSS Karolinska Symphony (en)">
+					text = <"Internasjonal prostata symptom skår (I-PSS)">
 					description = <"Vurderingsskår som brukes for å screene og følge opp symptomer på benign prostatahyperplasi (BPH).">
 				>
 				["at0001"] = <
@@ -483,8 +482,8 @@ ontology
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"IPSS Karolinska Symphony">
-					description = <"En bedömningsskala som används för att screena för, diagnostisera och följa upp symtom på benign prostatahyperplasi (BPH).">
+					text = <"International prostate symptom score (IPSS)">
+					description = <"Ett bedömningsverktyg som används för att screena och spåra symtom för benign prostatahyperplasi (BPH).">
 				>
 				["at0001"] = <
 					text = <"Event Series">
@@ -503,19 +502,19 @@ ontology
 					description = <"Hur ofta har du, under den senaste månaden, haft känslan av att urinblåsan inte är helt tömd efter urinering?">
 				>
 				["at0005"] = <
-					text = <"Inte alls">
+					text = <"Aldrig">
 					description = <"">
 				>
 				["at0006"] = <
-					text = <"Mindre än 1 gång utav 5">
+					text = <"Färre än 1 gång av 5">
 					description = <"">
 				>
 				["at0007"] = <
-					text = <"Mindre än hälften av gångerna">
+					text = <"Färre än hälften av gångerna">
 					description = <"">
 				>
 				["at0008"] = <
-					text = <"Hälften av gångerna">
+					text = <"Ungefär hälften av gångerna">
 					description = <"">
 				>
 				["at0009"] = <
@@ -543,7 +542,7 @@ ontology
 					description = <"Hur ofta har du, under den senaste månaden, haft en svag urinstråle?">
 				>
 				["at0015"] = <
-					text = <"Krystning/ansträngning">
+					text = <"Krystning">
 					description = <"Hur ofta har du, under den senaste månaden, varit tvungen att pressa eller anstränga dig för att börja urinera?">
 				>
 				["at0016"] = <
@@ -571,13 +570,13 @@ ontology
 					description = <"">
 				>
 				["at0022"] = <
-					text = <"5 gånger eller mer">
+					text = <"5 eller fler">
 					description = <"">
 				>
 				["at0023"] = <
 					text = <"Totalpoäng">
 					description = <"Den totala summan av varje komponentparameter för IPSS.">
-					comment = <"Exkluderar frågan ”Livskvalitet”.">
+					comment = <"Exkluderar \"Livskvalitet\".">
 				>
 				["at0024"] = <
 					text = <"Livskvalitet">
@@ -592,7 +591,7 @@ ontology
 					description = <"">
 				>
 				["at0027"] = <
-					text = <"Ganska nöjd">
+					text = <"Mestadels nöjd">
 					description = <"">
 				>
 				["at0028"] = <
@@ -604,11 +603,11 @@ ontology
 					description = <"">
 				>
 				["at0030"] = <
-					text = <"Olycklig">
+					text = <"Missnöjd">
 					description = <"">
 				>
 				["at0031"] = <
-					text = <"Fruktansvärt">
+					text = <"Fruktansvärd">
 					description = <"">
 				>
 				["at0032"] = <
@@ -616,9 +615,9 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0033"] = <
-					text = <"Ospecificerad händelse">
-					description = <"Ytterligare information som krävs för att utöka modellen med lokalt innehåll eller för att anpassa den till andra referensmodeller eller formalia.">
-					comment = <"Till exempel: lokala informationskrav eller ytterligare metadata för att anpassa till FHIR.">
+					text = <"Tilläggsinformation">
+					description = <"Plats för att infoga tilläggsinformation som krävs för lokala anpassningar eller anpassning till andra referensmodeller eller formella krav.">
+					comment = <"Exempelvis lokala informationskrav eller metadata för anpassning till FHIR- eller CIMI-motsvarigheter.">
 				>
 			>
 		>
