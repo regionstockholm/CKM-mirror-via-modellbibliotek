@@ -1,0 +1,91 @@
+archetype (adl_version=1.4; uid=55e5557b-1ebd-4e92-924b-337a2a4bd9ae)
+	openEHR-EHR-CLUSTER.properties_diagnosis_tc.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2025-09-25">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"c3bd46eb4b1b07ac70b8e2cad6cf4a17">
+		["build_uid"] = <"670d8459-48e6-300b-8667-aee296c34c6b">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Properties_diagnosis_tc
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Date of event
+				value matches {
+					DV_DATE matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Signing authority
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Chronic
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Cause of death
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Save to signing list
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Properties_diagnosis_tc">
+					description = <"properties_diagnosis_tc">
+				>
+				["at0001"] = <
+					text = <"Date of event">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Signing authority">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Chronic">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Cause of death">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Save to signing list">
+					description = <"">
+				>
+			>
+		>
+	>
