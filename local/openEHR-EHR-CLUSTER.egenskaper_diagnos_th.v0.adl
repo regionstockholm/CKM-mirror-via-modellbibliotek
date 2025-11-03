@@ -1,0 +1,131 @@
+archetype (adl_version=1.4; uid=5dfecaf5-7a15-4f2b-a389-48f7933e75bd)
+	openEHR-EHR-CLUSTER.egenskaper_diagnos_th.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2025-11-03">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"74315f2f52bfa48345bffeed0c0ff9e4">
+		["build_uid"] = <"b7d470ba-f6ba-3016-a5bf-85abb530b51c">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Egenskaper_diagnos_TH
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Händelsedatum
+				value matches {
+					DV_DATE matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Signerings ansvarig
+				value matches {
+					DV_IDENTIFIER matches {*}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Spara i signeringslista
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Kronisk
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Dödsorsak
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Egenskaper_diagnos_TH">
+					description = <"Egenskaper_diagnos_TH">
+				>
+				["at0001"] = <
+					text = <"Händelsedatum">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Signerings ansvarig">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Spara i signeringslista">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Kronisk">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Dödsorsak">
+					description = <"">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Properties_diagnosis_TH">
+					description = <"*Egenskaper_diagnos_TH (sv)">
+				>
+				["at0001"] = <
+					text = <"Date of event">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Signing authority">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Save in signing list">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"IsChronic">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"IsCauseOfDeath">
+					description = <"">
+				>
+			>
+		>
+	>
