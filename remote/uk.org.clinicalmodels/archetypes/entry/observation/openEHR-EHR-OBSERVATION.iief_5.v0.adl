@@ -1,29 +1,40 @@
-﻿archetype (adl_version=1.4; uid=737ea2ce-78ed-4a0b-8dec-2084d3e765ca)
+archetype (adl_version=1.4; uid=737ea2ce-78ed-4a0b-8dec-2084d3e765ca)
 	openEHR-EHR-OBSERVATION.iief_5.v0
 
 concept
-	[at0000]	-- IIEF-5-Score
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
 description
 	original_author = <
+		["date"] = <"2016-05-30">
 		["name"] = <"Hildegard Franke">
 		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
 		["email"] = <"hildi@freshehr.com">
-		["date"] = <"2016-05-30">
 	>
+	lifecycle_state = <"in_development">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"Intended to capture the 5-item version of the International Index of Erectile Function (IIEF-5) as a diagnostic tool for erectile dysfunction.">
-			use = <"Use to record 5-item scoring test for erectile dysfunction.">
-			keywords = <"erectile", "dysfunction", "IIEF", "score", "index", "prostate">
-			misuse = <"">
+			keywords = <"erectile","dysfunction","IIEF","score","index","prostate">
 			copyright = <"© Clinical Models UK">
+			use = <"Use to record 5-item scoring test for erectile dysfunction.">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"UK Clinical Models">
@@ -32,70 +43,70 @@ description
 		["original_namespace"] = <"uk.org.clinicalmodels">
 		["original_publisher"] = <"UK Clinical Models">
 		["custodian_namespace"] = <"uk.org.clinicalmodels">
-		["MD5-CAM-1.0.1"] = <"7606607D7643C3336A79FDE0D56985D6">
+		["MD5-CAM-1.0.1"] = <"6858d15d48d0de43620b90e77a8f2e18">
 		["build_uid"] = <"1eb19e16-3466-4e1c-bac6-328da920d616">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {	-- IIEF-5-Score
+	OBSERVATION[at0000] matches {    -- IIEF-5-Score
 		data matches {
-			HISTORY[at0001] matches {	-- Event Series
+			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Point in time
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {    -- Point in time
 						data matches {
-							ITEM_TREE[at0003] matches {	-- Tree
+							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Confidence
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Confidence
 										value matches {
-											1|[local::at0005], 	-- Very low
-											2|[local::at0006], 	-- Low
-											3|[local::at0007], 	-- Moderate
-											4|[local::at0008], 	-- High
-											5|[local::at0009]  	-- Very high
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0009]
 										}
 									}
-									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Hard enough for penetration
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- Hard enough for penetration
 										value matches {
-											0|[local::at0011], 	-- No sexual activity
-											1|[local::at0012], 	-- Almost never or never
-											2|[local::at0013], 	-- A few times
-											3|[local::at0014], 	-- Sometimes
-											4|[local::at0015], 	-- Most times
-											5|[local::at0016]  	-- Almost always or always
+											0|[local::at0011],
+											1|[local::at0012],
+											2|[local::at0013],
+											3|[local::at0014],
+											4|[local::at0015],
+											5|[local::at0016]
 										}
 									}
-									ELEMENT[at0017] occurrences matches {0..1} matches {	-- Maintain after penetration
+									ELEMENT[at0017] occurrences matches {0..1} matches {    -- Maintain after penetration
 										value matches {
-											0|[local::at0018], 	-- Did not attempt intercourse
-											1|[local::at0019], 	-- Almost never or never
-											2|[local::at0020], 	-- A few times
-											3|[local::at0021], 	-- Sometimes
-											4|[local::at0022], 	-- Most times
-											5|[local::at0023]  	-- Almost always or always
+											0|[local::at0018],
+											1|[local::at0019],
+											2|[local::at0020],
+											3|[local::at0021],
+											4|[local::at0022],
+											5|[local::at0023]
 										}
 									}
-									ELEMENT[at0024] occurrences matches {0..1} matches {	-- Maintain to completion
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Maintain to completion
 										value matches {
-											0|[local::at0025], 	-- Did not attempt intercourse
-											1|[local::at0026], 	-- Extremely difficult
-											2|[local::at0027], 	-- Very difficult
-											3|[local::at0028], 	-- Difficult
-											4|[local::at0029], 	-- Slightly difficult
-											5|[local::at0030]  	-- Not difficult
+											0|[local::at0025],
+											1|[local::at0026],
+											2|[local::at0027],
+											3|[local::at0028],
+											4|[local::at0029],
+											5|[local::at0030]
 										}
 									}
-									ELEMENT[at0031] occurrences matches {0..1} matches {	-- Satisfactory
+									ELEMENT[at0031] occurrences matches {0..1} matches {    -- Satisfactory
 										value matches {
-											0|[local::at0032], 	-- Did not attempt intercourse
-											1|[local::at0033], 	-- Almost never or never
-											2|[local::at0034], 	-- A few times
-											3|[local::at0035], 	-- Sometimes
-											4|[local::at0036], 	-- Most times
-											5|[local::at0037]  	-- Almost always or always
+											0|[local::at0032],
+											1|[local::at0033],
+											2|[local::at0034],
+											3|[local::at0035],
+											4|[local::at0036],
+											5|[local::at0037]
 										}
 									}
-									ELEMENT[at0038] occurrences matches {0..1} matches {	-- IIEF-5 Score
+									ELEMENT[at0038] occurrences matches {0..1} matches {    -- IIEF-5 Score
 										value matches {
 											DV_COUNT matches {
 												magnitude matches {|1..25|}
@@ -106,9 +117,9 @@ definition
 							}
 						}
 						state matches {
-							ITEM_TREE[at0039] matches {	-- Tree
+							ITEM_TREE[at0039] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0040] occurrences matches {0..*} matches {	-- Confounding factors
+									ELEMENT[at0040] occurrences matches {0..*} matches {    -- Confounding factors
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -121,9 +132,9 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0041] matches {	-- Tree
+			ITEM_TREE[at0041] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					allow_archetype CLUSTER[at0042] occurrences matches {0..*} matches {	-- Extension
+					allow_archetype CLUSTER[at0042] occurrences matches {0..*} matches {    -- Extension
 						include
 							archetype_id/value matches {/.*/}
 					}
@@ -131,8 +142,6 @@ definition
 			}
 		}
 	}
-
-
 
 ontology
 	term_definitions = <
@@ -317,6 +326,190 @@ with sexual stimulation, how often were your erections hard enough for penetrati
 					text = <"Extension">
 					description = <"Additional information required to capture local content or to align with other reference models/formalisms.
 Comment: e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"IIEF-5 poäng">
+					description = <"*International index of erectile dysfunction (IIEF-5). (en)">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"*Point in time (en)">
+					description = <"*A specific date and/or time which may be explicitly defined in a template or at run-time. (en)">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Självförtrende">
+					description = <"*Confidence to get and keep erection. (en)">
+					comment = <"*Prompt: Over the past 6 months how did you rate your confidence that you could get and keep an erection? (en)">
+				>
+				["at0005"] = <
+					text = <"Mycket låg">
+					description = <"Under de senaste 6 månaderna var självförtroendet för förmågan att få och behålla erektion mycket lågt.">
+				>
+				["at0006"] = <
+					text = <"Lågt">
+					description = <"Under de senaste 6 månaderna var självförtroendet för förmågan att få och behålla erektion lågt">
+				>
+				["at0007"] = <
+					text = <"Måttligt">
+					description = <"Under de senaste 6 månaderna var självförtroendet för förmågan att få och behålla erektion måttligt.">
+				>
+				["at0008"] = <
+					text = <"Högt">
+					description = <"Under de senaste 6 månaderna var självförtroendet för förmågan att få och behålla erektion högt.">
+				>
+				["at0009"] = <
+					text = <"Mycket högt">
+					description = <"Under de senaste 6 månaderna var självförtroendet för förmågan att få och behålla erektion mycket högt.">
+				>
+				["at0010"] = <
+					text = <"Tillräckligt hård för penetration">
+					description = <"*Frequency of erection being hard enough for penetration. (en)">
+					comment = <"*Prompt: Over the past 6 months when you had erections with sexual stimulation, how often were your erections hard enough for penetration?
+with sexual stimulation, how often were your erections hard enough for penetration?
+with sexual stimulation, how often were your erections hard enough for penetration? (en)">
+				>
+				["at0011"] = <
+					text = <"Ingen sexuell aktivitet">
+					description = <"Det förekom ingen sexuell aktivitet under de senaste 6 månaderna.">
+				>
+				["at0012"] = <
+					text = <"Nästan aldrig eller aldrig">
+					description = <"Under de senaste 6 månaderna var erektionerna nästan aldrig eller aldrig tillräckligt hårda för penetration.">
+				>
+				["at0013"] = <
+					text = <"Ett fåtal gånger">
+					description = <"Under de senaste 6 månaderna var erektionerna tillräckligt hårda för penetration ett fåtal gånger.">
+				>
+				["at0014"] = <
+					text = <"Ibland">
+					description = <"Under de senaste 6 månaderna var erektionerna ibland tillräckligt hårda för penetration.">
+				>
+				["at0015"] = <
+					text = <"De flesta gånger">
+					description = <"Under de senaste 6 månaderna var erektionerna tillräckligt hårda för penetration de flesta gånger.">
+				>
+				["at0016"] = <
+					text = <"Nästan alltid eller alltid">
+					description = <"Under de senaste 6 månaderna var erektionerna nästan alltid eller alltid tillräckligt hårda för penetration.">
+				>
+				["at0017"] = <
+					text = <"Bibehållen efter penetration">
+					description = <"*Frequency of erection being maintained after penetration. (en)">
+					comment = <"*Prompt: Over the past 6 months during sexual intercourse, how often were you able to maintain your erection after you had penetrated your partner? (en)">
+				>
+				["at0018"] = <
+					text = <"Försökte inte samlag">
+					description = <"Under de senaste 6 månaderna försöktes inte samlag.">
+				>
+				["at0019"] = <
+					text = <"Nästan aldrig eller aldrig">
+					description = <"Under de senaste 6 månaderna bibehölls erektionen nästan aldrig eller aldrig efter penetration.">
+				>
+				["at0020"] = <
+					text = <"Ett fåtal gånger">
+					description = <"Under de senaste 6 månaderna bibehölls erektionen efter penetration ett fåtal gånger">
+				>
+				["at0021"] = <
+					text = <"Ibland">
+					description = <"Under de senaste 6 månaderna bibehölls erektionen ibland efter penetration.">
+				>
+				["at0022"] = <
+					text = <"De flesta gånger">
+					description = <"Under de senaste 6 månaderna bibehölls erektionen de flesta gånger efter penetration">
+				>
+				["at0023"] = <
+					text = <"Nästan alltid eller alltid">
+					description = <"Under de senaste 6 månaderna bibehölls erektionen nästan alltid eller alltid efter penetration.">
+				>
+				["at0024"] = <
+					text = <"Bibehållen till avslut">
+					description = <"*Frequency of erection being maintained to completion of intercourse. (en)">
+					comment = <"*Prompt: Over the past 6 months during sexual intercourse, how difficult was it to maintain your erection to completion of intercourse? (en)">
+				>
+				["at0025"] = <
+					text = <"Försökte inte samlag">
+					description = <"Under de senaste 6 månaderna försöktes inte samlag.">
+				>
+				["at0026"] = <
+					text = <"Extremt svårt">
+					description = <"Under de senaste 6 månaderna var det extremt svårt att bibehålla erektionen till samlagets avslut.">
+				>
+				["at0027"] = <
+					text = <"Mycket svårt">
+					description = <"Under de senaste 6 månaderna var det mycket svårt att bibehålla erektionen till samlagets avslut">
+				>
+				["at0028"] = <
+					text = <"Svårt">
+					description = <"Under de senaste 6 månaderna var det svårt att bibehålla erektionen till samlagets avslut.">
+				>
+				["at0029"] = <
+					text = <"Något svårt">
+					description = <"Under de senaste 6 månaderna var det något svårt att bibehålla erektionen till samlagets avslut.">
+				>
+				["at0030"] = <
+					text = <"Inte svårt">
+					description = <"Under de senaste 6 månaderna var det inte svårt att bibehålla erektionen till samlagets avslut.">
+				>
+				["at0031"] = <
+					text = <"Tillfredsställande">
+					description = <"*Frequency of satisfactory outcome of intercourse. (en)">
+					comment = <"*Prompt: Over the last 6 months when you attempted sexual intercourse, how often was it satisfactory to you? (en)">
+				>
+				["at0032"] = <
+					text = <"Försökte inte samlag">
+					description = <"Under de senaste 6 månaderna försöktes inte samlag.">
+				>
+				["at0033"] = <
+					text = <"Nästan aldrig eller aldrig">
+					description = <"Under de senaste 6 månaderna var samlaget nästan aldrig eller aldrig tillfredsställande.">
+				>
+				["at0034"] = <
+					text = <"Ett fåtal gånger">
+					description = <"Under de senaste 6 månaderna var samlaget tillfredsställande ett fåtal gånger.">
+				>
+				["at0035"] = <
+					text = <"Ibland">
+					description = <"Under de senaste 6 månaderna var samlaget ibland tillfredsställande.">
+				>
+				["at0036"] = <
+					text = <"De flesta gånger">
+					description = <"Under de senaste 6 månaderna var samlaget tillfredsställande de flesta gånger.">
+				>
+				["at0037"] = <
+					text = <"Nästan alltid eller alltid">
+					description = <"Under de senaste 6 månaderna var samlaget nästan alltid eller alltid tillfredsställande">
+				>
+				["at0038"] = <
+					text = <"IIEF-5 Poäng">
+					description = <"*The IIEF-5 is administered as a screening instrument for the presence & severity of ED in conjunction with the clinical assessment. The score is the sum of the responses to the five items, so that overall score may range from 1 to 25. A score of 20 or higher indicates a normal degree of erectile functioning. Low scores (10 or less) indicate moderate to severe ED. (en)">
+				>
+				["at0039"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0040"] = <
+					text = <"*Confounding factors (en)">
+					description = <"*Description of any incidental factors that may have contributed to the score. (en)">
+				>
+				["at0041"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0042"] = <
+					text = <"*Extension (en)">
+					description = <"*Additional information required to capture local content or to align with other reference models/formalisms.
+Comment: e.g. Local information requirements or additional metadata to align with FHIR or CIMI equivalents. (en)">
 				>
 			>
 		>
