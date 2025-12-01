@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"se.regionstockholm">
 		["original_publisher"] = <"Region Stockholm, Sweden">
 		["custodian_namespace"] = <"se.regionstockholm">
-		["MD5-CAM-1.0.1"] = <"bfae046b2db83a1b554b907b946763c7">
+		["MD5-CAM-1.0.1"] = <"270426a78f2a02b6c8c5ed3d96d16427">
 		["build_uid"] = <"acbdeb12-4a7e-3ce3-b295-412f32c578c3">
 		["revision"] = <"1.0.0-alpha.1">
 	>
@@ -165,9 +165,17 @@ definition
 							DV_TEXT matches {*}
 						}
 					}
-					ELEMENT[at0020] occurrences matches {0..1} matches {    -- Is interpreter required?
-						value matches {
-							DV_BOOLEAN matches {*}
+					CLUSTER[at0045] occurrences matches {0..1} matches {    -- CLUSTER
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0020] occurrences matches {0..1} matches {    -- Is interpreter required?
+								value matches {
+									DV_BOOLEAN matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0046] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
+								include
+									archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.language\.v1/}
+							}
 						}
 					}
 					ELEMENT[at0030] occurrences matches {0..1} matches {    -- Patient requested appointment date
@@ -341,6 +349,14 @@ ontology
 					text = <"NotifiedByUserID">
 					description = <"">
 				>
+				["at0045"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"CLUSTER_SLOT">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -475,6 +491,14 @@ ontology
 				>
 				["at0043"] = <
 					text = <"Kallad">
+					description = <"">
+				>
+				["at0045"] = <
+					text = <"Tolk">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"*CLUSTER_SLOT (en)">
 					description = <"">
 				>
 			>
