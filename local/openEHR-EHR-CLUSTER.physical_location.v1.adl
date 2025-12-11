@@ -1,0 +1,259 @@
+archetype (adl_version=1.4; uid=2966d681-e281-4dab-a9e2-6809fe5d8808)
+	openEHR-EHR-CLUSTER.physical_location.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2025-05-19">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"ie.hse">
+		["original_namespace"] = <"ie.hse">
+		["original_publisher"] = <"HSE Ireland">
+		["custodian_namespace"] = <"HSE Ireland">
+		["MD5-CAM-1.0.1"] = <"bae3dfd7c2ff5608c4a88b2b7e032e0c">
+		["build_uid"] = <"cadd6aee-8c8d-34df-b819-31038ea3a4bd">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Physical location
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Identifier
+				value matches {
+					DV_IDENTIFIER matches {*}
+					DV_EHR_URI matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Status
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Alias
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Mode
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..*} matches {    -- Type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Form
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {    -- Address
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0011] occurrences matches {0..*} matches {    -- Managing organisation
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Part of
+				value matches {
+					DV_EHR_URI matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..*} matches {    -- Characteristic
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0015] occurrences matches {0..*} matches {    -- Virtual service detail
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Hours of operation
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Sub-location
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Physical location">
+					description = <"Location">
+				>
+				["at0001"] = <
+					text = <"Identifier">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Status">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Alias">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Description">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Mode">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Type">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Form">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Address">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Managing organisation">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Part of">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Characteristic">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Hours of operation">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Virtual service detail">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Sub-location">
+					description = <"">
+				>
+			>
+		>
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Fysieke locatie">
+					description = <"*Location (en)">
+				>
+				["at0001"] = <
+					text = <"Id">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Status">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Naam">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Alias">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Beschrijving">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Wijze">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Type">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Formulier">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Adres">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Organisatie beheren">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Onderdeel van">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Karakteristiek">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Openingstijden">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Virtuele servicedetails">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Sublocatie">
+					description = <"">
+				>
+			>
+		>
+	>
