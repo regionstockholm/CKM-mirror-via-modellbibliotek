@@ -1,0 +1,86 @@
+archetype (adl_version=1.4; uid=5442365b-e18e-42f8-8e3f-7374db60440b)
+	openEHR-EHR-CLUSTER.codeable_reference.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2025-08-19">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"fd54d89ad9eacc94733e3aa047d06f3e">
+		["build_uid"] = <"af458acf-27a9-3299-93e8-1fcaffe4865f">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Codeable reference
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Concept
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Reference
+				value matches {
+					DV_EHR_URI matches {*}
+					DV_URI matches {*}
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..*} matches {    -- Allowed types
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Slot
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Codeable reference">
+					description = <"An openEHR variant of the FHIR Codeable Reference datatype which allows a concept to be expressed as a text/codedText / and/or reference to an external resource/entry, or fulfilled by a slot-fill.">
+				>
+				["at0001"] = <
+					text = <"Concept">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Reference">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Slot">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Allowed types">
+					description = <"">
+				>
+			>
+		>
+	>
