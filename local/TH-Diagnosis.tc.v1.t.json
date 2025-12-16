@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "1.0.0-alpha.1",
       "build_uid" : "168d6215-1b4b-453b-bc4d-f8ad402cf959",
-      "MD5-CAM-1.0.1" : "f0f21da772f81bff8ef7d94a89aa61b1",
+      "MD5-CAM-1.0.1" : "2e95b504fb64dc822130cd86fb943b32",
       "PARENT:MD5-CAM-1.0.1" : "45E854C074D1195F3280B279C265B7C7"
     },
     "details" : {
@@ -1255,7 +1255,21 @@
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "DV_CODED_TEXT",
                   "occurrences" : "1..1",
-                  "attributes" : [ ],
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
+                      "terminologyId" : {
+                        "value" : "ICD-10-SE"
+                      },
+                      "constraint" : [ "ac0.3" ],
+                      "selectedTerminologies" : [ "ICD-10-SE" ],
+                      "limitToList" : false
+                    } ]
+                  } ],
                   "attributeTuples" : [ ]
                 } ]
               } ],
@@ -1694,7 +1708,11 @@
           }
         }
       },
-      "termBindings" : { },
+      "termBindings" : {
+        "ICD-10-SE" : {
+          "ac0.3" : "terminology:https://klassifikationer.socialstyrelsen.se/"
+        }
+      },
       "terminologyExtracts" : { },
       "valueSets" : {
         "ac0.1" : {
