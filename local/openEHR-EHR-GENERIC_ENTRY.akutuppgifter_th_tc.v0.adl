@@ -23,7 +23,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0d1c8d435ebff18aff9436fe324eab45">
+		["MD5-CAM-1.0.1"] = <"26508ffe7ae79a631f66405ade4f5014">
 		["build_uid"] = <"d0a765f0-01fb-3e69-a61d-0ed9e55cd547">
 	>
 
@@ -35,6 +35,95 @@ definition
 					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
 						include
 							archetype_id/value matches {/.*/}
+					}
+					CLUSTER[at0003] occurrences matches {0..1} matches {    -- Patient
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0005] occurrences matches {0..1} matches {    -- ID sätt
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0006,    -- Legitimation
+											at0007,    -- Pass
+											at0008,    -- Känd
+											at0009]    -- Ej ID
+										}
+									}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {    -- Katastrof
+								value matches {
+									DV_BOOLEAN matches {*}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {    -- Upplysning får lämnas
+								value matches {
+									DV_BOOLEAN matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0014] occurrences matches {0..1} matches {    -- Ankomst
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0015] occurrences matches {0..1} matches {    -- Ankomst sätt
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0017,    -- Ambulans
+											at0018,    -- Ambulans TR1
+											at0019,    -- Ambulans TR 2
+											at0020,    -- Ambulans TR 3
+											at0021,    -- Färdtjänst
+											at0022,    -- Gående
+											at0023,    -- Helikopter
+											at0024,    -- Helikopter TR1
+											at0025,    -- Helikopter TR2
+											at0026,    -- Helikopter TR3
+											at0027,    -- Internt
+											at0028,    -- Larm med ambulans
+											at0029,    -- Larm med ambulans TR1
+											at0030,    -- Larm med ambulans TR2
+											at0031,    -- Larm med ambulans TR3
+											at0032,    -- Larm med helikopter
+											at0033,    -- Larm med helikopter TR1
+											at0034,    -- Larm med helikopter TR2
+											at0035,    -- Larm med helikopter TR3
+											at0036,    -- Polis
+											at0037,    -- Sjuktransport
+											at0038]    -- Taxi
+										}
+									}
+								}
+							}
+							ELEMENT[at0016] occurrences matches {0..1} matches {    -- Ankomstdatum
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0042] occurrences matches {0..1} matches {    -- Trolig inskrivning
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0043,    -- Trolig inskrivning
+									at0044]    -- Ej trolig inskrivning
+								}
+							}
+						}
+					}
+					ELEMENT[at0045] occurrences matches {0..1} matches {    -- Omvårdnadsbehov
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0046,    -- CAS 1- Stort omvård. behov
+									at0047]    -- CAS 2- Stort omvård. behov
+								}
+							}
+						}
 					}
 				}
 			}
@@ -55,6 +144,162 @@ ontology
 				>
 				["at0002"] = <
 					text = <"CLUSTER_SLOT">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Patient">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"ID sätt">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Legitimation">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Pass">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Känd">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Ej ID">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Katastrof">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Upplysning får lämnas">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Ankomst">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Ankomst sätt">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Ankomstdatum">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Ambulans">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Ambulans TR1">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Ambulans TR 2">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Ambulans TR 3">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Färdtjänst">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Gående">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Helikopter">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Helikopter TR1">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Helikopter TR2">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Helikopter TR3">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Internt">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Larm med ambulans">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Larm med ambulans TR1">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Larm med ambulans TR2">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Larm med ambulans TR3">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Larm med helikopter">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Larm med helikopter TR1">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Larm med helikopter TR2">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Larm med helikopter TR3">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Polis">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Sjuktransport">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Taxi">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Trolig inskrivning">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Trolig inskrivning">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Ej trolig inskrivning">
+					description = <"">
+				>
+				["at0045"] = <
+					text = <"Omvårdnadsbehov">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"CAS 1- Stort omvård. behov">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"CAS 2- Stort omvård. behov">
 					description = <"">
 				>
 			>
