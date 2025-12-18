@@ -1,0 +1,62 @@
+archetype (adl_version=1.4; uid=d3eaff79-80ab-421d-a8a2-a489588f9e12)
+	openEHR-EHR-GENERIC_ENTRY.akutuppgifter_th_tc.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+
+description
+	original_author = <
+		["date"] = <"2025-12-17">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"0d1c8d435ebff18aff9436fe324eab45">
+		["build_uid"] = <"d0a765f0-01fb-3e69-a61d-0ed9e55cd547">
+	>
+
+definition
+	GENERIC_ENTRY[at0000] matches {    -- Akutuppgifter_TH_tc
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- CLUSTER_SLOT
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Akutuppgifter_TH_tc">
+					description = <"Akutuppgifter_TH_tc">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"CLUSTER_SLOT">
+					description = <"">
+				>
+			>
+		>
+	>
