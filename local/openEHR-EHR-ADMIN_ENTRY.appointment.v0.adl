@@ -1,0 +1,410 @@
+archetype (adl_version=1.4; uid=9d6dc4cf-b7fd-4de1-91f4-18ad36dc0d72)
+	openEHR-EHR-ADMIN_ENTRY.appointment.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["application"] = <"Adl Designer">
+			>
+			other_details = <
+				["notes"] = <"Generated automatically by Adl Designer">
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2016-04-19">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			copyright = <"© Clinical Models UK">
+			other_details = <
+				["notes"] = <"Generated automatically by Adl Designer">
+			>
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time.">
+			keywords = <"booking", ...>
+			copyright = <"© Clinical Models UK">
+			use = <"From HL7 FHIR documentation:
+'Appointment resources are used to provide information about a planned meeting that may be in the future or past. The resource only describes a single meeting, a series of repeating visits would require multiple appointment resources be created for each instance. Examples include a scheduled surgery, a follow-up for a clinical visit, a scheduled conference call between clinicians to discuss a case, the reservation of a piece of diagnostic equipment for a particular use, etc. The visit scheduled by an appointment may be in person or remote (by phone, video conference, etc.) All that matters is that the time and usage of one or more individuals, locations and/or pieces of equipment is being fully or partially reserved for a designated period of time.'">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+		["custodian_organisation"] = <"UK Clinical Models">
+		["references"] = <"HL7 FHIR Appointment resource, http://hl7.org/fhir/appointment.html">
+		["original_namespace"] = <"uk.org.clinicalmodels">
+		["original_publisher"] = <"UK Clinical Models">
+		["custodian_namespace"] = <"uk.org.clinicalmodels">
+		["MD5-CAM-1.0.1"] = <"61B2E9511F5E0A1405F12E8393042208">
+		["build_uid"] = <"bb2866ae-eff9-4427-b92c-8ac761373ef1">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- Appointment
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0027] occurrences matches {0..*} matches {    -- Identifier
+						value matches {
+							DV_IDENTIFIER matches {*}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003,    -- Proposed
+									at0004,    -- Pending
+									at0005,    -- Booked
+									at0006,    -- Arrived
+									at0007,    -- Fulfilled
+									at0008,    -- Cancelled
+									at0009]    -- No show
+								}
+							}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Reason
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Priority
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {    -- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Start time
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {    -- End time
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {    -- Duration
+						value matches {
+							DV_DURATION matches {
+								value matches {PTM/|>=PT0M|}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0028] occurrences matches {0..1} matches {    -- Original instruction
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0018] occurrences matches {0..*} matches {    -- Participant
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0021] occurrences matches {0..1} matches {    -- Party
+								value matches {
+									DV_TEXT matches {*}
+									DV_IDENTIFIER matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0022] occurrences matches {0..*} matches {    -- Party details
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0020] occurrences matches {0..1} matches {    -- Role
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {    -- Required
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0023,    -- Required
+											at0024,    -- Optional
+											at0025]    -- Information only
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Appointment">
+					description = <"A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time.  Closely related to FHIR Apointment resource.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Status">
+					description = <"The status of the appointment.">
+				>
+				["at0003"] = <
+					text = <"Proposed">
+					description = <"None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.">
+				>
+				["at0004"] = <
+					text = <"Pending">
+					description = <"Some or all of the participant(s) have not finalized their acceptance of the appointment request.">
+				>
+				["at0005"] = <
+					text = <"Booked">
+					description = <"All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.">
+				>
+				["at0006"] = <
+					text = <"Arrived">
+					description = <"The patient has arrived.">
+				>
+				["at0007"] = <
+					text = <"Fulfilled">
+					description = <"This appointment has completed and may have resulted in an encounter.">
+				>
+				["at0008"] = <
+					text = <"Cancelled">
+					description = <"The appointment has been cancelled.">
+				>
+				["at0009"] = <
+					text = <"No show">
+					description = <"Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).">
+				>
+				["at0010"] = <
+					text = <"Type">
+					description = <"The type of appointment (usually the speciality or service).">
+					comment = <"In FHIR this is defined as \"This is the code representing the clinical specialty of the clinician or provider who interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition.\" but may not be valid in non-US jurisdictions, and is therefore left unconstrained in  this archetype.">
+				>
+				["at0011"] = <
+					text = <"Reason">
+					description = <"The reason this appointment is scheduled.">
+				>
+				["at0012"] = <
+					text = <"Priority">
+					description = <"The priority level of this appointment.">
+					comment = <"Used to make informed decisions if needing to re-prioritize">
+				>
+				["at0013"] = <
+					text = <"Description">
+					description = <"A high-level description of the reason for the appoinment">
+					comment = <"As might be displayed on a subject line in a meeting request, or appointment list.">
+				>
+				["at0014"] = <
+					text = <"Start time">
+					description = <"When appointment is to take place.">
+				>
+				["at0015"] = <
+					text = <"End time">
+					description = <"When appointment is to conclude.">
+				>
+				["at0016"] = <
+					text = <"Duration">
+					description = <"The actual or expected duration of the appointment.">
+				>
+				["at0017"] = <
+					text = <"Comment">
+					description = <"Additional comments.">
+				>
+				["at0018"] = <
+					text = <"Participant">
+					description = <"Details of intended participants, including patient, practitioners, devices or other resources.">
+				>
+				["at0019"] = <
+					text = <"Required">
+					description = <"Whether the participant is required for the appointment.">
+					comment = <"(Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).">
+				>
+				["at0020"] = <
+					text = <"Role">
+					description = <"The role of the party in the appointment.">
+				>
+				["at0021"] = <
+					text = <"Party">
+					description = <"The person, team, device or other party requested to participate in the appointment.">
+				>
+				["at0022"] = <
+					text = <"Party details">
+					description = <"Details of a participant">
+				>
+				["at0023"] = <
+					text = <"Required">
+					description = <"The participant is required to attend the appointment.">
+				>
+				["at0024"] = <
+					text = <"Optional">
+					description = <"The participant may optionally attend the appointment.">
+				>
+				["at0025"] = <
+					text = <"Information only">
+					description = <"The participant is excluded from the appointment, and may not be informed of the appointment taking place. ">
+				>
+				["at0027"] = <
+					text = <"Identifier">
+					description = <"External identifier for this appointment.">
+				>
+				["at0028"] = <
+					text = <"Original instruction">
+					description = <"Reference to the original instruction.">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Appointment(en)">
+					description = <"*A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time.  Closely related to FHIR Apointment resource.(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Status(en)">
+					description = <"*The status of the appointment.(en)">
+				>
+				["at0003"] = <
+					text = <"*Proposed(en)">
+					description = <"*None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.(en)">
+				>
+				["at0004"] = <
+					text = <"*Pending(en)">
+					description = <"*Some or all of the participant(s) have not finalized their acceptance of the appointment request.(en)">
+				>
+				["at0005"] = <
+					text = <"*Booked(en)">
+					description = <"*All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.(en)">
+				>
+				["at0006"] = <
+					text = <"*Arrived(en)">
+					description = <"*The patient has arrived.(en)">
+				>
+				["at0007"] = <
+					text = <"*Fulfilled(en)">
+					description = <"*This appointment has completed and may have resulted in an encounter.(en)">
+				>
+				["at0008"] = <
+					text = <"*Cancelled(en)">
+					description = <"*The appointment has been cancelled.(en)">
+				>
+				["at0009"] = <
+					text = <"*No show(en)">
+					description = <"*Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).(en)">
+				>
+				["at0010"] = <
+					text = <"*Type(en)">
+					description = <"*The type of appointment (usually the speciality or service).(en)">
+					comment = <"*In FHIR this is defined as \"This is the code representing the clinical specialty of the clinician or provider who interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition.\" but may not be valid in non-US jurisdictions, and is therefore left unconstrained in  this archetype.(en)">
+				>
+				["at0011"] = <
+					text = <"*Reason(en)">
+					description = <"*The reason this appointment is scheduled.(en)">
+				>
+				["at0012"] = <
+					text = <"*Priority(en)">
+					description = <"*The priority level of this appointment.(en)">
+					comment = <"*Used to make informed decisions if needing to re-prioritize(en)">
+				>
+				["at0013"] = <
+					text = <"*Description(en)">
+					description = <"*A high-level description of the reason for the appoinment(en)">
+					comment = <"*As might be displayed on a subject line in a meeting request, or appointment list.(en)">
+				>
+				["at0014"] = <
+					text = <"*Start time(en)">
+					description = <"*When appointment is to take place.(en)">
+				>
+				["at0015"] = <
+					text = <"*End time(en)">
+					description = <"*When appointment is to conclude.(en)">
+				>
+				["at0016"] = <
+					text = <"*Duration(en)">
+					description = <"*The actual or expected duration of the appointment.(en)">
+				>
+				["at0017"] = <
+					text = <"*Comment(en)">
+					description = <"*Additional comments.(en)">
+				>
+				["at0018"] = <
+					text = <"*Participant(en)">
+					description = <"*Details of intended participants, including patient, practitioners, devices or other resources.(en)">
+				>
+				["at0019"] = <
+					text = <"*Required(en)">
+					description = <"*Whether the participant is required for the appointment.(en)">
+					comment = <"*(Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).(en)">
+				>
+				["at0020"] = <
+					text = <"*Role(en)">
+					description = <"*The role of the party in the appointment.(en)">
+				>
+				["at0021"] = <
+					text = <"*Party(en)">
+					description = <"*The person, team, device or other party requested to participate in the appointment.(en)">
+				>
+				["at0022"] = <
+					text = <"*Party details(en)">
+					description = <"*Details of a participant(en)">
+				>
+				["at0023"] = <
+					text = <"*Required(en)">
+					description = <"*The participant is required to attend the appointment.(en)">
+				>
+				["at0024"] = <
+					text = <"*Optional(en)">
+					description = <"*The participant may optionally attend the appointment.(en)">
+				>
+				["at0025"] = <
+					text = <"*Information only(en)">
+					description = <"*The participant is excluded from the appointment, and may not be informed of the appointment taking place. (en)">
+				>
+				["at0027"] = <
+					text = <"*Identifier(en)">
+					description = <"*External identifier for this appointment.(en)">
+				>
+				["at0028"] = <
+					text = <"*Original instruction(en)">
+					description = <"*Reference to the original instruction.(en)">
+				>
+			>
+		>
+	>
