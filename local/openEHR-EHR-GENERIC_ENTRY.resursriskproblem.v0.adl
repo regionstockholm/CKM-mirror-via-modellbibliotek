@@ -1,0 +1,98 @@
+archetype (adl_version=1.4; uid=9253fe31-4337-4ec7-9160-dde2824908a5)
+	openEHR-EHR-GENERIC_ENTRY.resursriskproblem.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+
+description
+	original_author = <
+		["date"] = <"2026-01-12">
+	>
+	lifecycle_state = <"in_development">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["build_uid"] = <"9afa2dd5-6c3d-31ee-8cb7-fe4e9ce71ecd">
+		["MD5-CAM-1.0.1"] = <"9050a9b5b8f0af960b17a4d080cd3089">
+	>
+
+definition
+	GENERIC_ENTRY[at0000] matches {    -- Resursriskproblem
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Typ
+						value matches {
+							DV_CODED_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Beskrivning
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Påbörjad
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Avslutad
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Resursriskproblem">
+					description = <"Resursriskproblem">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Typ">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Påbörjad">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Beskrivning">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Avslutad">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Extension">
+					description = <"">
+				>
+			>
+		>
+	>
