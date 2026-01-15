@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "1.0.0-alpha.1",
       "build_uid" : "be3b4d40-bfc9-491a-8786-27d43b4b1807",
-      "MD5-CAM-1.0.1" : "c9d17667cc20234d58cc91853c6dd133",
+      "MD5-CAM-1.0.1" : "cca32d0aef8901b6e7be516bdfe26fec",
       "PARENT:MD5-CAM-1.0.1" : "B8AD0C7EB492491CE6F7968C1AFFB40C"
     },
     "details" : {
@@ -169,6 +169,15 @@
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-INSTRUCTION.ovl-service_request-001.v1",
         "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "ACTION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.4",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-ACTION.ovl-service-001.v1",
+        "referenceType" : "archetypeOverlay"
       } ]
     } ],
     "attributeTuples" : [ ]
@@ -250,7 +259,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "ac9d3c614b2eeaab798f8c109c70620c"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.composition_metadata_tc.v1",
     "differential" : true,
@@ -312,7 +347,115 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "552568349490A2FA815607DD29B53F55"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Allgemeines Konzept, die von einer gesundheitsbezogenen Dienstleistung oder Tätigkeit durch einen Arzt, eine Organisation oder eine Agentur erbracht werden soll.",
+          "keywords" : [ "Anfrage", "Bestellung", "Dienst", "Bereitstellung", "Empfehlung", "Überweisung" ],
+          "use" : "Zur Erfassung einer Anforderung für eine gesundheitsbezogene Dienstleistung oder Aktivität, die von einem Kliniker, einer Abteilung oder einer Einrichtung erbracht werden soll.\r\n\r\nDieser generische Archetyp wurde als Grundstruktur entwickelt, die als Basis für eine Vielzahl von Anfragen verwendet werden kann:\r\n- eine Anfrage von einem Arzt, einer Organisation oder einer Einrichtung an einen anderen Arzt, eine Organisation oder eine Einrichtung für eine gesundheitsbezogene Dienstleistung. Zum Beispiel: eine Überweisung an einen Facharzt für eine Behandlung oder eine zweite klinische Meinung; eine Verlegung in eine Notaufnahme; eine vierstündige Überwachung der Vitalparameter; diagnostische Untersuchungen; und die Bereitstellung von häuslichen Dienstleistungen durch eine Gemeindeverwaltung; oder\r\n- ein Antrag auf einen Folgetermin bei demselben Arzt, derselben Organisation oder derselben Einrichtung. Zum Beispiel: ein ambulanter Termin zur Überprüfung in 6 Wochen. \r\n\r\nEr kann verwendet werden, um eine Anfrage für einen oder mehrere Dienste auf eine von zwei Arten darzustellen:\r\n- Wenn mehrere Dienste angefordert werden müssen und die im „Protokoll“ (z. B. „Empfänger“) aufgezeichneten Informationen gleich sind - verwenden Sie für jede Anforderung eine eigene „Activity“-Instanz innerhalb dieses Archetyps.\r\n- Wenn mehrere Dienste angefordert werden müssen und die im „Protokoll“ (z. B. „Empfänger“) aufgezeichneten Informationen unterschiedlich sind, verwenden Sie für jede Anforderung eine eigene Instanz dieses Archetyps.\r\n\r\nDas Datenelement \"Service due\" unterstützt gängige Anwendungsfälle zur Festlegung des einfachen Zeitplans für die Zustellung der Anfrage(n) bei einer einzigen Gelegenheit. Für Situationen mit komplizierteren zeitlichen Anforderungen oder einer Reihe von Diensten ist der Archetyp CLUSTER.service_direction innerhalb des SLOT \"Complex timing\" zu verwenden.\r\n\r\nBeispiele für die Umsetzung:\r\n- Nehmen wir an, ein Arzt überweist einen Patienten an einen Endokrinologen, um ihn bei der Behandlung von Diabetes zu beraten - der \"Dienstname\" lautet \"Überweisung\"; die \"klinische Indikation\" lautet \"Typ-1-Diabetes mellitus\"; der \"Grund für die Anfrage\" kann \"Schwierigkeiten bei der Kontrolle der Hyperglykämie am frühen Abend\" lauten; der \"klinische Kontext\" kann einen Bericht über die Dauer und die bisherige Behandlung des Diabetes, die derzeitige Behandlung sowie die jüngste Gewichtszunahme und Informationen über den kürzlichen Tod des Ehepartners enthalten; die derzeitige Behandlung; die \"Absicht\" kann \"Zweitmeinung\" oder \"Übergabe der Behandlung\" lauten.\r\n- Nehmen wir an, ein Arzt bestellt eine Diabetes-Schulung - Der \"Name der Dienstleistung\" lautet \"Diabetes-Schulung\"; die \"Klinische Indikation\" lautet \"Typ-1-Diabetes mellitus\"; der \"Grund für die Anforderung\" kann \"Neue Diagnose\" und \"Vorbeugung von Ketoazidose\" lauten; und der \"Klinische Kontext\" kann \"Neu diagnostizierter Diabetiker zur Erstschulung und Einweisung in die Insulinverabreichung\" sein. Wenn die Erbringung der vollständigen Dienstleistung mehr als eine Aktivität erfordert, wie z. B. \"vier Sitzungen in vierzehntägigen Abständen, beginnend eine Woche nach der Entlassung aus dem Krankenhaus\", verwenden Sie den Archetyp CLUSTER.service_direction und den zugehörigen Archetyp CLUSTER.timing_nondaily, der im SLOT \"Complex timing\" verschachtelt ist.\r\n- Nehmen wir an, ein Arzt bestellt bei der Stadtverwaltung eine Mahlzeit nach Hause - der \"Name der Dienstleistung\" könnte \"Essen auf Rädern\" sein; die \"Klinische Indikation\" könnte \"Emphysem\" sein; der \"Grund für die Anforderung\" könnte \"Unfähig, selbständig einzukaufen oder zu kochen\" sein. Der komplexe Zeitplan hierfür erfordert die Verwendung des Archetyps CLUSTER.service_direction und des zugehörigen Archetyps CLUSTER.timing_nondaily, der in den SLOT \"Complex timing\" eingebettet ist, um die Lieferanforderungen zu definieren, z. B. \"täglich für 6 Monate\".\r\n- Nehmen wir an, ein Arzt ordnet eine Ultraschalluntersuchung des linken Beins an, um eine tiefe Venenthrombose auszuschließen - der \"Servicename\" lautet \"Ultraschall linker Unterschenkel\"; die \"klinische Indikation\" kann \"geschwollener linker Knöchel\" sein; der \"Grund für die Anforderung\" kann \"Ausschluss einer tiefen Venenthrombose\" sein; der \"klinische Kontext\" kann \"allmählich zunehmendes Lochödem bis zur Mitte der Wade am linken Bein in den letzten drei Tagen\" sein.\r\n- Nehmen wir an, ein Arzt ordnet eine wiederkehrende Blutuntersuchung an, z. B. einen INR-Wert. Die komplexe Zeitplanung hierfür erfordert die Verwendung des Archetyps CLUSTER.service_direction und des zugehörigen Archetyps CLUSTER.timing_nondaily, der in den SLOT \"Komplexe Zeitplanung\" eingebettet ist, um die Häufigkeit und den Zeitpunkt für jede Sequenz in einer Reihe von Tests klar zu definieren, z. B. \"täglich für eine Woche, wöchentlich für 4 Wochen, monatlich für 6 Monate\".\r\n- Nehmen wir an, ein Kliniker ordnet einen Folgetermin in 6 Wochen an. Der \"Name des Dienstes\" ist \"Folgetermin\". Wenn der Arzt in der Benutzeroberfläche \"6 Wochen\" als vorgeschlagenen Zeitpunkt für den Termin eingibt, wird das klinische System das Datum in sechs Wochen im Datenelement \"Leistung fällig\" erfassen.\r\n\r\nIn vielen Situationen wird es möglich sein, die Schritte, die im Rahmen der Durchführung dieser Anforderung erfolgen, mit dem entsprechenden generischen ACTION.service zu erfassen. Es wird jedoch viele Fälle geben, in denen der erforderliche ACTION-Archetyp sehr spezifisch für den Zweck ist, da die Datenanforderungen für die Aufzeichnung der Erbringung vieler gesundheitsbezogener Leistungen ganz spezielle Datenelemente, Aufzeichnungsmuster oder Schritte des Pfads erfordern. Zum Beispiel: ACTION.screening oder ACTION.health_education.",
+          "misuse" : "Nicht zur Aufzeichnung von Details über die Aktivitäten, die dokumentieren, wie ein Auftrag oder eine Anfrage ausgeführt wurde - verwenden Sie zu diesem Zweck einen ACTION-Archetyp. Zum Beispiel den Archetyp ACTION.service oder einen zweckspezifischeren Archetyp aus der Klasse ACTION für diesen Zweck.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "*A generic framework for a request for a health-related service or activity to be delivered by a clinician, organisation or agency. (en)",
+          "keywords" : [ "remiss", "förfrågan", "beställning", "tjänst", "tillhandahålla", "patientremittering" ],
+          "use" : "*Use to record a request for a health-related service or activity to be delivered by a clinician, organisation or agency.\r\n\r\nThis generic archetype has been designed as a framework that can be used as the basis for a wide range of requests:\r\n- a request from one clinician, organisation or agency to another clinician, organisation or agency for a health-related service. For example: a referral to a specialist clinician for treatment or a second clinical opinion; transfer of care to an emergency department; four hourly vital signs monitoring; diagnostic investigations; and provision of home services from a municipal council; or\r\n- a request for a follow-up service to be scheduled for the same clinician, organisation or agency. For example: an outpatient appointment for review in 6 weeks. \r\n\r\nIt can be used to represent a request for one or more services, in one of two ways:\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is the same - use a separate 'Activity' instance within this archetype for each request.\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is different - use a separate instance of this archetype for each request.\r\n\r\nThe 'Service due' data element supports common use cases for stipulating the simple timing for delivery of the request/s on a single occasion. For situations with more complicated timing requirements or a series of services, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT.\r\n\r\nImplementation examples:\r\n- Consider a clinician referring a patient to an Endocrinologist for diabetes treatment advice - the 'Service name will be 'Referral'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'Difficulty controlling early evening hyperglycaemia; the 'Clinical context' may contain a narrative about the duration and previous management of their diabetes, current treatment, plus recent weight gain and information about the recent death of their spouse; current treatment; 'Intent' may be 'Second opinion' or 'Handover of care'.\r\n- Consider a clinician ordering diabetes education - The 'Service name' will be 'Diabetes education'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'New diagnosis' and 'Prevention of ketoacidosis'; and 'Clinical context' may be 'Newly diagnosed diabetic for initial education and instruction in insulin administration'. If delivery of the complete service requires more than one activity, such as 'four sessions at fortnightly intervals, commencing one week after discharge from hospital', use the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype, nested within the 'Complex timing' SLOT.\r\n- Consider a clinician ordering a meal home-delivery service from the municipal council - the 'Service name' may be 'Meals on wheels program'; the 'Clinical indication' may be 'Emphysema'; the 'Reason for request' may be 'Unable to shop or cook independently'. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to define the delivery requirements such as 'daily for 6 months'.\r\n- Consider a clinician ordering an ultrasound of the left leg to exclude a deep venous thrombosis - the 'Service name' will be 'Ultrasound left lower leg'; the 'Clinical indication' may be 'swollen left ankle'; the 'Reason for request' may be 'exclude DVT'; the 'Clinical context' may be 'gradually increasing pitting oedema to mid-calf in the left leg over the past 3 days'.\r\n- Consider a clinician ordering a recurring blood test, such as an INR. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to clearly define the frequency and timing for each sequence in a series of tests, such as 'daily for one week, weekly for 4 weeks, monthly for 6 months'.\r\n- Consider a clinician ordering a follow-up appointment in 6 weeks. 'Follow-up appointment' will be the 'Service name'. If they enter '6 weeks' as the proposed timing for the appointment in the User Interface, the clinical system will record the date six weeks from today in the 'Service due' data element.\r\n\r\nIn many situations, it will be possible to record the steps that occur as part of this request being carried out using the corresponding generic ACTION.service. However, there will be many occasions where the required ACTION archetype will be very specific for purpose, as the data requirements for recording provision of many health-related services will need quite unique data elements, recording patterns or pathway steps. For example: ACTION.screening or ACTION.health_education. (en)",
+          "misuse" : "*Not to be used to record details about the activities that document how an order or request has been carried out - use an ACTION archetype for this purpose. For example ACTION.service archetype or a more purpose-specific archetype from the ACTION class for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "*A generic framework for a request for a health-related service or activity to be delivered by a clinician, organisation or agency. (en)",
+          "keywords" : [ "rekvisisjon", "bestilling", "foreskriving", "tjeneste", "tjenesteyter", "rekvirere", "bestille", "anmodning", "forespørre", "forespørsel", "anmode", "tilsyn" ],
+          "use" : "*Use to record a request for a health-related service or activity to be delivered by a clinician, organisation or agency.\r\n\r\nThis generic archetype has been designed as a framework that can be used as the basis for a wide range of requests:\r\n- a request from one clinician, organisation or agency to another clinician, organisation or agency for a health-related service. For example: a referral to a specialist clinician for treatment or a second clinical opinion; transfer of care to an emergency department; four hourly vital signs monitoring; diagnostic investigations; and provision of home services from a municipal council; or\r\n- a request for a follow-up service to be scheduled for the same clinician, organisation or agency. For example: an outpatient appointment for review in 6 weeks. \r\n\r\nIt can be used to represent a request for one or more services, in one of two ways:\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is the same - use a separate 'Activity' instance within this archetype for each request.\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is different - use a separate instance of this archetype for each request.\r\n\r\nThe 'Service due' data element supports common use cases for stipulating the simple timing for delivery of the request/s on a single occasion. For situations with more complicated timing requirements or a series of services, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT.\r\n\r\nImplementation examples:\r\n- Consider a clinician referring a patient to an Endocrinologist for diabetes treatment advice - the 'Service name will be 'Referral'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'Difficulty controlling early evening hyperglycaemia; the 'Clinical context' may contain a narrative about the duration and previous management of their diabetes, current treatment, plus recent weight gain and information about the recent death of their spouse; current treatment; 'Intent' may be 'Second opinion' or 'Handover of care'.\r\n- Consider a clinician ordering diabetes education - The 'Service name' will be 'Diabetes education'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'New diagnosis' and 'Prevention of ketoacidosis'; and 'Clinical context' may be 'Newly diagnosed diabetic for initial education and instruction in insulin administration'. If delivery of the complete service requires more than one activity, such as 'four sessions at fortnightly intervals, commencing one week after discharge from hospital', use the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype, nested within the 'Complex timing' SLOT.\r\n- Consider a clinician ordering a meal home-delivery service from the municipal council - the 'Service name' may be 'Meals on wheels program'; the 'Clinical indication' may be 'Emphysema'; the 'Reason for request' may be 'Unable to shop or cook independently'. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to define the delivery requirements such as 'daily for 6 months'.\r\n- Consider a clinician ordering an ultrasound of the left leg to exclude a deep venous thrombosis - the 'Service name' will be 'Ultrasound left lower leg'; the 'Clinical indication' may be 'swollen left ankle'; the 'Reason for request' may be 'exclude DVT'; the 'Clinical context' may be 'gradually increasing pitting oedema to mid-calf in the left leg over the past 3 days'.\r\n- Consider a clinician ordering a recurring blood test, such as an INR. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to clearly define the frequency and timing for each sequence in a series of tests, such as 'daily for one week, weekly for 4 weeks, monthly for 6 months'.\r\n- Consider a clinician ordering a follow-up appointment in 6 weeks. 'Follow-up appointment' will be the 'Service name'. If they enter '6 weeks' as the proposed timing for the appointment in the User Interface, the clinical system will record the date six weeks from today in the 'Service due' data element.\r\n\r\nIn many situations, it will be possible to record the steps that occur as part of this request being carried out using the corresponding generic ACTION.service. However, there will be many occasions where the required ACTION archetype will be very specific for purpose, as the data requirements for recording provision of many health-related services will need quite unique data elements, recording patterns or pathway steps. For example: ACTION.screening or ACTION.health_education. (en)",
+          "misuse" : "*Not to be used to record details about the activities that document how an order or request has been carried out - use an ACTION archetype for this purpose. For example ACTION.service archetype or a more purpose-specific archetype from the ACTION class for this purpose. (en)",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "*A generic framework for a request for a health-related service or activity to be delivered by a clinician, organisation or agency. (en)",
+          "keywords" : [ "solicitação", "requisição", "ordem", "pedido", "serviço", "referência", "encaminhamento" ],
+          "use" : "*Use to record a request for a health-related service or activity to be delivered by a clinician, organisation or agency.\r\n\r\nThis generic archetype has been designed as a framework that can be used as the basis for a wide range of requests:\r\n- a request from one clinician, organisation or agency to another clinician, organisation or agency for a health-related service. For example: a referral to a specialist clinician for treatment or a second clinical opinion; transfer of care to an emergency department; four hourly vital signs monitoring; diagnostic investigations; and provision of home services from a municipal council; or\r\n- a request for a follow-up service to be scheduled for the same clinician, organisation or agency. For example: an outpatient appointment for review in 6 weeks. \r\n\r\nIt can be used to represent a request for one or more services, in one of two ways:\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is the same - use a separate 'Activity' instance within this archetype for each request.\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is different - use a separate instance of this archetype for each request.\r\n\r\nThe 'Service due' data element supports common use cases for stipulating the simple timing for delivery of the request/s on a single occasion. For situations with more complicated timing requirements or a series of services, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT.\r\n\r\nImplementation examples:\r\n- Consider a clinician referring a patient to an Endocrinologist for diabetes treatment advice - the 'Service name will be 'Referral'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'Difficulty controlling early evening hyperglycaemia; the 'Clinical context' may contain a narrative about the duration and previous management of their diabetes, current treatment, plus recent weight gain and information about the recent death of their spouse; current treatment; 'Intent' may be 'Second opinion' or 'Handover of care'.\r\n- Consider a clinician ordering diabetes education - The 'Service name' will be 'Diabetes education'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'New diagnosis' and 'Prevention of ketoacidosis'; and 'Clinical context' may be 'Newly diagnosed diabetic for initial education and instruction in insulin administration'. If delivery of the complete service requires more than one activity, such as 'four sessions at fortnightly intervals, commencing one week after discharge from hospital', use the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype, nested within the 'Complex timing' SLOT.\r\n- Consider a clinician ordering a meal home-delivery service from the municipal council - the 'Service name' may be 'Meals on wheels program'; the 'Clinical indication' may be 'Emphysema'; the 'Reason for request' may be 'Unable to shop or cook independently'. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to define the delivery requirements such as 'daily for 6 months'.\r\n- Consider a clinician ordering an ultrasound of the left leg to exclude a deep venous thrombosis - the 'Service name' will be 'Ultrasound left lower leg'; the 'Clinical indication' may be 'swollen left ankle'; the 'Reason for request' may be 'exclude DVT'; the 'Clinical context' may be 'gradually increasing pitting oedema to mid-calf in the left leg over the past 3 days'.\r\n- Consider a clinician ordering a recurring blood test, such as an INR. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to clearly define the frequency and timing for each sequence in a series of tests, such as 'daily for one week, weekly for 4 weeks, monthly for 6 months'.\r\n- Consider a clinician ordering a follow-up appointment in 6 weeks. 'Follow-up appointment' will be the 'Service name'. If they enter '6 weeks' as the proposed timing for the appointment in the User Interface, the clinical system will record the date six weeks from today in the 'Service due' data element.\r\n\r\nIn many situations, it will be possible to record the steps that occur as part of this request being carried out using the corresponding generic ACTION.service. However, there will be many occasions where the required ACTION archetype will be very specific for purpose, as the data requirements for recording provision of many health-related services will need quite unique data elements, recording patterns or pathway steps. For example: ACTION.screening or ACTION.health_education. (en)",
+          "misuse" : "*Not to be used to record details about the activities that document how an order or request has been carried out - use an ACTION archetype for this purpose. For example ACTION.service archetype or a more purpose-specific archetype from the ACTION class for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "A generic framework for a request for a health-related service or activity to be delivered by a clinician, organisation or agency.",
+          "keywords" : [ "request", "order", "service", "provide", "referral" ],
+          "use" : "Use to record a request for a health-related service or activity to be delivered by a clinician, organisation or agency.\r\n\r\nThis generic archetype has been designed as a framework that can be used as the basis for a wide range of requests:\r\n- a request from one clinician, organisation or agency to another clinician, organisation or agency for a health-related service. For example: a referral to a specialist clinician for treatment or a second clinical opinion; transfer of care to an emergency department; four hourly vital signs monitoring; diagnostic investigations; and provision of home services from a municipal council; or\r\n- a request for a follow-up service to be scheduled for the same clinician, organisation or agency. For example: an outpatient appointment for review in 6 weeks. \r\n\r\nIt can be used to represent a request for one or more services, in one of two ways:\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is the same - use a separate 'Activity' instance within this archetype for each request.\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is different - use a separate instance of this archetype for each request.\r\n\r\nThe 'Service due' data element supports common use cases for stipulating the simple timing for delivery of the request/s on a single occasion. For situations with more complicated timing requirements or a series of services, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT.\r\n\r\nImplementation examples:\r\n- Consider a clinician referring a patient to an Endocrinologist for diabetes treatment advice - the 'Service name will be 'Referral'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'Difficulty controlling early evening hyperglycaemia; the 'Clinical context' may contain a narrative about the duration and previous management of their diabetes, current treatment, plus recent weight gain and information about the recent death of their spouse; current treatment; 'Intent' may be 'Second opinion' or 'Handover of care'.\r\n- Consider a clinician ordering diabetes education - The 'Service name' will be 'Diabetes education'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'New diagnosis' and 'Prevention of ketoacidosis'; and 'Clinical context' may be 'Newly diagnosed diabetic for initial education and instruction in insulin administration'. If delivery of the complete service requires more than one activity, such as 'four sessions at fortnightly intervals, commencing one week after discharge from hospital', use the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype, nested within the 'Complex timing' SLOT.\r\n- Consider a clinician ordering a meal home-delivery service from the municipal council - the 'Service name' may be 'Meals on wheels program'; the 'Clinical indication' may be 'Emphysema'; the 'Reason for request' may be 'Unable to shop or cook independently'. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to define the delivery requirements such as 'daily for 6 months'.\r\n- Consider a clinician ordering an ultrasound of the left leg to exclude a deep venous thrombosis - the 'Service name' will be 'Ultrasound left lower leg'; the 'Clinical indication' may be 'swollen left ankle'; the 'Reason for request' may be 'exclude DVT'; the 'Clinical context' may be 'gradually increasing pitting oedema to mid-calf in the left leg over the past 3 days'.\r\n- Consider a clinician ordering a recurring blood test, such as an INR. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to clearly define the frequency and timing for each sequence in a series of tests, such as 'daily for one week, weekly for 4 weeks, monthly for 6 months'.\r\n- Consider a clinician ordering a follow-up appointment in 6 weeks. 'Follow-up appointment' will be the 'Service name'. If they enter '6 weeks' as the proposed timing for the appointment in the User Interface, the clinical system will record the date six weeks from today in the 'Service due' data element.\r\n\r\nIn many situations, it will be possible to record the steps that occur as part of this request being carried out using the corresponding generic ACTION.service. However, there will be many occasions where the required ACTION archetype will be very specific for purpose, as the data requirements for recording provision of many health-related services will need quite unique data elements, recording patterns or pathway steps. For example: ACTION.screening or ACTION.health_education.",
+          "misuse" : "Not to be used to record details about the activities that document how an order or request has been carried out - use an ACTION archetype for this purpose. For example ACTION.service archetype or a more purpose-specific archetype from the ACTION class for this purpose.",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "it" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "it"
+          },
+          "purpose" : "*A generic framework for a request for a health-related service or activity to be delivered by a clinician, organisation or agency. (en)",
+          "keywords" : [ "richiesta, ordine, servizio, fornire, indirizzamento" ],
+          "use" : "*Use to record a request for a health-related service or activity to be delivered by a clinician, organisation or agency.\r\n\r\nThis generic archetype has been designed as a framework that can be used as the basis for a wide range of requests:\r\n- a request from one clinician, organisation or agency to another clinician, organisation or agency for a health-related service. For example: a referral to a specialist clinician for treatment or a second clinical opinion; transfer of care to an emergency department; four hourly vital signs monitoring; diagnostic investigations; and provision of home services from a municipal council; or\r\n- a request for a follow-up service to be scheduled for the same clinician, organisation or agency. For example: an outpatient appointment for review in 6 weeks. \r\n\r\nIt can be used to represent a request for one or more services, in one of two ways:\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is the same - use a separate 'Activity' instance within this archetype for each request.\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is different - use a separate instance of this archetype for each request.\r\n\r\nThe 'Service due' data element supports common use cases for stipulating the simple timing for delivery of the request/s on a single occasion. For situations with more complicated timing requirements or a series of services, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT.\r\n\r\nImplementation examples:\r\n- Consider a clinician referring a patient to an Endocrinologist for diabetes treatment advice - the 'Service name will be 'Referral'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'Difficulty controlling early evening hyperglycaemia; the 'Clinical context' may contain a narrative about the duration and previous management of their diabetes, current treatment, plus recent weight gain and information about the recent death of their spouse; current treatment; 'Intent' may be 'Second opinion' or 'Handover of care'.\r\n- Consider a clinician ordering diabetes education - The 'Service name' will be 'Diabetes education'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'New diagnosis' and 'Prevention of ketoacidosis'; and 'Clinical context' may be 'Newly diagnosed diabetic for initial education and instruction in insulin administration'. If delivery of the complete service requires more than one activity, such as 'four sessions at fortnightly intervals, commencing one week after discharge from hospital', use the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype, nested within the 'Complex timing' SLOT.\r\n- Consider a clinician ordering a meal home-delivery service from the municipal council - the 'Service name' may be 'Meals on wheels program'; the 'Clinical indication' may be 'Emphysema'; the 'Reason for request' may be 'Unable to shop or cook independently'. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to define the delivery requirements such as 'daily for 6 months'.\r\n- Consider a clinician ordering an ultrasound of the left leg to exclude a deep venous thrombosis - the 'Service name' will be 'Ultrasound left lower leg'; the 'Clinical indication' may be 'swollen left ankle'; the 'Reason for request' may be 'exclude DVT'; the 'Clinical context' may be 'gradually increasing pitting oedema to mid-calf in the left leg over the past 3 days'.\r\n- Consider a clinician ordering a recurring blood test, such as an INR. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to clearly define the frequency and timing for each sequence in a series of tests, such as 'daily for one week, weekly for 4 weeks, monthly for 6 months'.\r\n- Consider a clinician ordering a follow-up appointment in 6 weeks. 'Follow-up appointment' will be the 'Service name'. If they enter '6 weeks' as the proposed timing for the appointment in the User Interface, the clinical system will record the date six weeks from today in the 'Service due' data element.\r\n\r\nIn many situations, it will be possible to record the steps that occur as part of this request being carried out using the corresponding generic ACTION.service. However, there will be many occasions where the required ACTION archetype will be very specific for purpose, as the data requirements for recording provision of many health-related services will need quite unique data elements, recording patterns or pathway steps. For example: ACTION.screening or ACTION.health_education. (en)",
+          "misuse" : "*Not to be used to record details about the activities that document how an order or request has been carried out - use an ACTION archetype for this purpose. For example ACTION.service archetype or a more purpose-specific archetype from the ACTION class for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "*A generic framework for a request for a health-related service or activity to be delivered by a clinician, organisation or agency. (en)",
+          "keywords" : [ "verzoek", "opdracht", "dienst", "voorschrift", "verwijzing" ],
+          "use" : "*Use to record a request for a health-related service or activity to be delivered by a clinician, organisation or agency.\r\n\r\nThis generic archetype has been designed as a framework that can be used as the basis for a wide range of requests:\r\n- a request from one clinician, organisation or agency to another clinician, organisation or agency for a health-related service. For example: a referral to a specialist clinician for treatment or a second clinical opinion; transfer of care to an emergency department; four hourly vital signs monitoring; diagnostic investigations; and provision of home services from a municipal council; or\r\n- a request for a follow-up service to be scheduled for the same clinician, organisation or agency. For example: an outpatient appointment for review in 6 weeks. \r\n\r\nIt can be used to represent a request for one or more services, in one of two ways:\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is the same - use a separate 'Activity' instance within this archetype for each request.\r\n- If multiple services need to be requested and the information recorded in the 'protocol' (for example 'Receiver') is different - use a separate instance of this archetype for each request.\r\n\r\nThe 'Service due' data element supports common use cases for stipulating the simple timing for delivery of the request/s on a single occasion. For situations with more complicated timing requirements or a series of services, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT.\r\n\r\nImplementation examples:\r\n- Consider a clinician referring a patient to an Endocrinologist for diabetes treatment advice - the 'Service name will be 'Referral'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'Difficulty controlling early evening hyperglycaemia; the 'Clinical context' may contain a narrative about the duration and previous management of their diabetes, current treatment, plus recent weight gain and information about the recent death of their spouse; current treatment; 'Intent' may be 'Second opinion' or 'Handover of care'.\r\n- Consider a clinician ordering diabetes education - The 'Service name' will be 'Diabetes education'; the 'Clinical indication' will be 'Type 1 Diabetes Mellitus'; the 'Reason for request' may be 'New diagnosis' and 'Prevention of ketoacidosis'; and 'Clinical context' may be 'Newly diagnosed diabetic for initial education and instruction in insulin administration'. If delivery of the complete service requires more than one activity, such as 'four sessions at fortnightly intervals, commencing one week after discharge from hospital', use the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype, nested within the 'Complex timing' SLOT.\r\n- Consider a clinician ordering a meal home-delivery service from the municipal council - the 'Service name' may be 'Meals on wheels program'; the 'Clinical indication' may be 'Emphysema'; the 'Reason for request' may be 'Unable to shop or cook independently'. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to define the delivery requirements such as 'daily for 6 months'.\r\n- Consider a clinician ordering an ultrasound of the left leg to exclude a deep venous thrombosis - the 'Service name' will be 'Ultrasound left lower leg'; the 'Clinical indication' may be 'swollen left ankle'; the 'Reason for request' may be 'exclude DVT'; the 'Clinical context' may be 'gradually increasing pitting oedema to mid-calf in the left leg over the past 3 days'.\r\n- Consider a clinician ordering a recurring blood test, such as an INR. The complex timing for this requires the use of the CLUSTER.service_direction and associated CLUSTER.timing_nondaily archetype nested within the 'Complex timing' SLOT to clearly define the frequency and timing for each sequence in a series of tests, such as 'daily for one week, weekly for 4 weeks, monthly for 6 months'.\r\n- Consider a clinician ordering a follow-up appointment in 6 weeks. 'Follow-up appointment' will be the 'Service name'. If they enter '6 weeks' as the proposed timing for the appointment in the User Interface, the clinical system will record the date six weeks from today in the 'Service due' data element.\r\n\r\nIn many situations, it will be possible to record the steps that occur as part of this request being carried out using the corresponding generic ACTION.service. However, there will be many occasions where the required ACTION archetype will be very specific for purpose, as the data requirements for recording provision of many health-related services will need quite unique data elements, recording patterns or pathway steps. For example: ACTION.screening or ACTION.health_education. (en)",
+          "misuse" : "*Not to be used to record details about the activities that document how an order or request has been carried out - use an ACTION archetype for this purpose. For example ACTION.service archetype or a more purpose-specific archetype from the ACTION class for this purpose. (en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-INSTRUCTION.service_request.v1",
     "differential" : true,
@@ -437,6 +580,117 @@
         "name" : "Mattijs Kuhlmann, Joost Holslag",
         "organisation" : "Nedap",
         "email" : "mattijs.kuhlmann@nedap.com, joost.holslag@nedap.com"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "08ee8454-ab32-45f4-b15e-05d269164221",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "AD593E18455631079CCA895C6A3612C5"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-ACTION.service.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-ACTION.ovl-service-001.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "ACTION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "pt-br" : { },
+        "de" : { },
+        "nb" : { },
+        "nl" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "f596dd3a-2cba-4dec-9d40-ecfefe33b142",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Eva-Maria Rieß, Natalia Strauch",
+        "organisation" : "Universitätsmedizin Göttingen, Medizinische Hochschule Hannover",
+        "email" : "eva-maria.riess@med.uni-goettingen.de, Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Silje Ljosland Bakke, John Tore Valand, Terje Sagmyr",
+        "organisation" : "Helse Vest IKT AS",
+        "email" : "silje.ljosland.bakke@helse-vest-ikt.no, john.tore.valand@helse-vest-ikt.no, terje.sagmyr@helse-vest-ikt.no"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Ana Paula Pannuti, Débora Farage, Adriana Kitajima, Fernanda Maia e Clóvis Puttini.",
+        "organisation" : "Core Consulting",
+        "email" : "ana.andrade@coreconsulting.com.br"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Mattijs Kuhlmann",
+        "organisation" : "Nedap",
+        "email" : "mattijs.kuhlmann@nedap.com"
       },
       "otherDetails" : { }
     } ]
