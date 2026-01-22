@@ -23,23 +23,18 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"18c501de8a13d012aae13a597986ec28">
 		["build_uid"] = <"63999ee8-9225-3e7a-8813-48103a122090">
+		["MD5-CAM-1.0.1"] = <"3a638aa8917715a2c6bb3627cd5e61a5">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- Valda analyser_tc
+	CLUSTER[at0000] matches {    -- Valda analyser
 		items cardinality matches {1..*; unordered} matches {
-			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- Lokalisation
-				include
-					archetype_id/value matches {/.*/}
-			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {*}    -- Orderable ID
 			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Provmaterial
 				include
 					archetype_id/value matches {/.*/}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {*}    -- Orderable ID
-			ELEMENT[at0011] occurrences matches {0..1} matches {*}    -- Tjänstegrupp/Paket
 			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Analyser
 				value matches {
 					DV_CODED_TEXT matches {*}
@@ -49,6 +44,10 @@ definition
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
+			}
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- Lokalisation
+				include
+					archetype_id/value matches {/.*/}
 			}
 			CLUSTER[at0008] occurrences matches {0..1} matches {    -- Rör
 				items cardinality matches {1..*; unordered} matches {
@@ -64,6 +63,7 @@ definition
 					}
 				}
 			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {*}    -- Tjänstegrupp/Paket
 			ELEMENT[at0012] occurrences matches {0..1} matches {*}    -- Samtliga analyser
 			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Obligatorisk analysen
 				value matches {
@@ -93,7 +93,7 @@ ontology
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"Valda analyser_tc">
+					text = <"Valda analyser">
 					description = <"Valda analyser_tc">
 				>
 				["at0001"] = <
@@ -118,7 +118,8 @@ ontology
 				>
 				["at0008"] = <
 					text = <"Rör">
-					description = <"">
+					description = <"Samtliga analyser är obligatoriska inom paketet/profilen
+För profiler lagras profilkoden här.">
 				>
 				["at0009"] = <
 					text = <"Rörkod">
@@ -134,7 +135,8 @@ ontology
 				>
 				["at0012"] = <
 					text = <"Samtliga analyser">
-					description = <"">
+					description = <"Samtliga analyser är obligatoriska inom paketet/profilen
+För profiler lagras profilkoden här.">
 				>
 				["at0014"] = <
 					text = <"Obligatorisk analysen">
@@ -142,7 +144,7 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Sektionskod">
-					description = <"">
+					description = <"Sektionskod. Anger vilken sektion som skall analysera provet.">
 				>
 				["at0016"] = <
 					text = <"Undersökningskod">
