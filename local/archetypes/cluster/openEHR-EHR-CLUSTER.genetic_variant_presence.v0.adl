@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=2d7ac39c-147d-4672-bd08-b55372b9631e)
+archetype (adl_version=1.4; uid=2d7ac39c-147d-4672-bd08-b55372b9631e)
 	openEHR-EHR-CLUSTER.genetic_variant_presence.v0
 
 concept
-	[at0000]	-- Genetic variant presence
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -14,14 +15,24 @@ language
 				["email"] = <"Strauch.Natalia@mh-hannover.de">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Oscar Karlsson">
+				["organisation"] = <"Karolinska Universitetssjukhuset">
+				["email"] = <"oscar.karlsson@regionstockholm.se">
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2020-03-16">
 		["name"] = <"Silje Ljosland Bakke">
 		["organisation"] = <"Helse Vest IKT AS">
 		["email"] = <"silje.ljosland.bakke@helse-vest-ikt.no">
-		["date"] = <"2020-03-16">
 	>
+	lifecycle_state = <"in_development">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
@@ -29,28 +40,31 @@ description
 			use = <"Verwenden Sie diesen Archetyp, um eine Bewertung des Vorkommens oder Nicht-Vorkommens einer bestimmten genetischen Variante in einer sequenzierten Probe darzustellen, z. B. für die Panel-Sequenzierung.
 
 Dieser Archetyp wurde für die Verwendung im SLOT \"Testergebnis\" des Archetyps OBSERVATION.laboratory_test_result entwickelt, kann aber auch in anderen ENTRY- oder CLUSTER-Archetypen verwendet werden, sofern dies klinisch angemessen ist.">
-			misuse = <"">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"*To record an assessment of the presence or absence of a specific genetic variant in a sequenced specimen.(en)">
+			use = <"*Use to record an assessment of the presence or absence of a specific genetic variant in a sequenced specimen, for example for panel sequencing.
+
+This archetype has been designed to be used within the \"Test result\" SLOT of the OBSERVATION.laboratory_test_result archetype, but may also be used in other ENTRY or CLUSTER archetype where clinically appropriate.(en)">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record an assessment of the presence or absence of a specific genetic variant in a sequenced specimen.">
+			copyright = <"© openEHR Foundation">
 			use = <"Use to record an assessment of the presence or absence of a specific genetic variant in a sequenced specimen, for example for panel sequencing.
 
 This archetype has been designed to be used within the \"Test result\" SLOT of the OBSERVATION.laboratory_test_result archetype, but may also be used in other ENTRY or CLUSTER archetype where clinically appropriate.">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"FA49B7ED2418260198D18D3F69CEABD7">
-		["build_uid"] = <"910a57d6-f968-4529-baa6-0c92301be861">
+		["MD5-CAM-1.0.1"] = <"F0403E6F958CFFC7D6D36A138B581C58">
+		["build_uid"] = <"88e89178-0d7b-4cbc-bba1-cfec97bda2f4">
 		["revision"] = <"0.0.1-alpha">
 	>
 
@@ -75,7 +89,6 @@ definition
 					}
 				}
 			}
-			
 			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Comment
 				value matches {
 					DV_TEXT matches {*}
@@ -84,8 +97,8 @@ definition
 		}
 	}
 
-
 ontology
+	terminologies_available = <"LOINC", ...>
 	term_definitions = <
 		["en"] = <
 			items = <
@@ -159,8 +172,44 @@ ontology
 				>
 			>
 		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Förekomst av genetisk variant">
+					description = <"Bedömning av förekomsten av en specifik genetisk variant i ett sekvenserat prov.">
+				>
+				["at0001"] = <
+					text = <"Namn på variant">
+					description = <"Namnet på den specifika varianten.">
+				>
+				["at0002"] = <
+					text = <"Resultat">
+					description = <"Förekomst eller icka förekomst av specifik variant.  ">
+				>
+				["at0003"] = <
+					text = <"Kommentar">
+					description = <"*Additional narrative about the genetic variant presence not captured in other elements.(en)">
+				>
+				["at0004"] = <
+					text = <"Positiv">
+					description = <"Aktuell variant förekommer.">
+				>
+				["at0005"] = <
+					text = <"Negativ">
+					description = <"Aktuell variant förekommer ej.">
+				>
+				["at0006"] = <
+					text = <"Ingen data">
+					description = <"Inga data finns tillgängliga som bekräftar variantens förekomst/frånvaro.">
+				>
+				["at0007"] = <
+					text = <"Inkonklusivt">
+					description = <"Resultatet är inkonklusivt.">
+				>
+			>
+		>
 	>
-	term_bindings = <
+	term_binding = <
 		["LOINC"] = <
 			items = <
 				["at0002"] = <[LOINC(2.65)::69548-6]>
