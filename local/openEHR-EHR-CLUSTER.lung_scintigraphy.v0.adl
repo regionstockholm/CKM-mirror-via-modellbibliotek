@@ -16,10 +16,10 @@ language
 
 description
 	original_author = <
+		["date"] = <"2025-04-09">
 		["name"] = <"Oscar Karlsson">
 		["organisation"] = <"Karolinska University Hospital ">
 		["email"] = <"Oscar.karlsson@regionstockholm.se">
-		["date"] = <"2025-04-09">
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
@@ -37,27 +37,19 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"5020f6613df51a5cccf152533c913fd8">
+		["MD5-CAM-1.0.1"] = <"acb3b067b30a30ca5f373fb9b7d6fe3b">
 		["build_uid"] = <"c8d22c98-f1a7-371c-9ef4-1c455310a009">
 	>
 
 definition
-	CLUSTER[at0000] matches {    -- Lung scintigraphy
+	CLUSTER[at0000] occurrences matches {0..*} matches {    -- Lung scintigraphy
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Right lung
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Anatomical location
 				value matches {
-					C_DV_QUANTITY <
-						property = <[openehr::507]>
-						list = <
-							["1"] = <
-								units = <"%">
-								magnitude = <|0.0..100.0|>
-							>
-						>
-					>
+					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Left lung
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Relative perfusion
 				value matches {
 					C_DV_QUANTITY <
 						property = <[openehr::507]>
@@ -82,12 +74,13 @@ ontology
 					description = <"Lung scintigraphy">
 				>
 				["at0001"] = <
-					text = <"Right lung">
-					description = <"">
+					text = <"Relative perfusion">
+					description = <"The percentage of total measured pulmonary function attributed to the specified anatomical location.">
 				>
-				["at0002"] = <
-					text = <"Left lung">
-					description = <"">
+				["at0003"] = <
+					text = <"Anatomical location">
+					description = <"The specific anatomical part of the lung to which the quantitative measurement applies (e.g. right lung or left lung).">
+					comment = <"This element identifies the lung region associated with the reported functional distribution value.">
 				>
 			>
 		>
@@ -98,12 +91,13 @@ ontology
 					description = <"*Lung scintigraphy (en)">
 				>
 				["at0001"] = <
-					text = <"Höger lunga">
-					description = <"">
+					text = <"Relativ perfusion">
+					description = <"Den procentuella andelen av den totala pulmonella perfusionen i den angivna anatomiska lokalisationen.">
 				>
-				["at0002"] = <
-					text = <"Vänster lunga">
-					description = <"">
+				["at0003"] = <
+					text = <"Anatomisk lokalisation">
+					description = <"Den specifika anatomiska del av lungan som den kvantitativa mätningen avser (t.ex. höger eller vänster lunga).">
+					comment = <"Identifierar vilken del av lungan som det rapporterade funktionsvärdet gäller.">
 				>
 			>
 		>
