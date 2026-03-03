@@ -37,7 +37,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"1d286b54d772197e5f949265f433c281">
+		["MD5-CAM-1.0.1"] = <"ff0fcda74e46a4ae31961d05a8dd6f38">
 		["build_uid"] = <"ab71b0cd-5709-3491-98fc-13bdb59b55f5">
 	>
 
@@ -50,19 +50,18 @@ definition
 						items cardinality matches {0..*; unordered} matches {
 							CLUSTER[at0004] occurrences matches {0..*} matches {    -- Treatment option
 								items cardinality matches {1..*; unordered} matches {
-									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Clinical study
-										value matches {
-											DV_TEXT matches {*}
-										}
-									}
-									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Option number
-										value matches {
-											DV_COUNT matches {*}
-										}
-									}
-									CLUSTER[at0007] occurrences matches {0..1} matches {    -- Main treatment
-										items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0042] occurrences matches {0..1} matches {    -- Tumor-targeted treatment
+										items cardinality matches {1..*; unordered} matches {
 											ELEMENT[at0010] occurrences matches {0..1} matches {    -- Intent
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0007] occurrences matches {0..1} matches {    -- Tretament
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Relation to main tretament
 												value matches {
 													DV_TEXT matches {*}
 												}
@@ -73,11 +72,6 @@ definition
 												}
 											}
 											ELEMENT[at0038] occurrences matches {0..1} matches {    -- Regimen
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0040] occurrences matches {0..1} matches {    -- Other regimen
 												value matches {
 													DV_TEXT matches {*}
 												}
@@ -102,10 +96,20 @@ definition
 													DV_TEXT matches {*}
 												}
 											}
+											ELEMENT[at0043] occurrences matches {0..1} matches {    -- DV_TEXT
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
 											allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional details
 												include
 													archetype_id/value matches {/.*/}
 											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Patient eligible for study screening
+										value matches {
+											DV_TEXT matches {*}
 										}
 									}
 									CLUSTER[at0008] occurrences matches {0..1} matches {    -- Additional treatment
@@ -146,11 +150,6 @@ definition
 												}
 											}
 											ELEMENT[at0037] occurrences matches {0..1} matches {    -- Chemoradiotherapy form
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Relation to main tretament
 												value matches {
 													DV_TEXT matches {*}
 												}
@@ -221,15 +220,11 @@ ontology
 					description = <"Details about a specific alternative for treatment.">
 				>
 				["at0005"] = <
-					text = <"Clinical study">
+					text = <"Patient eligible for study screening">
 					description = <"Information about a study in which the patient may potentially participate">
 				>
-				["at0006"] = <
-					text = <"Option number">
-					description = <"Sequence number assigned to distinguish a specific treatment option.">
-				>
 				["at0007"] = <
-					text = <"Main treatment">
+					text = <"Tretament">
 					description = <"Main treatment is the intervention aimed at completely removing or eliminating the cancer from the body. It can be any type of treatment (e.g., surgery, radiation therapy, or chemotherapy), with surgery often being the most common. When multiple treatments are given, the main treatment is the central one. Additional treatments can be given to improve the effects of the main treatment, such as neoadjuvant therapy, which is administered before the main treatment.">
 				>
 				["at0008"] = <
@@ -278,7 +273,7 @@ ontology
 				>
 				["at0028"] = <
 					text = <"Relation to main tretament">
-					description = <"Describes the timing of the additional treatment in relation to the main treatment (e.g., before (neoadjuvant), after (adjuvant), or both (perioperative)).">
+					description = <"Describes the timing of the treatment in relation to the main treatment (e.g., before (neoadjuvant), after (adjuvant), or if the treatment is the main treatment.">
 				>
 				["at0029"] = <
 					text = <"Additional treatment">
@@ -324,20 +319,24 @@ ontology
 					text = <"Regimen">
 					description = <"Specified oncological treatment regimen. recommended as additional tretament. ">
 				>
-				["at0040"] = <
-					text = <"Other regimen">
-					description = <"Other regimen not specified among the predefined coded values in the related data element for regimens as main tretament.">
-				>
 				["at0041"] = <
 					text = <"Other regimen">
 					description = <"Other regimen not specified among the predefined coded values in the related data element for regimens as additional treatment. ">
+				>
+				["at0042"] = <
+					text = <"Tumor-targeted treatment">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
 			>
 		>
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"multidisciplinary_cancer_management_recommendation3">
+					text = <"Multidisciplinär rekommendation för handläggning av cancer3">
 					description = <"Rekommendationen som ges av ett multidisciplinärt team angående handläggningen av en cancerpatient.">
 				>
 				["at0001"] = <
@@ -357,15 +356,11 @@ ontology
 					description = <"Detaljer om ett specifikt behandlingsalternativ.">
 				>
 				["at0005"] = <
-					text = <"Klinisk studie">
+					text = <"*Patient eligible for study screening (en)">
 					description = <"Information om studie i vilken patienten eventuellt kan komma att delta.">
 				>
-				["at0006"] = <
-					text = <"Nummer för behandlingsalternativ">
-					description = <"Sekvensnummer som tilldelas för att särskilja ett specifikt behandlingsalternativ.">
-				>
 				["at0007"] = <
-					text = <"Huvudbehandling">
+					text = <"*Tretament (en)">
 					description = <"Huvudbehandlingen är den insats som syftar till att helt avlägsna eller eliminera cancern från kroppen. Det kan vara vilken typ av behandling som helst (t.ex. kirurgi, strålbehandling eller cytostatika), där kirurgi ofta är den vanligaste. När flera behandlingar ges är huvudbehandlingen den centrala. Ytterligare behandlingar kan ges för att förbättra effekterna av huvudbehandlingen, såsom neoadjuvant behandling, som ges före huvudbehandlingen.">
 				>
 				["at0008"] = <
@@ -414,7 +409,7 @@ ontology
 				>
 				["at0028"] = <
 					text = <"Relation till huvudbehandling">
-					description = <"Beskriver tidpunkten för tilläggsbehandlingen i förhållande till huvudbehandlingen (t.ex. före (neoadjuvant), efter (adjuvant) eller båda (perioperativ)).">
+					description = <"*Describes the timing of the treatment in relation to the main treatment (e.g., before (neoadjuvant), after (adjuvant), or if the treatment is the main treatment. (en)">
 				>
 				["at0029"] = <
 					text = <"Övrig information">
@@ -460,13 +455,17 @@ ontology
 					text = <"Regim">
 					description = <"Specificerad onkologisk behandlingsregim, rekommenderad som tilläggsbehandling.">
 				>
-				["at0040"] = <
-					text = <"Annan regim">
-					description = <"Annan regim som inte finns angiven bland de fördefinierade kodade värdena i det relaterade dataelementet för regimer som huvudbehandling. ">
-				>
 				["at0041"] = <
 					text = <"Annan regim">
 					description = <"Annan regim som inte finns angiven bland de fördefinierade kodade värdena i det relaterade dataelementet för regimer som tilläggsbehandling. ">
+				>
+				["at0042"] = <
+					text = <"*Tumor-targeted treatment (en)">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"*DV_TEXT (en)">
+					description = <"">
 				>
 			>
 		>
