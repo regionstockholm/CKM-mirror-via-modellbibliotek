@@ -1,5 +1,5 @@
-archetype (adl_version=1.4; uid=5fa80e23-f976-4c41-bd9a-b2fe25783ced)
-	openEHR-EHR-EVALUATION.multidisciplinary_cancer_management_recommendation.v0
+archetype (adl_version=1.4; uid=3583f59d-6a66-49be-9d06-da92133e4567)
+	openEHR-EHR-EVALUATION.multidisciplinary_cancer_management_recommendation2.v0
 
 concept
 	[at0000]
@@ -37,139 +37,92 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9f2ff8da746140ca1aefa057b4e53a69">
+		["MD5-CAM-1.0.1"] = <"54980882b85e5282098bd2c7b0cb033e">
 		["build_uid"] = <"ab71b0cd-5709-3491-98fc-13bdb59b55f5">
 	>
 
 definition
-	EVALUATION[at0000] matches {    -- multidisciplinary cancer management recommendation
+	EVALUATION[at0000] matches {    -- multidisciplinary_cancer_management_recommendation2
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
 					CLUSTER[at0002] occurrences matches {0..1} matches {    -- Recommended treatment strategy
 						items cardinality matches {0..*; unordered} matches {
-							CLUSTER[at0004] occurrences matches {0..*} matches {    -- Treatment option
+							CLUSTER[at0042] occurrences matches {0..1} matches {    -- CLUSTER
 								items cardinality matches {1..*; unordered} matches {
-									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Clinical study
+									ELEMENT[at0046] occurrences matches {0..1} matches {    -- DV_TEXT
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Option number
-										value matches {
-											DV_COUNT matches {*}
-										}
-									}
-									CLUSTER[at0007] occurrences matches {0..1} matches {    -- Main treatment
-										items cardinality matches {0..*; unordered} matches {
-											ELEMENT[at0010] occurrences matches {0..1} matches {    -- Intent
+									CLUSTER[at0058] occurrences matches {0..*} matches {    -- CLUSTER
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0054] occurrences matches {0..1} matches {    -- DV_TEXT
 												value matches {
 													DV_TEXT matches {*}
 												}
 											}
-											ELEMENT[at0011] occurrences matches {0..1} matches {    -- Type of treatment
+											ELEMENT[at0045] occurrences matches {0..*} matches {    -- DV_TEXT
 												value matches {
 													DV_TEXT matches {*}
 												}
 											}
-											ELEMENT[at0038] occurrences matches {0..1} matches {    -- Regimen
+											ELEMENT[at0047] occurrences matches {0..1} matches {    -- DV_TEXT
 												value matches {
 													DV_TEXT matches {*}
 												}
 											}
-											ELEMENT[at0040] occurrences matches {0..1} matches {    -- Other regimen
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0031] occurrences matches {0..1} matches {    -- Number of cycles
+											ELEMENT[at0048] occurrences matches {0..1} matches {    -- DV_COUNT
 												value matches {
 													DV_COUNT matches {*}
 												}
 											}
-											ELEMENT[at0030] occurrences matches {0..1} matches {    -- Fractionated dose
+											ELEMENT[at0051] occurrences matches {0..1} matches {    -- DV_QUANTITY
 												value matches {
 													DV_QUANTITY matches {*}
 												}
 											}
-											ELEMENT[at0032] occurrences matches {0..1} matches {    -- Total dose
-												value matches {
-													DV_QUANTITY matches {*}
-												}
-											}
-											ELEMENT[at0033] occurrences matches {0..1} matches {    -- Chemoradiotherapy form
+											ELEMENT[at0052] occurrences matches {0..1} matches {    -- DV_TEXT
 												value matches {
 													DV_TEXT matches {*}
 												}
 											}
-											allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional details
-												include
-													archetype_id/value matches {/.*/}
+											ELEMENT[at0050] occurrences matches {0..1} matches {    -- DV_QUANTITY
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0053] occurrences matches {0..1} matches {    -- DV_TEXT
+												value matches {
+													DV_TEXT matches {*}
+												}
 											}
 										}
 									}
-									CLUSTER[at0008] occurrences matches {0..1} matches {    -- Additional treatment
-										items cardinality matches {0..*; unordered} matches {
-											ELEMENT[at0015] occurrences matches {0..1} matches {    -- Intent
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0016] occurrences matches {0..1} matches {    -- Type of treatment
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0039] occurrences matches {0..1} matches {    -- Regimen
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0041] occurrences matches {0..1} matches {    -- Other regimen
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0034] occurrences matches {0..1} matches {    -- Number of cycles
-												value matches {
-													DV_COUNT matches {*}
-												}
-											}
-											ELEMENT[at0035] occurrences matches {0..1} matches {    -- Fractionated dose
-												value matches {
-													DV_QUANTITY matches {*}
-												}
-											}
-											ELEMENT[at0036] occurrences matches {0..1} matches {    -- Total dose
-												value matches {
-													DV_QUANTITY matches {*}
-												}
-											}
-											ELEMENT[at0037] occurrences matches {0..1} matches {    -- Chemoradiotherapy form
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Relation to main tretament
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
-											allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {    -- Additional details
-												include
-													archetype_id/value matches {/.*/}
-											}
-										}
-									}
-									allow_archetype CLUSTER[at0029] occurrences matches {0..*} matches {    -- Additional treatment
-										include
-											archetype_id/value matches {/.*/}
-									}
-									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Comment
+								}
+							}
+							CLUSTER[at0043] occurrences matches {0..1} matches {    -- CLUSTER
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0044] occurrences matches {0..1} matches {    -- DV_TEXT
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
+									ELEMENT[at0056] occurrences matches {0..1} matches {    -- DV_TEXT
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							ELEMENT[at0057] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0059] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
 								}
 							}
 						}
@@ -201,7 +154,7 @@ ontology
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"multidisciplinary cancer management recommendation">
+					text = <"multidisciplinary_cancer_management_recommendation2">
 					description = <"The recommendation provided by a multidisciplinary team regarding the management of a cancer patient.">
 				>
 				["at0001"] = <
@@ -216,54 +169,6 @@ ontology
 					text = <"Futher investigation">
 					description = <"Details about any further investigation recommended.">
 				>
-				["at0004"] = <
-					text = <"Treatment option">
-					description = <"Details about a specific alternative for treatment.">
-				>
-				["at0005"] = <
-					text = <"Clinical study">
-					description = <"Information about a study in which the patient may potentially participate">
-				>
-				["at0006"] = <
-					text = <"Option number">
-					description = <"Sequence number assigned to distinguish a specific treatment option.">
-				>
-				["at0007"] = <
-					text = <"Main treatment">
-					description = <"Main treatment is the intervention aimed at completely removing or eliminating the cancer from the body. It can be any type of treatment (e.g., surgery, radiation therapy, or chemotherapy), with surgery often being the most common. When multiple treatments are given, the main treatment is the central one. Additional treatments can be given to improve the effects of the main treatment, such as neoadjuvant therapy, which is administered before the main treatment.">
-				>
-				["at0008"] = <
-					text = <"Additional treatment">
-					description = <"Therapies given in addition to the main treatment, aimed at improving the effects of the main treatment. Additional treatment can be given before, after, or both before and after the main treatment.">
-				>
-				["at0009"] = <
-					text = <"Comment">
-					description = <"">
-				>
-				["at0010"] = <
-					text = <"Intent">
-					description = <"The intent of the recommended main treatment.">
-				>
-				["at0011"] = <
-					text = <"Type of treatment">
-					description = <"Type of main treatment recommended.">
-				>
-				["at0014"] = <
-					text = <"Additional details">
-					description = <"Additional details about the specific main treatment.">
-				>
-				["at0015"] = <
-					text = <"Intent">
-					description = <"The intent of the recommended additional treatment.">
-				>
-				["at0016"] = <
-					text = <"Type of treatment">
-					description = <"Type of additional tretament recommended. ">
-				>
-				["at0017"] = <
-					text = <"Additional details">
-					description = <"">
-				>
 				["at0024"] = <
 					text = <"Description futher investigation">
 					description = <"Description of the further investigations recommended.">
@@ -276,68 +181,76 @@ ontology
 					text = <"Follow up">
 					description = <"A narrative description of the planned follow-up for the patient.">
 				>
-				["at0028"] = <
-					text = <"Relation to main tretament">
-					description = <"Describes the timing of the additional treatment in relation to the main treatment (e.g., before (neoadjuvant), after (adjuvant), or both (perioperative)).">
-				>
-				["at0029"] = <
-					text = <"Additional treatment">
+				["at0042"] = <
+					text = <"CLUSTER">
 					description = <"">
 				>
-				["at0030"] = <
-					text = <"Fractionated dose">
-					description = <"Recommended dose of radiation to be delivered per treatment fraction.">
+				["at0043"] = <
+					text = <"CLUSTER">
+					description = <"">
 				>
-				["at0031"] = <
-					text = <"Number of cycles">
-					description = <"Total number of cycles recommended as part of the medical oncology treatment.">
+				["at0044"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
-				["at0032"] = <
-					text = <"Total dose">
-					description = <"Total amount of radiation recommended for the entire treatment course.">
+				["at0045"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
-				["at0033"] = <
-					text = <"Chemoradiotherapy form">
-					description = <"The timing of chemotherapy relative to radiotherapy within the recommended treatment regimen.">
+				["at0046"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
-				["at0034"] = <
-					text = <"Number of cycles">
-					description = <"Total number of cycles recommended as part of the medical oncology treatment.">
+				["at0047"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
-				["at0035"] = <
-					text = <"Fractionated dose">
-					description = <"Recommended dose of radiation to be delivered per treatment fraction.">
+				["at0048"] = <
+					text = <"DV_COUNT">
+					description = <"">
 				>
-				["at0036"] = <
-					text = <"Total dose">
-					description = <"Total amount of radiation recommended for the entire treatment course.">
+				["at0050"] = <
+					text = <"DV_QUANTITY">
+					description = <"">
 				>
-				["at0037"] = <
-					text = <"Chemoradiotherapy form">
-					description = <"The timing of chemotherapy relative to radiotherapy within the recommended treatment regimen.">
+				["at0051"] = <
+					text = <"DV_QUANTITY">
+					description = <"">
 				>
-				["at0038"] = <
-					text = <"Regimen">
-					description = <"Specified oncological treatment regimen. recommended as main tretament. ">
+				["at0052"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
-				["at0039"] = <
-					text = <"Regimen">
-					description = <"Specified oncological treatment regimen. recommended as additional tretament. ">
+				["at0053"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
-				["at0040"] = <
-					text = <"Other regimen">
-					description = <"Other regimen not specified among the predefined coded values in the related data element for regimens as main tretament.">
+				["at0054"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
-				["at0041"] = <
-					text = <"Other regimen">
-					description = <"Other regimen not specified among the predefined coded values in the related data element for regimens as additional treatment. ">
+				["at0056"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0057"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0058"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+				["at0059"] = <
+					text = <"DV_TEXT">
+					description = <"">
 				>
 			>
 		>
 		["sv"] = <
 			items = <
 				["at0000"] = <
-					text = <"Multidisciplinär rekommendation för handläggning av cancer">
+					text = <"multidisciplinary_cancer_management_recommendation2">
 					description = <"Rekommendationen som ges av ett multidisciplinärt team angående handläggningen av en cancerpatient.">
 				>
 				["at0001"] = <
@@ -352,54 +265,6 @@ ontology
 					text = <"Vidare utredning">
 					description = <"Detaljer om eventuella ytterligare undersökningar som rekommenderas.">
 				>
-				["at0004"] = <
-					text = <"Behandlingsalternativ">
-					description = <"Detaljer om ett specifikt behandlingsalternativ.">
-				>
-				["at0005"] = <
-					text = <"Klinisk studie">
-					description = <"Information om studie i vilken patienten eventuellt kan komma att delta.">
-				>
-				["at0006"] = <
-					text = <"Nummer för behandlingsalternativ">
-					description = <"Sekvensnummer som tilldelas för att särskilja ett specifikt behandlingsalternativ.">
-				>
-				["at0007"] = <
-					text = <"Huvudbehandling">
-					description = <"Huvudbehandlingen är den insats som syftar till att helt avlägsna eller eliminera cancern från kroppen. Det kan vara vilken typ av behandling som helst (t.ex. kirurgi, strålbehandling eller cytostatika), där kirurgi ofta är den vanligaste. När flera behandlingar ges är huvudbehandlingen den centrala. Ytterligare behandlingar kan ges för att förbättra effekterna av huvudbehandlingen, såsom neoadjuvant behandling, som ges före huvudbehandlingen.">
-				>
-				["at0008"] = <
-					text = <"Tilläggsbehandling">
-					description = <"Behandlingar som ges utöver huvudbehandlingen och syftar till att förbättra huvudbehandlingens effekt. Tilläggsbehandling kan ges före, efter eller både före och efter huvudbehandlingen.">
-				>
-				["at0009"] = <
-					text = <"Kommentar">
-					description = <"">
-				>
-				["at0010"] = <
-					text = <"Intention">
-					description = <"Intentionen med den rekommenderade huvudbehandlingen.">
-				>
-				["at0011"] = <
-					text = <"Typ av behandling">
-					description = <"Typ av behandling som rekommenderas som huvudbehandling.">
-				>
-				["at0014"] = <
-					text = <"Övrig information">
-					description = <"Ytterligare detaljer om den specifika huvudbehandlingen.">
-				>
-				["at0015"] = <
-					text = <"Intention">
-					description = <"Intentionen med den rekommenderade tilläggsbehandlingen.">
-				>
-				["at0016"] = <
-					text = <"Typ av behandling">
-					description = <"Typ av behandling som rekommenderas som tilläggsbehandling.">
-				>
-				["at0017"] = <
-					text = <"Övrig information">
-					description = <"Ytterligare detaljer om den specifika tilläggsbehandlingen.">
-				>
 				["at0024"] = <
 					text = <"Beskrivning av vidare utredning">
 					description = <"Beskrivning av de vidare undersökningar som rekommenderas. ">
@@ -412,61 +277,69 @@ ontology
 					text = <"Uppföljning">
 					description = <"Beskrivning av patientens planerade uppföljning.">
 				>
-				["at0028"] = <
-					text = <"Relation till huvudbehandling">
-					description = <"Beskriver tidpunkten för tilläggsbehandlingen i förhållande till huvudbehandlingen (t.ex. före (neoadjuvant), efter (adjuvant) eller båda (perioperativ)).">
+				["at0042"] = <
+					text = <"Tumörinriktad behandling">
+					description = <"">
 				>
-				["at0029"] = <
-					text = <"Övrig information">
-					description = <"Ytterligare detaljer om det specifika behandlingsalternativet. ">
+				["at0043"] = <
+					text = <"Icke tumörinriktad behandling">
+					description = <"">
 				>
-				["at0030"] = <
-					text = <"Fraktionsdos">
-					description = <"Rekommenderad stråldos per behandlingstillfälle.">
+				["at0044"] = <
+					text = <"Typ av behandling">
+					description = <"">
 				>
-				["at0031"] = <
+				["at0045"] = <
+					text = <"Behandlingsmodalitet">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Intention">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"Regim">
+					description = <"">
+				>
+				["at0048"] = <
 					text = <"Antal kurer">
-					description = <"Antal rekommenderade kurer inom den medicinska onkologiska behandlingen.">
+					description = <"">
 				>
-				["at0032"] = <
-					text = <"Totaldos">
-					description = <"Total stråldos som rekommenderas för hela behandlingen.">
-				>
-				["at0033"] = <
-					text = <"Form av kemoradioterpi">
-					description = <"Förhållande i tid mellan kemoterapi och radioterapi inom den rekommenderade behandlingsregimen.">
-				>
-				["at0034"] = <
-					text = <"Antal kurer">
-					description = <"Antal rekommenderade kurer inom den medicinska onkologiska behandlingen.">
-				>
-				["at0035"] = <
+				["at0050"] = <
 					text = <"Fraktionsdos">
-					description = <"Rekommenderad stråldos per behandlingstillfälle.">
+					description = <"">
 				>
-				["at0036"] = <
+				["at0051"] = <
 					text = <"Totaldos">
-					description = <"Total stråldos som rekommenderas för hela behandlingen.">
+					description = <"">
 				>
-				["at0037"] = <
+				["at0052"] = <
 					text = <"Form av kemoradioterapi">
-					description = <"Förhållande i tid mellan kemoterapi och radioterapi inom den rekommenderade behandlingsregimen.">
+					description = <"">
 				>
-				["at0038"] = <
-					text = <"Regim">
-					description = <"Specificerad onkologisk behandlingsregim, rekommenderad som huvudbehandling">
+				["at0053"] = <
+					text = <"Kommentar">
+					description = <"">
 				>
-				["at0039"] = <
-					text = <"Regim">
-					description = <"Specificerad onkologisk behandlingsregim, rekommenderad som tilläggsbehandling.">
+				["at0054"] = <
+					text = <"Relation till huvudbehandling">
+					description = <"">
 				>
-				["at0040"] = <
-					text = <"Annan regim">
-					description = <"Annan regim som inte finns angiven bland de fördefinierade kodade värdena i det relaterade dataelementet för regimer som huvudbehandling. ">
+				["at0056"] = <
+					text = <"Kommentar">
+					description = <"">
 				>
-				["at0041"] = <
-					text = <"Annan regim">
-					description = <"Annan regim som inte finns angiven bland de fördefinierade kodade värdena i det relaterade dataelementet för regimer som tilläggsbehandling. ">
+				["at0057"] = <
+					text = <"Patient aktuell för studiescreening">
+					description = <"">
+				>
+				["at0058"] = <
+					text = <"Behandling">
+					description = <"">
+				>
+				["at0059"] = <
+					text = <"Kommentar">
+					description = <"">
 				>
 			>
 		>
