@@ -37,7 +37,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"f5bf1a4fa652c431e913fa50c3c5ab0e">
+		["MD5-CAM-1.0.1"] = <"13ffc2f21d52a77eefdc7aec1578bb5b">
 		["build_uid"] = <"ab71b0cd-5709-3491-98fc-13bdb59b55f5">
 	>
 
@@ -55,13 +55,8 @@ definition
 											DV_TEXT matches {*}
 										}
 									}
-									CLUSTER[at0007] occurrences matches {0..*} matches {    -- Treatament
+									CLUSTER[at0007] occurrences matches {0..*} matches {    -- Main treatament
 										items cardinality matches {0..*; unordered} matches {
-											ELEMENT[at0028] occurrences matches {0..1} matches {    -- Relation to main tretament
-												value matches {
-													DV_TEXT matches {*}
-												}
-											}
 											ELEMENT[at0011] occurrences matches {0..1} matches {    -- Type of treatment
 												value matches {
 													DV_TEXT matches {*}
@@ -98,6 +93,49 @@ definition
 												}
 											}
 											allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {    -- Additional details
+												include
+													archetype_id/value matches {/.*/}
+											}
+										}
+									}
+									CLUSTER[at0049] occurrences matches {0..1} matches {    -- Additional treatment
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0058] occurrences matches {0..1} matches {    -- Relation to main tretament
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0051] occurrences matches {0..1} matches {    -- Type of treatment
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0052] occurrences matches {0..1} matches {    -- Regimen
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0054] occurrences matches {0..1} matches {    -- Number of cycles
+												value matches {
+													DV_COUNT matches {*}
+												}
+											}
+											ELEMENT[at0055] occurrences matches {0..1} matches {    -- Fractionated dose
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0056] occurrences matches {0..1} matches {    -- Total dose
+												value matches {
+													DV_QUANTITY matches {*}
+												}
+											}
+											ELEMENT[at0057] occurrences matches {0..1} matches {    -- Chemoradiotherapy form
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											allow_archetype CLUSTER[at0059] occurrences matches {0..*} matches {    -- Additional details
 												include
 													archetype_id/value matches {/.*/}
 											}
@@ -182,7 +220,7 @@ ontology
 					description = <"Information about a study in which the patient may potentially participate">
 				>
 				["at0007"] = <
-					text = <"Treatament">
+					text = <"Main treatament">
 					description = <"">
 				>
 				["at0009"] = <
@@ -212,11 +250,6 @@ ontology
 				["at0027"] = <
 					text = <"Follow up">
 					description = <"A narrative description of the planned follow-up for the patient.">
-				>
-				["at0028"] = <
-					text = <"Relation to main tretament">
-					description = <"Describes the timing of the treatment in relation to the main treatment (e.g., before (neoadjuvant), after (adjuvant), or if the treatment is the main treatment.">
-					comment = <"Main treatment is the intervention aimed at completely removing or eliminating the cancer from the body. It can be any type of treatment (e.g., surgery, radiation therapy, or chemotherapy), with surgery often being the most common. When multiple treatments are given, the main treatment is the central one. Additional treatments can be given to improve the effects of the main treatment, such as neoadjuvant therapy, which is administered before the main treatment.">
 				>
 				["at0030"] = <
 					text = <"Fractionated dose">
@@ -263,6 +296,42 @@ Treatment that is directly aimed at slowing, reducing or eliminating the growth 
 					text = <"Additional details">
 					description = <"">
 				>
+				["at0049"] = <
+					text = <"Additional treatment">
+					description = <"Therapies given in addition to the main treatment, aimed at improving the effects of the main treatment. Additional treatment can be given before, after, or both before and after the main treatment.">
+				>
+				["at0051"] = <
+					text = <"Type of treatment">
+					description = <"Type of additional tretament recommended. ">
+				>
+				["at0052"] = <
+					text = <"Regimen">
+					description = <"Specified oncological treatment regimen. recommended as additional tretament. ">
+				>
+				["at0054"] = <
+					text = <"Number of cycles">
+					description = <"Total number of cycles recommended as part of the medical oncology treatment.">
+				>
+				["at0055"] = <
+					text = <"Fractionated dose">
+					description = <"Recommended dose of radiation to be delivered per treatment fraction.">
+				>
+				["at0056"] = <
+					text = <"Total dose">
+					description = <"Total amount of radiation recommended for the entire treatment course.">
+				>
+				["at0057"] = <
+					text = <"Chemoradiotherapy form">
+					description = <"The timing of chemotherapy relative to radiotherapy within the recommended treatment regimen.">
+				>
+				["at0058"] = <
+					text = <"Relation to main tretament">
+					description = <"Describes the timing of the additional treatment in relation to the main treatment (e.g., before (neoadjuvant), after (adjuvant), or both (perioperative)).">
+				>
+				["at0059"] = <
+					text = <"Additional details">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -288,7 +357,7 @@ Treatment that is directly aimed at slowing, reducing or eliminating the growth 
 					description = <"Information om studie i vilken patienten eventuellt kan komma att delta.">
 				>
 				["at0007"] = <
-					text = <"Behandling">
+					text = <"Huvudbehandling">
 					description = <"">
 				>
 				["at0009"] = <
@@ -297,7 +366,7 @@ Treatment that is directly aimed at slowing, reducing or eliminating the growth 
 				>
 				["at0010"] = <
 					text = <"Intention">
-					description = <"*The intent of the recommended tumor-targeted treatment. (en)">
+					description = <"Intentionen med den tumörinriktade behandlingen.">
 				>
 				["at0011"] = <
 					text = <"Typ av behandling">
@@ -318,13 +387,6 @@ Treatment that is directly aimed at slowing, reducing or eliminating the growth 
 				["at0027"] = <
 					text = <"Uppföljning">
 					description = <"Beskrivning av patientens planerade uppföljning.">
-				>
-				["at0028"] = <
-					text = <"Relation till huvudbehandling">
-					description = <"Beskriver tidpunkten för behandlingen i förhållande till huvudbehandlingen (t.ex. före (neoadjuvant), efter (adjuvant) eller om behandlingen är huvudbehandlingen).
-">
-					comment = <"Huvudbehandling är den behandling som syftar till att helt avlägsna eller eliminera cancern från kroppen. Det kan vara vilken typ av behandling som helst (t.ex. kirurgi, strålbehandling eller kemoterapi), där kirurgi ofta är den vanligaste. När flera behandlingar ges är huvudbehandlingen den centrala. Ytterligare behandlingar kan ges för att förbättra effekterna av huvudbehandlingen, såsom neoadjuvant behandling, som administreras före huvudbehandlingen.
-">
 				>
 				["at0030"] = <
 					text = <"Fraktionsdos">
@@ -369,6 +431,42 @@ Treatment that is directly aimed at slowing, reducing or eliminating the growth 
 				["at0047"] = <
 					text = <"Övrig information">
 					description = <"">
+				>
+				["at0049"] = <
+					text = <"Tilläggsbehandling">
+					description = <"Behandlingar som ges utöver huvudbehandlingen och syftar till att förbättra huvudbehandlingens effekt. Tilläggsbehandling kan ges före, efter eller både före och efter huvudbehandlingen.">
+				>
+				["at0051"] = <
+					text = <"Typ av behandling">
+					description = <"Typ av behandling som rekommenderas som tilläggsbehandling.">
+				>
+				["at0052"] = <
+					text = <"Regim">
+					description = <"Specificerad onkologisk behandlingsregim, rekommenderad som tilläggsbehandling.">
+				>
+				["at0054"] = <
+					text = <"Antal kurer">
+					description = <"Antal rekommenderade kurer inom den medicinska onkologiska behandlingen.">
+				>
+				["at0055"] = <
+					text = <"Fraktionsdos">
+					description = <"Rekommenderad stråldos per behandlingstillfälle.">
+				>
+				["at0056"] = <
+					text = <"Totaldos">
+					description = <"Total stråldos som rekommenderas för hela behandlingen.">
+				>
+				["at0057"] = <
+					text = <"Form av kemoradioterapi">
+					description = <"Förhållande i tid mellan kemoterapi och radioterapi inom den rekommenderade behandlingsregimen.">
+				>
+				["at0058"] = <
+					text = <"Relation till huvudbehandling">
+					description = <"Beskriver tidpunkten för tilläggsbehandlingen i förhållande till huvudbehandlingen (t.ex. före (neoadjuvant), efter (adjuvant) eller båda (perioperativ)).">
+				>
+				["at0059"] = <
+					text = <"Övrig information">
+					description = <"Ytterligare detaljer om den specifika tilläggsbehandlingen.">
 				>
 			>
 		>
