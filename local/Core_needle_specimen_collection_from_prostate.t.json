@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.4",
-      "build_uid" : "ebe06ad0-e308-4383-a9f0-b825a5292daf",
-      "MD5-CAM-1.0.1" : "46920552561ac7b043e4f72dfb19e13c",
+      "sem_ver" : "1.0.0-alpha.5",
+      "build_uid" : "6506d507-267c-4b1e-85de-c0a760c84e07",
+      "MD5-CAM-1.0.1" : "ffdd978b4f22349ec5265a870733ee52",
       "PARENT:MD5-CAM-1.0.1" : "2803313bf3a633c746b33339f0ca2933"
     },
     "details" : {
@@ -1170,28 +1170,28 @@
                         "code" : "1",
                         "value" : "Misstanke om cancer",
                         "translations" : {
-                          "sv" : "Misstanke om cancer"
+                          "sv" : "Misstanke om prostatacancer"
                         }
                       }, {
                         "terminologyId" : "local_terms",
                         "code" : "2",
                         "value" : "Aktiv monitorering",
                         "translations" : {
-                          "sv" : "Aktiv monitorering"
+                          "sv" : "Känd prostatacancer under aktiv monitorering med ytterligare försämring av PSA"
                         }
                       }, {
                         "terminologyId" : "local_terms",
                         "code" : "3",
                         "value" : "Utvärdering av behandling",
                         "translations" : {
-                          "sv" : "Utvärdering av behandling"
+                          "sv" : "Känd prostatacancer med fokal behandling"
                         }
                       }, {
                         "terminologyId" : "local_terms",
                         "code" : "4",
                         "value" : "Misstanke om recidiv",
                         "translations" : {
-                          "sv" : "Misstanke om recidiv"
+                          "sv" : "Misstanke om recidiv av prostatacancer"
                         }
                       }, {
                         "terminologyId" : "local_terms",
@@ -1210,9 +1210,46 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
               "nodeId" : "at0065.1",
-              "attributes" : [ ],
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "occurrences" : "1..1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
+                      "terminologyId" : {
+                        "value" : "local_terms_2"
+                      },
+                      "constraint" : [ ],
+                      "selectedTerminologies" : [ "local_terms_2" ],
+                      "includedExternalTerminologyCodes" : [ {
+                        "terminologyId" : "local_terms_2",
+                        "code" : "1",
+                        "value" : "Transrektalt",
+                        "translations" : {
+                          "sv" : "Transrektalt"
+                        }
+                      }, {
+                        "terminologyId" : "local_terms_2",
+                        "code" : "2",
+                        "value" : "Transperinalt",
+                        "translations" : {
+                          "sv" : "Transperinalt"
+                        }
+                      } ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -1226,6 +1263,30 @@
               "rmTypeName" : "ELEMENT",
               "occurrences" : "0..0",
               "nodeId" : "at0063.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_CODED_TEXT",
+                  "occurrences" : "1..1",
+                  "defaultValue" : {
+                    "defining_code" : {
+                      "code_string" : "41216001",
+                      "@type" : "CODE_PHRASE"
+                    },
+                    "value" : "Prostata",
+                    "@type" : "DV_CODED_TEXT"
+                  },
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0060.1",
               "attributes" : [ ],
               "attributeTuples" : [ ]
             }, {
@@ -1313,7 +1374,14 @@
           "attributeTuples" : [ ]
         } ]
       } ],
-      "attributeTuples" : [ ]
+      "attributeTuples" : [ ],
+      "attributeCustomizations" : {
+        "provider" : {
+          "aliases" : {
+            "sv" : "provider"
+          }
+        }
+      }
     },
     "terminology" : {
       "@type" : "ARCHETYPE_TERMINOLOGY",
@@ -1328,7 +1396,36 @@
         "es" : { },
         "de" : { },
         "pt-pt" : { },
-        "sv" : { },
+        "sv" : {
+          "at0070.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0070.1",
+            "text" : "Klinisk indikation",
+            "description" : "Den kliniska eller processrelaterade orsaken till ingreppet.",
+            "comment" : "Kodning av indikationen med en terminologi är att föredra, där det är möjligt. Detta dataelement tillåter flera förekomster. Till exempel: 'Misslyckad tarmberedning' eller 'Screening av tarmcancer'."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Provtagning",
+            "description" : "Identifiering av procedur med namn.",
+            "comment" : "Kodning av den specifika proceduren med en terminologi är att föredra, där det är möjligt."
+          },
+          "at0065.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0065.1",
+            "text" : "Provtagningsteknik",
+            "description" : "Identifiering av specifik metod eller teknik för proceduren.",
+            "comment" : "Använd detta dataelement för att dokumentera enkla termer eller en berättande beskrivning. Om kraven för dokumentation av metoden kräver mer komplex modellering kan detta representeras av ytterligare arketyper inom öppningen \"Procedur detalj\" i denna arketyp. Om metoden ingår i 'Procedurnamn' via förkoordinerade koder blir detta dataelement överflödigt."
+          },
+          "at0060.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0060.1",
+            "text" : "Provtagningstidpunkt",
+            "description" : "Datumet och/eller tid då hela proceduren, eller den sista komponenten i ett multikomponentförfarande, avslutades.",
+            "comment" : "Kan endast användas i samband med steget \"Procedur utförd\" och i situationer där proceduren upprepas vid flera tillfällen innan den avslutas eller om det finns flera komponenter i hela proceduren. Detta kan vara detsamma som RM-tidsattributet för steget 'Procedur avslutad'."
+          }
+        },
         "ca" : { }
       },
       "termBindings" : { },
@@ -1819,6 +1916,7 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
           "nodeId" : "at0007.1",
           "attributes" : [ {
             "@type" : "C_ATTRIBUTE",
@@ -1866,6 +1964,27 @@
                 "value" : "Prostata",
                 "@type" : "DV_CODED_TEXT"
               },
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0015.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_DATE_TIME",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
               "attributes" : [ ],
               "attributeTuples" : [ ]
             } ]
@@ -1941,6 +2060,13 @@
             "text" : "Provtagare",
             "description" : "Identifierare för den person eller organisation som ansvarar för provtagningen.",
             "comment" : "Detta dataelement är avsett att användas när provmaterialet redan har samlats in och den faktiska provtagaren är känd."
+          },
+          "at0015.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0015.1",
+            "text" : "Provtagningstidpunkt",
+            "description" : "Datum och tid för när provtagningen ska äga rum eller har ägt rum.",
+            "comment" : "Datum/tid kommer främst att anges i arketyper av typerna INSTRUCTION, ACTION eller OBSERVATION. Detta är dock en kritisk informationsdel och därför det kan vara användbart att ha möjlighet att också länka den direkt till provmaterialet.\r\n\r\n"
           }
         }
       },
@@ -2287,7 +2413,50 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "8052223940b0c6b051be8ed49743df28"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Eine generische Clusterüberschrift, welche üblicherweise im Rahmen der Template Modellierung umbenannt wird.",
+          "keywords" : [ "Überschrift", "Cluster", "Ad hoc", "Clusterüberschrift" ],
+          "use" : "Für den Aufbau und die Benennung eines Clusters innerhalb eines definierten Templates.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "A generic cluster header which is normally renamed locally at template level.",
+          "keywords" : [ ],
+          "use" : "To construct and name a cluster within a local template.",
+          "copyright" : "© Australian Digital Health Agency, openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.adhoc_cluster_heading.v0",
     "differential" : true,
@@ -2393,7 +2562,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "7da5fd5ffe90007b72fb0621d0d8a081"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "*To record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)",
+          "keywords" : [ "*lesion (en)", "*mass (en)", "*tumour (en)", "*tumor (en)", "*nodule (en)", "*cyst (en)", "*calculus (en)", "*thrombosus (en)", "*abnormality (en)", "*anomaly (en)" ],
+          "use" : "*Use to record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.\r\n\r\nIf more than one anomaly has been identified within the context of the same body structure or region, use a separate instance of this archetype to describe each anomaly.\r\n\r\nThe intended scope for this archetype is to record detailed findings about an anomaly using any modality. It is anticipated that specific CLUSTER archetypes will be developed in the future to record common abnormal radiological findings, such as fractures. If a specific archetype to record the anomaly is not available, use this generic archetype to record relevant findings.\r\n\r\nUntil the specific archetypes are developed, current use cases include, but are not limited to:\r\n- a large, mixed solid/cystic lesion containing teeth and hair, identified within the ovary - for example, a dermoid cyst;\r\n- a solid mass identified within the right upper lobe of the lung - for example, a past infection scar or a tumour;\r\n- a calcified lesion identified within the left kidney - for example, a kidney calculus; or\r\n- a soft tissue mass identified within the heart - for example, a thrombosis.\r\n\r\nThis archetype is designed to be nested within the 'Additional details' SLOT in any of the CLUSTER.imaging_exam family of archetypes which will provide the context for the anomaly, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate. (en)",
+          "misuse" : "*Not to be used to record normal or abnormal findings that are expected for a specified imaging examination. Use specialised archetypes from the CLUSTER.imaging_exam family or the generic CLUSTER.imaging_exam archetype for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBERSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression. (en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.",
+          "keywords" : [ "lesjon", "masse", "oppfylning", "tumor", "svulst", "klump", "stein", "forkalkning", "trombe", "avvik", "abnormitet", "misdannelse" ],
+          "use" : "Bruk for å registrere et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.\r\n\r\nBruk en separat instans av denne arketypen for å beskrive hver enkelt anomali dersom det blir identifisert flere enn en anomali i samme kroppsstruktur eller region.\r\n\r\nDet tiltenkte omfanget for denne arketypen er å kunne registrere detaljerte funn om en anomali, uavhengig av modalitet. Det er forventet at det i fremtiden vil bli utviklet spesifikke CLUSTER-arketyper for å registrere funn av vanlige avvik ved radiologiske undersøkelser, som brudd. Dersom en slik spesifikk arketype for å registrere anomalien ikke finnes, bruk denne generiske arketypen for å registrere de relevante funnene.\r\n\r\nInntil de spesifikke arketypene er utviklet, er det nåværende bruksområdet, men ikke begrenset til:\r\n- en stor blandet fast/cystisk lesjon som består av tenner og hår og som er funnet i en eggstokk\r\n- en dermoid cyste\r\n- en solid oppfylning i øvre høyre lungelapp, for eksempel en tumor eller arrvev fra infeksjon\r\n- en forkalkning funnet i venstre nyre, for eksempel en nyrestein\r\n- en bløtvevsmasse funnet i hjertet, for eksempel en trombe\r\n\r\nDenne arketypen er utformet til bruk i SLOT'et \"Strukturerte funn\" i enhver av arketypene innen gruppen CLUSTER.imaging_exam, som vil tilby konteksten for anomalien, men den kan også brukes i andre ENTRY- eller CLUSTER-arketyper der det er klinisk passende.",
+          "misuse" : "Skal ikke brukes for å registrere normale eller unormale funn eller observasjoner som man kan forvente for en spesifisert bildediagnostisk undersøkelse. Bruk spesialiserte arketyper innen gruppen av CLUSTER.imaging_exam - arketyper for dette.\r\n\r\nSkal ikke brukes til å registrere overordnede undersøkelsesfunn, kontekst eller tekniske detaljer relatert til et fullstendig svar på billedundersøkelsen. Bruk arketypen OBSERVATION.imaging_exam_result (Bildediagnostisk svar) for å registrere dette, for eksempel kommentar om undersøkelseskvalitet, differensialdiagnose og overordnet konklusjon.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.",
+          "keywords" : [ "lesion", "mass", "tumour", "tumor", "nodule", "cyst", "calculus", "thrombosus", "abnormality", "anomaly" ],
+          "use" : "Use to record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.\r\n\r\nIf more than one anomaly has been identified within the context of the same body structure or region, use a separate instance of this archetype to describe each anomaly.\r\n\r\nThe intended scope for this archetype is to record detailed findings about an anomaly using any modality. It is anticipated that specific CLUSTER archetypes will be developed in the future to record common abnormal radiological findings, such as fractures. If a specific archetype to record the anomaly is not available, use this generic archetype to record relevant findings.\r\n\r\nUntil the specific archetypes are developed, current use cases include, but are not limited to:\r\n- a large, mixed solid/cystic lesion containing teeth and hair, identified within the ovary - for example, a dermoid cyst;\r\n- a solid mass identified within the right upper lobe of the lung - for example, a past infection scar or a tumour;\r\n- a calcified lesion identified within the left kidney - for example, a kidney calculus; or\r\n- a soft tissue mass identified within the heart - for example, a thrombosis.\r\n\r\nThis archetype is designed to be nested within the 'Additional details' SLOT in any of the CLUSTER.imaging_exam family of archetypes which will provide the context for the anomaly, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate.",
+          "misuse" : "Not to be used to record normal or abnormal findings that are expected for a specified imaging examination. Use specialised archetypes from the CLUSTER.imaging_exam family or the generic CLUSTER.imaging_exam archetype for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBERSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.imaging_exam_anomaly.v0",
     "differential" : true,
@@ -2818,7 +3049,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "5c59bf0cc3967bd890ec8964739fd3ba"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.anatomical_location_space.v0",
     "differential" : true,
@@ -3323,7 +3580,53 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "990cf2e1ac8a27672f71f15f21d0fcee"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere PI-RADS v2.1 klassifiseringen.",
+          "keywords" : [ "PI-RADS, prostatakreft, bilde-rapportering, mpMRI, standardisert, vurderingskategorier, lesjoner, klinisk signifikant, radiolog, urolog, MR prostata" ],
+          "use" : "Brukes for å registrere PI-RADS v2.1 klassifiseringen.\r\n\r\nDenne arketypen er designet for å være nøstet inn i en relevant CLUSTER-arketype, der én instans av denne arketypen brukes til å registrere PI-RADS klassifiseringen for hvert unormalt område identifisert i prostata.\r\n\r\nPer dags dato finnes det ingen validert norsk oversettelse av verktøyet. Man har derfor i arketypen valgt å beholde orginalspråk for dataelementene. Om det på et tidspunkt etableres en validert norsk oversettelse, vil arketypen oppdateres med denne.",
+          "misuse" : "Brukes ikke til å registrere noen versjon av PI-RADS-klassifiseringen annet enn versjon 2.1. For slike formål, bruk arketypene som er designet for hver spesifik versjon av PI-RADS.",
+          "copyright" : "© Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the PI-RADS v2.1 classification.",
+          "keywords" : [ "PI-RADS, prostate cancer, imaging-reporting, mpMRI, standarized, assessment categories, lesions, clinically significant, radiologists, urologists, MR prostate" ],
+          "use" : "Use to record the PI-RADS v2.1 classification.\r\n\r\nThis archetype is designed to be nested within a relevant CLUSTER archetype, using one instance of this archetype to record the PI-RADS classification for each abnormal area identified in the prostate.",
+          "misuse" : "Not to be used to record any version of the PI-RADS classification other than version 2.1. For these purposes, use archetypes designed for each specific version of PI-RADS.",
+          "copyright" : "© Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.pi_rads_2_1.v1",
     "differential" : true,
@@ -3354,20 +3657,7 @@
       "termDefinitions" : {
         "nb" : { },
         "en" : { },
-        "sv" : {
-          "at0001" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0001",
-            "text" : "*PI-RADS (en)",
-            "description" : ""
-          },
-          "at0001.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0001.1",
-            "text" : "*PI-RADS",
-            "description" : ""
-          }
-        }
+        "sv" : { }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -3423,7 +3713,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "2b50fb81303748a62d974b9d733adf44"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.amount.v0",
     "differential" : true,
@@ -3515,7 +3831,98 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "22CC4D6E678D5921D1235F94FF1DDDB1"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung von Details zu einer physischen Probe, die von einer Person zum Zwecke der Untersuchung, Kontrolle oder Analyse entnommen wurde oder sich auf eine Person bezieht.",
+          "keywords" : [ "Probe", "Labor", "Laborprobe", "Entnahme", "Probenahme", "Biopsie", "Gewebe", "Zytologie", "Mikrobiologie", "Pathologie", "Histopathologie", "Histologie", "Laboratorium", "Flüssigkeit", "Abstrich", "Blut", "Exsudat", "Serum", "Plasma", "Urin", "Speichel", "Sekretion", "synovial", "Lymphe", "Kot", "Stuhl", "Exkremente", "Aszites", "Auswurf", "Tupfer", "Muttermilch", "Eiter", "Drainageflüssigkeit", "Knochenmark", "Kultur", "Ausschabung", "Aspirat", "Aderlass", "Test", "zerebrospinale Flüssigkeit", "Pleuraflüssigkeit", "Resektion", "Exzision" ],
+          "use" : "Zur Darstellung von Details zu einer physischen Probe, die von einer Person zum Zwecke der Untersuchung, Kontrolle oder Analyse entnommen wurde oder sich auf eine Person bezieht.\r\n\r\nDieser Archetyp wurde speziell für die Verwendung in den folgenden Anwendungsfällen entwickelt: \r\n- innerhalb von INSTRUCTION.service_request oder einem anderen laborbezogenen INSTRUCTION-Archetyp, um eine zu entnehmende Probe zu beschreiben, oder um eine Probe zu beschreiben, die einer Labordienstleistungsanforderung beigefügt ist;\r\n- innerhalb eines laborbezogenen ACTION-Archetyps zur Beschreibung der Probenentnahme oder einer entnommenen Probe; oder\r\n- innerhalb von OBSERVATION.laboratory_test_result oder anderen OBSERVATION-Archetypen im Laborbericht, um die berichtete Probe zu beschreiben.\r\nDarüber hinaus kann dieser Archetyp auch in andere ENTRY- oder CLUSTER-Archetypen eingebettet werden, wenn dies klinisch angemessen ist. \r\n\r\nDer Detaillierungsgrad dieses Archetyps wird wahrscheinlich den derzeit in den meisten Labors erfassten Levels übersteigen. Es wurde bewusst für eine einfache einzelne Probeentnahme konzipiert, gleichzeitige Entnahme mehrerer Proben mit einer einzigen Anforderung und komplexe Situationen, in denen es erforderlich ist, kleinste Details über die Verarbeitung und Aufteilung einer einzelnen Probe darzustellen.\r\n\r\nDie genaue Semantik mehrerer Elemente dieses Archetyps, kann sich, basierend auf dem vom Container-Archetyp bereitgestellten Kontext, ändern. Beispielsweise ist das Element \"Methode der Probenentnahme\" im Kontext eines INSTRUCTION-Archetyps die angeforderte Entnahmemethode, während das gleiche Element im Kontext eines ACTION-Archetyps im Status \"Abgeschlossen\" die tatsächliche Entnahmemethode ist.\r\n\r\nDieser Archetyp soll mit anderen CLUSTER-Archetypen wie \"Probenbehälter\", \"Probenverarbeitung\" und „Probentransport“ ergänzt werden.\r\n\r\nDieser Archetyp kann zusammen mit dem Archetyp \"Probenbehälter\" auf zwei Arten verwendet werden: \r\n- \"Probenbehälter\" verschachtelt in \"Probe\" (z.B. wenn eine venöse Blutprobe in zwei Röhrchen aufgeteilt wird oder ein ganzer Dickdarm in drei Behälter aufgeteilt wird); oder \r\n- \"Probe\" in \"Probenbehälter\" verschachtelt (z.B. wenn ein Eimer mit Formalin einen Abschnitt des Dickdarms und ein Rektum enthält oder ein Gefäß fünf einzeln markierte Muttermale enthält).\r\n\r\nDer Begriff \"Entnahme\" (EN: collection), das in diesem Archetyp verwendet wird, bezieht sich immer auf die Aktivität, die Probe von einer Person zu erhalten. Er soll nicht den Transport der Probe von der Person zum Testlabor darstellen.",
+          "misuse" : "Nicht zur Erfassung von Informationen über Proben, die sich nicht auf eine bestimmte Person beziehen. Zum Beispiel für routinemäßige Wasserproben aus einem Wasserwerk oder für Stichproben aus Einrichtungen der Lebensmittelproduktion.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera detaljer om ett fysiskt provmaterial som tagits från eller relaterat till en individ för undersökning eller analys.",
+          "keywords" : [ "provmaterial", "laboratoriu", "prov", "provtagning", "samplimg", "biopsi", "vävnad", "kroppsvävnad", "vävnadsprov", "cytologi", "mikobiologi", "patologi", "histopatologi", "histologi", "labb", "vätska", "utstryk", "blod", "exudat", "serum", "plasma", "urin", "saliv", "sekret", "cysta", "lymfa", "avföring", "faeces", "ascites", "hostar upp", "sekret", "kompress", "bröstmjölk", "pus", "var", "dränagevätska", "benmärg", "mikroorganism", "odling", "skrapning", "aspirat", "venesektion", "test", "cerebrospinalvätska", "pleuravätska", "resektion", "excision" ],
+          "use" : "Används för att registrera detaljer om ett fysiskt provmaterial som tagits från eller relaterat till en individ för undersökning eller analys.\r\n\r\nDenna CLUSTER-arketyp är utformad för användning i de tre huvudkontexterna som beskrivs nedan:\r\n- Inom INSTRUCTION.service_request eller annan laboratorierelaterad INSTRUCTION-arketyp för att beskriva ett provmaterial som ska tas eller för att beskriva ett prov som åtföljer en begäran om laboratorietjänst.\r\n- Inom en laboratorierelaterad ACTION-arketyp för att beskriva provtagning eller provtaget material.\r\n- Inom OBSERVATION.laboratory_test_result eller annan laboratorierelaterad OBSERVATION-arketyp för att beskriva det provmaterial som ett laboratorieresultat bygger på.\r\nDessutom kan arketypen också användas inom andra ENTRY- eller CLUSTER-arketyper, där det är kliniskt lämpligt.\r\n\r\nDetaljnivån i denna arketyp överstiger sannolikt det som för närvarande registreras i de flesta laboratorier. Arketypen är avsedd att vara användbar för en enkel provtagning, samtidig provtagning av flera provmaterial utifrån en och samma beställning eller komplexa situationer där minsta detalj om beredning och uppdelning av ett provmaterial måste registreras.\r\n\r\nDe specifika betydelserna för flera element i den här arketypen kommer att ändras beroende på den överordnade arketyp där arketypen för provmaterial är infogad. Till exempel kommer elementet \"Provtagningsmetod\" i samband med en INSTRUCTION-arketyp att vara den erforderliga provtagningsmetoden, medan samma element i sammanhanget av en ACTION-arketyp i det \"färdiga\" tillståndet är den faktiska provtagningsmetod som används.\r\n\r\nDenna arketyp kompletteras av andra CLUSTER-arketyper för begrepp som exempelvis behållare, provberedning, transport och lagring av provmaterial.\r\n\r\nDen här arketypen har utformats för att användas med arketypen ”Specimen Container” på två huvudsakliga sätt:\r\n- ”Specimen Container” nästlad i ”Specimen” (till exempel när ett venöst blodprov är uppdelat mellan två injektionsflaskor eller om en hel tjocktarm är uppdelad i tre hinkar) eller\r\n- \"Specimen\" nästlad i \" Specimen Container\" (till exempel när en hink med formalin innehåller en sektion av tjocktarmen och en rektum).\r\n\r\nOBS! Termen \"provtagning\" i denna arketyp är avsedd att betyda aktiviteten för att samla in provmaterial från en individ. Det är inte avsett att representera transporten från individen till laboratoriet.\r\n",
+          "misuse" : "Ej avsedd att användas för att registrera information om provmaterial som inte är relaterat till en viss individ, såsom exempelvis rutinprover från vattenverk eller slumpmässiga prover från livsmedelsproduktion.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere detaljer om et fysisk prøvemateriale tatt fra eller relatert til et individ, for undersøkelse eller analyse.",
+          "keywords" : [ "laboratorium", "prøve", "prøvetaking", "laboratorieprøve", "prøvemateriale", "prøveeksemplar", "preparat", "prøvesamling", "biopsi", "vevsprøve", "celleprøve", "mikrobiologi", "patologi", "histologi", "lab", "væske", "utstryk", "blod", "sårvæske", "serum", "plasma", "urin", "spytt", "sekret,", "leddvæske", "lymfe", "avføring", "ascites", "ekspektorat", "pensel", "morsmelk", "puss", "drensvæske", "beinmarg", "kultur", "avskrap", "aspirat" ],
+          "use" : "Brukes for å registrere detaljer om et fysisk prøvemateriale tatt fra eller relatert til et individ, for undersøkelse eller analyse.\r\n\r\nDenne CLUSTER-arketypen er laget for å brukes i de tre hovedsammenhengene beskrevet under:\r\n- Innenfor INSTRUCTION.service_request eller en annen laboratorierelatert INSTRUCTION-arketype for å beskrive et prøvemateriale som skal tas, eller for å beskrive prøvematerialet som ligger ved en laboratorierekvisisjon.\r\n- Innenfor en laboratorierelatert ACTION-arketype for å beskrive prøvetaking eller et prøvemateriale som er tatt\r\n- Innenfor OBSERVATION.laboratory_test_result eller en annen laboratorierelatert OBSERVATION-arketype for å beskrive prøvematerialet som ligger til grunn for et laboratorieresultat.\r\nI tillegg kan arketypen også brukes innenfor andre ENTRY- eller CLUSTER-arketyper, der det er klinisk passende.\r\n\r\nDet er sannsynlig at detaljnivået i denne arketypen overgår nåværende dataregistrering i de fleste laboratorier. Den er ment for å være brukbar både for en enkel prøvetaking, samtidig innhenting av flere prøvematerialer med én rekvisisjon, og komplekse situasjoner det det må registreres mye detaljer om preparering og oppdeling av et prøvemateriale.\r\n\r\nDe spesifikke betydningene av flere elementer i denne arketypen vil endre seg ut fra den overordnede arketypen som Prøvemateriale-arketypen settes inn i. For eksempel vil elementet \"Prøvetakingsmetode\" i kontekst av en INSTRUCTION-arketype være den rekvirerte prøvetakingsmetoden, mens det samme elementet i kontekst av en ACTION-arketype i tilstanden \"completed\" være den faktiske prøvetakingsmetoden som ble brukt.\r\n\r\nDenne arketypen kompletteres av andre CLUSTER-arketyper for konsepter som Prøvebeholder, Prøvepreparering, og transport og lagring av prøvemateriale.\r\n\r\nDenne arketypen kan brukes sammen med Prøvebeholder-arketypen på to hovedmåter:\r\n- Ved nøsting av \"Prøvebeholder\" inni \"Prøvemateriale\" (for eksempel når et vakuumglass med venøst blod fordeles på to mindre glass, eller en hel tykktarm deles på tre bøtter)\r\n- Med \"Prøvemateriale\" nøstet inni \"Prøvebeholder\" (for eksempel når en bøtte inneholder en seksjon av en tykktarm og en endetarm, eller et glass inneholder fem individuelt merkede føflekker)\r\n\r\nNB! Uttrykket \"prøvetaking\" er i denne arketypen ment å bety aktiviteten å ta en prøve fra et individ. Det er ikke ment å representere transporten fra individet til laboratoriet.",
+          "misuse" : "Ikke ment å brukes til å registrere informasjon om prøvemateriale som ikke er relaterte til et spesifikt individ, som for eksempel rutineprøver fra vannverk eller stikkprøver fra matvareproduksjon.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para gravar detalhes de um espécime laboratorial. Será frequentemente usado em diferentes contextos, p.e, dentro de um arquétipo tipo Instruction para descrever os espécimes que devem ser obtidos, ou descrevendo o espécime que acompanha a solicitação laboratorial. Pode ocorre dentro de um arquétipo tipo Action, p.e., descrevendo espécimes retirados como parte de um procedimento cirúrgico. \r\n\r\nSerá finalmente utilizado dentro de um arquétipo de resultado laboratorial para descrever o espécime reportado.",
+          "keywords" : [ "*specimen (en)", "*laboratory (en)", "*sample (en)", "*collection (en)", "*sampling (en)", "*biopsy (en)", "*tissue (en)", "*cytology (en)", "*microbiology (en)", "*pathology (en)", "*histopathology (en)", "*histology (en)", "*lab (en)", "*fluid (en)", "*smear (en)", "*blood (en)", "*exudate (en)", "*serum (en)", "*plasma (en)", "*urine (en)", "*saliva (en)", "*secretion (en)", "*synovial (en)", "*lymph (en)", "*feces (en)", "*faeces (en)", "*fæces (en)", "*ascites (en)", "*expectorate (en)", "*swab (en)", "*breast milk (en)", "*pus (en)", "*drain fluid (en)", "*bone marrow (en)", "*culture (en)", "*scraping (en)", "*aspirate (en)", "*phlebotomy (en)", "*test (en)", "*cerebrospinal fluid (en)", "*pleural fluid (en)", "*resection (en)", "*excision (en)" ],
+          "use" : "Geralmente utilizado dentro de OBSERVATION. laboratory_test.v1 e outros arquétipos tipo Instruction ou Action relacionados.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record details about a physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.",
+          "keywords" : [ "specimen", "laboratory", "sample", "collection", "sampling", "biopsy", "tissue", "cytology", "microbiology", "pathology", "histopathology", "histology", "lab", "fluid", "smear", "blood", "exudate", "serum", "plasma", "urine", "saliva", "secretion", "synovial", "lymph", "feces", "faeces", "fæces", "ascites", "expectorate", "swab", "breast milk", "pus", "drain fluid", "bone marrow", "culture", "scraping", "aspirate", "phlebotomy", "test", "cerebrospinal fluid", "pleural fluid", "resection", "excision" ],
+          "use" : "Use to record details about a physical sample collected from, or related to, an individual for the purpose of investigation, examination or analysis.\r\n\r\nThis archetype has been specifically designed to be used in the following use cases:\r\n- within INSTRUCTION.service_request or another laboratory-related INSTRUCTION archetype to describe a specimen that is to be collected, or to describe a specimen that accompanies a laboratory service request; \r\n- within a laboratory-related ACTION archetype to describe specimen collection or a specimen that has been collected; or\r\n- within OBSERVATION.laboratory_test_result or other laboratory reporting OBSERVATION archetypes to describe the specimen being reported.\r\nIn addition this archetype can also be nested within other ENTRY or CLUSTER archetypes, where clinically appropriate.\r\n\r\nThe level of detail in this archetype is likely to exceed that currently collected in most laboratories. It has deliberately been designed to cater for a simple, single specimen collection; simultaneous collection of multiple specimens with a single request; and complex situations where it is required to record minute detail about the preparation and subdivision of a single specimen.\r\n\r\nThe exact semantics of several elements of this archetype may change based on the context provided by the parent archetype in which it is nested. For example, the 'Collection method' element in the context of an INSTRUCTION archetype is the requested collection method, while the same element in the context of an ACTION archetype in the 'completed' state is the actual collection method.\r\n\r\nOther complementary archetypes will carry the detail about 'Specimen container', 'Specimen preparation', and 'Specimen transport'.\r\n\r\nThis archetype has been designed to be used with the Specimen container archetype in two main ways: \r\n- 'Specimen container' nested within 'Specimen' (for example when a venous blood specimen is divided between two vials, or a whole large intestine is divided into three buckets); or\r\n- 'Specimen' nested within 'Specimen container' (for example when a bucket of formalin contains a section of large intestine and a rectum, or a jar contains five individually marked moles).\r\n\r\nPlease note: The term 'collection' used in this archetype always refers to the activity of obtaining a specimen from an individual. It is not intended to represent the transport of the specimen from the individual to the testing laboratory.",
+          "misuse" : "Not intended to be used for recording information about specimens that are not related to a specific individual. For example routine water samples from a waterworks, or spot samples from food production facilities.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل تفاصيل حول عينة بالمعمل. \r\nيستخدم غالبا في سياقات مختلفة, مثلا: في داخل نموذج (تعليمات) ليصف العينة التي ينبغي أخذها, أو يصف العينة المرافقة لطلب معملي. \r\nو قد يحدث ذلك في داخل نموذج (فعل), مثال: وصف العينات التي تم أخذها كجزء من إجراء طبي جراحي. \r\nو سيستخدم أخيرا في داخل نموذج نتيجة اختبار المعمل ليصف العينة التي يتم تقديم عينة حولها.",
+          "keywords" : [ "*specimen (en)", "*laboratory (en)", "*sample (en)", "*collection (en)", "*sampling (en)", "*biopsy (en)", "*tissue (en)", "*cytology (en)", "*microbiology (en)", "*pathology (en)", "*histopathology (en)", "*histology (en)", "*lab (en)", "*fluid (en)", "*smear (en)", "*blood (en)", "*exudate (en)", "*serum (en)", "*plasma (en)", "*urine (en)", "*saliva (en)", "*secretion (en)", "*synovial (en)", "*lymph (en)", "*feces (en)", "*faeces (en)", "*fæces (en)", "*ascites (en)", "*expectorate (en)", "*swab (en)", "*breast milk (en)", "*pus (en)", "*drain fluid (en)", "*bone marrow (en)", "*culture (en)", "*scraping (en)", "*aspirate (en)", "*phlebotomy (en)", "*test (en)", "*cerebrospinal fluid (en)", "*pleural fluid (en)", "*resection (en)", "*excision (en)" ],
+          "use" : "يستخدم عادةً في داخل نموذج (ملاحظة. معمل) و النماذج الأخرى تعليمات و فعل المتعلقة بالمعمل.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "annotations" : {
       "@type" : "RESOURCE_ANNOTATIONS",
@@ -3713,16 +4120,7 @@
           "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0034.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_DATE_TIME",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_COMPLEX_OBJECT",
@@ -3893,7 +4291,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "84461dde50109b060850502d1c4e9260"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.anatomical_location_area.v0",
     "differential" : true,
@@ -4199,7 +4623,69 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "7da5fd5ffe90007b72fb0621d0d8a081"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "*To record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region. (en)",
+          "keywords" : [ "*lesion (en)", "*mass (en)", "*tumour (en)", "*tumor (en)", "*nodule (en)", "*cyst (en)", "*calculus (en)", "*thrombosus (en)", "*abnormality (en)", "*anomaly (en)" ],
+          "use" : "*Use to record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.\r\n\r\nIf more than one anomaly has been identified within the context of the same body structure or region, use a separate instance of this archetype to describe each anomaly.\r\n\r\nThe intended scope for this archetype is to record detailed findings about an anomaly using any modality. It is anticipated that specific CLUSTER archetypes will be developed in the future to record common abnormal radiological findings, such as fractures. If a specific archetype to record the anomaly is not available, use this generic archetype to record relevant findings.\r\n\r\nUntil the specific archetypes are developed, current use cases include, but are not limited to:\r\n- a large, mixed solid/cystic lesion containing teeth and hair, identified within the ovary - for example, a dermoid cyst;\r\n- a solid mass identified within the right upper lobe of the lung - for example, a past infection scar or a tumour;\r\n- a calcified lesion identified within the left kidney - for example, a kidney calculus; or\r\n- a soft tissue mass identified within the heart - for example, a thrombosis.\r\n\r\nThis archetype is designed to be nested within the 'Additional details' SLOT in any of the CLUSTER.imaging_exam family of archetypes which will provide the context for the anomaly, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate. (en)",
+          "misuse" : "*Not to be used to record normal or abnormal findings that are expected for a specified imaging examination. Use specialised archetypes from the CLUSTER.imaging_exam family or the generic CLUSTER.imaging_exam archetype for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBERSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression. (en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.",
+          "keywords" : [ "lesjon", "masse", "oppfylning", "tumor", "svulst", "klump", "stein", "forkalkning", "trombe", "avvik", "abnormitet", "misdannelse" ],
+          "use" : "Bruk for å registrere et tilfeldig eller tvetydig funn eller observasjon av en anomali som fraviker fra det som er forventet eller normalt i en identifisert kroppsstruktur eller region, gjort ved bildediagnostisk undersøkelse.\r\n\r\nBruk en separat instans av denne arketypen for å beskrive hver enkelt anomali dersom det blir identifisert flere enn en anomali i samme kroppsstruktur eller region.\r\n\r\nDet tiltenkte omfanget for denne arketypen er å kunne registrere detaljerte funn om en anomali, uavhengig av modalitet. Det er forventet at det i fremtiden vil bli utviklet spesifikke CLUSTER-arketyper for å registrere funn av vanlige avvik ved radiologiske undersøkelser, som brudd. Dersom en slik spesifikk arketype for å registrere anomalien ikke finnes, bruk denne generiske arketypen for å registrere de relevante funnene.\r\n\r\nInntil de spesifikke arketypene er utviklet, er det nåværende bruksområdet, men ikke begrenset til:\r\n- en stor blandet fast/cystisk lesjon som består av tenner og hår og som er funnet i en eggstokk\r\n- en dermoid cyste\r\n- en solid oppfylning i øvre høyre lungelapp, for eksempel en tumor eller arrvev fra infeksjon\r\n- en forkalkning funnet i venstre nyre, for eksempel en nyrestein\r\n- en bløtvevsmasse funnet i hjertet, for eksempel en trombe\r\n\r\nDenne arketypen er utformet til bruk i SLOT'et \"Strukturerte funn\" i enhver av arketypene innen gruppen CLUSTER.imaging_exam, som vil tilby konteksten for anomalien, men den kan også brukes i andre ENTRY- eller CLUSTER-arketyper der det er klinisk passende.",
+          "misuse" : "Skal ikke brukes for å registrere normale eller unormale funn eller observasjoner som man kan forvente for en spesifisert bildediagnostisk undersøkelse. Bruk spesialiserte arketyper innen gruppen av CLUSTER.imaging_exam - arketyper for dette.\r\n\r\nSkal ikke brukes til å registrere overordnede undersøkelsesfunn, kontekst eller tekniske detaljer relatert til et fullstendig svar på billedundersøkelsen. Bruk arketypen OBSERVATION.imaging_exam_result (Bildediagnostisk svar) for å registrere dette, for eksempel kommentar om undersøkelseskvalitet, differensialdiagnose og overordnet konklusjon.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.",
+          "keywords" : [ "lesion", "mass", "tumour", "tumor", "nodule", "cyst", "calculus", "thrombosus", "abnormality", "anomaly" ],
+          "use" : "Use to record an incidental or ambiguous finding of a single anomaly on radiological examination that deviates from what is expected or normal within an identified body structure or region.\r\n\r\nIf more than one anomaly has been identified within the context of the same body structure or region, use a separate instance of this archetype to describe each anomaly.\r\n\r\nThe intended scope for this archetype is to record detailed findings about an anomaly using any modality. It is anticipated that specific CLUSTER archetypes will be developed in the future to record common abnormal radiological findings, such as fractures. If a specific archetype to record the anomaly is not available, use this generic archetype to record relevant findings.\r\n\r\nUntil the specific archetypes are developed, current use cases include, but are not limited to:\r\n- a large, mixed solid/cystic lesion containing teeth and hair, identified within the ovary - for example, a dermoid cyst;\r\n- a solid mass identified within the right upper lobe of the lung - for example, a past infection scar or a tumour;\r\n- a calcified lesion identified within the left kidney - for example, a kidney calculus; or\r\n- a soft tissue mass identified within the heart - for example, a thrombosis.\r\n\r\nThis archetype is designed to be nested within the 'Additional details' SLOT in any of the CLUSTER.imaging_exam family of archetypes which will provide the context for the anomaly, but can also be used within other ENTRY or CLUSTER archetypes, where clinically appropriate.",
+          "misuse" : "Not to be used to record normal or abnormal findings that are expected for a specified imaging examination. Use specialised archetypes from the CLUSTER.imaging_exam family or the generic CLUSTER.imaging_exam archetype for this purpose.\r\n\r\nNot to be used to record details related to the overall findings, context or technical details related to a complete imaging examination test result. Use the OBERSERVATION.imaging_exam_result for this purpose. For example, comments on the study quality, differential diagnoses, and overall impression.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.imaging_exam_anomaly.v0",
     "differential" : true,
@@ -4587,7 +5073,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "2b50fb81303748a62d974b9d733adf44"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.amount.v0",
     "differential" : true,
