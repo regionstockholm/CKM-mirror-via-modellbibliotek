@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.22",
+      "sem_ver" : "1.0.0-alpha.23",
       "build_uid" : "068c4ab0-6468-4aef-943f-dfae1709b085",
-      "MD5-CAM-1.0.1" : "6d560ad6c28bb59a01a07c7440ab62ba",
+      "MD5-CAM-1.0.1" : "f370cc5498e9c6993a2935e3867423c5",
       "PARENT:MD5-CAM-1.0.1" : "97ea53ab760c2fea3d08828f88968aac"
     },
     "details" : {
@@ -932,6 +932,13 @@
             "code" : "at0001.1",
             "text" : "Ordination per substans",
             "description" : "Information om den begärda ordern."
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004",
+            "text" : "Beställnings-ID",
+            "description" : "Unik identifikator för läkemedelsbeställningen. RekvisitionsID per kurdag.",
+            "comment" : "Detta dataelement möjliggör exakt identifiering av flera ordrar samtidigt. "
           }
         },
         "ca" : {
@@ -3338,6 +3345,13 @@
             "text" : "Schemalagd administrering per substans",
             "description" : "Alla aktiviteter relaterade till planering, schemaläggning, recepthantering, utdelning, administrering, upphörande, vaccin, näringsprodukt och annan användning av ett läkemedel eller annan behandlings produkt.",
             "comment" : "Detta är inte begränsat till aktiviteter som utförs bara baserat på remiss på läkemedel från kliniker, utan kan också inkludera till exempel övertagande av partikelräknare medicinering."
+          },
+          "at0103.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0103",
+            "text" : "Order ID",
+            "description" : "Unik identifierare för läkemedelsbeställningen. RekvisitionsID för ordination där ordination innehåller flera kurdagar. ",
+            "comment" : "Kommentar: Detta dataelement gör det möjligt att definiera flera förekomster och mer exakt vid körning, om det behövs."
           }
         },
         "zh-cn" : {
@@ -4493,7 +4507,8 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
             "text" : "Ordination per kurdag",
-            "description" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext."
+            "description" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext.",
+            "comment" : "För vissa diagnosområden görs ordinationer per kurdag. I andra fall kan en ordination bestå av en kur innehållande flera kurdagar. Denna container är därför 0..*.  (En kur innehåller 1 eller flera kurdagar)"
           }
         },
         "de" : { },
