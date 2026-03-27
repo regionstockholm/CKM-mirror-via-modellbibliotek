@@ -1,0 +1,103 @@
+archetype (adl_version=1.4; uid=4e8cf2b1-91fe-4ea1-a362-428deb900197)
+	openEHR-EHR-CLUSTER.lab_analys.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-03-27">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["build_uid"] = <"cfcc458b-2a77-32ac-8b5e-6dc0e2ba8724">
+		["MD5-CAM-1.0.1"] = <"c85f0dca8216c7a916ff1cf463e1b8f6">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Lab Analys
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Namn
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Detaljer om provmaterial
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.specimen\.v1/}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Disciplin
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lab Analys">
+					description = <"Lab Analys">
+				>
+				["at0001"] = <
+					text = <"Namn">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Detaljer om provmaterial">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Disciplin">
+					description = <"">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lab anaylate">
+					description = <"*Lab Analys (sv)">
+				>
+				["at0001"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Details about specimen">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Dicipline">
+					description = <"">
+				>
+			>
+		>
+	>
