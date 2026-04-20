@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-rc.140",
+      "sem_ver" : "1.0.0-rc.141",
       "build_uid" : "82c0dbe8-8dd7-4b2b-a3a4-18e6054fc2cd",
-      "MD5-CAM-1.0.1" : "474f3eecd38caf58d892c530ea5f8ae6",
+      "MD5-CAM-1.0.1" : "eb43a4be2902f3801e852410f875a363",
       "PARENT:MD5-CAM-1.0.1" : "5F1FF554C835566C2BC9A3116B3DAB95"
     },
     "details" : {
@@ -3839,6 +3839,15 @@
           "attributes" : [ ],
           "attributeTuples" : [ ],
           "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-imaging_exam_result-003.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "OBSERVATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.51",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-container-001.v0",
           "referenceType" : "archetypeOverlay"
         } ]
       } ],
@@ -38572,7 +38581,54 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "12755A2A7C38D7FFD96CF1A9E8497F94"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att göra det möjligt att representera kliniskt innehåll som finns i befintliga CLUSTER-arketyper som fristående information i patientjournalen.",
+          "keywords" : [ "generisk", "generell", "behållare", "container", "slot" ],
+          "use" : "Används för att göra det möjligt att representera kliniskt innehåll som finns i befintliga CLUSTER-arketyper, som vanligtvis representeras inom ramen för andra arketyper, som fristående information i patientjournalen när det är kliniskt motiverat. \r\n\r\nDenna arketyp ämnar endast att fungera som en behållare som stödjer flexibel användning av befintliga CLUSTER-arketyper. Den är inte avsedd att innehålla något annat än en obegränsad SLOT.\r\n\r\nTill exempel används CLUSTER.nyha_heart_failure oftast för att tillhandahålla en standardiserad bedömning av hjärtsvikt inom ramen för EVALUATION.problem_diagnosis, men genom att istället stoppa den i EVALUATION.container möjliggörs registrering av uppgiften utanför diagnossammanhanget. På samma sätt registreras CLUSTER.tos vanligen av ÖNH-specialister i samband med undersökning, via CLUSTER.exam_tympanic_membrane, men genom att använda EVALUATION.container kan informationen dokumenteras utanför ramen för undersökningsfynd.",
+          "misuse" : "Ska inte användas för att representera specifikt kliniskt innehåll som definieras inom denna arketyp.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Possibilita que o conteúdo clínico de um arquétipo CLUSTER existente seja representado como um dado independente em um registro de saúde.",
+          "keywords" : [ "genérico", "conteiner", "slot" ],
+          "use" : "Permite que o conteúdo de um arquétipo CLUSTER existente e geralmente representado dentro do contéudo de outros arquétipos seja representado como dado independente em um registro de saúde quando clinicamente apropriado.\r\n\r\nEste arquétipo deve ser utilizado apenas como um arquétipo container para flexibilizar o uso de um arquétipo CLUSTER existente. Ele não se destina a ser usado para representar qualquer conteúdo que não venha via seu SLOT irrestrito.\r\n\r\nPor exemplo, o arquétipo CLUSTER.nyha_heart_failure é geralmente usado para fornecer uma avaliação padronizada sobre insuficiência cardíaca com o arquétipo EVALUATION.problem_diagnosis, mas inserindo-o dentro de EVALUATION possiblita-se que ele seja registrado como dados fora do contexto de um Diagnóstico, se clinicamente apropriado. Da mesma forma, CLUSTER.tos é geralmente registrado por otorrinolaringologistas no contexto de um exame usando CLUSTER.exam_tympanic_membrane, mas inserindo-o neste arquétipo, possibilita-se que ele seja registrado fora do contexto dos achados clinicos, se clinicamente apropriado.",
+          "misuse" : "Não deve ser usado para representar conteúdo clínico específico definido dentro deste arquétipo.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To enable the clinical content held within existing CLUSTER archetypes to be represented as standalone data in the health record.",
+          "keywords" : [ "generic", "container", "slot" ],
+          "use" : "Use to enable the clinical content held within existing CLUSTER archetypes, and usually represented within the context of other archetypes, to be represented as standalone data in the health record when clinically appropriate. \r\n\r\nThis archetype is intended only to act as a container archetype that supports flexible expression of existing CLUSTER archetypes. It is not intended to hold any content other than the unconstrained SLOT.\r\n\r\nFor example, the CLUSTER.nyha_heart_failure archetype is most commonly used to provide a standardised assessment of heart failure with EVALUATION.problem_diagnosis archetypes, but by inserting it within this EVALUATION allows it to be recorded as data outside the context of a Diagnosis, if clinically appropriate. Similarly CLUSTER.tos is usually recorded by ENT specialists in the context of an examination using CLUSTER.exam_tympanic_membrane, but by inserting it into this archetype, it allows it to be recorded outside the context of examination findings, if clinically appropriate.",
+          "misuse" : "Not to be used to represent specific clinical content defined within this archetype.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.container.v0",
     "differential" : true,
@@ -38684,13 +38740,370 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "7BF0D8B8621C319E204339333C987A2A"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung von Freitext.",
+          "keywords" : [ "Text, Freitext, Anmerkung, Bemerkung" ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera information i fritext.",
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para gravar texto livre.",
+          "keywords" : [ ],
+          "copyright" : "© copyright (c) 2010 openEHR Foundation, openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل نَصّ حُر",
+          "keywords" : [ ],
+          "copyright" : "© copyright (c) 2010 openEHR Foundation, openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record free text.",
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.free_text.v0",
     "differential" : true,
     "archetypeId" : {
       "@type" : "ARCHETYPE_HRID",
       "value" : "openEHR-EHR-CLUSTER.ovl-free_text-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Comment",
+            "description" : "Free text."
+          }
+        },
+        "pt-br" : { },
+        "ar-sy" : { },
+        "sv" : {
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Kommentar",
+            "description" : "Fritext"
+          }
+        },
+        "de" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "007bcfc4-5290-4518-8aca-0c707996a055",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Lisa Axelsson",
+        "organisation" : "Region Östergötland",
+        "email" : "lisa.axelsson@regionostergotland.se"
+      },
+      "accreditation" : "Åsa Skagerhult, Daniel Hall",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima, Gabriela Alves, Marivan Abrahão, Maria Angela Scatena",
+        "organisation" : "Core Consulting",
+        "email" : "contato@coreconsulting.com.br"
+      },
+      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "11eda48f-0833-454b-8a04-1ca83acd26e0",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "D2DAC3686CCA50254BAE94AAACD4BB96"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-OBSERVATION.container.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-OBSERVATION.ovl-container-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "OBSERVATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "HISTORY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "events",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "EVENT",
+              "nodeId" : "at0002",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_ARCHETYPE_ROOT",
+                      "rmTypeName" : "CLUSTER",
+                      "occurrences" : "0..1",
+                      "nodeId" : "at0004.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ],
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-free_text-002.v0",
+                      "referenceType" : "archetypeOverlay"
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Comment on functional assessment",
+            "description" : "Generic archetype to contain existing CLUSTER archetypes which need to be represented as standalone data."
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Kommentar om funktionsutredning",
+            "description" : "Allmän arketyp som kan innehålla sådana CLUSTER-arketyper som behöver representeras som fristående data."
+          }
+        },
+        "de" : { },
+        "nb" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "8f9e36f3-9373-4b05-9a8c-5a9c789a55f7",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Viktor Bäckman, Åsa Skagerhult",
+        "organisation" : "Linköpings Universitet, Region Östergötland",
+        "email" : "vikba308@student.liu.se, asa.skagerhult@regionostergotland.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Vebjørn Arntzen",
+        "organisation" : "Oslo University Hospital",
+        "email" : "varntzen@ous-hf.no"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "2fc2acae-b2e9-4d68-b946-31ff5cd536df",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "7BF0D8B8621C319E204339333C987A2A"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.free_text.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-free_text-002.v0"
     },
     "definition" : {
       "@type" : "C_COMPLEX_OBJECT",
