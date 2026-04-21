@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-rc.151",
+      "sem_ver" : "1.0.0-rc.152",
       "build_uid" : "82c0dbe8-8dd7-4b2b-a3a4-18e6054fc2cd",
-      "MD5-CAM-1.0.1" : "d09c8a90f41f066985608c595905ff3b",
+      "MD5-CAM-1.0.1" : "b2ad0c65afca5041c2313fcf63d72de2",
       "PARENT:MD5-CAM-1.0.1" : "5F1FF554C835566C2BC9A3116B3DAB95"
     },
     "details" : {
@@ -22693,6 +22693,33 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0003", "at0004" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0064.1",
           "attributes" : [ {
@@ -22889,6 +22916,13 @@
             "code" : "at0000.1",
             "text" : "Anatomisk lokalisation misstänkta fjärrmetastaser",
             "description" : "Ett fysiskt ställe på eller i människokroppen."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Lateralitet",
+            "description" : "Den sidan av kroppen där det identifierade kroppstället är lokaliserad. \r\n",
+            "comment" : "Om det identifierade kroppstället saknar lateralitet, ska detta data element inte ha ett värde. \r\nOm data elementet \"Namn på kroppställe\" har prekoordinerade termer som innefattar lateralitet, då blir detta data element överflödig. \r\n\r\n"
           }
         },
         "fr" : {
@@ -22906,7 +22940,11 @@
           }
         }
       },
-      "termBindings" : { },
+      "termBindings" : {
+        "SNOMED-CT" : {
+          "at0002.1" : "term:SNOMED-CT::272741003"
+        }
+      },
       "terminologyExtracts" : { },
       "valueSets" : {
         "ac0.1" : {
