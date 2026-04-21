@@ -22,9 +22,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-rc.152",
+      "sem_ver" : "1.0.0-rc.153",
       "build_uid" : "82c0dbe8-8dd7-4b2b-a3a4-18e6054fc2cd",
-      "MD5-CAM-1.0.1" : "b2ad0c65afca5041c2313fcf63d72de2",
+      "MD5-CAM-1.0.1" : "fbe8f923ba9dc488533406d87418aa3e",
       "PARENT:MD5-CAM-1.0.1" : "5F1FF554C835566C2BC9A3116B3DAB95"
     },
     "details" : {
@@ -6273,7 +6273,7 @@
           "at0063.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0063.1",
-            "text" : "Anatomisk lokalisation för provtaging",
+            "text" : "Anatomisk lokalisation för provtagning",
             "description" : "Identifiering av kroppsplatsen för proceduren.",
             "comment" : "Förekomsten av detta dataelement är obegränsat för att möjliggöra kliniska scenarier som att ta bort flera hudskador på olika platser, men där alla andra attribut är identiska. Använd detta dataelement för att dokumentera enkla termer eller förkoordinerade anatomiska platser. Om kraven för dokumentation av den anatomiska platsen bestäms vid körning av applikationen eller kräver mer komplex modellering, till exempel relativa platser, använd CLUSTER.anatomical_location eller CLUSTER.relative_location inom öppningen 'Procedur detaljer' i denna arketyp. Om den anatomiska platsen ingår i 'Procedurnamn' via förkoordinerade koder blir detta dataelement överflödigt"
           }
@@ -21727,6 +21727,33 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0002.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "CODE_PHRASE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "at0003", "at0004" ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0064.1",
           "attributes" : [ {
@@ -21923,6 +21950,13 @@
             "code" : "at0000.1",
             "text" : "Anatomisk lokalisation misstänkta lymfkörtelmetastaser",
             "description" : "Ett fysiskt ställe på eller i människokroppen."
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Lateralitet",
+            "description" : "Den sidan av kroppen där det identifierade kroppstället är lokaliserad. \r\n",
+            "comment" : "Om det identifierade kroppstället saknar lateralitet, ska detta data element inte ha ett värde. \r\nOm data elementet \"Namn på kroppställe\" har prekoordinerade termer som innefattar lateralitet, då blir detta data element överflödig. \r\n\r\n"
           }
         },
         "fr" : {
@@ -21940,7 +21974,11 @@
           }
         }
       },
-      "termBindings" : { },
+      "termBindings" : {
+        "SNOMED-CT" : {
+          "at0002.1" : "term:SNOMED-CT::272741003"
+        }
+      },
       "terminologyExtracts" : { },
       "valueSets" : {
         "ac0.1" : {
