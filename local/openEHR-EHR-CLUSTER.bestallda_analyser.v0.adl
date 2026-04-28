@@ -1,0 +1,116 @@
+archetype (adl_version=1.4; uid=03e3374c-1f75-449b-8d3b-46ad1dc00711)
+	openEHR-EHR-CLUSTER.bestallda_analyser.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::sv]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-03-27">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"b7cb07be7d8be90a962fdde13d42844f">
+		["build_uid"] = <"4f8cd932-b827-3183-a673-b59d05375bbb">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {1..*} matches {    -- Beställda analyser
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..*} matches {    -- Analysgrupp
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Övergripande information om beställda analysen
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.lab_analys\.v0/}
+			}
+			ELEMENT[at0006] occurrences matches {1..*} matches {    -- Undersökning
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Övriga detaljer
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Beställda analyser">
+					description = <"Bestallda analyser">
+				>
+				["at0002"] = <
+					text = <"Analysgrupp">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Övergripande information om beställda analysen">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Övriga detaljer">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Undersökning">
+					description = <"">
+					comment = <"TC Specifik ">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Requested analyses">
+					description = <"*Bestallda analyser (sv)">
+				>
+				["at0002"] = <
+					text = <"Analysis group">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Overall information about requested analyses">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Other details">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Examination">
+					description = <"">
+				>
+			>
+		>
+	>
