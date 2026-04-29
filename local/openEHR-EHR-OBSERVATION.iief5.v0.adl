@@ -23,7 +23,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"f2d81a70106ba6df4dd338ae75ca23ea">
+		["MD5-CAM-1.0.1"] = <"f67ee98a2a10580dfe2be8f81c4ef96c">
 		["build_uid"] = <"ed56dd34-1a69-32bb-b957-dda80b04ad9a">
 	>
 
@@ -32,13 +32,55 @@ definition
 		data matches {
 			HISTORY[at0001] matches {    -- History
 				events cardinality matches {1..*; unordered} matches {
-					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+					POINT_EVENT[at0002] occurrences matches {0..*} matches {    -- IIEF-5 assessment
 						data matches {
-							ITEM_TREE[at0003] matches {*}    -- Tree
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Confidence
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											3|[local::at0007],
+											4|[local::at0008],
+											5|[local::at0009]
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- Hard enough for penetration
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Maintain after penetration
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Maintain to completion
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {    -- Satisfactory
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {    -- IIEF-5 Score
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..25|}
+											}
+										}
+									}
+								}
+							}
 						}
 					}
 				}
 			}
+		}
+		protocol matches {
+			ITEM_TREE[at0015] matches {*}    -- Item tree
 		}
 	}
 
@@ -55,11 +97,59 @@ ontology
 					description = <"@ internal @">
 				>
 				["at0002"] = <
-					text = <"Any event">
+					text = <"IIEF-5 assessment">
 					description = <"@ internal @">
 				>
 				["at0003"] = <
 					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Confidence">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Very low">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Low">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Moderate">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"High">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Very high">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Hard enough for penetration">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Maintain after penetration">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Maintain to completion">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Satisfactory">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"IIEF-5 Score">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Item tree">
 					description = <"@ internal @">
 				>
 			>
