@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"ea52d40b5728544071bfbab349c86844">
+		["MD5-CAM-1.0.1"] = <"cf9a6e1a6060b743caeadb7fef3147fa">
 		["build_uid"] = <"cfcc458b-2a77-32ac-8b5e-6dc0e2ba8724">
 	>
 
@@ -46,14 +46,14 @@ definition
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Detaljer om provmaterial
-				include
-					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.specimen\.v1|openEHR-EHR-CLUSTER\.medication\.v2/}
-			}
 			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Disciplin
 				value matches {
 					DV_TEXT matches {*}
 				}
+			}
+			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Detaljer om provmaterial
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.specimen\.v1|openEHR-EHR-CLUSTER\.medication\.v2/}
 			}
 		}
 	}
