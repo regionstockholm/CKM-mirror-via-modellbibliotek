@@ -1,0 +1,131 @@
+archetype (adl_version=1.4; uid=fd9597c4-4683-4a54-aef2-3d679ba10836)
+	openEHR-EHR-OBSERVATION.iief5.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2026-04-29">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"e56117b3d4ff4908c2b890dcf4fe958b">
+		["build_uid"] = <"ed56dd34-1a69-32bb-b957-dda80b04ad9a">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- IIEF5K.v0
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- IIEF-5 assessment
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Confidence
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Hard enough for penetration
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Maintain after penetration
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Maintain to completion
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Satisfactory
+										value matches {
+											DV_ORDINAL matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- IIEF-5 Score
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {*}    -- Item tree
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"IIEF5K.v0">
+					description = <"IIEF5">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"IIEF-5 assessment">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Confidence">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Hard enough for penetration">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Maintain after penetration">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Maintain to completion">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Satisfactory">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"IIEF-5 Score">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+			>
+		>
+	>
