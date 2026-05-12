@@ -19,10 +19,10 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "b58890213608c8a209bcf3e5ffdc99ed",
+      "MD5-CAM-1.0.1" : "1c4b3c403360be2adbeacec0e43beb22",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "1.0.0-alpha.2",
-      "build_uid" : "b74eddf4-2f6d-45cd-8c4b-5cde6f900c0e"
+      "sem_ver" : "1.0.0-alpha.1",
+      "build_uid" : "5065e733-96d3-432c-a1b8-c8a374d631b8"
     },
     "details" : {
       "de" : {
@@ -260,6 +260,12 @@
                 } ],
                 "attributeTuples" : [ ]
               }, {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "ELEMENT",
+                "nodeId" : "at0150.1",
+                "attributes" : [ ],
+                "attributeTuples" : [ ]
+              }, {
                 "@type" : "C_ARCHETYPE_ROOT",
                 "rmTypeName" : "CLUSTER",
                 "occurrences" : "0..1",
@@ -341,14 +347,27 @@
         "at0000.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0000.1",
-          "text" : "Lab order documentation",
+          "text" : "Virology lab order documentation",
           "description" : "Request for a health-related service or activity to be delivered by a clinician, organisation or agency."
+        },
+        "at0150.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0150.1",
+          "text" : "Requester's comment",
+          "description" : "Additional narrative about the service request not captured in other fields."
         }
       },
       "nb" : { },
       "it" : { },
       "de" : { },
-      "sv" : { },
+      "sv" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "Virologi labbeställning",
+          "description" : "Förfrågan om en hälso- och sjukvårdsrelaterad tjänst eller aktivitet som behöver genomföras av en kliniker, organisation eller myndighet. \r\n"
+        }
+      },
       "pt-br" : { },
       "nl" : { }
     },
@@ -610,7 +629,20 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0003.1",
-          "attributes" : [ ],
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "defaultValue" : {
+                "value" : "Virology ",
+                "@type" : "DV_TEXT"
+              },
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
           "attributeTuples" : [ ]
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
@@ -746,15 +778,6 @@
           "attributes" : [ ],
           "attributeTuples" : [ ],
           "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-specimen-002.v1",
-          "referenceType" : "archetypeOverlay"
-        }, {
-          "@type" : "C_ARCHETYPE_ROOT",
-          "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
-          "nodeId" : "at0002.2",
-          "attributes" : [ ],
-          "attributeTuples" : [ ],
-          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-medication-002.v2",
           "referenceType" : "archetypeOverlay"
         } ]
       } ],
@@ -1554,286 +1577,6 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "f2f6642b-df18-480a-95b1-d6ffae0d168f",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "301D939F428B1A2F46DDE641AAFC47E5"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Darstellung von Details eines Arzneimittels oder einer Komponente eines Arzneimittels, einschließlich der Wirkstärke, der Darreichungsform und den Details über bestimmte Inhaltsstoffe.",
-          "keywords" : [ "Arzneimittel", "Medikament", "Verordnung", "Verschreibung", "Rezept", "ein Rezept ausstellen", "Therapie", "Substanz", "Stoff", "Arznei", "Therapeutikum", "Wirkstoff", "Heilmittel", "ad-hoc", "ad hoc", "Rezeptur", "Zusammensetzung", "Medizin", "Pharmakon" ],
-          "use" : "Zur Darstellung von Angaben zu einem Arzneimittel oder einer Arzneimittelkomponente, einschließlich der Wirkstärke, der Darreichungsform und den Angaben über spezielle Inhaltsstoffe.\r\n\r\nDieser Archetyp soll für die Darstellung von Angaben zu einem Arzneimittel oder einer Arzneimittelkomponente verwendet werden. Dabei sollen vor allem die Darreichungsform und die Inhaltsstoffe detailliert beschrieben werden, z.B. zu einer Infusion oder einer Ad-hoc-Mixtur oder wenn es zu einem Arzneimittel keine Terminologie zur Verfügung steht. Im Rahmen einer Verordnung oder Abgabe eines Arzneimittels kann dieser Archetyp in den SLOT \"Arzneimitteldetails\" innerhalb des INSTRUCTION.medication_order Archetyps eingebettet werden. Für die Darstellung einer gegenwärtigen Verabreichung, Abgabe oder Anwendung eines Arzneimittels muss dieser Archetyp innerhalb des SLOTs \"Arzneimitteldetails\" in den Archetyp ACTION.medication eingefügt werden.\r\n\r\nDieser Archetyp kann überflüssig sein, wenn die Verordnung eines verschreibungsfähigen Arzneimittels eine Terminologie zur Identifizierung des Arzneimittelproduktes verwendet. In diesem Fall kann der Marken- oder Produktname Informationen über die Darreichungsform und die Wirkstärke der Stoffe beinhalten.\r\n",
-          "misuse" : "Nicht für die Kontrolle des Apothekenbestands oder zur Verwaltung von Arzneimittellisten verwenden.\r\n\r\nNicht zur Darstellung einer beabsichtigten oder verabreichten Dosis eines Arzneimittels einsetzen. Für diesen Zweck müssen die Archetypen INSTRUCTION.medication_order oder CLUSTER.dosage verwendet werden.\r\n\r\nDarf nicht allein zum Ausfüllen einer Medikamentenliste verwendet werden. Verwenden Sie dazu einen relevanten medikamentenbezogenen ENTRY-Archetyp wie INSTRUCTION.medication_order oder ACTION.medication.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "purpose" : "För att registrera information om ett läkemedel eller en läkemedelskomponent, inklusive styrka, beredning och detaljer om specifika beståndsdelar.",
-          "keywords" : [ "medicinering", "beställning", "terapi", "substans", "drog", "terapeutisk", "terapeutisk framgång", "situationsanpassad", "apoteks tillverkad produkt", "läkemedelsberedning", "läkemedel" ],
-          "use" : "Används för att registrera detaljer om ett läkemedel eller en komponent i ett läkemedel, inklusive styrka, beredning och detaljer om specifika beståndsdelar.\r\n\r\nDenna arketyp är avsedd att användas för att registrera detaljer om ett läkemedel eller en komponent i ett läkemedel där beredningen och enskilda ingredienser i läkemedlet behöver specificeras mer, till exempel för infusioner och situationsanpassade blandningar, eller där det inte finns någon läkemedelsterminologi tillgänglig. I samband med en beställning för administrering eller dispensering av ett läkemedel, kan denna arketyp kapslas i in i fältet SLOT\" Medicin detaljer\" som finns i arketypen INSTRUCTION.medication_order. För att kunna registrera den faktiska administreringen eller dispenseringen av ett läkemedel, kan denna arketyp kapslas in i fältet SLOT \"Medicin detaljer\" i arketypen ACTION.medication .\r\n\r\nDenna arketyp kan vara överflödig i situationer där beställningen av läkemedlet sker via recept där det används en terminologi för att identifiera läkemedelsobjektet. I dessa fall kan varumärket eller produktnamnet identifiera ämnets beredning och styrka. \r\n",
-          "misuse" : "Får inte användas för lagerkontroll på apotek eller inom läkemedelskataloger.\r\n\r\nFår inte användas för att registrera den avsedda eller administrerade dosen av ett läkemedel. Använd då istället antingen arketypen INSTRUCTION.medication_order eller CLUSTER.dosage för detta ändamål.\r\n\r\nFår inte användas ensamt för att fylla i en läkemedelslista. Använd då istället en relevant läkemedelsrelaterad ENTRY-arketyp som INSTRUCTION.medication_order eller ACTION.medication för detta ändamål.\r\n",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "pt" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "pt"
-          },
-          "purpose" : "Para registrar detalhes de uma preparação de medicamentos, incluindo, quando necessário, detalhes de múltiplos ingredientes, no contexto de uma infusão ou preparação ad-hoc (manipulada). A maioria das prescrições baseadas em dose terá sua precisa preparação determinada pelo estoque disponível na unidade, ou pelo fornecimento de farmácia, enquanto que, com a prescrição baseada em produtos, o nome da medicação traz detalhes da forma e concentração da preparação.",
-          "keywords" : [ "medicação", "ordem", "prescrever", "terapia", "substância", "droga", "terapêutico", "venda livre", "ítem terapêutico", "Ad hoc", "manipulados" ],
-          "use" : "*Use to record details about a medication or component of a medication, including strength, form and details of any specific constituents.\r\n\r\nThis archetype is intended to be used to record details of a medication or component of a medication where the form and detailed ingredients of the medication need to be specified in more detail, for example, infusions and ad hoc mixtures, or where there is no medication terminology available. In the context of an order for administration or dispensing of a medication, nest this archetype within the Preparation details SLOT within the INSTRUCTION.medication_order archetype. In the context of recording the actual administration or dispensing or a medication, nest this archetype within the 'Medication details' SLOT within the ACTION.medication archetype.\r\n\r\nThis archetype may be redundant in situations where ordering a medication via prescription uses a terminology to identify the medication item. In that case the brand or product name may identify the form and strength of the substance. (en)",
-          "misuse" : "*Not to be used for pharmacy stock-control or within medication catalogues.\r\n\r\nNot to be used to record the intended or administered dose of a medication. Use either the INSTRUCTION.medication_order or the CLUSTER.dosage archetypes for this purpose.\r\n\r\nNot to be used by itself to populate a medication list. Use a relevant medication-related ENTRY archetype such as INSTRUCTION.medication_order or ACTION.medication for this purpose. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For å registrere detaljer om et legemiddel eller en komponent av et legemiddel, inkludert detaljer om spesifikke bestanddeler.",
-          "keywords" : [ "legemiddel", "tilbereding", "ordinering", "forskrive", "terapi", "substans", "medikament", "terapeutisk", "medikamenter solgt over disk", "vare", "magistrell", "ex tempore", "blanding", "virkestoff", "hjelpestoff", "utblanding", "foreskrive", "forordne" ],
-          "use" : "Brukes for å registrere detaljer om et legemiddel eller en komponent av et legemiddel, inkludert detaljer om spesifikke bestanddeler.\r\n\r\nDenne arketypen er laget for å brukes til å registrere detaljer om et legemiddel eller en komponent av et legemiddel, der formen og detaljer om bestanddelene må oppgis i mer detalj. Eksempler kan være infusjoner og magistrellforskrevne blandinger, eller der det ikke finnes en tilgjengelig legemiddelterminologi. I sammenhenger der et legemiddel skal administreres eller ekspederes skal denne arketypen nøstes i SLOTet Legemiddeldetaljer i arketypen INSTRUCTION.medication_order. I sammenhenger der det skal registreres hvilket legemiddel som faktisk ble administrert eller ekspedert skal denne arketypen nøstes i SLOTet Legemiddeldetaljer i arketypen ACTION.medication.\r\n\r\nDenne arketypen kan være overflødig i situasjoner der en legemiddelordinering via resept bruker terminologi for å spesifisere legemiddelet. I slike tilfeller vil ofte form og styrke være angitt som en del av terminologibegrepet.",
-          "misuse" : "Skal ikke brukes innen varelageroversikt for apotek, eller innen legemiddelkataloger.\r\n\r\nSkal ikke brukes for å registrere den tilsiktede eller administrerte dosen av et legemiddel. Bruk enten INSTRUCTION.medication_order eller CLUSTER.dosage til dette formålet.\r\n\r\nSkal ikke brukes alene for å populere en legemiddelliste. Bruk en relevant legemiddel-relatert ENTRY-arketype som INSTRUCTION.medication_order eller ACTION.medication for dette formålet.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record details about a medication or component of a medication, including strength, form and details of any specific constituents.",
-          "keywords" : [ "medication", "order", "prescribe", "therapy", "substance", "drug", "therapeutic", "therapeutic good", "ad-hoc", "adhoc", "ad hoc", "extemporaneous", "formulation", "medicine" ],
-          "use" : "Use to record details about a medication or component of a medication, including strength, form and details of any specific constituents.\r\n\r\nThis archetype is intended to be used to record details of a medication or component of a medication where the form and detailed ingredients of the medication need to be specified in more detail, for example, infusions and ad hoc mixtures, or where there is no medication terminology available. In the context of an order for administration or dispensing of a medication, nest this archetype within the 'Medication details' SLOT within the INSTRUCTION.medication_order archetype. In the context of recording the actual administration or dispensing or a medication, nest this archetype within the 'Medication details' SLOT within the ACTION.medication archetype.\r\n\r\nThis archetype may be redundant in situations where ordering a medication via prescription uses a terminology to identify the medication item. In that case the brand or product name may identify the form and strength of the substance.",
-          "misuse" : "Not to be used for pharmacy stock-control or within medication catalogues.\r\n\r\nNot to be used to record the intended or administered dose of a medication. Use either the INSTRUCTION.medication_order or the CLUSTER.dosage archetypes for this purpose.\r\n\r\nNot to be used by itself to populate a medication list. Use a relevant medication-related ENTRY archetype such as INSTRUCTION.medication_order or ACTION.medication for this purpose.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "nl" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nl"
-          },
-          "purpose" : "Het vastleggen van gegevens over een medicament of een onderdeel van een medicament, inclusief sterkte, vorm en details van een specifiek bestandsdeel.",
-          "keywords" : [ "medicatie", "recept", "voorschrijven", "behandeling", "substantie", "medicament", "therapeuticum", "therapeutische substantie", "ad-hoc", "adhoc", "ad hoc", "medicijn" ],
-          "use" : "*Use to record details about a medication or component of a medication, including strength, form and details of any specific constituents.\r\n\r\nThis archetype is intended to be used to record details of a medication or component of a medication where the form and detailed ingredients of the medication need to be specified in more detail, for example, infusions and ad hoc mixtures, or where there is no medication terminology available. In the context of an order for administration or dispensing of a medication, nest this archetype within the Preparation details SLOT within the INSTRUCTION.medication_order archetype. In the context of recording the actual administration or dispensing or a medication, nest this archetype within the 'Medication details' SLOT within the ACTION.medication archetype.\r\n\r\nThis archetype may be redundant in situations where ordering a medication via prescription uses a terminology to identify the medication item. In that case the brand or product name may identify the form and strength of the substance. (en)",
-          "misuse" : "*Not to be used for pharmacy stock-control or within medication catalogues.\r\n\r\nNot to be used to record the intended or administered dose of a medication. Use either the INSTRUCTION.medication_order or the CLUSTER.dosage archetypes for this purpose.\r\n\r\nNot to be used by itself to populate a medication list. Use a relevant medication-related ENTRY archetype such as INSTRUCTION.medication_order or ACTION.medication for this purpose. (en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "ca" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "ca"
-          },
-          "purpose" : "Registrar detalls sobre un medicament o un component d'un medicament, inclosa la concentració, la forma i els detalls de qualsevol component específic.",
-          "keywords" : [ "medicació", "ordre", "prescriure", "teràpia", "substància", "medicament", "terapèutic", "bé terapèutic", "ad-hoc", "adhoc", "ad hoc", "extemporani", "formulació", "medicina" ],
-          "use" : "S'utilitza per registrar detalls sobre un medicament o un component d'un medicament, inclosa la concentració, la forma i els detalls de qualsevol component específic.\r\n\r\nAquest arquetip està pensat per registrar detalls d'un medicament o component d'un medicament quan calgui especificar amb més detall la forma i els components detallats del medicament, per exemple infusions i barreges ad hoc, o quan no es disposi de terminologia de medicaments. En el context d'una ordre d'administració o dispensació d'un medicament, anideu aquest arquetip al SLOT \"Detalls del medicament\" dins de l'arquetip INSTRUCTION.medication_order. En el context del registre de l'administració o dispensació real d'un medicament, anideu aquest arquetip al SLOT \"Detalls del medicament\" dins de l'arquetip ACTION.medication.\r\n\r\nAquest arquetip pot ser redundant en situacions en què la sol·licitud dun medicament mitjançant recepta faci ús duna terminologia per identificar larticle. En aquest cas, la marca o el nom del producte poden identificar la forma i la concentració de la substància.",
-          "misuse" : "No s'ha de fer servir per portar el control de l'estoc de farmàcia ni dels catàlegs de medicaments.\r\n\r\nNo s'ha de fer servir per registrar la dosi prevista o administrada d'un medicament. Per fer-ho, utilitzeu els arquetips INSTRUCTION.medication_order o CLUSTER.dosage.\r\n\r\nNo s'ha de fer servir per si mateix per emplenar una llista de medicació. Per fer-ho, utilitzeu un arquetip de tipus ENTRY relacionat amb la medicació, com INSTRUCTION.medication_order o ACTION.medication.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "es" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "es"
-          },
-          "purpose" : "Registrar datos sobre un medicamento o componente de un medicamento, incluida la dosis, la forma y los detalles de cualquier componente específico.",
-          "keywords" : [ "medicación", "prescripción", "prescribir", "terapia", "substancia", "droga", "fármaco", "terapéutico", "producto terapéutico", "ad-hoc", "ad hoc", "extemporáneo", "formulación", "medicina" ],
-          "use" : "Usar para registrar detalles sobre un medicamento o componente de un medicamento, incluyendo la dosis, la forma y los detalles de cualquier componente específico.\r\n\r\nEste arquetipo está diseñado para registrar datos de un medicamento o de un componente del mismo cuando se necesite especificar con mayor detalle la forma y los componentes del medicamento. Por ejemplo, en el caso de infusiones, mezclas preparadas ad hoc, o cuando no se disponga de una terminología estandarizada de medicamentos.\r\n\r\nEn el contexto de una prescripción, administración o dispensación de un medicamento, este arquetipo debe ubicarse dentro del SLOT «Datos de la medicación» del arquetipo INSTRUCTION.medication_order. En el caso del registro de la administración o dispensación real del medicamento, se debe ubicar dentro del SLOT «Datos de la medicación» del arquetipo ACTION.medication.\r\n\r\nEste arquetipo puede resultar redundante en situaciones donde se solicite un medicamento mediante una prescripción que utiliza una terminología codificada para identificar el medicamento. En estos casos, la marca o el nombre del producto ya pueden implicar la forma farmacéutica y la concentración de la sustancia.\r\n\r\n",
-          "misuse" : "No utilizar para el control del inventario de farmacia ni dentro de los catálogos de medicamentos.\r\n\r\nNo utilizar para registrar la dosis prevista o administrada de un medicamento. Utilizar los arquetipos INSTRUCTION.medication_order o CLUSTER.dosage para esta finalidad.\r\n\r\nNo utilizar por sí mismo para rellenar una lista de medicación. Utilizar un arquetipo relevante de tipo ENTRY relacionado con la medicación, como INSTRUCTION.medication_order o ACTION.medication para esta finalidad.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.medication.v2",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-medication-002.v2"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : { },
-        "nb" : { },
-        "pt" : { },
-        "de" : { },
-        "nl" : { },
-        "sv" : { },
-        "ca" : { },
-        "es" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "61159117-6bd8-4837-80d9-e5dc9830aff7",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Ramona Wellmann, Natalia Strauch",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "wellmann.ramona@mh-hannover.de, Strauch.Natalia@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : {
-        "name" : "Sofia Janstad, Jörgen Kuylenstierna",
-        "organisation" : "SLL, eWeave AB",
-        "email" : "sofia.lang-janstad@sll.se, jorgen.kuylenstierna@solvikshalsan.se"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Silje Ljosland Bakke",
-        "organisation" : "Nasjonal IKT HF, Helse Vest IKT AS",
-        "email" : "silje.ljosland.bakke@helse-vest-ikt.no"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "pt"
-      },
-      "author" : {
-        "name" : "Beatriz de Faria Leao",
-        "organisation" : "Bleao Informática em Saúde",
-        "email" : "bfleao@terra.com.br"
-      },
-      "accreditation" : "MD, PhD",
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nl"
-      },
-      "author" : {
-        "name" : "Joost Holslag",
-        "organisation" : "Nedap",
-        "email" : "joost.holslag@nedap.com"
-      },
-      "accreditation" : "MD",
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "ca"
-      },
-      "author" : {
-        "name" : "Julio de Sosa",
-        "organisation" : "Servei Català de la Salut",
-        "email" : "juliodesosa@catsalut.cat"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "es"
-      },
-      "author" : {
-        "name" : "Laura Moral Lopez",
-        "organisation" : "Sistema de Salut de Catalunya",
-        "email" : "lauramoral@catsalut.cat"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
     "uid" : "bcc62287-1313-446d-a738-0faaaa9b8613",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
@@ -1943,6 +1686,33 @@
           } ],
           "attributeTuples" : [ ]
         }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.2",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0019.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
           "occurrences" : "0..1",
@@ -1966,11 +1736,42 @@
             "text" : "Recieving organisation",
             "description" : "An entity comprising one or more people and having a particular purpose.",
             "comment" : "For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support."
+          },
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.2",
+            "text" : "Laboratory's Kombikakod",
+            "description" : "Identifier associated with the organisation.",
+            "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the ID data type contains multiple subcomponents for recording the ID value, type, issuer and assigner."
           }
         },
-        "nb" : { },
-        "de" : { },
-        "sv" : { }
+        "nb" : {
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003",
+            "text" : "Identifikator (2)",
+            "description" : "Identifikator for organisasjonen.",
+            "comment" : "Forekomster for dette dataelementet er satt til 0..* for å tillate at mer enn én identifikator kan registreres. Merk at ID-datatypen inneholder flere underkomponenter for registrering av ID-verdi, type, utsteder og tilordnet."
+          }
+        },
+        "de" : {
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003",
+            "text" : "Identifier (2)",
+            "description" : "Identifikator, der der identifizierten Organisation zugeordnet ist.",
+            "comment" : "Kardinalität für dieses Datenelement wird auf 0..* gesetzt, damit mehr als ein Identifikator aufgezeichnet werden kann. Beachten Sie, dass der ID-Datentyp mehrere Unterkomponenten zum Aufzeichnen des ID-Werts, -Typs, -Ausstellers und -Zuweisers enthält."
+          }
+        },
+        "sv" : {
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003",
+            "text" : "Identifierare (2)",
+            "description" : "Identifierare associerad med den identifierade organisationen.",
+            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -2333,6 +2134,33 @@
           } ],
           "attributeTuples" : [ ]
         }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.2",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_IDENTIFIER",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0019.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
           "occurrences" : "0..1",
@@ -2363,6 +2191,13 @@
             "text" : "HSA ID",
             "description" : "Identifier associated with the organisation.",
             "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the ID data type contains multiple subcomponents for recording the ID value, type, issuer and assigner."
+          },
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.2",
+            "text" : "Kombikakod",
+            "description" : "Identifier associated with the organisation.",
+            "comment" : "Occurrences for this data element is set to 0..* to allow for more than one Identifier to be recorded. Note that the ID data type contains multiple subcomponents for recording the ID value, type, issuer and assigner."
           }
         },
         "nb" : {
@@ -2372,6 +2207,13 @@
             "text" : "Organisasjon (2)",
             "description" : "En entitet som består av ett eller flere mennesker med et bestemt formål.",
             "comment" : "For eksempel: Et firma, institusjon, selskap, forening, nettverk, avdeling, gruppe i nærmiljøet, forsikringsselskap, behandlingsteam eller en gruppe av naboer som opptrer som støtte."
+          },
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003",
+            "text" : "Identifikator (2)",
+            "description" : "Identifikator for organisasjonen.",
+            "comment" : "Forekomster for dette dataelementet er satt til 0..* for å tillate at mer enn én identifikator kan registreres. Merk at ID-datatypen inneholder flere underkomponenter for registrering av ID-verdi, type, utsteder og tilordnet."
           }
         },
         "de" : {
@@ -2381,6 +2223,13 @@
             "text" : "Organisation (2)",
             "description" : "Eine Einheit, die aus einer oder mehreren Personen besteht und ein bestimmtes Ziel hat.",
             "comment" : "Zum Beispiel: ein Unternehmen, eine Institution, ein Verband, ein Netzwerk, eine Abteilung, eine Gemeindegruppe, eine Gesundheitspraxisgruppe, ein Kostenträger/Versicherer, ein Pflegeteam oder eine Gruppe von Nachbarn, die Pflege oder Unterstützung leisten."
+          },
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003",
+            "text" : "Identifier (2)",
+            "description" : "Identifikator, der der identifizierten Organisation zugeordnet ist.",
+            "comment" : "Kardinalität für dieses Datenelement wird auf 0..* gesetzt, damit mehr als ein Identifikator aufgezeichnet werden kann. Beachten Sie, dass der ID-Datentyp mehrere Unterkomponenten zum Aufzeichnen des ID-Werts, -Typs, -Ausstellers und -Zuweisers enthält."
           }
         },
         "sv" : {
@@ -2390,6 +2239,13 @@
             "text" : "Organisation (2)",
             "description" : "*An entity comprising one or more people and having a particular purpose. (en)",
             "comment" : "*For example: a company, institution, association, network, department, community group, healthcare practice group, payer/insurer, care team, or a group of neighbours who provide care or support. (en)"
+          },
+          "at0003.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003",
+            "text" : "Identifierare (2)",
+            "description" : "Identifierare associerad med den identifierade organisationen.",
+            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 0..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
           }
         }
       },
