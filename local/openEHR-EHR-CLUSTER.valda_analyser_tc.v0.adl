@@ -6,6 +6,13 @@ concept
 
 language
 	original_language = <[ISO_639-1::sv]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+			>
+		>
+	>
 
 description
 	original_author = <
@@ -16,6 +23,10 @@ description
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			copyright = <"© openEHR Foundation">
+		>
 	>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
@@ -23,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"db00605a8d51aaf871a7c7d46af59283">
+		["MD5-CAM-1.0.1"] = <"a4ae10d227298a6a415af60377ccabb9">
 		["build_uid"] = <"63999ee8-9225-3e7a-8813-48103a122090">
 	>
 
@@ -31,51 +42,62 @@ definition
 	CLUSTER[at0000] matches {    -- Valda analyser
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0003] occurrences matches {0..1} matches {*}    -- Orderable ID
-			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Provmaterial
-				include
-					archetype_id/value matches {/.*/}
-			}
-			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Analyser
+			ELEMENT[at0019] occurrences matches {0..1} matches {    -- Provmaterial
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Vald analys
+			ELEMENT[at0022] occurrences matches {0..1} matches {    -- Analyser
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- Lokalisation
-				include
-					archetype_id/value matches {/.*/}
-			}
-			CLUSTER[at0008] occurrences matches {0..1} matches {    -- Rör
-				items cardinality matches {1..*; unordered} matches {
-					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Rörkod
-						value matches {
-							DV_CODED_TEXT matches {*}
-						}
-					}
-					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Rörantal
-						value matches {
-							DV_COUNT matches {*}
-						}
-					}
+			ELEMENT[at0024] occurrences matches {0..1} matches {    -- Analyser
+				value matches {
+					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0011] occurrences matches {0..1} matches {*}    -- Tjänstegrupp/Paket
-			ELEMENT[at0012] occurrences matches {0..1} matches {*}    -- Samtliga analyser
-			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Obligatorisk analysen
+			ELEMENT[at0031] occurrences matches {0..1} matches {    -- Rör
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0025] occurrences matches {0..1} matches {    -- Rörantal
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {    -- Lokalisation
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0027] occurrences matches {0..1} matches {    -- Tjänstegrupp/Paket
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Obligatorisk samtliga analyser
 				value matches {
 					DV_BOOLEAN matches {*}
 				}
 			}
-			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Sektionskod
+			ELEMENT[at0032] occurrences matches {0..1} matches {    -- Obligatorisk analysen
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {    -- Grupp
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0029] occurrences matches {0..1} matches {    -- Sektionskod
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0016] occurrences matches {0..1} matches {    -- Undersökningskod
+			ELEMENT[at0030] occurrences matches {0..1} matches {    -- Undersökningskod
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
@@ -94,64 +116,129 @@ ontology
 			items = <
 				["at0000"] = <
 					text = <"Valda analyser">
-					description = <"Valda analyser_tc">
-				>
-				["at0001"] = <
-					text = <"Lokalisation">
-					description = <"">
-				>
-				["at0002"] = <
-					text = <"Provmaterial">
-					description = <"">
+					description = <"Valda analyser_tc
+
+Integrationsarketyp valda analyser  = Valda analyser i Intelligence (TC database)">
 				>
 				["at0003"] = <
 					text = <"Orderable ID">
 					description = <"">
 				>
-				["at0004"] = <
-					text = <"Analyser">
-					description = <"">
-				>
-				["at0005"] = <
-					text = <"Vald analys">
-					description = <"">
-				>
-				["at0008"] = <
-					text = <"Rör">
-					description = <"Samtliga analyser är obligatoriska inom paketet/profilen
-För profiler lagras profilkoden här.">
-				>
-				["at0009"] = <
-					text = <"Rörkod">
-					description = <"">
-				>
-				["at0010"] = <
-					text = <"Rörantal">
-					description = <"">
-				>
-				["at0011"] = <
-					text = <"Tjänstegrupp/Paket">
-					description = <"">
-				>
-				["at0012"] = <
-					text = <"Samtliga analyser">
-					description = <"Samtliga analyser är obligatoriska inom paketet/profilen
-För profiler lagras profilkoden här.">
-				>
 				["at0014"] = <
-					text = <"Obligatorisk analysen">
-					description = <"">
-				>
-				["at0015"] = <
-					text = <"Sektionskod">
-					description = <"Sektionskod. Anger vilken sektion som skall analysera provet.">
-				>
-				["at0016"] = <
-					text = <"Undersökningskod">
+					text = <"Obligatorisk samtliga analyser">
 					description = <"">
 				>
 				["at0017"] = <
 					text = <"Akutmarkeradanalys">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Provmaterial">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Analyser">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Analyser">
+					description = <"*Kod för vald undersökning.
+Vald undersökning i klartext.">
+				>
+				["at0025"] = <
+					text = <"Rörantal">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Lokalisation">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Tjänstegrupp/Paket">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Grupp">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Sektionskod">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Undersökningskod">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Rör">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Obligatorisk analysen">
+					description = <"">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Selected analyses">
+					description = <"Selected analyses_tc">
+				>
+				["at0003"] = <
+					text = <"Orderable ID">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"IsAllRequired">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"IsEmergencyAnalysis">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Specimen">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Examination">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"TubeID">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"NoOfTubes">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Localization">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"ServiceGroup">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Batch">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"SectionCode">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"PackageExaminationCode">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"*DV_CODED_TEXT (sv)">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"IsRequired">
 					description = <"">
 				>
 			>
