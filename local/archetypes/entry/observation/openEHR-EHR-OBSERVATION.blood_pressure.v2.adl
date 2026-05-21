@@ -23,9 +23,9 @@ language
 		["sv"] = <
 			language = <[ISO_639-1::sv]>
 			author = <
-				["name"] = <"Kirsi Poikela, Sofia Janstad, Manna Vosta">
-				["organisation"] = <"Tieto Sweden AB, SLL, Karolinska University Hospital">
-				["email"] = <"ext.kirsi.poikela@tieto.com, sofia.lang-janstad@sll.se, manna.vosta@regionstockholm.se">
+				["name"] = <"Kirsi Poikela, Sofia Janstad, Manna Vosta, Åsa Skagerhult">
+				["organisation"] = <"Tieto Sweden AB, SLL, Karolinska University Hospital, Västra Götalandsregionen">
+				["email"] = <"ext.kirsi.poikela@tieto.com, sofia.lang-janstad@sll.se, manna.vosta@regionstockholm.se, asa.skagerhult@vgregion.se">
 			>
 		>
 		["fi"] = <
@@ -181,21 +181,23 @@ In diesem Fall sollte der OBSERVATION.intravascular_pressure Archetyp bzw. desse
 			purpose = <"Att registrera det systemiska arteriella blodtrycket hos en individ.">
 			use = <"Används för att registrera alla systemiskt arteriella blodtryck, oavsett vilka metoder som använts och var på kroppen mätningen gjordes. 
 
-Arketypen är avsedd för blodtrycksmätningar i alla kliniska scenarion - till exempel: 
+Arketypen är avsedd för blodtrycksmätningar i alla kliniska scenarier, exempelvis: 
 
--egna mätningar i hemmet med blodtrycksmätare 
+- egna mätningar i hemmet med blodtrycksmätare 
 
--för akutbedömningar av det systoliska blodtrycket med hjälp av palpation och en blodtrycksmätare 
+- akutbedömningar av det systoliska blodtrycket med hjälp av palpation och en sfygmomanometer
 
--för mätningar gjorda vid vårdkonsultationer eller stresstest 
+- mätningar gjorda vid vårdkonsultationer eller stresstest 
 
--för seriemätningar med blodtrycksmaskiner på intensivvårdsavdelningar 
+- seriemätningar med blodtrycksmaskiner på intensivvårdsavdelningar 
 
-Det finns en omfattande tillståndsmodell som stödjer tolkningen av mätningar genom identifiering av patientens ställning, ansträngning, påverkande faktorer och vinkel på tippbräda vid undersökning. 
+Det finns en omfattande tillståndsmodell som stödjer tolkningen av mätningar genom identifiering av patientens ställning, ansträngning, vinkel på tippbräda vid undersökning och möjliga felkällor. 
 
-Namngivna händelser har begränsats till ett genomsnitt under en 24-timmarsperiod, men template kan ytterligare avgränsa standardinställningen i \"Ospecificerad händelse\" för att möta specifika krav på blodtrycksmätningar, exempelvis mätningar av blodtryck vid specifika tidpunkter eller under ett tidsintervall (+/- matematiska funktioner).">
-			keywords = <"observationer", "mätning", "blodtryck", "vitaltecken", "medelartärtryck", "pulstryck", "systoliskt", "diastoliskt", "RR", "NIBP">
-			misuse = <"Ska inte användas för att registrera mätning av arteriellt blodtryck som INTE är ett substitut för artärtryck i den systemiska cirkulationen, exempelvis för specifika mätningar av artättryck i höger lungartär. Använd OBSERVATION.intravascular_pressure i dessa fall. 
+Namngivna händelser har begränsats till ett genomsnitt under en 24-timmarsperiod. Det är dock möjligt att  ytterligare avgränsa denna standardinställning i \"Ospecificerad händelse\" i en template för att möta specifika krav på blodtrycksmätningar, exempelvis mätningar av blodtryck vid specifika tidpunkter eller under ett tidsintervall (+/- matematiska funktioner).">
+			keywords = <"observation", "mätning", "blodtryck", "vitalparameter", "vitaltecken", "medelartärtryck", "pulstryck", "systoliskt", "diastoliskt", "SBT", "DBT", "BT", "BP", "SBP", "DBP", "MAP">
+			misuse = <"Ska inte användas för att registrera mätning av arteriellt blodtryck som INTE är ett substitut för artärtryck i den systemiska cirkulationen, exempelvis för specifika mätningar av artärtryck i höger lungartär. Använd OBSERVATION.intravascular_pressure i dessa fall. 
+
+Ska inte användas för att registrera exempelvis specifika mätningar av artärtryck i höger lungartär. Använd OBSERVATION.intravascular_pressure i dessa fall. 
 
 Ska inte användas för att registrera mätning av intravenöst tryck. Använd OBSERVATION.intravascular_pressure och relaterade specialiseringsarketyper i dessa fall.">
 		>
@@ -448,10 +450,10 @@ Perloff D, Grim C, Flack J, Frohlich ED, Hill M, McDonald M, Morgenstern BZ. Hum
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"6C5243199E0CC4A559C0F4F32140E1F0">
-		["build_uid"] = <"bf67fcb6-247c-4049-bf03-2d3a89852d6a">
+		["MD5-CAM-1.0.1"] = <"6AC3FC6BFF6A8D9FCA56C3040D5663E4">
+		["build_uid"] = <"8f7bdf46-3d1f-4346-bb8e-3002c9faece5">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomedct or info@snomed.org.">
-		["revision"] = <"2.0.12">
+		["revision"] = <"2.0.14">
 	>
 
 definition
@@ -1954,10 +1956,11 @@ ontology
 					text = <"АД">
 					description = <"Локальное измерение артериального давления, которое является суррогатом артериального давления в системном кровотоке. Как правило, термин относится к давления плечевой артерии на предплечье.
 ">
+					comment = <"*Most commonly, use of the term 'blood pressure' refers to measurement of brachial artery pressure in the upper arm.(en)">
 				>
 				["at0001"] = <
-					text = <"*history(en)">
-					description = <"*history Structural node(en)">
+					text = <"*History(en)">
+					description = <"*History Structural node.(en)">
 				>
 				["at0003"] = <
 					text = <"*blood pressure(en)">
@@ -1984,12 +1987,13 @@ ontology
 					description = <"Поза пациента во время измерения давления.">
 				>
 				["at0011"] = <
-					text = <"*list structure(en)">
-					description = <"*list structure(en)">
+					text = <"*Tree(en)">
+					description = <"*List structure.(en)">
 				>
 				["at0013"] = <
 					text = <"Размер манжеты(ru)">
 					description = <"Размер манжеты для измерения кровяного давления.">
+					comment = <"*Perloff D, Grim C, Flack J, Frohlich ED, Hill M, McDonald M, Morgenstern BZ. Human blood pressure determination by sphygmomanometry. Circulation 1993;88;2460-2470. (en)">
 				>
 				["at0014"] = <
 					text = <"*Location of measurement(en)">
@@ -2186,12 +2190,12 @@ ontology
 					comment = <"*For example: Local hospital departmental infomation or additional metadata to align with FHIR or CIMI equivalents.(en)">
 				>
 				["at1059"] = <
-					text = <"*New element(en)">
-					description = <"**(en)">
+					text = <"*Clinical interpretation(en)">
+					description = <"*Single word, phrase or brief description that represents the clinical meaning and significance of the blood pressure measurement.(en)">
 				>
 				["at1056"] = <
 					text = <"*Dorsum of foot(en)">
-					description = <"**(en)">
+					description = <"*The individual's dorsum of the foot.(en)">
 				>
 			>
 		>
@@ -3938,7 +3942,7 @@ ontology
 				>
 				["at0001"] = <
 					text = <"Anamnes">
-					description = <"Strukturnod anamnes.">
+					description = <"Strukturerad anamnes.">
 				>
 				["at0003"] = <
 					text = <"Tree">
@@ -3946,15 +3950,15 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Systoliskt">
-					description = <"Det högsta systemiskt arteriella blodtrycket uppmätt systoliskt eller under sammandragningsfasen av hjärtcykeln.">
+					description = <"Det högsta värdet på systemartärtrycket under systole, det vill säga under sammandragningsfasen av hjärtcykeln.">
 				>
 				["at0005"] = <
 					text = <"Diastoliskt">
-					description = <"Det minsta systemiskt arteriella blodtrycket uppmätt diastoliskt eller i hjärtcykelns avslappningsfas.">
+					description = <"Det minsta värdet på systemartärtrycket under diastole, det vill säga under avslappningsfasen av hjärtcykeln.">
 				>
 				["at0006"] = <
 					text = <"Ospecificerad händelse">
-					description = <"Standardval, händelse i ospecificerad tidpunkt eller tidsintervall som explicit kan definieras i en mall eller kan genereras automatiskt av vissa IT-system.">
+					description = <"Ospecificerad standardhändelse vid en tidpunkt eller inom ett tidsintervall som explicit kan definieras i en template eller genereras automatiskt av vissa IT-system.">
 				>
 				["at0007"] = <
 					text = <"Tree">
@@ -3975,7 +3979,7 @@ ontology
 				>
 				["at0014"] = <
 					text = <"Mätplats">
-					description = <"Beskrivning av anatomiskt plats där blodtrycket mäts.">
+					description = <"Beskrivning av anatomisk plats där blodtrycket mäts.">
 				>
 				["at0015"] = <
 					text = <"Vuxet lår">
@@ -3983,7 +3987,7 @@ ontology
 				>
 				["at0016"] = <
 					text = <"Stor vuxen">
-					description = <"En manschett för vuxna med större armar.">
+					description = <"En manschett för vuxna med kraftigare armar.">
 				>
 				["at0017"] = <
 					text = <"Vuxen">
@@ -4011,7 +4015,7 @@ ontology
 				>
 				["at1000"] = <
 					text = <"Stående">
-					description = <"Stående ställning under blodtrycksmätningen">
+					description = <"Stående upprätt under blodtrycksmätningen.">
 				>
 				["at1001"] = <
 					text = <"Sittande">
@@ -4023,28 +4027,27 @@ ontology
 				>
 				["at1003"] = <
 					text = <"Liggande">
-					description = <"Liggande ställning under blodtrycksmätningen.">
+					description = <"Liggande raklång under blodtrycksmätningen.">
 				>
 				["at1005"] = <
 					text = <"Lutning">
-					description = <"Lutning på ytan av huvuddelen som personen ligger på vid tidpunkten för mätningen.">
-					comment = <"OBS: '°' är en giltig UCUM-enhet. Använd \"deg\" som den rätta enheten.">
+					description = <"Lutning vid huvudet på ytan som individen ligger på vid tidpunkten för mätningen.">
 				>
 				["at1006"] = <
 					text = <"Medelartärtryck">
-					description = <"Det genomsnittliga artärtrycket som inträffar under hela hjärtsammandragningen och under avslappningscykeln.">
+					description = <"Det genomsnittliga systemartärtrycket under hela hjärtcykeln, det vill säga under både sammandragningsfas och avslappningsfas.">
 				>
 				["at1007"] = <
 					text = <"Pulstryck">
-					description = <"Skillnaden mellan systoliskt och diastoliskt blodtryck.">
+					description = <"Differensen mellan systoliskt och diastoliskt blodtryck.">
 				>
 				["at1008"] = <
 					text = <"Liten Vuxen">
-					description = <"En manschett som används till små vuxna.">
+					description = <"En manschett för vuxna med smalare armar.">
 				>
 				["at1009"] = <
 					text = <"Pediatrisk/Barn">
-					description = <"En manschett som passar barn eller vuxna med smala armar.">
+					description = <"En manschett för barn eller vuxna med smala armar.">
 				>
 				["at1010"] = <
 					text = <"Diastoliskt effektmått">
@@ -4059,8 +4062,8 @@ ontology
 					description = <"Det femte Korotkoff-ljudet identifieras genom avsaknad av ljud då manschettrycket sjunker under det diastoliska blodtrycket.">
 				>
 				["at1014"] = <
-					text = <"Liggande med lutning till vänster">
-					description = <"Liggande i platt ställning med viss lateral lutning, vanligtvis mot vänster sida. Den krävs vanligtvis i graviditetens sista trimester för att lindra aortokaval kompression.">
+					text = <"Liggande i vänster sidoläge">
+					description = <"Liggande raklång med viss lateral lutning, vanligtvis mot vänster sida. Det krävs vanligtvis i graviditetens sista trimester för att lindra aortokaval kompression.">
 				>
 				["at1018"] = <
 					text = <"Spädbarn">
@@ -4068,7 +4071,7 @@ ontology
 				>
 				["at1019"] = <
 					text = <"Nyfödd">
-					description = <"En manschett som används på nyfödda, om manschetten anses vara av lämplig storlek till den nyföddas mognads- och födelsevikt.">
+					description = <"En manschett för nyfödda.">
 				>
 				["at1020"] = <
 					text = <"Höger handled">
@@ -4080,19 +4083,19 @@ ontology
 				>
 				["at1025"] = <
 					text = <"Utrustning">
-					description = <"Detaljer om blodtrycksmätaren eller annan apparat som används för att mäta blodtrycket.">
+					description = <"Detaljer om sfygmomanometer eller annan utrustning som används för att mäta blodtrycket.">
 				>
 				["at1026"] = <
-					text = <"Höger vrist">
-					description = <"Individens högra vrist.">
+					text = <"Höger ankel">
+					description = <"Individens högra ankel.">
 				>
 				["at1030"] = <
 					text = <"Ansträngning">
 					description = <"Detaljer om den fysiska aktiviteten som utförts vid tidpunkten av blodtrycksmätningen.">
 				>
 				["at1031"] = <
-					text = <"Vänster vrist">
-					description = <"Individens vänstra vrist.">
+					text = <"Vänster ankel">
+					description = <"Individens vänstra ankel.">
 				>
 				["at1032"] = <
 					text = <"Finger">
@@ -4104,11 +4107,11 @@ ontology
 				>
 				["at1036"] = <
 					text = <"Auskultation">
-					description = <"Metod för extern mätning av blodtryck med hjälp av stetoskop och Korotkoff-ljud.">
+					description = <"Metod för icke-invasiv mätning av blodtryck med hjälp av sfygmomanometri, såsom manschett, stetoskop, Korotkoff-ljud.">
 				>
 				["at1037"] = <
 					text = <"Palpation">
-					description = <"Metod för att mäta blodtrycket externt med hjälp av palpation, vanligtvis av brakiala eller radiella artärer.">
+					description = <"Metod för att mäta det systoliska blodtrycket med hjälp av palpation, vanligtvis av brakiala eller radiella artärer.">
 				>
 				["at1038"] = <
 					text = <"Formel för medelartärtryck">
@@ -4116,19 +4119,19 @@ ontology
 				>
 				["at1039"] = <
 					text = <"Blodtrycksmaskin">
-					description = <"Metod för mätning av blodtryck externt med hjälp av en blodtrycksmaskin.">
+					description = <"Icke-invasiv blodtrycksmätning med hjälp av oscillometri i en halvautomatisk blodtrycksmätare.">
 				>
 				["at1040"] = <
 					text = <"Invasiv">
-					description = <"Metod för att mäta blodtrycket intravenöst dvs. genom att penetrera huden och mäta inuti blodkärlen.">
+					description = <"Metod för att mäta blodtrycket intravenöst, dvs. genom att penetrera huden och mäta inuti blodkärlen.">
 				>
 				["at1042"] = <
 					text = <"24 timmars blodtrycksmätning">
 					description = <"Beräkning av det genomsnittliga blodtrycket under en 24-timmarsperiod.">
 				>
 				["at1043"] = <
-					text = <"Vakenhet">
-					description = <"Vakenhet som stöder tolkningen av 24-timmars ambulatoriska blodtrycksmätningar.">
+					text = <"Sömnstatus">
+					description = <"Sömnstatus som stöder tolkningen av 24-timmars ambulatoriska blodtrycksmätningar.">
 				>
 				["at1044"] = <
 					text = <"Alert och vaken">
@@ -4144,11 +4147,11 @@ ontology
 				>
 				["at1052"] = <
 					text = <"Möjliga felkällor">
-					description = <"Andra faktorer som kan påverka blodtrycksmätningen, exempelvis ångestnivå, \"vitrockseffekt\", smärta, feber eller förändringar i lufttryck mm.">
+					description = <"Andra faktorer som kan påverka blodtrycksmätningen, exempelvis grad av oro, \"vitrockseffekt\", smärta, feber eller förändringar i lufttryck.">
 				>
 				["at1053"] = <
 					text = <"Intraarteriell">
-					description = <"Invasiv mätning via transduktoråtkomstlinjen inom en artär.">
+					description = <"Invasiv mätning via artärkateter.">
 				>
 				["at1054"] = <
 					text = <"Formel för systoliskt tryck">
@@ -4167,9 +4170,9 @@ ontology
 					description = <"Strukturerad anatomisk plats där mätningen gjordes.">
 				>
 				["at1058"] = <
-					text = <"Extra information">
-					description = <"Ytterligare information som krävs för att fånga lokal kontext eller för anpassning till andra referensmodeller och formalismer.">
-					comment = <"Exempelvis uppgifter om en lokal sjukhusavdelning eller ytterligare metadata för anpassning till FHIR- eller CIMI-motsvarigheter.">
+					text = <"Tilläggsinformation">
+					description = <"Plats för tilläggsinformation som krävs för lokala anpassningar eller anpassning till andra referensmodeller eller formella krav.">
+					comment = <"Exempelvis lokala informationskrav eller metadata för anpassning till FHIR.">
 				>
 				["at1059"] = <
 					text = <"Klinisk tolkning">
