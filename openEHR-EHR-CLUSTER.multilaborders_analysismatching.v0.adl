@@ -1,0 +1,253 @@
+archetype (adl_version=1.4; uid=bce0469a-ff93-40e3-8438-c1ae5fe4c38b)
+	openEHR-EHR-CLUSTER.multilaborders_analysismatching.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-05-27">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"0c95a9fc0fa9b6dd3af445f91cd02743">
+		["build_uid"] = <"609d1d01-2356-3a60-ba46-87d462a3d2af">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- MultiLabOrders_AnalysisMatching
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Orderable ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Analysis
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Specimen
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Discipline
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005,    -- B=Bacteriology
+							at0006,    -- D=KULDivisionen
+							at0007,    -- F=Farmakologi
+							at0008,    -- G=Genetics
+							at0009,    -- I=Immunology
+							at0010,    -- K=Chemistry
+							at0011,    -- L=Drugs
+							at0012,    -- M=Microbiology/Molekylärbiologi
+							at0013,    -- P=Pathology/Cytology/Morphology
+							at0014,    -- S=Serologi
+							at0015,    -- T=Transfusion
+							at0016,    -- V=Virologi
+							at0017]    -- X=Externlab
+						}
+					}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- HasReply
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MultiLabOrders_AnalysisMatching">
+					description = <"MultiLabOrders_AnalysisMatching">
+					comment = <"Used to match ordered analyses with reported results. Often contains the same data as Analyses, but not always.”">
+				>
+				["at0001"] = <
+					text = <"Orderable ID">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Analysis">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Specimen">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Discipline">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"B=Bacteriology">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"D=KULDivisionen">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"F=Farmakologi">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"G=Genetics">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"I=Immunology">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"K=Chemistry">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"L=Drugs">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"M=Microbiology/Molekylärbiologi">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"P=Pathology/Cytology/Morphology">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"S=Serologi">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"T=Transfusion">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"V=Virologi">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"X=Externlab">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"HasReply">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"MultiLabOrders_AnalysisMatching">
+					description = <"*MultiLabOrders_AnalysisMatching (en)">
+					comment = <"*Used to match ordered analyses with reported results. Often contains the same data as Analyses, but not always.” (en)">
+				>
+				["at0001"] = <
+					text = <"Orderable ID">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Analys">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Provmaterial">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Disciplin">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"*B=Bacteriology (en)">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"*D=KULDivisionen (en)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*F=Farmakologi (en)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"*G=Genetics (en)">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"*I=Immunology (en)">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"*K=Chemistry (en)">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"*L=Drugs (en)">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"*M=Microbiology/Molekylärbiologi (en)">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"*P=Pathology/Cytology/Morphology (en)">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"*S=Serologi (en)">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"*T=Transfusion (en)">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"*V=Virologi (en)">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"*X=Externlab (en)">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"HasReply">
+					description = <"">
+				>
+			>
+		>
+	>
