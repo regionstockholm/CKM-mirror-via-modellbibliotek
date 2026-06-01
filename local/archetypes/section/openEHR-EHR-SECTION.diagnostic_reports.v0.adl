@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=7b461706-fbc4-4009-ae85-a8f6710de64c)
+archetype (adl_version=1.4; uid=7b461706-fbc4-4009-ae85-a8f6710de64c)
 	openEHR-EHR-SECTION.diagnostic_reports.v0
 
 concept
-	[at0000]	-- Diagnostic test results
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -14,36 +15,44 @@ language
 			>
 			accreditation = <"hmm">
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2010-03-07">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2010-03-07">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK","Heath Frankel, Ocean Informatics, Australia">
 	details = <
 		["ru"] = <
 			language = <[ISO_639-1::ru]>
 			purpose = <"Дизайн представления списка обоснования диагнозов">
+			keywords = <"диагностический","список","обоснование","уточненный","лаборатория","визуализация","радиология","патоморфология","диагноз","окончательный","предварительный","рабочий">
+			copyright = <"© openEHR Foundation">
 			use = <"Используется для поддержки представления списка обоснований диагноза">
-			keywords = <"диагностический", "список", "обоснование", "уточненный", "лаборатория", "визуализация", "радиология", "патоморфология", "диагноз", "окончательный", "предварительный", "рабочий">
-			misuse = <"">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
 			copyright = <"© openEHR Foundation">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To provide a framework and design guidance for consistent modelling of diagnostic test resultswithin a template.">
+			keywords = <"diagnostic","report","laboratory","imaging","radiology","pathology","list">
+			copyright = <"© openEHR Foundation">
 			use = <"Use to provide a framework and design guidance for consistent modelling of a diagnostic test results within a template.
 
 This archetype is intended to be used as one component of complex COMPOSITION archetypes. For example: documents such as a discharge summary or referral.">
-			keywords = <"diagnostic", "report", "laboratory", "imaging", "radiology", "pathology", "list">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Ian McNicoll, freshEHR Clinical Informatics, UK", "Heath Frankel, Ocean Informatics, Australia">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -51,29 +60,28 @@ This archetype is intended to be used as one component of complex COMPOSITION ar
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"9EF496CE2674C98DB69128A66A43D030">
+		["MD5-CAM-1.0.1"] = <"a2544332013c4c849f84bbaac94b37e7">
 		["build_uid"] = <"fb64dfbe-3ac5-444e-80b2-368695b42d66">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	SECTION[at0000] matches {	-- Diagnostic test results
+	SECTION[at0000] matches {    -- Diagnostic test results
 		items cardinality matches {1..*; unordered} matches {
-			allow_archetype OBSERVATION[at0001] occurrences matches {0..*} matches {	-- Laboratory test results
+			allow_archetype OBSERVATION[at0001] occurrences matches {0..*} matches {    -- Laboratory test results
 				include
 					archetype_id/value matches {/openEHR-EHR-OBSERVATION\.laboratory_test_result(-[a-zA-Z0-9_]+)*\.v1/}
 			}
-			allow_archetype OBSERVATION[at0002] occurrences matches {0..*} matches {	-- Imaging test results
+			allow_archetype OBSERVATION[at0002] occurrences matches {0..*} matches {    -- Imaging test results
 				include
 					archetype_id/value matches {/openEHR-EHR-OBSERVATION\.imaging_exam_result(-[a-zA-Z0-9_]+)*\.v0/}
 			}
-			allow_archetype EVALUATION[at0003] occurrences matches {0..*} matches {	-- Report synopsis
+			allow_archetype EVALUATION[at0003] occurrences matches {0..*} matches {    -- Report synopsis
 				include
 					archetype_id/value matches {/openEHR-EHR-EVALUATION\.clinical_synopsis(-[a-zA-Z0-9_]+)*\.v1/}
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -114,6 +122,26 @@ ontology
 				["at0003"] = <
 					text = <"*Report synopsis(en)">
 					description = <"*Slot constrained to include archetypes representing narrative synopses of laboratory and/or imaging test results.(en)">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Diagnostiska testresultat">
+					description = <"*Suggested design pattern for including diagnostic test results in a template. (en)">
+				>
+				["at0001"] = <
+					text = <"Laboratorieresultat">
+					description = <"*The results of laboratory tests. (en)">
+				>
+				["at0002"] = <
+					text = <"Bilddiagnostiska resultat">
+					description = <"*The results of imaging tests. (en)">
+				>
+				["at0003"] = <
+					text = <"Rapportsammanfattning">
+					description = <"*Slot constrained to include archetypes representing narrative synopses of laboratory and/or imaging test results. (en)">
 				>
 			>
 		>
