@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "e705c273c66aebd959ddcb125a6cc41b",
+      "MD5-CAM-1.0.1" : "e18175085dfdc8fc2e65ba4ecdf59cfe",
       "PARENT:MD5-CAM-1.0.1" : "6175B5DE04E6302E3DEB0C8EB876BE34",
-      "sem_ver" : "1.0.0-alpha.4",
+      "sem_ver" : "1.0.0-alpha.1",
       "build_uid" : "b74eddf4-2f6d-45cd-8c4b-5cde6f900c0e"
     },
     "details" : {
@@ -212,6 +212,41 @@
               }, {
                 "@type" : "C_COMPLEX_OBJECT",
                 "rmTypeName" : "ELEMENT",
+                "occurrences" : "0..0",
+                "nodeId" : "at0068.1",
+                "attributes" : [ {
+                  "@type" : "C_ATTRIBUTE",
+                  "rmAttributeName" : "value",
+                  "children" : [ {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "DV_CODED_TEXT",
+                    "attributes" : [ {
+                      "@type" : "C_ATTRIBUTE",
+                      "rmAttributeName" : "defining_code",
+                      "children" : [ {
+                        "@type" : "C_TERMINOLOGY_CODE",
+                        "rmTypeName" : "TERMINOLOGY_CODE",
+                        "occurrences" : "1..1",
+                        "terminologyId" : {
+                          "value" : "local"
+                        },
+                        "constraint" : [ "ac0.1" ],
+                        "selectedTerminologies" : [ ]
+                      } ]
+                    } ],
+                    "attributeTuples" : [ ]
+                  }, {
+                    "@type" : "C_COMPLEX_OBJECT",
+                    "rmTypeName" : "DV_TEXT",
+                    "attributes" : [ ],
+                    "attributeTuples" : [ ]
+                  } ]
+                } ],
+                "attributeTuples" : [ ]
+              }, {
+                "@type" : "C_COMPLEX_OBJECT",
+                "rmTypeName" : "ELEMENT",
+                "occurrences" : "0..0",
                 "nodeId" : "at0040.1",
                 "attributes" : [ {
                   "@type" : "C_ATTRIBUTE",
@@ -223,12 +258,12 @@
                     "attributeTuples" : [ ]
                   }, {
                     "@type" : "C_COMPLEX_OBJECT",
-                    "rmTypeName" : "DV_TEXT",
+                    "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
                     "attributes" : [ ],
                     "attributeTuples" : [ ]
                   }, {
                     "@type" : "C_COMPLEX_OBJECT",
-                    "rmTypeName" : "DV_INTERVAL<DV_DATE_TIME>",
+                    "rmTypeName" : "DV_TEXT",
                     "attributes" : [ ],
                     "attributeTuples" : [ ]
                   } ]
@@ -341,20 +376,74 @@
         "at0000.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0000.1",
-          "text" : "Lab order documentation",
+          "text" : "Lab order request details",
           "description" : "Request for a health-related service or activity to be delivered by a clinician, organisation or agency."
+        },
+        "ac0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "text" : "(Synthesized)",
+          "code" : "ac0.1",
+          "description" : ""
         }
       },
-      "nb" : { },
-      "it" : { },
-      "de" : { },
-      "sv" : { },
-      "pt-br" : { },
-      "nl" : { }
+      "nb" : {
+        "ac0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "text" : "*(Synthesized) (en)",
+          "code" : "ac0.1",
+          "description" : ""
+        }
+      },
+      "it" : {
+        "ac0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "text" : "*(Synthesized) (en)",
+          "code" : "ac0.1",
+          "description" : ""
+        }
+      },
+      "de" : {
+        "ac0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "text" : "*(Synthesized) (en)",
+          "code" : "ac0.1",
+          "description" : ""
+        }
+      },
+      "sv" : {
+        "ac0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "text" : "*(Synthesized) (en)",
+          "code" : "ac0.1",
+          "description" : ""
+        }
+      },
+      "pt-br" : {
+        "ac0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "text" : "*(Synthesized) (en)",
+          "code" : "ac0.1",
+          "description" : ""
+        }
+      },
+      "nl" : {
+        "ac0.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "text" : "*(Synthesized) (en)",
+          "code" : "ac0.1",
+          "description" : ""
+        }
+      }
     },
     "termBindings" : { },
     "terminologyExtracts" : { },
-    "valueSets" : { }
+    "valueSets" : {
+      "ac0.1" : {
+        "@type" : "VALUE_SET",
+        "id" : "ac0.1",
+        "members" : [ "at0136", "at0137", "at0138" ]
+      }
+    }
   },
   "adlVersion" : "1.4",
   "buildUid" : "d9237ecb-68ca-3f61-88c5-1df0d5774e61",
@@ -523,11 +612,20 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "0..0",
           "nodeId" : "at0005.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
           "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-valda_analyser_tc-001.v0",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "CLUSTER",
+          "occurrences" : "0..1",
+          "nodeId" : "at0005.2",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-multilaborders_analysismatching-001.v0",
           "referenceType" : "archetypeOverlay"
         } ]
       } ],
@@ -772,7 +870,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "0..0",
           "nodeId" : "at0002.2",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -967,14 +1065,14 @@
           "/items[at0027]" : {
             "fhir_mappings" : "*Specimen.collection.quantity(en)"
           },
-          "/items[at0007]" : {
-            "fhir_mapping" : "*Specimen.collection.method(en)"
-          },
           "/items[at0029]" : {
             "fhir_mapping" : "*Specimen.type(en)"
           },
           "/items[at0001.1]" : {
             "fhir_mapping" : "*Specimen.accessionIdentifier(en)"
+          },
+          "/items[at0007.1]" : {
+            "fhir_mapping" : "*Specimen.collection.method(en)"
           }
         },
         "en" : {
@@ -996,9 +1094,6 @@
           "/items[at0027]" : {
             "fhir_mapping" : "Specimen.collection.quantity"
           },
-          "/items[at0007]" : {
-            "fhir_mapping" : "Specimen.collection.method"
-          },
           "/items[at0029]" : {
             "fhir_mapping" : "Specimen.type"
           },
@@ -1007,6 +1102,9 @@
           },
           "/items[at0045.1]" : {
             "fhir_mapping" : "Specimen.note"
+          },
+          "/items[at0007.1]" : {
+            "fhir_mapping" : "Specimen.collection.method"
           }
         },
         "pt-br" : { },
@@ -1030,9 +1128,6 @@
           "/items[at0027]" : {
             "fhir_mapping" : "Specimen.collection.quantity"
           },
-          "/items[at0007]" : {
-            "fhir_mapping" : "Specimen.collection.method"
-          },
           "/items[at0029]" : {
             "fhir_mapping" : "Specimen.type"
           },
@@ -1041,6 +1136,9 @@
           },
           "/items[at0045.1]" : {
             "fhir_mapping" : "Specimen.note"
+          },
+          "/items[at0007.1]" : {
+            "fhir_mapping" : "Specimen.collection.method"
           }
         },
         "sv" : {
@@ -1090,6 +1188,65 @@
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_TEXT",
               "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0007.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0079.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0087.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0005.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0080.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_COUNT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "magnitude",
+                "children" : [ {
+                  "@type" : "C_INTEGER",
+                  "rmTypeName" : "INTEGER",
+                  "occurrences" : "1..1",
+                  "constraint" : [ {
+                    "lower" : 0,
+                    "lowerIncluded" : true,
+                    "upperIncluded" : false,
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : true
+                  } ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             } ]
           } ],
@@ -1172,7 +1329,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "0..0",
           "nodeId" : "at0085.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -1181,7 +1338,7 @@
         }, {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
+          "occurrences" : "0..0",
           "nodeId" : "at0068.1",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -3110,6 +3267,68 @@
           "value" : "ISO_639-1"
         },
         "codeString" : "en"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "bf76ec5b-6bbc-4f96-b31c-0397bba3953d",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "0c95a9fc0fa9b6dd3af445f91cd02743"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.multilaborders_analysismatching.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-multilaborders_analysismatching-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "609d1d01-2356-3a60-ba46-87d462a3d2af",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
       },
       "author" : { },
       "otherDetails" : { }
