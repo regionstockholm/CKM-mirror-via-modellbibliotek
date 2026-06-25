@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=7b61ac07-40a1-421a-8b1e-d38e3cc190d2)
+archetype (adl_version=1.4; uid=7b61ac07-40a1-421a-8b1e-d38e3cc190d2)
 	openEHR-EHR-OBSERVATION.alcohol_audit.v0
 
 concept
-	[at0000]	-- Alcohol Use Disorders Identification Test (AUDIT)
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -30,51 +31,62 @@ language
 				["email"] = <"juliodesosa@catsalut.cat">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2013-06-10">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics, Australia">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2013-06-10">
 	>
+	lifecycle_state = <"in_development">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Identifizierung von Personen mit gefährlichen und schädlichen Alkoholkonsum, Anzeichen für Alkoholabhängigkeit und schädlichen Folgen von Alkoholkonsum.">
+			keywords = <"AUDIT","AUDIT-C","Alkohol","Rausch">
 			use = <"Zur Darstellung der Ergebnisse des AUDIT-Screening-Tests (oder des AUDIT-C-Tests) als Mittel zur Identifizierung von Personen mit gefährlichen und schädlichen Alkoholkonsum, Anzeichen für Alkoholabhängigkeit und schädlichen Folgen von Alkoholkonsum. Der Test kann im Rahmen eines mündlichen Gesprächs oder in Form eines Selbsttests durchgeführt werden.
 
 Jede Frage des AUDIT-Tests wird als separates Datenelement erfasst. Aus praktischen Gründen wird in diesem Archetyp jedes Datenelement nicht als vollständige Frage, sondern als Zusammenfassung des Themas der Frage gekennzeichnet. Die vollständige Frage, auf die sich jedes Datenelement bezieht, wird in der \"Beschreibung\" für jedes Datenelement angegeben. Zum Beispiel: \"Wie oft haben Sie im vergangenen Jahr mindestens 6 Getränke bei einer Gelegenheit getrunken?\" wird als Datenelement \"Rauschtrinken\" dargestellt.
 
 Der AUDIT-C Test ist eine verkürzte Version des AUDIT-Tests und enthält lediglich die ersten drei Fragen zum Konsumverhalten.">
-			keywords = <"AUDIT", "AUDIT-C", "Alkohol", "Rausch">
 			misuse = <"Nicht zur Aufzeichnung eines Tagebuchs über den Alkoholkonsum zu verwenden - Verwenden Sie hierzu den Archetyp OBSERVATION.alcohol_use.
 
 Nicht zur Darstellung zusammenfassender Informationen über das typische Muster des Alkoholkonsums einer Person - Verwenden Sie hierzu den Archetyp EVALUATION.alcohol_consumption_summary.">
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To identify individuals with hazardous and harmful patterns of alcohol consumption, indicators of alcohol dependence and some consequences from harmful drinking.">
+			keywords = <"AUDIT","AUDIT-C","alcohol","binge">
+			copyright = <"© Australian Digital Health Agency, openEHR Foundation">
 			use = <"Use to record the results of the AUDIT screening test (or the AUDIT-C subset) as a means to identify individuals with hazardous and harmful patterns of alcohol consumption, indicators of alcohol dependence and some consequences from harmful drinking. The test can be administered during an oral interview or as a self-reported questionnaire.
 
 Each of the questions in the AUDIT test will be recorded as a separate data element. For pragmatic reasons, in this archetype, each data element is not labelled as the full question, but as a summary of the question topic. The full question to which each data element refers is identified in the 'Description' for each data element. For example: \"How often did you have six or more drinks on one occasion in the past year?\" is represented as the 'Bingeing' data element.
 
 The AUDIT-C test is a shortened version of the full AUDIT test, using only the first three questions related to consumption.">
-			keywords = <"AUDIT", "AUDIT-C", "alcohol", "binge">
 			misuse = <"Not to be used to record a diary of alcohol consumption - use OBSERVATION.alcohol_use.
 
 Not to be used to record an overview of the individual's pattern of alcohol consumption - use the EVALUATION.alcohol_consumption_summary for this purpose.">
-			copyright = <"© Australian Digital Health Agency, openEHR Foundation">
 		>
 		["es"] = <
 			language = <[ISO_639-1::es]>
 			purpose = <"Identificar individuos con patrones peligrosos y perjudiciales de consumo de alcohol, indicadores de dependencia del alcohol y algunas consecuencias del consumo perjudicial.">
+			keywords = <"AUDIT","AUDIT-C","alcohol","embriaguez">
 			use = <"Se utiliza para registrar los resultados de la prueba de cribado AUDIT (o del subconjunto AUDIT-C) como medio para identificar a las personas con patrones peligrosos y perjudiciales de consumo de alcohol, indicadores de dependencia del alcohol y algunas consecuencias del consumo perjudicial. La prueba puede llevarse a cabo durante una entrevista oral o como cuestionario autoinformado.
 
 Cada una de las preguntas de la prueba AUDIT se registrará como un elemento de datos independiente. Por razones pragmáticas, en este arquetipo, cada elemento de datos no se etiqueta como la pregunta completa, sino como un resumen del tema de la pregunta. La pregunta completa a la que se refiere cada elemento de datos se identifica en la 'Descripción' de cada elemento de datos. Por ejemplo: \"Durante el último año, ¿con qué frecuencia consumió seis o más copas en la misma ocasión?\" se representa como el elemento de datos 'Consumo excesivo'.
 
 El test AUDIT-C es una versión reducida del test AUDIT completo, en la que sólo se utilizan las tres primeras preguntas relacionadas con el consumo.">
-			keywords = <"AUDIT", "AUDIT-C", "alcohol", "embriaguez">
 			misuse = <"No debe utilizarse para registrar un diario de consumo de alcohol: utilice OBSERVATION.alcohol_use.
 
 No debe utilizarse para registrar una visión general del patrón de consumo de alcohol del individuo; para ello, utilice EVALUATION.alcohol_consumption_summary.">
@@ -82,19 +94,17 @@ No debe utilizarse para registrar una visión general del patrón de consumo de 
 		["ca"] = <
 			language = <[ISO_639-1::ca]>
 			purpose = <"Identificar individus amb patrons perillosos i perjudicials de consum d'alcohol, indicadors de dependència de l'alcohol i algunes conseqüències del consum perjudicial.">
+			keywords = <"AUDIT","AUDIT-C","alcohol","embriaguesa">
 			use = <"S'utilitza per registrar els resultats de la prova de cribratge AUDIT (o del subconjunt AUDIT-C) com a mitjà per identificar persones amb patrons perillosos i perjudicials de consum d'alcohol, indicadors de dependència de l'alcohol i algunes conseqüències del consum perjudicial. La prova es pot dur a terme durant una entrevista oral o com a qüestionari autoinformat.
 
 Cadascuna de les preguntes de la prova AUDIT es registrarà com un element de dades independent. Per raons pragmàtiques, en aquest arquetip, cada element de dades no s'etiqueta com a pregunta completa, sinó com un resum del tema de la pregunta. La pregunta completa a què es refereix cada element de dades s'identifica a la 'Descripció' de cada element de dades. Per exemple: \"Durant el darrer any, amb quina freqüència va consumir sis o més copes en la mateixa ocasió?\" es representa com a element de dades 'Consum excessiu'.
 
 El test AUDIT-C és una versió reduïda del test AUDIT complet, on només s'utilitzen les tres primeres preguntes relacionades amb el consum.">
-			keywords = <"AUDIT", "AUDIT-C", "alcohol", "embriaguesa">
 			misuse = <"No s'ha d'utilitzar per registrar un diari de consum d'alcohol: utilitzeu OBSERVATION.alcohol_use.
 
 No s'ha d'utilitzar per registrar una visió general del patró de consum d'alcohol de l'individu; per fer-ho, utilitzeu EVALUATION.alcohol_consumption_summary.">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -111,7 +121,7 @@ Alcohol Use Disorders Identification Test. US Department of Venterans Affairs. (
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0A33E7ECC0A1292CBD3902442EB201EA">
+		["MD5-CAM-1.0.1"] = <"38ba6b921d127535158b5e28ca06c60b">
 		["build_uid"] = <"9d1eeeba-18ad-4c93-a49d-5f662e2fe9e8">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -248,7 +258,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -861,6 +870,159 @@ ontology
 					text = <"Extensió">
 					description = <"Informació addicional necessària per ampliar el model amb contingut local o per alinear-lo amb altres models o formalismes de referència.">
 					comment = <"Per exemple: requisits d'informació locals; o metadades addicionals per alinear-se amb FHIR.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Alcohol Use Disorders Identification Test (AUDIT)">
+					description = <"*Ten question screening test to identify harmful alcohol consumption. (en)">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Ospecificerad tid">
+					description = <"*Default, unspecified point in time event which may be explicitly defined in a template or at run-time. (en)">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Konsumtionsfrekvens">
+					description = <"*How often did you have a drink containing alcohol in the past year? (en)">
+				>
+				["at0005"] = <
+					text = <"*Never (en)">
+					description = <"*No drinking of alcohol in the past year. (en)">
+				>
+				["at0006"] = <
+					text = <"*Monthly or Less (en)">
+					description = <"*Drinking alcohol monthly or less frequently during the past year. (en)">
+				>
+				["at0007"] = <
+					text = <"*2 to 4 Times a Month (en)">
+					description = <"*Drinking alcohol two to four times a month during the past year. (en)">
+				>
+				["at0008"] = <
+					text = <"*2 to 3 Times a Week (en)">
+					description = <"*Drinking alcohol two to three times a week during the past year. (en)">
+				>
+				["at0009"] = <
+					text = <"*4 or More Times a Week (en)">
+					description = <"*Drinking alcohol four or more times a week during the past year. (en)">
+				>
+				["at0010"] = <
+					text = <"Typisk konsumtion">
+					description = <"*How many drinks did you have on a typical day when you were drinking in the past year? (en)">
+				>
+				["at0011"] = <
+					text = <"*1 or 2 (en)">
+					description = <"*One or two drinks of alcohol on a typical day in the past year. (en)">
+				>
+				["at0012"] = <
+					text = <"*3 or 4 (en)">
+					description = <"*Three or four drinks of alcohol on a typical day in the past year. (en)">
+				>
+				["at0013"] = <
+					text = <"*5 or 6 (en)">
+					description = <"*Five or six drinks of alcohol on a typical day in the past year. (en)">
+				>
+				["at0014"] = <
+					text = <"*7 to 9 (en)">
+					description = <"*Seven, eight or nine drinks of alcohol on a typical day in the past year. (en)">
+				>
+				["at0015"] = <
+					text = <"*10 or More (en)">
+					description = <"*Ten or more drinks of alcohol on a typical day in the past year. (en)">
+				>
+				["at0016"] = <
+					text = <"Intensivkonsumtion av alkohol">
+					description = <"*How often did you have six or more drinks on one occasion in the past year? (en)">
+				>
+				["at0017"] = <
+					text = <"*Never (en)">
+					description = <"*Never, in the past year. (en)">
+				>
+				["at0018"] = <
+					text = <"*Less than Monthly (en)">
+					description = <"*Less than monthly, during the past year. (en)">
+				>
+				["at0019"] = <
+					text = <"*Monthly (en)">
+					description = <"*Monthly, during the past year. (en)">
+				>
+				["at0020"] = <
+					text = <"*Weekly (en)">
+					description = <"*Weekly, during the past year. (en)">
+				>
+				["at0021"] = <
+					text = <"*Daily or Almost Daily (en)">
+					description = <"*Daily, or almost daily, during the past year. (en)">
+				>
+				["at0022"] = <
+					text = <"AUDIT total poäng">
+					description = <"*Total Score calculated from the 10 AUDIT questions. (en)">
+				>
+				["at0023"] = <
+					text = <"Oförmåga att sluta">
+					description = <"*How often during the last year have you found that you were not able to stop drinking once you had started? (en)">
+				>
+				["at0024"] = <
+					text = <"Ej uppfyllda förväntningar">
+					description = <"*How often during the last year have you failed to do what was normally expected of you because of drinking? (en)">
+				>
+				["at0025"] = <
+					text = <"Morgondrickande">
+					description = <"*How often during the last year have you needed a first drink in the morning to get yourself going after a heavy drinking session? (en)">
+				>
+				["at0026"] = <
+					text = <"Ångst">
+					description = <"*How often during the last year have you had a feeling of guilt or remorse after drinking? (en)">
+				>
+				["at0027"] = <
+					text = <"Minnesförlust">
+					description = <"*How often during the last year have you been unable to remember what happened the night before because of your drinking? (en)">
+				>
+				["at0028"] = <
+					text = <"Skador">
+					description = <"*Have you or someone else been injured because of your drinking? (en)">
+				>
+				["at0029"] = <
+					text = <"Oro från omgivningen">
+					description = <"*Has a relative, friend, doctor, or other health care worker been concerned about your drinking or suggested you cut down? (en)">
+				>
+				["at0030"] = <
+					text = <"*No (en)">
+					description = <"*No occurrence. (en)">
+				>
+				["at0031"] = <
+					text = <"*Yes, but not in the last year. (en)">
+					description = <"*Yes, this has occurred, but not in the last year. (en)">
+				>
+				["at0032"] = <
+					text = <"*Yes, during the last year. (en)">
+					description = <"*Yes this has occurred during the last year. (en)">
+				>
+				["at0033"] = <
+					text = <"AUDIT-C total poäng">
+					description = <"*Total Score calculated from the first 3 questions only. (en)">
+				>
+				["at0034"] = <
+					text = <"Kommentar">
+					description = <"*Additional narrative about the screening test, not captured in other fields. (en)">
+				>
+				["at0035"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0036"] = <
+					text = <"Tilläggsinformation">
+					description = <"*Additional information required to extend the model with local content or to align with other reference models or formalisms. (en)">
+					comment = <"*For example: local information requirements; or additional metadata to align with FHIR. (en)">
 				>
 			>
 		>
