@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=496598a7-dcfa-45fb-8886-f5b76c2333d9)
+archetype (adl_version=1.4; uid=496598a7-dcfa-45fb-8886-f5b76c2333d9)
 	openEHR-EHR-SECTION.problem_list.v0
 
 concept
-	[at0000]	-- Problem list
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -32,18 +33,27 @@ language
 			>
 			accreditation = <"Hospital Alemão Oswaldo Cruz (HAOC)">
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2010-07-03">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2010-07-03">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Nadim Anani, Karolinska Institutet, Sweden","Vebjoern Arntzen, Oslo university hospital, Norway","Koray Atalag, University of Auckland, New Zealand","Silje Ljosland Bakke, Bergen Hospital Trust, Norway (openEHR Editor)","Sistine Barretto-Daniels, Ocean Informatics, Australia","Lars Bitsch-Larsen, Haukeland University hospital, Norway","Shahla Foozonkhah, Ocean Informatics, Australia","Einar Fosse, National Centre for Integrated Care and Telemedicine, Norway","Sebastian Garde, Ocean Informatics, Germany","Heather Grain, Llewelyn Grain Informatics, Australia","Sam Heard, Ocean Informatics, Australia","Lars Karlsen, DIPS ASA, Norway","Shinji Kobayashi, Kyoto University, Japan","Heather Leslie, Ocean Informatics, Australia (openEHR Editor)","Hallvard Lærum, Oslo University Hospital, Norway","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Andrej Orel, Marand d.o.o., Slovenia","Jussara Rotzsch, UNB, Brazil","Rowan Thomas, St. Vincent's Hospital Melbourne, Australia","Heath Frankel, Ocean Informatics, Australia">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zum Bereitstellen von Rahmen und einer Designanleitung für die konsistente Modellierung von Inhalten in einem Template für eine Problemliste.">
+			keywords = <"Problem","Diagnose","Ausschluss","Fehlen","Abwesenheit","bekannt","Liste","Diagnosen","Prozedur">
 			use = <"Verwenden Sie diesen Archetyp, um einen Rahmen und eine Entwurfsanleitung für die konsistente Modellierung von Inhalten in einem Template für eine Problemliste als persistente und verwaltete Liste einer beliebigen Kombination von Diagnosen, Problemen und / oder Prozeduren bereitzustellen. Diese Liste kann einen Einfluss auf die klinische Entscheidungsfindung und die gesundheitliche Versorgung von Patienten haben.
 
 Dieser Archetyp soll in der COMPOSITION.problem_list oder als eine Komponente anderer COMPOSITION-Archetypen verwendet werden. Zum Beispiel: komplexe Dokumente wie ein Entlassungsbericht oder eine Überweisung.
@@ -58,12 +68,15 @@ ODER
 Während es ideal sein kann, nur eine Problemliste für jeden Patienten zu haben, ist es realistischer zu erwarten, dass in einer verteilten Umgebung mehrere Problemlisten für eine einzelne Person nebeneinander existieren können. Jede Problemliste wird für einen bestimmten Kliniker, eine bestimmte Pflegephase oder einen anderen Kontext verwaltet und priorisiert. Eine Problemliste für einen Hausarzt kann beispielsweise eine ganz andere Konfiguration haben als die, die für einen Facharzt nützlich oder als Referenz während eines stationären Aufenthalts im Krankenhaus geführt ist. In der Grundversorgung ist es üblich, die Problemliste anhand aktiver oder inaktiver Probleme / Diagnosen zu organisieren. Fachärzte ziehen es möglicherweise vor, ihre Liste nach Primärdiagnosen zu ordnen, die sich auf ihr spezifisches Fach beziehen, und nach Sekundärdiagnosen, die dies nicht sind. Eine stationäre Aufnahme kann zusätzliche Probleme im Zusammenhang mit den Prioritäten der unmittelbaren Pflege beinhalten, die bei der Entlassung nach Hause nicht relevant wären. Zu diesem Zweck unterstützt der Archetyp CLUSTER.problem_qualifier, der im SLOT \"Status\" des Archetyps Problem / Diagnose verschachtelt werden kann, die Verwendung von Merkmalen. Die Merkmale unterstützen die klinische Systeme in dem die Problemlisten gemäß den Präferenzen der klinischen Systembenutzer organisiert werden. Die kontextbezogene Statusbezeichnungen für andere klinische Szenarien oder für die Persistenz können dadurch gewechselt werden.
 
 Damit diese Liste als präzise Grundlage für die Entscheidungsunterstützung und für den Austausch verwendet werden kann, sollte diese Liste idealerweise von einem für die Krankenakte verantwortlichen Arzt erstellt werden und nicht automatisch durch das klinische System mittels Geschäftsregeln generiert werden.">
-			keywords = <"Problem", "Diagnose", "Ausschluss", "Fehlen", "Abwesenheit", "bekannt", "Liste", "Diagnosen", "Prozedur">
-			misuse = <"">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
 		>
 		["es-ar"] = <
 			language = <[ISO_639-1::es-ar]>
 			purpose = <"*To provide a framework and design guidance for consistent modelling of content within a template for a Problem list. (en)">
+			keywords = <"problema","diagnóstico","exclusión","ausencia","conociudo","lista">
 			use = <"*Use to provide a framework and design guidance for consistent modelling of content within a template for a Problem list as a persistent and managed list of any combination of diagnoses, problems and/or procedures that may influence clinical decision-making and care provision for the individual.
 
 This archetype is intended to be used within the COMPOSITION.problem_list or as one component of other COMPOSITION archetypes. For example: complex documents, such as a discharge summary or referral.
@@ -76,12 +89,12 @@ This list can be comprised of three types of statements, each represented by spe
 While it may be ideal to have only one Problem list for each subject of care, it is more realistic to expect that in a distributed environment, multiple Problem lists for a single individual may coexist, each managed and prioritised for a specific clinician, episode of care or other context. For example, a Problem list for a primary care clinician may be a very different configuration to that which is useful for a specialist surgeon or for reference during a hospital inpatient episode. In primary care it is common to organise the Problem list based on active or inactive problems or diagnoses; specialists may prefer to see their list organised around primary diagnoses which are related to their specific speciality and secondary ones which are not; an inpatient admission may include additional issues related to immediate nursing priorities that would not be relevant once discharged home. For these purposes, the CLUSTER.problem_qualifier archetype, nested within the Status SLOT in the Problem/Diagnosis archetype supports the use of qualifiers that will supprt clinical systems to organise Problem lists according to the preference of the clinical users of the system, without perpetuating these contextual status labels to other clinical scenarios or for persistence.
 
 In order for this list to be accurate and safe to use as the basis for decision support activities and for exchange, the content of this Problem List should ideally be curated by a clinician responsible for the health record, rather than managed automatically by the clinical system through business rules alone. (en)">
-			keywords = <"problema", "diagnóstico", "exclusión", "ausencia", "conociudo", "lista">
-			misuse = <"">
 		>
 		["pt-br"] = <
 			language = <[ISO_639-1::pt-br]>
 			purpose = <"*To provide a framework and design guidance for consistent modelling of content within a template for a Problem list. (en)">
+			keywords = <"problema","diagnóstico","exclusão","ausência","conhecido","lista">
+			copyright = <"© openEHR Foundation">
 			use = <"*Use to provide a framework and design guidance for consistent modelling of content within a template for a Problem list as a persistent and managed list of any combination of diagnoses, problems and/or procedures that may influence clinical decision-making and care provision for the individual.
 
 This archetype is intended to be used within the COMPOSITION.problem_list or as one component of other COMPOSITION archetypes. For example: complex documents, such as a discharge summary or referral.
@@ -94,13 +107,12 @@ This list can be comprised of three types of statements, each represented by spe
 While it may be ideal to have only one Problem list for each subject of care, it is more realistic to expect that in a distributed environment, multiple Problem lists for a single individual may coexist, each managed and prioritised for a specific clinician, episode of care or other context. For example, a Problem list for a primary care clinician may be a very different configuration to that which is useful for a specialist surgeon or for reference during a hospital inpatient episode. In primary care it is common to organise the Problem list based on active or inactive problems or diagnoses; specialists may prefer to see their list organised around primary diagnoses which are related to their specific speciality and secondary ones which are not; an inpatient admission may include additional issues related to immediate nursing priorities that would not be relevant once discharged home. For these purposes, the CLUSTER.problem_qualifier archetype, nested within the Status SLOT in the Problem/Diagnosis archetype supports the use of qualifiers that will supprt clinical systems to organise Problem lists according to the preference of the clinical users of the system, without perpetuating these contextual status labels to other clinical scenarios or for persistence.
 
 In order for this list to be accurate and safe to use as the basis for decision support activities and for exchange, the content of this Problem List should ideally be curated by a clinician responsible for the health record, rather than managed automatically by the clinical system through business rules alone. (en)">
-			keywords = <"problema", "diagnóstico", "exclusão", "ausência", "conhecido", "lista">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To provide a framework and design guidance for consistent modelling of content within a template for a Problem list.">
+			keywords = <"problem","diagnosis","exclusion","absence","known","list","diagnoses","procedure">
+			copyright = <"© openEHR Foundation">
 			use = <"Use to provide a framework and design guidance for consistent modelling of content within a template for a Problem list as a persistent and managed list of any combination of diagnoses, problems and/or procedures that may influence clinical decision-making and care provision for the individual.
 
 This archetype is intended to be used within the COMPOSITION.problem_list or as one component of other COMPOSITION archetypes. For example: complex documents, such as a discharge summary or referral.
@@ -113,13 +125,8 @@ This list can be comprised of three types of statements, each represented by spe
 While it may be ideal to have only one Problem list for each subject of care, it is more realistic to expect that in a distributed environment, multiple Problem lists for a single individual may coexist, each managed and prioritised for a specific clinician, episode of care or other context. For example, a Problem list for a primary care clinician may be a very different configuration to that which is useful for a specialist surgeon or for reference during a hospital inpatient episode. In primary care it is common to organise the Problem list based on active or inactive problems or diagnoses; specialists may prefer to see their list organised around primary diagnoses which are related to their specific speciality and secondary ones which are not; an inpatient admission may include additional issues related to immediate nursing priorities that would not be relevant once discharged home. For these purposes, the CLUSTER.problem_qualifier archetype, nested within the Status SLOT in the Problem/Diagnosis archetype supports the use of qualifiers that will supprt clinical systems to organise Problem lists according to the preference of the clinical users of the system, without perpetuating these contextual status labels to other clinical scenarios or for persistence.
 
 In order for this list to be accurate and safe to use as the basis for decision support activities and for exchange, the content of this Problem List should ideally be curated by a clinician responsible for the health record, rather than managed automatically by the clinical system through business rules alone.">
-			keywords = <"problem", "diagnosis", "exclusion", "absence", "known", "list", "diagnoses", "procedure">
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Nadim Anani, Karolinska Institutet, Sweden", "Vebjoern Arntzen, Oslo university hospital, Norway", "Koray Atalag, University of Auckland, New Zealand", "Silje Ljosland Bakke, Bergen Hospital Trust, Norway (openEHR Editor)", "Sistine Barretto-Daniels, Ocean Informatics, Australia", "Lars Bitsch-Larsen, Haukeland University hospital, Norway", "Shahla Foozonkhah, Ocean Informatics, Australia", "Einar Fosse, National Centre for Integrated Care and Telemedicine, Norway", "Sebastian Garde, Ocean Informatics, Germany", "Heather Grain, Llewelyn Grain Informatics, Australia", "Sam Heard, Ocean Informatics, Australia", "Lars Karlsen, DIPS ASA, Norway", "Shinji Kobayashi, Kyoto University, Japan", "Heather Leslie, Ocean Informatics, Australia (openEHR Editor)", "Hallvard Lærum, Oslo University Hospital, Norway", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Andrej Orel, Marand d.o.o., Slovenia", "Jussara Rotzsch, UNB, Brazil", "Rowan Thomas, St. Vincent's Hospital Melbourne, Australia", "Heath Frankel, Ocean Informatics, Australia">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -128,7 +135,7 @@ In order for this list to be accurate and safe to use as the basis for decision 
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"8367D4F2CF2BA5BE59DC4442FD28C085">
+		["MD5-CAM-1.0.1"] = <"0d3f9334fb350687bce635087d949e97">
 		["build_uid"] = <"46c18c89-3428-4e56-8aaa-33e4907ea711">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -154,7 +161,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -261,6 +267,33 @@ ontology
 					text = <"Fehlende Information">
 					description = <"Bestätigte Aussage, dass keine Informationen über Probleme, Diagnosen oder Prozeduren verfügbar sind.">
 					comment = <"Zum Beispiel: \"Keine Informationen zu Prozeduren verfügbar\".">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Problemlista">
+					description = <"*Framework for consistent modelling of content within a template for a Problem list. (en)">
+					comment = <"*Intended to be used within the COMPOSITION.problem_list. (en)">
+				>
+				["at0001"] = <
+					text = <"Problem, diagnoser, bekymmer eller pågående hälsoärende">
+					description = <"*Positive statements about the presence of problems, diagnoses, concerns or health issue threads. (en)">
+				>
+				["at0002"] = <
+					text = <"Procedurer">
+					description = <"*Positive statements about the presence of procedures that have been performed. (en)">
+				>
+				["at0003"] = <
+					text = <"Exklusionsangivelse">
+					description = <"*A positive statement about the exclusion of known problems, diagnoses and procedures. (en)">
+					comment = <"*For example: \"No problems or diagnoses\" or No operations or procedures\". (en)">
+				>
+				["at0004"] = <
+					text = <"Saknad information">
+					description = <"*A positive statement that no information is available about problems, diagnoses or procedures. (en)">
+					comment = <"*For example: \"No information available concerning procedures\". (en)">
 				>
 			>
 		>
