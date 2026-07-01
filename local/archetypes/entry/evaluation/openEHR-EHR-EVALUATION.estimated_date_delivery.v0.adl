@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=d65a175e-00b9-4697-821e-0650696b1daf)
+archetype (adl_version=1.4; uid=d65a175e-00b9-4697-821e-0650696b1daf)
 	openEHR-EHR-EVALUATION.estimated_date_delivery.v0
 
 concept
-	[at0000]	-- Estimated date of delivery (EDD)
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -11,45 +12,52 @@ language
 			author = <
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2020-02-04">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2020-02-04">
 	>
+	lifecycle_state = <"in_development">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere estimert termindato for et svangerskap, beregnet ved ulike metoder.">
+			keywords = <"EDD, EDB, EDC, fødsel, termin", ...>
+			copyright = <"© openEHR Foundation">
 			use = <"Brukes for å registrere estimert termindato (ETD), beregnet eller anslått ved ulike metoder på forskjellige tidspunkter i løpet av et svangerskap, inkludert den fastsatte ETD som legges til grunn for kliniske beslutninger.
 
 Etter hvert som svangerskapet utvikler seg, og den fastsatte ETD oppdateres eller endres, vil pasientjournalen vise den siste versjonen av fastsatt ETD til klinisk bruker, og alle tidligere versjoner skal være tilgjengelige i journalens versjonshistorikk.">
-			keywords = <"EDD, EDB, EDC, fødsel, termin", ...>
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record estimated due dated for a pregnancy, calculated or estimated by a variety of methods.">
+			keywords = <"EDD, EDB, EDC, birth, due date", ...>
+			copyright = <"© openEHR Foundation">
 			use = <"Use to record the estimated date of delivery (EDD), calculated or estimated by various methods at different times during a single pregnancy, including the 'Agreed EDD' which is used as the basis for clinical decision-making. 
 
 As a pregnancy evolves, and the 'Agreed EDD' is updated or amended, the health record will present the latest version of 'Agreed EDD' to the clinical user, and all previous versions should be available in the health record version history.">
-			keywords = <"EDD, EDB, EDC, birth, due date", ...>
-			misuse = <"">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"D28B504C658928631CCF227477D825CB">
+		["MD5-CAM-1.0.1"] = <"fcc1c1b9fed0b88a1e1ba8520f884f64">
 		["build_uid"] = <"505525d3-bf2f-4bd3-8903-2e5d9e0e9abe">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -121,7 +129,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -258,6 +265,74 @@ ontology
 				["at0013"] = <
 					text = <"Sist oppdatert">
 					description = <"Datoen for siste oppdatering av en termindato.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Beräknat förlossningsdatum">
+					description = <"*Estimated date of delivery for a pregnancy. (en)">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Beräknat förlossningsdatum baserat på befruktningsdatum">
+					description = <"*The EDD calculated from a known date of conception. (en)">
+					comment = <"*The date of conception will usually be recorded elsewhere in the health record, for example as part of the record for an IVF procedure. (en)">
+				>
+				["at0004"] = <
+					text = <"Beräknat förlossningsdatum baserat på cykel">
+					description = <"*The EDD estimated from the onset of the last normal menstrual period by Naegele's method. (en)">
+					comment = <"*The date of the 'Last menstrual period' will be captured elsewhere using the EVALUATION.last_menstrual_period archetype. In addition, further details about typical cycles will be recorded using the EVALUATION.menstruation_summary and details about a specific menstrual cycle will be recorded using the OBSERVATION.menstruation archetype. (en)">
+				>
+				["at0005"] = <
+					text = <"Datum för ultraljud">
+					description = <"*The date on which the ultrasound was carried out. (en)">
+				>
+				["at0006"] = <
+					text = <"Enligt ultraljud">
+					description = <"*Details about an EDD estimated from the findings on a pregnancy ultrasound. (en)">
+					comment = <"*The findings from each ultrasound will be captured as a separate instance within this CLUSTER. (en)">
+				>
+				["at0007"] = <
+					text = <"Graviditetslängd vid ultraljud">
+					description = <"*The gestation estimated from the scan. (en)">
+				>
+				["at0008"] = <
+					text = <"Beräknat förlossningsdatum enligt ultraljud">
+					description = <"*Details about an EDD estimated from the findings on a pregnancy ultrasound. (en)">
+					comment = <"*Only one 'Agreed EDD' is appropriate at any one time. If the agreed EDD needs to be revised then this should be captured in a new revision of this archetype within a health record. (en)">
+				>
+				["at0009"] = <
+					text = <"Överenskommet beräknat förlossningsdatum">
+					description = <"*Details about the EDD which is used as the basis for clinical decision-making during the pregnancy. (en)">
+					comment = <"*This CLUSTER has intentionally been constrained to a single occurrence representing the current agreed date. Amended EDDs should be stored in the health record as previous versions of this archetype.  (en)">
+				>
+				["at0010"] = <
+					text = <"Beräknat förlossningsdatum">
+					description = <"*The EDD which is to be used as the basis for clinical decision-making. (en)">
+					comment = <"*This EDD may be amended during the pregnancy by the healthcare providers to reflect available evidence and the specific circumstances of the pregnancy. For example, an EDD based on an uncertain cycle information may be updated once early ultrasound details become available. (en)">
+				>
+				["at0011"] = <
+					text = <"Motivering">
+					description = <"*The rationale for the 'EDD'. (en)">
+					comment = <"*For example, 'based on a 9 week ultrasound scan'. (en)">
+				>
+				["at0012"] = <
+					text = <"Tilläggsinformation">
+					description = <"*Additional information required to capture local content or to align with other reference models/formalisms. (en)">
+					comment = <"*For example: local information requirements or additional metadata to align with FHIR. (en)">
+				>
+				["at0013"] = <
+					text = <"Senast uppdaterad">
+					description = <"*The date any EDD was last updated. (en)">
 				>
 			>
 		>
