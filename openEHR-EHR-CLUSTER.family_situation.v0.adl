@@ -1,0 +1,109 @@
+archetype (adl_version=1.4; uid=a4892923-e170-47ec-abc0-df5859d431b5)
+	openEHR-EHR-CLUSTER.family_situation.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-07-02">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"72cbe721498b4d394e6e2987a1ec883b">
+		["build_uid"] = <"f6588b68-8bf1-38a7-ac0c-e455a6926b90">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Family situation
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Family situation label
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Relationship with the child's father
+							at0003,    -- Singel
+							at0004]    -- Other family situation
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Family situation">
+					description = <"Family situation">
+				>
+				["at0001"] = <
+					text = <"Family situation label">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Relationship with the child's father">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Singel">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Other family situation">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Familjsituation">
+					description = <"*Family situation (en)">
+				>
+				["at0001"] = <
+					text = <"Familjsituation">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Sammanb med barnafadern">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Ensamstående">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Annan familjsituation">
+					description = <"">
+				>
+			>
+		>
+	>
