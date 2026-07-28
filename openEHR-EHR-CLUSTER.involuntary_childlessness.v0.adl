@@ -1,0 +1,162 @@
+archetype (adl_version=1.4; uid=1461d227-7bf1-48e9-b7a2-a8c053b90cda)
+	openEHR-EHR-CLUSTER.involuntary_childlessness.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-07-28">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"d493eaa1e91159dc3e9869c6756457a8">
+		["build_uid"] = <"4e62e128-dc0f-3897-bd1a-7825fa38f27a">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Involuntary childlessness
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- No of years
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Interventions
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0004,    -- IVF
+							at0005,    -- Ovulation stimulation
+							at0006,    -- ICSI
+							at0007,    -- Surgery
+							at0008,    -- None
+							at0009]    -- Other
+						}
+					}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Free text
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Involuntary childlessness">
+					description = <"Involuntary childlessness">
+				>
+				["at0001"] = <
+					text = <"No of years">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Interventions">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"IVF">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Ovulation stimulation">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"ICSI">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Surgery">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"None">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Other">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Free text">
+					description = <"To be filled if \"none\" selected from the Interventions list">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ofrivillig barnlöshet">
+					description = <"*Involuntary childlessness (en)">
+				>
+				["at0001"] = <
+					text = <"Antal år">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Åtgärd">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"*IVF (en)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"*Ovulation stimulation (en)">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"*ICSI (en)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*Surgery (en)">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"*None (en)">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"*Other (en)">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Fritext">
+					description = <"*To be filled if \"none\" selected from the Interventions list (en)">
+				>
+			>
+		>
+	>
