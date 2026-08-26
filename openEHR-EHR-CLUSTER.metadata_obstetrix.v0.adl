@@ -6,6 +6,13 @@ concept
 
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
 
 description
 	original_author = <
@@ -13,6 +20,10 @@ description
 	>
 	lifecycle_state = <"unmanaged">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 		>
@@ -23,16 +34,16 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"104d79a42206a3fbee54f3c002c1fae2">
+		["MD5-CAM-1.0.1"] = <"800ce4025945e7e13c4f0ca7b0458692">
 		["build_uid"] = <"847526b5-0c35-3126-b7f2-043add27623a">
 	>
 
 definition
 	CLUSTER[at0000] matches {    -- Metadata_obstetrix
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Document ID
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Document ID
 				value matches {
-					DV_TEXT matches {*}
+					DV_IDENTIFIER matches {*}
 				}
 			}
 			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Parent document
@@ -40,14 +51,14 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Care record ID
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Care record ID
 				value matches {
-					DV_TEXT matches {*}
+					DV_IDENTIFIER matches {*}
 				}
 			}
-			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Care record_child ID
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Care record _child ID
 				value matches {
-					DV_TEXT matches {*}
+					DV_IDENTIFIER matches {*}
 				}
 			}
 			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Care record_type
@@ -60,9 +71,9 @@ definition
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Care encounter ID
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Care encounter ID
 				value matches {
-					DV_TEXT matches {*}
+					DV_IDENTIFIER matches {*}
 				}
 			}
 			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Care enounter_type
@@ -73,6 +84,46 @@ definition
 			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Care enounter_type_Name
 				value matches {
 					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Ward name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {    -- Ward ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0017] occurrences matches {0..1} matches {    -- Signature
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Signing time
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0020] occurrences matches {0..1} matches {    -- Signed by user ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {    -- Countersigned by User ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0022] occurrences matches {0..1} matches {    -- Contrasigned
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {    -- Countersigned date
+				value matches {
+					DV_DATE matches {*}
 				}
 			}
 		}
@@ -86,16 +137,8 @@ ontology
 					text = <"Metadata_obstetrix">
 					description = <"Metadata_obstetrix">
 				>
-				["at0001"] = <
-					text = <"Document ID">
-					description = <"">
-				>
 				["at0002"] = <
 					text = <"Parent document">
-					description = <"">
-				>
-				["at0003"] = <
-					text = <"Care record ID">
 					description = <"">
 				>
 				["at0004"] = <
@@ -106,10 +149,6 @@ ontology
 					text = <"Care record_type">
 					description = <"">
 				>
-				["at0006"] = <
-					text = <"Care encounter ID">
-					description = <"">
-				>
 				["at0007"] = <
 					text = <"Care enounter_type">
 					description = <"">
@@ -118,8 +157,128 @@ ontology
 					text = <"Care enounter_type_Name">
 					description = <"">
 				>
-				["at0009"] = <
-					text = <"Care record_child ID">
+				["at0011"] = <
+					text = <"Ward name">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Document ID">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Care record ID">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Care record _child ID">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Care encounter ID">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Ward ID">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Signature">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Signing time">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Signed by user ID">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Countersigned by User ID">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Contrasigned">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Countersigned date">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Metadata_obstetrix">
+					description = <"*Metadata_obstetrix (en)">
+				>
+				["at0002"] = <
+					text = <"Överordnat dokument">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Vårdmapp_namn">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Vårdmapp_typ">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Vårdtillfälle_typ">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Vårdtillfälle_typ_Namn">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Avdelning">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Dokument ID">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Vårdmapp ID">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Vårdmapp_barn ID">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Vårdtillfälle ID">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Avdelning ID">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Signering">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Signering_tid">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Signerad av user ID">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Kontrasignerad av User ID">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Kontrasignerad">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Kontrasignerade datum">
 					description = <"">
 				>
 			>
