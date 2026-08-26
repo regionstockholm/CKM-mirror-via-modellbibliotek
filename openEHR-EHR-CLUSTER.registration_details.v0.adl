@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"e71ce910e1bca5831f168c089c848774">
+		["MD5-CAM-1.0.1"] = <"5c31f28b04e2f2afaec741f7b78edf63">
 		["build_uid"] = <"3f0a9cf9-b050-3372-8d95-7dc9c85123bb">
 	>
 
@@ -54,6 +54,10 @@ definition
 				value matches {
 					DV_TEXT matches {*}
 				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Identity verification
+				include
+					archetype_id/value matches {/.*|openEHR-DEMOGRAPHIC-CLUSTER\.person_identifier-provider\.v0/}
 			}
 		}
 	}
@@ -78,6 +82,10 @@ ontology
 					text = <"Nationality">
 					description = <"">
 				>
+				["at0004"] = <
+					text = <"Identity verification">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -96,6 +104,10 @@ ontology
 				>
 				["at0003"] = <
 					text = <"Nationalitet">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"ID Kontroll">
 					description = <"">
 				>
 			>
