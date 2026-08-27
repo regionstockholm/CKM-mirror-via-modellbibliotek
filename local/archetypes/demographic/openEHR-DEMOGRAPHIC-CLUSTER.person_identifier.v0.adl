@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=cd69e276-d218-3950-9c9c-44c73074cf17)
+archetype (adl_version=1.4; uid=87f0adab-787c-3a9f-b4a0-ed830681878a)
 	openEHR-DEMOGRAPHIC-CLUSTER.person_identifier.v0
 
 concept
-	[at0000]	-- Person identifier
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -14,34 +15,42 @@ language
 				["email"] = <"sergio@lampada.uerj.br">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2009-05-22">
 		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
 		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
 		["email"] = <"sergio@lampada.uerj.br">
-		["date"] = <"2009-05-22">
 	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Rigoleta Dutra, Ministry of Defense, Brazil (openEHR Editor)","Sergio Freire, State University of Rio de Janeiro, Brazil (openEHR Editor)","Sebastian Garde, Ocean Informatics, Germany (Editor)","Omer Hotomaroglu, Turkey (Editor)","Heather Leslie, Ocean Informatics, Australia (Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["pt-br"] = <
 			language = <[ISO_639-1::pt-br]>
 			purpose = <"Representação de dados relativos a um documento de identificação de uma pessoa.">
-			use = <"Usado em serviçoS demográficos para registrar os dados relativos a um documento de identificação de uma pessoa.">
-			keywords = <"serviço demográfico", "documento de identificação de uma pessoa">
-			misuse = <"">
+			keywords = <"serviço demográfico","documento de identificação de uma pessoa">
 			copyright = <"© openEHR Foundation">
+			use = <"Usado em serviçoS demográficos para registrar os dados relativos a um documento de identificação de uma pessoa.">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"Representation of data about a person identifier.">
-			use = <"Used in demographic services to register data about a person identifier.">
-			keywords = <"demographic service", "person identifier">
-			misuse = <"">
+			keywords = <"demographic service","person identifier">
 			copyright = <"© openEHR Foundation">
+			use = <"Used in demographic services to register data about a person identifier.">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <"Rigoleta Dutra, Ministry of Defense, Brazil (openEHR Editor)", "Sergio Freire, State University of Rio de Janeiro, Brazil (openEHR Editor)", "Sebastian Garde, Ocean Informatics, Germany (Editor)", "Omer Hotomaroglu, Turkey (Editor)", "Heather Leslie, Ocean Informatics, Australia (Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -49,7 +58,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"0C6FB32F3DC1D99F28E4A7D67F960B79">
+		["MD5-CAM-1.0.1"] = <"e16b23050d926aafeb468f1ab140d44f">
 		["build_uid"] = <"32f819fc-2bba-414e-9dce-a40c48dfcb61">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -79,29 +88,17 @@ definition
 			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Issuing City
 				value matches {
 					DV_TEXT matches {*}
-					DV_CODED_TEXT matches {
-						defining_code matches {
-							[ac0001]
-						}
-					}
+					DV_CODED_TEXT matches {*}
 				}
 			}
 			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Issuing State
 				value matches {
-					DV_CODED_TEXT matches {
-						defining_code matches {
-							[ac0002]
-						}
-					}
+					DV_CODED_TEXT matches {*}
 				}
 			}
 			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Issuing Country
 				value matches {
-					DV_CODED_TEXT matches {
-						defining_code matches {
-							[ac0003]
-						}
-					}
+					DV_CODED_TEXT matches {*}
 				}
 			}
 			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Time validity
@@ -118,7 +115,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -218,37 +214,51 @@ ontology
 				>
 			>
 		>
-	>
-	constraint_definitions = <
-		["en"] = <
+		["sv"] = <
 			items = <
-				["ac0001"] = <
-					text = <"City codes">
-					description = <"valid codes for city/town/locality.">
+				["at0000"] = <
+					text = <"Personidentifierare">
+					description = <"*Identifier for a person. (en)">
 				>
-				["ac0002"] = <
-					text = <"State codes">
-					description = <"valid codes for state/territory/province.">
+				["at0001"] = <
+					text = <"Identifierarens huvuduppgifter">
+					description = <"*Identifier number or code, issuer, assigner and type of identifier. (en)">
 				>
-				["ac0003"] = <
-					text = <"Country codes">
-					description = <"valid codes for countries.">
+				["at0002"] = <
+					text = <"Geografiskt område">
+					description = <"*Indicates the geographic area within which the identifier is valid. (en)">
 				>
-			>
-		>
-		["pt-br"] = <
-			items = <
-				["ac0001"] = <
-					text = <"Códigos de cidades">
-					description = <"códigos válidos para cidade.">
+				["at0003"] = <
+					text = <"Utfärdande stad">
+					description = <"*Indicates the city where the identifier was issued. (en)">
 				>
-				["ac0002"] = <
-					text = <"Códigos de estados">
-					description = <"códigos válidos para estados.">
+				["at0004"] = <
+					text = <"Utfärdande delstat">
+					description = <"*Indicates the state where the identifier was issued. (en)">
 				>
-				["ac0003"] = <
-					text = <"Códigos de países">
-					description = <"códigos válidos para paises.">
+				["at0005"] = <
+					text = <"Utfärdande land">
+					description = <"*Indicates the country where the identifier was issued. (en)">
+				>
+				["at0006"] = <
+					text = <"Giltighetstid">
+					description = <"*Period in which this identifier is valid. (en)">
+				>
+				["at0010"] = <
+					text = <"*Local (en)">
+					description = <"*Indicates that this identifier is used locally. (en)">
+				>
+				["at0011"] = <
+					text = <"*Area/Regional/District (en)">
+					description = <"*Indicates that this identifier is used within a specific area. (en)">
+				>
+				["at0012"] = <
+					text = <"*State/Province/Territory (en)">
+					description = <"*Indicates that this identifier is used within a political boundary such as a state or territory or province. (en)">
+				>
+				["at0013"] = <
+					text = <"*National (en)">
+					description = <"*Indicates that this identifier is used nationally. (en)">
 				>
 			>
 		>
