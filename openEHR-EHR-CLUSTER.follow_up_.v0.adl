@@ -1,0 +1,109 @@
+archetype (adl_version=1.4; uid=e01b31a6-46d1-4966-912e-2dcd7e408570)
+	openEHR-EHR-CLUSTER.follow_up_.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-08-31">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"d93f22709827ee4077f6e24286fd92ff">
+		["build_uid"] = <"6dec961c-e335-376f-bc5c-39c48c2ca3e9">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Follow up
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Follow up
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Yes
+							at0003,    -- No
+							at0004]    -- Not specified
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Follow up">
+					description = <"Follow up ">
+				>
+				["at0001"] = <
+					text = <"Follow up">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Not specified">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Uppföljning">
+					description = <"*Follow up  (en)">
+				>
+				["at0001"] = <
+					text = <"Uppföljning">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Nej">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Ej angivet">
+					description = <"">
+				>
+			>
+		>
+	>
