@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.30",
+      "sem_ver" : "1.0.0-alpha.31",
       "build_uid" : "b09fe6d7-3496-4494-8c2b-37cc795e5747",
-      "MD5-CAM-1.0.1" : "d148f22bd413054ff3843dae4cd04fdd",
+      "MD5-CAM-1.0.1" : "148380e85d458e5d18c5c733846fbd63",
       "PARENT:MD5-CAM-1.0.1" : "3B0765A6B395C9D01595FDF2D440E6CB"
     },
     "details" : {
@@ -2046,7 +2046,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Body weight during registartion",
+            "text" : "Body weight during registration",
             "description" : "Measurement of the body weight of an individual."
           },
           "ac0.1" : {
@@ -6409,6 +6409,15 @@
                           "attributeTuples" : [ ],
                           "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-involuntary_childlessness-001.v0",
                           "referenceType" : "archetypeOverlay"
+                        }, {
+                          "@type" : "C_ARCHETYPE_ROOT",
+                          "rmTypeName" : "CLUSTER",
+                          "occurrences" : "0..1",
+                          "nodeId" : "at0039.2",
+                          "attributes" : [ ],
+                          "attributeTuples" : [ ],
+                          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-free_text-004.v0",
+                          "referenceType" : "archetypeOverlay"
                         } ]
                       } ],
                       "attributeTuples" : [ ]
@@ -6743,7 +6752,18 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "CLUSTER",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0010.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
@@ -7144,7 +7164,7 @@
                           "terminologyId" : {
                             "value" : "local"
                           },
-                          "constraint" : [ "ac0.17" ],
+                          "constraint" : [ "ac0.10" ],
                           "selectedTerminologies" : [ ]
                         } ]
                       } ],
@@ -7211,7 +7231,7 @@
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_TEXT",
                           "defaultValue" : {
-                            "value" : "Tre månader före graviditet",
+                            "value" : "3 months before pregnancy",
                             "@type" : "DV_TEXT"
                           },
                           "attributes" : [ ],
@@ -7237,34 +7257,22 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "1..1",
                               "terminologyId" : {
-                                "value" : "local_terms_3"
+                                "value" : "local_terms_2"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms_3" ],
+                              "selectedTerminologies" : [ "local_terms_2" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms_3",
+                                "terminologyId" : "local_terms_2",
                                 "code" : "0",
-                                "value" : "Never smoked",
-                                "translations" : {
-                                  "en" : "Never smoked",
-                                  "sv" : "Nej"
-                                }
+                                "value" : "None"
                               }, {
-                                "terminologyId" : "local_terms_3",
+                                "terminologyId" : "local_terms_2",
                                 "code" : "1",
-                                "value" : "1-9 cigarettes/day",
-                                "translations" : {
-                                  "en" : "1-9 cigarettes/day",
-                                  "sv" : "1-9 cigaretter/day"
-                                }
+                                "value" : "1-9 cigrattes per day"
                               }, {
-                                "terminologyId" : "local_terms_3",
+                                "terminologyId" : "local_terms_2",
                                 "code" : "2",
-                                "value" : "10 or more cigarettes/day",
-                                "translations" : {
-                                  "en" : "10 or more cigarettes/day",
-                                  "sv" : "10 eller fler cigaretter/day"
-                                }
+                                "value" : "10 or more cigrattes per day"
                               } ]
                             } ]
                           } ],
@@ -7621,7 +7629,7 @@
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_TEXT",
                           "defaultValue" : {
-                            "value" : "Vid inskrvning",
+                            "value" : "At registration",
                             "@type" : "DV_TEXT"
                           },
                           "attributes" : [ ],
@@ -7647,34 +7655,22 @@
                               "rmTypeName" : "TERMINOLOGY_CODE",
                               "occurrences" : "1..1",
                               "terminologyId" : {
-                                "value" : "local_terms_2"
+                                "value" : "local_terms_3"
                               },
                               "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms_2" ],
+                              "selectedTerminologies" : [ "local_terms_3" ],
                               "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms_2",
+                                "terminologyId" : "local_terms_3",
                                 "code" : "0",
-                                "value" : "Never smoked",
-                                "translations" : {
-                                  "en" : "Never smoked",
-                                  "sv" : "Nej"
-                                }
+                                "value" : "None"
                               }, {
-                                "terminologyId" : "local_terms_2",
+                                "terminologyId" : "local_terms_3",
                                 "code" : "1",
-                                "value" : "1-9 cigarettes/day",
-                                "translations" : {
-                                  "en" : "1-9 cigarettes/day",
-                                  "sv" : "1-9 cigaretter/day"
-                                }
+                                "value" : "1-9 cigrattes per day"
                               }, {
-                                "terminologyId" : "local_terms_2",
+                                "terminologyId" : "local_terms_3",
                                 "code" : "2",
-                                "value" : "10 or more cigarettes/day",
-                                "translations" : {
-                                  "en" : "10 or more cigarettes/day",
-                                  "sv" : "10 eller fler cigaretter/day"
-                                }
+                                "value" : "10 or more cigrattes per day"
                               } ]
                             } ]
                           } ],
@@ -8420,10 +8416,10 @@
             "text" : "At registration",
             "description" : "Details about a discrete period of smoking activity for the specified type of tobacco."
           },
-          "ac0.17" : {
+          "ac0.10" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
-            "code" : "ac0.17",
+            "code" : "ac0.10",
             "description" : ""
           }
         },
@@ -8446,10 +8442,10 @@
             "text" : "Per episode (2)",
             "description" : "Detaljer om en avgrenset periode med røyking av den spesifiserte tobakkstypen."
           },
-          "ac0.17" : {
+          "ac0.10" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.17",
+            "code" : "ac0.10",
             "description" : ""
           }
         },
@@ -8478,22 +8474,10 @@
             "text" : "3 månad före aktuell graviditet",
             "description" : "Detaljerad beskrivning av en specifik konsumtionsperiod för den angivna typen av tobak."
           },
-          "at0096.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0096.2",
-            "text" : "Status",
-            "description" : ""
-          },
-          "at0096.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0096.1",
-            "text" : "Status",
-            "description" : ""
-          },
-          "ac0.17" : {
+          "ac0.10" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.17",
+            "code" : "ac0.10",
             "description" : ""
           }
         },
@@ -8516,10 +8500,10 @@
             "text" : "Pro Episode (2)",
             "description" : "Angaben zu einem bestimmten Zeitraum des Rauchens der angegebenen Tabakart."
           },
-          "ac0.17" : {
+          "ac0.10" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.17",
+            "code" : "ac0.10",
             "description" : ""
           }
         },
@@ -8542,10 +8526,10 @@
             "text" : "Par épisode (2)",
             "description" : "Détails sur une période discrète d'activité de tabagisme pour le type de tabac spécifié."
           },
-          "ac0.17" : {
+          "ac0.10" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.17",
+            "code" : "ac0.10",
             "description" : ""
           }
         },
@@ -8568,10 +8552,10 @@
             "text" : "Per episode (2)",
             "description" : "Details over een discrete periode van rookactiviteit voor dit type tabak."
           },
-          "ac0.17" : {
+          "ac0.10" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.17",
+            "code" : "ac0.10",
             "description" : ""
           }
         }
@@ -8622,91 +8606,41 @@
         "ac0.10" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.10",
-          "members" : [ "at0054", "at0056", "at0066", "at0057", "at0062", "at0078", "at0088" ]
-        },
-        "ac0.11" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.11",
-          "members" : [ "at0054", "at0066", "at0057", "at0062", "at0078", "at0088" ]
+          "members" : [ "at0054", "at0055", "at0056", "at0066", "at0057", "at0062", "at0078", "at0088" ]
         },
         "ac0.12" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.12",
-          "members" : [ "at0054", "at0057", "at0062", "at0078", "at0088" ]
+          "members" : [ "at0097", "at0098" ]
         },
         "ac0.13" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.13",
-          "members" : [ "at0054", "at0062", "at0078", "at0088" ]
+          "members" : [ ]
         },
         "ac0.14" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.14",
-          "members" : [ "at0054", "at0078", "at0088" ]
+          "members" : [ ]
         },
         "ac0.15" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.15",
-          "members" : [ "at0054", "at0088" ]
-        },
-        "ac0.16" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.16",
-          "members" : [ "at0054" ]
+          "members" : [ "at0097", "at0098" ]
         },
         "ac0.17" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.17",
-          "members" : [ "at0054" ]
+          "members" : [ "at0097", "at0098" ]
         },
         "ac0.18" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.18",
-          "members" : [ "at0097", "at0098" ]
-        },
-        "ac0.20" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.20",
-          "members" : [ "at0097", "at0098" ]
-        },
-        "ac0.22" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.22",
-          "members" : [ "at0097", "at0098" ]
-        },
-        "ac0.23" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.23",
           "members" : [ ]
         },
-        "ac0.24" : {
+        "ac0.19" : {
           "@type" : "VALUE_SET",
-          "id" : "ac0.24",
-          "members" : [ ]
-        },
-        "ac0.25" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.25",
-          "members" : [ "ac0.21" ]
-        },
-        "ac0.26" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.26",
-          "members" : [ "ac0.21" ]
-        },
-        "ac0.28" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.28",
-          "members" : [ "at0097", "at0098" ]
-        },
-        "ac0.29" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.29",
-          "members" : [ ]
-        },
-        "ac0.30" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.30",
+          "id" : "ac0.19",
           "members" : [ ]
         }
       }
@@ -8880,7 +8814,6 @@
             "children" : [ {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
-              "occurrences" : "0..0",
               "nodeId" : "at0089.1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
@@ -8903,11 +8836,19 @@
                       "includedExternalTerminologyCodes" : [ {
                         "terminologyId" : "local_terms",
                         "code" : "0",
-                        "value" : "Ja"
+                        "value" : "Yes",
+                        "translations" : {
+                          "en" : "Yes",
+                          "sv" : "Ja"
+                        }
                       }, {
                         "terminologyId" : "local_terms",
                         "code" : "1",
-                        "value" : "Nej"
+                        "value" : "No",
+                        "translations" : {
+                          "en" : "No",
+                          "sv" : "Nej"
+                        }
                       } ]
                     } ]
                   } ],
@@ -8939,7 +8880,8 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "CLUSTER",
-              "nodeId" : "at0029",
+              "occurrences" : "0..0",
+              "nodeId" : "at0029.1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
                 "rmAttributeName" : "items",
@@ -8954,7 +8896,7 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "DV_TEXT",
                       "defaultValue" : {
-                        "value" : "Snuff",
+                        "value" : "Snus",
                         "@type" : "DV_TEXT"
                       },
                       "attributes" : [ ],
@@ -8981,10 +8923,19 @@
                           "rmTypeName" : "TERMINOLOGY_CODE",
                           "occurrences" : "1..1",
                           "terminologyId" : {
-                            "value" : "local"
+                            "value" : "local_terms_2"
                           },
-                          "constraint" : [ "ac0.7" ],
-                          "selectedTerminologies" : [ ]
+                          "constraint" : [ ],
+                          "selectedTerminologies" : [ "local_terms_2" ],
+                          "includedExternalTerminologyCodes" : [ {
+                            "terminologyId" : "local_terms_2",
+                            "code" : "0",
+                            "value" : "Brukare"
+                          }, {
+                            "terminologyId" : "local_terms_2",
+                            "code" : "1",
+                            "value" : "Icke användare"
+                          } ]
                         } ]
                       } ],
                       "attributeTuples" : [ ]
@@ -9001,402 +8952,7 @@
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "CLUSTER",
-                  "nodeId" : "at0064.1",
-                  "attributes" : [ {
-                    "@type" : "C_ATTRIBUTE",
-                    "rmAttributeName" : "items",
-                    "children" : [ {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "nodeId" : "at0081.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_TEXT",
-                          "defaultValue" : {
-                            "value" : "Tre månader före graviditet",
-                            "@type" : "DV_TEXT"
-                          },
-                          "attributes" : [ ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
-                      "nodeId" : "at0013.1",
-                      "attributes" : [ ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
-                      "nodeId" : "at0082.1",
-                      "attributes" : [ ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "nodeId" : "at0100.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "defining_code",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "rmTypeName" : "TERMINOLOGY_CODE",
-                              "occurrences" : "1..1",
-                              "terminologyId" : {
-                                "value" : "local_terms_2"
-                              },
-                              "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms_2" ],
-                              "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms_2",
-                                "code" : "0",
-                                "value" : "Yes",
-                                "translations" : {
-                                  "en" : "Yes",
-                                  "sv" : "Ja"
-                                }
-                              }, {
-                                "terminologyId" : "local_terms_2",
-                                "code" : "1",
-                                "value" : "No",
-                                "translations" : {
-                                  "en" : "No",
-                                  "sv" : "Nej"
-                                }
-                              } ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
-                      "nodeId" : "at0030.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "defining_code",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "rmTypeName" : "TERMINOLOGY_CODE",
-                              "occurrences" : "1..1",
-                              "terminologyId" : {
-                                "value" : "local"
-                              },
-                              "constraint" : [ "ac0.1" ],
-                              "selectedTerminologies" : [ ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        }, {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_TEXT",
-                          "attributes" : [ ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
-                      "nodeId" : "at0065.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_QUANTITY",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "property",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "terminologyId" : {
-                                "value" : "openehr"
-                              },
-                              "constraint" : [ "347" ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ {
-                            "@type" : "C_ATTRIBUTE_TUPLE",
-                            "members" : [ {
-                              "@type" : "C_ATTRIBUTE",
-                              "rmAttributeName" : "units",
-                              "children" : [ ]
-                            }, {
-                              "@type" : "C_ATTRIBUTE",
-                              "rmAttributeName" : "magnitude",
-                              "children" : [ ]
-                            }, {
-                              "@type" : "C_ATTRIBUTE",
-                              "rmAttributeName" : "precision",
-                              "children" : [ ]
-                            } ],
-                            "tuples" : [ {
-                              "@type" : "C_PRIMITIVE_TUPLE",
-                              "members" : [ {
-                                "@type" : "C_STRING",
-                                "rmTypeName" : "STRING",
-                                "constraint" : [ "g/d" ]
-                              }, {
-                                "@type" : "C_REAL",
-                                "rmTypeName" : "REAL",
-                                "constraint" : [ {
-                                  "lower" : 0.0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : false,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : true
-                                } ]
-                              }, {
-                                "@type" : "C_INTEGER",
-                                "rmTypeName" : "INTEGER",
-                                "constraint" : [ {
-                                  "lower" : 0,
-                                  "upper" : 0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : true,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : false
-                                } ]
-                              } ]
-                            }, {
-                              "@type" : "C_PRIMITIVE_TUPLE",
-                              "members" : [ {
-                                "@type" : "C_STRING",
-                                "rmTypeName" : "STRING",
-                                "constraint" : [ "g/wk" ]
-                              }, {
-                                "@type" : "C_REAL",
-                                "rmTypeName" : "REAL",
-                                "constraint" : [ {
-                                  "lower" : 0.0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : false,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : true
-                                } ]
-                              }, {
-                                "@type" : "C_INTEGER",
-                                "rmTypeName" : "INTEGER",
-                                "constraint" : [ {
-                                  "lower" : 0,
-                                  "upper" : 0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : true,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : false
-                                } ]
-                              } ]
-                            }, {
-                              "@type" : "C_PRIMITIVE_TUPLE",
-                              "members" : [ {
-                                "@type" : "C_STRING",
-                                "rmTypeName" : "STRING",
-                                "constraint" : [ "[oz_av]/d" ]
-                              }, {
-                                "@type" : "C_REAL",
-                                "rmTypeName" : "REAL",
-                                "constraint" : [ {
-                                  "lowerIncluded" : false,
-                                  "upperIncluded" : false,
-                                  "lowerUnbounded" : true,
-                                  "upperUnbounded" : true
-                                } ]
-                              }, {
-                                "@type" : "C_INTEGER",
-                                "rmTypeName" : "INTEGER",
-                                "constraint" : [ ]
-                              } ]
-                            }, {
-                              "@type" : "C_PRIMITIVE_TUPLE",
-                              "members" : [ {
-                                "@type" : "C_STRING",
-                                "rmTypeName" : "STRING",
-                                "constraint" : [ "[oz_av]/wk" ]
-                              }, {
-                                "@type" : "C_REAL",
-                                "rmTypeName" : "REAL",
-                                "constraint" : [ {
-                                  "lowerIncluded" : false,
-                                  "upperIncluded" : false,
-                                  "lowerUnbounded" : true,
-                                  "upperUnbounded" : true
-                                } ]
-                              }, {
-                                "@type" : "C_INTEGER",
-                                "rmTypeName" : "INTEGER",
-                                "constraint" : [ ]
-                              } ]
-                            } ]
-                          } ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
-                      "nodeId" : "at0023.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_QUANTITY",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "property",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "terminologyId" : {
-                                "value" : "openehr"
-                              },
-                              "constraint" : [ "382" ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ {
-                            "@type" : "C_ATTRIBUTE_TUPLE",
-                            "members" : [ {
-                              "@type" : "C_ATTRIBUTE",
-                              "rmAttributeName" : "units",
-                              "children" : [ ]
-                            }, {
-                              "@type" : "C_ATTRIBUTE",
-                              "rmAttributeName" : "magnitude",
-                              "children" : [ ]
-                            }, {
-                              "@type" : "C_ATTRIBUTE",
-                              "rmAttributeName" : "precision",
-                              "children" : [ ]
-                            } ],
-                            "tuples" : [ {
-                              "@type" : "C_PRIMITIVE_TUPLE",
-                              "members" : [ {
-                                "@type" : "C_STRING",
-                                "rmTypeName" : "STRING",
-                                "constraint" : [ "1/d" ]
-                              }, {
-                                "@type" : "C_REAL",
-                                "rmTypeName" : "REAL",
-                                "constraint" : [ {
-                                  "lower" : 0.0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : false,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : true
-                                } ]
-                              }, {
-                                "@type" : "C_INTEGER",
-                                "rmTypeName" : "INTEGER",
-                                "constraint" : [ {
-                                  "lower" : 0,
-                                  "upper" : 0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : true,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : false
-                                } ]
-                              } ]
-                            }, {
-                              "@type" : "C_PRIMITIVE_TUPLE",
-                              "members" : [ {
-                                "@type" : "C_STRING",
-                                "rmTypeName" : "STRING",
-                                "constraint" : [ "1/wk" ]
-                              }, {
-                                "@type" : "C_REAL",
-                                "rmTypeName" : "REAL",
-                                "constraint" : [ {
-                                  "lower" : 0.0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : false,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : true
-                                } ]
-                              }, {
-                                "@type" : "C_INTEGER",
-                                "rmTypeName" : "INTEGER",
-                                "constraint" : [ {
-                                  "lower" : 0,
-                                  "upper" : 0,
-                                  "lowerIncluded" : true,
-                                  "upperIncluded" : true,
-                                  "lowerUnbounded" : false,
-                                  "upperUnbounded" : false
-                                } ]
-                              } ]
-                            } ]
-                          } ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
-                      "nodeId" : "at0025.1",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_COUNT",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "magnitude",
-                            "children" : [ {
-                              "@type" : "C_INTEGER",
-                              "rmTypeName" : "INTEGER",
-                              "occurrences" : "1..1",
-                              "constraint" : [ {
-                                "lower" : 0,
-                                "lowerIncluded" : true,
-                                "upperIncluded" : false,
-                                "lowerUnbounded" : false,
-                                "upperUnbounded" : true
-                              } ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "occurrences" : "0..0",
-                      "nodeId" : "at0087.1",
-                      "attributes" : [ ],
-                      "attributeTuples" : [ ]
-                    } ]
-                  } ],
-                  "attributeTuples" : [ ]
-                }, {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "CLUSTER",
+                  "occurrences" : "0..0",
                   "nodeId" : "at0064.2",
                   "attributes" : [ {
                     "@type" : "C_ATTRIBUTE",
@@ -9412,7 +8968,7 @@
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_TEXT",
                           "defaultValue" : {
-                            "value" : "Vid inskrivning",
+                            "value" : "Vid inskrivningen",
                             "@type" : "DV_TEXT"
                           },
                           "attributes" : [ ],
@@ -9433,51 +8989,6 @@
                       "occurrences" : "0..0",
                       "nodeId" : "at0082.2",
                       "attributes" : [ ],
-                      "attributeTuples" : [ ]
-                    }, {
-                      "@type" : "C_COMPLEX_OBJECT",
-                      "rmTypeName" : "ELEMENT",
-                      "nodeId" : "at0100.2",
-                      "attributes" : [ {
-                        "@type" : "C_ATTRIBUTE",
-                        "rmAttributeName" : "value",
-                        "children" : [ {
-                          "@type" : "C_COMPLEX_OBJECT",
-                          "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "defining_code",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "rmTypeName" : "TERMINOLOGY_CODE",
-                              "occurrences" : "1..1",
-                              "terminologyId" : {
-                                "value" : "local_terms_3"
-                              },
-                              "constraint" : [ ],
-                              "selectedTerminologies" : [ "local_terms_3" ],
-                              "includedExternalTerminologyCodes" : [ {
-                                "terminologyId" : "local_terms_3",
-                                "code" : "0",
-                                "value" : "Yes",
-                                "translations" : {
-                                  "en" : "Yes",
-                                  "sv" : "Ja"
-                                }
-                              }, {
-                                "terminologyId" : "local_terms_3",
-                                "code" : "1",
-                                "value" : "No",
-                                "translations" : {
-                                  "en" : "No",
-                                  "sv" : "Nej"
-                                }
-                              } ]
-                            } ]
-                          } ],
-                          "attributeTuples" : [ ]
-                        } ]
-                      } ],
                       "attributeTuples" : [ ]
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
@@ -10145,87 +9656,33 @@
             "text" : "Snuff - Smokeless tobacco summary",
             "description" : "Summary or persistent information about smokeless tobacco use by an individual."
           },
-          "at0064.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0064.1",
-            "text" : "3 months before",
-            "description" : "Details about a discrete period of use of the specified type of smokeless tobacco."
-          },
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.1",
-            "description" : ""
-          },
           "at0064.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0064.2",
             "text" : "At registration",
             "description" : "Details about a discrete period of use of the specified type of smokeless tobacco."
-          },
-          "ac0.7" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.7",
-            "description" : ""
           }
         },
         "nb" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          },
           "at0064.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0064.1",
             "text" : "Per episode (2)",
             "description" : "Detaljer om en avgrenset periode med bruk av den spesifiserte typen røykfri tobakk."
-          },
-          "ac0.7" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.7",
-            "description" : ""
           }
         },
         "sv" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          },
           "at0064.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0064.2",
             "text" : "Vid inskrivningen",
             "description" : "Detaljerad beskrivning av en specifik användningsepisod för den angivna typen av tobak."
           },
-          "at0064.1" : {
+          "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
-            "code" : "at0064.1",
-            "text" : "3 månad före aktuell graviditet",
-            "description" : "Detaljerad beskrivning av en specifik användningsepisod för den angivna typen av tobak."
-          },
-          "ac0.7" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.7",
-            "description" : ""
-          },
-          "at0100.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0100.1",
-            "text" : "Status",
-            "description" : ""
-          },
-          "at0100.2" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0100.2",
-            "text" : "Status",
-            "description" : ""
+            "code" : "at0000.1",
+            "text" : "Snus användning",
+            "description" : "Samlad information om en individs bruk av rökfri tobak, exempelvis snus"
           }
         }
       },
@@ -10265,7 +9722,7 @@
         "ac0.9" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.9",
-          "members" : [ "at0101", "at0102" ]
+          "members" : [ "at0091", "at0061", "at0059" ]
         },
         "ac0.10" : {
           "@type" : "VALUE_SET",
@@ -10275,21 +9732,6 @@
         "ac0.11" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.11",
-          "members" : [ ]
-        },
-        "ac0.13" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.13",
-          "members" : [ "at0101", "at0102" ]
-        },
-        "ac0.14" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.14",
-          "members" : [ ]
-        },
-        "ac0.15" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.15",
           "members" : [ ]
         }
       }
@@ -10565,27 +10007,15 @@
                           "includedExternalTerminologyCodes" : [ {
                             "terminologyId" : "local_terms_2",
                             "code" : "0",
-                            "value" : "Never",
-                            "translations" : {
-                              "en" : "Never",
-                              "sv" : "Aldrig"
-                            }
+                            "value" : "Aldrig"
                           }, {
                             "terminologyId" : "local_terms_2",
                             "code" : "1",
-                            "value" : "Maximum 1 time in a week",
-                            "translations" : {
-                              "en" : "Maximum 1 time in a week",
-                              "sv" : "Högst en gång per vecka"
-                            }
+                            "value" : "Högst en gång per vecka"
                           }, {
                             "terminologyId" : "local_terms_2",
                             "code" : "2",
-                            "value" : "More than 1 time in a week",
-                            "translations" : {
-                              "en" : "More than 1 time in a week",
-                              "sv" : "Mer än en gång per vecka"
-                            }
+                            "value" : "Mer än en gång per vecka"
                           } ]
                         } ]
                       } ],
@@ -10611,7 +10041,7 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "DV_TEXT",
                       "defaultValue" : {
-                        "value" : "Tre månader före graviditet",
+                        "value" : "3 månad före aktuell graviditet",
                         "@type" : "DV_TEXT"
                       },
                       "attributes" : [ ],
@@ -10654,7 +10084,7 @@
                           "terminologyId" : {
                             "value" : "local"
                           },
-                          "constraint" : [ "ac0.13" ],
+                          "constraint" : [ "ac0.12" ],
                           "selectedTerminologies" : [ ]
                         } ]
                       } ],
@@ -11441,27 +10871,15 @@
                           "includedExternalTerminologyCodes" : [ {
                             "terminologyId" : "local_terms_3",
                             "code" : "0",
-                            "value" : "Never",
-                            "translations" : {
-                              "en" : "Never",
-                              "sv" : "Aldrig"
-                            }
+                            "value" : "Aldrig"
                           }, {
                             "terminologyId" : "local_terms_3",
                             "code" : "1",
-                            "value" : "Maximum 1 time in a week",
-                            "translations" : {
-                              "en" : "Maximum 1 time in a week",
-                              "sv" : "Högst en gång per vecka"
-                            }
+                            "value" : "Högst en gång per vecka"
                           }, {
                             "terminologyId" : "local_terms_3",
                             "code" : "2",
-                            "value" : "More than one time in a week",
-                            "translations" : {
-                              "en" : "More than one time in a week",
-                              "sv" : "Mer än en gång per vecka"
-                            }
+                            "value" : "Mer än en gång per vecka"
                           } ]
                         } ]
                       } ],
@@ -11530,7 +10948,7 @@
                           "terminologyId" : {
                             "value" : "local"
                           },
-                          "constraint" : [ "ac0.18" ],
+                          "constraint" : [ "ac0.17" ],
                           "selectedTerminologies" : [ ]
                         } ]
                       } ],
@@ -12478,16 +11896,16 @@
             "text" : "At registration",
             "description" : "Details about a discrete period of time with a consistent pattern of typical consumption."
           },
-          "ac0.13" : {
+          "ac0.12" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
-            "code" : "ac0.13",
+            "code" : "ac0.12",
             "description" : ""
           },
-          "ac0.18" : {
+          "ac0.17" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
-            "code" : "ac0.18",
+            "code" : "ac0.17",
             "description" : ""
           }
         },
@@ -12498,16 +11916,16 @@
             "text" : "Per episode (2)",
             "description" : "Detaljer om en avgrenset eller pågående episode med et vedvarende mønster i drikkevaner."
           },
-          "ac0.13" : {
+          "ac0.12" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.13",
+            "code" : "ac0.12",
             "description" : ""
           },
-          "ac0.18" : {
+          "ac0.17" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.18",
+            "code" : "ac0.17",
             "description" : ""
           }
         },
@@ -12524,16 +11942,16 @@
             "text" : "3 månad före aktuell graviditet",
             "description" : "Detaljer om en separat konsumtionstid med ett konsekvent mönster av typisk förbrukning."
           },
-          "ac0.13" : {
+          "ac0.12" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.13",
+            "code" : "ac0.12",
             "description" : ""
           },
-          "ac0.18" : {
+          "ac0.17" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.18",
+            "code" : "ac0.17",
             "description" : ""
           }
         },
@@ -12544,16 +11962,16 @@
             "text" : "Pro Episode (2)",
             "description" : "Angaben zu einem abgegrenzten Zeitraum des Konsums mit einem konsistenten Konsumverhalten."
           },
-          "ac0.13" : {
+          "ac0.12" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.13",
+            "code" : "ac0.12",
             "description" : ""
           },
-          "ac0.18" : {
+          "ac0.17" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.18",
+            "code" : "ac0.17",
             "description" : ""
           }
         },
@@ -12564,16 +11982,16 @@
             "text" : "Par épisode (2)",
             "description" : "Détails sur une période de temps discrète avec un schéma de consommation typique cohérent."
           },
-          "ac0.13" : {
+          "ac0.12" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.13",
+            "code" : "ac0.12",
             "description" : ""
           },
-          "ac0.18" : {
+          "ac0.17" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.18",
+            "code" : "ac0.17",
             "description" : ""
           }
         },
@@ -12584,16 +12002,16 @@
             "text" : "Per episode (2)",
             "description" : "Details over een discrete periode met een consistent patroon van typische consumptie."
           },
-          "ac0.13" : {
+          "ac0.12" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.13",
+            "code" : "ac0.12",
             "description" : ""
           },
-          "ac0.18" : {
+          "ac0.17" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
-            "code" : "ac0.18",
+            "code" : "ac0.17",
             "description" : ""
           }
         }
@@ -12649,17 +12067,17 @@
         "ac0.12" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.12",
-          "members" : [ ]
-        },
-        "ac0.13" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.13",
           "members" : [ "at0083", "at0084" ]
+        },
+        "ac0.14" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.14",
+          "members" : [ "at0061", "at0091" ]
         },
         "ac0.15" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.15",
-          "members" : [ "at0061", "at0091" ]
+          "members" : [ ]
         },
         "ac0.16" : {
           "@type" : "VALUE_SET",
@@ -12669,11 +12087,6 @@
         "ac0.17" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.17",
-          "members" : [ ]
-        },
-        "ac0.18" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.18",
           "members" : [ "at0083", "at0084" ]
         }
       }
@@ -12930,7 +12343,7 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "DV_TEXT",
                       "defaultValue" : {
-                        "value" : "Tre månader före graviditet",
+                        "value" : "3 månad före aktuell graviditet",
                         "@type" : "DV_TEXT"
                       },
                       "attributes" : [ ],
@@ -12970,34 +12383,22 @@
                           "rmTypeName" : "TERMINOLOGY_CODE",
                           "occurrences" : "1..1",
                           "terminologyId" : {
-                            "value" : "local_terms_2"
+                            "value" : "local_terms_3"
                           },
                           "constraint" : [ ],
-                          "selectedTerminologies" : [ "local_terms_2" ],
+                          "selectedTerminologies" : [ "local_terms_3" ],
                           "includedExternalTerminologyCodes" : [ {
-                            "terminologyId" : "local_terms_2",
+                            "terminologyId" : "local_terms_3",
                             "code" : "0",
-                            "value" : "Never",
-                            "translations" : {
-                              "en" : "Never",
-                              "sv" : "Aldrig"
-                            }
+                            "value" : "Aldrig"
                           }, {
-                            "terminologyId" : "local_terms_2",
+                            "terminologyId" : "local_terms_3",
                             "code" : "1",
-                            "value" : "Maximum 1 time in a week",
-                            "translations" : {
-                              "en" : "Maximum 1 time in a week",
-                              "sv" : "Högst en gång per vecka"
-                            }
+                            "value" : "Högst en gång per vecka"
                           }, {
-                            "terminologyId" : "local_terms_2",
+                            "terminologyId" : "local_terms_3",
                             "code" : "2",
-                            "value" : "More than one time in a week",
-                            "translations" : {
-                              "en" : "More than one time in a week",
-                              "sv" : "Mer än en gång per vecka"
-                            }
+                            "value" : "Mer än en gång per vecka"
                           } ]
                         } ]
                       } ],
@@ -13297,6 +12698,12 @@
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0036.1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
                   "occurrences" : "0..0",
                   "nodeId" : "at0015.1",
                   "attributes" : [ ],
@@ -13360,7 +12767,7 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "DV_TEXT",
                       "defaultValue" : {
-                        "value" : "Vid Inskrivning",
+                        "value" : "Vid inskrivnigen",
                         "@type" : "DV_TEXT"
                       },
                       "attributes" : [ ],
@@ -13400,34 +12807,22 @@
                           "rmTypeName" : "TERMINOLOGY_CODE",
                           "occurrences" : "1..1",
                           "terminologyId" : {
-                            "value" : "local_terms_3"
+                            "value" : "local_terms_2"
                           },
                           "constraint" : [ ],
-                          "selectedTerminologies" : [ "local_terms_3" ],
+                          "selectedTerminologies" : [ "local_terms_2" ],
                           "includedExternalTerminologyCodes" : [ {
-                            "terminologyId" : "local_terms_3",
+                            "terminologyId" : "local_terms_2",
                             "code" : "0",
-                            "value" : "Never",
-                            "translations" : {
-                              "en" : "Never",
-                              "sv" : "Aldrig"
-                            }
+                            "value" : "Aldrig"
                           }, {
-                            "terminologyId" : "local_terms_3",
+                            "terminologyId" : "local_terms_2",
                             "code" : "1",
-                            "value" : "Maximum one time in a week",
-                            "translations" : {
-                              "en" : "Maximum one time in a week",
-                              "sv" : "Högst en gång per vecka"
-                            }
+                            "value" : "Högst en gång per vecka"
                           }, {
-                            "terminologyId" : "local_terms_3",
+                            "terminologyId" : "local_terms_2",
                             "code" : "2",
-                            "value" : "More than one time in a week",
-                            "translations" : {
-                              "en" : "More than one time in a week",
-                              "sv" : "Mer än en gång per vecka"
-                            }
+                            "value" : "Mer än en gång per vecka"
                           } ]
                         } ]
                       } ],
@@ -13844,7 +13239,7 @@
           "at0012.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0012.2",
-            "text" : "Vid inskrivnigen",
+            "text" : "Vid inskrivningen",
             "description" : "*Details about a period of use of the substance identified in 'Substance name' or, if a class of substance is used in 'Substance name, to provide details about the use of a specific substance. (en)"
           },
           "at0012.1" : {
@@ -13898,19 +13293,39 @@
           "id" : "ac0.10",
           "members" : [ ]
         },
+        "ac0.11" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.11",
+          "members" : [ "ac0.7" ]
+        },
         "ac0.12" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.12",
-          "members" : [ "at0042", "at0043" ]
+          "members" : [ "ac0.7" ]
         },
         "ac0.13" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.13",
-          "members" : [ ]
+          "members" : [ "ac0.7" ]
         },
         "ac0.14" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.14",
+          "members" : [ "ac0.7" ]
+        },
+        "ac0.16" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.16",
+          "members" : [ "at0042", "at0043" ]
+        },
+        "ac0.17" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.17",
+          "members" : [ ]
+        },
+        "ac0.18" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.18",
           "members" : [ ]
         }
       }
@@ -14052,7 +13467,141 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "OBSERVATION",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "HISTORY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "events",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "POINT_EVENT",
+              "nodeId" : "at0002",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0004.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0010.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0016.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0023.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0024.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0025.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0026.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0027.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0028.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0029.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0034.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      }, {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "protocol",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0035",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0036.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-follow_up_-001.v0",
+              "referenceType" : "archetypeOverlay"
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
@@ -18358,14 +17907,15 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "CLUSTER",
-              "nodeId" : "at0029",
+              "nodeId" : "at0029.2",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
                 "rmAttributeName" : "items",
                 "children" : [ {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "ELEMENT",
-                  "nodeId" : "at0151.1",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0151.2",
                   "attributes" : [ {
                     "@type" : "C_ATTRIBUTE",
                     "rmAttributeName" : "value",
@@ -18382,10 +17932,146 @@
                           "terminologyId" : {
                             "value" : "local"
                           },
-                          "constraint" : [ "ac0.1" ],
+                          "constraint" : [ "ac0.19" ],
                           "selectedTerminologies" : [ ]
                         } ]
                       } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0144.2",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_CODED_TEXT",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "defining_code",
+                        "children" : [ {
+                          "@type" : "C_TERMINOLOGY_CODE",
+                          "rmTypeName" : "TERMINOLOGY_CODE",
+                          "occurrences" : "1..1",
+                          "terminologyId" : {
+                            "value" : "local_terms"
+                          },
+                          "constraint" : [ ],
+                          "selectedTerminologies" : [ "local_terms" ],
+                          "includedExternalTerminologyCodes" : [ {
+                            "terminologyId" : "local_terms",
+                            "code" : "0",
+                            "value" : "IUD removed",
+                            "translations" : {
+                              "sv" : "Spiral uttagen",
+                              "en" : "IUD removed"
+                            }
+                          }, {
+                            "terminologyId" : "local_terms",
+                            "code" : "1",
+                            "value" : "IUD still in place",
+                            "translations" : {
+                              "sv" : "Spiral kvar i livmodern",
+                              "en" : "IUD still in place"
+                            }
+                          } ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0053.2",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0148.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_DATE_TIME",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "CLUSTER",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0064.2",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0149.2",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_DATE_TIME",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_DATE_TIME",
+                          "rmTypeName" : "DATE_TIME",
+                          "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                          "constraint" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0069.2",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "CLUSTER",
+              "nodeId" : "at0029.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "items",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0151.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_TEXT",
+                      "defaultValue" : {
+                        "value" : "Spiral",
+                        "@type" : "DV_TEXT"
+                      },
+                      "attributes" : [ ],
                       "attributeTuples" : [ ]
                     } ]
                   } ],
@@ -18405,12 +18091,30 @@
                         "rmAttributeName" : "defining_code",
                         "children" : [ {
                           "@type" : "C_TERMINOLOGY_CODE",
-                          "rmTypeName" : "CODE_PHRASE",
+                          "rmTypeName" : "TERMINOLOGY_CODE",
                           "occurrences" : "1..1",
                           "terminologyId" : {
-                            "value" : "local"
+                            "value" : "local_terms_2"
                           },
-                          "constraint" : [ "at0145", "at0146", "at0147" ]
+                          "constraint" : [ ],
+                          "selectedTerminologies" : [ "local_terms_2" ],
+                          "includedExternalTerminologyCodes" : [ {
+                            "terminologyId" : "local_terms_2",
+                            "code" : "0",
+                            "value" : "IUD removed",
+                            "translations" : {
+                              "sv" : "Spiral uttagen",
+                              "en" : "IUD removed"
+                            }
+                          }, {
+                            "terminologyId" : "local_terms_2",
+                            "code" : "1",
+                            "value" : "IUD still in place",
+                            "translations" : {
+                              "sv" : "Spiral kvar i livmodern",
+                              "en" : "IUD still in place"
+                            }
+                          } ]
                         } ]
                       } ],
                       "attributeTuples" : [ ]
@@ -18426,10 +18130,50 @@
                   "attributeTuples" : [ ]
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
+                  "nodeId" : "at0148.2",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_DATE_TIME",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "CLUSTER",
                   "occurrences" : "0..0",
                   "nodeId" : "at0064.1",
                   "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0149.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_DATE_TIME",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "value",
+                        "children" : [ {
+                          "@type" : "C_DATE_TIME",
+                          "rmTypeName" : "DATE_TIME",
+                          "patternedConstraint" : "yyyy-mm-ddTXX:XX:XX",
+                          "constraint" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
                   "attributeTuples" : [ ]
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
@@ -18481,44 +18225,81 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.1",
-            "description" : ""
-          },
           "ac0.2" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
             "code" : "ac0.2",
+            "description" : ""
+          },
+          "at0029.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "IUD",
+            "description" : "Details about use of a specified type of contraception."
+          },
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.2",
+            "text" : "Contraceptive",
+            "description" : "Details about use of a specified type of contraception."
+          },
+          "ac0.19" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.19",
             "description" : ""
           }
         },
         "nb" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          },
           "ac0.2" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
+            "description" : ""
+          },
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Per type (2)",
+            "description" : "Detaljer om bruken for en spesifikk type antikonsepsjon."
+          },
+          "ac0.19" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.19",
             "description" : ""
           }
         },
         "sv" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          },
           "ac0.2" : {
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.2",
+            "description" : ""
+          },
+          "at0029.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.1",
+            "text" : "Spiral",
+            "description" : "*Details about use of a specified type of contraception. (en)"
+          },
+          "at0029.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0029.2",
+            "text" : "Preventivmedel",
+            "description" : "*Details about use of a specified type of contraception. (en)"
+          },
+          "at0149.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0149.2",
+            "text" : "Upphört med preventivmedel",
+            "description" : "*Date when the individual last used the specified type of contraception. (en)",
+            "comment" : "*Comment: Can be a partial date, for example, only a year. (en)"
+          },
+          "ac0.19" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.19",
             "description" : ""
           }
         }
@@ -18550,6 +18331,61 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.6",
           "members" : [ ]
+        },
+        "ac0.8" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.8",
+          "members" : [ "at0155", "at0157", "at0156", "at0158", "at0159", "at0160", "at0169", "at0163", "at0161", "at0162", "at0154", "at0167", "at0153", "at0152", "at0164", "at0165", "at0166" ]
+        },
+        "ac0.9" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.9",
+          "members" : [ ]
+        },
+        "ac0.10" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.10",
+          "members" : [ ]
+        },
+        "ac0.12" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.12",
+          "members" : [ "at0145", "at0146", "at0147" ]
+        },
+        "ac0.13" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.13",
+          "members" : [ ]
+        },
+        "ac0.14" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.14",
+          "members" : [ ]
+        },
+        "ac0.15" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.15",
+          "members" : [ "ac0.7" ]
+        },
+        "ac0.16" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.16",
+          "members" : [ "ac0.7" ]
+        },
+        "ac0.17" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.17",
+          "members" : [ "at0155", "at0157", "at0156", "at0158", "at0159", "at0160", "at0169", "at0163", "at0161", "at0162", "at0154", "at0167", "at0153", "at0152", "at0164", "at0165", "at0166" ]
+        },
+        "ac0.18" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.18",
+          "members" : [ "at0155", "at0157", "at0156", "at0158", "at0159", "at0160", "at0169", "at0163", "at0161", "at0162", "at0154", "at0167", "at0153", "at0152", "at0164", "at0165", "at0166" ]
+        },
+        "ac0.19" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.19",
+          "members" : [ "at0155", "at0157", "at0156", "at0158", "at0159", "at0160", "at0169", "at0163", "at0161", "at0162", "at0154", "at0167", "at0153", "at0152", "at0164", "at0165", "at0166" ]
         }
       }
     },
@@ -18872,6 +18708,15 @@
           "attributes" : [ ],
           "attributeTuples" : [ ],
           "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-social_summary-001.v1",
+          "referenceType" : "archetypeOverlay"
+        }, {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "EVALUATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.8",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-container-001.v0",
           "referenceType" : "archetypeOverlay"
         } ]
       } ],
@@ -22711,6 +22556,24 @@
               "nodeId" : "at0070.1",
               "attributes" : [ ],
               "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0071.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-free_text-002.v0",
+              "referenceType" : "archetypeOverlay"
+            }, {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0071.2",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-free_text-003.v0",
+              "referenceType" : "archetypeOverlay"
             } ]
           } ],
           "attributeTuples" : [ ]
@@ -29250,7 +29113,14 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "en" : { },
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Local reg",
+            "description" : "Generic archetype to contain existing CLUSTER archetypes which need to be represented as standalone data."
+          }
+        },
         "sv" : {
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
@@ -29426,6 +29296,739 @@
         "pt-br" : { },
         "ar-sy" : { },
         "sv" : { },
+        "de" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "007bcfc4-5290-4518-8aca-0c707996a055",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Lisa Axelsson",
+        "organisation" : "Region Östergötland",
+        "email" : "lisa.axelsson@regionostergotland.se"
+      },
+      "accreditation" : "Åsa Skagerhult, Daniel Hall",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima, Gabriela Alves, Marivan Abrahão, Maria Angela Scatena",
+        "organisation" : "Core Consulting",
+        "email" : "contato@coreconsulting.com.br"
+      },
+      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "e6004033-c728-4fd2-bbd8-4c563558b54c",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "7BF0D8B8621C319E204339333C987A2A"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.free_text.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-free_text-002.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Hepatitis type",
+            "description" : "Free text."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Fritext",
+            "description" : "Free text."
+          }
+        },
+        "pt-br" : { },
+        "ar-sy" : { },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Hepat typ",
+            "description" : "Fritext"
+          }
+        },
+        "de" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "007bcfc4-5290-4518-8aca-0c707996a055",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Lisa Axelsson",
+        "organisation" : "Region Östergötland",
+        "email" : "lisa.axelsson@regionostergotland.se"
+      },
+      "accreditation" : "Åsa Skagerhult, Daniel Hall",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima, Gabriela Alves, Marivan Abrahão, Maria Angela Scatena",
+        "organisation" : "Core Consulting",
+        "email" : "contato@coreconsulting.com.br"
+      },
+      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "8b27d6ed-b88b-46c8-9e4c-4317caeec216",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "7BF0D8B8621C319E204339333C987A2A"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.free_text.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-free_text-003.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Other",
+            "description" : "Free text."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Decription",
+            "description" : "Free text."
+          }
+        },
+        "pt-br" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Texto livre (2)",
+            "description" : "Texto livre"
+          }
+        },
+        "ar-sy" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "نص حر (2)",
+            "description" : "نص حر"
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Annan sjukdom",
+            "description" : "Fritext"
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Beskrivning",
+            "description" : "Fritext"
+          }
+        },
+        "de" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Freitext (2)",
+            "description" : "Freitext."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "007bcfc4-5290-4518-8aca-0c707996a055",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Natalia Strauch",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "Strauch.Natalia@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Lisa Axelsson",
+        "organisation" : "Region Östergötland",
+        "email" : "lisa.axelsson@regionostergotland.se"
+      },
+      "accreditation" : "Åsa Skagerhult, Daniel Hall",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima, Gabriela Alves, Marivan Abrahão, Maria Angela Scatena",
+        "organisation" : "Core Consulting",
+        "email" : "contato@coreconsulting.com.br"
+      },
+      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "f4eda304-776c-48d4-97ac-4360a2c20b64",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "d93f22709827ee4077f6e24286fd92ff"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.follow_up_.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-follow_up_-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "6dec961c-e335-376f-bc5c-39c48c2ca3e9",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "695837e8-6bee-46c1-846f-941447159b33",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "18ababc2f1028e1ac597b5a4ae75d038"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-EVALUATION.container.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-EVALUATION.ovl-container-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "EVALUATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ITEM_TREE",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "items",
+            "children" : [ {
+              "@type" : "C_ARCHETYPE_ROOT",
+              "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..1",
+              "nodeId" : "at0004.1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ],
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-living_and_occupation_related_problems-001.v0",
+              "referenceType" : "archetypeOverlay"
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Living and work enviornment problems",
+            "description" : "Generic archetype to contain existing CLUSTER archetypes which need to be represented as standalone data."
+          }
+        },
+        "pt-br" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "28355f87-ffec-4df0-9cb8-4acd58bb36e3",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Gabriela Alves, Adriana Kitajima, Marivan Abrahao, Maria Angela Scatena",
+        "organisation" : "Core Consulting",
+        "email" : "contato@coreconsulting.com.br"
+      },
+      "accreditation" : "Hospital Alemão Oswaldo Cruz (HAOC)",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "ccea678e-35c4-4395-a7e3-6669a0e7cdd1",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "0f40bf0d3b9cdd059410256794039b8d"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.living_and_occupation_related_problems.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-living_and_occupation_related_problems-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_terms"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_terms" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_terms",
+                    "code" : "0",
+                    "value" : "Yes"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "1",
+                    "value" : "No"
+                  }, {
+                    "terminologyId" : "local_terms",
+                    "code" : "2",
+                    "value" : "Not specified"
+                  } ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "1f9e8b5e-8fe5-3086-8ee1-f875897022c2",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "406385e2-8956-4c65-a114-c93dad20b58a",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "7BF0D8B8621C319E204339333C987A2A"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.free_text.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-free_text-004.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0001.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Other interventions",
+            "description" : "Free text."
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Description",
+            "description" : "Free text."
+          }
+        },
+        "pt-br" : { },
+        "ar-sy" : { },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Annan åtgärd",
+            "description" : "Fritext"
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Beskrivning",
+            "description" : "Fritext"
+          }
+        },
         "de" : { }
       },
       "termBindings" : { },
