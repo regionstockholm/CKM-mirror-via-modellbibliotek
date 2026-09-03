@@ -34,8 +34,8 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"16cd3430617c4d06a485cd993fb21538">
 		["build_uid"] = <"1f9e8b5e-8fe5-3086-8ee1-f875897022c2">
-		["MD5-CAM-1.0.1"] = <"0f40bf0d3b9cdd059410256794039b8d">
 	>
 
 definition
@@ -45,6 +45,10 @@ definition
 				value matches {
 					DV_CODED_TEXT matches {*}
 				}
+			}
+			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Extension
+				include
+					archetype_id/value matches {/.*/}
 			}
 		}
 	}
@@ -61,6 +65,10 @@ ontology
 					text = <"Living and work enviorment probelm">
 					description = <"">
 				>
+				["at0003"] = <
+					text = <"Extension">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -71,6 +79,10 @@ ontology
 				>
 				["at0001"] = <
 					text = <"Bostad eller arbetsmiljö problem">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tilläggsinformation">
 					description = <"">
 				>
 			>
