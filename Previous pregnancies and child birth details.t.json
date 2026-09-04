@@ -19,9 +19,9 @@
       "original_namespace" : "org.openehr",
       "original_publisher" : "openEHR Foundation",
       "custodian_namespace" : "org.openehr",
-      "MD5-CAM-1.0.1" : "4defe5cda04cb58d8513272c184133e8",
+      "MD5-CAM-1.0.1" : "553f64bc3bc73c030ba7d7fd44d35334",
       "PARENT:MD5-CAM-1.0.1" : "9FC6BA2D63BE451F034CE25153F4E298",
-      "sem_ver" : "1.0.0-alpha.8",
+      "sem_ver" : "1.0.0-alpha.9",
       "build_uid" : "34d7d780-00f4-4166-a60b-6cbd71b17ac9"
     },
     "details" : {
@@ -529,6 +529,7 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "ELEMENT",
+              "occurrences" : "0..0",
               "nodeId" : "at0146.1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
@@ -537,12 +538,45 @@
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "DV_CODED_TEXT",
                   "occurrences" : "1..1",
-                  "attributes" : [ ],
-                  "attributeTuples" : [ ]
-                }, {
-                  "@type" : "C_COMPLEX_OBJECT",
-                  "rmTypeName" : "DV_COUNT",
-                  "attributes" : [ ],
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "defining_code",
+                    "children" : [ {
+                      "@type" : "C_TERMINOLOGY_CODE",
+                      "rmTypeName" : "TERMINOLOGY_CODE",
+                      "occurrences" : "0..1",
+                      "terminologyId" : {
+                        "value" : "local_terms_4"
+                      },
+                      "constraint" : [ ],
+                      "selectedTerminologies" : [ "local_terms_4" ],
+                      "includedExternalTerminologyCodes" : [ {
+                        "terminologyId" : "local_terms_4",
+                        "code" : "0",
+                        "value" : "X gravid"
+                      }, {
+                        "terminologyId" : "local_terms_4",
+                        "code" : "1",
+                        "value" : "Spontan abort"
+                      }, {
+                        "terminologyId" : "local_terms_4",
+                        "code" : "2",
+                        "value" : "Legal abort"
+                      }, {
+                        "terminologyId" : "local_terms_4",
+                        "code" : "3",
+                        "value" : "Dödfött"
+                      }, {
+                        "terminologyId" : "local_terms_4",
+                        "code" : "4",
+                        "value" : "Levande fött"
+                      }, {
+                        "terminologyId" : "local_terms_4",
+                        "code" : "5",
+                        "value" : "Ej angivet"
+                      } ]
+                    } ]
+                  } ],
                   "attributeTuples" : [ ]
                 } ]
               } ],
@@ -626,6 +660,38 @@
               "occurrences" : "0..0",
               "nodeId" : "at0094.1",
               "attributes" : [ ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "ELEMENT",
+              "nodeId" : "at0159.1",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "value",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "DV_DURATION",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_DURATION",
+                      "rmTypeName" : "DURATION",
+                      "occurrences" : "1..1",
+                      "patternedConstraint" : "PW",
+                      "constraint" : [ {
+                        "lower" : "P0D",
+                        "upper" : "P52W",
+                        "lowerIncluded" : true,
+                        "upperIncluded" : true,
+                        "lowerUnbounded" : false,
+                        "upperUnbounded" : false
+                      } ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             }, {
               "@type" : "C_COMPLEX_OBJECT",
@@ -898,6 +964,7 @@
             }, {
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "CLUSTER",
+              "occurrences" : "0..0",
               "nodeId" : "at0065.1",
               "attributes" : [ {
                 "@type" : "C_ATTRIBUTE",
@@ -959,43 +1026,19 @@
                           "includedExternalTerminologyCodes" : [ {
                             "terminologyId" : "local_terms",
                             "code" : "1",
-                            "value" : "Legal abortion",
-                            "translations" : {
-                              "sv" : "Legal abort",
-                              "en" : "Legal abortion"
-                            }
+                            "value" : "Mår idag u.a"
                           }, {
                             "terminologyId" : "local_terms",
                             "code" : "2",
-                            "value" : "Spontaneous abortion",
-                            "translations" : {
-                              "sv" : "Spontan abort",
-                              "en" : "Spontaneous abortion"
-                            }
+                            "value" : "Dött inom 7 dygn"
                           }, {
                             "terminologyId" : "local_terms",
                             "code" : "3",
-                            "value" : "Gravida X",
-                            "translations" : {
-                              "sv" : "X-gravid",
-                              "en" : "Gravida X"
-                            }
+                            "value" : "Dött senare"
                           }, {
                             "terminologyId" : "local_terms",
-                            "code" : "4",
-                            "value" : "Stillbirth",
-                            "translations" : {
-                              "sv" : "Dödfött",
-                              "en" : "Stillbirth"
-                            }
-                          }, {
-                            "terminologyId" : "local_terms",
-                            "code" : "5",
-                            "value" : "Live birth",
-                            "translations" : {
-                              "sv" : "Levande fött",
-                              "en" : "Live birth"
-                            }
+                            "code" : "0",
+                            "value" : "Ej angivet"
                           } ]
                         } ]
                       } ],
@@ -1009,6 +1052,34 @@
                   "occurrences" : "0..0",
                   "nodeId" : "at0029.1",
                   "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0037.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_CODED_TEXT",
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "defining_code",
+                        "children" : [ {
+                          "@type" : "C_TERMINOLOGY_CODE",
+                          "rmTypeName" : "TERMINOLOGY_CODE",
+                          "occurrences" : "1..1",
+                          "terminologyId" : {
+                            "value" : "local"
+                          },
+                          "constraint" : [ "ac0.10" ],
+                          "selectedTerminologies" : [ ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
                   "attributeTuples" : [ ]
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
@@ -1076,6 +1147,111 @@
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "ELEMENT",
+                  "nodeId" : "at0038.1",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "value",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "DV_QUANTITY",
+                      "defaultValue" : {
+                        "magnitude" : 0,
+                        "units" : "kg",
+                        "@type" : "DV_QUANTITY"
+                      },
+                      "attributes" : [ {
+                        "@type" : "C_ATTRIBUTE",
+                        "rmAttributeName" : "property",
+                        "children" : [ {
+                          "@type" : "C_TERMINOLOGY_CODE",
+                          "occurrences" : "0..1",
+                          "terminologyId" : {
+                            "value" : "openehr"
+                          },
+                          "constraint" : [ "124" ]
+                        } ]
+                      } ],
+                      "attributeTuples" : [ {
+                        "@type" : "C_ATTRIBUTE_TUPLE",
+                        "members" : [ {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "units",
+                          "children" : [ ]
+                        }, {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "magnitude",
+                          "children" : [ ]
+                        }, {
+                          "@type" : "C_ATTRIBUTE",
+                          "rmAttributeName" : "precision",
+                          "children" : [ ]
+                        } ],
+                        "tuples" : [ {
+                          "@type" : "C_PRIMITIVE_TUPLE",
+                          "members" : [ {
+                            "@type" : "C_STRING",
+                            "rmTypeName" : "STRING",
+                            "constraint" : [ "g" ]
+                          }, {
+                            "@type" : "C_REAL",
+                            "rmTypeName" : "REAL",
+                            "constraint" : [ {
+                              "lower" : 0.0,
+                              "upper" : 10000.0,
+                              "lowerIncluded" : true,
+                              "upperIncluded" : true,
+                              "lowerUnbounded" : false,
+                              "upperUnbounded" : false
+                            } ]
+                          }, {
+                            "@type" : "C_INTEGER",
+                            "rmTypeName" : "INTEGER",
+                            "constraint" : [ {
+                              "lower" : 0,
+                              "upper" : 0,
+                              "lowerIncluded" : true,
+                              "upperIncluded" : true,
+                              "lowerUnbounded" : false,
+                              "upperUnbounded" : false
+                            } ]
+                          } ]
+                        }, {
+                          "@type" : "C_PRIMITIVE_TUPLE",
+                          "members" : [ {
+                            "@type" : "C_STRING",
+                            "rmTypeName" : "STRING",
+                            "constraint" : [ "kg" ]
+                          }, {
+                            "@type" : "C_REAL",
+                            "rmTypeName" : "REAL",
+                            "constraint" : [ {
+                              "lower" : 0.0,
+                              "upper" : 10.0,
+                              "lowerIncluded" : true,
+                              "upperIncluded" : true,
+                              "lowerUnbounded" : false,
+                              "upperUnbounded" : false
+                            } ]
+                          }, {
+                            "@type" : "C_INTEGER",
+                            "rmTypeName" : "INTEGER",
+                            "constraint" : [ {
+                              "lower" : 1,
+                              "upper" : 1,
+                              "lowerIncluded" : true,
+                              "upperIncluded" : true,
+                              "lowerUnbounded" : false,
+                              "upperUnbounded" : false
+                            } ]
+                          } ]
+                        } ]
+                      } ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                }, {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ELEMENT",
                   "occurrences" : "0..0",
                   "nodeId" : "at0109.1",
                   "attributes" : [ ],
@@ -1117,6 +1293,7 @@
                 }, {
                   "@type" : "C_COMPLEX_OBJECT",
                   "rmTypeName" : "ELEMENT",
+                  "occurrences" : "0..0",
                   "nodeId" : "at0170.1",
                   "attributes" : [ {
                     "@type" : "C_ATTRIBUTE",
@@ -1292,6 +1469,12 @@
             "text" : "(Synthesized)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.10",
+            "description" : ""
           }
         },
         "pt-br" : {
@@ -1329,6 +1512,12 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
+            "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
             "description" : ""
           }
         },
@@ -1368,6 +1557,12 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
           }
         },
         "nb" : {
@@ -1405,6 +1600,12 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
+            "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
             "description" : ""
           }
         },
@@ -1444,6 +1645,12 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
           }
         },
         "es" : {
@@ -1482,6 +1689,12 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
             "description" : ""
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
+            "description" : ""
           }
         },
         "sv" : {
@@ -1519,6 +1732,19 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.8",
+            "description" : ""
+          },
+          "at0159.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0159.1",
+            "text" : "Gravveckor",
+            "description" : "*The gestation when the pregnancy has ended. (en)",
+            "comment" : "*Also known as 'Gestation at birth' for pregnancies resulting in viable outcomes. (en)"
+          },
+          "ac0.10" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "*(Synthesized) (en)",
+            "code" : "ac0.10",
             "description" : ""
           }
         }
@@ -1565,6 +1791,16 @@
           "@type" : "VALUE_SET",
           "id" : "ac0.8",
           "members" : [ "at0168", "at0169" ]
+        },
+        "ac0.9" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.9",
+          "members" : [ "at0113", "at0114", "at0176", "at0177" ]
+        },
+        "ac0.10" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.10",
+          "members" : [ "at0113", "at0114", "at0177" ]
         }
       }
     },
@@ -2140,7 +2376,111 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "ad352ec49e51ff69def2c7299ef904ba"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Damit wird ermöglicht bestimmte Abschnitte der Gesundheitsinformationen, die an anderer Stelle gespeichert sind, in die aktuelle Krankenakte aufzunehmen.",
+          "keywords" : [ "Zitat", "Referenz" ],
+          "use" : "Verwenden Sie diese Option, um auf Informationen zu verweisen, die an einer anderen Stelle im selben EHR oder außerhalb des aktiven EHR gespeichert sind, damit sie in das aktuelle Dokument oder die aktuelle Nachricht aufgenommen werden können, die gerade erstellt wird. Beispielsweise kann eine Entlassungszusammenfassung den zusammenfassenden Bericht eines Labortests unter Verwendung dieses Zitierarchetyps enthalten, anstatt den gesamten Laborbericht zu duplizieren.\r\nDieser Archetyp ist bewusst als Archetyp der Klasse CLUSTER konzipiert, sodass das Zitieren durch Einfügen in einen Slot im Kontext anderer Archetypen oder als eigenständige Instanz innerhalb des spezifischen Archetyps EVALUATION.citation erfolgen kann.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å gjøre det mulig å inkludere i den gjeldende pasientjournalen spesifikk helseinformasjon som er lagret andre steder.",
+          "keywords" : [ "henvisning", "refereanse" ],
+          "use" : "Brukes for å henvise til informasjon, som enten er lagret et annet sted i den elektroniske pasientjournalen (EPJ) enn det aktuelle dokumentet, eller lagret eksternt, men som det ønskes å refereres til. For eksempel kan en epikrise inkludere en referanse til et laboratoriesvar heller enn å duplisere hele laboratoriesvaret. \r\n\r\nDenne arketypen er bevist designet som en CLUSTER arketype, slik at referansen kan gjøres via en innsettingsspor (SLOT) i andre arketyper, eller som en selvstendig instans innenfor den spesifikke EVALUATION.citation arketypen.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Possibilitar que seções específicas de informações de saúde armazenadas em outros lugares sejam incluídas no registro clínico atual.",
+          "keywords" : [ "citação", "referência" ],
+          "use" : "Usado para referenciar informações que estão armazenadas em outro local do RES ou externas ao RES ativo, então essas informações podem ser incluídas no documento atual ou na mensagem que está sendo criada. Por exemplo, um sumário de alta pode incluir um relatório resumido de um teste laboratorial com o uso deste arquétipo de citação, em vez de duplicar todo o relatório laboratorial.\r\nEste arquétipo está deliberadamente projetado como uma classe de arquétipo CLUSTER de forma que a citação possa ser feita por meio de inserção em um slot dentro do contexto de outros arquétipos ou como uma instancia independente dentro do arquétipo específico EVALUATION.citation.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To enable specific sections of health information that are stored elsewhere to be included within the current clinical record.",
+          "keywords" : [ "citation", "reference" ],
+          "use" : "Use to reference information that is stored elsewhere in the same EHR or external to the active EHR, so that it can be included in the current document or message that is being created.  For example, a discharge summary may include the summary report of a laboratory test through the use of this citation archetype, rather than duplicating the whole laboratory report.\r\nThis archetype is deliberately designed as a CLUSTER class archetype so that the citation can be made via insertion into a slot within the context of other archetypes, or as a standalone instance within the specific EVALUATION.citation archetype.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "ليتمكن من تضمين المقاطع المحددة للمعلومات الطبية في داخل السجل السريري الحالي, و التي كان يتم تخزينها في مكان آخر",
+          "keywords" : [ "الاقتباس", "المرجع" ],
+          "use" : "يستخدم كمرجع للمعلومات التي يتم تخزينها في مكان آخر في داخل ذات السجل الطبي الإلكتروني, أو في خارج السجل الطبي الإلكتروني النشط, بحيث يمكن تضمينه في الوثيقة الحالية أو الرسالة التي يتم تكوينها.\r\nمثلا: قد يتضمن ملخص الخروج تقريرا موجزا لاختبار معملي عن طريق استخدام هذا النموذج الخاص بالمرجعية, بدلا من تكرار إدراج نفس التقرير المعملي.\r\nو قد تم تعمد تصميم هذا النموذج على هيئة فئة نماذج (عنقود) حتى يتم إدراج المرجعية في شرفة في سياق النماذج الأخرى, أو كمعلومة مستقلة في النموذج المخصص (تقييم. اقتباس).",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "*To enable specific sections of health information that are stored elsewhere to be included within the current clinical record.(en)",
+          "keywords" : [ "*citation(en)", "*reference(en)" ],
+          "use" : "*Use to reference information that is stored elsewhere in the same EHR or external to the active EHR, so that it can be included in the current document or message that is being created.  For example, a discharge summary may include the summary report of a laboratory test through the use of this citation archetype, rather than duplicating the whole laboratory report.\r\nThis archetype is deliberately designed as a CLUSTER class archetype so that the citation can be made via insertion into a slot within the context of other archetypes, or as a standalone instance within the specific EVALUATION.citation archetype.(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.citation.v0",
     "differential" : true,
