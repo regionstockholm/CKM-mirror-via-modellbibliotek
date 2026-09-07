@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"2924227319815856013035de4f30c66a">
+		["MD5-CAM-1.0.1"] = <"07249914a5bfcd2d154b7c75d796adc6">
 		["build_uid"] = <"2bd3f329-6873-34e6-966e-4f805eb7d9f6">
 	>
 
@@ -44,6 +44,10 @@ definition
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
 					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Keyword
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Clinical Notes
 						include
 							archetype_id/value matches {/.*/}
 					}
@@ -68,6 +72,10 @@ ontology
 					text = <"Keyword">
 					description = <"">
 				>
+				["at0003"] = <
+					text = <"Clinical Notes">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -82,6 +90,10 @@ ontology
 				>
 				["at0002"] = <
 					text = <"Sökord">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"*CLUSTER_SLOT (en)">
 					description = <"">
 				>
 			>
