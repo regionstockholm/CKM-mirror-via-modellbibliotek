@@ -1,0 +1,72 @@
+archetype (adl_version=1.4; uid=4ff18226-baa3-44dd-954f-e1c46930ce43)
+	openEHR-EHR-CLUSTER.clinical_notes_generic.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2026-09-07">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"846f702cd25af1595e78813e40a5be04">
+		["build_uid"] = <"02101db2-4f07-3d4e-94b9-f5195030de4e">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Clinical notes_generic
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..*} matches {    -- Notes text
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.generic_keyword_obx\.v1/}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Striked
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Notes
+				value matches {
+					DV_EHR_URI matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Clinical notes_generic">
+					description = <"Clinical notes_generic">
+				>
+				["at0001"] = <
+					text = <"Notes text">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Striked">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Notes">
+					description = <"">
+				>
+			>
+		>
+	>
