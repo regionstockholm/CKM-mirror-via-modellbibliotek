@@ -1,41 +1,52 @@
-﻿archetype (adl_version=1.4; uid=f271625d-30dc-46c4-8401-92c3b81a9c3e)
+archetype (adl_version=1.4; uid=f271625d-30dc-46c4-8401-92c3b81a9c3e)
 	openEHR-EHR-ADMIN_ENTRY.demographics.v0
 
 concept
-	[at0000]	-- Demographics container
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
 description
 	original_author = <
+		["date"] = <"2021-07-29">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2021-07-29">
 	>
+	lifecycle_state = <"in_development">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To contain demographic-related EHR CLUSTER archetypes when they are to be used standalone within a template, such as when they are used as a proxy for the review of demographic data in the header of a form or document template.">
-			use = <"Use within a template to contain demographic-related EHR CLUSTER archetypes to be modelled standalone in a template, such as when they are used as a proxy for the review of demographic data in the header of a form or document template.">
-			misuse = <"">
 			copyright = <"© openEHR Foundation">
+			use = <"Use within a template to contain demographic-related EHR CLUSTER archetypes to be modelled standalone in a template, such as when they are used as a proxy for the review of demographic data in the header of a form or document template.">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"B2439FE7CDCBBB0532C37A0F15FE82CD">
+		["MD5-CAM-1.0.1"] = <"a39503ce05c3a4b43ac60fd143f2c04b">
 		["build_uid"] = <"10ba36b2-aa8c-4b1a-ae11-aa5176aeb97b">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	ADMIN_ENTRY[at0000] matches {    -- Demographics container
+	ADMIN_ENTRY[at0000] matches {    -- Behållare för demografiska uppgifter
 		data matches {
 			ITEM_TREE[at0001] matches {    -- Item tree
 				items cardinality matches {0..*; unordered} matches {
@@ -48,13 +59,12 @@ definition
 		}
 	}
 
-
 ontology
 	term_definitions = <
 		["en"] = <
 			items = <
 				["at0000"] = <
-					text = <"Demographics container">
+					text = <"Behållare för demografiska uppgifter">
 					description = <"A container archetype used to hold demographic-related EHR CLUSTER archetypes.">
 				>
 				["at0001"] = <
@@ -63,6 +73,22 @@ ontology
 				>
 				["at0003"] = <
 					text = <"Person/Organisation">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Behållare för demografiska uppgifter (en)">
+					description = <"*A container archetype used to hold demographic-related EHR CLUSTER archetypes. (en)">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"*Person/Organisation (en)">
 					description = <"">
 				>
 			>
