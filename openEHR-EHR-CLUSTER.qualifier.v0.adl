@@ -1,0 +1,100 @@
+archetype (adl_version=1.4; uid=59ed5bc5-b165-47e4-8d5e-1ff579ba9af0)
+	openEHR-EHR-CLUSTER.qualifier.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-09-11">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["build_uid"] = <"10cebd26-0483-327b-8523-0200419218b4">
+		["MD5-CAM-1.0.1"] = <"1382c00c14b74ec9adeef767225128e3">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Qualifier
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Status
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Active
+							at0003]    -- Inactive
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Qualifier">
+					description = <"Qualifier">
+				>
+				["at0001"] = <
+					text = <"Status">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Active">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Inactive">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kvakificering">
+					description = <"*Qualifier (en)">
+				>
+				["at0001"] = <
+					text = <"Status">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Aktiv">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Inaktiv">
+					description = <"">
+				>
+			>
+		>
+	>
