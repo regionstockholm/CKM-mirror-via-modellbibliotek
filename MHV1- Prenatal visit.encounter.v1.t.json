@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.68",
+      "sem_ver" : "2.0.0-alpha.69",
       "build_uid" : "b09fe6d7-3496-4494-8c2b-37cc795e5747",
-      "MD5-CAM-1.0.1" : "72be866429a2cb60dc52f1831ebdc1c6",
+      "MD5-CAM-1.0.1" : "d00c6faf8d5189cc4b1a3be0a5af78af",
       "PARENT:MD5-CAM-1.0.1" : "3B0765A6B395C9D01595FDF2D440E6CB"
     },
     "details" : {
@@ -6116,23 +6116,15 @@
                         }, {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "ELEMENT",
+                          "occurrences" : "0..1",
                           "nodeId" : "at0040.1",
                           "attributes" : [ {
                             "@type" : "C_ATTRIBUTE",
                             "rmAttributeName" : "value",
                             "children" : [ {
                               "@type" : "C_COMPLEX_OBJECT",
-                              "rmTypeName" : "DV_DURATION",
-                              "attributes" : [ {
-                                "@type" : "C_ATTRIBUTE",
-                                "rmAttributeName" : "value",
-                                "children" : [ {
-                                  "@type" : "C_DURATION",
-                                  "rmTypeName" : "DURATION",
-                                  "patternedConstraint" : "PY",
-                                  "constraint" : [ ]
-                                } ]
-                              } ],
+                              "rmTypeName" : "DV_TEXT",
+                              "attributes" : [ ],
                               "attributeTuples" : [ ]
                             } ]
                           } ],
@@ -6147,7 +6139,7 @@
                         }, {
                           "@type" : "C_ARCHETYPE_ROOT",
                           "rmTypeName" : "CLUSTER",
-                          "occurrences" : "0..1",
+                          "occurrences" : "0..*",
                           "nodeId" : "at0039.1",
                           "attributes" : [ ],
                           "attributeTuples" : [ ],
@@ -6312,6 +6304,13 @@
             "code" : "at0002.1",
             "text" : "Ofrivillig barnlöshet",
             "description" : "*Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time. (en)"
+          },
+          "at0040.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0040.1",
+            "text" : "Antal år",
+            "description" : "*Indication of timing related to the issue, problem or diagnosis. (en)",
+            "comment" : "*The 'Timing' data element has deliberately been loosely modelled to support the myriad of ways that it can be used in questionnaires to capture when an issue, problem or diagnosis occured. The specific and intended semantics can be further clarified in a template. For example: the actual date and/or time; the start and stop time for when the issue, problem or diagnosis occured; the interval of time during which the issue, problem or diagnosis occured; the duration of the issue, problem or diagnosis; the age of the individual at the time of the issue, problem or diagnosis; or the duration of time since it occurred. A partial date is valid, using the DV_DATE_TIME data type, to record only a year. (en)"
           }
         }
       },
@@ -30970,6 +30969,7 @@
         "children" : [ {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..1",
           "nodeId" : "at0001.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
