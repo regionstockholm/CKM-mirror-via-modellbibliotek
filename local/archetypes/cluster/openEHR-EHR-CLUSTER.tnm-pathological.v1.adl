@@ -1,10 +1,11 @@
-﻿archetype (adl_version=1.4; uid=3c3e21f0-0141-40c0-b0c3-d9a45d133dfe)
+archetype (adl_version=1.4; uid=3c3e21f0-0141-40c0-b0c3-d9a45d133dfe)
 	openEHR-EHR-CLUSTER.tnm-pathological.v1
-specialise
+specialize
 	openEHR-EHR-CLUSTER.tnm.v1
 
 concept
-	[at0000.1]	-- TNM pathological classification
+	[at0000.1]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -25,17 +26,21 @@ language
 			>
 		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2016-08-26">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2016-08-26">
 	>
+	lifecycle_state = <"published">
+	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Heidi Aursand, Oslo universitetssykehus, Norway","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","Vegar Dagenborg, OUS, Norway","Kristin Eik, Kreftregisteret, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd. UK","Sergey Kovalenko, Chelyabinsk Regional Children Hospital, Russia","Siri Laronningen, Kreftregisteret, Norway","Liv Laugen, Oslo universitetssykehus, Norway","Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway","Miha Lenic, Marand, Slovenia","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics Ltd. UK","Bjørn Næss, DIPS ASA, Norway","SARA PRETE, Abinsula, Italy","Natalia Strauch, Medizinische Hochschule Hannover, Germany","Norwegian Review Summary, Nasjonal IKT HF, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
 	details = <
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Darstellung der pathologischen Klassifikation und die Einteilung der Malignität in Stadien anhand des TNM-Systems.">
+			keywords = <"TNM, Krebs, Tumor, pTNM, Grading, Einstufung, Malignität, Klassifikation, Einteilung, Stadium, Neoplasie", ...>
 			use = <"Zur Darstellung der pathologischen Klassifikation, als pTNM bezeichnet, und der Stadieneinteilung der Malignität.
 
 Dieser Archetyp wurde entworfen, um in einem ENTRY- ggf. einem CLUSTER-Archetyp, der einen klinischen oder pathologischen Kontext für den TNM-Datensatz bereitstellt, verschachtelt zu werden - zum Beispiel: der SLOT \"Spezifische Angaben\" im Archetyp EVALUATION.problem_diagnosis; oder verschachtelt in einem geeigneten histopathologiebezogenen CLUSTER-Archetyp im Kontext OBSERVATION.laboratory_test_result.
@@ -43,12 +48,13 @@ Dieser Archetyp wurde entworfen, um in einem ENTRY- ggf. einem CLUSTER-Archetyp,
 Jeder Krebs hat einen Satz eindeutigen pTNM-Klassifikationswerte. Dieser Archetyp kann unter Verwendung einer Spezialisierung oder eines Templates für jede Tumorentität und jede Auflage der TNM-Klassifikation weiter eingeschränkt werden, um individuelle Anforderungen zu berücksichtigen.
 
 Bei bestimmten Tumorarten wie Hodgkin-Lymphomen und anderen Non-Hodgkin-Lymphomen wird zur Bestimmung des Ausmaßes und der Prognose von Krankheiten ein anderes System verwendet. In diesem Fall wird nur die Stadieneinteilung definiert.">
-			keywords = <"TNM, Krebs, Tumor, pTNM, Grading, Einstufung, Malignität, Klassifikation, Einteilung, Stadium, Neoplasie", ...>
 			misuse = <"Nicht zur Darstellung der klinischen TNM-Klassifikation verwenden - verwenden Sie für diesen Zweck den Archetyp CLUSTER.tnm.">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å registrere patologisk klassifikasjon og gradering av maligne tumorer ved å bruke TNM-systemet.">
+			keywords = <"TNM, kreft, svulst, tumor, cTNM, gradering, staging, malignitet, klassifikasjon, gruppering, stage, neoplasi, neoplastisk vekst, metastase, spredning, canser, cancer, malign tumor, stadie, stadium, carcinoma, karsinom", ...>
+			copyright = <"© openEHR Foundation">
 			use = <"For å registrere patologisk klassifikasjon og gradering av maligne tumorer, ved å bruke TNM-systemet, betegnet som pTNM.
 
 Arketypen er laget for å benyttes i en ENTRY arketype som vil gi den kliniske eller patologiske konteksten, samt typen tumor for TNM registreringen. For eksempel: I SLOTet \"Spesifikke detaljer\" i arketypen EVALUATION.problem_diagnose (Problem/diagnose), eller nøstet i en relevant patologirelatert CLUSTER-arketype som igjen nøstes i laboratoriesvar-arketypen. (OBSERVATION.laboratory_test_result).
@@ -56,13 +62,13 @@ Arketypen er laget for å benyttes i en ENTRY arketype som vil gi den kliniske e
 Hver kreftform har et sett av unike TNM klassifikasjonsverdier. Det antas at denne arketypen blir tilpasset for å ivareta de unike kravene til hver tumortype i henhold til aktuell utgave av TNM-klassifikasjonen. Dette vil gjøres enten ved å bruke en spesialisering av arketypen eller i et templat.
 
 For noen bestemte kreftformer, som Hodgkins eller non-Hodgkins lymfom vil andre klassifikasjonssystemer benyttes for å angi omfang av sykdom eller prognose. I disse tilfellene vil kun stadium defineres.">
-			keywords = <"TNM, kreft, svulst, tumor, cTNM, gradering, staging, malignitet, klassifikasjon, gruppering, stage, neoplasi, neoplastisk vekst, metastase, spredning, canser, cancer, malign tumor, stadie, stadium, carcinoma, karsinom", ...>
 			misuse = <"Skal ikke brukes for å registrere klinisk TNM-klassifikasjon. Bruk arketypen CLUSTER.tnm (TNM-klassifikasjon klinisk) for dette formålet.">
-			copyright = <"© openEHR Foundation">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record the pathological classification and stage grouping of malignancies using the TNM system.">
+			keywords = <"TNM, cancer, tumour, pTNM, grading, staging, malignancy, classification, grouping, stage, neoplasia", ...>
+			copyright = <"© openEHR Foundation">
 			use = <"Use to record the pathological classification, designated as pTNM, and stage grouping of malignancies.
 
 This archetype has been designed to be nested inside an ENTRY or appropriate CLUSTER archetype which will provide a clinical or pathological context and the tumour type for the TNM record - for example: the 'Specific details' SLOT within the EVALUATION.problem_diagnosis archetype; or nested in an appropriate histopathology-related CLUSTER archetype within the OBSERVATION.laboratory_test_result context.
@@ -70,13 +76,9 @@ This archetype has been designed to be nested inside an ENTRY or appropriate CLU
 Each cancer has a set of unique pTNM classification values. It is expected that this archetype will be further constrained to reflect the unique requirements for each tumour and edition of the TNM classification, using either an archetype specialisation or a template.
 
 With certain types of tumours, such as Hodgkin and other non-Hodgkin lymphomas, a different system for designating the extent of disease and prognosis is used. In these circumstances only the stage group is defined.">
-			keywords = <"TNM, cancer, tumour, pTNM, grading, staging, malignancy, classification, grouping, stage, neoplasia", ...>
 			misuse = <"Not to be used to record the TNM clinical classification - use the CLUSTER.tnm archetype for this purpose.">
-			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"published">
-	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Heidi Aursand, Oslo universitetssykehus, Norway", "Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)", "Vegar Dagenborg, OUS, Norway", "Kristin Eik, Kreftregisteret, Norway", "Hildegard Franke, freshEHR Clinical Informatics Ltd. UK", "Sergey Kovalenko, Chelyabinsk Regional Children Hospital, Russia", "Siri Laronningen, Kreftregisteret, Norway", "Liv Laugen, Oslo universitetssykehus, Norway", "Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway", "Miha Lenic, Marand, Slovenia", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics Ltd. UK", "Bjørn Næss, DIPS ASA, Norway", "SARA PRETE, Abinsula, Italy", "Natalia Strauch, Medizinische Hochschule Hannover, Germany", "Norwegian Review Summary, Nasjonal IKT HF, Norway", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -268,7 +270,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
