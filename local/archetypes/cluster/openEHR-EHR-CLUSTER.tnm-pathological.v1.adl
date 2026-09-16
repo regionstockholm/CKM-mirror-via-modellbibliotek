@@ -17,6 +17,14 @@ language
 				["email"] = <"Strauch.Natalia@mh-hannover.de">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+				["name"] = <"Oscar Karlsson">
+				["organisation"] = <"Karolinska Universitetssjukhuset">
+				["email"] = <"oscar.karlsson@regionstockholm.se">
+			>
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			author = <
@@ -34,7 +42,7 @@ description
 		["organisation"] = <"Atomica Informatics">
 		["email"] = <"heather.leslie@atomicainformatics.com">
 	>
-	lifecycle_state = <"published">
+	lifecycle_state = <"in_development">
 	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Heidi Aursand, Oslo universitetssykehus, Norway","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","Vegar Dagenborg, OUS, Norway","Kristin Eik, Kreftregisteret, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd. UK","Sergey Kovalenko, Chelyabinsk Regional Children Hospital, Russia","Siri Laronningen, Kreftregisteret, Norway","Liv Laugen, Oslo universitetssykehus, Norway","Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway","Miha Lenic, Marand, Slovenia","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics Ltd. UK","Bjørn Næss, DIPS ASA, Norway","SARA PRETE, Abinsula, Italy","Natalia Strauch, Medizinische Hochschule Hannover, Germany","Norwegian Review Summary, Nasjonal IKT HF, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
 	details = <
 		["de"] = <
@@ -49,6 +57,19 @@ Jeder Krebs hat einen Satz eindeutigen pTNM-Klassifikationswerte. Dieser Archety
 
 Bei bestimmten Tumorarten wie Hodgkin-Lymphomen und anderen Non-Hodgkin-Lymphomen wird zur Bestimmung des Ausmaßes und der Prognose von Krankheiten ein anderes System verwendet. In diesem Fall wird nur die Stadieneinteilung definiert.">
 			misuse = <"Nicht zur Darstellung der klinischen TNM-Klassifikation verwenden - verwenden Sie für diesen Zweck den Archetyp CLUSTER.tnm.">
+		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"*To record the pathological classification and stage grouping of malignancies using the TNM system.(en)">
+			keywords = <"*TNM, cancer, tumour, pTNM, grading, staging, malignancy, classification, grouping, stage, neoplasia(en)", ...>
+			use = <"*Use to record the pathological classification, designated as pTNM, and stage grouping of malignancies.
+
+This archetype has been designed to be nested inside an ENTRY or appropriate CLUSTER archetype which will provide a clinical or pathological context and the tumour type for the TNM record - for example: the 'Specific details' SLOT within the EVALUATION.problem_diagnosis archetype; or nested in an appropriate histopathology-related CLUSTER archetype within the OBSERVATION.laboratory_test_result context.
+
+Each cancer has a set of unique pTNM classification values. It is expected that this archetype will be further constrained to reflect the unique requirements for each tumour and edition of the TNM classification, using either an archetype specialisation or a template.
+
+With certain types of tumours, such as Hodgkin and other non-Hodgkin lymphomas, a different system for designating the extent of disease and prognosis is used. In these circumstances only the stage group is defined.(en)">
+			misuse = <"*Not to be used to record the TNM clinical classification - use the CLUSTER.tnm archetype for this purpose.(en)">
 		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
@@ -91,9 +112,9 @@ TNM Classification Help (Manual for Cancer Staging); [cited 2019 10 04].  Availa
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"623BAC3524C44A48FA15C2EE2B4243A8">
-		["build_uid"] = <"924c8d16-72bc-4799-abe9-14b0c4c938b5">
-		["revision"] = <"1.0.3">
+		["MD5-CAM-1.0.1"] = <"9AB5DCDC6BB27C44416411463AA18A1D">
+		["build_uid"] = <"c9e1c782-6e92-4825-bd70-669a7ea1617e">
+		["revision"] = <"1.0.4-alpha">
 	>
 
 definition
@@ -942,6 +963,202 @@ ontology
 				["at0032"] = <
 					text = <"TNM Auflage">
 					description = <"Die Auflage, auf der die TNM-Klassifikation basiert, die für die Beurteilung verwendet wurde.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0.1"] = <
+					text = <"*Sentinel node (sn)(en)">
+					description = <"*Record as True if presence of metastasis within one or more sentinel node(s).(en)">
+				>
+				["at0.2"] = <
+					text = <"*Micrometastases (mi)(en)">
+					description = <"*Record as True if presence of micrometastases in the regional lymph drainage area of the primary tumour.(en)">
+				>
+				["at0.3"] = <
+					text = <"*Regional lymph node ITC(en)">
+					description = <"*Presence of isolated tumour cells (ITC) detected by H&amp;E stains or immunohistochemistry in regional lymph nodes.(en)">
+				>
+				["at0.4"] = <
+					text = <"*i-(en)">
+					description = <"*Negative morphological findings for ITC.(en)">
+				>
+				["at0.5"] = <
+					text = <"*i+(en)">
+					description = <"*Positive morphological findings for ITC.(en)">
+				>
+				["at0.6"] = <
+					text = <"*mol-(en)">
+					description = <"*Negative non-morphological findings for ITC.(en)">
+				>
+				["at0.7"] = <
+					text = <"*mol+(en)">
+					description = <"*Positive non-morphological findings for ITC.(en)">
+				>
+				["at0.8"] = <
+					text = <"*Distant metastasis ITC(en)">
+					description = <"*Presence of isolated tumour cells (ITC) detected by H&amp;E stains or immunohistochemistry as distant metastases, such as bone marrow.(en)">
+				>
+				["at0000"] = <
+					text = <"*TNM clinical classification(en)">
+					description = <"*A framework for the clinical classification and stage grouping of malignancies using the TNM system.(en)">
+				>
+				["at0000.1"] = <
+					text = <"Patologisk TNM-klassificering">
+					description = <"*A framework for the pathological classification and stage grouping of malignancies using the TNM system.(en)">
+				>
+				["at0001"] = <
+					text = <"Anatomisk lokalisation">
+					description = <"*The anatomical site where the assessed tumour is situated.(en)">
+				>
+				["at0002"] = <
+					text = <"*Anatomical subsite(en)">
+					description = <"*The anatomical subsite where the assessed tumour is situated.(en)">
+				>
+				["at0003"] = <
+					text = <"*Primary tumour (T)(en)">
+					description = <"*Assessment of the the extent of the primary tumour.(en)">
+				>
+				["at0003.1"] = <
+					text = <"Primärtumör (pT)">
+					description = <"*Assessment of the extent of the primary tumour.(en)">
+				>
+				["at0004"] = <
+					text = <"*Regional lymph nodes (N)(en)">
+					description = <"*Assessment of the the absence or presence and extent of regional lymph node metastasis.(en)">
+				>
+				["at0004.1"] = <
+					text = <"Regionala lymfkörtlar (pN)">
+					description = <"*Assessment of the absence or presence and extent of regional lymph node metastasis.(en)">
+				>
+				["at0005"] = <
+					text = <"*Distant metastasis (M)(en)">
+					description = <"*Assessment of the absence or presence of distant metastasis.(en)">
+				>
+				["at0005.1"] = <
+					text = <"Fjärrmetastaser (pM)">
+					description = <"*Assessment of the absence or presence of distant metastasis.(en)">
+				>
+				["at0006"] = <
+					text = <"*Histopathological grade (G)(en)">
+					description = <"*Histopathological grading of the tumour.(en)">
+				>
+				["at0007"] = <
+					text = <"Residualtumör (R)">
+					description = <"*Assessment of the presence of residual tumour after treatment.(en)">
+				>
+				["at0008"] = <
+					text = <"RX">
+					description = <"*Presence of residual tumour cannot be assessed.(en)">
+				>
+				["at0009"] = <
+					text = <"R0">
+					description = <"*No residual tumour.(en)">
+				>
+				["at0010"] = <
+					text = <"R1">
+					description = <"*Microscopic residual tumour.(en)">
+				>
+				["at0011"] = <
+					text = <"R2">
+					description = <"*Macroscopic residual tumour.(en)">
+				>
+				["at0012"] = <
+					text = <"*Lymphatic invasion (L)(en)">
+					description = <"*Assessment of invasion into the lymphatic system.(en)">
+				>
+				["at0013"] = <
+					text = <"*LX(en)">
+					description = <"*Lymphatic invasion cannot be assessed.(en)">
+				>
+				["at0014"] = <
+					text = <"*L0(en)">
+					description = <"*No lymphatic invasion.(en)">
+				>
+				["at0015"] = <
+					text = <"*L1(en)">
+					description = <"*Lymphatic invasion.(en)">
+				>
+				["at0016"] = <
+					text = <"*Venous invasion (V)(en)">
+					description = <"*Assessment of invasion into the venous system.(en)">
+				>
+				["at0017"] = <
+					text = <"*VX(en)">
+					description = <"*Venous invasion cannot be assessed.(en)">
+				>
+				["at0018"] = <
+					text = <"*V0(en)">
+					description = <"*No venous invasion.(en)">
+				>
+				["at0019"] = <
+					text = <"*V1(en)">
+					description = <"*Microscopic venous invasion.(en)">
+				>
+				["at0020"] = <
+					text = <"*V2(en)">
+					description = <"*Macroscopic venous invasion.(en)">
+				>
+				["at0021"] = <
+					text = <"*Perineural invasion (Pn)(en)">
+					description = <"*Assessment of invasion into the space surrounding nerves.(en)">
+				>
+				["at0022"] = <
+					text = <"*PnX(en)">
+					description = <"*Perineural invasion cannot be assessed.(en)">
+				>
+				["at0023"] = <
+					text = <"*Pn0(en)">
+					description = <"*No perineural invasion.(en)">
+				>
+				["at0024"] = <
+					text = <"*Pn1(en)">
+					description = <"*Perineural invasion.(en)">
+				>
+				["at0025"] = <
+					text = <"*Multiple primary tumours (m)(en)">
+					description = <"*Presence of multiple simultaneous primary tumours at a single site.(en)">
+				>
+				["at0025.1"] = <
+					text = <"*Multiple primary tumours (m)(en)">
+					description = <"*Presence of multiple simultaneous primary tumours at a single site.(en)">
+				>
+				["at0026"] = <
+					text = <"Multimodal behandling (y)">
+					description = <"*Record as True if assessment is performed during or following initial multimodal therapy.(en)">
+				>
+				["at0027"] = <
+					text = <"*Recurrent (r)(en)">
+					description = <"*Record as True if assessment is performed for a recurring cancer after a disease-free interval.(en)">
+				>
+				["at0028"] = <
+					text = <"*Autopsy (a)(en)">
+					description = <"*Record as True if assessment is performed at postmortem examination.(en)">
+				>
+				["at0029"] = <
+					text = <"*Carcinoma in situ (is)(en)">
+					description = <"*Record as True if presence of carcinoma in situ associated with the primary tumour.(en)">
+				>
+				["at0030"] = <
+					text = <"*TNM assessment(en)">
+					description = <"*Concatenation of 'T', 'N' and 'M' assessments plus any optional assessments of 'G', 'R', 'L', 'V', prefixes and/or suffixes, as applicable.(en)">
+				>
+				["at0030.1"] = <
+					text = <"*pTNM assessment(en)">
+					description = <"*Concatenation of 'pT', 'pN' and 'pM' assessments plus any optional assessments of 'G', 'R', 'L', 'V', prefixes and/or suffixes, as applicable.(en)">
+				>
+				["at0031"] = <
+					text = <"*Stage grouping(en)">
+					description = <"*The categorisation of the anatomical stage of the tumour, usually based on TNM assessment.(en)">
+				>
+				["at0031.1"] = <
+					text = <"Stadieindelning">
+					description = <"*The categorisation of the anatomical stage of the tumour, usually based on pTNM assessment.(en)">
+				>
+				["at0032"] = <
+					text = <"TNM-version">
+					description = <"*The edition of the TNM classification system used for the assessment.(en)">
 				>
 			>
 		>
