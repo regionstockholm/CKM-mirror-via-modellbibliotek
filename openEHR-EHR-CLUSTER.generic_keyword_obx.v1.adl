@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"83d3a12653612a0d8cc1a5a09b1195d4">
+		["MD5-CAM-1.0.1"] = <"2abab400902f7958a7699f9868b06a37">
 		["build_uid"] = <"fdc5cf6a-7d4f-34b4-a8b4-c5d5863d89e4">
 	>
 
@@ -46,10 +46,7 @@ definition
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Text
-				include
-					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.free_text\.v0/}
-			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {*}    -- Value
 			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Child node
 				include
 					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.child_node_keyword\.v1/}
@@ -73,8 +70,8 @@ ontology
 					text = <"Child node">
 					description = <"">
 				>
-				["at0003"] = <
-					text = <"Text">
+				["at0004"] = <
+					text = <"Value">
 					description = <"">
 				>
 			>
@@ -93,8 +90,8 @@ ontology
 					text = <"Undersökord">
 					description = <"">
 				>
-				["at0003"] = <
-					text = <"Text">
+				["at0004"] = <
+					text = <"Värde">
 					description = <"">
 				>
 			>
