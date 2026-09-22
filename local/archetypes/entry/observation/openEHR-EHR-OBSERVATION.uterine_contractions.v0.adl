@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=64413921-dec1-47f1-93af-d08ad2a0f913)
+archetype (adl_version=1.4; uid=64413921-dec1-47f1-93af-d08ad2a0f913)
 	openEHR-EHR-OBSERVATION.uterine_contractions.v0
 
 concept
-	[at0000]	-- Uterine contractions
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -13,32 +14,37 @@ language
 				["email"] = <"monasaleh01@live.com">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2008-07-27">
 		["name"] = <"Heather Leslie">
 		["organisation"] = <"Atomica Informatics, Australia">
 		["email"] = <"heather.leslie@atomicainformatics.com">
-		["date"] = <"2008-07-27">
 	>
+	lifecycle_state = <"in_development">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["ar-sy"] = <
 			language = <[ISO_639-1::ar-sy]>
 			purpose = <"توثيق تفاصيل التقلصات الرحمية">
-			use = <"">
-			misuse = <"">
 			copyright = <"© openEHR Foundation">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"Documenting details about uterine contractions.">
-			use = <"">
-			misuse = <"">
 			copyright = <"© openEHR Foundation">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
 		["custodian_organisation"] = <"openEHR Foundation">
@@ -46,65 +52,65 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"F7B45915CF01B2D63F8C7209569FE1E5">
+		["MD5-CAM-1.0.1"] = <"bdb217e0b874154d7ee3d010004699d4">
 		["build_uid"] = <"0531166b-6636-406f-8ecd-50e63f3c51f1">
 		["revision"] = <"0.0.1-alpha">
 	>
 
 definition
-	OBSERVATION[at0000] matches {	-- Uterine contractions
+	OBSERVATION[at0000] matches {    -- Uterine contractions
 		data matches {
-			HISTORY[at0001] matches {	-- Event Series
+			HISTORY[at0001] matches {    -- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					EVENT[at0002] occurrences matches {0..*} matches {	-- Any event
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
 						data matches {
-							ITEM_TREE[at0003] matches {	-- Tree
+							ITEM_TREE[at0003] matches {    -- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Strength
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Strength
 										value matches {
-											0|[local::at0005], 	-- Not noticable to mother
-											1|[local::at0006], 	-- Very mild
-											2|[local::at0007], 	-- Mild
-											3|[local::at0008], 	-- Moderate
-											4|[local::at0009], 	-- Strong
-											5|[local::at0010]  	-- Very strong
+											0|[local::at0005],
+											1|[local::at0006],
+											2|[local::at0007],
+											3|[local::at0008],
+											4|[local::at0009],
+											5|[local::at0010]
 										}
 									}
-									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Pattern
+									ELEMENT[at0016] occurrences matches {0..1} matches {    -- Pattern
 										value matches {
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
-													at0017, 	-- Regular
-													at0018, 	-- Irregular
-													at0019, 	-- Continuous
-													at0036]	-- Diminishing
+													at0017,    -- Regular
+													at0018,    -- Irregular
+													at0019,    -- Continuous
+													at0036]    -- Diminishing
 												}
 											}
 										}
 									}
-									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Duration
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Duration
 										value matches {
 											DV_DURATION matches {
 												value matches {PTMS}
 											}
 										}
 									}
-									ELEMENT[at0037] occurrences matches {0..1} matches {	-- Duration comment
+									ELEMENT[at0037] occurrences matches {0..1} matches {    -- Duration comment
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									CLUSTER[at0012] occurrences matches {0..1} matches {	-- Frequency
+									CLUSTER[at0012] occurrences matches {0..1} matches {    -- Frequency
 										items cardinality matches {1..*; unordered} matches {
-											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Begin every...
+											ELEMENT[at0013] occurrences matches {0..1} matches {    -- Begin every...
 												value matches {
 													DV_DURATION matches {
 														value matches {PTMS}
 													}
 												}
 											}
-											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Frequency per 10 minutes
+											ELEMENT[at0014] occurrences matches {0..1} matches {    -- Frequency per 10 minutes
 												value matches {
 													C_DV_QUANTITY <
 														property = <[openehr::382]>
@@ -116,7 +122,7 @@ definition
 													>
 												}
 											}
-											ELEMENT[at0035] occurrences matches {0..1} matches {	-- Frequency per hour
+											ELEMENT[at0035] occurrences matches {0..1} matches {    -- Frequency per hour
 												value matches {
 													C_DV_QUANTITY <
 														property = <[openehr::382]>
@@ -130,19 +136,19 @@ definition
 											}
 										}
 									}
-									ELEMENT[at0024] occurrences matches {0..1} matches {	-- Effectiveness
+									ELEMENT[at0024] occurrences matches {0..1} matches {    -- Effectiveness
 										value matches {
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
-													at0023, 	-- Not effective
-													at0025, 	-- Effective
-													at0026]	-- Expulsive
+													at0023,    -- Not effective
+													at0025,    -- Effective
+													at0026]    -- Expulsive
 												}
 											}
 										}
 									}
-									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Intra-uterine pressure
+									ELEMENT[at0015] occurrences matches {0..1} matches {    -- Intra-uterine pressure
 										value matches {
 											C_DV_QUANTITY <
 												property = <[openehr::125]>
@@ -162,21 +168,21 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0027] matches {	-- Tree
+			ITEM_TREE[at0027] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
-					ELEMENT[at0028] occurrences matches {0..1} matches {	-- Method
+					ELEMENT[at0028] occurrences matches {0..1} matches {    -- Method
 						value matches {
 							DV_CODED_TEXT matches {
 								defining_code matches {
 									[local::
-									at0029, 	-- Manual
-									at0030, 	-- Maternal report
-									at0031]	-- Tocogram
+									at0029,    -- Manual
+									at0030,    -- Maternal report
+									at0031]    -- Tocogram
 								}
 							}
 						}
 					}
-					allow_archetype CLUSTER[at0038] occurrences matches {0..*} matches {	-- Extension
+					allow_archetype CLUSTER[at0038] occurrences matches {0..*} matches {    -- Extension
 						include
 							archetype_id/value matches {/.*/}
 					}
@@ -184,7 +190,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -458,6 +463,143 @@ ontology
 				["at0038"] = <
 					text = <"*Element(en)">
 					description = <"**(en)">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Livmoderskontraktioner">
+					description = <"*The strength, duration and frequency of uterine contractions. (en)">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"*Any event (en)">
+					description = <"*Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time. (en)">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Styrka">
+					description = <"*The strength of uterine contractions. (en)">
+				>
+				["at0005"] = <
+					text = <"*Not noticable to mother (en)">
+					description = <"*The contractions are not noticable. (en)">
+				>
+				["at0006"] = <
+					text = <"*Very mild (en)">
+					description = <"*Noticable but not effective. (en)">
+				>
+				["at0007"] = <
+					text = <"*Mild (en)">
+					description = <"*Causing some sensation in the back or lower pelvis. (en)">
+				>
+				["at0008"] = <
+					text = <"*Moderate (en)">
+					description = <"*Causing discomfort or strong pressure in the back or lower pelvis. (en)">
+				>
+				["at0009"] = <
+					text = <"*Strong (en)">
+					description = <"*Fully active uterus during labour. (en)">
+				>
+				["at0010"] = <
+					text = <"*Very strong (en)">
+					description = <"*Possibly excessively strong contractions. (en)">
+				>
+				["at0011"] = <
+					text = <"Duration">
+					description = <"*The duration of the contractions. (en)">
+				>
+				["at0012"] = <
+					text = <"Frekvens">
+					description = <"*A group of frequency statements. (en)">
+				>
+				["at0013"] = <
+					text = <"Börjar var ...">
+					description = <"*The time from the begining of one contraction to the beginning of the next. (en)">
+				>
+				["at0014"] = <
+					text = <"Frekvens per 10 minuter">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Intrauterint tryck">
+					description = <"*The peak intra-uterine pressure during the contraction. (en)">
+				>
+				["at0016"] = <
+					text = <"Mönster">
+					description = <"*The rhythm of the contractions. (en)">
+				>
+				["at0017"] = <
+					text = <"*Regular (en)">
+					description = <"*The contractions are regular or equally spaced. (en)">
+				>
+				["at0018"] = <
+					text = <"*Irregular (en)">
+					description = <"*The contractions are irregular or at different intervals. (en)">
+				>
+				["at0019"] = <
+					text = <"*Continuous (en)">
+					description = <"*The uterus is not relaxing between contractions. (en)">
+				>
+				["at0023"] = <
+					text = <"*Not effective (en)">
+					description = <"*Contractions are not effective. (en)">
+				>
+				["at0024"] = <
+					text = <"Effektivitet">
+					description = <"*The effectiveness of the contractions. (en)">
+				>
+				["at0025"] = <
+					text = <"*Effective (en)">
+					description = <"*Contractions are effective. (en)">
+				>
+				["at0026"] = <
+					text = <"*Expulsive (en)">
+					description = <"*Uterine contractions are expelling the baby. (en)">
+				>
+				["at0027"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0028"] = <
+					text = <"Metod">
+					description = <"*The method used to determine the uterine contraction features. (en)">
+				>
+				["at0029"] = <
+					text = <"*Manual (en)">
+					description = <"*By palpation. (en)">
+				>
+				["at0030"] = <
+					text = <"*Maternal report (en)">
+					description = <"*By the subjects report. (en)">
+				>
+				["at0031"] = <
+					text = <"*Tocogram (en)">
+					description = <"*Measurement with a tocogram. (en)">
+				>
+				["at0035"] = <
+					text = <"Frekvens per timme">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"*Diminishing (en)">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Kommentar om duration">
+					description = <"*A textual comment on the duration of contractions - e.g. '10 to 20 seconds'. (en)">
+				>
+				["at0038"] = <
+					text = <"Tilläggsinformation">
+					description = <"*Additional information required to capture local content or to align with other reference models/formalisms. (en)">
+					comment = <"*For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents. (en)">
 				>
 			>
 		>
