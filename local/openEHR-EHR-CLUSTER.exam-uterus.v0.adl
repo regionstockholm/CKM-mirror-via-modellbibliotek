@@ -57,6 +57,17 @@ language
 				["email"] = <"juliodesosa@catsalut.cat">
 			>
 		>
+		["ca"] = <
+			language = <[ISO_639-1::ca]>
+			author = <
+				["name"] = <"Laura Moral López">
+				["organisation"] = <"Sistema de Salut de Catalunya">
+				["email"] = <"lauramoral@catsalut.cat">
+			>
+			other_details = <
+				["other_contributors"] = <"Tradcrea">
+			>
+		>
 	>
 
 description
@@ -209,6 +220,24 @@ Not to be used for recording the clinical history - use specific OBSERVATION and
 
 Not to be used for recording the results of an imaging examination - use the CLUSTER.imaging_exam family of archetypes for this purpose. (en)">
 		>
+		["ca"] = <
+			language = <[ISO_639-1::ca]>
+			purpose = <"Registrar les troballes observades durant l'examen físic del cos o estructura anatòmica.">
+			use = <"S'utilitza per registrar les troballes observades durant l'examen físic del cos o estructura anatòmica.
+
+Aquest arquetip ha estat dissenyat específicament per a ser utilitzat en el SLOT 'Examination detail' dins de l'OBSERVATION.exam o del SLOT \"Procedure detail\" dins de l'arquetip ACTION.procedure, però també es pot utilitzar dins d'altres arquetips ENTRY o CLUSTER, quan sigui clínicament apropiat. Les especialitzacions d'aquest arquetip s'utilitzaran per registrar els resultats de l'examen per a sistemes corporals identificats, estructures anatòmiques o llocs corporals més precisos. Cada especialització preservarà com a base l'estructura subjacent d'aquest arquetip general i s'ampliarà mitjançant l'addició d'elements específics al cos. Si no hi ha una especialització adequada disponible, utilitzeu aquest arquetip i identifiqueu el sistema o estructura que s'està examinant utilitzant l'element de dades \"Sistema o estructura examinada\" i la ubicació en el cos utilitzant l'element de dades \"lloc del cos\" o la RANURA \"lloc del cos estructurat\".
+
+La interpretació de les troballes, per exemple 'No s'ha detectat cap anormalitat' o 'inflamació present moderada', es pot registrar utilitzant l'element de dades 'interpretació clínica'.
+
+S'utilitza per proporcionar un marc en el qual els arquetips de CLUSTER poden ser afegits en el SLOT \"Troballes de l'examen\" per registrar resultats d'un examen físic estructurats addicionals.
+
+L'arquetip CLUSTER.exclusion_exam es pot afegir dins del SLOT 'Examen no realitzat' per tal de registrar opcionalment detalls explícits sobre l'examen que no s'està realitzant.
+
+Incorporar les descripcions narratives de les troballes clíniques dins dels sistemes clínics existents o llegats en un format arquetipat, utilitzant l'element de dades de \"Descripció clínica\".">
+			misuse = <"No s'ha d'utilitzar per registrar la història clínica - utilitzar els arquetipis OBSERVATION i CLUSTER. Exemple: OBSERVATION.story i CLUSTER.symptom_sign.
+
+No s'ha d'utilitzar per registrar els resultats d'un examen d'imatge - utilitzar la família d'arquetips CLUSTER.imaging_exam per a aquest propòsit.">
+		>
 	>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
@@ -217,7 +246,7 @@ Not to be used for recording the results of an imaging examination - use the CLU
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"D26D96AFD939C883256DC2B3089A5F89">
+		["MD5-CAM-1.0.1"] = <"f204e9d8fa1dcba23b10a5247f1481fe">
 		["build_uid"] = <"d81c83c2-7325-4040-b515-331897801ec4">
 		["ip_acknowledgements"] = <"This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org.">
 		["revision"] = <"0.0.1-alpha">
@@ -248,6 +277,28 @@ definition
 				value matches {
 					DV_TEXT matches {*}
 				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Examination findings
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Multimedia representation
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.media_file(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[at0006] occurrences matches {0..*} matches {    -- Clinical interpretation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Examination not done
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exclusion_exam(-[a-zA-Z0-9_]+)*\.v1/}
 			}
 			ELEMENT[at0.1] occurrences matches {0..1} matches {    -- Length
 				value matches {
@@ -344,28 +395,6 @@ definition
 						}
 					}
 				}
-			}
-			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Examination findings
-				include
-					archetype_id/value matches {/openEHR-EHR-CLUSTER\.fetus_abdominal\.v0/}
-			}
-			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Multimedia representation
-				include
-					archetype_id/value matches {/openEHR-EHR-CLUSTER\.media_file(-[a-zA-Z0-9_]+)*\.v1/}
-			}
-			ELEMENT[at0006] occurrences matches {0..*} matches {    -- Clinical interpretation
-				value matches {
-					DV_TEXT matches {*}
-				}
-			}
-			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
-				value matches {
-					DV_TEXT matches {*}
-				}
-			}
-			allow_archetype CLUSTER[at0008] occurrences matches {0..*} matches {    -- Examination not done
-				include
-					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exclusion_exam(-[a-zA-Z0-9_]+)*\.v1/}
 			}
 		}
 	}
@@ -1040,113 +1069,113 @@ ontology
 		["sv"] = <
 			items = <
 				["at0000.1"] = <
-					text = <"*Examination of the uterus (en)">
+					text = <"Livmodersundersökning">
 					description = <"*Findings observed during the palpation of the uterus. (en)">
 				>
 				["at0.1"] = <
-					text = <"*Length (en)">
+					text = <"Längd">
 					description = <"*The estimated length from the fundus to the cervix. (en)">
 					comment = <"*Measured in centimetres. (en)">
 				>
 				["at0.2"] = <
-					text = <"*Size estimation (en)">
+					text = <"Storleksbedömning">
 					description = <"*Size estimation of the uterus. (en)">
 					comment = <"*An estimation of uterine size based on physical examination, documented as either a narrative description or a comparative estimate related to size of a pregnant uterus, such as '10 weeks'. These comparisons refer to the typical uterine size at specific stages of pregnancy and provide a standardised reference framework. Alternatively, locally recognised size descriptors, such as 'orange' or 'tennis ball' may be added to the DV_TEXT data type in a template to support a predefined list of terms. (en)">
 				>
 				["at0.3"] = <
-					text = <"*Fundal height (en)">
+					text = <"Symfys–fundusmått (SF-mått)">
 					description = <"*The vertical distance from the symphysis pubis to the top of the pregnant uterine fundus. (en)">
 					comment = <"*Usually only possible in pregnancy after approximately 20 weeks of gestation. This can be recorded as the measured distance or by identifying the height of the uterine fundus relative to identifiable anatomical landmarks, such as  the pubic symphysis, umbilicus, xiphoid process). (en)">
 				>
 				["at0.4"] = <
-					text = <"*Not palpable (en)">
-					description = <"*Uterus is not palpable in the abdomen. (en)">
+					text = <"Ej palpabel">
+					description = <"Livmodern kan inte palperas genom buken.">
 				>
 				["at0.5"] = <
-					text = <"*At public symphsis (en)">
-					description = <"*The uterus is just palpable at the level of the symphysis pubis. (en)">
+					text = <"Vid symfysen">
+					description = <"Livmodern är precis palpabel i nivå med symfysen.">
 				>
 				["at0.6"] = <
-					text = <"*At umbilicus (en)">
-					description = <"*The uterus is palpable at, or about, the level of the umbilicus. (en)">
+					text = <"Vid naveln">
+					description = <"Livmodern är palpabel i nivå med eller ungefär i höjd med naveln.">
 				>
 				["at0.7"] = <
-					text = <"*At xiphisternum (en)">
-					description = <"*The uterus is palpable at, or about, the level of the xiphisternum. (en)">
+					text = <"Vid processus xiphoideus (svärdsspetsen)">
+					description = <"Livmodern är palpabel i nivå med eller ungefär i höjd med processus xiphoideus (svärdsspetsen).">
 				>
 				["at0.12"] = <
-					text = <"*Mobility (en)">
+					text = <"Rörlighet">
 					description = <"*The degree to which the uterus can be displaced during bimanual examination, reflecting its freedom of movement within the pelvis. (en)">
 				>
 				["at0.13"] = <
-					text = <"*Mobile (en)">
-					description = <"*The uterus moves freely in response to gentle pressure during bimanual palpation, without resistance or pain. (en)">
+					text = <"Rörlig">
+					description = <"Livmodern kan förflyttas fritt vid försiktig palpation med två händer, utan motstånd eller smärta.">
 				>
 				["at0.14"] = <
-					text = <"*LImited (en)">
-					description = <"*The uterus can be displaced on bimanual palpation but with some resistance or reduced range of motion. (en)">
+					text = <"Begränsad rörlighet">
+					description = <"Livmodern kan förflyttas vid palpation med två händer, men med visst motstånd eller begränsat rörelseomfång.">
 				>
 				["at0.15"] = <
-					text = <"*Fixed (en)">
-					description = <"*The uterus does not move or is unable to be displaced on bimanual palpation. (en)">
+					text = <"Fixerad">
+					description = <"Livmodern kan inte förflyttas eller är oförskjutbar vid palpation med två händer">
 				>
 				["at0.8"] = <
-					text = <"*Tenderness (en)">
+					text = <"Ömhet">
 					description = <"*The presence or absence of pain elicited during bimanual palpation of the uterus. (en)">
 				>
 				["at0.9"] = <
-					text = <"*Present (en)">
-					description = <"*Pain is elicited on bimanual palpation of the uterus. (en)">
+					text = <"Förekommer">
+					description = <"Smärta framkallas vid palpation med två händer av livmodern.">
 				>
 				["at0.10"] = <
-					text = <"*Absent (en)">
-					description = <"*No pain is elicited on bimanual palpation of the uterus. (en)">
+					text = <"Förekommer inte">
+					description = <"Ingen smärta framkallas vid palpation med två händer av livmodern.">
 				>
 				["at0.11"] = <
-					text = <"*Tenderness decription (en)">
+					text = <"Beskrivning av ömhet">
 					description = <"*Narrative description about findings of pain or tenderness of the uterus. (en)">
 					comment = <"*For e.g. Tenderness present on anterior uterine wall, elicited during bimanual palpation, described by the patient as sharp and localized. (en)">
 				>
 				["at0.16"] = <
-					text = <"*Shape (en)">
+					text = <"Livmoderns form">
 					description = <"*The overall anatomical contour of the uterus as assessed during bimanual palpation. (en)">
 					comment = <"*For eg. Normal pear-shaped uterus. (en)">
 				>
 				["at0.17"] = <
-					text = <"*Consistency (en)">
+					text = <"Livmoderns konsistens">
 					description = <"*Narrative description about the texture and firmness of the uterus. (en)">
 				>
 				["at0.18"] = <
-					text = <"*Version (en)">
-					description = <"*The orientation of the cervix relative to the vagina. (en)">
+					text = <"Version">
+					description = <"Livmoderhalsens position i förhållande till vagina.">
 				>
 				["at0.19"] = <
-					text = <"*Anteverted (en)">
-					description = <"*The cervix tilts forward toward the bladder. (en)">
+					text = <"Anteverterad">
+					description = <"Cervix är riktad framåt mot urinblåsan.">
 				>
 				["at0.20"] = <
-					text = <"*Neutral (en)">
-					description = <"*The cervix is roughly in line with the vagina. (en)">
+					text = <"Neutral">
+					description = <"Cervix är ungefär i linje med vagina.">
 				>
 				["at0.21"] = <
-					text = <"*Retroverted (en)">
-					description = <"*The cervix tilts backward toward the rectum. (en)">
+					text = <"Retroverterad">
+					description = <"Cervix är riktad bakåt mot ändtarmen.">
 				>
 				["at0.22"] = <
-					text = <"*Flexion (en)">
+					text = <"Flexion">
 					description = <"*The orientation of the vagina relative to the cervix. (en)">
 				>
 				["at0.23"] = <
-					text = <"*Anteflexed (en)">
-					description = <"*The body of the uterus bends forward over the bladder. (en)">
+					text = <"Anteflekterad">
+					description = <"Livmoderkroppen är framåtböjd över urinblåsan.">
 				>
 				["at0.24"] = <
-					text = <"*Midflexed (en)">
-					description = <"*The body is aligned with the cervix. (en)">
+					text = <"Mittställd">
+					description = <"Livmoderkroppen är riktad i linje med cervix.">
 				>
 				["at0.25"] = <
-					text = <"*Retroflexed (en)">
-					description = <"*The body of the uterus bends backward toward the rectum. (en)">
+					text = <"Retroflekterad">
+					description = <"Livmoderkroppen är bakåtböjd mot ändtarmen.">
 				>
 				["at0001.1"] = <
 					text = <"System eller struktur som undersökts">
@@ -1154,7 +1183,7 @@ ontology
 					comment = <"Om möjligt, koda systemet eller strukturen med hjälp av ett terminologisystem.">
 				>
 				["at0.36"] = <
-					text = <"*Uterus (en)">
+					text = <"Livmodern">
 					description = <"">
 				>
 				["at0000"] = <
@@ -1490,48 +1519,214 @@ ontology
 					description = <"">
 				>
 				["at0000"] = <
-					text = <"*Physical examination findings (en)">
-					description = <"*Findings observed during the physical examination of a body system or anatomical structure.(en)">
+					text = <"Hallazgos de la exploración física">
+					description = <"Hallazgos observados durante la exploración física de un sistema corporal o estructura anatómica.">
 				>
 				["at0001"] = <
-					text = <"*System or structure examined(en)">
-					description = <"*Identification of the examined body system or anatomical structure.(en)">
-					comment = <"*Coding of the system or structure examined with a terminology is preferred, where possible.(en)">
+					text = <"Sistema o estructura examinada">
+					description = <"Identificación del sistema corporal o estructura anatómica examinados.">
+					comment = <"Se prefiere, siempre que sea posible, codificar el sistema o la estructura examinada con una terminología.">
 				>
 				["at0003"] = <
-					text = <"*Clinical description(en)">
-					description = <"*Narrative description of the overall findings observed during the physical examination.(en)">
+					text = <"Descripción clínica">
+					description = <"Descripción narrativa de los hallazgos generales observados durante la exploración física.">
 				>
 				["at0004"] = <
-					text = <"*Examination findings(en)">
-					description = <"*Structured details about the physical examination findings.(en)">
+					text = <"Hallazgos de la exploración">
+					description = <"Detalles estructurados sobre los hallazgos de la exploración física.">
 				>
 				["at0005"] = <
-					text = <"*Multimedia representation(en)">
-					description = <"*Digital image, video or diagram representing the physical examination findings.(en)">
+					text = <"Representación multimedia">
+					description = <"Imagen digital, video o diagrama que representa los hallazgos de la exploración física.">
 				>
 				["at0006"] = <
-					text = <"*Clinical interpretation(en)">
-					description = <"*Single word, phrase or brief description that represents the clinical meaning and significance of the physical examination findings.(en)">
-					comment = <"*For example: 'No abnormality detected' or 'Moderate inflammation present'. Coding of the 'Clinical interpretation' with a terminology is preferred, where possible.(en)">
+					text = <"Interpretación clínica">
+					description = <"Palabra, frase o descripción breve que representa el significado clínico y la importancia de los hallazgos de la exploración física.">
+					comment = <"Por ejemplo: \"No se detecta ninguna anomalía\" o \"Inflamación moderada\". Se prefiere codificar la \"Interpretación clínica\" con una terminología, siempre que sea posible.">
 				>
 				["at0007"] = <
-					text = <"*Comment(en)">
-					description = <"*Additional narrative about the physical examination findings, not captured in other fields.(en)">
+					text = <"Comentario">
+					description = <"Narración adicional sobre los hallazgos de la exploración física, no registrada en otros campos.">
 				>
 				["at0008"] = <
-					text = <"*Examination not done(en)">
-					description = <"*Details to explicitly record that this examination was not performed.(en)">
+					text = <"Examen no realizado">
+					description = <"Detalles para registrar explícitamente que esta exploración no se realizó.">
 				>
 				["at0011"] = <
-					text = <"*Structured body site(en)">
-					description = <"*A structured description of the area of the body under examination.(en)">
-					comment = <"*If the body site has been fully identified in the 'System or structure examined' or the 'Body site' data element, this SLOT becomes redundant.(en)">
+					text = <"Zona corporal estructurada">
+					description = <"Descripción estructurada de la zona del cuerpo examinada.">
+					comment = <"Si la zona corporal se ha identificado completamente en los elementos de datos «Sistema o estructura examinada» o «Zona corporal», esta ranura se vuelve redundante.">
 				>
 				["at0012"] = <
-					text = <"*Body site(en)">
-					description = <"*Identification of the area of the body under examination. (en)">
-					comment = <"*For example examination of a specific area of skin. If the body site has been fully identified in the 'System or structure examined' data element, this data element becomes redundant. (en)">
+					text = <"Zona corporal">
+					description = <"Identificación de la zona del cuerpo examinada.">
+					comment = <"Por ejemplo, el examen de una zona específica de la piel. Si la zona corporal se ha identificado completamente en los elementos de datos «Sistema o estructura examinada», este elemento se vuelve redundante.">
+				>
+			>
+		>
+		["ca"] = <
+			items = <
+				["at0000.1"] = <
+					text = <"Resultats de l'examen físic">
+					description = <"Troballes observades durant l'examen físic d'un sistema corporal o estructura anatòmica.">
+				>
+				["at0.1"] = <
+					text = <"Length">
+					description = <"The estimated length from the fundus to the cervix.">
+					comment = <"Measured in centimetres.">
+				>
+				["at0.2"] = <
+					text = <"Size estimation">
+					description = <"Size estimation of the uterus.">
+					comment = <"An estimation of uterine size based on physical examination, documented as either a narrative description or a comparative estimate related to size of a pregnant uterus, such as '10 weeks'. These comparisons refer to the typical uterine size at specific stages of pregnancy and provide a standardised reference framework. Alternatively, locally recognised size descriptors, such as 'orange' or 'tennis ball' may be added to the DV_TEXT data type in a template to support a predefined list of terms.">
+				>
+				["at0.3"] = <
+					text = <"Fundal height">
+					description = <"The vertical distance from the symphysis pubis to the top of the pregnant uterine fundus.">
+					comment = <"Usually only possible in pregnancy after approximately 20 weeks of gestation. This can be recorded as the measured distance or by identifying the height of the uterine fundus relative to identifiable anatomical landmarks, such as  the pubic symphysis, umbilicus, xiphoid process).">
+				>
+				["at0.4"] = <
+					text = <"Not palpable">
+					description = <"Uterus is not palpable in the abdomen.">
+				>
+				["at0.5"] = <
+					text = <"At public symphsis">
+					description = <"The uterus is just palpable at the level of the symphysis pubis.">
+				>
+				["at0.6"] = <
+					text = <"At umbilicus">
+					description = <"The uterus is palpable at, or about, the level of the umbilicus.">
+				>
+				["at0.7"] = <
+					text = <"At xiphisternum">
+					description = <"The uterus is palpable at, or about, the level of the xiphisternum.">
+				>
+				["at0.12"] = <
+					text = <"Mobility">
+					description = <"The degree to which the uterus can be displaced during bimanual examination, reflecting its freedom of movement within the pelvis.">
+				>
+				["at0.13"] = <
+					text = <"Mobile">
+					description = <"The uterus moves freely in response to gentle pressure during bimanual palpation, without resistance or pain.">
+				>
+				["at0.14"] = <
+					text = <"LImited">
+					description = <"The uterus can be displaced on bimanual palpation but with some resistance or reduced range of motion.">
+				>
+				["at0.15"] = <
+					text = <"Fixed">
+					description = <"The uterus does not move or is unable to be displaced on bimanual palpation.">
+				>
+				["at0.8"] = <
+					text = <"Tenderness">
+					description = <"The presence or absence of pain elicited during bimanual palpation of the uterus.">
+				>
+				["at0.9"] = <
+					text = <"Present">
+					description = <"Pain is elicited on bimanual palpation of the uterus.">
+				>
+				["at0.10"] = <
+					text = <"Absent">
+					description = <"No pain is elicited on bimanual palpation of the uterus.">
+				>
+				["at0.11"] = <
+					text = <"Tenderness decription">
+					description = <"Narrative description about findings of pain or tenderness of the uterus.">
+					comment = <"For e.g. Tenderness present on anterior uterine wall, elicited during bimanual palpation, described by the patient as sharp and localized.">
+				>
+				["at0.16"] = <
+					text = <"Shape">
+					description = <"The overall anatomical contour of the uterus as assessed during bimanual palpation.">
+					comment = <"For eg. Normal pear-shaped uterus.">
+				>
+				["at0.17"] = <
+					text = <"Consistency">
+					description = <"Narrative description about the texture and firmness of the uterus.">
+				>
+				["at0.18"] = <
+					text = <"Version">
+					description = <"The orientation of the cervix relative to the vagina.">
+				>
+				["at0.19"] = <
+					text = <"Anteverted">
+					description = <"The cervix tilts forward toward the bladder.">
+				>
+				["at0.20"] = <
+					text = <"Neutral">
+					description = <"The cervix is roughly in line with the vagina.">
+				>
+				["at0.21"] = <
+					text = <"Retroverted">
+					description = <"The cervix tilts backward toward the rectum.">
+				>
+				["at0.22"] = <
+					text = <"Flexion">
+					description = <"The orientation of the vagina relative to the cervix.">
+				>
+				["at0.23"] = <
+					text = <"Anteflexed">
+					description = <"The body of the uterus bends forward over the bladder.">
+				>
+				["at0.24"] = <
+					text = <"Midflexed">
+					description = <"The body is aligned with the cervix.">
+				>
+				["at0.25"] = <
+					text = <"Retroflexed">
+					description = <"The body of the uterus bends backward toward the rectum.">
+				>
+				["at0001.1"] = <
+					text = <"Sistema o estructura examinada">
+					description = <"Identificació del sistema corporal examinat o estructura anatòmica.">
+					comment = <"Preferiblement utilitzar la codificació del sistema o estructura examinada amb una terminologia, sempre que sigui possible.">
+				>
+				["at0.36"] = <
+					text = <"Uterus">
+					description = <"">
+				>
+				["at0000"] = <
+					text = <"Resultats de l'examen físic">
+					description = <"Troballes observades durant l'examen físic d'un sistema corporal o estructura anatòmica.">
+				>
+				["at0001"] = <
+					text = <"Sistema o estructura examinada">
+					description = <"Identificació del sistema corporal examinat o estructura anatòmica.">
+					comment = <"Preferiblement utilitzar la codificació del sistema o estructura examinada amb una terminologia, sempre que sigui possible.">
+				>
+				["at0003"] = <
+					text = <"Descripció clínica">
+					description = <"Descripció narrativa dels resultats globals observats durant l'examen físic.">
+				>
+				["at0004"] = <
+					text = <"Resultats de l'examen">
+					description = <"Detalls estructurats sobre els resultats de l'examen físic.">
+				>
+				["at0005"] = <
+					text = <"Representació multimèdia">
+					description = <"Imatge digital, vídeo o diagrama que representa els resultats de l'examen físic.">
+				>
+				["at0006"] = <
+					text = <"Interpretació clínica">
+					description = <"Paraula única, frase o breu descripció que representa el significat clínic i la significació de les troballes de l'examen físic.">
+					comment = <"Exemple: 'No s'ha detectat cap anormalitat' o 'inflamació present moderada'. Es prefereix la codificació de la \"interpretació clínica\" amb una terminologia, sempre que sigui possible.">
+				>
+				["at0007"] = <
+					text = <"Comentari">
+					description = <"Narrativa addicional sobre els resultats de l'examen físic, no capturada en altres camps.">
+				>
+				["at0008"] = <
+					text = <"Examen no realitzat">
+					description = <"Detalls per registrar explícitament que aquest examen no es va realitzar.">
+				>
+				["at0011"] = <
+					text = <"Part del cos estructurada">
+					description = <"Descripció estructurada de l'àrea del cos objecte d'examen.">
+					comment = <"Si el lloc del cos ha estat completament identificat en el \"Sistema o estructura examinada\" o l'element de dades del \"lloc cos\", aquest SLOT es torna redundant.">
+				>
+				["at0012"] = <
+					text = <"Part del cos">
+					description = <"Identificació de l'àrea de l'organisme objecte d'examen.">
+					comment = <"Exemple: l'examen d'una àrea específica de la pell. Si el lloc del cos ha estat completament identificat en l'element de dades \"Sistema o estructura examinada\", aquest element de dades esdevé redundant.">
 				>
 			>
 		>
