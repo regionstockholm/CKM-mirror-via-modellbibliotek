@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.27",
+      "sem_ver" : "1.0.0-alpha.28",
       "build_uid" : "98bd954e-ea2c-4231-8dc6-0fac612956c9",
-      "MD5-CAM-1.0.1" : "686712ca70e58bdaa2a960ced398b370",
+      "MD5-CAM-1.0.1" : "215c1f00e099b6aec410a51d38373b18",
       "PARENT:MD5-CAM-1.0.1" : "3B0765A6B395C9D01595FDF2D440E6CB"
     },
     "details" : {
@@ -321,6 +321,15 @@
         "attributes" : [ ],
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-SECTION.ovl-adhoc-008.v1",
+        "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "SECTION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.57",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-SECTION.ovl-adhoc-007.v1",
         "referenceType" : "archetypeOverlay"
       } ]
     } ],
@@ -1272,7 +1281,7 @@
         "children" : [ {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "OBSERVATION",
-          "occurrences" : "0..1",
+          "occurrences" : "0..*",
           "nodeId" : "at0.3",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -1998,7 +2007,7 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "c93e31abc1806c5374de6b9da1213e7d"
+        "PARENT:MD5-CAM-1.0.1" : "f555cf447003cbb527391b694346036f"
       },
       "details" : {
         "ar-sy" : {
@@ -2239,20 +2248,7 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ {
-                            "@type" : "C_ATTRIBUTE",
-                            "rmAttributeName" : "defining_code",
-                            "children" : [ {
-                              "@type" : "C_TERMINOLOGY_CODE",
-                              "rmTypeName" : "TERMINOLOGY_CODE",
-                              "occurrences" : "1..1",
-                              "terminologyId" : {
-                                "value" : "local"
-                              },
-                              "constraint" : [ "ac0.6" ],
-                              "selectedTerminologies" : [ ]
-                            } ]
-                          } ],
+                          "attributes" : [ ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
@@ -2386,12 +2382,6 @@
             "text" : "(Synthesized)",
             "code" : "ac0.1",
             "description" : ""
-          },
-          "ac0.6" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.6",
-            "description" : ""
           }
         },
         "ar-sy" : {
@@ -2400,12 +2390,6 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.1",
             "description" : ""
-          },
-          "ac0.6" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.6",
-            "description" : ""
           }
         },
         "sv" : {
@@ -2413,12 +2397,6 @@
             "@type" : "ARCHETYPE_TERM",
             "text" : "(Synthesized)",
             "code" : "ac0.1",
-            "description" : ""
-          },
-          "ac0.6" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.6",
             "description" : ""
           }
         }
@@ -2469,6 +2447,26 @@
         "ac0.10" : {
           "@type" : "VALUE_SET",
           "id" : "ac0.10",
+          "members" : [ ]
+        },
+        "ac0.12" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.12",
+          "members" : [ "at0023", "at0025", "at0026" ]
+        },
+        "ac0.13" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.13",
+          "members" : [ ]
+        },
+        "ac0.14" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.14",
+          "members" : [ ]
+        },
+        "ac0.15" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.15",
           "members" : [ ]
         }
       }
@@ -5175,7 +5173,7 @@
                     }, {
                       "@type" : "C_ARCHETYPE_ROOT",
                       "rmTypeName" : "CLUSTER",
-                      "occurrences" : "0..1",
+                      "occurrences" : "0..*",
                       "nodeId" : "at0005.1",
                       "attributes" : [ ],
                       "attributeTuples" : [ ],
@@ -13711,556 +13709,6 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "12c72f4c-98d9-4545-8414-bea1a85a69c5",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "11722D1648956DB241F8FD1043ECBEA8"
-      },
-      "details" : {
-        "de" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "de"
-          },
-          "purpose" : "Zur Dokumentation einer nicht durchgeführten körperlichen Untersuchung oder eines nicht durchgeführten klinischen Tests.",
-          "keywords" : [ "Ausschluss", "Behandlung", "Untersuchung", "durchgeführt", "abgeschlossen" ],
-          "use" : "Um zu dokumentieren, dass eine körperliche Untersuchung oder ein klinischer Test nicht durchgeführt wurde. Optional kann der Grund angegeben werden.\r\n\r\nZur Dokumentation einer Untersuchung oder einzelner Komponenten einer Untersuchung die nicht durchgeführt wurde(n). Der Archetyp kann nicht als eigenständiger Archetyp verwendet werden. Er kann innerhalb eines EXAMINATION-Archetyps, der den Kontext für die durchzuführende Untersuchung liefert, verwendet werden. Beispielsweise ermöglicht das Einfügen dieses Archetyps in den EXAMINATION-Detail SLOT innerhalb der OBSERVATION.exam-Klasse, die Dokumentation, dass keine körperliche Untersuchung durchgeführt wurde. Das Einfügen dieses Archetyps in den Details-SLOT eines untersuchungsbezogenen CLUSTER-Archetyps, wie z.B. CLUSTER.exam_eye_pupil, ermöglicht die Dokumentation, dass nur die Untersuchung einer Pupille stattgefunden hat. Die zweite Pupille konnte, z.B. durch eine Gesichtsverletzung, nicht untersucht werden.\r\n\r\nDieser Archetyp kann auch in anderen OBSERVATION- oder CLUSTER-Archetypen verwendet werden, um nicht durchführbare Tests oder Messungen zu dokumentieren. Zum Beispiel OBSERVATION.audiogram oder OBSERVATION.cgas.\r\n\r\nDurch den Einsatz dieses Archetyps kann insbesondere auf die Verwendung von Markierungen oder Terminologien, um eine Negation im Rahmen einer körperlichen Untersuchung auszudrücken, verzichtet werden. \r\n\r\nEs kann davon ausgegangen werden, dass bei unvollständigen Untersuchungen oder klinischen Beurteilungen nur Daten von erfolgreich durchgeführten Maßnahmen dokumentiert werden. \r\n",
-          "misuse" : "Nicht zur Dokumentation von klinischen Befunden, die während der körperlichen Untersuchung oder eines klinischen Tests beobachtet wurden. Für diese Zwecke bitte die vorgesehenen Archetypen verwenden.\r\n\r\nNicht zur Dokumentation von nicht aufgetretenden oder nicht vorhandenen Nebenwirkungen, Familienanamnesen, Medikamenteneinnahmen, Verfahren, Problemen oder Diagnosen - hierfür sollten die Archetypen EVALUATION.exclusion_global oder EVALUATION.exclusion_specific verwendet werden.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "fi" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "fi"
-          },
-          "purpose" : "*To record that a physical examination or clinical test was not performed.(en)",
-          "keywords" : [ ],
-          "use" : "*Use to record that a physical examination or clinical test was not performed, with an optional statement about the reason for the non-performance.\r\n\r\nThis archetype has been designed to be used to allow recording of 'no examination was done' at multiple levels of the examination process. It will never be used as a stand-alone archetype but always inside an examination archetype that provides the context for the examination being performed. For example, insertion of this archetype into the Examination Detail' SLOT within OBSERVATION.exam allows for recording that no physical examination was performed. Similarly, insertion of this archetype into the Details SLOT of any examination-related CLUSTER archetype, such as CLUSTER.exam_eye_pupil, allows recording that no physical examination was performed only for examination of a specified pupil, perhaps because a facial injury prevented the pupil being visualised.\r\n\r\nThis archetype may also be used within other OBSERVATION, or relevent CLUSTER, archetypes to allow recording of the inability to test or measure other clinical findings. For example: OBSERVATION.audiogram or OBSERVATION.cgas.\r\n\r\nIn particular, this archetype has specifically been designed to avoid the need to use flags or terminology to express negation about a record of physical examination or clinical findings within the health record.\r\n\r\nIt is reasonable to assume that if the examination or clinical assessment was partially performed, then only data about the component successfully performed will be recorded.(en)",
-          "misuse" : "*Not to be used to record the details about clinical findings observed on physical examination or during clinical testing. Use specific archetypes for these purposes.\r\n\r\nNot to be used to record the exclusion or absence of adverse reactions, family history, medication use, procedures, problems or diagnoses - use EVALUATION.exclusion_global or EVALUATION.exclusion_specific for this purpose.(en)",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "purpose" : "Registrera att en fysisk undersökning eller kliniskt test inte utfördes.",
-          "keywords" : [ "uteslutning", "examen", "undersökning", "klar", "genomförde" ],
-          "use" : "Används för att registrera att en fysisk undersökning eller ett kliniskt test inte har utförts, med ett valfritt uttalande om orsaken till bristen på prestanda.\r\n\r\nDenna arketyp har utformats för att användas för att möjliggöra registrering av \"ingen undersökning gjordes\" på flera nivåer av undersökningsprocessen. Den kommer aldrig att användas som en fristående arketyp utan alltid i en undersökningsarketyp som ger sammanhanget för den undersökning som utförs. Till exempel kan infogning av denna arketyp i undersökningsdetaljens SLOT i OBSERVATION.exam möjliggöra registrering av att ingen fysisk undersökning utfördes. På samma sätt möjliggör införandet av denna arketyp i Detaljer-SLOTEN av någon undersökningsrelaterad CLUSTER-arketyp, såsom CLUSTER.exam_eye_pupil, registrering att ingen fysisk undersökning utfördes endast för undersökning av en specifik elev, kanske för att en ansiktsskada förhindrade att eleven kunde visualiseras .\r\n\r\nDenna arketyp kan också användas inom andra OBSERVATIONER eller relevanta CLUSTER-arketyper för att möjliggöra registrering av oförmågan att testa eller mäta andra kliniska resultat. Till exempel: OBSERVATION.audiogram eller OBSERVATION.cgas.\r\n\r\nI synnerhet har denna arketyp specifikt utformats för att undvika behovet av att använda flaggor eller terminologi för att uttrycka negation om ett register över fysisk undersökning eller kliniska fynd inom hälsojournalen.\r\n\r\nDet är rimligt att anta att om undersökningen eller den kliniska bedömningen delvis utfördes, registreras endast data om den framgångsrika komponenten.",
-          "misuse" : "Är inte utformad för att registrera detaljer om kliniska fynd som observerats vid fysisk undersökning eller under klinisk testning. Använd specifika arketyper för dessa ändamål.\r\n\r\nÄr inte utformad för att registrera uteslutning eller frånvaro av biverkningar, familjehistoria, läkemedelsanvändning, procedurer, problem eller diagnoser - använd EVALUATION.exclusion_global eller EVALUATION.exclusion_specific för detta ändamål.",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record that a physical examination or clinical test was not performed.",
-          "keywords" : [ "exclusion", "exam", "examination", "done", "performed" ],
-          "use" : "Use to record that a physical examination or clinical test was not performed, with an optional statement about the reason for the non-performance.\r\n\r\nThis archetype has been designed to be used to allow recording of 'no examination was done' at multiple levels of the examination process. It will never be used as a stand-alone archetype but always inside an examination archetype that provides the context for the examination being performed. For example, insertion of this archetype into the Examination Detail' SLOT within OBSERVATION.exam allows for recording that no physical examination was performed. Similarly, insertion of this archetype into the Details SLOT of any examination-related CLUSTER archetype, such as CLUSTER.exam_eye_pupil, allows recording that no physical examination was performed only for examination of a specified pupil, perhaps because a facial injury prevented the pupil being visualised.\r\n\r\nThis archetype may also be used within other OBSERVATION, or relevent CLUSTER, archetypes to allow recording of the inability to test or measure other clinical findings. For example: OBSERVATION.audiogram or OBSERVATION.cgas.\r\n\r\nIn particular, this archetype has specifically been designed to avoid the need to use flags or terminology to express negation about a record of physical examination or clinical findings within the health record.\r\n\r\nIt is reasonable to assume that if the examination or clinical assessment was partially performed, then only data about the component successfully performed will be recorded.",
-          "misuse" : "Not to be used to record the details about clinical findings observed on physical examination or during clinical testing. Use specific archetypes for these purposes.\r\n\r\nNot to be used to record the exclusion or absence of adverse reactions, family history, medication use, procedures, problems or diagnoses - use EVALUATION.exclusion_global or EVALUATION.exclusion_specific for this purpose.",
-          "copyright" : "© Australian Digital Health Agency, openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.exclusion_exam.v1",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-exclusion_exam-002.v1"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0002.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : { },
-        "de" : { },
-        "fi" : { },
-        "sv" : { }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "a4632f85-f88d-4ea0-921e-f027d79ce0f6",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Ramona Wellmann",
-        "organisation" : "Medizinische Hochschule Hannover",
-        "email" : "wellmann.ramona@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "fi"
-      },
-      "author" : {
-        "name" : "Riikka Lahtela",
-        "organisation" : "Istekki",
-        "email" : "riikka.lahtela@istekki.fi"
-      },
-      "otherDetails" : {
-        "other_contributors" : "Henri Huttunen, UNA Oy, Finland; Heidi Koikkalainen, FreshEHR"
-      }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : {
-        "name" : "Therese Lindberg",
-        "organisation" : "Cambio CDS",
-        "email" : "therese.lindberg@cambio.se"
-      },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "c8420950-75b9-46d6-9fb1-34cf6b933298",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "233281e3b88ca1408456e18797c0d11f"
-      },
-      "details" : {
-        "nb" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "nb"
-          },
-          "purpose" : "For registrering av funn observert under undersøkelse av en kroppsvæske på et kroppssted eller fra en navngitt kroppskilde. Undersøkelsen gjøres vanligvis som en del av en fysisk undersøkelse utført av en kliniker.",
-          "keywords" : [ "kroppsvæske", "fostervann", "blod", "plasma", "cerebrospinal", "væske", "utflod", "urin", "puss", "spytt", "ekspektorat", "leddvæske", "svette", "oppkast", "mage", "diare", "slim", "spinalvæske", "galle", "ekskret", "morsmelk", "mucus", "magesyre", "sæd", "sekret", "ascites", "serøs", "intraokulærvæske", "dialysat", "pericardvæske", "pleuravæske", "tårevæske" ],
-          "use" : "Brukes for å registrere en fritekstbeskrivelse, strukturerte detaljer og klinisk fortolkning av funn observert under en undersøkelse av en kroppsvæske på et navngitt kroppssted eller fra en nanvgitt kroppskilde. Undersøkelsen gjøres vanligvis som en del av en fysisk undersøkelse utført av en kliniker.\r\n\r\nArketypen er utviklet spesifikt for å benyttes som et rammeverk for registrering av detaljer om en undersøkelse av en hvilken som helst kroppsvæske. For å registrere funn for:\r\n\r\n- For visse typer væske med spesielle egenskaper som man vil registrere strukturert, er det meningen å nøste spesifikke CLUSTER-arketyper i SLOT'et \"Spesifikke funn\". For eksempel vil ytterligere detaljer knyttet til klare væsker registreres i en egen CLUSTER-arketype for dette formålet. \r\n\r\n- Kroppsvæsker som består av flere komponenter som for eksempel fostervann registrerer man en instans av arketypen for å beskrive fostervannet, ytterligere instanser av den samme arketypen nøstes i dataelementet \"Spesifikke detaljer\" for å representere blod, mekonium og puss.\r\n\r\nKroppsvæsker referer vanligvis til væsker som er utskilt eller sekrert fra menneskekroppen og arketypen støtter detaljert registrering av:\r\n- Vanlige fysiologiske væsker.\r\n- Fysiologiske væsker som forandrer seg som følge av en patologisk prosess.\r\n- Væsker som genereres som en del av en patologisk prosess i kroppen.\r\n\r\nEksempler på kroppsvæsker kan være:\r\n- Fostervann\r\n- Blod eller plasma\r\n- Cerebrospinalvæske\r\n- Utflod\r\n- Urin\r\n- Puss\r\n- Spytt\r\n- Ekspektorat\r\n- Leddvæske\r\n- Svette\r\n- Oppkast\r\n\r\nArketypen er vil i de fleste tilfeller brukes i hos levende individer, men den kan også benyttes for registrering av funn ved obduksjon.\r\n\r\nKroppsted eller kroppskilde vil vanligvis identifiseres i konteksten arketypen nøstes i, eksempler på kontekst kan være, men ikke begrenset til:\r\n- I SLOT'et \"Funn ved undersøkelse\" i mange av de spesifikke undersøkelsesarketypene og relaterterte inspeksjons- og palpasjonsarketypene.\r\n- i SLOT'et for \"Physical properties\" i arketypen CLUSTER.specimen \r\n- I SLOTet \"Tilleggsinformasjon\" i arketypene OBSERVATION.urinanalysis og OBSERVATION.fluid_output\r\n- I andre OBSERVATION eller CLUSTER arketyper der dette er klinisk formålstjenlig.\r\n\r\nArketypen CLUSTER.exclusion_exam arketypen kan nøstes i SLOTet \"Undersøkelse ikke utført\" for å gi mulighet for en eksplisitt registrering av at en undersøkelse ikke er utført.\r\n\r\nBruk for å innlemme fritekstbeskrivelser av kliniske funn fra eksisterende eller tidligere kliniske systemer i et arketypeformat ved å bruke dataelementet \"Klinisk beskrivelse\".",
-          "misuse" : "Brukes ikke for å registrere målinger av væskevolum - bruk OBSERVATION-arketyper for dette formålet. For eksempel OBSERVATION.fluid_output.\r\n\r\nBrukes ikke for å registrere detaljer om ikke-fysiologiske væsker som er tilført kroppen eksternt fra, f.eks. kontrastvæske.\r\n\r\nBrukes ikke for å registrere en klinisk anamnese. Bruk spesifikke OBSERVATION eller CLUSTER arketyper for dette formålet. For eksempel OBSERVATION.story og CLUSTER.symptom_sign.\r\n\r\nBrukes ikke for å registrere resultat av en urinanalyse - bruk OBSERVATION.urinalysis. Denne arketypen kan legges til i SLOT'et \"Ytterliger detaljer\" for å gi ytterligere kontekst til prøveresultatet.\r\n\r\nBrukes ikke for å registrere andre detaljer om en prøve for bruk i laboratorier. Bruk CLUSTER.specimen for dette formålet. NB: På tross av dette unntaket, er det hensiktsmessig å benytte denne arketypen i SLOT'et \"Physical properties\" i CLUSTER.specimen for å beskrive de fysiske egenskapene til kroppsvæsken.\r\n\r\nBrukes ikke til å registrere detaljer om undersøkelse av fæces - bruk CLUSTER.examination_faeces.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "purpose" : "To record the findings observed during the macroscopic inspection (including odour) of a body fluid.",
-          "keywords" : [ "biofluid", "amniotic", "cerebrospinal", "fluid", "discharge", "urine", "pus", "saliva", "sputum", "synovial", "sweat", "vomit", "gastric", "diarrhoea", "mucous", "mucus", "spinal", "bile", "breast", "milk", "gastric", "acid", "semen", "secretion", "ascites", "serous", "intraocular", "diasylate", "synovial", "bodily", "pericardial", "pleural" ],
-          "use" : "Use to record a narrative description, structured details and clinical interpretation about findings observed during the inspection (including odour) of a body fluid.\r\n\r\nThis archetype has been specifically designed to be used as the framework for recording details about examination of any body fluid and the context of the anatomical site or source of the body fluid will be carried in the archetypes in which it is nested, including but not limited to:\r\n- in the 'Examination findings' SLOT within many of the CLUSTER.exam family of archetypes and related inspection archetypes;\r\n- in the 'Physical properties' SLOT within the CLUSTER.specimen archetype; and\r\n- within other OBSERVATION or CLUSTER archetypes, where clinically appropriate.\r\n\r\nIn order to record examination findings for:\r\n- specific types of fluids with unique attributes that need to be recorded, it is intended that a specific CLUSTER archetype for this purpose be nested within the 'Specific findings' SLOT. For example additional details only relevant to clear fluids will be recorded within a specific archetype for this purpose that will effectively extend this generic body fluid archetype; and \r\n- multicomponent body fluids such as amniotic fluid that may also contain obvious blood, meconium or pus, it is intended that one instance of this archetype be used to describe the amniotic fluid overall and additional instances of this same archetype will be nested with the 'Specific findings' SLOT to represent each of blood, meconium and pus.\r\n\r\nBody fluid is a liquid that originates from the human body, and this archetype is intended to support detailed description of:\r\n- normal physiological fluids; \r\n- physiological fluids that may be altered due to a pathological process; and\r\n- fluids generated as part of a pathological process within the body.\r\n\r\nExtracellular body fluid examples include, but are not limited to:\r\n- Amniotic fluid;\r\n- Blood and plasma;\r\n- Cerebrospinal fluid;\r\n- Discharge;\r\n- Urine;\r\n- Pus;\r\n- Saliva;\r\n- Sputum;\r\n- Synovial fluid;\r\n- Sweat; and\r\n- Vomitus.\r\n\r\nThe CLUSTER.exclusion_exam archetype can be nested within the 'Examination not done' SLOT to optionally record explicit details about the examination not being performed.\r\n\r\nWhile this archetype will most likely be used in the context of a living subject, it is also appropriate to use in recording autopsy findings.\r\n\r\nUse to incorporate the narrative descriptions of clinical findings within existing or legacy clinical systems into an archetyped format, using the 'Clinical description' data element.",
-          "misuse" : "Not to be used to record the inspection of urine - use the specialisation CLUSTER.inspection_body_fluid-urine for this purpose.\r\n\r\nNot to be used to record the inspection of sputum - use the specialisation CLUSTER.inspection_body_fluid-sputum for this purpose.\r\n\r\nNot to be used to record the inspection of blood or blood clots, but only to record the presence of blood or blood clots within other fluids.\r\n\r\nNot to be used for recording measurements of fluid volume - use OBSERVATION archetypes for this purpose. For example: OBSERVATION.fluid_output.\r\n\r\nNot to be used to record details about a non-physiological fluid.\r\n\r\nNot to be used for recording the clinical history - use specific OBSERVATION and CLUSTER archetypes. For example: OBSERVATION.story and CLUSTER.symptom_sign.\r\n\r\nNot to be used to record the results of a urinalysis test - use OBSERVATION.urinalysis for this purpose.\r\n\r\nNot to be used to record the other details about a specimen for use in laboratory testing - use CLUSTER.specimen. Note: despite this exclusion, it is reasonable to use this archetype within the CLUSTER.specimen to describe physical properties about a body fluid as noted above.\r\n\r\nNot to be used to record the details about examination of faeces - use the CLUSTER.examination_faeces.",
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "keywords" : [ ],
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.inspection_body_fluid.v0",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-inspection_body_fluid-002.v0"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0001.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "defaultValue" : {
-                "value" : "Amniotic fluid",
-                "@type" : "DV_TEXT"
-              },
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0003.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0018.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "occurrences" : "1..1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "0..1",
-                  "terminologyId" : {
-                    "value" : "Obstetrix Terminology Färg"
-                  },
-                  "constraint" : [ ],
-                  "selectedTerminologies" : [ "Obstetrix Terminology Färg" ],
-                  "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "Obstetrix Terminology Färg",
-                    "code" : "0",
-                    "value" : "Klart"
-                  }, {
-                    "terminologyId" : "Obstetrix Terminology Färg",
-                    "code" : "1",
-                    "value" : "Svag mekoniumfärgad"
-                  }, {
-                    "terminologyId" : "Obstetrix Terminology Färg",
-                    "code" : "2",
-                    "value" : "Kraftig mekoniumfärgad"
-                  }, {
-                    "terminologyId" : "Obstetrix Terminology Färg",
-                    "code" : "3",
-                    "value" : "Tjock mekoniumfärgad"
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0022.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "1..1",
-                  "terminologyId" : {
-                    "value" : "Obstetrix Terminology Blod"
-                  },
-                  "constraint" : [ ],
-                  "selectedTerminologies" : [ "Obstetrix Terminology Blod" ],
-                  "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "Obstetrix Terminology Blod",
-                    "code" : "0",
-                    "value" : "Absent"
-                  }, {
-                    "terminologyId" : "Obstetrix Terminology Blod",
-                    "code" : "1",
-                    "value" : "Present"
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0017.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "occurrences" : "1..1",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "0..1",
-                  "terminologyId" : {
-                    "value" : "Obstetrix terminology- lukt"
-                  },
-                  "constraint" : [ ],
-                  "selectedTerminologies" : [ "Obstetrix terminology- lukt" ],
-                  "includedExternalTerminologyCodes" : [ {
-                    "terminologyId" : "Obstetrix terminology- lukt",
-                    "code" : "0",
-                    "value" : "Absent"
-                  }, {
-                    "terminologyId" : "Obstetrix terminology- lukt",
-                    "code" : "1",
-                    "value" : "Present"
-                  } ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0021.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "attributes" : [ {
-                "@type" : "C_ATTRIBUTE",
-                "rmAttributeName" : "defining_code",
-                "children" : [ {
-                  "@type" : "C_TERMINOLOGY_CODE",
-                  "rmTypeName" : "TERMINOLOGY_CODE",
-                  "occurrences" : "1..1",
-                  "terminologyId" : {
-                    "value" : "local"
-                  },
-                  "constraint" : [ "ac0.1" ],
-                  "selectedTerminologies" : [ ]
-                } ]
-              } ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0006.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_TEXT",
-              "defaultValue" : {
-                "value" : "Inget synligt fostervatten",
-                "@type" : "DV_TEXT"
-              },
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "occurrences" : "0..0",
-          "nodeId" : "at0007.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        }, {
-          "@type" : "C_ARCHETYPE_ROOT",
-          "rmTypeName" : "CLUSTER",
-          "occurrences" : "0..1",
-          "nodeId" : "at0008.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ],
-          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-exclusion_exam-002.v1",
-          "referenceType" : "archetypeOverlay"
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "(Synthesized)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        },
-        "nb" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        },
-        "sv" : {
-          "ac0.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "text" : "*(Synthesized) (en)",
-            "code" : "ac0.1",
-            "description" : ""
-          }
-        }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : {
-        "ac0.1" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.1",
-          "members" : [ "at0027", "at0028" ]
-        },
-        "ac0.3" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.3",
-          "members" : [ "at0023", "at0024", "at0025", "at0026" ]
-        },
-        "ac0.4" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.4",
-          "members" : [ ]
-        },
-        "ac0.5" : {
-          "@type" : "VALUE_SET",
-          "id" : "ac0.5",
-          "members" : [ ]
-        }
-      }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "b0c76a3b-d9a9-4535-a610-32e3287980f3",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Kristian Berg, John Tore Valand",
-        "organisation" : "Helse Nord, Helse Vest"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : { },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
     "uid" : "85be91b0-3188-4503-8b10-6a63d48cd673",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
@@ -14351,6 +13799,872 @@
       "author" : { },
       "otherDetails" : { }
     } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "79b4df30-db45-4083-b57c-630bcf2ad6e1",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "9FC6BA2D63BE451F034CE25153F4E298"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-SECTION.adhoc.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-SECTION.ovl-adhoc-007.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "SECTION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "existence" : "0..1",
+        "cardinality" : {
+          "@type" : "CARDINALITY",
+          "interval" : "1..*",
+          "ordered" : false,
+          "unique" : false
+        },
+        "children" : [ {
+          "@type" : "C_ARCHETYPE_ROOT",
+          "rmTypeName" : "OBSERVATION",
+          "occurrences" : "0..1",
+          "nodeId" : "at0.2",
+          "attributes" : [ ],
+          "attributeTuples" : [ ],
+          "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-exam-003.v1",
+          "referenceType" : "archetypeOverlay"
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Bleeding",
+            "description" : "A generic section header which should be renamed in a template to suit a specific clinical context."
+          }
+        },
+        "ru" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "заготовка заголовка (7)",
+            "description" : "Образец заголовка раздела"
+          }
+        },
+        "es-ar" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Encabezado ad hoc (7)",
+            "description" : "Un encabezado de sección de tipo genérico que será renombrado en una plantilla para su empleo en un contexto clínico específico."
+          }
+        },
+        "sl" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Naslov sekcije (7)",
+            "description" : "Naslov sekcije"
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Templat-overskrift (7)",
+            "description" : "En generisk seksjonsoverskrift som skal gis nytt navn i en templat for å passe i en gitt klinisk kontekst."
+          }
+        },
+        "pt-br" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Cabeçalho Ad hoc (7)",
+            "description" : "Um cabeçalho de sessão genérico que deve ser renomeado no template para adequar-se a um contexto clínico específico."
+          }
+        },
+        "sv" : { },
+        "de" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Ad hoc Überschrift (7)",
+            "description" : "Eine generische Abschnittsüberschrift eines Templates, welche entsprechend dem spezifischen klinischen Kontext umbenannt werden sollte."
+          }
+        },
+        "it" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Intestazione di sezione ad hoc (7)",
+            "description" : "Un'intestazione di sezione generica che dovrebbe essere rinominata in un template per adattarsi ad uno specifico contesto clinico."
+          }
+        },
+        "fr" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Rubrique ad hoc (7)",
+            "description" : "Un en-tête de section générique qui doit être renommé dans un modèle pour s'adapter à un contexte clinique spécifique."
+          }
+        },
+        "ca" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Capçalera ad hoc (7)",
+            "description" : "Una capçalera de secció genèrica que s'ha de rebatejar en una plantilla per adaptar-se a un context clínic específic."
+          }
+        },
+        "es" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Encapçalament ad hoc (7)",
+            "description" : "Un encapçalament de secció genèric que s'hauria de reanomenar en una plantilla per adaptar-se a un context clínic específic."
+          }
+        },
+        "pt-pt" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Título ad hoc (7)",
+            "description" : "Um cabeçalho de secção genérico que deve ser renomeado ao nível do template para se adequar a um contexto clínico específico."
+          }
+        },
+        "pt" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Título ad hoc (7)",
+            "description" : "Um cabeçalho de secção genérico que deve ser renomeado ao nível do template para se adequar a um contexto clínico específico."
+          }
+        },
+        "tr" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Geçici başlık (7)",
+            "description" : "Belirli bir klinik bağlama uyacak şekilde bir şablonda yeniden adlandırılması gereken genel bir bölüm başlığı."
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "36964f0d-0251-4791-be69-ae1ccd23be77",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Ramona Wellmann",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "wellmann.ramona@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ru"
+      },
+      "author" : {
+        "name" : "Art Latyp Латыпов Артур Шамилевич",
+        "organisation" : "RusBITech РусБИТех, Москва"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Daniel Hall",
+        "organisation" : "Region Östergötland",
+        "email" : "daniel.hall@regionostergotland.se"
+      },
+      "accreditation" : "Åsa Skagerhult, Lisa Axelsson",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt"
+      },
+      "author" : {
+        "name" : "Vanessa Pereira",
+        "organisation" : "Luxembourg Institute of Health (LIH)",
+        "email" : "vanessapereira@protonmail.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Vladimir Pizzo",
+        "organisation" : "Hospital Sírio Libanês, São Paulo, Brazil",
+        "email" : "vladimir.pizzo@hsl.org.br"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "it"
+      },
+      "author" : {
+        "name" : "Paolo Anedda",
+        "organisation" : "Inpeco",
+        "email" : "paolo.anedda@inpeco.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fr"
+      },
+      "author" : {
+        "name" : "Vanessa Pereira",
+        "organisation" : "Better - Pathfinder",
+        "email" : "vanessapereira@protonmail.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es"
+      },
+      "author" : {
+        "name" : "Laura Moral Lopez",
+        "organisation" : "Sistema de Salut de Catalunya",
+        "email" : "lmorallopez@gmail.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-pt"
+      },
+      "author" : {
+        "name" : "Vanessa Pereira",
+        "organisation" : "Luxembourg Institute of Health (LIH)",
+        "email" : "vanessapereira@protonmail.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Alan March",
+        "organisation" : "Hospital Universitario Austral, Buenos Aires, Argentina"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "einar.fosse@unn.no" : "einar.fosse@unn.no",
+        "name" : "Einar Fosse",
+        "organisation" : "Norwegian Centre for Integrated Care and Telemedicine, Tromsø, Norway"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sl"
+      },
+      "author" : {
+        "name" : "?"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ca"
+      },
+      "author" : {
+        "name" : "Laura Moral Lopez",
+        "organisation" : "Sistema de Salut de Catalunya",
+        "email" : "lmorallopez@gmail.com, lauramoral@catsalut.cat"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "tr"
+      },
+      "author" : {
+        "name" : "Olha Nikolaieva",
+        "organisation" : "University Hospital Basel",
+        "email" : "olha.nikolaieva@usb.ch"
+      },
+      "otherDetails" : {
+        "other_contributors" : "Koray Atalag, GALATA-Digital, New Zealand"
+      }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "b3f407cb-d763-4f96-b251-cf41eb6aa220",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "61D18256DA550BBFD431F41EF7307BE0"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-OBSERVATION.ovl-exam-003.v1"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "OBSERVATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "HISTORY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "events",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "EVENT",
+              "nodeId" : "at0002",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0004.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0006.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0011.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_ARCHETYPE_ROOT",
+                      "rmTypeName" : "CLUSTER",
+                      "occurrences" : "0..1",
+                      "nodeId" : "at0005.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ],
+                      "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-bleeding_findings-001.v0",
+                      "referenceType" : "archetypeOverlay"
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              }, {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "state",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0009",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0008.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    }, {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0013.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "ar-sy" : { },
+        "sl" : { },
+        "es-ar" : { },
+        "en" : { },
+        "nb" : { },
+        "es" : { },
+        "pt-br" : { },
+        "zh-cn" : { },
+        "de" : { },
+        "sv" : { },
+        "ca" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "b51fe23f-5f6f-404a-8255-d5fbe8c3e9a5",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Nina Schewe",
+        "organisation" : "Medizinische Hochschule Hannover",
+        "email" : "schewe.nina@mh-hannover.de"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Sofia Janstad",
+        "organisation" : "SLL",
+        "email" : "sofia.lang-janstad@sll.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen and Einar Fosse, John Tore Valand, Vebjørn Arntzen",
+        "organisation" : "Haukeland University Hospital Bergen, Norway; UNN HF Centre for Integrated Care and Telemedicine, Helse Bergen, Oslo University Hospital",
+        "email" : "lbla@helse-bergen.no; Einar.Fosse@unn.no, john.tore.valand@helse-vest-ikt.no, varntzen@ous-hf.no"
+      },
+      "accreditation" : "MD, DEAA, MBA, specialist in tropical medic",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Edgardo Vazquez",
+        "organisation" : "VinculoMedico"
+      },
+      "accreditation" : "Medical Doctor",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Adriana Kitajima",
+        "organisation" : "Core Consulting",
+        "email" : "adriana.kitajima@coreconsulting.com.br"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sl"
+      },
+      "author" : {
+        "name" : "Uroš Rajkovič, Biljana Prinčič, Anđela Pavlović",
+        "organisation" : "Slovenia, Better",
+        "email" : "andjela.pavlovic@better.care"
+      },
+      "otherDetails" : {
+        "other_contributors" : "Anđela Pavlović, andjela.pavlovic@better.care, Better, Slovenia"
+      }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "zh-cn"
+      },
+      "author" : {
+        "name" : "Lin Zhang",
+        "organisation" : "BIPH",
+        "email" : "linforest@163.com"
+      },
+      "accreditation" : "?",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es"
+      },
+      "author" : {
+        "name" : "Pablo Pazos",
+        "organisation" : "CaboLabs"
+      },
+      "accreditation" : "Computer Engineer",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ca"
+      },
+      "author" : {
+        "name" : "Julio de Sosa",
+        "organisation" : "Servei Català de la Salut",
+        "email" : "juliodesosa@catsalut.cat"
+      },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "5e0a3560-04d3-4a60-afc3-440c7fc4673b",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "571BE0D7E01944A25E6F3A52C0B291E3"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.bleeding_findings.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-bleeding_findings-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0018.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0001.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.2" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0005.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0006.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0007.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0015.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "occurrences" : "1..1",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0008.1",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "value",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_CODED_TEXT",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "local"
+                  },
+                  "constraint" : [ "ac0.1" ],
+                  "selectedTerminologies" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "DV_TEXT",
+              "attributes" : [ ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0016.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
+        }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : {
+        "ac0.1" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.1",
+          "members" : [ "at0009", "at0010", "at0011", "at0012", "at0013", "at0014" ]
+        },
+        "ac0.2" : {
+          "@type" : "VALUE_SET",
+          "id" : "ac0.2",
+          "members" : [ "at0002", "at0003", "at0004" ]
+        }
+      }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "1ccc6b38-e6c5-4509-b509-62fa81ed2797",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ ]
   } ],
   "originalLanguage" : {
     "terminologyId" : {
