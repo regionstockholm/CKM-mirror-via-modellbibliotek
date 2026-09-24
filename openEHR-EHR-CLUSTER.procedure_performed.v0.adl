@@ -1,0 +1,104 @@
+archetype (adl_version=1.4; uid=2e61469f-c744-4f1b-bae8-62bf81ea90ab)
+	openEHR-EHR-CLUSTER.procedure_performed.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-09-24">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"a81f501b8900046d485bbd623a08d281">
+		["build_uid"] = <"2d918148-0973-31f0-a866-8b6495f0cdd9">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Procedure performed
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Name of procedure
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Performed
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Procedure performed">
+					description = <"Procedure performed">
+				>
+				["at0002"] = <
+					text = <"Name of procedure">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Type">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Performed">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Åtgärd utförd">
+					description = <"*Procedure performed (en)">
+				>
+				["at0002"] = <
+					text = <"Namn på åtgärd">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Typ">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Utförd">
+					description = <"">
+				>
+			>
+		>
+	>
