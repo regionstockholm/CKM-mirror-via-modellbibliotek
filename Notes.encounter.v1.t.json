@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.0-alpha.1",
+      "sem_ver" : "1.0.1-alpha.1",
       "build_uid" : "2f316e3e-1748-4012-a94a-c9556b7ab5c3",
-      "MD5-CAM-1.0.1" : "6d60ce11fe3de412538d9821c2711a54",
+      "MD5-CAM-1.0.1" : "441e5075d6247f2f6669decfeaa1a75e",
       "PARENT:MD5-CAM-1.0.1" : "3B0765A6B395C9D01595FDF2D440E6CB"
     },
     "details" : {
@@ -271,7 +271,7 @@
       "children" : [ {
         "@type" : "C_ARCHETYPE_ROOT",
         "rmTypeName" : "OBSERVATION",
-        "occurrences" : "0..1",
+        "occurrences" : "0..*",
         "nodeId" : "at0.2",
         "attributes" : [ ],
         "attributeTuples" : [ ],
@@ -439,7 +439,101 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "d7e97a1a59c6e3aeed4249492c4c2789"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Repräsentation eines manuellen Zusammenfassen von gesundheitsbezogenen Ereignissen, die aus Sicht eines Gesundheitsdienstleisters zum Zeitpunkt der Aufzeichnung aktuell sind.",
+          "keywords" : [ "Kommentar", "Notiz", "Anmerkung", "Fortschritt", "Ablauf" ],
+          "use" : "Verwenden Sie diesen Archetyp, um eine Beschreibung über aktuelle gesundheitsbezogene Ereignisse und Aktivitäten aus der Sicht eines Gesundheitsdienstleisters manuell zu synthetisieren und aufzuzeichnen. \r\n\r\nDiese unstrukturierte Beschreibung kann den Gesundheitszustand und die Befunde des Patienten enthalten, die zum Zeitpunkt der Aufzeichnung aktuell sind. Am häufigsten bezieht sich diese Beschreibung wahrscheinlich auf Notizen zur Krankenpflege am Ende einer Schicht oder auf die täglichen Notizen von Gesundheitsdienstleistern wie einem Arzt oder einem Physiotherapeuten. In der Praxis ist Fortschrittbericht eine Meta-Beobachtung, die die vorhandene strukturierte Patientenakte ergänzt und es ermöglicht, subtile, subjektive oder interpretative Informationen über den Patienten auszudrücken, die ansonsten möglicherweise nicht allein durch strukturierte Daten offensichtlich sind, und der EHR-Aufzeichnung Ausgewogenheit und Sinnzusammenhang verleiht. In vielen Situationen wird dieser Archetyp zusammen mit anderen strukturierteren Archetypen in einer einzigen COMPOSITION zusammengefasst. \r\n\r\nDieser Archetyp kann auch verwendet werden, wenn keine strukturierten Archetypen verfügbar sind oder um Fortschrittberichte aufzuzeichnen, die aus alten Systemen importiert wurden.",
+          "misuse" : "Nicht zur Repräsentation bestimmter strukturierter oder semistrukturierter Gesundheitsinformationen verwenden. Beispielsweise sollten detaillierte Informationen zu Problemen / Diagnosen, Testergebnissen und Vitalzeichen, Untersuchungsergebnissen und Patientengeschichte / -anamnese unter Verwendung der spezifischen relevanten EVALUATION- oder OBSERVATION-Archetypen dargestellt werden.\r\n\r\nDarf nicht verwendet werden, um eine beschreibende, zusammenfassende Ansicht des Gesundheitszustands des Patienten darzustellen, beispielsweise um eine kurze Zusammenfassung der stationären Aufnahme des Patienten als Bestandteil eines umfassenden und strukturierten Entlassungsberichtes zu übermitteln. Verwenden Sie zu diesem Zweck den Archetyp EVALUATION.clinical_synopsis.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For at helsepersonell skal kunne lage og lagre en oppsummering i fritekst om helserelaterte hendelser eller status som er gyldig på tidspunktet det registreres.",
+          "keywords" : [ "kommentar", "notat", "løpende" ],
+          "use" : "Brukes for at helsepersonell skal kunne lage en oppsummering i fritekst om helserelaterte hendelser eller status som er gyldig på tidspunktet det registreres. Denne ustrukturerte beskrivelsen kan inkludere individets helsestatus og funn som er gyldige på registreringstidspunktet. Dette kan sammenlignes med et fritekst journalnotat, som et sykepleiernotat ved vaktskifte, eller et daglig notat fra lege, fysioterapeut eller annet helsepersonell. I praksis vil \"Tidfestet fritekst\" være observasjoner på overordnet nivå som vil komplettere eksisterende strukturert informasjon, og dermed tillate mer subtile, subjektive eller tolkende informasjon om et individ. Det vil være naturlig å kombinere denne arketypen med strukturerte arketyper i en COMPOSITION.\r\n\r\nArketypen kan også benyttes når det ikke finnes strukturerte arketyper tilgjengelig, eller til å lagre journaltekst som blir konvertert fra et annet journalsystem.",
+          "misuse" : "Skal ikke brukes for å registrere spesifikk strukturert eller semistrukturert helseinformasjon, for eksempel detaljert informasjon om problem/diagnose, laboratoriesvar og vitale tegn, undersøkelsesfunn og anamneseinformasjon. Denne type data skal registreres i de spesifikke relevante EVALUATION- eller OBSERVATION-arketypene.\r\n\r\nBrukes ikke for registrere en fritekstoppsummering av en pasients helse, for eksempel for å gi en konkret oppsummering av en sykehusinnleggelse som en del av en strukturert epikrise eller en sykepleiesammenfatning. Bruk arketypen EVALUATION.clinical_synopsis (Klinisk sammendrag) for dette formålet.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Para la síntesis y registro manuales de la descripción narrativa de eventos actuales relacionados con la salud, desde la perspectiva del proveedor de cuidados de la salud.",
+          "keywords" : [ "comentario", "nota", "evolución" ],
+          "use" : "utilizado para la síntesis y registro manuales de la descripción narrativa de eventos y actividades actuales relacionados con la salud, desde la perspectiva del proveedor de cuidados de la salud.\r\nEsta descripción no estructurada puede incluir el estado de salud y hallazgos propios del sujeto que corresponden al momento del registro. El caso mas común probablemente se relacione con las notas de enfermería al final de un turno o las notas diarias del proveedor de cuidados de la salud, como es el caso de un médico o un fisioterapeuta. En la práctica, la Nota de Evolución es una meta observación que complementará el registro estructurado, permitiendo la expresión de información sutil, subjetiva o interpretativa acerca del paciente que de otro modo podría no resultar obvia a partir de los datos estructurados solamente, proveyendo así balance y contexto al registro clínico. En muchas situaciones, este arquetipo puede usarse en combinación con otros arquetipos mas estructurados dentro de una misma COMPOSITION.\r\n\r\nEste arquetipo también puede ser utilizado si no existe un arquetipo estructurado disponible para un dato determinado, o para importar notas de evolución de sistemas legados.",
+          "misuse" : "No debe utilizarse para registrar información específica de salud estructurada o semiestructurada. Por ejemplo, la información detallada acerca de problemas o diagnósticos, resultados de exámenes y signos vitales, hallazgos del examen y la enfermedad actual descrita por el paciente deben ser registrada utilizando los arquetipos específicos relevantes del tipo EVALUATION u OBSERVATION.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To manually synthesise and record a narrative description about health related events that are current at the time of recording, from the perspective of a healthcare provider.",
+          "keywords" : [ "comment", "note", "progress" ],
+          "use" : "Use to manually synthesise and record a narrative description about contemporary health-related events and activities from the perspective of a healthcare provider.\r\n \r\nThis unstructured description may include the subject's health status and findings, that are current at the time of recording. Most commonly this description is likely to be related to nursing notes at the end of a shift, or the daily notes from healthcare providers such as a physician or a physiotherapist. In practice, Progress note is a meta observation that will complement the existing structured clinical record, allowing for expression of subtle, subjective or interpretive information about the patient that might not otherwise be obvious through structured data alone, providing balance and context to the EHR record. In many situations, this archetype will be combined alongside other more structured archetypes within a single COMPOSITION.\r\n\r\nThis archetype may also be used if there are no structured archetypes available, or to record progress notes imported from legacy systems.",
+          "misuse" : "Not to be used to record specific structured or semi-structured health information. For example, detailed information about problems/diagnoses, test results and vital signs, examination findings and patient story/history should be recorded using the specific relevant archetypes EVALUATION or OBSERVATION archetypes.\r\n\r\nNot to be used to record a narrative, summary view of the patient's health, for example to communicate a succinct summary of the patient's hospital admission as one component of a comprehensive and structured Discharge Summary document. Use the EVALUATION.clinical_synopsis archetype for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "*To manually synthesise and record a narrative description about health related events that are current at the time of recording, from the perspective of a healthcare provider.(en)",
+          "keywords" : [ "*comment(en)", "*note(en)", "*progress(en)" ],
+          "use" : "*Use to manually synthesise and record a narrative description about contemporary health-related events and activities from the perspective of a healthcare provider. \r\nThis unstructured description may include the subject's health status and findings, that are current at the time of recording. Most commonly this description is likely to be related to nursing notes at the end of a shift, or the daily notes from healthcare providers such as a physician or a physioterapist. In practice, Progress note is a meta observation that will complement the existing structured clinical record, allowing for expression of subtle, subjective or interpretive information about the patient that might not otherwise be obvious through structured data alone, providing balance and context to the EHR record. In many situations, this archetype will be combined alongside other more structured archetypes within a single COMPOSITION.\r\n\r\nThis archetype may also be used if there are no structured archetypes available, or to record progress notes imported from legacy systems.(en)",
+          "misuse" : "*Not to be used to record specific structured or semistructured health information. For example, detailed information about problems/diagnoses, test results and vital signs, examination findings and patient story/history should be recorded using the specific relevant archetypes EVALUATION or OBSERVATION archetypes.\r\n\r\nNot to be used to record a narrative, summary view of the patient's health, for example to communicate a succinct summary of the patient's hospital admission as one component of a comprehensive and structured Discharge Summary document. Use the EVALUATION.clinical_synopsis archetype for this purpose.(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.progress_note.v1",
     "differential" : true,
@@ -648,7 +742,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "800ce4025945e7e13c4f0ca7b0458692"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.metadata_obstetrix.v0",
     "differential" : true,
@@ -710,7 +830,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "2abab400902f7958a7699f9868b06a37"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.generic_keyword_obx.v1",
     "differential" : true,
@@ -940,7 +1086,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "8f720cc08dcc81f8fbcf98803c0f409d"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.child_node_keyword.v1",
     "differential" : true,
@@ -1161,7 +1333,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "7c7b00aea3b3d148f40ee3d681e0e19b"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.cancelled_text.v0",
     "differential" : true,
@@ -1223,7 +1421,129 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "ab32b1b0f7d49e2ac854aaac89a64c67"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur Darstellung des Grundes bzw. der Gründe für die Initierung jeglicher Art von Begegnung oder Kontakt zwischen einem Gesundheitsdienstleister und der betreuten Person.",
+          "keywords" : [ "Vorstellung", "vorgestellte Krankheit", "Beschwerde", "Grund", "Begegnung", "Kontakt", "Grund für die Begegnung", "Grund für den Kontakt", "Visite", "Grund der Visite" ],
+          "use" : "Zur Darstellung des Grundes oder der Gründe für die Initierung jeglicher Art von Begegnungen oder Kontakten zwischen einem Gesundheitsdienstleister und der betreuten Person aufzuzeichnen. Der Grund kann ein klinischer, sozialer oder administrativer Zwecke sein.\r\n\r\n\"Grund der Begegnung\" ist eine in der klinischen Medizin gebräuchliche Formulierung. Der Begriff wird jedoch häufig auf zwei Arten verwendet - eine bezieht sich auf eine Verwaltungskategorie für die Gesundheitsversorgung und die andere spiegelt klinische oder soziale Probleme wieder, die Menschen motivieren die Gesundheitsversorgung aufzusuchen.\r\n\r\nUm die Phrasen und die Absicht zu verdeutlichen, enthält dieser Archetyp zwei Datenelemente:\r\n- Der erste Datenelement \"Kontakttyp\", um den administrativen Typ gewünschten oder erforderlichen Gesundheitsversorgung einzuteilen - zum Beispiel die Art des Besuchs wie Notfall, präoperative Einschätzung, routinemäßige vorgeburtliche Visite oder Wahlleistung. Dieses Datenelement spiegelt die administrative Kategorie der Versorgung wider. Die Verwendung des Ausdrucks \"Kontaktart\" anstelle von \"Grund der Begegnung\" oder \"Grund des Besuchs\" spiegelt den zunehmenden Trend zu alternativen Methoden der Gesundheitsversorgung wider, die möglicherweise nicht zu einem persönlichen Kontakt zwischen dem Leistungserbringer und dem Patienten innerhalb eines Behandlungszimmers führen.\r\n- Die zweite Datenelement \"Vorstellung einer Beschwerde\", um die klinischen Gründe für den Kontakt im Gesundheitswesen zu dokumentieren. \"Hauptbeschwerde\" gilt als Synonym für \"Vorstellung einer Beschwerde\". Diese sind hauptsächlich dazu bestimmt, die wahrgenommenen Probleme oder Symptome des Patienten zu erfassen, die dazu geführt haben, dass sie Gesundheitsberatung suchen. Beispiele für Probleme oder Symptome sind: \"Wunsch nach Raucherentwöhnung\", wie Stress, Kurzatmigkeit, genetische Beratung oder Bauchschmerzen. Zeichen wie ein gestörter Bewusstseinszustand können hier ebenfalls erfasst werden, beispielsweise durch paramedizinisches Personal im Falle eines bewusstlosen Patienten.",
+          "misuse" : "Nicht zur Darstellung bestimmter Details der Geschichte des Patienten oder der Geschichte der Symptome aufzuzeichnen. Verwenden Sie hierzu den Archetype OBSERVATION.story, um die Erzählung und die zugehörigen geschachtelten CLUSTER-Archetypen für strukturierten Inhalt zu erfassen, z.B. CLUSTER.symptom, CLUSTER.event und CLUSTER.issue.\r\n\r\nNicht zur Darstellung bestimmter Diagnosedetails, die zusätzlich zu einem Grund für die Begegnung erforderlich sein können, verwendet werden. Zum Beispiel um eine präoperative Diagnose im Rahmen einer stationären Aufnahme zu erfassen. Verwenden Sie den Archetyp EVALUATION.problem_diagnosis für diesen Zweck.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere årsak eller årsaker til kontakten mellom helsepersonell og individ.",
+          "keywords" : [ "kontaktårsak", "årsak", "besøk", "årsak for besøk", "problemstilling", "konsultasjonsårsak", "innleggelsesårsak", "henvisningsgrunn", "henvisningsårsak", "henvendelse" ],
+          "use" : "For å registrere årsak eller årsaker til kontakten mellom helsepersonell og individ. Årsak kan være klinisk, sosial eller administrativ.\r\n\r\nKontaktårsak er et vanlig uttrykk som brukes i klinisk medisin, begrepet brukes oftest på to måter - en som refererer til en administrativ kategori for levering av helsetjenester og en som gjenspeiler det kliniske eller sosiale behovet for å søke helsetjenester. \r\n\r\nArketypen inneholder to dataelementer:\r\n\r\n- \"Administrativ kontaktårsak\" brukes for å dokumentere den administrative delen av helsehjelpen som oppsøkes eller behøves, for eksempel konsultasjonstype, øyeblikkelig hjelp, preoperativ vurdering, svangerskapskontroll eller elektiv innleggelse. Dataelementet reflekterer en administrativ kategorisering av helsehjelpen. Valg av ordet kontaktårsak viser at det er en økt trend mot alternative måter for utføring av helsetjenester som ikke må ende opp med ansikt til ansikt kontakt mellom helsepersonell og pasient i konsultasjonsrommet.\r\n\r\n-\"Klinisk kontaktårsak\" brukes for å dokumentere kliniske årsaker for kontakten. Hovedproblemstilling blir regnet som et synonym for \"Klinisk kontaktårsak\". Formålet er å registrere individets oppfatning av problemer og symptomer som har vært utløsende faktor for at en søker hjelp fra helsevesenet, for eksempel ønske om å slutte å røyke, stress, kortpusthet eller magesmerter. Sykdomstegn som \"nedsatt bevissthet\" kan også registreres her, for eksempel når prehospitalt personell møter en bevisstløs person.",
+          "misuse" : "Skal ikke benyttes for å registrere spesifikke detaljer om pasientens sykehistorie eller forløp av symptomer. Bruk OBSERVATION.story å registrere den fritekstlige delen og de relaterte nøstede CLUSTER-arketypene for strukturert innhold f.eks CLUSTER.symptom, CLUSTER.event og CLUSTER.issue. \r\n\r\nSkal ikke benyttes for å registrere bestemte detaljer om diagnoser som kan være nødvendig i tillegg til \"Kontaktårsak\" f.eks innleggelse eller preoperativ diagnose som en del av en innleggelse i sykehus for utførelse av en prosedyre. Bruk EVALUATION.problem_diagnosis for dette formålet.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para gravar a(s) razão(ões) do início de qualquer tipo de contato de saúde entre um profissional de saúde e um paciente. \r\n",
+          "keywords" : [ "apresentação", "queixa apresentada", "motivo para o encontro", "motivo", "queixa principal", "visita", "motivo para a visita" ],
+          "use" : "Para gravar a(s) razão(ões) do início de qualquer tipo de contato de saúde entre um profissional de saúde e um paciente. \r\n\r\nMotivo para o encontro é um frase comum em medicina clínica, entretanto o termo é frequentemente usado de duas maneiras comuns - Uma refere-se à categoria administrativa para provisão de cuidado em saúde e a outra que reflete o gatilho clínico para buscar cuidado em saúde. \r\n\r\nNum esforço para esclarecer as frases e intenções, este arquétipo contém dois elementos de dados:\r\n- O primeiro, \"Motivo para o contato\", para documentar o tipo administrativo de cuidado em saúde procurado ou exigido - por exemplo o tipo de consulta, cuidado emergencial, risco cirúrgico, visita pré-natal de rotina ou adminissão eletiva. Este elemento de dado reflete a categoria administrativa da provisão do cuidado. O uso da frase \"Motivo para o contato\" ao invés de \"Razão para o encontro\" ou \"Razão para visita\" reflete uma tendência crescente em relação a métodos alternativos de provisão de cuidado em saúde que podem não resultar em um contato pessoal entre o profissional de saúde e o paciente dentro de um consultório.\r\n- O segundo, \"Problema apresentado\", para documentar as razões clínicas do contato em saúde. O objetivo destes é principalmente para capturar os problemas ou sintomas observados pelo paciente que o levaram a procurar orientação em saúde, como o desejo de parar de fumar, estresse, falta de ar ou dor abdominal. Sinais como estado de consciência alterado também podem ser capturados aqui, por exemplo por paramédicos com pacientes inconscientes.\r\n",
+          "misuse" : "Não deve ser usado para gravar detalhes específicos e da estória do paciente ou seus sintomas. Use OBSERVATION.story para capturar a narrativa e arquétipos CLUSTER relacionados para conteúdo estruturado p.e. CLUSTER.symptom, CLUSTER.event and CLUSTER.issue.\r\n\r\nNão deve ser usado para gravar detalhes específicos de diagnósticos que podem ser necessários além do motivo para o encontro p.e. diagnóstico de admissão ou pré-operatório como parte de uma admissão para um procedimento hospitalar. Use EVALUATION.problem_diagnosis (e especializações relacionadas) para este propósito.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "el" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "el"
+          },
+          "purpose" : "Για την καταγραφή του λόγου ή των λόγων για την έναρξη οποιουδήποτε είδους συνάντησης ή επαφής υγειονομικής περίθαλψης από το άτομο που αποτελεί αντικείμενο φροντίδας.",
+          "keywords" : [ "παρουσίαση", "Υποβολή καταγγελίας", "Λόγος συνάντησης", "λόγος", "Κύριο παράπονο", "επισκέπτομαι", "Λόγος επίσκεψης" ],
+          "use" : "*Use to record the reason, or reasons, for initiation of any type of healthcare encounter or contact between a healthcare provider and the individual who is the subject of care. The reason may be for clinical, social or administrative purposes.\r\n\r\nReason for Encounter is a common phrase used in clinical medicine, however the term is often used in two common ways - one that refers to an administrative category for provision of healthcare and the other that reflects clinical or social problems that motivate individuals to seek healthcare.\r\n\r\nIn an effort to clarify the phrases and intent, this archetype contains two data elements:\r\n- The first, 'Contact type', to document the administrative type of healthcare sought or required - for example the type of consultation, emergency care, pre-operative assessment, routine antenatal visit or elective admission. This data element reflects the administrative category of care provision. Use of the phrase 'Contact type', rather than 'Reason for encounter' or 'Reason for visit' reflects the increasing trend towards alternative methods of healthcare provision that may not result in face-to-face contact between the healthcare provider and patient within a consulting room.\r\n- The second, 'Presenting problem', to document the clinical reasons for healthcare contact. Chief complaint is regarded as a synonym for 'Presenting problem'. These are intended mainly to capture the patient's perceived issues or symptoms which have triggered them to seek healthcare advice, such as desire to quit smoking, stress, shortness of breath, genetic counselling or abdominal pain. Signs such as impaired conscious state may also be captured here, for example by paramedical staff with an unconscious patient.(en)",
+          "misuse" : "*Not to be used to record specific details of the patient's story or history of symptoms. Use OBSERVATION.story to capture the narrative and the related nested CLUSTER archetypes for structured content eg CLUSTER.symptom, CLUSTER.event and CLUSTER.issue.\r\n\r\nNot to be used to record specific diagnosis details that may be required in addition to a Reason for Encounter. For example, to record a Pre-operative Diagnosis as part of admission for a hospital procedure. Use the EVALUATION.problem_diagnosis archetype for this purpose.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the reason, or reasons, for initiation of any type of healthcare encounter or contact by the individual who is the subject of care.",
+          "keywords" : [ "presentation", "presenting complaint", "reason for encounter", "reason", "chief complaint", "visit", "reason for visit" ],
+          "use" : "Use to record the reason, or reasons, for initiation of any type of healthcare encounter or contact between a healthcare provider and the individual who is the subject of care. The reason may be for clinical, social or administrative purposes.\r\n\r\nReason for Encounter is a common phrase used in clinical medicine, however the term is often used in two common ways - one that refers to an administrative category for provision of healthcare and the other that reflects clinical or social problems that motivate individuals to seek healthcare.\r\n\r\nIn an effort to clarify the phrases and intent, this archetype contains two data elements:\r\n- The first, 'Contact type', to document the administrative type of healthcare sought or required - for example the type of consultation, emergency care, pre-operative assessment, routine antenatal visit or elective admission. This data element reflects the administrative category of care provision. Use of the phrase 'Contact type', rather than 'Reason for encounter' or 'Reason for visit' reflects the increasing trend towards alternative methods of healthcare provision that may not result in face-to-face contact between the healthcare provider and patient within a consulting room.\r\n- The second, 'Presenting problem', to document the clinical reasons for healthcare contact. Chief complaint is regarded as a synonym for 'Presenting problem'. These are intended mainly to capture the patient's perceived issues or symptoms which have triggered them to seek healthcare advice, such as desire to quit smoking, stress, shortness of breath, genetic counselling or abdominal pain. Signs such as impaired conscious state may also be captured here, for example by paramedical staff with an unconscious patient.",
+          "misuse" : "Not to be used to record specific details of the patient's story or history of symptoms. Use OBSERVATION.story to capture the narrative and the related nested CLUSTER archetypes for structured content eg CLUSTER.symptom, CLUSTER.event and CLUSTER.issue.\r\n\r\nNot to be used to record specific diagnosis details that may be required in addition to a Reason for Encounter. For example, to record a Pre-operative Diagnosis as part of admission for a hospital procedure. Use the EVALUATION.problem_diagnosis archetype for this purpose.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Registrar los motivos de un paciente para iniciar un encuentro o contacto con un proveedor de salud.",
+          "keywords" : [ "problema", "síntoma", "razón", "motivo de consulta", "visita", "consulta" ],
+          "use" : "Utilizar para registrar los motivos de un paciente para iniciar un encuentro o contacto con un proveedor de salud. El motivo tener un propósito clínico, social o administrativo.\r\n\r\nEl arquetipo incluye dos elementos principales:\r\n\r\n- Motivo de consulta: para registrar el dato administrativo relacionado al tipo de asistencia médica buscada por el paciente.\r\n- Problema presentado: para registrar los problemas o síntomas que el paciente percibe, y que lo motivan a buscar asistencia médica. También se pueden registrar datos como el estado de conciencia de un paciente, por ejemplo por personal paramédico atendiendo a un paciente inconsciente.",
+          "misuse" : "No se debe utilizar para registrar detalles específicos sobre la historia de síntomas del paciente. Para eso utilizar el arquetipo OBSERVATION.story.\r\n\r\nNo debe ser utilizado para registrar diagnósticos. Para eso utilizar el arquetipo EVALUATION.problem_diagnosis.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ca" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ca"
+          },
+          "purpose" : "Registrar la raó, o raons, d'inici de qualsevol tipus de trobada o contacte assistencial per part del pacient que és objecte d'atenció.",
+          "keywords" : [ "presentació", "presentació", "de", "la", "reclamació", "motiu", "de", "trobada", "raó", "queixa", "principal", "visita", "motiu", "de", "visita" ],
+          "use" : "S'utilitza per registrar la raó, o raons, per iniciar qualsevol tipus de trobada o contacte sanitari entre un proveïdor sanitari i la persona que és objecte d'atenció. El motiu pot ser per a finalitats clíniques, socials o administratives.\r\n\r\nLa raó de trobar-se és una frase comuna utilitzada en medicina clínica, però el terme s'utilitza sovint de dues maneres comunes: una que es refereix a una categoria administrativa per a la provisió d'assistència sanitària i l'altra que reflecteix els problemes clínics o socials que motiven els individus a buscar assistència sanitària.\r\n\r\nEn un esforç per aclarir les frases i la intenció, aquest arquetip conté dos elements de dades:\r\n- El primer, 'tipus de contacte', per documentar el tipus administratiu d'atenció sanitària buscat o requerit - per exemple el tipus de consulta, atenció d'emergència, avaluació preoperatòria, visita prenatal rutinària o admissió optativa. Aquest element de dades reflecteix la categoria administrativa de prestació d'atenció. L'ús de la frase \"tipus de contacte\", en lloc de \"motiu de trobada\" o \"motiu de visita\" reflecteix la tendència creixent cap a mètodes alternatius de prestació sanitària que poden no donar lloc al contacte presencial entre el proveïdor d'atenció sanitària i el pacient dins d'una sala de consulta.\r\n- El segon, 'Presenting problem', per documentar les raons clíniques del contacte sanitari. La queixa principal es considera un sinònim de \"problema de presentació\". Aquests estan destinats principalment a captar els problemes o símptomes percebuts del pacient que els han desencadenat a buscar consell sanitari, com el desig de deixar de fumar, l'estrès, la falta d'aire, l'assessorament genètic o el dolor abdominal. També es poden capturar signes com ara un estat conscient afectat, per exemple per personal paramèdic amb un pacient inconscient.",
+          "misuse" : "No s'ha d'utilitzar per registrar detalls específics de la història o història dels símptomes del pacient. Utilitzeu OBSERVATION.story per capturar la narrativa i els arquetips de CLÚSTER niats relacionats per al contingut estructurat, p. ex. CLUSTER.symptom, CLUSTER.event i CLUSTER.issue.\r\n\r\nNo s'ha d'utilitzar per registrar detalls de diagnòstic específics que es poden requerir a més d'una raó per trobar-se. Per exemple, registrar un diagnòstic preoperatori com a part de l'ingrés per a un procediment hospitalari. Utilitzar l'arquetip EVALUATION.problem.diagnosis per a aquesta finalitat.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.reason_for_encounter.v1",
     "differential" : true,
