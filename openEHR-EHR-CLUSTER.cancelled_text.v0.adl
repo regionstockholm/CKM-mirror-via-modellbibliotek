@@ -1,0 +1,91 @@
+archetype (adl_version=1.4; uid=a44ea012-896b-4d39-be57-c2007448408a)
+	openEHR-EHR-CLUSTER.cancelled_text.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-09-28">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"7c7b00aea3b3d148f40ee3d681e0e19b">
+		["build_uid"] = <"4b9b7fcd-4bc4-3d8e-8fdc-33e28c89d916">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Cancelled text
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Cancelled
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Reason for cancellation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cancelled text">
+					description = <"Cancelled text">
+				>
+				["at0001"] = <
+					text = <"Cancelled">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Reason for cancellation">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Struken text">
+					description = <"*Cancelled text (en)">
+				>
+				["at0001"] = <
+					text = <"Struken">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Orsak till struken text">
+					description = <"">
+				>
+			>
+		>
+	>
