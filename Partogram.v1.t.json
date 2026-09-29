@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "1.0.0-alpha.28",
       "build_uid" : "98bd954e-ea2c-4231-8dc6-0fac612956c9",
-      "MD5-CAM-1.0.1" : "215c1f00e099b6aec410a51d38373b18",
+      "MD5-CAM-1.0.1" : "ab0b26cce8261d68e4f0c732bf41ccb8",
       "PARENT:MD5-CAM-1.0.1" : "3B0765A6B395C9D01595FDF2D440E6CB"
     },
     "details" : {
@@ -242,6 +242,15 @@
                 "attributeTuples" : [ ],
                 "archetypeRef" : "Care unit v2",
                 "referenceType" : "templateId"
+              }, {
+                "@type" : "C_ARCHETYPE_ROOT",
+                "rmTypeName" : "CLUSTER",
+                "occurrences" : "0..1",
+                "nodeId" : "at0002.2",
+                "attributes" : [ ],
+                "attributeTuples" : [ ],
+                "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-metadata_obstetrix-001.v0",
+                "referenceType" : "archetypeOverlay"
               } ]
             } ],
             "attributeTuples" : [ ]
@@ -1745,8 +1754,8 @@
                                 "upper" : "P60W",
                                 "lowerIncluded" : true,
                                 "upperIncluded" : true,
-                                "upperUnbounded" : false,
-                                "lowerUnbounded" : false
+                                "lowerUnbounded" : false,
+                                "upperUnbounded" : false
                               } ]
                             } ]
                           } ],
@@ -1778,8 +1787,8 @@
                                 "upper" : "P60W",
                                 "lowerIncluded" : true,
                                 "upperIncluded" : true,
-                                "upperUnbounded" : false,
-                                "lowerUnbounded" : false
+                                "lowerUnbounded" : false,
+                                "upperUnbounded" : false
                               } ]
                             } ]
                           } ],
@@ -2226,8 +2235,8 @@
                                     "constraint" : [ {
                                       "lowerIncluded" : false,
                                       "upperIncluded" : false,
-                                      "upperUnbounded" : true,
-                                      "lowerUnbounded" : true
+                                      "lowerUnbounded" : true,
+                                      "upperUnbounded" : true
                                     } ]
                                   } ]
                                 } ]
@@ -2248,7 +2257,19 @@
                         "children" : [ {
                           "@type" : "C_COMPLEX_OBJECT",
                           "rmTypeName" : "DV_CODED_TEXT",
-                          "attributes" : [ ],
+                          "attributes" : [ {
+                            "@type" : "C_ATTRIBUTE",
+                            "rmAttributeName" : "defining_code",
+                            "children" : [ {
+                              "@type" : "C_TERMINOLOGY_CODE",
+                              "rmTypeName" : "CODE_PHRASE",
+                              "occurrences" : "1..1",
+                              "terminologyId" : {
+                                "value" : "local"
+                              },
+                              "constraint" : [ "at0023", "at0025", "at0026" ]
+                            } ]
+                          } ],
                           "attributeTuples" : [ ]
                         } ]
                       } ],
@@ -2299,8 +2320,8 @@
                                 "constraint" : [ {
                                   "lowerIncluded" : false,
                                   "upperIncluded" : false,
-                                  "upperUnbounded" : true,
-                                  "lowerUnbounded" : true
+                                  "lowerUnbounded" : true,
+                                  "upperUnbounded" : true
                                 } ]
                               } ]
                             } ]
@@ -3742,7 +3763,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Rubrik (6)",
+            "text" : "Rh",
             "description" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext."
           }
         },
@@ -7771,8 +7792,8 @@
                                   "upper" : 1000.0,
                                   "lowerIncluded" : true,
                                   "upperIncluded" : false,
-                                  "upperUnbounded" : false,
-                                  "lowerUnbounded" : false
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
                                 } ]
                               }, {
                                 "@type" : "C_INTEGER",
@@ -7782,8 +7803,8 @@
                                   "upper" : 0,
                                   "lowerIncluded" : true,
                                   "upperIncluded" : true,
-                                  "upperUnbounded" : false,
-                                  "lowerUnbounded" : false
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
                                 } ]
                               } ]
                             } ]
@@ -7843,8 +7864,8 @@
                                   "upper" : 1000.0,
                                   "lowerIncluded" : true,
                                   "upperIncluded" : false,
-                                  "upperUnbounded" : false,
-                                  "lowerUnbounded" : false
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
                                 } ]
                               }, {
                                 "@type" : "C_INTEGER",
@@ -7854,8 +7875,8 @@
                                   "upper" : 0,
                                   "lowerIncluded" : true,
                                   "upperIncluded" : true,
-                                  "upperUnbounded" : false,
-                                  "lowerUnbounded" : false
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
                                 } ]
                               } ]
                             } ]
@@ -8008,8 +8029,8 @@
                                   "upper" : 90.0,
                                   "lowerIncluded" : true,
                                   "upperIncluded" : true,
-                                  "upperUnbounded" : false,
-                                  "lowerUnbounded" : false
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
                                 } ]
                               }, {
                                 "@type" : "C_INTEGER",
@@ -8019,8 +8040,8 @@
                                   "upper" : 0,
                                   "lowerIncluded" : true,
                                   "upperIncluded" : true,
-                                  "upperUnbounded" : false,
-                                  "lowerUnbounded" : false
+                                  "lowerUnbounded" : false,
+                                  "upperUnbounded" : false
                                 } ]
                               } ]
                             } ]
@@ -8078,8 +8099,8 @@
                         "upper" : "PT24H",
                         "lowerIncluded" : true,
                         "upperIncluded" : true,
-                        "upperUnbounded" : false,
-                        "lowerUnbounded" : false
+                        "lowerUnbounded" : false,
+                        "upperUnbounded" : false
                       } ]
                     } ]
                   } ],
@@ -9608,8 +9629,8 @@
                                 "lower" : 1,
                                 "lowerIncluded" : true,
                                 "upperIncluded" : false,
-                                "upperUnbounded" : true,
-                                "lowerUnbounded" : false
+                                "lowerUnbounded" : false,
+                                "upperUnbounded" : true
                               } ]
                             } ]
                           } ],
@@ -12386,8 +12407,8 @@
                     "lower" : "P0W",
                     "lowerIncluded" : true,
                     "upperIncluded" : false,
-                    "upperUnbounded" : true,
-                    "lowerUnbounded" : false
+                    "lowerUnbounded" : false,
+                    "upperUnbounded" : true
                   } ]
                 } ]
               } ],
@@ -12464,8 +12485,8 @@
                     "constraint" : [ {
                       "lowerIncluded" : false,
                       "upperIncluded" : false,
-                      "upperUnbounded" : true,
-                      "lowerUnbounded" : true
+                      "lowerUnbounded" : true,
+                      "upperUnbounded" : true
                     } ]
                   } ]
                 } ]
@@ -13720,7 +13741,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "a81f501b8900046d485bbd623a08d281"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.procedure_performed.v0",
     "differential" : true,
@@ -13812,7 +13859,237 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "9FC6BA2D63BE451F034CE25153F4E298"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Eine generische Abschnittsüberschrift eines Templates, welche entsprechend dem spezifischen klinischen Kontext umbenannt werden sollte.",
+          "keywords" : [ "Abschnitt", "Template", "Überschrift", "Ad hoc", "Abschnittsüberschrift" ],
+          "use" : "Dieser Archetyp kann für die Erstellung einer Abschnittsüberschrift in einem Template verwendet werden. Die Überschrift kann, passend zu dem jeweiligen klinischen Kontext, umbenannt werden. Zum Beispiel: \"Ad hoc Überschrift\" wird umbenannt in \"Untersuchungsergebnisse\".\r\n\r\n",
+          "misuse" : "Die Überschrift sollte in einem Template nicht unverändert verwendet werden.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Базовый заголовок раздела, должен быть переименован в локальном шаблоне ",
+          "keywords" : [ "раздел", "шаблон", "заготовка", "название", "образец" ],
+          "use" : "используется для создания и именования разделов в локальных шаблонах",
+          "misuse" : "*Not to be left unchanged in a template.(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext.",
+          "keywords" : [ ],
+          "use" : "Används för att skapa en avsnittsrubrik i en openEHR-mall som sedan döps om för att passa in i den specifika kliniska kontexten. Exempelvis \"Rubrik\" döps om till \"Undersökningsfynd\".",
+          "misuse" : "Ska inte lämnas oförändrad i en openEHR-mall.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt"
+          },
+          "purpose" : "Para fornecer um cabeçalho de secção genérico que será renomeado ao nível do template para se adequar a um contexto clínico específico.",
+          "keywords" : [ ],
+          "use" : "Use para criar um título de secção ao nível do template que será renomeado para se adequar ao contexto clínico específico. Por exemplo: «Título ad hoc» renomeado para «Resultados do exame».",
+          "misuse" : "Não deve ser deixado inalterado ao nível do template.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Oferecer um cabeçalho de uma sessão genérica que será renomeado no template para adequar-se a um contexto clínico específico.",
+          "keywords" : [ "cabeçalho" ],
+          "use" : "Utilize para construir um cabeçalho de uma sessão (de um template) que será renomeada para adequar-se a um contexto clínico específico. Por exemplo: \"cabeçalho Ad hoc\" renomeado para \"Achados de exame\".",
+          "misuse" : "Não deve manter a configuração original no template.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To provide a generic section header which will be renamed in a template to suit a specific clinical context.",
+          "keywords" : [ ],
+          "use" : "Use to construct a section heading in a template that will be renamed to suit the specific clinical context. For example: \"Ad hoc heading\" renamed to \"Examination findings\".",
+          "misuse" : "Not to be left unchanged in a template.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "it" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "it"
+          },
+          "purpose" : "Fornire un'intestazione generica della sezione che sarà rinominata in un template per adattarsi ad uno specifico contesto clinico.",
+          "keywords" : [ ],
+          "use" : "Usato per costruire un'intestazione di sezione in un template che sarà rinominato in base al contesto clinico specifico. Per esempio: \"Intestazione ad hoc\" rinominata in \"Risultati dell'esame\".",
+          "misuse" : "Non deve essere lasciato invariato in un template.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fr" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fr"
+          },
+          "purpose" : "*To provide a generic section header which will be renamed in a template to suit a specific clinical context.(en)",
+          "keywords" : [ ],
+          "use" : "*Use to construct a section heading in a template that will be renamed to suit the specific clinical context. For example: \"Ad hoc heading\" renamed to \"Examination findings\".(en)",
+          "misuse" : "*Not to be left unchanged in a template.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Per proporcionar una capçalera de secció genèrica que es canviarà de nom en una plantilla per adaptar-se a un context clínic específic.",
+          "keywords" : [ ],
+          "use" : "Utilitzar-se per construir un encapçalament de secció en una plantilla que es canviarà de nom per adaptar-se al context clínic específic. Per exemple: \"Encapçalament ad hoc\" canviat de nom a \"Conclusió de l'examen\".",
+          "misuse" : "No es deixarà sense canvis en una plantilla.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-pt" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-pt"
+          },
+          "purpose" : "Para fornecer um cabeçalho de secção genérico que será renomeado ao nível do template para se adequar a um contexto clínico específico.",
+          "keywords" : [ ],
+          "use" : "Use para criar um título de secção ao nível do template que será renomeado para se adequar ao contexto clínico específico. Por exemplo: «Título ad hoc» renomeado para «Resultados do exame».",
+          "misuse" : "Não deve ser deixado inalterado ao nível do template.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Proporcionar un encabezado de sección de tipo genérico que será renombrado en una plantilla para su empleo en un contexto clínico específico.",
+          "keywords" : [ ],
+          "use" : "Utilizar para construir un encabezado de sección en una plantilla y que será renombrado para su empleo en un contexto clínico específico. Por ejemplo, \"Encabezado ad hoc\" puede renombrarse como \"Hallazgos de examen\".",
+          "misuse" : "No debe mantenerse sin cambios en una plantilla.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "Brukes som en generisk seksjonsoverskrift som skal gis nytt navn i en templat for å passe i en gitt klinisk kontekst.",
+          "keywords" : [ ],
+          "use" : "Brukes til å lage en seksjonsoverskrift i en templat, hvis navn deretter endres for å passe i den aktuelle kliniske konteksten. For eksempel: \"Templat-overskrift\" endret til \"Funn ved undersøkelse\", \"Anamnese\", \"Personopplysninger\" eller \"Oppsummering\".",
+          "misuse" : "Skal ikke stå med uendret navn i en templat.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sl"
+          },
+          "purpose" : "*To provide a generic section header which will be renamed in a template to suit a specific clinical context.(en)",
+          "keywords" : [ ],
+          "use" : "*Use to construct a section heading in a template that will be renamed to suit the specific clinical context. For example: \"Ad hoc heading\" renamed to \"Examination findings\".(en)",
+          "misuse" : "*Not to be left unchanged in a template.(en)",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ca" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ca"
+          },
+          "purpose" : "Proporcionar un encapçalament de secció genèric que serà rebatejat en una plantilla per adaptar-se a un context clínic específic.",
+          "keywords" : [ ],
+          "use" : "Utilitzar per a construir un encapçalament de secció en una plantilla que serà rebatejada per adaptar-se al context clínic específic. Per exemple: «Títol ad hoc» rebatejat a «Resultats de l'examen».",
+          "misuse" : "No s'ha de deixar sense canvis en una plantilla.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "tr" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "tr"
+          },
+          "purpose" : "Belirli bir klinik bağlama uyacak şekilde bir şablonda yeniden adlandırılacak genel bir bölüm başlığı sağlamak için.",
+          "keywords" : [ ],
+          "use" : "Bir şablonda, belirli klinik bağlama uyacak şekilde yeniden adlandırılacak bir bölüm başlığı oluşturmak için kullanılır. Örneğin: “Geçici başlık”ın “Muayene bulguları” olarak yeniden adlandırılması.",
+          "misuse" : "Bir şablonda değiştirilmeden bırakılmamalıdır.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-SECTION.adhoc.v1",
     "differential" : true,
@@ -13899,7 +14176,14 @@
             "description" : "Um cabeçalho de sessão genérico que deve ser renomeado no template para adequar-se a um contexto clínico específico."
           }
         },
-        "sv" : { },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Blödning",
+            "description" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext."
+          }
+        },
         "de" : {
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
@@ -14190,7 +14474,177 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "61D18256DA550BBFD431F41EF7307BE0"
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Zur detaillierten Aufzeichnung von Befunden der körperlichen Untersuchung eines Pflegebedürftigen.",
+          "keywords" : [ "Behandlung", "Untersuchung", "Ergebnis", "Befund", "Untersuchungsergebnis", "körperlich", "klinisch", "medizinisch" ],
+          "use" : "Dient zur detaillierten Aufzeichnung von Befunden der körperlichen Untersuchung eines Pflegebedürftigen. Dies kann eine Befundbeschreibung, ein Framework, in dem detaillierte CLUSTER-Untersuchungsarchetypen verschachtelt werden können und eine klinische Interpretation der Befunde umfassen.\r\n\r\nBeispiele für detaillierte CLUSTER-Untersuchungsarchetypen sind solche, die Inspektion, Palpation, Auskultation, Perkussion und Bewegung von Körpersystemen oder anatomischen Strukturen beschreiben, wie z.B. CLUSTER.exam_pupils.\r\n\r\nBeschreibungen von klinischen Befunden aus bestehenden klinischen Systemen können mit dem Datenelement 'Beschreibung' erfasst werden.\r\n\r\nKliniker möchten manchmal einen zusammenfassenden Ausdruck wie 'chronische Mittelohrentzündung' als Interpretation der körperlichen Untersuchung aufzeichnen. Im Zusammenhang mit dem Archetyp der körperlichen Untersuchung sollte dies nur so verstanden werden, dass \"die körperlichen Anzeichen mit einer chronischen Mittelohrentzündung vereinbar sind\". Obwohl der zusammenfassende Ausdruck eine Diagnose zu repräsentieren scheint, erfordert eine sichere und konsistente Abfrage die Aufzeichnung einer Diagnose unter Verwendung des Archetyps EVALUATION.problem_diagnosis, selbst wenn die Ausdrücke identisch sind.",
+          "misuse" : "Nicht zur Aufzeichnung von historischen Beobachtungen verwenden - Für diesen Zweck sollen spezifische OBSERVATION- und CLUSTER-Archetypen verwendet werden, z.B OBSERVATION.story und CLUSTER.symptom.\r\nNicht zur Aufzeichnung von eigenständigen klinischen Beobachtungen verwenden - Für diesen Zweck sollen spezifische OBSERVATION-Archetypen verwendet werden, z.B. OBSERVATION.blood_pressure, OBSERVATION.body_weight oder OBSERVATION.height.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "För registrering av detaljer om fynd vid fysisk undersökning.",
+          "keywords" : [ "undersökning", "fysisk", "fynd", "klinisk" ],
+          "use" : "Används för att registrera detaljer om fynd vid fysisk undersökning. Detta kan inkludera en detaljerad beskrivning av fynden, ett ramverk för detaljerade CLUSTER-undersökningsarketyper och en klinisk tolkning av resultaten.\r\n\r\nExempel på detaljerade CLUSTER-undersökningsarketyper inkluderar de som beskriver inspektion, palpation, auskultation, slagverk och rörelse av kroppssystem eller anatomiska strukturer, såsom CLUSTER.exam_pupils.\r\n\r\nDetaljerade beskrivningar av kliniska resultat från befintliga kliniska system kan fångas med hjälp av dataelemntet 'Beskrivning'.\r\n\r\nKliniker kanske ibland vill dokumentera en sammanfattande fras som 'kronisk otitis media' som en tolkning av den fysiska undersökningen. I sammanhanget med den fysiska undersöknings arketypen bör detta endast tolkas som \"fysiska tecken överensstämmer med kronisk otitis media\". Medan den sammanfattande frasen kan tyckas representera en diagnos, kräver en säker och konsekvent fråga att en diagnos ska registreras med EVALUATION.problem_diagnosis-arketypen, även om fraserna är identiska.",
+          "misuse" : "Ska inte användas för att registrera historiska observationer - används då specifika OBSERVATION och CLUSTER arketyper. Exempelvis OBSERVATION.story och CLUSTER.symptom.\r\n\r\nSka inte användas för att registrera enskilda kliniska observationer - använd specifik OBSERVATION arketyp för det. Exempelvis OBSERVATION.blood_pressure, OBSERVATION.body_weight, eller OBSERVATION.height.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Para registrar una descripcion narrativa e interpretacion clinica de los hallazgos observados durante el examen fisico completo de una persona, y proveer un marco de referencia para anidar CLUSTER de arquetipos detallados, cada uno de los cuales posibilita registrar en detalle aspectos especificos del examen fisico",
+          "keywords" : [ "examen", "fisico", "examen", "hallazgos", "clinicos" ],
+          "use" : "Utilizar para registrar una descripcion narrativa de los hallazgos observados durante el examen fisico general de una persona.\r\n\r\nUtilizar para incorporar la descripcion narrativa de hallazgos clinicos dentro de sistemas clinicos actuales o legados a un formato de arquetipos, utilizando el elemento de data \"Descripcion Clinica\". \r\n\r\nUtilizar como un arquetipo contenedor - para proveer un arquetipo ENTRY consultable en el cual, puedan ser anidados arquetipos CLUSTER especificos de examenes, incluidos aquellos que detallan la inspeccion, palpacion, asucultacion, percusion y movimiento de los sistemas o estructuras anatomicas del cuerpo",
+          "misuse" : "No debe ser utilizado para registrar observaciones de la toma de historia -utilizar arquetipos especificos de OBSERVACION y CLUSTER. Por ejemplo OBSERVACION.historia y CLUSTER.sintoma.\r\n\r\nNo debe ser utilizado para registrar observaciones clinicas autonomas - utilizar arquetipos especificos OBSERVATION. Por ejemplo OBSERVATION.presion_arterial, OBSERVATION.peso_corporal, u OBSERVATION.altura. ",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere funn ved fysisk undersøkelse av en helsetjenestemottaker.",
+          "keywords" : [ "klinisk undersøkelse", "fysisk undersøkelse", "undersøkelse", "funn", "klinisk", "legeundersøkelse", "observasjon", "kroppsundersøkelse" ],
+          "use" : "Benyttes ved registrering av detaljer om fysiske funn observert ved klinisk undersøkelse av et individ. Dette kan inkludere en tekstlig beskrivelse av funn og kliniske fortolkninger av funn. Tekstlige beskrivelser av kliniske funn innhentet fra eksisterende kliniske systemer kan fanges opp ved å benytte dataelementet \"Beskrivelse\". \r\n\r\nArketypen kan også benyttes som et rammeverk for innsetting av detaljer ved hjelp av CLUSTER.exam-arketyper. Eksempler på detaljer som kan beskrives ved hjelp av innsatte CLUSTER-arketyper er inspeksjon, palpasjon, auskultasjon, perkusjon og bevegelser i kroppsystemer eller anatomiske strukturer (feks CLUSTER.exam_pupils).\r\n\r\nNoen ganger vil klinikere ønske å registrere et sammendrag, f.eks. \"kronisk otitis media\", som en fortolkning av funn ved klinisk undersøkelse. I denne konteksten - arketypen 'Funn ved klinisk undersøkelse' - bør dette forståes som 'funn forenlig med kronisk otitis media', og ikke en fastsatt diagnose. Skulle sammendraget synes å representere en diagnose, vil sikker og konsistent dataspørring kreve en diagnose som registreres i EVALUATION.problem_diagnosis-arketypen, selv om sammendraget/frasen og diagnosen er identiske.",
+          "misuse" : "Skal ikke anvendes for å registrere observasjoner gjort under anamneseopptak - bruk spesifikke OBSERVATION og CLUSTER-arketyper, for eksempel OBSERVATION.story eller CLUSTER.symptom.\r\n\r\nSkal ikke anvendes for å registrere frittstående observasjoner - bruk spesifikke OBSERVATION-arketyper, for eksempel OBSERVATION.body_weight (Kroppsvekt) eller OBSERVATION.height (Høyde/Lengde).",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para registro de detalhes sobre os resultados no exame físico do sujeito do cuidado.",
+          "keywords" : [ "exame", "físico", "achados", "clínico" ],
+          "use" : "Use para registrar detalhes sobre achados no exame físico do sujeito do cuidado. Pode incluir uma descrição narrativa dos achados, uma estrutura em que aninhar detalhados arquétipos do exame do CLUSTER, e uma interpretação clínica dos achados.\r\n\r\nExemplos de arquétipos detalhados de exame CLUSTER incluem aqueles que descrevem inspeção, palpação, ausculta, percussão e movimento de sistemas corporais ou estruturas anatômicas, como CLUSTER.exam_pupils.\r\n\r\nAs descrições narrativas dos achados dos sistemas clínicos existentes podem ser capturadas utilizando o elemento de dados \"Descrição\".\r\n\r\nOs clínicos às vezes podem querer gravar uma frase resumida, como \"otite média crônica\", como Interpretação do exame físico. No contexto do arquétipo do exame físico, isso só deve ser entendido como \"os sinais físicos são consistentes com a otite média crônica\". Embora a expressão resumida possa parecer representar um diagnóstico, a consulta segura e consistente requer que um diagnóstico seja registrado usando o arquétipo EVALUATION.problem_diagnosis, mesmo que as frases sejam idênticas.",
+          "misuse" : "Não deve ser utilizado para gravação de anamnese observações - usar arquétipos específicos OBSERVATION e CLUSTER. Por exemplo, OBSERVATION.story e CLUSTER .symptom.\r\n\r\nNão deve ser utilizado pra gravar observações clínicas isoladas - use arquétipos específicos OBSERVATION. Por exemplo: OBSERVATION.blood_pressure, OBSERVATION.body_weight, ou OBSERVATION.height.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sl"
+          },
+          "purpose" : "Beleženje podrobnosti o ugotovitvah fizičnega pregleda obravnavane osebe.",
+          "keywords" : [ "pregled", "fizični", "preiskava", "ugotovitve", "klinični" ],
+          "use" : "Uporabiti za beleženje podrobnosti o ugotovitvah fizičnega pregleda obravnavane osebe. Lahko vključuje pripovedni opis ugotovitev, okvir, v katerega je možno ugnezditi podrobne CLUSTER arhetipe pregledov, in klinično interpretacijo ugotovitev. \r\n\r\nPrimeri podrobnih CLUSTER arhetipov pregledov vključujejo tiste, ki opisujejo inspekcijo, palpacijo, avskultacijo, perkusijo in gibanje telesnih sistemov ali anatomskih struktur, kot je CLUSTER.exam_pupils. \r\n\r\nPripovedne opise kliničnih ugotovitev iz obstoječih kliničnih sistemov je mogoče zajeti s podatkovnim elementom 'Opis'. \r\n\r\nZdravniki bodo morda včasih želeli zabeležiti povzemajočo besedno zvezo, kot je 'kronično vnetje srednjega ušesa', kot Interpretacijo fizičnega pregleda. V kontekstu arhetipa fizičnega pregleda naj bo to razumljeno samo kot 'fizični znaki so skladni s kroničnim vnetjem srednjega ušesa'. Čeprav se lahko zdi, da povzemajoča besedna zveza predstavlja diagnozo, varno in dosledno poizvedovanje zahteva, da se diagnoza zabeleži z uporabo arhetipa EVALUATION.problem_diagnosis, tudi če sta besedni zvezi enaki.",
+          "misuse" : "Se ne uporablja za beleženje opažanj pri pridobivanju anamneze - uporabiti specifične OBSERVATION in CLUSTER arhetipe. Na primer OBSERVATION.story in CLUSTER.symptom. \r\n\r\nSe ne uporablja za beleženje samostojnih kliničnih opažanj – uporabiti specifične OBSERVATION arhetipe. Na primer OBSERVATION.blood_pressure (krvni tlak), OBSERVATION.body_weight (telesna teža), or OBSERVATION.height (telesna višina).",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "For recording details about findings on physical examination of the subject of care.",
+          "keywords" : [ "examination", "physical", "exam", "findings", "clinical" ],
+          "use" : "Use to record details about findings on physical examination of the subject of care. This may include a narrative description of the findings, a framework in which to nest detailed CLUSTER examination archetypes, and a clinical interpretation of the findings.\r\n\r\nExamples of detailed CLUSTER examination archetypes include those that describe inspection, palpation, auscultation, percussion and movement of body systems or anatomical structures, such as CLUSTER.exam_pupils.\r\n\r\nNarrative descriptions of clinical findings from existing clinical systems may be captured using the 'Description' data element.\r\n\r\nClinicians may sometimes want to record a summative phrase such as 'chronic otitis media' as an Interpretation of the physical examination. In the context of the physical examination archetype this should only be understood as 'physical signs are consistent with chronic otitis media'. While the summative phrase may appear to represent a diagnosis, safe and consistent querying requires a diagnosis to be recorded using the EVALUATION.problem_diagnosis archetype, even if the phrases are identical.",
+          "misuse" : "Not to be used for recording history-taking observations - use specific OBSERVATION and CLUSTER archetypes. For example OBSERVATION.story and CLUSTER.symptom.\r\n\r\nNot to be used to record stand-alone clinical observations - use specific OBSERVATION archetypes. For example OBSERVATION.blood_pressure, OBSERVATION.body_weight, or OBSERVATION.height.",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل الموجودات التي تم العثور عليها عند الفحص البدني",
+          "keywords" : [ "الفحص", "البدني" ],
+          "use" : "تم تصميم النموذج ليحتوي على عناقيد مفصلة متعلقة بالفحص بما في ذلك الاكتشاف, الجس, التسمع و القرع بما في هذه العناقيد من تخصيصات.",
+          "copyright" : "© openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "用于记录关于对于特定主体对象体格检查发现的详情。",
+          "keywords" : [ "临床", "体格检查", "检查", "发现", "所见", "查体" ],
+          "use" : "用于记录关于对于特定主体对象体格检查发现的详情。其中，可包括关于这些发现的叙述型描述、一种用于嵌套若干详细的群簇（CLUSTER）型原始型的框架以及关于这些发现的临床解释。\r\n\r\n关于群簇（CLUSTER）型检查原始型的例子包括那些用于详细描述望诊、触诊、听诊、叩诊以及身体系统运动或者解剖结构的原始型，如瞳孔检查原始型CLUSTER.exam_pupils。\r\n\r\n对于现有临床系统之中临床发现的叙述型描述，可以采用名为“Description”（描述）的数据元进行采集。\r\n\r\n临床医生有时可能希望采用“慢性中耳炎”之类的概括性短语来记录对于体格检查的解释。在当前体格检查原始型的语境下，仅仅应当将其理解为“体征与慢性中耳炎相符或者说相一致”。尽管这种概括性短语可能看似用来表示某种诊断，但就安全一致的查询来说，依然需要采用问题诊断原始型EVALUATION.problem_diagnosis来记录诊断，即使是二者所采用的短语完全相同。",
+          "misuse" : "并非旨在用于记录病史采集类观察项目——此时请采用具体的观察（OBSERVATION）型和群簇（CLUSTER）型原始型。例如，纪事原始型OBSERVATION.story和症状原始型CLUSTER.symptom。\r\n\r\n并非旨在用于记录单独的临床观察项目——此时请采用具体的观察（OBSERVATION）型原始型。例如，血压原始型OBSERVATION.blood_pressure、体重原始型OBSERVATION.body_weight，或者身高原始型OBSERVATION.height。",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Este arquetipo será utilizado para registrar detalles sobre los hallazgos en el examen físico del paciente",
+          "keywords" : [ "examinación", "palpación", "auscultación", "percusión", "hallazgos clínicos", "examen físico" ],
+          "use" : "Este arquetipo será utilizado para registrar detalles sobre los hallazgos en el examen físico del paciente.\r\n\r\nPuede utilizarse junto a otros arquetipos para incluir detalles de los hallazgos clínicos, para describir examinación por inspección, palpación, auscultación, percusión y movimiento de los sistemas o estructuras anatómicas. Por ejemplo se podrá utilizar el arquetipo CLUSTER.exam_pupils.\r\n\r\nLa información registrada mediante este arquetipo debe estar relacionada con la examinación física y sus hallazgos. Algunas interpretaciones de los hallazgos pueden registrarse usando este arquetipo aunque parezcan diagnósticos, pero solo si están directamente relacionadas con el hallazgo. Para registrar un diagnóstico utilizar el arquetipo EVALUATION.problem_diagnosis, aunque el texto de la interpretación del hallazgo sea igual al diagnóstico.",
+          "misuse" : "No se debe utilizar para registrar información histórica del paciente, para eso utilizar el arquetipo OBSERVATION.story\r\n\r\nNo se debe utilizar para registrar observaciones independientes y signos, para eso utilizar arquetipos específicos como OBSERVATION.blood_pressure, OBSERVATION.body_weight, OBSERVATION.height, etc.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ca" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ca"
+          },
+          "purpose" : "Registrar detalls sobre les troballes de l'examen físic del pacient.",
+          "keywords" : [ "examen", "físic", "palpació", "auscultació", "percussió", "troballes clíniques", "examen físic", "clínic" ],
+          "use" : "Aquest arquetip serà utilitzat per registrar detalls sobre les troballes a l'examen físic del pacient.\r\n\r\nEs pot utilitzar juntament amb altres arquetips per incloure detalls de les troballes clíniques, per descriure examinació per inspecció, palpació, auscultació, percussió i moviment dels sistemes o estructures anatòmiques. Per exemple, es pot utilitzar l'arquetip CLUSTER.exam_pupils.\r\n\r\nLa informació registrada mitjançant aquest arquetip ha d'estar relacionada amb l'examinació física i les troballes. Algunes interpretacions de les troballes poden registrar-se usant aquest arquetip encara que semblin diagnòstics, però només si estan directament relacionades amb la troballa. Per registrar un diagnòstic utilitzeu l'arquetip EVALUATION.problem_diagnosis, encara que el text de la interpretació de la troballa sigui igual al diagnòstic.",
+          "misuse" : "No s'ha de fer servir per registrar informació històrica del pacient; utilitzar arquetips de tipus OBSERVATION i CLUSTER específics per fer-ho. Per exemple, OBSERVATION.story i CLUSTER.symptom.\r\n\r\nNo s'ha de fer servir per registrar observacions independents i signes; per a això, utilitzeu arquetips específics com OBSERVATION.blood_pressure, OBSERVATION.body_weight, OBSERVATION.height, etc.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.exam.v1",
     "differential" : true,
@@ -14310,7 +14764,14 @@
         "pt-br" : { },
         "zh-cn" : { },
         "de" : { },
-        "sv" : { },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Blödning",
+            "description" : "Observerade fynd under en fysisk undersökning av mottagaren av hälso- och sjukvård."
+          }
+        },
         "ca" : { }
       },
       "termBindings" : { },
@@ -14483,9 +14944,39 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "571BE0D7E01944A25E6F3A52C0B291E3"
+        "PARENT:MD5-CAM-1.0.1" : "bff06399a7e21c48e3a25f79df782a9a"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the observed characteristics of bleeding during a physical examination.",
+          "keywords" : [ "Bleeding, hemorrhage, rectal bleeding, physical examination, clinical finding, observation, blood loss." ],
+          "use" : "Use to record the observed findings related to bleeding during a physical examination, such as in an inspection or palpation of the rectum or other relevant anatomical sites.\r\n\r\nThis archetype has been specifically designed to be used in the ‘Examination detail’ SLOT within the OBSERVATION.exam archetype, but can also be used within other ENTRY or CLUSTER archetypes where clinically appropriate, such as CLUSTER.exam-rectum.v0 or CLUSTER.exam-vagina.v0.\r\n\r\nInterpretation of the bleeding findings, such as ‘Bright red bleeding likely from distal source’ or ‘Scant altered blood of uncertain origin’, can be recorded using the ‘Clinical interpretation’ data element.\r\n\r\nThe CLUSTER.exclusion_exam archetype can be nested within the ‘Examination not done’ SLOT to optionally record explicit details about the examination not being performed.\r\n\r\nUse to incorporate narrative descriptions of bleeding within existing or legacy clinical systems into an archetyped format, using the ‘Clinical description’ data element.",
+          "misuse" : "Not to be used for recording clinical history, such as a patient's reported episodes of bleeding – use OBSERVATION.story or CLUSTER.symptom_sign for this purpose.\r\n\r\nNot to be used for quantifying blood loss over time or measuring blood as a type of fluid output – use OBSERVATION.fluid_output-blood.v0 for that purpose, especially when the focus is on the volume or rate of blood loss (e.g. postoperative drainage, menstrual flow, or hemorrhage in critical care).",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.bleeding_findings.v0",
     "differential" : true,
@@ -14568,7 +15059,41 @@
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_CODED_TEXT",
               "occurrences" : "1..1",
-              "attributes" : [ ],
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "Obstetrix_partogram_blödning"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "Obstetrix_partogram_blödning" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "Obstetrix_partogram_blödning",
+                    "code" : "0",
+                    "value" : "Teckningsblödning"
+                  }, {
+                    "terminologyId" : "Obstetrix_partogram_blödning",
+                    "code" : "1",
+                    "value" : "Sparsam"
+                  }, {
+                    "terminologyId" : "Obstetrix_partogram_blödning",
+                    "code" : "2",
+                    "value" : "Måttlig"
+                  }, {
+                    "terminologyId" : "Obstetrix_partogram_blödning",
+                    "code" : "3",
+                    "value" : "Riklig"
+                  }, {
+                    "terminologyId" : "Obstetrix_partogram_blödning",
+                    "code" : "4",
+                    "value" : "Upphör"
+                  } ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             } ]
           } ],
@@ -14635,6 +15160,20 @@
             "code" : "ac0.2",
             "description" : ""
           }
+        },
+        "sv" : {
+          "ac0.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.1",
+            "description" : ""
+          },
+          "ac0.2" : {
+            "@type" : "ARCHETYPE_TERM",
+            "text" : "(Synthesized)",
+            "code" : "ac0.2",
+            "description" : ""
+          }
         }
       },
       "termBindings" : { },
@@ -14664,7 +15203,79 @@
       },
       "codeString" : "en"
     },
-    "translations" : [ ]
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "859d723c-591a-4fc7-8653-17282dbd9346",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "800ce4025945e7e13c4f0ca7b0458692"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.metadata_obstetrix.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-metadata_obstetrix-001.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "847526b5-0c35-3126-b7f2-043add27623a",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
+      "otherDetails" : { }
+    } ]
   } ],
   "originalLanguage" : {
     "terminologyId" : {
