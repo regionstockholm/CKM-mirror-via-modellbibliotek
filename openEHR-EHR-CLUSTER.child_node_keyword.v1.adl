@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"8f720cc08dcc81f8fbcf98803c0f409d">
+		["MD5-CAM-1.0.1"] = <"f1fc5142184510e27a9c506e7986445b">
 		["build_uid"] = <"602c6600-39ba-3303-a50e-e71677c43516">
 	>
 
@@ -47,6 +47,10 @@ definition
 				}
 			}
 			ELEMENT[at0003] occurrences matches {0..1} matches {*}    -- Value
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Extension
+				include
+					archetype_id/value matches {/.*/}
+			}
 		}
 	}
 
@@ -66,6 +70,10 @@ ontology
 					text = <"Value">
 					description = <"">
 				>
+				["at0004"] = <
+					text = <"Extension">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -80,6 +88,10 @@ ontology
 				>
 				["at0003"] = <
 					text = <"Värde">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Tilläggsinformation">
 					description = <"">
 				>
 			>
