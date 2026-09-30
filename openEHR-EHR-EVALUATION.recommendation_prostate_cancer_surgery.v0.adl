@@ -1,0 +1,329 @@
+archetype (adl_version=1.4; uid=1e9e1885-d06a-4b52-b545-1284fc85e228)
+	openEHR-EHR-EVALUATION.recommendation_prostate_cancer_surgery.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-09-30">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"6537465de28bf530837e0cb1af80fef3">
+		["build_uid"] = <"5529c924-fe03-3491-a455-493450f4e1ec">
+	>
+
+definition
+	EVALUATION[at0000] matches {    -- Recommendation_prostate_cancer_surgery
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0004] occurrences matches {0..1} matches {    -- CLUSTER
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0005] occurrences matches {0..1} matches {    -- Recommendation
+								value matches {
+									DV_BOOLEAN matches {*}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0006] occurrences matches {0..1} matches {    -- Lymph node dissection
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0008] occurrences matches {0..1} matches {    -- DV_BOOLEAN
+								value matches {
+									DV_BOOLEAN matches {*}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0010] occurrences matches {0..1} matches {    -- CLUSTER
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0011] occurrences matches {0..1} matches {    -- DV_BOOLEAN
+								value matches {
+									DV_BOOLEAN matches {*}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0014] occurrences matches {0..1} matches {    -- CLUSTER
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0015] occurrences matches {0..1} matches {    -- DV_BOOLEAN
+								value matches {
+									DV_CODED_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0017] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0018] occurrences matches {0..1} matches {    -- CLUSTER
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0021] occurrences matches {0..1} matches {    -- DV_CODED_TEXT
+								value matches {
+									DV_CODED_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0022] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {    -- DV_CODED_TEXT
+								value matches {
+									DV_CODED_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0020] occurrences matches {0..1} matches {    -- DV_TEXT
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {    -- Conference recommendation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0023] occurrences matches {0..*} matches {    -- Additional surgical recommendation
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0002] matches {*}    -- Item tree
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Recommendation_prostate_cancer_surgery">
+					description = <"Recommendation_prostate_cancer_surgery">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Recommendation">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Lymph node dissection">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"DV_BOOLEAN">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"DV_BOOLEAN">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"DV_BOOLEAN">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"CLUSTER">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"DV_CODED_TEXT">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"DV_CODED_TEXT">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"DV_TEXT">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Additional surgical recommendation">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Conference recommendation">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Recommendation">
+					description = <"*Recommendation_prostate_cancer_surgery (en)">
+				>
+				["at0001"] = <
+					text = <"*Item tree (en)">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"*Item tree (en)">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Robot-assisted laparoscopic prostatectomy (RALP)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Recommendation">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Lymph node dissection">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Recommendation">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Bladderneck sparing">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Recommendation">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Apical dissection">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Recommendation">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Nerve sparing">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Nerve sparing right">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Comment right">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Nerve sparing left">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Comment left">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Ytterligare kirurgisk rekommendation">
+					description = <"Ytterligare kirurgisk rekommendation som inte är explicit modellerad i denna arketyp.">
+				>
+				["at0024"] = <
+					text = <"Conference recommendation">
+					description = <"Overall free-text recommendation summarizing the conference recommendation.">
+				>
+			>
+		>
+	>
