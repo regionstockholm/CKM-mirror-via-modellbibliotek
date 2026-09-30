@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"88c9fb38c02c9b023f7bb90b599a0c9e">
+		["MD5-CAM-1.0.1"] = <"719db68e3cec6428fec0794dcda82608">
 		["build_uid"] = <"fdc5cf6a-7d4f-34b4-a8b4-c5d5863d89e4">
 	>
 
@@ -55,6 +55,15 @@ definition
 				value matches {
 					DV_TIME matches {*}
 				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Time
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0007] occurrences matches {0..*} matches {    -- Cancelled text
+				include
+					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.cancelled_text\.v0/}
 			}
 		}
 	}
@@ -83,6 +92,14 @@ ontology
 					text = <"Registration time">
 					description = <"">
 				>
+				["at0006"] = <
+					text = <"Time">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Cancelled text">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -105,6 +122,14 @@ ontology
 				>
 				["at0005"] = <
 					text = <"Reg tid">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Tid">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"*CLUSTER_SLOT (en)">
 					description = <"">
 				>
 			>
