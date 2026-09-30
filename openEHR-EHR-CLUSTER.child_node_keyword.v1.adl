@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"4fef845a37c086526ca624c8923bd724">
+		["MD5-CAM-1.0.1"] = <"08d4ac1459ada57abd8130689e26fed7">
 		["build_uid"] = <"602c6600-39ba-3303-a50e-e71677c43516">
 	>
 
@@ -55,6 +55,10 @@ definition
 				value matches {
 					DV_TIME matches {*}
 				}
+			}
+			allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Attestation
+				include
+					archetype_id/value matches {/.*/}
 			}
 		}
 	}
@@ -83,6 +87,10 @@ ontology
 					text = <"Registration time">
 					description = <"">
 				>
+				["at0006"] = <
+					text = <"Attestation">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -105,6 +113,10 @@ ontology
 				>
 				["at0005"] = <
 					text = <"Reg tid">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Vidimering">
 					description = <"">
 				>
 			>
