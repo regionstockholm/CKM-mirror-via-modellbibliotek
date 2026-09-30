@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"f1fc5142184510e27a9c506e7986445b">
+		["MD5-CAM-1.0.1"] = <"4fef845a37c086526ca624c8923bd724">
 		["build_uid"] = <"602c6600-39ba-3303-a50e-e71677c43516">
 	>
 
@@ -50,6 +50,11 @@ definition
 			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Extension
 				include
 					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Registration time
+				value matches {
+					DV_TIME matches {*}
+				}
 			}
 		}
 	}
@@ -74,6 +79,10 @@ ontology
 					text = <"Extension">
 					description = <"">
 				>
+				["at0005"] = <
+					text = <"Registration time">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -92,6 +101,10 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Tilläggsinformation">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Reg tid">
 					description = <"">
 				>
 			>
