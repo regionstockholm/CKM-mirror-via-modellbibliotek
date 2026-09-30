@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"2abab400902f7958a7699f9868b06a37">
+		["MD5-CAM-1.0.1"] = <"88c9fb38c02c9b023f7bb90b599a0c9e">
 		["build_uid"] = <"fdc5cf6a-7d4f-34b4-a8b4-c5d5863d89e4">
 	>
 
@@ -50,6 +50,11 @@ definition
 			allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {    -- Child node
 				include
 					archetype_id/value matches {/.*|openEHR-EHR-CLUSTER\.child_node_keyword\.v1/}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Registration time
+				value matches {
+					DV_TIME matches {*}
+				}
 			}
 		}
 	}
@@ -74,6 +79,10 @@ ontology
 					text = <"Value">
 					description = <"">
 				>
+				["at0005"] = <
+					text = <"Registration time">
+					description = <"">
+				>
 			>
 		>
 		["sv"] = <
@@ -92,6 +101,10 @@ ontology
 				>
 				["at0004"] = <
 					text = <"Värde">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Reg tid">
 					description = <"">
 				>
 			>
