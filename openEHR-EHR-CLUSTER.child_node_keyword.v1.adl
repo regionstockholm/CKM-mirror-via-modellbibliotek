@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"b45fcaf4ef5e421a8086374cc68dfd8b">
+		["MD5-CAM-1.0.1"] = <"f1603727f00a203edc952a3c144c7ab6">
 		["build_uid"] = <"602c6600-39ba-3303-a50e-e71677c43516">
 	>
 
@@ -47,24 +47,6 @@ definition
 				}
 			}
 			ELEMENT[at0003] occurrences matches {0..1} matches {*}    -- Value
-			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Extension
-				include
-					archetype_id/value matches {/.*/}
-			}
-			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Registration time
-				value matches {
-					DV_DATE_TIME matches {*}
-				}
-			}
-			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Time
-				value matches {
-					DV_DATE_TIME matches {*}
-				}
-			}
-			allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Attestation
-				include
-					archetype_id/value matches {/.*/}
-			}
 			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Notes_ID
 				value matches {
 					DV_IDENTIFIER matches {*}
@@ -105,15 +87,33 @@ definition
 					DV_IDENTIFIER matches {*}
 				}
 			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Registration time
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
 			ELEMENT[at0017] occurrences matches {0..1} matches {    -- IsSpecialistPhysician
 				value matches {
 					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Time
+				value matches {
+					DV_DATE_TIME matches {*}
 				}
 			}
 			ELEMENT[at0018] occurrences matches {0..1} matches {    -- RowCancelled
 				value matches {
 					DV_BOOLEAN matches {*}
 				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Extension
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Attestation
+				include
+					archetype_id/value matches {/.*/}
 			}
 			allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {    -- Notes_change
 				include
