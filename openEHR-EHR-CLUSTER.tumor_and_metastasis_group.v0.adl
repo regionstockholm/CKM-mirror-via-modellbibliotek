@@ -1,0 +1,117 @@
+archetype (adl_version=1.4; uid=9f852941-9e1e-4cca-8e8b-90faef8226ee)
+	openEHR-EHR-CLUSTER.tumor_and_metastasis_group.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["name"] = <"Oscar Karlsson">
+		["organisation"] = <"Karolinska University Hospital ">
+		["email"] = <"Oscar.karlsson@regionstockholm.se">
+		["date"] = <"2026-10-01">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"4cc993e6d1cc11686c39baa3dcfd5213">
+		["build_uid"] = <"f2d36fe5-6a7b-3972-b300-7a42e1d04cbb">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {0..*} matches {    -- Tumor and metastasis group
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..1} matches {    -- Primary tumor slot
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {    -- Lymph node metastasis slot
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Distant metastasis slot
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Tumor and metastasis group">
+					description = <"Tumor and metastasis group">
+				>
+				["at0001"] = <
+					text = <"Primary tumor slot">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Lymph node metastasis slot">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Distant metastasis slot">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Tumör- och metastasgrupp">
+					description = <"Tumör- och metastasgrupp">
+				>
+				["at0001"] = <
+					text = <"Primärtumör slot">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Kommentar">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Lymfkörtelmetastaser slot">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Fjärrmetastaser slot">
+					description = <"">
+				>
+			>
+		>
+	>
