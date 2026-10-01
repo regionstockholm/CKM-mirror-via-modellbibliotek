@@ -1,0 +1,207 @@
+archetype (adl_version=1.4; uid=1ad59540-31e1-4458-9922-a0d020063229)
+	openEHR-EHR-CLUSTER.metadata_notes.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-10-01">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"a40e633e5eec28eb63ef779383756b5a">
+		["build_uid"] = <"b0882b76-f1f7-3639-a7f6-df0d22c1f3d6">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Metadata_notes
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Notes_ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- User_ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- User_name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- CreatedOnUnit_ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- CreatedOnUnit
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- CreatedByProfessionalRole_ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- CreatedByProfessionalRole
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Logged in_ID
+				value matches {
+					DV_IDENTIFIER matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- IsSpecialistPhysician
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- RowCancelled
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Notes_change
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Metadata_notes">
+					description = <"Metadata_notes">
+				>
+				["at0002"] = <
+					text = <"Notes_ID">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"User_ID">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Logged in_ID">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Notes_change">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"User_name">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"CreatedByProfessionalRole_ID">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"CreatedByProfessionalRole">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"CreatedOnUnit_ID">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"CreatedOnUnit">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"IsSpecialistPhysician">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"RowCancelled">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Metadata_notering">
+					description = <"*Metadata_notes (en)">
+				>
+				["at0002"] = <
+					text = <"Not_ID">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"AnvId">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Inloggad">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Ändrade_notering">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Användare">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"CreatedByProfessionalRole_ID">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"CreatedByProfessionalRole">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"CreatedOnUnit_ID">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"CreatedOnUnit">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"IsSpecialistPhysician">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"RowCancelled">
+					description = <"">
+				>
+			>
+		>
+	>
