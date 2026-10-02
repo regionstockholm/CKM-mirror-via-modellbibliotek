@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"612c4905367c54113acfb1b2e47e2ecb">
+		["MD5-CAM-1.0.1"] = <"5c5377db52aa88a2da9ba26489ff69ef">
 		["build_uid"] = <"602c6600-39ba-3303-a50e-e71677c43516">
 	>
 
@@ -107,15 +107,15 @@ definition
 					DV_BOOLEAN matches {*}
 				}
 			}
+			allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {    -- Notes_change
+				include
+					archetype_id/value matches {/.*/}
+			}
 			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Extension
 				include
 					archetype_id/value matches {/.*/}
 			}
 			allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {    -- Attestation
-				include
-					archetype_id/value matches {/.*/}
-			}
-			allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {    -- Notes_change
 				include
 					archetype_id/value matches {/.*/}
 			}
