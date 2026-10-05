@@ -22,6 +22,11 @@ language
 				["email"] = <"francesca.frexia@crs4.it">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
 
 description
@@ -34,6 +39,10 @@ description
 	lifecycle_state = <"in_development">
 	other_contributors = <"Fatima Almeida, Critical SW, Portugal","Tomas Alme, DIPS ASA, Norway","Vebjørn Arntzen, Oslo University Hospital, Norway","Koray Atalag, University of Auckland, New Zealand","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","Lars Bitsch-Larsen, Haukeland University hospital, Norway","Anita Bjørnnes, Helse Bergen, Norway","Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway","Einar Fosse, UNN HF, Norwegian Centre for Integrated Care and Telemedicine, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom","Heather Grain, Llewelyn Grain Informatics, Australia","Knut Harboe, Stavanger Universitetssjukehus, Norway","Sam Heard, Ocean Informatics, Australia","Ingrid Heitmann, Oslo universitetssykehus HF, Norway","Andreas Hering, Helse Bergen HF, Haukeland universitetssjukehus, Norway","Anca Heyd, DIPS ASA, Norway","Hilde Hollås, DIPS AS, Norway","Evelyn Hovenga, EJSH Consulting, Australia","Lars Ivar Mehlum, Helse Bergen HF, Norway","Lars Morgan Karlsen, DIPS ASA, Norway","Shinji Kobayashi, Kyoto University, Japan","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Hallvard Lærum, Direktoratet for e-helse, Norway","Rose Mari Eikås, Helse Bergen, Norway","Ole Martin Sand, DIPS ASA, Norway","Hildegard McNicoll, freshEHR Clinical Informatics Ltd., United Kingdom","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Bjørn Næss, DIPS ASA, Norway","Andrej Orel, Marand d.o.o., Slovenia","Anne Pauline Anderssen, Helse Nord RHF, Norway","Pablo Pazos, CaboLabs.com Health Informatics, Uruguay","Rune Pedersen, Universitetssykehuset i Nord Norge, Norway","Jussara Rotzsch, Hospital Alemão Oswaldo Cruz, Brazil","Line Silsand, Universitetssykehuset i Nord-Norge, Norway","Norwegian Review Summary, Nasjonal IKT HF, Norway","Line Sæle, Nasjonal IKT HF, Norway","Nyree Taylor, Ocean Informatics, Australia","John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)","Richard Townley-O'Neill, Australian Digital Health Agency, Australia","Gro-Hilde Ulriksen, Norwegian center for ehealthresearch, Norway">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"Generisk forespørsel om utførelse av en helsetjeneste, til annet helsepersonell eller andre organisasjoner.">
@@ -100,7 +109,7 @@ In molte situazioni sarà possibile registrare i passaggi che si verificano nell
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"F73BABA6192202A6981F3A0E77AAEB92">
+		["MD5-CAM-1.0.1"] = <"58fd882493ad89627bf81b02fb7a4d18">
 		["build_uid"] = <"175d6541-58bb-4ea9-83cf-1bfbedd06ffd">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -724,6 +733,158 @@ ontology
 				["at0152"] = <
 					text = <"Indicazione clinica">
 					description = <"La motivazione clinica del servizio ordinato.">
+					comment = <"*Coding of the clinical indication with a terminology is preferred, where possible. This data element allows multiple occurrences. For example: 'Sprained ankle' or 'Type 1 Diabetes mellitus'. (en)">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Terapeutisk aktivitet">
+					description = <"*An order or instruction for a health-related therapy or activity to be carried out. (en)">
+				>
+				["at0001"] = <
+					text = <"Nuvarande aktivitet">
+					description = <"*Current Activity. (en)">
+				>
+				["at0008"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Beställar ID">
+					description = <"*The local identifier assigned by the requesting clinical system. (en)">
+					comment = <"*Usually equivalent to the HL7 Placer Order Identifier. (en)">
+				>
+				["at0011"] = <
+					text = <"Mottagare ID">
+					description = <"*The local identifier assigned to the request by the clinician or organisation receiving the request for therapy. (en)">
+					comment = <"*Usually equivalent to the HL7 Filler Order Identifier. (en)">
+				>
+				["at0040"] = <
+					text = <"Datum/tid förfall">
+					description = <"*The date/time, or acceptable interval of date/time, for provision of the therapy. (en)">
+					comment = <"*This data element allows for recording of the timing for a single therapy, either as a date and time, a date ranges or a text descriptor which can allow for 'next available. In practice, clinicians will often think in terms of ordering therapys as approximate timing, for example: review in 3 months, 6 months or 12 months. As clinical systems need more exact parameters to operate on, this '3 months' will usually be converted to an exact date 3 months from the date of recording and stored using this data element. If complex timing or sequences of timings are required, use the CLUSTER.service_direction archetype within the 'Complex timing' SLOT and this data element becomes redundant. (en)">
+				>
+				["at0062"] = <
+					text = <"Anledning till beställning">
+					description = <"*A short phrase describing the reason for the order. (en)">
+					comment = <"*Coding of the 'Reason for order' with a coding system is desirable, if available. This data element allows multiple occurrences to enable the user to record a multiple responses, if required. (en)">
+				>
+				["at0064"] = <
+					text = <"Beskrivning av anledning">
+					description = <"*Narrative description about the reason for request. (en)">
+				>
+				["at0065"] = <
+					text = <"Avsikt">
+					description = <"*Description of the intent for the order. (en)">
+					comment = <"*Coding of the 'Intent' with a coding system is desirable, if available. This data element allows multiple occurrences to enable the user to record a multiple responses, if required. (en)">
+				>
+				["at0068"] = <
+					text = <"Brådskandegrad">
+					description = <"*Urgency of the order. (en)">
+					comment = <"*Specific definitions of emergency and urgent will vary between clinical contexts, clinical systems and the nature of the request itself, so have not been defined in this archetype. If explicit timing is required then the Activity period should be clearly stated. (en)">
+				>
+				["at0076"] = <
+					text = <"Kompletterande information">
+					description = <"*Supplementary information will be following the order. (en)">
+					comment = <"*Record as TRUE if additional information has been identified and will be forwarded when available. For example: pending test results. (en)">
+				>
+				["at0078"] = <
+					text = <"Beskrivning av information">
+					description = <"*Description of the supplementary information. (en)">
+				>
+				["at0112"] = <
+					text = <"Tilläggsinformation">
+					description = <"*Additional information required to extend the model with local content or to align with other reference models or formalisms. (en)">
+					comment = <"*For example: local information requirements; or additional metadata to align with FHIR. (en)">
+				>
+				["at0116"] = <
+					text = <"Patients behov">
+					description = <"*Language, transport or other personal requirements to support the patient's attendance or participation in carrying out the activity. (en)">
+				>
+				["at0121"] = <
+					text = <"Namn på aktivitiet">
+					description = <"*The name of the single therapy or activity requested. (en)">
+					comment = <"*Coding of the 'Activity name' with a coding system is desirable, if available. For example: 'recommendation to rest in bed'; 'apply ice for 20 minutes every 2 hours'. (en)">
+				>
+				["at0127"] = <
+					text = <"Status på beställning">
+					description = <"*The status of the order for the activity as indicated by the requester. (en)">
+					comment = <"*Status is used to denote whether this is the initial request, or a follow-up request to change or provide supplementary information. Coding with a terminology is preferred, where possible. (en)">
+				>
+				["at0128"] = <
+					text = <"Svarsmottagare">
+					description = <"*Details of additional clinicians, organisations or agencies who require copies of any communication. (en)">
+				>
+				["at0132"] = <
+					text = <"Specifika detaljer">
+					description = <"*Additional detail about the activity ordered. (en)">
+				>
+				["at0135"] = <
+					text = <"Beskrivning">
+					description = <"*Narrative description about the activity ordered. (en)">
+					comment = <"*This data point should be used to describe the named activity in more detail, including how it should be delivered, individual concerns and issues that might be encountered in carrying out the activity. (en)">
+				>
+				["at0136"] = <
+					text = <"*Emergency (en)">
+					description = <"*The request requires immediate attention. (en)">
+				>
+				["at0137"] = <
+					text = <"*Urgent (en)">
+					description = <"*The request requires prioritised attention. (en)">
+				>
+				["at0138"] = <
+					text = <"*Routine (en)">
+					description = <"*The request does not require prioritised scheduling. (en)">
+				>
+				["at0141"] = <
+					text = <"Förfrågare">
+					description = <"*Details about the clinician or organisation requesting the therapy. (en)">
+				>
+				["at0142"] = <
+					text = <"Mottagare">
+					description = <"*Details about the clinician or organisation receiving the request for therapy. (en)">
+				>
+				["at0144"] = <
+					text = <"Aktivitetsperiodens slut">
+					description = <"*The date/time that marks the conclusion of the clinically valid period of time for carrying out this activity. (en)">
+					comment = <"*This date/time is the equivalent to the latest possible date for carrying out the activity or to the date of expiry for this order. For example: an activity may be required to be completed before another event, such as scheduled surgery. (en)">
+				>
+				["at0145"] = <
+					text = <"Aktivitetsperiod start">
+					description = <"*The date/time that marks the beginning of the valid period of time for delivery of this activity. (en)">
+					comment = <"*This date/time is the equivalent to the earliest possible date for carrying out the activity. For example: sometimes a certain amount of time must pass before an activity can be carried out. For example: 'start mobilisation 2 days post surgery'. (en)">
+				>
+				["at0147"] = <
+					text = <"Obegränsad tid">
+					description = <"*The valid period for this order is open ended and has no date of expiry. (en)">
+					comment = <"*Record as TRUE to record explicity that the order has no expiry date. For example: required for a lifelong activity. (en)">
+				>
+				["at0148"] = <
+					text = <"Aktivitetstyp">
+					description = <"*Category of therapy or activity ordered. (en)">
+					comment = <"*Coding of the 'Activity type' with a coding system is desirable, if available. If the 'Therapy name' was coded, it is possible for this data point to be derived from the code. For example: 'Self-care intervention'. (en)">
+				>
+				["at0149"] = <
+					text = <"Stödjande information">
+					description = <"*Digital document, image, video or diagram supplied as additional information to support or inform the order. (en)">
+				>
+				["at0150"] = <
+					text = <"Kommentar">
+					description = <"*Additional narrative about the activity order not captured in other fields. (en)">
+				>
+				["at0151"] = <
+					text = <"Komplex tidangivelse">
+					description = <"*Details about a complex order requiring a sequence of timings. (en)">
+				>
+				["at0152"] = <
+					text = <"Klinisk indikation">
+					description = <"*The clinical reason for the ordered therapy. (en)">
 					comment = <"*Coding of the clinical indication with a terminology is preferred, where possible. This data element allows multiple occurrences. For example: 'Sprained ankle' or 'Type 1 Diabetes mellitus'. (en)">
 				>
 			>
