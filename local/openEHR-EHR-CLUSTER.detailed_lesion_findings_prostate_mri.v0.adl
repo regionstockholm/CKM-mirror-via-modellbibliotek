@@ -1,0 +1,814 @@
+archetype (adl_version=1.4; uid=0fef14f0-34e5-4697-92f8-635b06023b79)
+	openEHR-EHR-CLUSTER.detailed_lesion_findings_prostate_mri.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2025-02-20">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"6beffe46b236a65dfe1b8433704ae4d6">
+		["build_uid"] = <"2d3bebb2-b356-3ac9-ad4f-35fe333777d5">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Detailed lesion findings prostate MRI
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Index lesion
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016,    -- true
+							at0017]    -- false
+						}
+					}
+				}
+			}
+			ELEMENT[at0071] occurrences matches {0..1} matches {    -- Extra-prostatic extension  (EPE)
+				value matches {
+					1|[local::at0072],
+					2|[local::at0073],
+					3|[local::at0074],
+					4|[local::at0075],
+					5|[local::at0076]
+				}
+			}
+			ELEMENT[at0077] occurrences matches {0..1} matches {    -- Seminal vesicle invasion (SVI) left
+				value matches {
+					1|[local::at0078],
+					2|[local::at0079],
+					3|[local::at0080],
+					4|[local::at0081],
+					5|[local::at0082]
+				}
+			}
+			ELEMENT[at0083] occurrences matches {0..1} matches {    -- Seminal vesicle invasion  (SVI) right
+				value matches {
+					1|[local::at0084],
+					2|[local::at0085],
+					3|[local::at0086],
+					4|[local::at0087],
+					5|[local::at0088]
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Ingrowth height left
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Ingrowth height right
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0089] occurrences matches {0..1} matches {    -- External urethral sphincter invasion (EUSI)
+				value matches {
+					1|[local::at0090],
+					2|[local::at0091],
+					3|[local::at0092],
+					4|[local::at0093],
+					5|[local::at0094]
+				}
+			}
+			ELEMENT[at0095] occurrences matches {0..1} matches {    -- Bladderneck invasion (BI)
+				value matches {
+					1|[local::at0098],
+					2|[local::at0099],
+					3|[local::at0100],
+					4|[local::at0101],
+					5|[local::at0102]
+				}
+			}
+			ELEMENT[at0096] occurrences matches {0..1} matches {    -- Rectum invasion (RI)
+				value matches {
+					1|[local::at0103],
+					2|[local::at0104],
+					3|[local::at0105],
+					4|[local::at0106],
+					5|[local::at0107]
+				}
+			}
+			ELEMENT[at0097] occurrences matches {0..1} matches {    -- Anal sphincter invasion (ASI)
+				value matches {
+					1|[local::at0108],
+					2|[local::at0109],
+					3|[local::at0110],
+					4|[local::at0111],
+					5|[local::at0112]
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Distance external urethral sphincter
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Distance bladderneck
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Distance rectum
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0113] occurrences matches {0..1} matches {    -- PI-RADS score T2W TZ
+				value matches {
+					1|[local::at0116],
+					2|[local::at0117],
+					3|[local::at0118],
+					4|[local::at0119],
+					5|[local::at0120]
+				}
+			}
+			ELEMENT[at0114] occurrences matches {0..1} matches {    -- PI-RADS score T2W PZ
+				value matches {
+					1|[local::at0121],
+					2|[local::at0122],
+					3|[local::at0123],
+					4|[local::at0124],
+					5|[local::at0125]
+				}
+			}
+			ELEMENT[at0115] occurrences matches {0..1} matches {    -- PI-RADS score DWI/ADC
+				value matches {
+					1|[local::at0126],
+					2|[local::at0127],
+					3|[local::at0128],
+					4|[local::at0129],
+					5|[local::at0130]
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Dynamic contrast enhancement (DCE)
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0131,    -- Negative
+							at0132,    -- Positive
+							at0133]    -- Not applicable
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Detailed lesion findings prostate MRI">
+					description = <"detailed_lesion_findings_prostate_mri2">
+				>
+				["at0004"] = <
+					text = <"Ingrowth height left">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Ingrowth height right">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Distance external urethral sphincter">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Distance bladderneck">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Distance rectum">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Dynamic contrast enhancement (DCE)">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Index lesion">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"true">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"false">
+					description = <"">
+				>
+				["at0071"] = <
+					text = <"Extra-prostatic extension  (EPE)">
+					description = <"">
+				>
+				["at0072"] = <
+					text = <"EPE very unlikely to be present">
+					description = <"">
+				>
+				["at0073"] = <
+					text = <"EPE unlikely to be present">
+					description = <"">
+				>
+				["at0074"] = <
+					text = <"Moderate probability that EPE is present">
+					description = <"">
+				>
+				["at0075"] = <
+					text = <"Suspected EPE">
+					description = <"">
+				>
+				["at0076"] = <
+					text = <"High probability that EPE is present">
+					description = <"">
+				>
+				["at0077"] = <
+					text = <"Seminal vesicle invasion (SVI) left">
+					description = <"">
+				>
+				["at0078"] = <
+					text = <"Very low suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0079"] = <
+					text = <"Low suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0080"] = <
+					text = <"Intermediate suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0081"] = <
+					text = <"Suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0082"] = <
+					text = <"Strong suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0083"] = <
+					text = <"Seminal vesicle invasion  (SVI) right">
+					description = <"">
+				>
+				["at0084"] = <
+					text = <"Very low suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0085"] = <
+					text = <"Low suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0086"] = <
+					text = <"Intermediate suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0087"] = <
+					text = <"Suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0088"] = <
+					text = <"Strong suspicion of seminal vesicle invasion SVI">
+					description = <"">
+				>
+				["at0089"] = <
+					text = <"External urethral sphincter invasion (EUSI)">
+					description = <"">
+				>
+				["at0090"] = <
+					text = <"Very low suspicion of external urethral sphincter invasion">
+					description = <"">
+				>
+				["at0091"] = <
+					text = <"Low suspicion of external urethral sphincter invasion">
+					description = <"">
+				>
+				["at0092"] = <
+					text = <"Intermediate suspicion of external urethral sphincter invasion">
+					description = <"">
+				>
+				["at0093"] = <
+					text = <"Suspicion of external urethral sphincter invasion">
+					description = <"">
+				>
+				["at0094"] = <
+					text = <"Strong suspicion of external urethral sphincter invasion">
+					description = <"">
+				>
+				["at0095"] = <
+					text = <"Bladderneck invasion (BI)">
+					description = <"">
+				>
+				["at0096"] = <
+					text = <"Rectum invasion (RI)">
+					description = <"">
+				>
+				["at0097"] = <
+					text = <"Anal sphincter invasion (ASI)">
+					description = <"">
+				>
+				["at0098"] = <
+					text = <"Very low suspicion of bladderneck invasion">
+					description = <"">
+				>
+				["at0099"] = <
+					text = <"Low suspicion of bladderneck invasion">
+					description = <"">
+				>
+				["at0100"] = <
+					text = <"Intermediate suspicion of bladderneck invasion">
+					description = <"">
+				>
+				["at0101"] = <
+					text = <"Suspicion of bladderneck invasion">
+					description = <"">
+				>
+				["at0102"] = <
+					text = <"Strong suspicion of bladderneck invasion">
+					description = <"">
+				>
+				["at0103"] = <
+					text = <"Very low suspicion of rectum invasion">
+					description = <"">
+				>
+				["at0104"] = <
+					text = <"Low suspicion of rectum invasion">
+					description = <"">
+				>
+				["at0105"] = <
+					text = <"Intermediate suspicion of rectum invasion">
+					description = <"">
+				>
+				["at0106"] = <
+					text = <"Suspicion of rectum invasion">
+					description = <"">
+				>
+				["at0107"] = <
+					text = <"Strong suspicion of rectum invasion">
+					description = <"">
+				>
+				["at0108"] = <
+					text = <"Very low suspicion of anal sphincter invasion">
+					description = <"">
+				>
+				["at0109"] = <
+					text = <"Low suspicion of anal sphincter invasion">
+					description = <"">
+				>
+				["at0110"] = <
+					text = <"Intermediate suspicion of anal sphincter invasion">
+					description = <"">
+				>
+				["at0111"] = <
+					text = <"Suspicion of anal sphincter invasion">
+					description = <"">
+				>
+				["at0112"] = <
+					text = <"Strong suspicion of anal sphincter invasion">
+					description = <"">
+				>
+				["at0113"] = <
+					text = <"PI-RADS score T2W TZ">
+					description = <"">
+				>
+				["at0114"] = <
+					text = <"PI-RADS score T2W PZ">
+					description = <"">
+				>
+				["at0115"] = <
+					text = <"PI-RADS score DWI/ADC">
+					description = <"">
+				>
+				["at0116"] = <
+					text = <"Homogeneous intermediate signal intensity (normal)">
+					description = <"">
+				>
+				["at0117"] = <
+					text = <"Circumscribed hypointense or heterogeneous encapsulated nodule(s) (BPH)">
+					description = <"">
+				>
+				["at0118"] = <
+					text = <"Heterogeneous signal intensity with hidden margins (includes others not designated as 2, 4 or 5)">
+					description = <"">
+				>
+				["at0119"] = <
+					text = <"Lenticular or non-circumscribed, homogeneous, moderately hypointense and <1.5 cm in greatest dimension">
+					description = <"">
+				>
+				["at0120"] = <
+					text = <"Lenticular or non-circumscribed, homogeneous, moderately hypointense and >=1.5 cm in greatest dimension or definite extraprostatic extension/invasive behaviour">
+					description = <"">
+				>
+				["at0121"] = <
+					text = <"Uniform hyperintense signal intensity (normal)">
+					description = <"">
+				>
+				["at0122"] = <
+					text = <"Linear or wedge-shaped hypointensity or diffuse mild hypointensity, usually indistinct margin">
+					description = <"">
+				>
+				["at0123"] = <
+					text = <"Heterogeneous signal intensity or non-rewritten, rounded, moderate hypointensity (includes others not labelled as 2, 4 or 5)">
+					description = <"">
+				>
+				["at0124"] = <
+					text = <"Rewritten, homogeneous moderate hypointensity focus/mass confined to the prostate and <1.5 cm in greatest dimension">
+					description = <"">
+				>
+				["at0125"] = <
+					text = <"Circumscribed, homogeneous moderate hypointensity focus/mass confined to the prostate and >=1.5 cm in greatest dimension or definite extraprostatic extension/invasive behaviour">
+					description = <"">
+				>
+				["at0126"] = <
+					text = <"No abnormality (i.e. normal) on ADC and high b-value DWI">
+					description = <"">
+				>
+				["at0127"] = <
+					text = <"Not distinct hypointense on ADC">
+					description = <"">
+				>
+				["at0128"] = <
+					text = <"Focal mild/moderate hypointense on ADC and isointense/mild hyperintense on high b-value DWI">
+					description = <"">
+				>
+				["at0129"] = <
+					text = <"Focal marked hypointense on ADC and marked hyperintense on high b-value DWI; <1.5 cm in largest dimension">
+					description = <"">
+				>
+				["at0130"] = <
+					text = <"Focal marked hypointense on ADC and marked hyperintense on high b-value DWI; >=1.5 cm in largest dimension or definite extraprostatic extension/invasive">
+					description = <"">
+				>
+				["at0131"] = <
+					text = <"Negative">
+					description = <"">
+				>
+				["at0132"] = <
+					text = <"Positive">
+					description = <"">
+				>
+				["at0133"] = <
+					text = <"Not applicable">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Detaljerade fynd lesion prostata MR">
+					description = <"*detailed_lesion_findings_prostate_mri2 (en)">
+				>
+				["at0004"] = <
+					text = <"Inväxtens höjd vänster">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Inväxtens höjd höger">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Avstånd nedre sfinkter">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Avstånd blåshals">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Avstånd rektum">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Dynamisk kontrastförstärkning (DCE)">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Indexlesion">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"sann">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"falsk">
+					description = <"">
+				>
+				["at0071"] = <
+					text = <"Extraprostatisk extension (EPE)">
+					description = <"">
+				>
+				["at0072"] = <
+					text = <"Mycket osannolikt att EPE föreligger">
+					description = <"">
+				>
+				["at0073"] = <
+					text = <"Osannolikt att EPE föreligger">
+					description = <"">
+				>
+				["at0074"] = <
+					text = <"Måttlig sannolikhet att EPE föreligger">
+					description = <"">
+				>
+				["at0075"] = <
+					text = <"Misstänkt EPE">
+					description = <"">
+				>
+				["at0076"] = <
+					text = <"Hög sannolikhet för EPE">
+					description = <"">
+				>
+				["at0077"] = <
+					text = <"Seminalvesikelinvasion (SVI) vänster">
+					description = <"">
+				>
+				["at0078"] = <
+					text = <"Mycket låg misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0079"] = <
+					text = <"Låg misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0080"] = <
+					text = <"Intermediär misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0081"] = <
+					text = <"Misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0082"] = <
+					text = <"Stark misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0083"] = <
+					text = <"Seminalvesikelinvasion (SVI) höger">
+					description = <"">
+				>
+				["at0084"] = <
+					text = <"Mycket låg misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0085"] = <
+					text = <"Låg misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0086"] = <
+					text = <"Intermediär misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0087"] = <
+					text = <"Misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0088"] = <
+					text = <"Stark misstanke om seminalvesikelinvasion SVI">
+					description = <"">
+				>
+				["at0089"] = <
+					text = <"Nedre sfinkterinvasion (NSI)">
+					description = <"">
+				>
+				["at0090"] = <
+					text = <"Mycket låg misstanke om nedre sfinkterinvasion">
+					description = <"">
+				>
+				["at0091"] = <
+					text = <"Låg misstanke om nedre sfinkterinvasion">
+					description = <"">
+				>
+				["at0092"] = <
+					text = <"Intermediär misstanke om nedre sfinkterinvasion">
+					description = <"">
+				>
+				["at0093"] = <
+					text = <"Misstanke om nedre sfinkterinvasion">
+					description = <"">
+				>
+				["at0094"] = <
+					text = <"Stark misstanke om nedre sfinkterinvasion">
+					description = <"">
+				>
+				["at0095"] = <
+					text = <"Blåshalsinvasion (BI)">
+					description = <"">
+				>
+				["at0096"] = <
+					text = <"Rektuminvasion (RI)">
+					description = <"">
+				>
+				["at0097"] = <
+					text = <"Analsfinkterinvasion (ASI)">
+					description = <"">
+				>
+				["at0098"] = <
+					text = <"Mycket låg misstanke om blåshalsinvasion">
+					description = <"">
+				>
+				["at0099"] = <
+					text = <"Låg misstanke om blåshalsinvasion">
+					description = <"">
+				>
+				["at0100"] = <
+					text = <"Intermediär misstanke om blåshalsinvasion">
+					description = <"">
+				>
+				["at0101"] = <
+					text = <"Misstanke om blåshalsinvasion">
+					description = <"">
+				>
+				["at0102"] = <
+					text = <"Stark misstanke om blåshalsinvasion">
+					description = <"">
+				>
+				["at0103"] = <
+					text = <"Mycket låg misstanke om rektuminvasion">
+					description = <"">
+				>
+				["at0104"] = <
+					text = <"Låg misstanke om rektuminvasion">
+					description = <"">
+				>
+				["at0105"] = <
+					text = <"Intermediär misstanke om rektuminvasion">
+					description = <"">
+				>
+				["at0106"] = <
+					text = <"Misstanke om rektuminvasion">
+					description = <"">
+				>
+				["at0107"] = <
+					text = <"Stark misstanke om rektuminvasion">
+					description = <"">
+				>
+				["at0108"] = <
+					text = <"Mycket låg misstanke om analsfinkterinvasion">
+					description = <"">
+				>
+				["at0109"] = <
+					text = <"Låg misstanke om analsfinkterinvasion">
+					description = <"">
+				>
+				["at0110"] = <
+					text = <"Intermediär misstanke om analsfinkterinvasion">
+					description = <"">
+				>
+				["at0111"] = <
+					text = <"Misstanke om analsfinkterinvasion">
+					description = <"">
+				>
+				["at0112"] = <
+					text = <"Stark misstanke om analsfinkterinvasion">
+					description = <"">
+				>
+				["at0113"] = <
+					text = <"PI-RADS-värde T2W TZ">
+					description = <"">
+				>
+				["at0114"] = <
+					text = <"PI-RADS-värde T2W PZ">
+					description = <"">
+				>
+				["at0115"] = <
+					text = <"PI-RADS-värde DWI/ADC">
+					description = <"">
+				>
+				["at0116"] = <
+					text = <"Homogen mellanliggande signalintensitet (normal)">
+					description = <"">
+				>
+				["at0117"] = <
+					text = <"Omskriven hypointens eller heterogen inkapslad nodul(er) (BPH)">
+					description = <"">
+				>
+				["at0118"] = <
+					text = <"Heterogen signalintensitet med dolda marginaler (inkluderar andra som inte betecknas som 2, 4 eller 5)">
+					description = <"">
+				>
+				["at0119"] = <
+					text = <"Linsformig eller icke-omskriven, homogen, måttligt hypointens och <1,5 cm i största dimension">
+					description = <"">
+				>
+				["at0120"] = <
+					text = <"Lentikulär eller icke-omskriven, homogen, måttligt hypointens och >=1,5 cm i största dimension eller bestämt extraprostatisk förlängning / invasivt beteende">
+					description = <"">
+				>
+				["at0121"] = <
+					text = <"Enhetlig hyperintens signalintensitet (normal)">
+					description = <"">
+				>
+				["at0122"] = <
+					text = <"Linjär eller kilformad hypointensitet eller diffus mild hypointensitet, vanligtvis otydlig marginal">
+					description = <"">
+				>
+				["at0123"] = <
+					text = <"Heterogen signalintensitet eller icke-omskriven, rundad, måttlig hypointensitet (inkluderar andra som inte betecknas som 2, 4 eller 5)">
+					description = <"">
+				>
+				["at0124"] = <
+					text = <"Omskriven, homogen måttlig hypointensfokus / massa begränsad till prostata och <1,5 cm i största dimension">
+					description = <"">
+				>
+				["at0125"] = <
+					text = <"Omskriven, homogen måttlig hypointensfokus / massa begränsad till prostata och >=1,5 cm i största dimension eller bestämt extraprostatisk förlängning / invasivt beteende">
+					description = <"">
+				>
+				["at0126"] = <
+					text = <"Ingen onormalitet (d.v.s. normal) på ADC och högt b-värde DWI">
+					description = <"">
+				>
+				["at0127"] = <
+					text = <"Ej distinkt hypointense på ADC">
+					description = <"">
+				>
+				["at0128"] = <
+					text = <"Fokal mild / måttligt hypointens på ADC och isointense / mild hyperintens på högt b-värde DWI">
+					description = <"">
+				>
+				["at0129"] = <
+					text = <"Fokal markant hypointens på ADC och markant hyperintens på DWI med högt b-värde; <1,5 cm i största dimension">
+					description = <"">
+				>
+				["at0130"] = <
+					text = <"Fokal markant hypointens på ADC och markant hyperintens på DWI med högt b-värde; >=1,5 cm i största dimension eller bestämt extraprostatisk förlängning / invasivt">
+					description = <"">
+				>
+				["at0131"] = <
+					text = <"Negativ">
+					description = <"">
+				>
+				["at0132"] = <
+					text = <"Positiv">
+					description = <"">
+				>
+				["at0133"] = <
+					text = <"Inte tillämplig">
+					description = <"">
+				>
+			>
+		>
+	>
