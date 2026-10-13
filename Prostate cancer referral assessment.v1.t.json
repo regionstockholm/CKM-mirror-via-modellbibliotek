@@ -20,8 +20,8 @@
       "original_publisher" : "",
       "custodian_namespace" : "",
       "sem_ver" : "1.0.0-alpha.1",
-      "build_uid" : "b2416f4f-fb22-4e8c-a7fe-0fe78c99f5d4",
-      "MD5-CAM-1.0.1" : "1004795b48019e74b8a74fbce9e6fdd4",
+      "build_uid" : "dc41b0b7-cea9-4b42-87bc-f4fcef606614",
+      "MD5-CAM-1.0.1" : "fe960dfe447137fff8fd7e32a5bfdd2e",
       "PARENT:MD5-CAM-1.0.1" : "2448080F346027755E0EC8C753DF7FA0"
     },
     "details" : {
@@ -5650,10 +5650,10 @@
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "CLUSTER",
           "occurrences" : "0..1",
-          "nodeId" : "at0003.1",
+          "nodeId" : "at0003.2",
           "attributes" : [ ],
           "attributeTuples" : [ ],
-          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-anatomical_location-002.v1",
+          "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-anatomical_location_space-001.v0",
           "referenceType" : "archetypeOverlay"
         } ]
       } ],
@@ -12310,7 +12310,33 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "ef433755b56a55337dde349c34609661"
       },
-      "details" : { }
+      "details" : {
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "keywords" : [ ],
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "keywords" : [ ],
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-CLUSTER.psa_density.v0",
     "differential" : true,
@@ -12361,7 +12387,7 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "f33080a3-875b-4fc8-96fd-a2907643cda2",
+    "uid" : "cb7ed139-86bd-427d-b04c-7d9cbc8b332b",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
       "originalAuthor" : { },
@@ -12370,15 +12396,15 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "50FC8A4E53830E22AF210F49492476F8"
+        "PARENT:MD5-CAM-1.0.1" : "5c59bf0cc3967bd890ec8964739fd3ba"
       },
       "details" : { }
     },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.anatomical_location_space.v0",
     "differential" : true,
     "archetypeId" : {
       "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-anatomical_location-002.v1"
+      "value" : "openEHR-EHR-CLUSTER.ovl-anatomical_location_space-001.v0"
     },
     "definition" : {
       "@type" : "C_COMPLEX_OBJECT",
@@ -12391,17 +12417,21 @@
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
           "nodeId" : "at0001.1",
-          "attributes" : [ {
-            "@type" : "C_ATTRIBUTE",
-            "rmAttributeName" : "value",
-            "children" : [ {
-              "@type" : "C_COMPLEX_OBJECT",
-              "rmTypeName" : "DV_CODED_TEXT",
-              "occurrences" : "1..1",
-              "attributes" : [ ],
-              "attributeTuples" : [ ]
-            } ]
-          } ],
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0002.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "occurrences" : "0..0",
+          "nodeId" : "at0005.1",
+          "attributes" : [ ],
           "attributeTuples" : [ ]
         } ]
       } ],
@@ -12411,24 +12441,31 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "ar-sy" : { },
-        "sl" : { },
-        "en" : { },
-        "nb" : { },
-        "pt-br" : { },
-        "de" : { },
-        "nl" : { },
-        "sv" : { },
-        "fr" : { },
-        "ca" : { },
-        "es" : { }
+        "en" : {
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Sector",
+            "description" : "Some sort of spatial subdivision of a body structure, e.g., sector, section, segment, half, third, quadrant, portion, region, lobe, part, zone, layer.",
+            "comment" : "If the Spatial anatomical location-archetype is nested in the 'Alternative Structure' SLOT within the Anatomical location-archetype and the 'Specific site'-field in the Anatomical location-archetype has been set, then this field may be redundant. \n\nCoding of 'Area' with a terminology, such as SNOMED CT, is desirable.\n\n"
+          }
+        },
+        "sv" : {
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "Sektor",
+            "description" : "Någon form av rumslig indelning av en kroppsstruktur, t.ex. sektor, sektion, segment, hälft, tredjedel, kvadrant, del, region, lob, del, zon, lager.",
+            "comment" : "Om arketypen Spatial anatomical location är nästlad i SLOT:en ”Alternative Structure” inom Anatomical location-arketypen och fältet ”Specific site” i Anatomical location-arketypen har angetts, kan detta fält vara överflödigt.\n\nKodning av ”Rum” med en terminologi, t.ex. SNOMED CT, är önskvärd."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
       "valueSets" : { }
     },
     "adlVersion" : "1.4",
-    "buildUid" : "e9ac6a45-2241-4eaa-971c-78d9656437e7",
+    "buildUid" : "0ac0cce7-51b1-309b-8032-82bd5b26476f",
     "rmName" : "openehr",
     "rmRelease" : "1.1.0",
     "generated" : true,
@@ -12445,138 +12482,9 @@
         "terminologyId" : {
           "value" : "ISO_639-1"
         },
-        "codeString" : "de"
-      },
-      "author" : {
-        "name" : "Sarah Ballout, Darin Leonhardt",
-        "organisation" : "PLRI für medizinische Informatik/ Medizinische Hochschule",
-        "email" : "ballout.sarah@mh-hannover.de, leonhardt.darin@mh-hannover.de"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
         "codeString" : "sv"
       },
-      "author" : {
-        "name" : "Åsa Skagerhult, Linda Aulin, Romi Shweta Pathak, Henna Haapa Hybinette, sofia Lång Janstad, Sajjad Saffari Miandoab",
-        "organisation" : "Region Östergötland, Region Stockholm, Karolinska universitetssjukhuset, Karolinska University Hospital",
-        "email" : "asa.skagerhult@regionostergotland.se, linda.aulin@sll.se, romi.pathak@regionstockholm.se, henna.haapa-hybinette@regionstockholm.se, sofia.lang-janstad@regionstockholm.se, sajjad.saffari-miandoab@regionstockholm.se"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nb"
-      },
-      "author" : {
-        "name" : "Lars Bitsch-Larsen, Vebjørn Arntzen, Liv Laugen",
-        "organisation" : "Haukeland University Hospital of Bergen, Norway, Oslo University Hospital, ​Oslo University Hospital, Norway",
-        "email" : "varntzen@ous-hf.no, liv.laugen@ous-hf.no"
-      },
-      "accreditation" : "MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.",
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "pt-br"
-      },
-      "author" : {
-        "name" : "Osmeire Chamelette Sanzovo",
-        "organisation" : "Hospital Sírio Libanês - SP",
-        "email" : "osmeire.acsanzovo@hsl.org.br"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "ar-sy"
-      },
-      "author" : {
-        "name" : "Mona Saleh"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sl"
-      },
-      "author" : {
-        "name" : "Biljana Princic"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "fr"
-      },
-      "author" : {
-        "name" : "Vanessa Pereira",
-        "organisation" : "Luxembourg Institute of Health (LIH)",
-        "email" : "vanessapereira@protonmail.com"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "nl"
-      },
-      "author" : {
-        "name" : "Michiel Klitsie",
-        "organisation" : "Nedap Healthcare",
-        "email" : "michiel.klitsie@nedap.com"
-      },
-      "otherDetails" : { }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "ca"
-      },
-      "author" : {
-        "name" : "Clara Calleja Vega",
-        "organisation" : "CatSalut. Servei Català de la Salut.",
-        "email" : "ccalleja@catsalut.cat"
-      },
-      "otherDetails" : {
-        "other_contributors" : "TRADCREA"
-      }
-    }, {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "es"
-      },
-      "author" : {
-        "name" : "Clara Calleja Vega",
-        "organisation" : "CatSalut. Servei Català de la Salut.",
-        "email" : "ccalleja@catsalut.cat"
-      },
+      "author" : { },
       "otherDetails" : { }
     } ]
   } ],
