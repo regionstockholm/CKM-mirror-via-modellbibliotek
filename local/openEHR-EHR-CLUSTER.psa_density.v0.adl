@@ -1,0 +1,85 @@
+archetype (adl_version=1.4; uid=c47ef37f-8558-4f10-8714-f1069cc96404)
+	openEHR-EHR-CLUSTER.psa_density.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2024-12-09">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"ef433755b56a55337dde349c34609661">
+		["build_uid"] = <"1efbf1cb-3c21-3eb7-b400-18b6ebd27682">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- PSA density
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- PSA density
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::119]>
+						list = <
+							["1"] = <
+								units = <"ng/mL/cm3">
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"PSA density">
+					description = <"psa density">
+				>
+				["at0001"] = <
+					text = <"PSA density">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"PSA-densitet">
+					description = <"*psa density (en)">
+				>
+				["at0001"] = <
+					text = <"PSA-densitet">
+					description = <"">
+				>
+			>
+		>
+	>
