@@ -1,0 +1,91 @@
+archetype (adl_version=1.4; uid=d1a52a5b-ac71-4dbe-89c3-b4561c00b505)
+	openEHR-EHR-CLUSTER.prostate_referral_reason.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-10-14">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"c5444eb35bc23c616041f1dd54aece25">
+		["build_uid"] = <"d6555d61-0e9b-332a-b709-094c6aed059e">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {0..1} matches {    -- Prostate referral reason
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Reason for referral
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Prostate referral reason">
+					description = <"Reason for referral to specialist care for prostate-related assessment, as documented in an incoming referral.">
+				>
+				["at0001"] = <
+					text = <"Reason for referral">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Comment">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Remissorsak specialistvård prostata">
+					description = <"Orsak till remittering till specialistvård prostata, enligt uppgifter i en inkommande remiss.">
+				>
+				["at0001"] = <
+					text = <"Remissorsak">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Kommentar">
+					description = <"">
+				>
+			>
+		>
+	>
