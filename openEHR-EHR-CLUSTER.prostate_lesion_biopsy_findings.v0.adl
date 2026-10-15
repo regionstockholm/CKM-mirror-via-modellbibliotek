@@ -1,0 +1,143 @@
+archetype (adl_version=1.4; uid=8bbb80f0-64ee-4fd1-9bf5-1f5377117840)
+	openEHR-EHR-CLUSTER.prostate_lesion_biopsy_findings.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-10-15">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"7ecdf5bc8b193283dbcd6a0c76076153">
+		["build_uid"] = <"7040ec25-e5e6-365b-877c-ee8a702c3dc2">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Prostate lesion biopsy findings
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Biopsy finding per lesion
+				value matches {
+					DV_CODED_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Number of biopsy cores
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Number of positive biopsy cores
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Maximum cancer length
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Percentage of Gleason pattern 4 or higher in targeted biopsies
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Prostate lesion biopsy findings">
+					description = <"Summary of histopathological findings from targeted prostate biopsies associated with a specific prostate lesion.">
+				>
+				["at0001"] = <
+					text = <"Number of biopsy cores">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Number of positive biopsy cores">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Maximum cancer length">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Percentage of Gleason pattern 4 or higher in targeted biopsies">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Biopsy finding per lesion">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Comment">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Biopsifynd per prostatalesion">
+					description = <"Sammanställning av histopatologiska fynd från riktade prostatabiopsier kopplade till en specifik prostatalesion.">
+				>
+				["at0001"] = <
+					text = <"Antal biopsier">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Antal biopsier med cancer">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Längsta cancer (mm)">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Andel cancer >= Gleason 4 i riktade biopsier per lesion (%)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Biopsifynd per lesion">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Kommentar">
+					description = <"">
+				>
+			>
+		>
+	>
