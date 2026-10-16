@@ -34,14 +34,17 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"ea6b970558c0149fccc38a235e4fa468">
+		["MD5-CAM-1.0.1"] = <"ccd52ca7226674031a9ec84b824bf7c2">
 		["build_uid"] = <"0de2d0f5-4601-375f-bb81-4f4e1cc9d69a">
 	>
 
 definition
 	CLUSTER[at0000] occurrences matches {0..*} matches {    -- Prostate lesion summary
 		items cardinality matches {1..*; unordered} matches {
-			CLUSTER[at0001] occurrences matches {0..*} matches {*}    -- Lesion details
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Lesion details
+				include
+					archetype_id/value matches {/.*/}
+			}
 			ELEMENT[at0003] occurrences matches {0..*} matches {    -- Comment
 				value matches {
 					DV_TEXT matches {*}
@@ -58,12 +61,12 @@ ontology
 					text = <"Prostate lesion summary">
 					description = <"Summary of imaging findings and targeted biopsy findings for an individual prostate lesion, as documented in an referral.">
 				>
-				["at0001"] = <
-					text = <"Lesion details">
-					description = <"">
-				>
 				["at0003"] = <
 					text = <"Comment">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Lesion details">
 					description = <"">
 				>
 			>
@@ -74,12 +77,12 @@ ontology
 					text = <"Sammanställning av prostatalesion">
 					description = <"Sammanställning av bilddiagnostiska fynd och riktade biopsifynd för en enskild prostatalesion enligt uppgifter i en remiss.">
 				>
-				["at0001"] = <
-					text = <"Lesionsuppgifter">
-					description = <"">
-				>
 				["at0003"] = <
 					text = <"Kommentar">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Lesionsuppgifter">
 					description = <"">
 				>
 			>
