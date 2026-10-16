@@ -1,8 +1,9 @@
-﻿archetype (adl_version=1.4; uid=3a0aa802-df3c-44e7-bf78-3446943607fd)
+archetype (adl_version=1.4; uid=3a0aa802-df3c-44e7-bf78-3446943607fd)
 	openEHR-EHR-INSTRUCTION.clinical_pathway_order.v0
 
 concept
-	[at0000]	-- Care pathway order
+	[at0000]
+
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -14,18 +15,31 @@ language
 				["email"] = <"silje.ljosland.bakke@helse-vest-ikt.no">
 			>
 		>
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
 	>
+
 description
 	original_author = <
+		["date"] = <"2015-06-20">
 		["name"] = <"Bjørn Næss">
 		["organisation"] = <"DIPS ASA">
 		["email"] = <"bna@dips.no">
-		["date"] = <"2015-06-20">
 	>
+	lifecycle_state = <"in_development">
 	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
 		["nb"] = <
 			language = <[ISO_639-1::nb]>
 			purpose = <"For å ordinere et standardisert klinisk forløp for en spesifikk tilstand eller behandling.">
+			keywords = <"pasientforløp","pakkeforløp">
+			copyright = <"© Nasjonal IKT HF">
 			use = <"Brukes for å ordinere et standardisert klinisk forløp for en spesifikk tilstand eller behandling. Kliniske retningslinjer kan informere behandlingsforløp, og intervensjoner eller andre aktiviteter som anbefales i et forløp kan operasjonaliseres som en individualisert behandlingsplan.
 
 Denne arketypen omfatter ordinering av standardiserte forløp for enhver type akutt, kronisk eller forebyggende behandling. For eksempel:
@@ -38,17 +52,16 @@ Denne arketypen omfatter ordinering av standardiserte forløp for enhver type ak
 I denne arketypen brukes begrepene \"forløp\" og \"plan\" med følgende betydning:
 Forløp: Et forløp er en standardisert prosess for en spesifikk tilstand eller behandling, vanligvis med en forhåndsdefinert start og slutt. Intervensjoner eller andre aktiviteter som anbefales i et forløp kan operasjonaliseres som en plan.
 Plan: En behandlingsplan eller pleieplan er tilpasset en spesifikk person, er vanligvis dynamisk og oppdateres etter hvert som personens tilstand endres. Planer utvikles ofte i samarbeid mellom personen og helseteamet, og er orientert rundt spesifikke mål, intervensjoner og evalueringer.">
-			keywords = <"pasientforløp", "pakkeforløp">
 			misuse = <"Brukes ikke for å registrere informasjon om utførelsen av forløpet. Bruk arketypen ACTION.care_pathway for dette formålet.
 
 Brukes ikke for å registrere ordinering av spesifikke aktiviteter som er del av et klinisk forløp. Bruk separate og spesifikke instanser av INSTRUCTION.service_request eller lignende arketyper for dette formålet. Eksempler på spesifikke aktiviteter kan omfatte MDT-møter, diagnostiske undersøkelser, polikliniske timer eller målinger.
 
 Brukes ikke for å registrere informasjon om behandlingsmål. Bruk EVALUATION.goal eller andre passende arketyper for dette formålet.">
-			copyright = <"© Nasjonal IKT HF">
 		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To order the initiation of a standardised care process for a specific condition or treatment. ">
+			copyright = <"© Nasjonal IKT HF">
 			use = <"Use to order the initiation of a standardised care process for a specific condition or treatment. Clinical guidelines can inform care pathways, and the interventions or other activities recommended by a pathway may be operationalised as an individualised care plan.
 
 The scope of this archetype includes, but is not limited to orders for standardised pathways for any type of acute, chronic or preventive management. For example:
@@ -66,11 +79,8 @@ In this archetype, the terms “pathway” and “plan” are used to mean the f
 Not to be used to record orders for specific activities recommended by a care pathway. Use separate and specific instances of INSTRUCTION.service_request or similar archetypes for this purpose. Examples of specific activities include, but are not limited to: multi-disciplinary team meetings, diagnostic tests, consultations, or measurements.
 
 Not to be used to record information about treatment goals. Use EVALUATION.goal or other appropriate archetypes for this purpose.">
-			copyright = <"© Nasjonal IKT HF">
 		>
 	>
-	lifecycle_state = <"in_development">
-	other_contributors = <>
 	other_details = <
 		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
 		["custodian_organisation"] = <"Nasjonal IKT">
@@ -79,7 +89,7 @@ Not to be used to record information about treatment goals. Use EVALUATION.goal 
 		["original_namespace"] = <"no.nasjonalikt">
 		["original_publisher"] = <"Nasjonal IKT">
 		["custodian_namespace"] = <"no.nasjonalikt">
-		["MD5-CAM-1.0.1"] = <"4EEF8A819AE46A72F534CDA9EC72C697">
+		["MD5-CAM-1.0.1"] = <"cead9108067daea0d2133c16135b4eea">
 		["build_uid"] = <"b6d1733f-21b8-4261-839b-3bd06bfc5ff1">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -148,7 +158,6 @@ definition
 			}
 		}
 	}
-
 
 ontology
 	term_definitions = <
@@ -275,6 +284,69 @@ ontology
 				["at0017"] = <
 					text = <"Referanse til kunnskapsbase">
 					description = <"Strukturerte detaljer om en kunnskapsbase som er brukt i ordineringen av det kliniske forløpet.">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Care pathway order (en)">
+					description = <"*An order for a standardised care process for a specific condition or treatment.  (en)">
+				>
+				["at0001"] = <
+					text = <"*Order (en)">
+					description = <"*Details of the requested order. (en)">
+				>
+				["at0002"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"*Care pathway name (en)">
+					description = <"*The name of the care pathway. (en)">
+					comment = <"*For example: 'Breast cancer pathway'. Coding of the care pathway name with a terminology is preferred, where possible. (en)">
+				>
+				["at0004"] = <
+					text = <"*Start date/time (en)">
+					description = <"*Date/time when the ordered care pathway should commence. (en)">
+				>
+				["at0005"] = <
+					text = <"*Description (en)">
+					description = <"*Narrative description about care pathway order. (en)">
+				>
+				["at0006"] = <
+					text = <"*Additional details (en)">
+					description = <"*Additional structured details about the care pathway order. (en)">
+				>
+				["at0007"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"*Extension (en)">
+					description = <"*Additional information required to extend the model with local content or to align with other reference models or formalisms. (en)">
+					comment = <"*For example: local information requirements; or additional metadata to align with FHIR. (en)">
+				>
+				["at0013"] = <
+					text = <"*Comment (en)">
+					description = <"*Additional narrative about the care pathway order not captured in other fields. (en)">
+				>
+				["at0014"] = <
+					text = <"*Clinical indication (en)">
+					description = <"*The clinical reason for ordering care pathway. (en)">
+					comment = <"*For example: 'Cancer'. Coding of the clinical indication with a terminology is preferred, where possible. (en)">
+				>
+				["at0015"] = <
+					text = <"*End date/time (en)">
+					description = <"*Date/time when the ordered care pathway should end. (en)">
+				>
+				["at0016"] = <
+					text = <"*Review date (en)">
+					description = <"*The date at which the care pathway order is due to be reviewed. (en)">
+				>
+				["at0017"] = <
+					text = <"*Knowledge base reference (en)">
+					description = <"*Structured details about a knowledge base item used in the care pathway order. (en)">
 				>
 			>
 		>
