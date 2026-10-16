@@ -1,0 +1,87 @@
+archetype (adl_version=1.4; uid=2f0202b9-f053-4e1c-abe4-fc2ad9c534c3)
+	openEHR-EHR-CLUSTER.prostate_lesion_summary.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-10-16">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"ea6b970558c0149fccc38a235e4fa468">
+		["build_uid"] = <"0de2d0f5-4601-375f-bb81-4f4e1cc9d69a">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {0..*} matches {    -- Prostate lesion summary
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..*} matches {*}    -- Lesion details
+			ELEMENT[at0003] occurrences matches {0..*} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Prostate lesion summary">
+					description = <"Summary of imaging findings and targeted biopsy findings for an individual prostate lesion, as documented in an referral.">
+				>
+				["at0001"] = <
+					text = <"Lesion details">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Comment">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Sammanställning av prostatalesion">
+					description = <"Sammanställning av bilddiagnostiska fynd och riktade biopsifynd för en enskild prostatalesion enligt uppgifter i en remiss.">
+				>
+				["at0001"] = <
+					text = <"Lesionsuppgifter">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Kommentar">
+					description = <"">
+				>
+			>
+		>
+	>
