@@ -1,0 +1,91 @@
+archetype (adl_version=1.4; uid=67a14f32-e2b7-427e-9c8a-8f3799323628)
+	openEHR-EHR-CLUSTER.prostate_cancer_grade_summary.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-10-19">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"9bdeec4d6ef3eaacc956ea1739ee15d9">
+		["build_uid"] = <"559ddef4-149f-3b39-933d-9e3746a0e9c6">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Prostate cancer grade summary
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Overall percentage of Gleason patter 4 or higher
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Prostate cancer grade summary">
+					description = <"Additional information about prostate cancer grading documented in a referral">
+				>
+				["at0001"] = <
+					text = <"Overall percentage of Gleason patter 4 or higher">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Comment">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Sammanfattning av prostatacancer gradering">
+					description = <"*Additional information about prostate cancer grading documented in a referral (en)">
+				>
+				["at0001"] = <
+					text = <"Global andel cancer >= Gleason 4">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Kommentar">
+					description = <"">
+				>
+			>
+		>
+	>
