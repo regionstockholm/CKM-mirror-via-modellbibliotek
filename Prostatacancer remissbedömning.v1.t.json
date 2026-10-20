@@ -21,7 +21,7 @@
       "custodian_namespace" : "",
       "sem_ver" : "1.0.0-alpha.1",
       "build_uid" : "b43eb330-a98c-4105-8c34-9e685f8d8692",
-      "MD5-CAM-1.0.1" : "1561357d20ed6e8e0018dcc4a9c946ed",
+      "MD5-CAM-1.0.1" : "47c74fbb25455369225470aee9853ecd",
       "PARENT:MD5-CAM-1.0.1" : "2448080F346027755E0EC8C753DF7FA0"
     },
     "details" : {
@@ -5375,7 +5375,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Gleason summa",
+            "text" : "Gleasonsumma",
             "description" : "*Gleason Score (ISUP2005 version) - a prostate cancer grading score ratified by the International Society of Urological Pathologists (ISUP), including Gleason Grade Groups. (en)"
           }
         }
@@ -7134,6 +7134,13 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.6",
             "description" : ""
+          },
+          "at0002.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0002.1",
+            "text" : "Lateralitet",
+            "description" : "Den sidan av kroppen där det identifierade kroppstället är lokaliserad. \r\n",
+            "comment" : "*If the 'Body site name' includes a pre-coordinated term that already specifies laterality, this data element may be redundant. If the findings require documentation of a body site on both the left and right sides of the body, or involving both sides of a paired structure or region, use 'Left and right' only when the same anatomical site is affected on both sides and side-specific detail is not required. If the findings differ significantly between sides, each should be recorded as a separate instance of this archetype with the appropriate laterality. (en)"
           }
         },
         "fr" : {
@@ -7795,7 +7802,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "IIEF-5-Score",
+            "text" : "IIEF-5-poängsumma",
             "description" : "*International index of erectile dysfunction (IIEF-5). (en)"
           },
           "at0038.1" : {
@@ -15616,7 +15623,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Presribed anticoagulant medication",
+            "text" : "Prescribed anticoagulant medication",
             "description" : "The subjective clinical history of the subject of care as recorded directly by the subject, or reported to a clinician by the subject or a carer."
           },
           "at0004.1" : {
@@ -16282,7 +16289,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Prostata palperade förändringar",
+            "text" : "Palpabla förändringar i prostata",
             "description" : "En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext."
           }
         },
@@ -21463,7 +21470,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Gleason summa",
+            "text" : "Gleasonsumma",
             "description" : "*Gleason Score (ISUP2005 version) - a prostate cancer grading score ratified by the International Society of Urological Pathologists (ISUP), including Gleason Grade Groups. (en)"
           }
         }
@@ -21567,7 +21574,17 @@
       "@type" : "C_COMPLEX_OBJECT",
       "rmTypeName" : "CLUSTER",
       "nodeId" : "at0000.1",
-      "attributes" : [ ],
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "items",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0005.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
       "attributeTuples" : [ ]
     },
     "terminology" : {
@@ -21575,7 +21592,14 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "sv" : { }
+        "sv" : {
+          "at0005.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0005.1",
+            "text" : "Total biopsilängd (mm)",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -22670,7 +22694,8 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "CLUSTER",
-                      "nodeId" : "at0022",
+                      "occurrences" : "0..1",
+                      "nodeId" : "at0022.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "items",
@@ -23341,7 +23366,8 @@
                     }, {
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "CLUSTER",
-                      "nodeId" : "at0022",
+                      "occurrences" : "0..1",
+                      "nodeId" : "at0022.1",
                       "attributes" : [ {
                         "@type" : "C_ATTRIBUTE",
                         "rmAttributeName" : "items",
@@ -26446,7 +26472,7 @@
           "at0000.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0000.1",
-            "text" : "Referral assesssment",
+            "text" : "Referral assessment",
             "description" : "A generic section header which should be renamed in a template to suit a specific clinical context."
           }
         },
@@ -26851,7 +26877,14 @@
             "description" : ""
           }
         },
-        "sv" : { }
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Sammanfattning av prostatacancergradering",
+            "description" : "*Additional information about prostate cancer grading documented in a referral (en)"
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
