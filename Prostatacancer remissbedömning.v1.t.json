@@ -20,8 +20,8 @@
       "original_publisher" : "",
       "custodian_namespace" : "",
       "sem_ver" : "1.0.0-alpha.1",
-      "build_uid" : "0d44349f-6282-48cf-b394-cd9fcd6a691c",
-      "MD5-CAM-1.0.1" : "1c5eba38e3146483198e9c0126d94a29",
+      "build_uid" : "f66063c8-155c-4db9-85dc-0e5847f2566f",
+      "MD5-CAM-1.0.1" : "d6da01559c60e6ec98ea83babc02f644",
       "PARENT:MD5-CAM-1.0.1" : "2448080F346027755E0EC8C753DF7FA0"
     },
     "details" : {
@@ -3147,7 +3147,25 @@
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_CODED_TEXT",
               "occurrences" : "1..1",
-              "attributes" : [ ],
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "defining_code",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "0..1",
+                  "terminologyId" : {
+                    "value" : "local_terms"
+                  },
+                  "constraint" : [ ],
+                  "selectedTerminologies" : [ "local_terms" ],
+                  "includedExternalTerminologyCodes" : [ {
+                    "terminologyId" : "local_terms",
+                    "code" : "1",
+                    "value" : "PSA"
+                  } ]
+                } ]
+              } ],
               "attributeTuples" : [ ]
             } ]
           } ],
@@ -3545,15 +3563,6 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.1",
             "description" : ""
-          },
-          "at0024.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0024.1",
-            "text" : "PSA",
-            "description" : "Namnet på analysen.",
-            "comment" : "Värdet för detta fält anges vanligtvis i en specialisering av den här arketypen, i en mall eller i applikationen. Till exempel \"S-natrium\" eller \"hemoglobin\". Det rekommenderas starkt att koda med en terminologi såsom exempelvis NPU, LOINC, SNOMED CT eller lokala kodverk.",
-            "hl7v2_mapping" : "OBX.3",
-            "fhir_mapping" : "Observation.code"
           }
         },
         "es" : {
@@ -16864,7 +16873,7 @@
         "children" : [ {
           "@type" : "C_ARCHETYPE_ROOT",
           "rmTypeName" : "EVALUATION",
-          "occurrences" : "0..1",
+          "occurrences" : "0..*",
           "nodeId" : "at0.5",
           "attributes" : [ ],
           "attributeTuples" : [ ],
@@ -22325,14 +22334,6 @@
                       "@type" : "C_COMPLEX_OBJECT",
                       "rmTypeName" : "DV_CODED_TEXT",
                       "occurrences" : "1..1",
-                      "defaultValue" : {
-                        "defining_code" : {
-                          "code_string" : "1",
-                          "@type" : "CODE_PHRASE"
-                        },
-                        "value" : "Prostatacancer",
-                        "@type" : "DV_CODED_TEXT"
-                      },
                       "attributes" : [ ],
                       "attributeTuples" : [ ]
                     } ]
@@ -24049,7 +24050,7 @@
             "children" : [ {
               "@type" : "C_ARCHETYPE_ROOT",
               "rmTypeName" : "CLUSTER",
-              "occurrences" : "0..*",
+              "occurrences" : "0..1",
               "nodeId" : "at0004.1",
               "attributes" : [ ],
               "attributeTuples" : [ ],
