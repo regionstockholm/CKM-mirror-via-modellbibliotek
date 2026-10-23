@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "1.0.3-alpha.1",
-      "build_uid" : "4c937fff-372f-4a60-a4e5-750f330f235a",
-      "MD5-CAM-1.0.1" : "e38a675796be7449b511dfc56a7158f2",
+      "sem_ver" : "1.0.4-alpha.1",
+      "build_uid" : "0c7ec244-e8ca-4f1a-8bf5-97b052b35a91",
+      "MD5-CAM-1.0.1" : "58ebfe482b17c1e233a14efadaed02ba",
       "PARENT:MD5-CAM-1.0.1" : "2448080F346027755E0EC8C753DF7FA0"
     },
     "details" : {
@@ -3232,7 +3232,19 @@
               "@type" : "C_COMPLEX_OBJECT",
               "rmTypeName" : "DV_QUANTITY",
               "occurrences" : "1..1",
-              "attributes" : [ ],
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "property",
+                "children" : [ {
+                  "@type" : "C_TERMINOLOGY_CODE",
+                  "rmTypeName" : "TERMINOLOGY_CODE",
+                  "occurrences" : "1..1",
+                  "terminologyId" : {
+                    "value" : "openehr"
+                  },
+                  "constraint" : [ "119" ]
+                } ]
+              } ],
               "attributeTuples" : [ {
                 "@type" : "C_ATTRIBUTE_TUPLE",
                 "members" : [ {
@@ -3249,7 +3261,7 @@
                   "members" : [ {
                     "@type" : "C_STRING",
                     "rmTypeName" : "STRING",
-                    "constraint" : [ "ng/mL" ]
+                    "constraint" : [ "ug/L" ]
                   }, {
                     "@type" : "C_REAL",
                     "rmTypeName" : "REAL",
@@ -3553,6 +3565,15 @@
             "text" : "(Synthesized)",
             "code" : "ac0.1",
             "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "PSA-value",
+            "description" : "The value of the analyte result.",
+            "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
         "nb" : {
@@ -3593,6 +3614,15 @@
             "text" : "*(Synthesized) (en)",
             "code" : "ac0.1",
             "description" : ""
+          },
+          "at0001.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0001.1",
+            "text" : "PSA-värde",
+            "description" : "Analysresultatets värde",
+            "comment" : "Till exempel \"7,3 mmol/L\" eller \"Förhöjd\". Datatypen \"Any\", som är en odefinierad datatyp, måste begränsas till en lämplig datatyp i en specialisering, mall eller applikation. Datatypen \"Quantity\" har attribut från referensmodellen som täcker flaggor för normal/onormal, referensområden och approximationer.\r\nSe https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class för mer information.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
           }
         },
         "es" : {
@@ -5126,10 +5156,10 @@
               "@type" : "C_ARCHETYPE_ROOT",
               "rmTypeName" : "CLUSTER",
               "occurrences" : "0..1",
-              "nodeId" : "at0009.2",
+              "nodeId" : "at0009.3",
               "attributes" : [ ],
               "attributeTuples" : [ ],
-              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-prostate_cancer_grade_summary-001.v0",
+              "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-prostate_cancer_grade_summary-002.v0",
               "referenceType" : "archetypeOverlay"
             } ]
           } ],
@@ -12199,9 +12229,23 @@
       "@type" : "ARCHETYPE_TERMINOLOGY",
       "conceptCode" : "at0000",
       "termDefinitions" : {
-        "en" : { },
+        "en" : {
+          "at0046.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0046.1",
+            "text" : "Prostate volume",
+            "description" : "The amount of three-dimensional space occupied by a structure/object."
+          }
+        },
         "nb" : { },
-        "sv" : { }
+        "sv" : {
+          "at0046.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0046.1",
+            "text" : "Prostatavolym",
+            "description" : "Den mängd tredimensionellt utrymme som upptas av en struktur/ett föremål."
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -21761,6 +21805,12 @@
           "nodeId" : "at0005.1",
           "attributes" : [ ],
           "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0006.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
         } ]
       } ],
       "attributeTuples" : [ ]
@@ -21793,7 +21843,7 @@
           "at0005.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0005.1",
-            "text" : "Total biopsilängd (mm)",
+            "text" : "Total biopsilängd",
             "description" : ""
           },
           "at0003.1" : {
@@ -21806,6 +21856,12 @@
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004.1",
             "text" : "Total cancerlängd",
+            "description" : ""
+          },
+          "at0006.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0006.1",
+            "text" : "Global andel cancer >= Gleason 4 i systematiska biopsier",
             "description" : ""
           }
         }
@@ -24255,6 +24311,18 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0004.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0006.1",
           "attributes" : [ ],
@@ -24268,7 +24336,20 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "sv" : { }
+        "sv" : {
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Längsta cancer",
+            "description" : ""
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Andel cancer >= Gleason 4 i riktade biopsier per lesion",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -25697,6 +25778,18 @@
         }, {
           "@type" : "C_COMPLEX_OBJECT",
           "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0003.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
+          "nodeId" : "at0004.1",
+          "attributes" : [ ],
+          "attributeTuples" : [ ]
+        }, {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "ELEMENT",
           "occurrences" : "0..0",
           "nodeId" : "at0006.1",
           "attributes" : [ ],
@@ -25719,7 +25812,20 @@
       "conceptCode" : "at0000",
       "termDefinitions" : {
         "en" : { },
-        "sv" : { }
+        "sv" : {
+          "at0003.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0003.1",
+            "text" : "Cancerlängd",
+            "description" : ""
+          },
+          "at0004.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0004.1",
+            "text" : "Biopsilängd",
+            "description" : ""
+          }
+        }
       },
       "termBindings" : { },
       "terminologyExtracts" : { },
@@ -27230,118 +27336,6 @@
     } ]
   }, {
     "@type" : "TEMPLATE_OVERLAY",
-    "uid" : "0dd9890c-e672-4bd4-b30e-81f3251c9171",
-    "description" : {
-      "@type" : "RESOURCE_DESCRIPTION",
-      "originalAuthor" : { },
-      "otherContributors" : [ ],
-      "ipAcknowledgements" : { },
-      "references" : { },
-      "conversionDetails" : { },
-      "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "9bdeec4d6ef3eaacc956ea1739ee15d9"
-      },
-      "details" : {
-        "sv" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "sv"
-          },
-          "keywords" : [ ],
-          "copyright" : "© openEHR Foundation",
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        },
-        "en" : {
-          "@type" : "RESOURCE_DESCRIPTION_ITEM",
-          "language" : {
-            "terminologyId" : {
-              "value" : "ISO_639-1"
-            },
-            "codeString" : "en"
-          },
-          "keywords" : [ ],
-          "originalResourceUri" : { },
-          "otherDetails" : { }
-        }
-      }
-    },
-    "parentArchetypeId" : "openEHR-EHR-CLUSTER.prostate_cancer_grade_summary.v0",
-    "differential" : true,
-    "archetypeId" : {
-      "@type" : "ARCHETYPE_HRID",
-      "value" : "openEHR-EHR-CLUSTER.ovl-prostate_cancer_grade_summary-001.v0"
-    },
-    "definition" : {
-      "@type" : "C_COMPLEX_OBJECT",
-      "rmTypeName" : "CLUSTER",
-      "nodeId" : "at0000.1",
-      "attributes" : [ {
-        "@type" : "C_ATTRIBUTE",
-        "rmAttributeName" : "items",
-        "children" : [ {
-          "@type" : "C_COMPLEX_OBJECT",
-          "rmTypeName" : "ELEMENT",
-          "nodeId" : "at0001.1",
-          "attributes" : [ ],
-          "attributeTuples" : [ ]
-        } ]
-      } ],
-      "attributeTuples" : [ ]
-    },
-    "terminology" : {
-      "@type" : "ARCHETYPE_TERMINOLOGY",
-      "conceptCode" : "at0000",
-      "termDefinitions" : {
-        "en" : {
-          "at0001.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0001.1",
-            "text" : "Overall percentage of Gleason pattern 4 or higher",
-            "description" : ""
-          }
-        },
-        "sv" : {
-          "at0000.1" : {
-            "@type" : "ARCHETYPE_TERM",
-            "code" : "at0000.1",
-            "text" : "Sammanfattning av prostatacancergradering",
-            "description" : "*Additional information about prostate cancer grading documented in a referral (en)"
-          }
-        }
-      },
-      "termBindings" : { },
-      "terminologyExtracts" : { },
-      "valueSets" : { }
-    },
-    "adlVersion" : "1.4",
-    "buildUid" : "559ddef4-149f-3b39-933d-9e3746a0e9c6",
-    "rmName" : "openehr",
-    "rmRelease" : "1.1.0",
-    "generated" : true,
-    "otherMetaData" : { },
-    "originalLanguage" : {
-      "terminologyId" : {
-        "value" : "ISO_639-1"
-      },
-      "codeString" : "en"
-    },
-    "translations" : [ {
-      "@type" : "TRANSLATION_DETAILS",
-      "language" : {
-        "terminologyId" : {
-          "value" : "ISO_639-1"
-        },
-        "codeString" : "sv"
-      },
-      "author" : { },
-      "otherDetails" : { }
-    } ]
-  }, {
-    "@type" : "TEMPLATE_OVERLAY",
     "uid" : "18040125-97d4-4958-837e-8f3cb7fe2096",
     "description" : {
       "@type" : "RESOURCE_DESCRIPTION",
@@ -27899,6 +27893,27 @@
                       "attributeTuples" : [ ],
                       "archetypeRef" : "openEHR-EHR-CLUSTER.ovl-anatomical_pathology_exam-001.v0",
                       "referenceType" : "archetypeOverlay"
+                    } ]
+                  } ],
+                  "attributeTuples" : [ ]
+                } ]
+              }, {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "state",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0112",
+                  "attributes" : [ {
+                    "@type" : "C_ATTRIBUTE",
+                    "rmAttributeName" : "items",
+                    "children" : [ {
+                      "@type" : "C_COMPLEX_OBJECT",
+                      "rmTypeName" : "ELEMENT",
+                      "occurrences" : "0..0",
+                      "nodeId" : "at0113.1",
+                      "attributes" : [ ],
+                      "attributeTuples" : [ ]
                     } ]
                   } ],
                   "attributeTuples" : [ ]
@@ -36866,6 +36881,68 @@
         "organisation" : "CatSalut. Servei Català de la Salut.",
         "email" : "ccalleja@catsalut.cat"
       },
+      "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "ca1260d1-7613-47c7-855e-524371cfb8d9",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "a3de2ea2d84b1b287294f2da3cdb67dc"
+      },
+      "details" : { }
+    },
+    "parentArchetypeId" : "openEHR-EHR-CLUSTER.prostate_cancer_grade_summary.v0",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-CLUSTER.ovl-prostate_cancer_grade_summary-002.v0"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "CLUSTER",
+      "nodeId" : "at0000.1",
+      "attributes" : [ ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : { },
+        "sv" : { }
+      },
+      "termBindings" : { },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "559ddef4-149f-3b39-933d-9e3746a0e9c6",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : { },
       "otherDetails" : { }
     } ]
   } ],
