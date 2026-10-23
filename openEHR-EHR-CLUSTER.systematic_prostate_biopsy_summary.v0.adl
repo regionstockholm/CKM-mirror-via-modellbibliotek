@@ -34,41 +34,69 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"54282018a4c4c417586108de12747e58">
+		["MD5-CAM-1.0.1"] = <"515c479feda1f18263b77813488efe7b">
 		["build_uid"] = <"f0d718a6-82db-3b04-8312-613e83077d74">
 	>
 
 definition
 	CLUSTER[at0000] occurrences matches {0..1} matches {    -- Systematic prostate biopsy summary
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Number of biopsy cores
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Number of biopsy cores
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
-			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Number of positive biopsy cores
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Number of positive biopsy cores
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Maximum cancer length (mm)
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Maximum cancer lentgh
 				value matches {
-					DV_TEXT matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
 				}
 			}
-			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Total cancer length (mm)
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Total cancer length
 				value matches {
-					DV_TEXT matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
 				}
 			}
-			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Total biopsy length (mm)
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Total biopsy length
 				value matches {
-					DV_TEXT matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
 				}
 			}
-			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Percentage of Gleason pattern 4 or higher
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Percentage of Gleason pattern 4 or higher
 				value matches {
-					DV_TEXT matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::380]>
+						list = <
+							["1"] = <
+								units = <"%">
+							>
+						>
+					>
 				}
 			}
 			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Additional comments
@@ -87,32 +115,32 @@ ontology
 					text = <"Systematic prostate biopsy summary">
 					description = <"Summary of quantitative histopathological findings from systematic prostate biopsies.">
 				>
-				["at0001"] = <
+				["at0007"] = <
+					text = <"Additional comments">
+					description = <"">
+				>
+				["at0008"] = <
 					text = <"Number of biopsy cores">
 					description = <"">
 				>
-				["at0002"] = <
+				["at0009"] = <
 					text = <"Number of positive biopsy cores">
 					description = <"">
 				>
-				["at0003"] = <
-					text = <"Maximum cancer length (mm)">
+				["at0010"] = <
+					text = <"Maximum cancer lentgh">
 					description = <"">
 				>
-				["at0004"] = <
-					text = <"Total cancer length (mm)">
+				["at0011"] = <
+					text = <"Total cancer length">
 					description = <"">
 				>
-				["at0005"] = <
-					text = <"Total biopsy length (mm)">
+				["at0012"] = <
+					text = <"Total biopsy length">
 					description = <"">
 				>
-				["at0006"] = <
+				["at0013"] = <
 					text = <"Percentage of Gleason pattern 4 or higher">
-					description = <"">
-				>
-				["at0007"] = <
-					text = <"Additional comments">
 					description = <"">
 				>
 			>
@@ -123,32 +151,32 @@ ontology
 					text = <"Sammanställning av systematiska prostatabiopsier">
 					description = <"*Summary of quantitative histopathological findings from systematic prostate biopsies. (en)">
 				>
-				["at0001"] = <
+				["at0007"] = <
+					text = <"Observationer">
+					description = <"">
+				>
+				["at0008"] = <
 					text = <"Antal biopsier">
 					description = <"">
 				>
-				["at0002"] = <
+				["at0009"] = <
 					text = <"Antal biopsier med cancer">
 					description = <"">
 				>
-				["at0003"] = <
-					text = <"Längsta cancer (mm)">
+				["at0010"] = <
+					text = <"Längsta cancer">
 					description = <"">
 				>
-				["at0004"] = <
-					text = <"Total cancerlängd (mm)">
+				["at0011"] = <
+					text = <"Total cancerlängd">
 					description = <"">
 				>
-				["at0005"] = <
-					text = <"Total bipsilängd (mm)">
+				["at0012"] = <
+					text = <"Total biopsilängd">
 					description = <"">
 				>
-				["at0006"] = <
-					text = <"Global andel cancer >= Gleason 4 i systematiska biopsier (%)">
-					description = <"">
-				>
-				["at0007"] = <
-					text = <"Observationer">
+				["at0013"] = <
+					text = <"Global andel cancer >= Gleason 4 i systematiska biopsier">
 					description = <"">
 				>
 			>
