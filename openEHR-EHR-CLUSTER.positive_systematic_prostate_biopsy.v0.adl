@@ -34,7 +34,7 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"52ddd2eb81b4bac3d079efd9824bdf69">
+		["MD5-CAM-1.0.1"] = <"9af9b20349bc64eeba8629ae4000c9c7">
 		["build_uid"] = <"124b5949-fab6-3b4f-98a9-afd595eef9b3">
 	>
 
@@ -51,14 +51,28 @@ definition
 					DV_CODED_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Cancer length (mm)
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Cancer length
 				value matches {
-					DV_TEXT matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
 				}
 			}
-			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Biopsy core length (mm)
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Biopsy core length
 				value matches {
-					DV_TEXT matches {*}
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"mm">
+							>
+						>
+					>
 				}
 			}
 			allow_archetype CLUSTER[at0005] occurrences matches {0..*} matches {    -- Anatomical location
@@ -89,20 +103,20 @@ ontology
 					text = <"ISUP grade group per biopsy">
 					description = <"">
 				>
-				["at0003"] = <
-					text = <"Cancer length (mm)">
-					description = <"">
-				>
-				["at0004"] = <
-					text = <"Biopsy core length (mm)">
-					description = <"">
-				>
 				["at0005"] = <
 					text = <"Anatomical location">
 					description = <"">
 				>
 				["at0006"] = <
 					text = <"Comment">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Cancer length">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Biopsy core length">
 					description = <"">
 				>
 			>
@@ -121,20 +135,20 @@ ontology
 					text = <"ISUP per biopsi">
 					description = <"">
 				>
-				["at0003"] = <
-					text = <"Cancerlängd (mm)">
-					description = <"">
-				>
-				["at0004"] = <
-					text = <"Biopsilängd (mm)">
-					description = <"">
-				>
 				["at0005"] = <
 					text = <"Anatomisk lokalisation">
 					description = <"">
 				>
 				["at0006"] = <
 					text = <"Kommentar">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Cancerlängd">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Biopsilängd">
 					description = <"">
 				>
 			>
