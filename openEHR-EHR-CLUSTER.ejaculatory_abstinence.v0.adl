@@ -1,0 +1,112 @@
+archetype (adl_version=1.4; uid=162cccb5-4a73-4d08-9e11-cb9f6b1540e5)
+	openEHR-EHR-CLUSTER.ejaculatory_abstinence.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			author = <
+			>
+		>
+	>
+
+description
+	original_author = <
+		["date"] = <"2026-11-19">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["sv"] = <
+			language = <[ISO_639-1::sv]>
+			purpose = <"Att registrera information om ejakulatorisk abstinens som kan vara relevant vid kliniska undersökningar, laboratorieanalyser, behandling eller forskning.">
+			keywords = <"ulösning","ejakulatorisk abstinens","abstinenstid","senaste utlösning","spermieanalys","spermieprovtagning">
+			copyright = <"© openEHR Foundation">
+			use = <"För att registrera information om tiden sedan senaste utlösning, inklusive datum och tid för senaste utlösning samt abstinenstidens längd.">
+			misuse = <"Ska inte användas för att dokumentera uppgifter om sexuell aktivitet, sexuell funktion eller ejakulationsstörningar.">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record information about ejaculatory abstinence that may be relevant to clinical investigations, laboratory testing, treatment or research.">
+			keywords = <"ejaculation","ejaculatory abstinence","last ejaculation","semen analysis","sperm collection">
+			use = <"To record information about the time since the last ejaculation, including the date/time of the last ejaculation and the duration of ejaculatory abstinence.">
+			misuse = <"Not to be used to record details about sexual activity, sexual function or ejaculation disorders.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"c0f69b46c7ff4e20026be8bbbe598e78">
+		["build_uid"] = <"29386e11-50d1-3f6d-acbb-b2981915cc67">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Ejaculatory abstinence
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Last ejaculation datetime
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Ejaculatory abstinence duration
+				value matches {
+					DV_DURATION matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ejaculatory abstinence">
+					description = <"Information about the period of time since the last ejaculation.">
+				>
+				["at0004"] = <
+					text = <"Ejaculatory abstinence duration">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Last ejaculation datetime">
+					description = <"">
+				>
+			>
+		>
+		["sv"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ejakulatorisk abstinens">
+					description = <"Information om tiden sedan senaste utlösning.">
+				>
+				["at0004"] = <
+					text = <"Abstinenstid sedan senaste utlösning">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Kommentar">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Tidpunkt för senaste utlösning">
+					description = <"">
+				>
+			>
+		>
+	>
